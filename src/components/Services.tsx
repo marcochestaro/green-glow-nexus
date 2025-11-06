@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Leaf, Scissors, TreePine, Droplets } from "lucide-react";
-import serviceMowing from "@/assets/service-mowing.jpg";
-import servicePruning from "@/assets/service-pruning.jpg";
-import serviceDesign from "@/assets/service-design.jpg";
-import serviceFertilize from "@/assets/service-fertilize.jpg";
+import serviceMowing from "@/assets/service-mowing-real.jpg";
+import servicePruning from "@/assets/service-pruning-real.jpg";
+import serviceDesign from "@/assets/service-design-real.jpg";
+import serviceFertilize from "@/assets/service-fertilize-real.jpg";
 
 const services = [
   {
