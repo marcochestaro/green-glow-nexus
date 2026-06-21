@@ -1117,25 +1117,32 @@ function renderAgentCard(key, report, updatedDisplay) {
   return card;
 }
 
+function fmtUTCtoLocal(utcStr){
+  if(!utcStr)return 'Unknown';
+  const d=new Date(utcStr);
+  return d.toLocaleString([],{weekday:'short',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:true});
+}
+
 async function loadAgents() {
   const out = document.getElementById('agents-out');
   const dateEl = document.getElementById('agents-date');
   try {
     const data = await fetch('agents-data.json?_='+Date.now()).then(r=>r.json());
     if (!data.updated || !data.agents || !Object.keys(data.agents).length) {
-      dateEl.textContent = 'No research yet — click Run Research above to start.';
-      out.innerHTML = '<div style="text-align:center;padding:40px 20px;color:var(--sub);font-size:.8rem">Tap "Run Research" above to trigger your agents. Results appear here once the GitHub Action completes (about 60 seconds).</div>';
+      dateEl.textContent = 'No research yet — tap Run Research to start.';
+      out.innerHTML = '<div style="text-align:center;padding:40px 20px;color:var(--sub);font-size:.8rem">Tap "Run Research" above. Results appear here in about 60 seconds.</div>';
       return;
     }
-    dateEl.textContent = 'Last researched: ' + data.updated_display;
+    const localTime = fmtUTCtoLocal(data.updated);
+    dateEl.textContent = 'Last researched: ' + localTime;
     ['ads','creative','critic','competitors'].forEach(key => {
       if (data.agents[key]) {
-        out.appendChild(renderAgentCard(key, data.agents[key], data.updated_display));
+        out.appendChild(renderAgentCard(key, data.agents[key], localTime));
       }
     });
   } catch(e) {
     dateEl.textContent = 'Could not load research data.';
-    out.innerHTML = '<div style="text-align:center;padding:40px 20px;color:var(--sub);font-size:.8rem">Click "Run Research" to trigger your agents for the first time.</div>';
+    out.innerHTML = '<div style="text-align:center;padding:40px 20px;color:var(--sub);font-size:.8rem">Tap "Run Research" to trigger your agents.</div>';
   }
 }
 loadAgents();
