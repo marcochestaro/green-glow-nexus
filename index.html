@@ -1,46 +1,67 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>@marcomarkets</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#08090c;--card:#0d0f14;--border:#1a1d26;--text:#e2e8f0;--sub:#64748b;--dim:#252836;--blue:#3b82f6;--green:#22c55e;--red:#ef4444}
+:root{--bg:#07080b;--card:#0c0e13;--border:#161920;--text:#e2e8f0;--sub:#4a5568;--dim:#1a1d24;--blue:#3b82f6;--green:#22c55e;--purple:#a78bfa;--orange:#fb923c;--red:#ef4444}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit}
 
 /* NAV */
-.nav{position:sticky;top:0;z-index:100;background:rgba(8,9,12,.97);border-bottom:1px solid var(--border);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:54px;gap:12px}
-.nav-brand{font-size:.9rem;font-weight:700;color:#fff;cursor:pointer;flex-shrink:0}
-.nav-links{display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.nav{position:sticky;top:0;z-index:100;background:rgba(7,8,11,.98);border-bottom:1px solid var(--border);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:52px;gap:12px}
+.nav-brand{font-size:.88rem;font-weight:700;color:#fff;cursor:pointer;flex-shrink:0;letter-spacing:-.01em}
+.nav-links{display:flex;gap:1px;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .nav-links::-webkit-scrollbar{display:none}
-.nl{padding:7px 12px;border-radius:7px;font-size:.78rem;font-weight:500;color:var(--sub);cursor:pointer;border:none;background:none;white-space:nowrap}
-.nl:hover,.nl.on{color:#fff;background:var(--dim)}
-.nav-right{display:flex;align-items:center;gap:16px;flex-shrink:0}
-.nav-fl{font-size:.85rem;font-weight:700;color:#fff}
-.nav-fl-lbl{font-size:.58rem;color:var(--sub);margin-top:1px;text-align:center}
-.clock{font-size:.82rem;font-weight:600;color:var(--sub);font-variant-numeric:tabular-nums}
+.nl{padding:6px 11px;border-radius:6px;font-size:.75rem;font-weight:500;color:var(--sub);cursor:pointer;border:none;background:none;white-space:nowrap;transition:all .15s}
+.nl:hover{color:#cbd5e1;background:var(--dim)}
+.nl.on{color:#fff;background:var(--dim)}
+.nav-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.nav-fl{font-size:.85rem;font-weight:700;color:#fff;line-height:1}
+.nav-fl-lbl{font-size:.55rem;color:var(--sub);margin-top:2px;text-align:center;text-transform:uppercase;letter-spacing:.04em}
+.clock{font-size:.78rem;font-weight:500;color:var(--sub);font-variant-numeric:tabular-nums}
 
 /* VIEWS */
 .view{display:none}
 .view.on{display:block}
 
-/* HOME */
-.home{max-width:600px;margin:0 auto;padding:28px 16px}
-.home-date{font-size:.75rem;color:var(--sub);margin-bottom:6px}
-.home-title{font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:24px}
-.stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px}
-.sb{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 14px}
-.sb-n{font-size:1.4rem;font-weight:700;color:#fff}
-.sb-l{font-size:.65rem;color:var(--sub);margin-top:3px}
-.today-banner{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:10px;cursor:pointer;transition:border-color .15s}
-.today-banner:hover{border-color:var(--blue)}
-.tb-label{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--sub);margin-bottom:8px}
-.tb-day{font-size:.8rem;font-weight:600;color:var(--blue);margin-bottom:4px}
-.tb-title{font-size:1rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.35}
-.tb-type{display:inline-block;font-size:.68rem;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--dim);color:var(--sub)}
+/* ─── HOME ──────────────────────────────────────────────── */
+.home-wrap{min-height:calc(100vh - 52px);display:flex;flex-direction:column}
+.home-hero{background:linear-gradient(160deg,#0c0f1a 0%,#07080b 60%);border-bottom:1px solid var(--border);padding:36px 20px 32px;position:relative;overflow:hidden}
+.home-hero::before{content:'';position:absolute;top:-120px;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(59,130,246,.06) 0%,transparent 70%);pointer-events:none}
+.home-hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:220px;height:220px;background:radial-gradient(circle,rgba(167,139,250,.04) 0%,transparent 70%);pointer-events:none}
+.home-eyebrow{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--sub);margin-bottom:10px}
+.home-greeting{font-size:1.75rem;font-weight:700;color:#fff;line-height:1.15;margin-bottom:6px;letter-spacing:-.02em}
+.home-date-line{font-size:.8rem;color:var(--sub);margin-bottom:32px}
+.home-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:14px;overflow:hidden;border:1px solid var(--border)}
+.hs{background:var(--card);padding:18px 14px;position:relative}
+.hs::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.hs:nth-child(1)::before{background:var(--blue)}
+.hs:nth-child(2)::before{background:var(--purple)}
+.hs:nth-child(3)::before{background:var(--green)}
+.hs-n{font-size:1.55rem;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1}
+.hs-l{font-size:.6rem;color:var(--sub);margin-top:5px;text-transform:uppercase;letter-spacing:.06em}
+
+.home-body{flex:1;padding:20px 16px;max-width:600px;width:100%;margin:0 auto}
+.today-banner{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color .2s;margin-bottom:12px;position:relative}
+.today-banner:hover{border-color:#2a3a5c}
+.today-banner:active{transform:scale(.99)}
+.tb-accent{height:3px;background:linear-gradient(90deg,var(--blue),var(--purple))}
+.tb-inner{padding:16px 18px 18px}
+.tb-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.tb-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub)}
+.tb-arrow{font-size:.7rem;color:var(--sub)}
+.tb-day{font-size:.72rem;font-weight:600;color:var(--blue);margin-bottom:6px}
+.tb-title{font-size:.95rem;font-weight:700;color:#fff;line-height:1.4;margin-bottom:10px}
+.tb-type{display:inline-block;font-size:.62rem;font-weight:600;padding:2px 9px;border-radius:20px;background:var(--dim);color:#64748b;border:1px solid var(--border)}
+
+.home-section-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin:20px 0 10px}
 .nav-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.nav-tile{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;cursor:pointer;transition:border-color .15s}
-.nav-tile:hover{border-color:var(--blue)}
-.nt-title{font-size:.88rem;font-weight:600;color:#fff;margin-bottom:3px}
-.nt-desc{font-size:.7rem;color:var(--sub)}
+.nav-tile{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 16px 14px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.nav-tile:hover{border-color:#252d40;background:#0f1118}
+.nav-tile:active{transform:scale(.98)}
+.nt-dot{width:6px;height:6px;border-radius:50%;margin-bottom:10px}
+.nt-title{font-size:.85rem;font-weight:600;color:#fff;margin-bottom:3px}
+.nt-desc{font-size:.68rem;color:var(--sub);line-height:1.4}
+.nt-arrow{font-size:.65rem;color:var(--sub);margin-top:8px;display:block}
 
 /* PAGE */
 .page{max-width:860px;margin:0 auto;padding:20px 16px}
@@ -65,13 +86,19 @@ section{margin-bottom:44px;scroll-margin-top:64px}
 .prog-lbl{font-size:.68rem;color:var(--sub)}
 
 /* TODAY CARD */
-.today-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
+.today-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.tc-bar{height:3px;background:linear-gradient(90deg,var(--blue),var(--purple))}
+.tc-inner{padding:20px}
 .tc-top{margin-bottom:16px}
-.tc-day{font-size:.75rem;font-weight:600;color:var(--blue);margin-bottom:4px}
-.tc-title{font-size:1.1rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:10px}
-.type-badge{display:inline-block;font-size:.68rem;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--dim);color:var(--sub);margin-bottom:14px}
-.film-note{background:#050709;border-left:2px solid var(--blue);padding:10px 12px;border-radius:0 8px 8px 0;font-size:.75rem;color:var(--sub);line-height:1.55;margin-bottom:16px}
-.film-note b{color:var(--text)}
+.tc-day{font-size:.72rem;font-weight:600;color:var(--blue);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.tc-title{font-size:1.1rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:12px}
+.type-badge{display:inline-block;font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:20px;background:var(--dim);color:var(--sub);border:1px solid var(--border);margin-bottom:14px;text-transform:uppercase;letter-spacing:.04em}
+.type-badge.video{background:#0a1020;color:#93c5fd;border-color:#1a2a45}
+.type-badge.screen{background:#0a1020;color:#93c5fd;border-color:#1a2a45}
+.type-badge.carousel{background:#130a00;color:#fdba74;border-color:#2a1800}
+.type-badge.talking{background:#130820;color:#c4b5fd;border-color:#25104a}
+.film-note{background:#050608;border-left:2px solid var(--blue);padding:11px 13px;border-radius:0 8px 8px 0;font-size:.75rem;color:#4a5568;line-height:1.6;margin-bottom:16px}
+.film-note b{color:#94a3b8}
 
 /* SCRIPT */
 .script-lines{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
@@ -183,52 +210,74 @@ section{margin-bottom:44px;scroll-margin-top:64px}
 
 <!-- HOME VIEW -->
 <div class="view on" id="view-home">
-  <div class="home">
-    <div class="home-date" id="home-date"></div>
-    <div class="home-title">Good <span id="home-greeting">day</span>, Marco.</div>
-
-    <div class="stats-bar">
-      <div class="sb">
-        <div class="sb-n" id="home-fl">—</div>
-        <div class="sb-l">Followers</div>
-      </div>
-      <div class="sb">
-        <div class="sb-n" id="home-posts">—</div>
-        <div class="sb-l">Posts</div>
-      </div>
-      <div class="sb">
-        <div class="sb-n" id="home-views">—</div>
-        <div class="sb-l">Views</div>
+  <div class="home-wrap">
+    <div class="home-hero">
+      <div class="home-eyebrow">@marcomarkets &nbsp;·&nbsp; Meta Ads</div>
+      <div class="home-greeting">Good <span id="home-greeting">evening</span>,<br>Marco.</div>
+      <div class="home-date-line" id="home-date"></div>
+      <div class="home-stats">
+        <div class="hs">
+          <div class="hs-n" id="home-fl">—</div>
+          <div class="hs-l">Followers</div>
+        </div>
+        <div class="hs">
+          <div class="hs-n" id="home-posts">—</div>
+          <div class="hs-l">Posts</div>
+        </div>
+        <div class="hs">
+          <div class="hs-n" id="home-views">—</div>
+          <div class="hs-l">Views</div>
+        </div>
       </div>
     </div>
 
-    <div class="today-banner" onclick="showView('content');goto('today')">
-      <div class="tb-label">Today's post</div>
-      <div class="tb-day" id="home-today-day"></div>
-      <div class="tb-title" id="home-today-title"></div>
-      <div class="tb-type" id="home-today-type"></div>
-    </div>
+    <div class="home-body">
+      <div class="home-section-label">Today's post</div>
+      <div class="today-banner" onclick="showView('content');goto('today')">
+        <div class="tb-accent"></div>
+        <div class="tb-inner">
+          <div class="tb-top">
+            <div class="tb-label">Post now</div>
+            <div class="tb-arrow">&#8599;</div>
+          </div>
+          <div class="tb-day" id="home-today-day"></div>
+          <div class="tb-title" id="home-today-title"></div>
+          <div class="tb-type" id="home-today-type"></div>
+        </div>
+      </div>
 
-    <div class="nav-grid">
-      <div class="nav-tile" onclick="showView('content');goto('week')">
-        <div class="nt-title">This Week</div>
-        <div class="nt-desc">All 7 posts, scripts, filming notes</div>
-      </div>
-      <div class="nav-tile" onclick="showView('content');goto('research')">
-        <div class="nt-title">Stats</div>
-        <div class="nt-desc">Your numbers and competitors</div>
-      </div>
-      <div class="nav-tile" onclick="showView('content');goto('ideas')">
-        <div class="nt-title">Content Ideas</div>
-        <div class="nt-desc">40 ideas, mark off what you've used</div>
-      </div>
-      <div class="nav-tile" onclick="showView('content');goto('tools')">
-        <div class="nt-title">Tools</div>
-        <div class="nt-desc">DM scripts, bio, profile checklist</div>
-      </div>
-      <div class="nav-tile" onclick="showView('content');goto('plan')" style="border-color:#1a2a1a">
-        <div class="nt-title">Tomorrow's Plan</div>
-        <div class="nt-desc">Write down what you'll do tomorrow</div>
+      <div class="home-section-label">Quick access</div>
+      <div class="nav-grid">
+        <div class="nav-tile" onclick="showView('content');goto('week')">
+          <div class="nt-dot" style="background:var(--blue)"></div>
+          <div class="nt-title">This Week</div>
+          <div class="nt-desc">All 7 scripts with filming notes</div>
+          <span class="nt-arrow">&#8594;</span>
+        </div>
+        <div class="nav-tile" onclick="showView('content');goto('research')">
+          <div class="nt-dot" style="background:var(--purple)"></div>
+          <div class="nt-title">Stats</div>
+          <div class="nt-desc">Followers, views, competitors</div>
+          <span class="nt-arrow">&#8594;</span>
+        </div>
+        <div class="nav-tile" onclick="showView('content');goto('ideas')">
+          <div class="nt-dot" style="background:var(--green)"></div>
+          <div class="nt-title">Content Ideas</div>
+          <div class="nt-desc">40 ideas, mark off used ones</div>
+          <span class="nt-arrow">&#8594;</span>
+        </div>
+        <div class="nav-tile" onclick="showView('content');goto('tools')">
+          <div class="nt-dot" style="background:var(--orange)"></div>
+          <div class="nt-title">Tools</div>
+          <div class="nt-desc">DM scripts, bio, checklist</div>
+          <span class="nt-arrow">&#8594;</span>
+        </div>
+        <div class="nav-tile" onclick="showView('content');goto('plan')">
+          <div class="nt-dot" style="background:#38bdf8"></div>
+          <div class="nt-title">Tomorrow's Plan</div>
+          <div class="nt-desc">Tasks for content, outreach, growth</div>
+          <span class="nt-arrow">&#8594;</span>
+        </div>
       </div>
     </div>
   </div>
@@ -466,13 +515,22 @@ lines:[
 
 const checks=JSON.parse(localStorage.getItem('mm_checks')||'{}');
 
+function typeBadgeClass(type){
+  if(type==='Screen Record')return 'screen';
+  if(type==='Talking Head')return 'talking';
+  if(type==='Carousel')return 'carousel';
+  if(type==='Video')return 'video';
+  return '';
+}
+
 // Populate home today card
 (function(){
   const d=WEEK[todayI];
   const dt=weekDate(todayI);
   document.getElementById('home-today-day').textContent=fmtFull(dt);
   document.getElementById('home-today-title').textContent=d.title;
-  document.getElementById('home-today-type').textContent=d.type;
+  const tbType=document.getElementById('home-today-type');
+  tbType.textContent=d.type;tbType.className='tb-type '+typeBadgeClass(d.type);
 })();
 
 // Progress
@@ -514,16 +572,19 @@ function renderToday(i){
   const dt=weekDate(i);
   document.getElementById('today-out').innerHTML=
     '<div class="today-card">'
+    +'<div class="tc-bar"></div>'
+    +'<div class="tc-inner">'
     +'<div class="tc-top">'
     +'<div class="tc-day">'+fmtFull(dt)+'</div>'
     +'<div class="tc-title">'+d.title+'</div>'
-    +'<div class="type-badge">'+d.type+'</div>'
+    +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
     +'</div>'
     +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
     +mkScript(d.lines)
     +'<div class="action-row">'
     +'<button class="btn btn-primary" onclick="cpAll('+i+')">Copy Full Script</button>'
     +'<button class="btn btn-done'+(checks[i]?' on':'')+'" id="done-btn" onclick="toggleDone('+i+')">'+(checks[i]?'Posted':'Mark Posted')+'</button>'
+    +'</div>'
     +'</div></div>';
 }
 renderToday(todayI);
@@ -551,7 +612,7 @@ WEEK.forEach((d,i)=>{
     +'<div class="wk-day">'+FULL_DAYS[i]+', '+MONTHS[dt.getMonth()]+' '+dt.getDate()+'</div>'
     +'<div class="wk-title">'+d.title+'</div>'
     +'</div>'
-    +'<div class="type-badge">'+d.type+'</div>'
+    +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
     +'</div>'
     +'<div class="wk-body">'
     +'<div class="film-note" style="margin-top:12px"><b>How to film:</b> '+d.film+'</div>'
