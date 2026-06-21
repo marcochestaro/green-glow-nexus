@@ -1,5 +1,42 @@
 {
-  "updated": null,
-  "updated_display": "Not yet run",
-  "agents": {}
+  "updated": "2026-06-21T22:13:12Z",
+  "updated_display": "Jun 21, 2026 at 22:13 UTC",
+  "agents": {
+    "ads": {
+      "headline": "Advantage+ audience is outperforming manual targeting this week",
+      "actions": [
+        "Test switching one campaign to Advantage+ audience \u2014 let Meta find who converts",
+        "Keep your location radius in Advantage+ settings to stay local",
+        "Compare CPL after 5 days vs your manual targeting baseline"
+      ],
+      "source": "r/FacebookAds discussions"
+    },
+    "creative": {
+      "headline": "Short-form 'one thing' videos are outperforming long explanations",
+      "actions": [
+        "Film a 20-second video: one specific tip, no intro, straight into it",
+        "Hook format that's working: 'Stop doing X \u2014 here's why it's costing you leads'",
+        "End every short video with a question in the caption to drive comments"
+      ],
+      "source": "r/socialmediamarketing + Instagram trends"
+    },
+    "critic": {
+      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
+      "actions": [
+        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
+        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
+        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
+      ],
+      "source": "r/FacebookAds new posts this week"
+    },
+    "competitors": {
+      "headline": "Service businesses running before/after photos are dominating the library",
+      "actions": [
+        "Open Meta Ad Library \u2192 search your niche \u2192 filter active ads \u2192 look for photos not graphics",
+        "The most common pattern: real job photo + specific result + deadline offer",
+        "Film or photograph your next client's job \u2014 that's your next winning creative"
+      ],
+      "source": "Meta Ad Library search"
+    }
+  }
 }
