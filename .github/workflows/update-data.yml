@@ -15,7 +15,8 @@ jobs:
       - name: Checkout main branch
         uses: actions/checkout@v4
         with:
-          ref: claude/practical-faraday-cindzs
+          ref: main
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -25,22 +26,22 @@ jobs:
       - name: Fetch Instagram data via Apify
         env:
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
-        run: node scripts/fetch-instagram.js
+        run: node scripts/fetch-instagram.cjs
 
-      - name: Commit updated data.json to main branch
+      - name: Commit updated data.json
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add dashboard/data.json
           git diff --staged --quiet || git commit -m "Auto-update: Instagram data $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git push origin claude/practical-faraday-cindzs
+          git push origin main
 
-      - name: Sync updated files to gh-pages
+      - name: Sync to gh-pages
         run: |
           git fetch origin gh-pages
           git checkout gh-pages
-          git checkout claude/practical-faraday-cindzs -- dashboard/index.html
+          git checkout main -- dashboard/index.html
           cp dashboard/data.json data.json
           git add index.html data.json
-          git diff --staged --quiet || git commit -m "Auto-sync dashboard to gh-pages $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git diff --staged --quiet || git commit -m "Auto-sync dashboard $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push origin gh-pages
