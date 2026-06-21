@@ -240,7 +240,7 @@ section{margin-bottom:44px;scroll-margin-top:64px}
     <button class="nl" id="nl-agents" onclick="showView('agents')">Agents</button>
   </div>
   <div class="nav-right">
-    <div class="clock"><span id="clock">00:00</span><span class="clock-tz">EST</span></div>
+    <div class="clock"><span id="clock">00:00</span></div>
   </div>
 </nav>
 
@@ -480,9 +480,9 @@ function goto(id){setTimeout(()=>{const el=document.getElementById(id);if(el)el.
 // ── Clock (EST) ────────────────────────────────────────────────────────
 function tick(){
   const n=new Date();
-  document.getElementById('clock').textContent=n.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:true,timeZone:'America/New_York'});
+  document.getElementById('clock').textContent=n.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',hour12:true});
 }
-tick();setInterval(tick,10000);
+tick();setInterval(tick,1000);
 
 // ── Dates ──────────────────────────────────────────────────────────────
 function getMondayOfWeek(d){
@@ -1000,7 +1000,7 @@ const AGENTS=[
 },
 {
   name:'Critic',
-  role:'What's wrong with your scripts and ads. Honest.',
+  role:'What\'s wrong with your scripts and ads. Honest.',
   color:'#ef4444',
   badge:'Critique',
   badgeStyle:'background:#1a0505;color:#fca5a5;border:1px solid #3b0d0d',
