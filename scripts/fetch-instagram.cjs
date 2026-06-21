@@ -40,8 +40,8 @@ async function runScraper(handles) {
   console.log('Starting Apify run for:', handles.join(', '));
   const run = await apifyRequest('POST', '/v2/acts/apify~instagram-scraper/runs', {
     usernames: handles,
-    resultsType: 'details',
-    resultsLimit: 12,
+    resultsType: 'profiles',
+    resultsLimit: 1,
   });
   const runId = run.data && run.data.id;
   if (!runId) throw new Error('Failed to start run: ' + JSON.stringify(run));
@@ -66,8 +66,13 @@ async function runScraper(handles) {
 async function main() {
   const items = await runScraper(ALL_HANDLES);
 
-  // Debug: log first item keys to help diagnose field name changes
-  if (items.length > 0) console.log('Sample item keys:', Object.keys(items[0]).slice(0, 20).join(', '));
+  // Debug: log first item to help diagnose field name changes
+  if (items.length > 0) {
+    const first = items[0];
+    console.log('Sample item keys:', Object.keys(first).slice(0, 20).join(', '));
+    if (first.error) console.log('Item error:', first.error, first.errorDescription);
+    else console.log('Sample followers field:', first.followersCount, first.followedByCount, first.followers);
+  }
   const meData = items.find(i => (i.username || i.ownerUsername || '').toLowerCase() === ME.toLowerCase()) || {};
   const topPosts = (meData.latestPosts || meData.posts || meData.topPosts || [])
     .slice(0, 6)
