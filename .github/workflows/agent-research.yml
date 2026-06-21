@@ -1,0 +1,49 @@
+name: Agent Research
+
+on:
+  schedule:
+    - cron: '0 8 * * *'   # daily 8am UTC = 6pm AEST / 4am EST
+  workflow_dispatch:        # manual trigger button on GitHub Actions page
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests anthropic pytrends
+
+      - name: Run agent research
+        env:
+          CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+        run: python scripts/run_agents.py
+
+      - name: Commit and push results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dashboard/agents-data.json
+          git diff --staged --quiet || git commit -m "Agent research update $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push origin main
+
+      - name: Sync to gh-pages
+        run: |
+          cp dashboard/index.html /tmp/index.html
+          cp dashboard/agents-data.json /tmp/agents-data.json
+          git fetch origin gh-pages
+          git checkout gh-pages
+          cp /tmp/index.html index.html
+          cp /tmp/agents-data.json agents-data.json
+          git add index.html agents-data.json
+          git diff --staged --quiet || git commit -m "Sync agent research to gh-pages $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push origin gh-pages
