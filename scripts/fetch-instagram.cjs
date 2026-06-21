@@ -47,6 +47,7 @@ async function runScraper(handles) {
   if (!runId) throw new Error('Failed to start run: ' + JSON.stringify(run));
   console.log('Run started:', runId);
 
+  // Poll until finished
   for (let i = 0; i < 30; i++) {
     await sleep(10000);
     const status = await apifyRequest('GET', `/v2/acts/apify~instagram-scraper/runs/${runId}`);
@@ -56,6 +57,7 @@ async function runScraper(handles) {
     if (s === 'FAILED' || s === 'ABORTED') throw new Error('Run failed: ' + s);
   }
 
+  // Get results
   const dataset = run.data.defaultDatasetId;
   const items = await apifyRequest('GET', `/v2/datasets/${dataset}/items?limit=200`);
   return items.items || items;
@@ -64,8 +66,10 @@ async function runScraper(handles) {
 async function main() {
   const items = await runScraper(ALL_HANDLES);
 
-  const meData = items.find(i => (i.username || '').toLowerCase() === ME.toLowerCase()) || {};
-  const topPosts = (meData.latestPosts || meData.posts || [])
+  // Debug: log first item keys to help diagnose field name changes
+  if (items.length > 0) console.log('Sample item keys:', Object.keys(items[0]).slice(0, 20).join(', '));
+  const meData = items.find(i => (i.username || i.ownerUsername || '').toLowerCase() === ME.toLowerCase()) || {};
+  const topPosts = (meData.latestPosts || meData.posts || meData.topPosts || [])
     .slice(0, 6)
     .map(p => ({
       id: p.id || '',
@@ -83,7 +87,7 @@ async function main() {
     const c = items.find(i => (i.username || '').toLowerCase() === handle.toLowerCase()) || {};
     return {
       handle,
-      followers: c.followersCount || c.followers || null,
+      followers: c.followersCount || c.followedByCount || c.followers || null,
     };
   });
 
@@ -91,8 +95,8 @@ async function main() {
     pulledAt: new Date().toISOString(),
     me: {
       handle: ME,
-      followers: meData.followersCount || meData.followers || null,
-      totalPosts: meData.postsCount || meData.mediaCount || topPosts.length,
+      followers: meData.followersCount || meData.followedByCount || meData.followers || null,
+      totalPosts: meData.postsCount || meData.mediaCount || meData.igTvVideoCount || topPosts.length,
       totalViews: topPosts.reduce((s, p) => s + p.views, 0),
       avgEngagement: topPosts.length
         ? Math.round(topPosts.reduce((s, p) => s + p.engagement, 0) / topPosts.length)
@@ -103,6 +107,7 @@ async function main() {
   };
 
   const outPath = path.join(__dirname, '..', 'dashboard', 'data.json');
+  fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, JSON.stringify(output, null, 2));
   console.log('Written to', outPath);
   console.log('Followers:', output.me.followers);
