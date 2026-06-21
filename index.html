@@ -1070,19 +1070,27 @@ const todayStr=today.toISOString().split('T')[0];
 document.getElementById('plan-date').textContent='Planning for: '+fmtFull(tmrDate);
 
 let planRaw=JSON.parse(localStorage.getItem('mm_plan')||'{}');
-// Reset plan if it was locked for a date that's already passed
+// Reset if locked date passed
 if(planRaw.lockedFor && planRaw.lockedFor < todayStr){
   planRaw={content:[],outreach:[],growth:[],notes:'',lockedFor:null};
   localStorage.setItem('mm_plan',JSON.stringify(planRaw));
 }
 let plan=Object.assign({content:[],outreach:[],growth:[],notes:'',lockedFor:null},planRaw);
+// Sanitize: convert old string-format tasks to objects, drop anything invalid
+['content','outreach','growth'].forEach(cat=>{
+  plan[cat]=(plan[cat]||[])
+    .filter(t=>t)
+    .map(t=>typeof t==='string'?{text:t,done:false}:t)
+    .filter(t=>typeof t.text==='string');
+});
+localStorage.setItem('mm_plan',JSON.stringify(plan));
 
 function savePlan(){
   plan.notes=(document.getElementById('plan-notes')||{}).value||plan.notes;
   localStorage.setItem('mm_plan',JSON.stringify(plan));
 }
 
-const MAX_PER_CAT=2;
+const MAX_PER_CAT=2;  // 2 per section = max 6 tasks total
 const chipRefreshers={};
 
 ['content','outreach','growth'].forEach(cat=>{
