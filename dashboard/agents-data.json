@@ -1,24 +1,24 @@
 {
-  "updated": "2026-06-21T22:13:12Z",
-  "updated_display": "Jun 21, 2026 at 22:13 UTC",
+  "updated": "2026-06-21T22:28:31Z",
+  "updated_display": "Jun 21, 2026 at 22:28 UTC",
   "agents": {
     "ads": {
-      "headline": "Advantage+ audience is outperforming manual targeting this week",
+      "headline": "Lead generation interest surging; $25 budgets need laser-focused targeting now",
       "actions": [
-        "Test switching one campaign to Advantage+ audience \u2014 let Meta find who converts",
-        "Keep your location radius in Advantage+ settings to stay local",
-        "Compare CPL after 5 days vs your manual targeting baseline"
+        "Audit your audience targeting to exclude low-intent users bleeding your $25 daily budget",
+        "Test lead magnet ads (free quotes, checklists) instead of direct service ads this week",
+        "Create separate $10 awareness + $15 conversion campaigns to maximize lead quality at small budget"
       ],
-      "source": "r/FacebookAds discussions"
+      "source": "Google Trends lead generation spike (15 interest) + Meta Ads subreddit small budget discussions"
     },
     "creative": {
-      "headline": "Short-form 'one thing' videos are outperforming long explanations",
+      "headline": "Instagram Reels dominance is real\u2014video content strategy beats static posts",
       "actions": [
-        "Film a 20-second video: one specific tip, no intro, straight into it",
-        "Hook format that's working: 'Stop doing X \u2014 here's why it's costing you leads'",
-        "End every short video with a question in the caption to drive comments"
+        "Film a 15-second Meta ads fail/win comparison Reel showing before/after client results",
+        "Create a Reel series: 'One Meta ads mistake service businesses make daily'",
+        "Use trending audio + text overlay on Reels\u2014hook viewer in first 3 seconds with a question or pattern interrupt"
       ],
-      "source": "r/socialmediamarketing + Instagram trends"
+      "source": "Google Trends: Instagram Reels (30) vs video hook (0) + content strategy (16)\u2014shows audience searching for Reels but not hook techniques, indicating a content gap"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
