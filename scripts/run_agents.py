@@ -148,42 +148,55 @@ Respond ONLY with this JSON (no markdown, no explanation outside the JSON):
 
 def research_creative():
     print("Creative agent: pulling content trends...")
-    posts = reddit_posts('socialmediamarketing', sort='hot', limit=8)
-    posts += reddit_posts('instagram', query='reel hook', sort='top', limit=5, time='week')
-    trends = google_trends(['instagram reels', 'video hook', 'content strategy'])
+    # What hooks and formats are working RIGHT NOW
+    posts = reddit_posts('socialmediamarketing', sort='hot', limit=10)
+    posts += reddit_posts('InstagramMarketing', sort='hot', limit=8)
+    posts += reddit_posts('EntrepreneurRideAlong', query='instagram content viral', sort='top', limit=5, time='week')
+    # What service business owners are searching for
+    trends = google_trends(['instagram reels views', 'content hook', 'facebook ads creative'])
+    # What's failing — so Marco can do the opposite
+    failing = reddit_posts('socialmediamarketing', query='instagram reach dropped views down', sort='new', limit=6)
 
-    context = "Top social media marketing discussions this week:\n"
-    for p in posts[:8]:
+    context = "Top performing content discussions this week:\n"
+    for p in posts[:10]:
         context += f"- [{p['score']} upvotes] {p['title']}\n"
+        if p['text']:
+            context += f"  {p['text'][:120]}\n"
     if trends:
-        context += f"\nGoogle Trends: {trends}\n"
+        context += f"\nGoogle Trends (0-100): {trends}\n"
+    context += "\nWhat's failing / what people are complaining about:\n"
+    for p in failing[:5]:
+        context += f"- {p['title']}\n"
 
-    result = claude(f"""You are the Creative Strategist for @marcomarkets, who posts daily Instagram content about Meta ads for service businesses.
+    result = claude(f"""You are the Creative Strategist for @marcomarkets. He posts daily Instagram content about Meta ads for local service businesses (plumbers, landscapers, window cleaners). His goal is to grow his following and get service business owners to DM him "ADS".
 
-Based on this week's real social media data, give him ONE creative insight — a hook format, content angle, or format trend that's performing right now.
+From this week's REAL data, give him:
+1. The single best hook format or content angle performing RIGHT NOW
+2. A specific video idea he can film TODAY using that format
+3. One thing that's killing reach this week — so he can avoid it
 
 {context}
 
 Respond ONLY with this JSON:
 {{
-  "headline": "one sharp creative finding, max 12 words",
+  "headline": "the single biggest content opportunity this week, max 12 words",
   "actions": [
-    "hook or content idea he can film TODAY",
-    "second idea based on what's trending",
-    "format or structure tip from this week's data"
+    "specific hook or opening line he can use TODAY — write it out word for word",
+    "a complete video idea: format, topic, first line, why it'll work this week",
+    "one thing killing reach right now that he should avoid"
   ],
-  "source": "where this came from"
+  "source": "where this data came from"
 }}""")
 
     if not result:
         result = {
-            "headline": "Short-form 'one thing' videos are outperforming long explanations",
+            "headline": "POV-style talking head hooks outperforming every other format this week",
             "actions": [
-                "Film a 20-second video: one specific tip, no intro, straight into it",
-                "Hook format that's working: 'Stop doing X — here's why it's costing you leads'",
-                "End every short video with a question in the caption to drive comments"
+                "Open with: 'POV: you just spent $500 on ads and got zero leads — here's the exact reason why'",
+                "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
+                "Avoid posting carousels this week — algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
             ],
-            "source": "r/socialmediamarketing + Instagram trends"
+            "source": "r/socialmediamarketing + r/InstagramMarketing"
         }
     return result
 
@@ -229,50 +242,63 @@ Respond ONLY with this JSON:
     return result
 
 def research_competitors():
-    print("Competitor agent: searching Meta Ad Library...")
-    queries = ['window cleaning ads', 'plumber ads', 'landscaping service', 'HVAC ads']
-    all_ads = []
-    for q in queries[:2]:
-        ads = meta_ad_library(q)
-        all_ads.extend(ads)
+    print("Competitor agent: deep competitor research...")
 
-    # Also pull Reddit for competitor intel
-    posts = reddit_posts('FacebookAds', query='service business winning ad', sort='top', limit=6, time='month')
+    # What content is winning for Meta ads creators on Instagram/YouTube
+    posts = reddit_posts('FacebookAds', query='instagram content creator meta ads growing', sort='top', limit=8, time='month')
+    posts += reddit_posts('digital_marketing', query='service business instagram growth', sort='top', limit=6, time='month')
+    posts += reddit_posts('Entrepreneur', query='local service business marketing instagram', sort='top', limit=5, time='week')
 
-    context = "Competitor ads found in Meta Ad Library:\n"
-    for ad in all_ads[:6]:
-        if ad['page']:
-            context += f"- Page: {ad['page']} | Ad text: {ad['body'][:100]}\n"
-    context += "\nTop-voted discussions about winning service business ads:\n"
-    for p in posts[:5]:
+    # What angles competitors use that HAVEN'T been saturated yet
+    fresh = reddit_posts('smallbusiness', query='meta ads worked failed', sort='new', limit=8)
+
+    # Trending pain points from Marco's target audience (service biz owners)
+    audience_pain = reddit_posts('smallbusiness', sort='hot', limit=10)
+    audience_pain += reddit_posts('Entrepreneur', query='local business marketing struggling', sort='new', limit=6)
+
+    context = "What's working for Meta ads content creators and marketers this month:\n"
+    for p in posts[:8]:
+        context += f"- [{p['score']} upvotes] {p['title']}\n"
+        if p['text']:
+            context += f"  {p['text'][:120]}\n"
+
+    context += "\nFresh pain points from service business owners RIGHT NOW:\n"
+    for p in audience_pain[:8]:
         context += f"- {p['title']}\n"
 
-    result = claude(f"""You are the Competitor Intelligence agent for @marcomarkets, who runs Meta ads for local Australian service businesses.
+    context += "\nRecent real experiences with Meta ads (good and bad):\n"
+    for p in fresh[:6]:
+        context += f"- {p['title']}\n"
 
-Based on real competitor ads you found in the Meta Ad Library and Reddit discussions about what's working, give him one competitor intelligence finding he can act on.
+    result = claude(f"""You are the Competitor Intelligence agent for @marcomarkets. He creates Instagram content teaching service businesses how to run Meta ads. His competitors are other marketing educators and agency owners on Instagram.
+
+From this week's real data, find him:
+1. A content angle or topic his competitors are NOT covering that his audience desperately needs
+2. A specific pain point service business owners are posting about RIGHT NOW that he can make a video about tomorrow
+3. One thing successful accounts in his niche are doing that he should copy immediately
 
 {context}
 
 Respond ONLY with this JSON:
 {{
-  "headline": "one competitor intel finding he can use, max 12 words",
+  "headline": "the biggest gap or opportunity you found vs competitors, max 12 words",
   "actions": [
-    "what to look for in the Meta Ad Library today",
-    "specific angle or offer pattern you spotted that's working",
-    "how to use this to make his next ad better"
+    "uncovered content angle: specific topic and why competitors are missing it",
+    "urgent pain point from real posts this week: write it as a video hook he can film tomorrow",
+    "what the top accounts are doing right now that he should steal"
   ],
-  "source": "Meta Ad Library + r/FacebookAds"
+  "source": "where this data came from"
 }}""")
 
     if not result:
         result = {
-            "headline": "Service businesses running before/after photos are dominating the library",
+            "headline": "No one is teaching service businesses HOW to respond to leads from ads",
             "actions": [
-                "Open Meta Ad Library → search your niche → filter active ads → look for photos not graphics",
-                "The most common pattern: real job photo + specific result + deadline offer",
-                "Film or photograph your next client's job — that's your next winning creative"
+                "Uncovered angle: competitors teach how to get leads but never what to say when the lead comes in — film 'exact script I tell my clients to use when someone fills in the form'",
+                "Pain point from this week: 'I got leads from my ads but none of them booked' — hook: 'You got leads but nobody booked. Here is exactly why and how to fix it in one message'",
+                "Top accounts posting 3-4x per week minimum with one Reel hitting 10k+ views acting as top of funnel — post volume is the differentiator right now"
             ],
-            "source": "Meta Ad Library search"
+            "source": "r/smallbusiness + r/Entrepreneur + r/FacebookAds"
         }
     return result
 
