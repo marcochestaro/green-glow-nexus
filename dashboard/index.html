@@ -427,43 +427,26 @@ Follow for daily content on what actually works</textarea>
 <!-- TOMORROW'S PLAN -->
 <section id="plan">
   <div class="sec-label">Tomorrow's Plan</div>
-  <div class="card" style="margin-bottom:10px">
-    <div id="plan-date" style="font-size:.75rem;color:var(--sub);margin-bottom:14px"></div>
+  <div id="plan-locked-view" style="display:none"></div>
+  <div id="plan-build-view">
+    <div style="font-size:.72rem;color:var(--sub);margin-bottom:14px" id="plan-date"></div>
 
-    <div style="margin-bottom:18px">
-      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:6px">Content</div>
-      <div style="font-size:.68rem;color:var(--sub);margin-bottom:10px">Tap to add to your checklist</div>
-      <div class="chips-wrap" id="chips-content"></div>
-      <div id="plan-content-tasks"></div>
-      <button class="cbtn" style="margin-top:6px" onclick="addTask('content')">+ Write your own</button>
+    <div style="font-size:.65rem;color:var(--sub);margin-bottom:16px;line-height:1.5">Tap anything below to add it to your plan. Tap again to remove. Hit <strong style="color:#38bdf8">Lock in Plan</strong> when you're done.</div>
+
+    <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub);margin-bottom:10px">Content</div>
+    <div id="chips-content" style="display:flex;flex-direction:column;gap:7px;margin-bottom:18px"></div>
+
+    <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub);margin-bottom:10px">Outreach</div>
+    <div id="chips-outreach" style="display:flex;flex-direction:column;gap:7px;margin-bottom:18px"></div>
+
+    <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub);margin-bottom:10px">Growth</div>
+    <div id="chips-growth" style="display:flex;flex-direction:column;gap:7px;margin-bottom:22px"></div>
+
+    <div style="margin-bottom:14px">
+      <textarea id="plan-notes" class="bio-area" placeholder="Anything else to add..." style="min-height:60px" oninput="savePlan()"></textarea>
     </div>
 
-    <div class="divider"></div>
-
-    <div style="margin-bottom:18px;margin-top:18px">
-      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:6px">Outreach &amp; DMs</div>
-      <div style="font-size:.68rem;color:var(--sub);margin-bottom:10px">Tap to add to your checklist</div>
-      <div class="chips-wrap" id="chips-outreach"></div>
-      <div id="plan-outreach-tasks"></div>
-      <button class="cbtn" style="margin-top:6px" onclick="addTask('outreach')">+ Write your own</button>
-    </div>
-
-    <div class="divider"></div>
-
-    <div style="margin-top:18px;margin-bottom:18px">
-      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:6px">Growth &amp; Profile</div>
-      <div style="font-size:.68rem;color:var(--sub);margin-bottom:10px">Tap to add to your checklist</div>
-      <div class="chips-wrap" id="chips-growth"></div>
-      <div id="plan-growth-tasks"></div>
-      <button class="cbtn" style="margin-top:6px" onclick="addTask('growth')">+ Write your own</button>
-    </div>
-
-    <div class="divider"></div>
-
-    <div style="margin-top:18px">
-      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:8px">Notes</div>
-      <textarea id="plan-notes" class="bio-area" placeholder="Anything else to remember for tomorrow..." style="min-height:70px" oninput="savePlan()"></textarea>
-    </div>
+    <button id="plan-lock-btn" onclick="lockPlan()" style="width:100%;padding:14px;border-radius:12px;background:linear-gradient(135deg,#1d4ed8,#6366f1);border:none;color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;letter-spacing:.02em">Lock in Plan for Tomorrow</button>
   </div>
 </section>
 
@@ -1042,143 +1025,169 @@ PCH.forEach((item,i)=>{
 const sb=localStorage.getItem('mm_bio');if(sb)document.getElementById('bio-text').value=sb;
 
 // ── Tomorrow's Plan ────────────────────────────────────────────────────
-(function(){
-  const tmr=new Date(today);tmr.setDate(today.getDate()+1);
-  document.getElementById('plan-date').textContent='Planning for: '+fmtFull(tmr);
-})();
-
 const SUGGESTIONS={
   content:[
-    {text:"Film today's script",detail:"Pick the format listed for today. One take, no overthinking — hook → value → DM me ADS."},
-    {text:"Batch film 2–3 videos",detail:"Set up once, film 3 scripts back to back. Gets easier after the first one."},
-    {text:"Screen record in Ads Manager",detail:"Open your account, walk through a real metric or setting. Authentic beats polished every time."},
-    {text:"Write captions for 3 posts",detail:"Use the caption options in This Week's Scripts. Copy, tweak one line, done."},
-    {text:"Create a carousel in Canva",detail:"5 slides, dark background, one bold point per slide. Meta vs Google or $25/day math works great."},
-    {text:"Reply to all comments",detail:"Reply to every comment on today's post. Boosts reach + signals to the algorithm you're active."},
-    {text:"Post to Stories",detail:"Repost today's Reel to Stories. Add a poll: 'Running Meta ads? Yes / Not yet'"},
-    {text:"Check your best post this week",detail:"Open Instagram Insights → Top Posts. Note the hook. Film something similar tomorrow."},
-    {text:"Film a behind-the-scenes clip",detail:"20–30 seconds. Your setup, your workflow, your screen. Show the work, not just the results."},
-    {text:"Repost top post to Stories",detail:"Find your highest-reach post from last 30 days → Repost to Stories with 'In case you missed this'."},
+    {text:"Film today's script",tip:"Pick today's format from This Week's Scripts. One take is enough — hook → value → DM me ADS. Don't overthink it."},
+    {text:"Batch film 2–3 videos",tip:"Set up once (good lighting, phone on tripod) then film 3 scripts back to back. Saves hours during the week."},
+    {text:"Screen record in Ads Manager",tip:"Open your account or demo one. Walk through a real metric — even if it's small. Real data beats fake polish every time."},
+    {text:"Film a niche story tutorial",tip:"Pick ONE niche (e.g. window cleaners). Film a 30s story specifically for them — start with 'This is for window cleaners only.' Then tag 10–15 of them on Close Friends. The green circle bumps your story to the top of their inbox."},
+    {text:"Post to Stories with a poll",tip:"Repost today's Reel to your Story. Add a poll: 'Running Meta ads? Yes / Not yet'. Gets real responses and starts DM conversations."},
+    {text:"Film a behind-the-scenes clip",tip:"20–30 seconds of your workflow. Your screen, your setup, you editing. People follow people — show what your day actually looks like."},
+    {text:"Create a carousel in Canva",tip:"5 slides, dark background, bold headline each slide. Best topics: $25/day math, Meta vs Google, the 3 ad mistakes. 30 mins max."},
+    {text:"Write captions for 3 posts",tip:"Open This Week's Scripts → Caption section. Copy Option A or B, change one personal detail, done. Don't write from scratch."},
   ],
   outreach:[
-    {text:"Reply to all DMs",detail:"Don't leave anyone on read. Even a short reply keeps the conversation alive."},
-    {text:"Follow 20 service business owners",detail:"Search: plumber, window cleaner, landscaper, HVAC. Follow real businesses — these are your future clients."},
-    {text:"Leave 10 genuine comments",detail:"Not 'great post'. A real reaction or question on accounts with 1K–50K followers in your niche."},
-    {text:"DM 5 people who engaged today",detail:"Anyone who liked or commented — send: 'Hey thanks for the support, what kind of business do you run?'"},
-    {text:"Follow up with cold leads",detail:"Anyone who went quiet or said 'maybe later' — check in with something useful, not a pitch."},
-    {text:"Send opener DM to 3 new accounts",detail:"Use DM Script 1. Find 3 active service biz owners. Send it. Don't overthink it."},
-    {text:"Check competitor comments",detail:"Go to a competitor's top post. Read the comments. What are people asking? That's your next video."},
-    {text:"Engage with target audience",detail:"Spend 10 mins on Instagram. Like + reply to posts from local service business owners. Builds visibility."},
+    {text:"Alert: Close Friends niche story",tip:"Step 1 — Search one niche on Instagram (e.g. 'window cleaner Sydney'). Find 10–15 active accounts.\nStep 2 — Add them to your Close Friends list.\nStep 3 — Film a short story speaking directly to that niche ('Hey window cleaners, this one's for you...').\nStep 4 — Post it to Close Friends only.\nResult: They see a green circle around your story — it sits at the top of their inbox above everyone else. Most will watch it. Some will DM you."},
+    {text:"Reply to every DM today",tip:"Don't leave anyone on read. Even 'Hey thanks — what kind of business do you run?' keeps it going. Leads die in silence."},
+    {text:"DM 5 people who engaged",tip:"Anyone who liked or commented today — send: 'Hey, appreciate the support. What kind of business do you run?' Simple. Human. Effective."},
+    {text:"Follow up with 3 quiet leads",tip:"Check your DMs for anyone who went quiet after showing interest. Send: 'Hey just checking in — still thinking about running ads?' Short, no pressure."},
+    {text:"Send opener to 3 cold accounts",tip:"Find 3 service biz owners who look active (recent posts, decent following). Use DM Script 1. Send it. The only bad outreach is no outreach."},
+    {text:"Reply to comments on last 3 posts",tip:"Go back and reply to every unanswered comment. Signals activity to the algorithm and shows you're real — not just posting and ghosting."},
   ],
   growth:[
-    {text:"Post at 6–7:30 PM tonight",detail:"Best engagement window. Set a reminder now. Don't guess — time it right."},
-    {text:"Update bio follower count",detail:"Change the number in your bio. Small thing, shows you're growing and paying attention."},
-    {text:"Pin your best post",detail:"Go to your top performing post → tap ··· → Pin. First thing new visitors see — make it count."},
-    {text:"Check your analytics",detail:"Open Instagram Insights. Look at reach + profile visits from the last 7 days. What worked?"},
-    {text:"Research a competitor",detail:"Pick one creator in your niche. What's their top Reel? What hook did they use? Take one note."},
-    {text:"Schedule next 3 posts",detail:"Use Meta Business Suite. Schedule 3 posts so tomorrow morning is already handled."},
-    {text:"Audit your profile",detail:"Open your profile like a stranger. Does it immediately say who you help and how? Fix anything unclear."},
-    {text:"Read next week's scripts",detail:"Go to This Week's Scripts. Read each one. Decide which you're filming and what day."},
+    {text:"Post at 6–7:30 PM tonight",tip:"This is the best window for reach. Set a reminder right now before you forget. Timing matters — don't guess."},
+    {text:"Check your analytics",tip:"Open Instagram Insights. Look at: reach, profile visits, and which post got the most. Whatever that hook was — film it again."},
+    {text:"Schedule next 3 posts",tip:"Open Meta Business Suite → Content → Schedule. Get 3 posts queued. Frees up tomorrow completely."},
+    {text:"Research a competitor's top Reel",tip:"Find one creator in your niche. Open their profile, sort by most-liked. Watch their top Reel. Note: the hook, the format, the CTA. One steal per day compounds."},
+    {text:"Update your bio",tip:"Update the follower number if it changed. Make sure the first line says exactly who you help and what they get. Specific > clever."},
+    {text:"Audit your profile as a stranger",tip:"Go to your profile and scroll through the last 9 posts. Does it look like a real authority account? Is there a clear theme? If not, what's the weakest post?"},
+    {text:"Read next week's scripts",tip:"Go to This Week's Scripts. Read each one. Mentally decide which you're filming and on what day. 5 minutes now saves 30 minutes of 'what do I post' later."},
   ],
 };
 
-const PLAN_CATS=['content','outreach','growth'];
-let plan=JSON.parse(localStorage.getItem('mm_plan')||'{"content":[],"outreach":[],"growth":[],"notes":""}');
+const tmrDate=new Date(today);tmrDate.setDate(today.getDate()+1);
+const tmrStr=tmrDate.toISOString().split('T')[0];
+const todayStr=today.toISOString().split('T')[0];
+document.getElementById('plan-date').textContent='Planning for: '+fmtFull(tmrDate);
 
-PLAN_CATS.forEach(cat=>{
+let planRaw=JSON.parse(localStorage.getItem('mm_plan')||'{}');
+// Reset plan if it was locked for a date that's already passed
+if(planRaw.lockedFor && planRaw.lockedFor < todayStr){
+  planRaw={content:[],outreach:[],growth:[],notes:'',lockedFor:null};
+  localStorage.setItem('mm_plan',JSON.stringify(planRaw));
+}
+let plan=Object.assign({content:[],outreach:[],growth:[],notes:'',lockedFor:null},planRaw);
+
+function savePlan(){
+  plan.notes=(document.getElementById('plan-notes')||{}).value||plan.notes;
+  localStorage.setItem('mm_plan',JSON.stringify(plan));
+}
+
+// Build suggestion chips
+['content','outreach','growth'].forEach(cat=>{
   const wrap=document.getElementById('chips-'+cat);
   if(!wrap)return;
   SUGGESTIONS[cat].forEach(s=>{
-    const chip=document.createElement('div');
+    const el=document.createElement('div');
     const isOn=()=>(plan[cat]||[]).some(t=>t.text===s.text);
-    const setStyle=()=>{
-      if(isOn()){chip.style.cssText='border-color:var(--blue);color:#93c5fd;background:#07101e;';chip.querySelector('.chip-check').textContent='✓';}
-      else{chip.style.cssText='';chip.querySelector('.chip-check').textContent='';}
+    const refresh=()=>{
+      const on=isOn();
+      el.style.cssText='background:'+(on?'rgba(99,102,241,.12)':'#050709')+';border:1px solid '+(on?'#6366f1':'var(--border)')+';border-radius:11px;padding:11px 13px;cursor:pointer;transition:all .15s';
+      el.querySelector('.pc-check').style.cssText='width:18px;height:18px;border-radius:50%;border:1.5px solid '+(on?'#6366f1':'var(--border)')+';display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#fff;flex-shrink:0;background:'+(on?'#6366f1':'none');
+      el.querySelector('.pc-check').textContent=on?'✓':'';
+      el.querySelector('.pc-label').style.color=on?'#c7d2fe':'#94a3b8';
     };
-    chip.className='chip';
-    chip.style.cssText='display:flex;flex-direction:column;align-items:flex-start;gap:2px;height:auto;padding:7px 11px';
-    chip.innerHTML='<div style="display:flex;align-items:center;gap:5px;width:100%"><span class="chip-check" style="font-size:.6rem;color:#93c5fd;width:10px"></span><span style="font-size:.7rem;font-weight:500">'+s.text+'</span></div>'
-      +'<div style="font-size:.62rem;color:var(--sub);line-height:1.4;padding-left:15px">'+s.detail+'</div>';
-    chip.onclick=()=>{
+    el.innerHTML='<div style="display:flex;align-items:flex-start;gap:10px">'
+      +'<div class="pc-check"></div>'
+      +'<div style="flex:1">'
+      +'<div class="pc-label" style="font-size:.78rem;font-weight:600;line-height:1.3">'+s.text+'</div>'
+      +'<div class="pc-tip" style="font-size:.68rem;color:var(--sub);line-height:1.5;margin-top:5px;white-space:pre-line">'+s.tip+'</div>'
+      +'</div></div>';
+    el.onclick=()=>{
       if(!plan[cat])plan[cat]=[];
-      const idx=(plan[cat]).findIndex(t=>t.text===s.text);
-      if(idx>=0){plan[cat].splice(idx,1);}
-      else{plan[cat].push({text:s.text,done:false});}
-      localStorage.setItem('mm_plan',JSON.stringify(plan));
-      renderTasks(cat);
+      const idx=plan[cat].findIndex(t=>t.text===s.text);
+      if(idx>=0)plan[cat].splice(idx,1);
+      else plan[cat].push({text:s.text,done:false});
+      savePlan();
+      refresh();
       renderPlanReminder();
-      setStyle();
     };
-    wrap.appendChild(chip);
-    setStyle();
+    wrap.appendChild(el);
+    refresh();
   });
 });
 
-function savePlan(){
-  plan.notes=document.getElementById('plan-notes').value;
-  localStorage.setItem('mm_plan',JSON.stringify(plan));
+function lockPlan(){
+  const notes=document.getElementById('plan-notes');
+  if(notes)plan.notes=notes.value;
+  const all=[...(plan.content||[]),...(plan.outreach||[]),...(plan.growth||[])];
+  if(!all.length){alert('Pick at least one task first.');return;}
+  plan.lockedFor=tmrStr;
+  savePlan();
+  renderPlanView();
+  renderPlanReminder();
+}
+
+function unlockPlan(){
+  plan.lockedFor=null;
+  savePlan();
+  renderPlanView();
+  renderPlanReminder();
+}
+
+function togglePlanTask(i){
+  const all=[...(plan.content||[]),...(plan.outreach||[]),...(plan.growth||[])];
+  // find which cat and index
+  let offset=0;
+  for(const cat of['content','outreach','growth']){
+    const arr=plan[cat]||[];
+    if(i-offset<arr.length){arr[i-offset].done=!arr[i-offset].done;break;}
+    offset+=arr.length;
+  }
+  savePlan();
+  renderPlanView();
+  renderPlanReminder();
+}
+
+function renderPlanView(){
+  const locked=plan.lockedFor===tmrStr;
+  document.getElementById('plan-build-view').style.display=locked?'none':'block';
+  const lv=document.getElementById('plan-locked-view');
+  if(!locked){lv.style.display='none';return;}
+  lv.style.display='block';
+  const all=[];
+  ['content','outreach','growth'].forEach(cat=>(plan[cat]||[]).forEach((t,i)=>all.push({...t,cat,i})));
+  const done=all.filter(t=>t.done).length;
+  let offset=0;
+  const cats={content:(plan.content||[]).length,outreach:(plan.outreach||[]).length,growth:(plan.growth||[]).length};
+  let gi=0;
+  lv.innerHTML='<div style="background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.3);border-radius:14px;padding:16px 15px;margin-bottom:12px">'
+    +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">'
+    +'<div><div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#818cf8">Locked for '+fmtFull(tmrDate)+'</div>'
+    +'<div style="font-size:.75rem;color:var(--sub);margin-top:2px">'+done+' of '+all.length+' done</div></div>'
+    +'<button onclick="unlockPlan()" style="font-size:.62rem;color:var(--sub);background:none;border:1px solid var(--border);border-radius:20px;padding:4px 10px;cursor:pointer">Edit</button>'
+    +'</div>'
+    +all.map((t,gi)=>'<div onclick="togglePlanTask('+gi+')" style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--dim);cursor:pointer">'
+      +'<div style="width:18px;height:18px;border-radius:50%;border:1.5px solid '+(t.done?'#6366f1':'var(--border)')+';display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#fff;flex-shrink:0;margin-top:1px;background:'+(t.done?'#6366f1':'none')+'">'+(t.done?'✓':'')+'</div>'
+      +'<div style="font-size:.78rem;color:'+(t.done?'var(--sub)':'#94a3b8')+';'+(t.done?'text-decoration:line-through;opacity:.4':'')+';line-height:1.4">'+t.text+'</div>'
+      +'</div>').join('')
+    +(plan.notes?'<div style="margin-top:12px;font-size:.72rem;color:var(--sub);line-height:1.5;border-top:1px solid var(--dim);padding-top:10px">'+plan.notes+'</div>':'')
+    +'</div>';
 }
 
 function renderPlanReminder(){
   const el=document.getElementById('plan-reminder');
   if(!el)return;
   const all=[...(plan.content||[]),...(plan.outreach||[]),...(plan.growth||[])];
-  if(!all.length){el.style.display='none';return;}
-  const tmr=new Date(today);tmr.setDate(today.getDate()+1);
+  const locked=plan.lockedFor===tmrStr;
+  if(!all.length||!locked){el.style.display='none';return;}
   const done=all.filter(t=>t.done).length;
   el.style.display='block';
-  el.innerHTML='<div style="background:#050c14;border:1px solid rgba(56,189,248,.2);border-radius:12px;padding:14px 15px">'
+  el.innerHTML='<div style="background:#050c14;border:1px solid rgba(99,102,241,.25);border-radius:12px;padding:14px 15px">'
     +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">'
-    +'<div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#38bdf8">Tomorrow\'s Plan</div>'
+    +'<div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#818cf8">Tomorrow\'s Plan</div>'
     +'<div style="font-size:.6rem;color:var(--sub)">'+done+'/'+all.length+' done</div>'
     +'</div>'
-    +all.map(t=>'<div style="display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid var(--dim)">'
-      +'<div class="chkbox'+(t.done?' on':'')+'" style="margin-top:1px;cursor:pointer;flex-shrink:0">'+(t.done?'✓':'')+'</div>'
-      +'<div style="font-size:.75rem;color:'+(t.done?'var(--sub)':'#94a3b8')+';'+(t.done?'text-decoration:line-through;opacity:.4':'')+';line-height:1.4">'+t.text+'</div>'
+    +all.map(t=>'<div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--dim)">'
+      +'<div style="width:14px;height:14px;border-radius:50%;border:1.5px solid '+(t.done?'#6366f1':'var(--border)')+';flex-shrink:0;background:'+(t.done?'#6366f1':'none')+';display:flex;align-items:center;justify-content:center;font-size:.5rem;color:#fff">'+(t.done?'✓':'')+'</div>'
+      +'<div style="font-size:.73rem;color:'+(t.done?'var(--sub)':'#94a3b8')+';'+(t.done?'text-decoration:line-through;opacity:.4':'')+';line-height:1.4">'+t.text+'</div>'
       +'</div>').join('')
-    +'<button onclick="showView(\'content\');goto(\'plan\')" style="margin-top:10px;font-size:.65rem;color:#38bdf8;background:none;border:none;cursor:pointer;padding:0;font-weight:600">Edit plan &#8594;</button>'
+    +'<button onclick="showView(\'content\');goto(\'plan\')" style="margin-top:10px;font-size:.65rem;color:#818cf8;background:none;border:none;cursor:pointer;padding:0;font-weight:600">View full plan &#8594;</button>'
     +'</div>';
 }
 
-function renderTasks(cat){
-  const el=document.getElementById('plan-'+cat+'-tasks');
-  el.innerHTML='';
-  (plan[cat]||[]).forEach((task,i)=>{
-    const row=document.createElement('div');
-    row.style.cssText='display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--dim)';
-    row.innerHTML=
-      '<div class="chkbox'+(task.done?' on':'')+'" onclick="toggleTask(\''+cat+'\','+i+')" style="cursor:pointer">'+(task.done?'&#10003;':'')+'</div>'
-      +'<div style="flex:1;font-size:.78rem;color:'+(task.done?'var(--sub)':'#94a3b8')+';'+(task.done?'text-decoration:line-through;opacity:.35':'')+'">'+task.text+'</div>'
-      +'<button onclick="removeTask(\''+cat+'\','+i+')" style="background:none;border:none;color:var(--sub);cursor:pointer;font-size:.8rem;padding:2px 8px">&#215;</button>';
-    el.appendChild(row);
-  });
-}
-
-function addTask(cat){
-  const text=prompt('Add your own task:');
-  if(!text||!text.trim())return;
-  if(!plan[cat])plan[cat]=[];
-  plan[cat].push({text:text.trim(),done:false});
-  localStorage.setItem('mm_plan',JSON.stringify(plan));
-  renderTasks(cat);
-}
-
-function toggleTask(cat,i){
-  plan[cat][i].done=!plan[cat][i].done;
-  localStorage.setItem('mm_plan',JSON.stringify(plan));
-  renderTasks(cat);
-  renderPlanReminder();
-}
-
-function removeTask(cat,i){
-  plan[cat].splice(i,1);
-  localStorage.setItem('mm_plan',JSON.stringify(plan));
-  renderTasks(cat);
-  renderPlanReminder();
-}
-
-PLAN_CATS.forEach(renderTasks);
-if(plan.notes)document.getElementById('plan-notes').value=plan.notes;
+if(plan.notes)setTimeout(()=>{const n=document.getElementById('plan-notes');if(n)n.value=plan.notes;},0);
+renderPlanView();
 renderPlanReminder();
 
 // ── Agents ─────────────────────────────────────────────────────────────
