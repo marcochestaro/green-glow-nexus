@@ -39,7 +39,7 @@ function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 async function runScraper(handles) {
   console.log('Starting Apify run for:', handles.join(', '));
   const run = await apifyRequest('POST', '/v2/acts/apify~instagram-scraper/runs', {
-    usernames: handles,
+    directUrls: handles.map(h => `https://www.instagram.com/${h}/`),
     resultsType: 'details',
     resultsLimit: 10,
   });
