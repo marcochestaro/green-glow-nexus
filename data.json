@@ -1,0 +1,18 @@
+{
+  "pulledAt": "2026-06-21T01:35:00.000Z",
+  "me": {
+    "handle": "marcomarkets",
+    "followers": 622,
+    "totalPosts": 3,
+    "totalViews": 1075,
+    "avgEngagement": 67,
+    "topPosts": [
+      {"id":"3860870039814080690","url":"https://www.instagram.com/marcomarkets/","type":"Sidecar","caption":"Its already written","timestamp":"2026-03-25T20:46:36Z","views":0,"likes":115,"comments":6,"engagement":121},
+      {"id":"3892133832975312390","url":"https://www.instagram.com/marcomarkets/","type":"Video","caption":"If you want me to fix all 3 of these for your business DM me ADS","timestamp":"2026-05-08T00:02:21Z","views":1075,"likes":21,"comments":0,"engagement":21},
+      {"id":"3913146965559426101","url":"https://www.instagram.com/marcomarkets/","type":"Sidecar","caption":"Less hurry, more purpose","timestamp":"2026-06-05T23:51:31Z","views":0,"likes":59,"comments":1,"engagement":60}
+    ]
+  },
+  "competitors": [
+    {"handle":"adsbydann"},{"handle":"joshhills"},{"handle":"adsharley"},{"handle":"badmarketing"},{"handle":"markbuilds"},{"handle":"isaiahhgarciaa"}
+  ]
+}

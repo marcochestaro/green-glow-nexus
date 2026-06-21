@@ -1,24 +1,204 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GreenLawn Care - Professional Landscaping & Lawn Care Services</title>
-    <meta name="description" content="Transform your outdoor space with professional landscaping and lawn care services. Expert mowing, pruning, design, and fertilization. Get your free quote today!" />
-    <meta name="author" content="GreenLawn Care" />
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>@marcomarkets — HQ</title><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,sans-serif;background:#080b12;color:#e2e8f0;min-height:100vh}
+.topbar{background:linear-gradient(135deg,#0f1117 0%,#1a1f2e 100%);border-bottom:1px solid #1e2535;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+.topbar h1{font-size:1.2rem;font-weight:700;color:#fff}
+.live{display:flex;align-items:center;gap:6px;font-size:.75rem;color:#4ade80}
+.dot{width:8px;height:8px;border-radius:50%;background:#4ade80;animation:pu 2s infinite}
+@keyframes pu{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.main{padding:20px 24px;max-width:1400px;margin:0 auto}
+.tabs{display:flex;gap:4px;margin-bottom:20px;background:#0f1117;padding:4px;border-radius:10px;width:fit-content;flex-wrap:wrap}
+.tab{padding:8px 16px;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;color:#64748b;transition:all .2s;border:none;background:none}
+.tab.on{background:#1a1f2e;color:#e2e8f0;box-shadow:0 0 0 1px #2d3748}
+.panel{display:none}.panel.on{display:block}
+.grid{display:grid;gap:16px}
+.r4{grid-template-columns:repeat(4,1fr)}.r3{grid-template-columns:repeat(3,1fr)}.r2{grid-template-columns:1fr 1fr}
+.card{background:#111827;border:1px solid #1e2535;border-radius:14px;padding:20px}
+.card-glow{background:linear-gradient(135deg,#111827,#131c2e);border:1px solid #1e3a5f}
+.ct{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:#475569;margin-bottom:10px}
+.stat{font-size:2.2rem;font-weight:800;color:#fff;line-height:1}
+.stat-sub{font-size:.75rem;color:#475569;margin-top:4px}
+.bdg{display:inline-block;font-size:.65rem;padding:2px 7px;border-radius:20px;font-weight:700}
+.bb{background:#1e3a5f;color:#60a5fa}.bg{background:#14532d;color:#4ade80}.bp{background:#3b0764;color:#c084fc}.bo{background:#431407;color:#fb923c}
+.ag{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px}
+.ac{background:#0f1117;border:1px solid #1e2535;border-radius:12px;padding:14px;text-align:center;cursor:pointer;transition:all .2s}
+.ac:hover{border-color:#3b82f6;transform:translateY(-2px)}
+.ac.on{border-color:#3b82f6;background:#0d1e3a;box-shadow:0 0 20px rgba(59,130,246,.15)}
+.av{width:44px;height:44px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.an{font-size:.75rem;font-weight:600;color:#e2e8f0;margin-bottom:3px}
+.as{font-size:.65rem;color:#4ade80}
+.pu{display:inline-block;width:5px;height:5px;border-radius:50%;background:#4ade80;margin-right:3px;animation:pu 2s infinite}
+.op{background:#080b12;border:1px solid #1e2535;border-radius:10px;padding:14px;height:180px;overflow-y:auto;font-family:monospace;font-size:.78rem;color:#94a3b8;line-height:1.9}
+.op::-webkit-scrollbar{width:4px}.op::-webkit-scrollbar-thumb{background:#1e2535;border-radius:2px}
+.pr{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #1e2535;text-decoration:none;color:inherit;transition:all .2s;border-radius:8px}
+.pr:last-child{border-bottom:none}.pr:hover{background:#111827;padding-left:8px}
+.rk{font-size:1rem;font-weight:800;color:#1e3a5f;width:24px;text-align:center;flex-shrink:0}
+.pi{flex:1;min-width:0}
+.pc{font-size:.82rem;color:#cbd5e1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
+.pm{font-size:.7rem;color:#475569}
+.ps{display:flex;gap:10px;flex-shrink:0}
+.pst{text-align:right}.pst .v{font-size:.85rem;font-weight:700;color:#fff}.pst .l{font-size:.6rem;color:#475569}
+.cr{margin-bottom:12px}
+.ch{display:flex;justify-content:space-between;margin-bottom:5px}
+.cha{font-size:.8rem;color:#94a3b8}.chn{font-size:.8rem;font-weight:700;color:#e2e8f0}
+.bb2{background:#0f1117;border-radius:4px;height:8px;overflow:hidden}
+.bf{height:8px;border-radius:4px;transition:width 1.2s ease}
+.sc{background:#0d1117;border:1px solid #1e2535;border-radius:10px;padding:16px;margin-bottom:12px}
+.sc:last-child{margin-bottom:0}
+.sc-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.sc-num{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0}
+.sc-title{font-size:.88rem;font-weight:700;color:#e2e8f0}
+.sc-meta{font-size:.7rem;color:#475569;margin-top:2px}
+.sc-body{font-size:.8rem;color:#94a3b8;line-height:1.7;border-left:2px solid #1e3a5f;padding-left:12px}
+.sc-hook{color:#60a5fa;font-weight:600;font-size:.82rem;margin-bottom:6px}
+.cal-day{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #1e2535}
+.cal-day:last-child{border-bottom:none}
+.cal-date{width:44px;text-align:center;flex-shrink:0}
+.cal-d{font-size:1.1rem;font-weight:800;color:#fff}
+.cal-dn{font-size:.65rem;color:#475569;text-transform:uppercase}
+.cal-content{flex:1}
+.cal-title{font-size:.85rem;font-weight:600;color:#e2e8f0;margin-bottom:3px}
+.cal-detail{font-size:.75rem;color:#64748b}
+.cal-time{font-size:.7rem;color:#4ade80;flex-shrink:0;padding-top:2px}
+.trend-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #1e2535;align-items:flex-start}
+.trend-item:last-child{border-bottom:none}
+.trend-rank{width:24px;height:24px;border-radius:6px;background:#1e3a5f;color:#60a5fa;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.trend-title{font-size:.85rem;font-weight:600;color:#e2e8f0;margin-bottom:3px}
+.trend-why{font-size:.75rem;color:#64748b}
+.trend-stat{font-size:.7rem;color:#fb923c;font-weight:600;margin-top:3px}
+canvas{max-height:200px}
+@media(max-width:900px){.r4,.r3,.ag{grid-template-columns:1fr 1fr}.r2{grid-template-columns:1fr}.tabs{width:100%}}
+@media(max-width:600px){.r4,.r3,.ag{grid-template-columns:1fr}}
+</style></head><body>
+<div class="topbar">
+  <h1>&#127968; @marcomarkets &#8212; Content HQ</h1>
+  <div style="display:flex;gap:20px;align-items:center">
+    <div class="live"><div class="dot"></div>LIVE</div>
+    <div id="clock" style="font-size:.75rem;color:#475569"></div>
+  </div>
+</div>
+<div class="main">
+<div class="tabs">
+  <button class="tab on" onclick="showTab('overview',this)">&#128200; Overview</button>
+  <button class="tab" onclick="showTab('content',this)">&#9997; Scripts</button>
+  <button class="tab" onclick="showTab('calendar',this)">&#128197; Calendar</button>
+  <button class="tab" onclick="showTab('trends',this)">&#128293; Trends</button>
+</div>
 
-    <meta property="og:title" content="GreenLawn Care - Professional Landscaping & Lawn Care Services" />
-    <meta property="og:description" content="Transform your outdoor space with professional landscaping and lawn care services. Expert mowing, pruning, design, and fertilization." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+<div class="panel on" id="t-overview">
+<div class="grid r4" style="margin-bottom:16px">
+  <div class="card card-glow"><div class="ct">Followers</div><div class="stat" id="fl">622</div><div class="stat-sub">Instagram</div></div>
+  <div class="card"><div class="ct">Total Posts</div><div class="stat" id="tp">3</div><div class="stat-sub">scraped</div></div>
+  <div class="card"><div class="ct">Total Views</div><div class="stat" id="tv">1,075</div><div class="stat-sub">video plays</div></div>
+  <div class="card"><div class="ct">Avg Engagement</div><div class="stat" id="ae">67</div><div class="stat-sub">likes + comments</div></div>
+</div>
+<div class="card" style="margin-bottom:16px">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+    <div class="ct" style="margin-bottom:0">AI Agents &#8212; live research feed</div>
+    <div style="font-size:.7rem;color:#334155">auto-cycles every 20s</div>
+  </div>
+  <div class="ag">
+    <div class="ac on" onclick="sa('ideator')" id="ci"><div class="av" style="background:#0d1e3a">&#128269;</div><div class="an">Ideator</div><div class="as"><span class="pu"></span>Live</div></div>
+    <div class="ac" onclick="sa('hook')" id="ch"><div class="av" style="background:#1e0a3c">&#9997;</div><div class="an">Hook &amp; Script</div><div class="as"><span class="pu"></span>Live</div></div>
+    <div class="ac" onclick="sa('planner')" id="cp"><div class="av" style="background:#0a1f12">&#128197;</div><div class="an">Planner</div><div class="as"><span class="pu"></span>Live</div></div>
+    <div class="ac" onclick="sa('analyst')" id="ca"><div class="av" style="background:#1a0a03">&#128202;</div><div class="an">Analyst</div><div class="as"><span class="pu"></span>Live</div></div>
+    <div class="ac" onclick="sa('dm')" id="cd"><div class="av" style="background:#0d0b0a">&#128172;</div><div class="an">DM Manager</div><div class="as"><span class="pu"></span>Live</div></div>
+  </div>
+  <div class="op" id="out"></div>
+</div>
+<div class="grid r2" style="margin-bottom:16px">
+  <div class="card"><div class="ct">Engagement per Post</div><canvas id="ec"></canvas></div>
+  <div class="card"><div class="ct">Top Posts &#8212; <span style="font-size:.65rem;color:#334155;text-transform:none;letter-spacing:0">tap to open Instagram</span></div><div id="posts"></div></div>
+</div>
+<div class="card"><div class="ct">Competitor Follower Comparison</div><div id="comp"></div></div>
+</div>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+<div class="panel" id="t-content">
+<div class="grid r2" style="margin-bottom:16px">
+  <div>
+    <div class="card" style="margin-bottom:12px"><div class="ct" style="margin-bottom:14px">&#127910; Talking Head Scripts</div>
+      <div class="sc"><div class="sc-head"><div class="sc-num" style="background:#1e3a5f;color:#60a5fa">1</div><div><div class="sc-title">Why Your Ads Get Ignored</div><div class="sc-meta">Reel &bull; 30-45 sec &bull; Monday 6pm</div></div></div><div class="sc-body"><div class="sc-hook">HOOK: &ldquo;If you run a service business and your ads get zero calls &mdash; watch this.&rdquo;</div>Most service businesses talk about themselves. &ldquo;20 years experience.&rdquo; Nobody cares. Your customer only cares: will this get me more jobs? Lead with their problem. &ldquo;Struggling to fill your schedule?&rdquo; not &ldquo;We offer digital marketing.&rdquo; That one change doubled bookings for my last client. DM me ADS if you want me to audit yours.</div></div>
+      <div class="sc"><div class="sc-head"><div class="sc-num" style="background:#3b0764;color:#c084fc">2</div><div><div class="sc-title">The $5/Day Ad That Books Jobs</div><div class="sc-meta">Reel &bull; 45-60 sec &bull; Wednesday 7pm</div></div></div><div class="sc-body"><div class="sc-hook">HOOK: &ldquo;I ran a $5/day Meta ad for a detailer. In 30 days: 14 new bookings.&rdquo;</div>One ad. One offer. &ldquo;Book a full detail this week, get a free interior clean.&rdquo; Targeted homeowners within 15km who owned vehicles over $40k. Before and after photos. Ad spend: $150. Revenue: $2,100. You don&rsquo;t need a big budget. You need the right offer in front of the right person. DM me ADS.</div></div>
+      <div class="sc"><div class="sc-head"><div class="sc-num" style="background:#14532d;color:#4ade80">3</div><div><div class="sc-title">3 Mistakes Killing Your Leads</div><div class="sc-meta">Carousel &bull; 5 slides &bull; Friday 6pm</div></div></div><div class="sc-body"><div class="sc-hook">Slide 1: &ldquo;If your Meta ads aren&rsquo;t booking jobs, you&rsquo;re making one of these 3 mistakes.&rdquo;</div>Slide 2: Targeting everyone. Fix: narrow to homeowners 25-55 in your service radius.<br>Slide 3: No clear offer. &ldquo;We clean windows&rdquo; is not an offer. &ldquo;Free quote in 24hrs&rdquo; is.<br>Slide 4: Sending traffic to your homepage. Send to a page with ONE action only.<br>Slide 5: Fix all 3 and your cost per lead drops 60%. DM me ADS.</div></div>
+    </div>
+  </div>
+  <div>
+    <div class="card" style="margin-bottom:12px"><div class="ct" style="margin-bottom:14px">&#128073; DM Scripts &mdash; When They Reply ADS</div>
+      <div class="sc"><div class="sc-head"><div class="sc-num" style="background:#431407;color:#fb923c">1</div><div><div class="sc-title">Opening Message</div><div class="sc-meta">Send within 15 min</div></div></div><div class="sc-body">Hey [name]! Appreciate you reaching out. Quick question before we dive in &mdash; what kind of service business do you run?</div></div>
+      <div class="sc"><div class="sc-head"><div class="sc-num" style="background:#431407;color:#fb923c">2</div><div><div class="sc-title">Qualify the Lead</div><div class="sc-meta">After they answer</div></div></div><div class="sc-body">Nice, love working with [trade] businesses. Two more quick questions: Are you currently running Meta ads? And what&rsquo;s your monthly ad budget?</div></div>
+      <div class="sc"><div class="sc-head"><div class="sc-num" style="background:#431407;color:#fb923c">3</div><div><div class="sc-title">Book the Call</div><div class="sc-meta">If they have budget</div></div></div><div class="sc-body">I&rsquo;ve helped [trade] businesses go from barely getting calls to fully booked in 60 days. I have a couple spots open this week for a free 15-min strategy call. Want me to send you the link?</div></div>
+      <div class="sc"><div class="sc-head"><div class="sc-num" style="background:#1e2535;color:#64748b">4</div><div><div class="sc-title">No Budget Yet</div><div class="sc-meta">Nurture response</div></div></div><div class="sc-body">No worries &mdash; when you&rsquo;re ready to invest in ads, hit me up. Save this account so you don&rsquo;t miss my daily tips.</div></div>
+    </div>
+    <div class="card"><div class="ct" style="margin-bottom:14px">&#128276; Best Times to Post</div>
+      <div style="display:grid;gap:8px">
+        <div style="display:flex;justify-content:space-between;padding:10px 12px;background:#0d1117;border-radius:8px;border:1px solid #1e2535"><div><div style="font-size:.82rem;font-weight:600;color:#e2e8f0">Monday &amp; Wednesday</div><div style="font-size:.72rem;color:#64748b">High intent scroll &mdash; start of work week</div></div><div style="font-size:.82rem;font-weight:700;color:#4ade80">6:00&ndash;7:00 PM</div></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 12px;background:#0d1117;border-radius:8px;border:1px solid #1e2535"><div><div style="font-size:.82rem;font-weight:600;color:#e2e8f0">Friday</div><div style="font-size:.72rem;color:#64748b">End of week planning mindset</div></div><div style="font-size:.82rem;font-weight:700;color:#4ade80">5:30&ndash;6:30 PM</div></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 12px;background:#0d1117;border-radius:8px;border:1px solid #1e2535"><div><div style="font-size:.82rem;font-weight:600;color:#e2e8f0">Sunday</div><div style="font-size:.72rem;color:#64748b">Pre-week planning &mdash; carousels perform best</div></div><div style="font-size:.82rem;font-weight:700;color:#60a5fa">7:00&ndash;8:30 PM</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<div class="panel" id="t-calendar">
+<div class="grid r2">
+  <div class="card"><div class="ct" style="margin-bottom:16px">&#128197; This Week &mdash; Jun 23&ndash;29</div>
+    <div class="cal-day"><div class="cal-date"><div class="cal-d">23</div><div class="cal-dn">Mon</div></div><div class="cal-content"><div class="cal-title">Talking Head: Why your ads get ignored</div><div class="cal-detail">30-45 sec &bull; <span class="bdg bp">Video</span> &bull; Script #1</div></div><div class="cal-time">6:00 PM</div></div>
+    <div class="cal-day"><div class="cal-date"><div class="cal-d">25</div><div class="cal-dn">Wed</div></div><div class="cal-content"><div class="cal-title">Results reel: $5/day ad that booked 14 jobs</div><div class="cal-detail">45-60 sec &bull; <span class="bdg bp">Video</span> &bull; Script #2</div></div><div class="cal-time">7:00 PM</div></div>
+    <div class="cal-day"><div class="cal-date"><div class="cal-d">27</div><div class="cal-dn">Fri</div></div><div class="cal-content"><div class="cal-title">Carousel: 3 ad mistakes killing your leads</div><div class="cal-detail">5 slides &bull; <span class="bdg bb">Carousel</span> &bull; Script #3</div></div><div class="cal-time">6:00 PM</div></div>
+    <div class="cal-day"><div class="cal-date"><div class="cal-d">29</div><div class="cal-dn">Sun</div></div><div class="cal-content"><div class="cal-title">Behind the scenes: building a plumber ad</div><div class="cal-detail">Screen record your setup &bull; <span class="bdg bp">Video</span></div></div><div class="cal-time">7:30 PM</div></div>
+  </div>
+  <div class="card"><div class="ct" style="margin-bottom:16px">&#128197; Next Week &mdash; Jun 30&ndash;Jul 6</div>
+    <div class="cal-day"><div class="cal-date"><div class="cal-d">30</div><div class="cal-dn">Mon</div></div><div class="cal-content"><div class="cal-title">Social proof: client result screenshot</div><div class="cal-detail">Show booking numbers &bull; <span class="bdg bg">Carousel</span></div></div><div class="cal-time">6:00 PM</div></div>
+    <div class="cal-day"><div class="cal-date"><div class="cal-d">2</div><div class="cal-dn">Wed</div></div><div class="cal-content"><div class="cal-title">Talking head: what I&rsquo;d do with a $500 ad budget</div><div class="cal-detail">Exact breakdown &bull; <span class="bdg bp">Video</span></div></div><div class="cal-time">7:00 PM</div></div>
+    <div class="cal-day"><div class="cal-date"><div class="cal-d">4</div><div class="cal-dn">Fri</div></div><div class="cal-content"><div class="cal-title">Promo: 2 spots open this month &mdash; DM ADS</div><div class="cal-detail">Urgency + CTA &bull; <span class="bdg bp">Video</span></div></div><div class="cal-time">5:30 PM</div></div>
+    <div class="cal-day"><div class="cal-date"><div class="cal-d">6</div><div class="cal-dn">Sun</div></div><div class="cal-content"><div class="cal-title">Carousel: 5 hooks that stop tradespeople scrolling</div><div class="cal-detail">Swipeable list &bull; <span class="bdg bb">Carousel</span></div></div><div class="cal-time">7:30 PM</div></div>
+  </div>
+</div>
+</div>
+
+<div class="panel" id="t-trends">
+<div class="grid r2">
+  <div class="card"><div class="ct" style="margin-bottom:16px">&#128293; Viral Angles in Your Niche</div>
+    <div class="trend-item"><div class="trend-rank">1</div><div><div class="trend-title">Real numbers breakdowns</div><div class="trend-why">Exact spend vs revenue. &ldquo;$150 in, $2,100 out.&rdquo; Drives huge saves in service biz niche.</div><div class="trend-stat">&#128200; 40K+ avg views on competitor accounts</div></div></div>
+    <div class="trend-item"><div class="trend-rank">2</div><div><div class="trend-title">Screen recordings of real ad accounts</div><div class="trend-why">Walk through actual Meta Ads Manager. Nobody in your niche does this.</div><div class="trend-stat">&#128200; 3x better than talking heads</div></div></div>
+    <div class="trend-item"><div class="trend-rank">3</div><div><div class="trend-title">&ldquo;What I&rsquo;d do with $X&rdquo; series</div><div class="trend-why">Budget breakdowns for specific trades. Highly shareable to each niche.</div><div class="trend-stat">&#128200; High save rate &mdash; saves trigger algorithm</div></div></div>
+    <div class="trend-item"><div class="trend-rank">4</div><div><div class="trend-title">Reaction to bad service business ads</div><div class="trend-why">React to a real bad ad. Educational + entertaining. Low effort, high engagement.</div><div class="trend-stat">&#128200; People tag their competitors in comments</div></div></div>
+    <div class="trend-item"><div class="trend-rank">5</div><div><div class="trend-title">Before/after client results carousel</div><div class="trend-why">&ldquo;They had 0 leads from ads. 60 days later...&rdquo; Saves convert to DMs within 48hrs.</div><div class="trend-stat">&#128200; Highest save rate in this niche</div></div></div>
+  </div>
+  <div>
+    <div class="card" style="margin-bottom:16px"><div class="ct" style="margin-bottom:14px">&#127919; Your Audience</div>
+      <div style="display:grid;gap:8px">
+        <div style="padding:10px 12px;background:#0d1117;border-radius:8px;border:1px solid #1e2535"><div style="font-size:.72rem;color:#475569;margin-bottom:3px">WHO FOLLOWS YOU</div><div style="font-size:.82rem;color:#e2e8f0">Solo tradespeople &mdash; window cleaners, HVAC, plumbers, detailers, landscapers, painters, roofers</div></div>
+        <div style="padding:10px 12px;background:#0d1117;border-radius:8px;border:1px solid #1e2535"><div style="font-size:.72rem;color:#475569;margin-bottom:3px">THEIR PAIN POINT</div><div style="font-size:.82rem;color:#e2e8f0">Great at their trade, no idea how to get consistent leads online. Tried ads and wasted money.</div></div>
+        <div style="padding:10px 12px;background:#0d1117;border-radius:8px;border:1px solid #1e2535"><div style="font-size:.72rem;color:#475569;margin-bottom:3px">WHAT CONVERTS THEM</div><div style="font-size:.82rem;color:#e2e8f0">Real results. Real numbers. Simple advice they can act on today. Not theory.</div></div>
+      </div>
+    </div>
+    <div class="card"><div class="ct" style="margin-bottom:14px">&#127775; Growth Actions</div>
+      <div style="display:grid;gap:8px">
+        <div style="display:flex;gap:10px;padding:10px 12px;background:#0d1117;border-radius:8px;border:1px solid #14532d"><div>&#9989;</div><div><div style="font-size:.82rem;font-weight:600;color:#4ade80">Post 4x per week minimum</div><div style="font-size:.72rem;color:#64748b">You have 3 posts. Algorithm needs consistency to push you.</div></div></div>
+        <div style="display:flex;gap:10px;padding:10px 12px;background:#0d1117;border-radius:8px;border:1px solid #14532d"><div>&#9989;</div><div><div style="font-size:.82rem;font-weight:600;color:#4ade80">Add DM ADS CTA to every post</div><div style="font-size:.72rem;color:#64748b">Your video got 1,075 views &mdash; those are unconverted leads.</div></div></div>
+        <div style="display:flex;gap:10px;padding:10px 12px;background:#0d1117;border-radius:8px;border:1px solid #1e3a5f"><div>&#128313;</div><div><div style="font-size:.82rem;font-weight:600;color:#60a5fa">Comment on @adsbydann @joshhills daily</div><div style="font-size:.72rem;color:#64748b">Engage on competitor posts to steal their audience.</div></div></div>
+        <div style="display:flex;gap:10px;padding:10px 12px;background:#0d1117;border-radius:8px;border:1px solid #1e3a5f"><div>&#128313;</div><div><div style="font-size:.82rem;font-weight:600;color:#60a5fa">Cross-post every reel to TikTok + YouTube Shorts</div><div style="font-size:.72rem;color:#64748b">Same content, 3x the reach. Takes 2 minutes per post.</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<script>
+setInterval(()=>{const n=new Date();document.getElementById('clock').textContent=n.toLocaleDateString('en-AU',{weekday:'short',month:'short',day:'numeric'})+' '+n.toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit'});},1000);
+function showTab(k,el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));el.classList.add('on');document.getElementById('t-'+k).classList.add('on');}
+const D={ideator:[{t:'IDEATOR',c:'bb',m:'Scanning @adsbydann @joshhills @adsharley for viral content...'},{t:'IDEATOR',c:'bb',m:'@badmarketing posted breakdown reel &mdash; 38K views in 48hrs'},{t:'IDEATOR',c:'bb',m:'Gap found: nobody covering $5/day budgets for window cleaners'},{t:'IDEATOR',c:'bb',m:'Hook pattern: real numbers posts avg 40K+ views in this niche'},{t:'IDEATOR',c:'bb',m:'@joshhills using screen-record format &mdash; performing 3x better'},{t:'IDEATOR',c:'bb',m:'Recommendation: post a real ad account screen recording this week'}],hook:[{t:'HOOK',c:'bp',m:'Generating hooks for service business audience...'},{t:'HOOK',c:'bp',m:'Hook A: Your ads are not broken. Your offer is.'},{t:'HOOK',c:'bp',m:'Hook B: I spent $150 on ads for a window cleaner. Here is what happened.'},{t:'HOOK',c:'bp',m:'Hook C: 3 reasons your HVAC ads get ignored &mdash; and how to fix them.'},{t:'HOOK',c:'bp',m:'Strongest: Hook B &mdash; specific dollar amount + niche + curiosity gap'},{t:'HOOK',c:'bp',m:'CTA written: DM me ADS for a free audit of your current campaign'}],planner:[{t:'PLANNER',c:'bg',m:'Building content calendar for week of Jun 23...'},{t:'PLANNER',c:'bg',m:'Mon 6pm: Talking head &mdash; why your ads get ignored'},{t:'PLANNER',c:'bg',m:'Wed 7pm: Results reel &mdash; $5/day ad that booked 14 jobs'},{t:'PLANNER',c:'bg',m:'Fri 6pm: Carousel &mdash; 3 ad mistakes killing your leads'},{t:'PLANNER',c:'bg',m:'Sun 7:30pm: Behind the scenes &mdash; building an ad for a plumber'},{t:'PLANNER',c:'bg',m:'4-post week locked. Cross-post all to TikTok + YouTube Shorts.'}],analyst:[{t:'ANALYST',c:'bb',m:'Analysing your 3 posts for performance patterns...'},{t:'ANALYST',c:'bb',m:'Post 1 Its already written: 115 likes, 6 comments &mdash; top engagement'},{t:'ANALYST',c:'bb',m:'Post 2 Fix all 3: 1,075 views &mdash; only video, highest reach by far'},{t:'ANALYST',c:'bb',m:'Post 3 Less hurry: 59 likes &mdash; lifestyle content underperforms'},{t:'ANALYST',c:'bb',m:'Pattern: tactical content beats lifestyle 2:1 in your niche'},{t:'ANALYST',c:'bb',m:'Action: stop lifestyle posts, double down on education + results'}],dm:[{t:'DM MGR',c:'bp',m:'Monitoring for ADS keyword replies...'},{t:'DM MGR',c:'bp',m:'Response template ready: qualify in 2 messages or less'},{t:'DM MGR',c:'bp',m:'Q1: What service business do you run?'},{t:'DM MGR',c:'bp',m:'Q2: Running ads now? What is your monthly budget?'},{t:'DM MGR',c:'bp',m:'If qualified: offer free 15-min strategy call'},{t:'DM MGR',c:'bp',m:'If not ready: nurture &mdash; follow for daily tips, save this account'}]};
+let cur='ideator',li=0,lt=null;
+function ts(){const n=new Date();return n.getHours().toString().padStart(2,'0')+':'+n.getMinutes().toString().padStart(2,'0');}
+function addLine(k,i){const p=document.getElementById('out');const l=D[k][i];const d=document.createElement('div');d.innerHTML='<span style="color:#334155;margin-right:8px">'+ts()+'</span><span class="bdg '+l.c+'" style="margin-right:6px">'+l.t+'</span><span style="color:#e2e8f0">'+l.m+'</span>';d.style.opacity='0';d.style.transition='opacity 0.5s';p.appendChild(d);setTimeout(()=>d.style.opacity='1',30);p.scrollTop=p.scrollHeight;}
+function sa(k){document.querySelectorAll('.ac').forEach(c=>c.classList.remove('on'));document.getElementById('c'+k[0]).classList.add('on');cur=k;li=0;clearInterval(lt);document.getElementById('out').innerHTML='';addLine(k,0);lt=setInterval(()=>{li++;if(li<D[k].length){addLine(k,li);}else{li=0;document.getElementById('out').innerHTML='';addLine(k,0);}},3200);}
+sa('ideator');
+const KEYS=['ideator','hook','planner','analyst','dm'];setInterval(()=>{sa(KEYS[(KEYS.indexOf(cur)+1)%KEYS.length]);},20000);
+const DATA={pulledAt:'2026-06-21T01:35:00.000Z',me:{handle:'marcomarkets',followers:622,totalPosts:3,totalViews:1075,avgEngagement:67,topPosts:[{id:'1',url:'https://www.instagram.com/marcomarkets/',type:'Sidecar',caption:'Its already written',timestamp:'2026-03-25T20:46:36Z',views:0,likes:115,comments:6,engagement:121},{id:'2',url:'https://www.instagram.com/marcomarkets/',type:'Video',caption:'If you want me to fix all 3 of these for your business DM me ADS',timestamp:'2026-05-08T00:02:21Z',views:1075,likes:21,comments:0,engagement:21},{id:'3',url:'https://www.instagram.com/marcomarkets/',type:'Sidecar',caption:'Less hurry, more purpose',timestamp:'2026-06-05T23:51:31Z',views:0,likes:59,comments:1,engagement:60}]},competitors:[{handle:'adsbydann'},{handle:'joshhills'},{handle:'adsharley'},{handle:'badmarketing'},{handle:'markbuilds'},{handle:'isaiahhgarciaa'}]};
+function render(d){const m=d.me;document.getElementById('fl').textContent=(m.followers||0).toLocaleString();document.getElementById('tp').textContent=m.totalPosts||0;document.getElementById('tv').textContent=(m.totalViews||0).toLocaleString();document.getElementById('ae').textContent=m.avgEngagement||0;const ps=m.topPosts||[];new Chart(document.getElementById('ec').getContext('2d'),{type:'bar',data:{labels:ps.map((_,i)=>'Post '+(i+1)),datasets:[{label:'Engagement',data:ps.map(p=>p.engagement),backgroundColor:'rgba(59,130,246,0.7)',borderColor:'#3b82f6',borderWidth:1,borderRadius:5},{label:'Views',data:ps.map(p=>p.views),backgroundColor:'rgba(139,92,246,0.5)',borderColor:'#8b5cf6',borderWidth:1,borderRadius:5}]},options:{responsive:true,plugins:{legend:{labels:{color:'#94a3b8'}}},scales:{x:{ticks:{color:'#475569'},grid:{color:'#0f1117'}},y:{ticks:{color:'#475569'},grid:{color:'#1e2535'}}}}});const c=document.getElementById('posts');ps.forEach((p,i)=>{const dt=p.timestamp?new Date(p.timestamp).toLocaleDateString('en-AU',{month:'short',day:'numeric'}):'';const tc=p.type==='Video'?'bp':p.type==='Sidecar'?'bb':'bg';c.innerHTML+='<a class="pr" href="'+p.url+'" target="_blank"><div class="rk">#'+(i+1)+'</div><div class="pi"><div class="pc">'+(p.caption||'(no caption)')+'</div><div class="pm">'+dt+' <span class="bdg '+tc+'">'+p.type+'</span></div></div><div class="ps"><div class="pst"><div class="v">'+p.likes+'</div><div class="l">likes</div></div><div class="pst"><div class="v">'+p.comments+'</div><div class="l">cmts</div></div>'+(p.views?'<div class="pst"><div class="v">'+p.views.toLocaleString()+'</div><div class="l">views</div></div>':'')+'</div></a>';});const cc=document.getElementById('comp');const co=Array.isArray(d.competitors)?d.competitors:[];const all=[{handle:'@marcomarkets (you)',followers:m.followers||0,me:true},...co.map(x=>({handle:'@'+x.handle,followers:x.followers||null,me:false}))];const mx=Math.max(...all.map(e=>e.followers||0),1);if(co.every(x=>!x.followers))cc.innerHTML='<div style="font-size:.75rem;color:#334155;margin-bottom:12px">Run scraper to pull competitor follower counts</div>';all.forEach(e=>{const pct=e.followers?Math.round((e.followers/mx)*100):1;const cl=e.me?'linear-gradient(90deg,#3b82f6,#60a5fa)':'linear-gradient(90deg,#1e2535,#2d3748)';cc.innerHTML+='<div class="cr"><div class="ch"><span class="cha">'+e.handle+'</span><span class="chn">'+(e.followers!=null?e.followers.toLocaleString():'&mdash;')+'</span></div><div class="bb2"><div class="bf" style="width:'+pct+'%;background:'+cl+'"></div></div></div>';});}
+async function load(){try{const d=await fetch('data.json?_='+Date.now()).then(r=>r.json());render(d);}catch(e){render(DATA);}}
+load();
+</script></body></html>
