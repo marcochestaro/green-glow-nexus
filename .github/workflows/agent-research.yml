@@ -2,7 +2,7 @@ name: Agent Research
 
 on:
   schedule:
-    - cron: '0 8 * * *'   # daily 8am UTC = 6pm AEST / 4am EST
+    - cron: '0 13 * * *'   # daily 1pm UTC = 9am EST / 11pm AEST
   workflow_dispatch:        # manual trigger button on GitHub Actions page
 
 jobs:
