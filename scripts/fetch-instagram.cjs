@@ -42,7 +42,7 @@ async function runScraper(handles) {
     usernames: handles,
     resultsType: 'details',
     resultsLimit: 10,
-    proxy: { useApifyProxy: true, apifyProxyGroups: ['SHADER'] },
+    proxy: { useApifyProxy: true },
   });
   const runId = run.data && run.data.id;
   if (!runId) throw new Error('Failed to start run: ' + JSON.stringify(run));
@@ -76,8 +76,17 @@ async function main() {
     console.log('Good item keys:', Object.keys(first).slice(0, 25).join(', '));
     console.log('Good item username:', first.username, '| followersCount:', first.followersCount, '| ownerId:', first.ownerId);
   }
-  const meData = goodItems.find(i => (i.username || i.ownerUsername || '').toLowerCase() === ME.toLowerCase()) || {};
-  const topPosts = (meData.latestPosts || meData.posts || meData.topPosts || meData.recentPosts || [])
+  // With resultsType:'details', items are posts — group them by owner username
+  const myPosts = goodItems.filter(i => (i.ownerUsername || i.username || '').toLowerCase() === ME.toLowerCase());
+  // Profile-level data may appear as a separate item with username field, or embedded in posts
+  const meProfile = goodItems.find(i => (i.username || '').toLowerCase() === ME.toLowerCase() && i.followersCount != null)
+    || (myPosts[0] && myPosts[0].ownerFollowersCount != null ? myPosts[0] : null)
+    || {};
+
+  const getFollowers = (item) =>
+    item.followersCount || item.followedByCount || item.ownerFollowersCount || item.followers || null;
+
+  const topPosts = myPosts
     .slice(0, 6)
     .map(p => ({
       id: p.id || '',
@@ -92,10 +101,11 @@ async function main() {
     }));
 
   const competitors = COMPETITORS.map(handle => {
-    const c = goodItems.find(i => (i.username || '').toLowerCase() === handle.toLowerCase()) || {};
+    const posts = goodItems.filter(i => (i.ownerUsername || i.username || '').toLowerCase() === handle.toLowerCase());
+    const profile = goodItems.find(i => (i.username || '').toLowerCase() === handle.toLowerCase()) || posts[0] || {};
     return {
       handle,
-      followers: c.followersCount || c.followedByCount || c.followers || null,
+      followers: getFollowers(profile),
     };
   });
 
@@ -103,9 +113,9 @@ async function main() {
     pulledAt: new Date().toISOString(),
     me: {
       handle: ME,
-      followers: meData.followersCount || meData.followedByCount || meData.followers || null,
-      totalPosts: meData.postsCount || meData.mediaCount || meData.igTvVideoCount || topPosts.length,
-      totalViews: topPosts.reduce((s, p) => s + p.views, 0),
+      followers: getFollowers(meProfile),
+      totalPosts: meProfile.postsCount || meProfile.mediaCount || myPosts.length,
+      totalViews: topPosts.reduce((s, p) => s + (p.views || 0), 0),
       avgEngagement: topPosts.length
         ? Math.round(topPosts.reduce((s, p) => s + p.engagement, 0) / topPosts.length)
         : 0,
@@ -115,11 +125,10 @@ async function main() {
   };
 
   const outPath = path.join(__dirname, '..', 'dashboard', 'data.json');
-  fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, JSON.stringify(output, null, 2));
   console.log('Written to', outPath);
-  console.log('Followers:', output.me.followers);
-  console.log('Top posts:', topPosts.length);
+  console.log('My followers:', output.me.followers, '| posts:', output.me.totalPosts, '| myPosts items:', myPosts.length);
+  console.log('Competitors:', output.competitors.map(c => `${c.handle}:${c.followers}`).join(', '));
 }
 
 main().catch(e => { console.error(e); process.exit(1); });
