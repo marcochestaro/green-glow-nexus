@@ -431,15 +431,24 @@ Follow for daily content on what actually works</textarea>
   <div id="plan-build-view">
     <div style="font-size:.72rem;color:var(--sub);margin-bottom:14px" id="plan-date"></div>
 
-    <div style="font-size:.65rem;color:var(--sub);margin-bottom:16px;line-height:1.5">Pick up to <strong style="color:#c7d2fe">3 per section</strong>. Tap to add, tap again to remove. Hit Lock when you're done.</div>
+    <div style="font-size:.65rem;color:var(--sub);margin-bottom:18px;line-height:1.5">Pick <strong style="color:#c7d2fe">2 from each section</strong>. Tap to add, tap again to remove.</div>
 
-    <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub);margin-bottom:10px">Content</div>
-    <div id="chips-content" style="display:flex;flex-direction:column;gap:7px;margin-bottom:18px"></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub)">Content</div>
+      <div id="count-content" style="font-size:.65rem;font-weight:700;color:var(--sub)">0 / 2</div>
+    </div>
+    <div id="chips-content" style="display:flex;flex-direction:column;gap:7px;margin-bottom:20px"></div>
 
-    <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub);margin-bottom:10px">Outreach</div>
-    <div id="chips-outreach" style="display:flex;flex-direction:column;gap:7px;margin-bottom:18px"></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub)">Outreach</div>
+      <div id="count-outreach" style="font-size:.65rem;font-weight:700;color:var(--sub)">0 / 2</div>
+    </div>
+    <div id="chips-outreach" style="display:flex;flex-direction:column;gap:7px;margin-bottom:20px"></div>
 
-    <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub);margin-bottom:10px">Growth</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub)">Growth</div>
+      <div id="count-growth" style="font-size:.65rem;font-weight:700;color:var(--sub)">0 / 2</div>
+    </div>
     <div id="chips-growth" style="display:flex;flex-direction:column;gap:7px;margin-bottom:22px"></div>
 
     <div style="margin-bottom:14px">
@@ -1073,7 +1082,7 @@ function savePlan(){
   localStorage.setItem('mm_plan',JSON.stringify(plan));
 }
 
-const MAX_PER_CAT=3;
+const MAX_PER_CAT=2;
 const chipRefreshers={};
 
 ['content','outreach','growth'].forEach(cat=>{
@@ -1106,6 +1115,9 @@ const chipRefreshers={};
       else plan[cat].push({text:s.text,done:false});
       savePlan();
       refreshers.forEach(r=>r());
+      const cc=document.getElementById('count-'+cat);
+      if(cc)cc.textContent=(plan[cat]||[]).length+' / '+MAX_PER_CAT;
+      if(cc)cc.style.color=(plan[cat]||[]).length>=MAX_PER_CAT?'#818cf8':'var(--sub)';
       renderPlanReminder();
     };
     wrap.appendChild(el);
@@ -1201,6 +1213,10 @@ function renderPlanReminder(){
     +'</div>';
 }
 
+['content','outreach','growth'].forEach(cat=>{
+  const cc=document.getElementById('count-'+cat);
+  if(cc){cc.textContent=(plan[cat]||[]).length+' / '+MAX_PER_CAT;cc.style.color=(plan[cat]||[]).length>=MAX_PER_CAT?'#818cf8':'var(--sub)';}
+});
 if(plan.notes)setTimeout(()=>{const n=document.getElementById('plan-notes');if(n)n.value=plan.notes;},0);
 renderPlanView();
 renderPlanReminder();
