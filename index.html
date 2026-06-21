@@ -1,459 +1,569 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"><title>@marcomarkets</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>@marcomarkets</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#05070f;color:#e2e8f0;min-height:100vh;overflow-x:hidden}
+:root{--bg:#06080f;--card:#0a0d16;--border:#111827;--text:#e2e8f0;--sub:#475569;--dim:#1e2535;--blue:#3b82f6;--green:#4ade80;--purple:#c084fc;--orange:#fb923c}
+body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(6,8,15,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:52px}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;color:#fff;flex-shrink:0}
+.nav-name{font-size:.9rem;font-weight:800;color:#fff}
+.nav-links{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.nav-links::-webkit-scrollbar{display:none}
+.nl{padding:6px 12px;border-radius:6px;font-size:.72rem;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;border:none;background:none;white-space:nowrap}
+.nl:hover{color:var(--text);background:var(--border)}
+.nav-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.fl-count{font-size:.85rem;font-weight:800;color:#fff}
+.fl-lbl{font-size:.58rem;color:var(--dim)}
+.clock{font-size:.8rem;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums;letter-spacing:.03em}
 
 /* TICKER */
-.ticker{background:#08091a;border-bottom:1px solid #0f1a33;height:32px;overflow:hidden}
-.ticker-inner{display:flex;align-items:center;height:32px;white-space:nowrap;animation:scroll 55s linear infinite}
+.ticker{background:#04060c;border-bottom:1px solid var(--border);height:28px;overflow:hidden}
+.ticker-inner{display:flex;align-items:center;height:28px;white-space:nowrap;animation:scroll 50s linear infinite}
 .ticker-inner:hover{animation-play-state:paused}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.tick{display:inline-flex;align-items:center;gap:8px;padding:0 28px;font-size:.7rem;color:#334155}
-.tick .dot{width:5px;height:5px;border-radius:50%;background:#3b82f6;animation:pu 1.5s infinite;flex-shrink:0}
-.tick .lbl{color:#3b82f6;font-weight:700;font-size:.65rem;letter-spacing:.04em}
-.tick .val{color:#64748b}
-@keyframes pu{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.2;transform:scale(.5)}}
+.tick{display:inline-flex;align-items:center;gap:8px;padding:0 24px;font-size:.67rem;color:var(--dim)}
+.tick .dot{width:4px;height:4px;border-radius:50%;background:var(--blue);animation:pu 1.5s infinite;flex-shrink:0}
+.tick b{color:var(--blue)}
+@keyframes pu{0%,100%{opacity:1}50%{opacity:.2}}
 
-/* HEADER */
-.hdr{background:#080b14;border-bottom:1px solid #0f1a33;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.hdr-left{display:flex;align-items:center;gap:12px}
-.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 0 16px rgba(59,130,246,.25)}
-.hdr-name{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-.01em}
-.hdr-sub{font-size:.65rem;color:#334155;margin-top:1px}
-.live-badge{display:inline-flex;align-items:center;gap:4px;background:#05120a;border:1px solid #14532d;border-radius:20px;padding:2px 8px;font-size:.62rem;color:#4ade80;font-weight:700;margin-top:3px}
-.live-badge span{width:5px;height:5px;border-radius:50%;background:#4ade80;animation:pu 1s infinite;flex-shrink:0}
-.hdr-right{display:flex;align-items:center;gap:16px;flex-shrink:0}
-.stat-chip .n{font-size:1rem;font-weight:800;color:#fff;line-height:1}
-.stat-chip .l{font-size:.6rem;color:#334155;margin-top:2px;text-align:right}
-.clock-box{text-align:right}
-.clock-time{font-size:.95rem;font-weight:700;color:#3b82f6;font-variant-numeric:tabular-nums;letter-spacing:.04em}
-.clock-date{font-size:.6rem;color:#1e2535;margin-top:2px}
+/* SECTIONS */
+.page{max-width:860px;margin:0 auto;padding:20px 16px}
+section{margin-bottom:48px;scroll-margin-top:68px}
+.sec-hdr{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--dim);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pu 1s infinite;flex-shrink:0}
 
-/* TABS */
-.tabs{display:flex;background:#06080f;border-bottom:1px solid #0f1a33;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.tabs::-webkit-scrollbar{display:none}
-.tab{padding:12px 18px;font-size:.76rem;font-weight:600;color:#334155;cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;flex-shrink:0}
-.tab.on{color:#3b82f6;border-bottom-color:#3b82f6}
-
-/* PANEL */
-.panel{display:none;padding:16px;max-width:900px;margin:0 auto}
-.panel.on{display:block}
-
-/* SECTION LABEL */
-.slbl{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#1e2535;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.slbl .dot-g{width:5px;height:5px;border-radius:50%;background:#4ade80;animation:pu 1s infinite;flex-shrink:0}
-
-/* CARD */
-.card{background:#080b14;border:1px solid #0f1a33;border-radius:14px;padding:16px;margin-bottom:12px}
-
-/* PILLS */
-.pill{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-size:.65rem;font-weight:700}
-.p-blue{background:#0a1628;color:#60a5fa;border:1px solid #1e3a5f}
-.p-green{background:#06140a;color:#4ade80;border:1px solid #14532d}
-.p-purple{background:#120830;color:#c084fc;border:1px solid #3b0764}
-.p-orange{background:#140600;color:#fb923c;border:1px solid #431407}
-
-/* FILM NOTE */
-.film-note{background:#04060d;border-left:3px solid #3b82f6;padding:9px 12px;border-radius:0 8px 8px 0;font-size:.74rem;color:#475569;margin:12px 0;line-height:1.5}
-.film-note strong{color:#60a5fa}
-
-/* SCRIPT */
-.script-wrap{display:flex;flex-direction:column;gap:7px}
-.sl{display:grid;grid-template-columns:34px 38px 1fr;gap:0;align-items:start}
-.sl-time{font-size:.62rem;font-weight:700;color:#1e3a5f;padding-top:12px;text-align:right;padding-right:7px}
-.sl-tag{font-size:.55rem;font-weight:700;color:#334155;text-transform:uppercase;padding-top:13px;padding-right:7px}
-.sl-bub{background:#04060d;border:1px solid #0f1a33;border-radius:9px;padding:10px 12px;font-size:.78rem;color:#94a3b8;line-height:1.5}
-.sl-bub.hook{border-color:#1e3a5f;background:#04091c;color:#cbd5e1}
-.sl-bub.close{border-color:#14532d;background:#040d06;color:#cbd5e1}
-.copy-btn{display:inline-flex;align-items:center;gap:4px;background:none;border:1px solid #0f1a33;color:#334155;padding:3px 9px;border-radius:6px;font-size:.62rem;cursor:pointer;margin-top:5px;transition:all .15s}
-.copy-btn:hover{border-color:#3b82f6;color:#60a5fa}
-.copy-btn.ok{border-color:#14532d;color:#4ade80}
-
-/* ACTION BUTTONS */
-.action-btn{width:100%;border-radius:10px;padding:13px;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s;margin-top:8px;border:none}
-.btn-primary{background:#1e3a5f;color:#60a5fa}
-.btn-primary:hover{background:#2563eb;color:#fff}
-.btn-done{background:#06140a;color:#4ade80;border:1px solid #14532d}
-.btn-done.on{background:#14532d;color:#fff}
-
-/* WEEK NAV */
-.week-nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px;-webkit-overflow-scrolling:touch}
-.week-nav::-webkit-scrollbar{display:none}
-.wday{padding:10px 12px;border-radius:10px;border:1px solid #0f1a33;background:#06080f;cursor:pointer;text-align:center;min-width:64px;flex-shrink:0;transition:all .2s}
-.wday.on{border-color:#3b82f6;background:#0a1628}
-.wday.done{opacity:.35}
-.wday-name{font-size:.58rem;font-weight:700;color:#334155;text-transform:uppercase;letter-spacing:.06em}
-.wday-icon{font-size:1rem;margin:3px 0}
-.wday-sess{font-size:.55rem;color:#1e2535;margin-top:1px}
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:10px}
+.card-sm{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:8px}
 
 /* PROGRESS */
-.prog-row{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.prog-bar{flex:1;background:#0a0d18;border-radius:3px;height:3px}
-.prog-fill{background:linear-gradient(90deg,#3b82f6,#8b5cf6);height:3px;border-radius:3px;transition:width .6s}
-.prog-lbl{font-size:.65rem;color:#334155;flex-shrink:0}
+.prog-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.prog-bar{flex:1;background:var(--border);border-radius:3px;height:3px}
+.prog-fill{background:linear-gradient(90deg,var(--blue),var(--purple));height:3px;border-radius:3px;transition:width .6s}
+.prog-lbl{font-size:.65rem;color:var(--sub)}
 
-/* FILM SESSIONS */
-.session-hero{background:linear-gradient(135deg,#080f1e,#04060d);border:1px solid #0f1a33;border-radius:14px;padding:18px;margin-bottom:10px;position:relative;overflow:hidden}
-.session-hero::after{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(59,130,246,.06),transparent 70%);border-radius:50%;pointer-events:none}
-.session-num{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#1e3a5f;margin-bottom:6px}
-.session-title{font-size:1.1rem;font-weight:800;color:#fff;line-height:1.2;margin-bottom:10px}
-.session-posts{display:flex;flex-direction:column;gap:8px;margin-top:12px}
-.post-row{background:#04060d;border:1px solid #0a0d18;border-radius:10px;padding:12px}
-.post-row-label{font-size:.6rem;font-weight:700;color:#334155;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+/* WEEK STRIP */
+.week-strip{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;-webkit-overflow-scrolling:touch}
+.week-strip::-webkit-scrollbar{display:none}
+.wday{padding:8px 10px;border-radius:10px;border:1px solid var(--border);background:#07090f;cursor:pointer;text-align:center;min-width:60px;flex-shrink:0;transition:all .2s}
+.wday.active{border-color:var(--blue);background:#08101e}
+.wday.done{opacity:.35}
+.wday-n{font-size:.55rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:.05em}
+.wday-i{font-size:.95rem;margin:3px 0}
+.wday-t{font-size:.52rem;color:var(--dim)}
 
-/* RESEARCH */
-.agent-feed{background:#030508;border-radius:10px;height:160px;overflow-y:auto;padding:10px;font-family:'SF Mono',monospace;font-size:.7rem;line-height:1.9}
-.agent-feed::-webkit-scrollbar{width:2px}.agent-feed::-webkit-scrollbar-thumb{background:#0f1a33}
-.agent-row{display:flex;gap:7px;align-items:flex-start;opacity:0;transition:opacity .4s}
-.agent-row.vis{opacity:1}
-.ag-time{color:#0f1a33;flex-shrink:0;font-size:.62rem;padding-top:1px}
-.ag-badge{flex-shrink:0;font-size:.58rem;font-weight:700;padding:1px 5px;border-radius:4px}
-.ag-text{color:#475569}
-.agent-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-.ac{display:flex;align-items:center;gap:5px;background:#06080f;border:1px solid #0f1a33;border-radius:8px;padding:7px 10px;cursor:pointer;transition:all .2s}
-.ac.on{border-color:#3b82f6;background:#080f1e}
-.ac-icon{font-size:.85rem}
-.ac-name{font-size:.68rem;font-weight:600;color:#475569}
-.ac.on .ac-name{color:#60a5fa}
-.ac-dot{width:4px;height:4px;border-radius:50%;background:#4ade80;animation:pu 1s infinite}
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
-@media(max-width:500px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
-.stat-box{background:#06080f;border:1px solid #0f1a33;border-radius:12px;padding:12px}
-.stat-n{font-size:1.4rem;font-weight:800;color:#fff;line-height:1}
-.stat-l{font-size:.6rem;color:#334155;margin-top:3px}
-.comp-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #06080f}
+/* TODAY CARD */
+.today-card{background:linear-gradient(145deg,#080f1e,#06080f);border:1px solid #0f1e3a;border-radius:16px;padding:20px;position:relative;overflow:hidden}
+.today-card::before{content:'';position:absolute;top:-80px;right:-80px;width:240px;height:240px;background:radial-gradient(circle,rgba(59,130,246,.05),transparent 65%);border-radius:50%;pointer-events:none}
+.today-tag{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#1e3a5f;margin-bottom:8px}
+.today-title{font-size:1.2rem;font-weight:800;color:#fff;line-height:1.2;margin-bottom:10px}
+.pill{display:inline-flex;padding:3px 10px;border-radius:20px;font-size:.62rem;font-weight:700;margin-right:5px;margin-bottom:10px}
+.p-b{background:#08101e;color:#60a5fa;border:1px solid #0f1e3a}
+.p-g{background:#05120a;color:var(--green);border:1px solid #0d2218}
+.p-p{background:#0e0820;color:var(--purple);border:1px solid #200a40}
+.p-o{background:#130600;color:var(--orange);border:1px solid #2a0e00}
+.film-note{background:#040608;border-left:3px solid var(--blue);padding:9px 12px;border-radius:0 8px 8px 0;font-size:.72rem;color:var(--sub);margin:12px 0;line-height:1.55}
+.film-note b{color:#60a5fa}
+.script-lines{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.sl{display:grid;grid-template-columns:32px 36px 1fr;gap:0;align-items:start}
+.sl-time{font-size:.6rem;font-weight:700;color:var(--dim);padding-top:11px;text-align:right;padding-right:7px}
+.sl-tag{font-size:.52rem;font-weight:700;color:var(--dim);text-transform:uppercase;padding-top:12px;padding-right:6px}
+.sl-bub{background:#04060c;border:1px solid var(--border);border-radius:9px;padding:10px 12px;font-size:.78rem;color:#94a3b8;line-height:1.55}
+.sl-bub.hook{border-color:#0f1e3a;background:#04091c;color:#cbd5e1}
+.sl-bub.cta{border-color:#0d2218;background:#040c07;color:#cbd5e1}
+.cbtn{display:inline-flex;gap:4px;align-items:center;background:none;border:1px solid var(--border);color:var(--dim);padding:3px 8px;border-radius:5px;font-size:.6rem;cursor:pointer;margin-top:5px;transition:all .15s}
+.cbtn:hover{border-color:var(--blue);color:#60a5fa}
+.cbtn.ok{border-color:var(--green);color:var(--green)}
+.action-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.btn{padding:11px 18px;border-radius:10px;font-size:.78rem;font-weight:700;cursor:pointer;border:none;transition:all .2s}
+.btn-copy{background:#0d1e38;color:#60a5fa;flex:1}
+.btn-copy:hover{background:#1e3a5f}
+.btn-done{background:#05120a;color:var(--green);border:1px solid #0d2218;flex:1}
+.btn-done.on{background:#0d2218}
+
+/* AGENTS */
+.agents-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:12px}
+@media(max-width:500px){.agents-grid{grid-template-columns:repeat(3,1fr)}}
+.ag{background:#07090f;border:1px solid var(--border);border-radius:10px;padding:10px 8px;text-align:center;cursor:pointer;transition:all .2s}
+.ag:hover{border-color:var(--blue)}
+.ag.on{border-color:var(--blue);background:#08101e;box-shadow:0 0 14px rgba(59,130,246,.08)}
+.ag-icon{font-size:1.1rem;margin-bottom:4px}
+.ag-name{font-size:.65rem;font-weight:600;color:var(--sub)}
+.ag.on .ag-name{color:#60a5fa}
+.ag-dot{width:4px;height:4px;border-radius:50%;background:var(--green);animation:pu 1s infinite;margin:4px auto 0}
+.feed{background:#030508;border-radius:9px;height:148px;overflow-y:auto;padding:10px 12px;font-family:'SF Mono',monospace;font-size:.68rem;line-height:2}
+.feed::-webkit-scrollbar{width:2px}.feed::-webkit-scrollbar-thumb{background:var(--border)}
+.feed-row{display:flex;gap:7px;opacity:0;transition:opacity .35s}
+.feed-row.in{opacity:1}
+.f-time{color:var(--dim);flex-shrink:0;font-size:.6rem;padding-top:1px}
+.f-badge{flex-shrink:0;font-size:.56rem;font-weight:700;padding:1px 5px;border-radius:4px}
+.f-txt{color:var(--sub)}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+@media(max-width:480px){.stats-row{grid-template-columns:repeat(2,1fr)}}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 12px}
+.stat-n{font-size:1.5rem;font-weight:800;color:#fff;line-height:1}
+.stat-l{font-size:.58rem;color:var(--dim);margin-top:3px}
+
+/* COMP */
+.comp-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #07090f}
 .comp-row:last-child{border-bottom:none}
-.comp-handle{font-size:.7rem;color:#64748b;width:120px;flex-shrink:0}
-.comp-handle.me{color:#60a5fa;font-weight:700}
-.comp-bar-bg{flex:1;background:#0a0d18;border-radius:3px;height:4px}
-.comp-bar-fill{height:4px;border-radius:3px;transition:width 1.2s ease}
-.comp-num{font-size:.7rem;font-weight:700;color:#94a3b8;width:44px;text-align:right;flex-shrink:0}
-.post-link{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#06080f;border:1px solid #0f1a33;border-radius:10px;text-decoration:none;color:inherit;margin-bottom:6px;transition:all .2s}
-.post-link:hover{border-color:#3b82f6}
-.post-cap{font-size:.74rem;color:#94a3b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.post-meta{font-size:.6rem;color:#334155;margin-top:2px}
-.post-v{font-size:.75rem;font-weight:700;color:#fff}
-.post-vl{font-size:.55rem;color:#334155}
+.comp-h{font-size:.72rem;color:var(--sub);width:130px;flex-shrink:0}
+.comp-h.me{color:#60a5fa;font-weight:700}
+.comp-bg{flex:1;background:#07090f;border-radius:3px;height:4px}
+.comp-fill{height:4px;border-radius:3px;transition:width 1.2s}
+.comp-n{font-size:.7rem;font-weight:700;color:#94a3b8;width:44px;text-align:right;flex-shrink:0}
+.comp-note{font-size:.65rem;color:var(--dim);margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
 
-/* TOOLS */
-.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:600px){.tools-grid{grid-template-columns:1fr}}
-.dm-card{background:#030508;border:1px solid #0a0d18;border-radius:9px;padding:11px 13px;margin-bottom:7px}
-.dm-step{font-size:.58rem;font-weight:700;color:#fb923c;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
-.dm-text{font-size:.76rem;color:#94a3b8;line-height:1.5;margin-bottom:7px}
-.bio-area{width:100%;background:#030508;border:1px solid #0a0d18;border-radius:9px;padding:11px;font-size:.78rem;color:#e2e8f0;line-height:1.7;resize:vertical;min-height:100px;font-family:inherit;outline:none;transition:border-color .2s}
-.bio-area:focus{border-color:#3b82f6}
-.check-item{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid #06080f;cursor:pointer}
-.check-item:last-child{border-bottom:none}
-.chkbox{width:18px;height:18px;border-radius:5px;border:1px solid #0f1a33;background:#030508;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.65rem;transition:all .2s;margin-top:1px}
-.chkbox.on{background:#14532d;border-color:#14532d;color:#4ade80}
-.check-text{font-size:.76rem;color:#64748b}
-.check-sub{font-size:.62rem;color:#1e2535;margin-top:2px}
-.idea-item{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid #06080f;cursor:pointer}
-.idea-item:last-child{border-bottom:none}
-.idea-item.used .idea-text{text-decoration:line-through;opacity:.25}
-.idea-num{font-size:.62rem;color:#1e2535;width:16px;flex-shrink:0;padding-top:2px}
-.idea-text{font-size:.74rem;color:#64748b;flex:1;line-height:1.4}
-.used-tag{font-size:.58rem;color:#1e2535;flex-shrink:0}
-.miro-btn-full{background:linear-gradient(135deg,#f59e0b,#f97316);color:#000;border:none;border-radius:10px;padding:12px;font-size:.8rem;font-weight:800;cursor:pointer;display:block;text-align:center;text-decoration:none;margin-bottom:10px;width:100%;transition:opacity .2s}
-.miro-btn-full:hover{opacity:.85}
-.miro-item{background:#030508;border:1px solid #0a0d18;border-radius:9px;padding:10px 12px;margin-bottom:6px;display:flex;align-items:center;gap:10px}
-.miro-num{width:24px;height:24px;background:#100900;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#f59e0b;flex-shrink:0}
-.miro-title{font-size:.78rem;font-weight:600;color:#94a3b8}
-.miro-desc{font-size:.65rem;color:#334155;margin-top:2px}
+/* POSTS */
+.post-a{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#07090f;border:1px solid var(--border);border-radius:10px;margin-bottom:6px;transition:all .2s}
+.post-a:hover{border-color:var(--blue)}
+.post-cap{font-size:.74rem;color:#94a3b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.post-meta{font-size:.6rem;color:var(--dim);margin-top:2px}
+
+/* 2 COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:620px){.two-col{grid-template-columns:1fr}}
+
+/* IDEAS */
+.idea-i{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid #07090f;cursor:pointer}
+.idea-i:last-child{border-bottom:none}
+.idea-i.used .idea-txt{text-decoration:line-through;opacity:.25}
+.idea-n{font-size:.6rem;color:var(--dim);width:16px;flex-shrink:0;padding-top:2px}
+.idea-txt{font-size:.75rem;color:var(--sub);flex:1;line-height:1.4}
+.used-lbl{font-size:.58rem;color:var(--dim);flex-shrink:0}
+
+/* WEEK DAYS ACCORDION */
+.wk-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:8px;overflow:hidden}
+.wk-hdr{display:flex;align-items:center;gap:10px;padding:13px 16px;cursor:pointer;transition:background .15s}
+.wk-hdr:hover{background:#0a0d16}
+.wk-body{display:none;padding:0 16px 16px;border-top:1px solid var(--border)}
+.wk-body.open{display:block}
+
+/* MIRO */
+.miro-open{background:linear-gradient(135deg,#f59e0b,#f97316);color:#000;border:none;border-radius:10px;padding:12px;font-size:.8rem;font-weight:800;cursor:pointer;display:block;text-align:center;width:100%;margin-bottom:10px;text-decoration:none;transition:opacity .2s}
+.miro-open:hover{opacity:.85}
+.miro-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #07090f}
+.miro-item:last-child{border-bottom:none}
+.miro-num{width:22px;height:22px;background:#100900;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;color:#f59e0b;flex-shrink:0}
+.miro-t{font-size:.76rem;font-weight:600;color:#94a3b8}
+.miro-d{font-size:.62rem;color:var(--dim)}
+
+/* DM */
+.dm-card{background:#04060c;border:1px solid var(--border);border-radius:9px;padding:12px;margin-bottom:7px}
+.dm-step{font-size:.58rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.dm-txt{font-size:.76rem;color:#94a3b8;line-height:1.55;margin-bottom:7px}
+
+/* BIO */
+.bio-area{width:100%;background:#04060c;border:1px solid var(--border);border-radius:9px;padding:11px;font-size:.78rem;color:var(--text);line-height:1.7;resize:vertical;min-height:95px;font-family:inherit;outline:none;transition:border-color .2s}
+.bio-area:focus{border-color:var(--blue)}
+
+/* CHECKLIST */
+.chk-i{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid #07090f;cursor:pointer}
+.chk-i:last-child{border-bottom:none}
+.chkbox{width:18px;height:18px;border-radius:5px;border:1px solid var(--border);background:#04060c;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.62rem;transition:all .2s;margin-top:1px}
+.chkbox.on{background:#0d2218;border-color:var(--green);color:var(--green)}
+.chk-txt{font-size:.76rem;color:var(--sub)}
+.chk-sub{font-size:.6rem;color:var(--dim);margin-top:2px}
 </style></head><body>
 
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-av">M</div>
+    <div class="nav-name">@marcomarkets</div>
+  </div>
+  <div class="nav-links">
+    <button class="nl" onclick="goto('today')">Today</button>
+    <button class="nl" onclick="goto('week')">This Week</button>
+    <button class="nl" onclick="goto('research')">Research</button>
+    <button class="nl" onclick="goto('ideas')">Ideas</button>
+    <button class="nl" onclick="goto('tools')">Tools</button>
+  </div>
+  <div class="nav-right">
+    <div>
+      <div class="fl-count" id="hdr-fl">622</div>
+      <div class="fl-lbl">followers</div>
+    </div>
+    <div class="clock" id="clock">00:00:00</div>
+  </div>
+</nav>
+
+<!-- TICKER -->
 <div class="ticker"><div class="ticker-inner" id="ticker"></div></div>
 
-<div class="hdr">
-  <div class="hdr-left">
-    <div class="avatar">M</div>
-    <div>
-      <div class="hdr-name">@marcomarkets</div>
-      <div class="hdr-sub">Meta Ads &middot; Service Businesses</div>
-      <div class="live-badge"><span></span>Live</div>
-    </div>
-  </div>
-  <div class="hdr-right">
-    <div class="stat-chip">
-      <div class="n" id="hdr-fl">622</div>
-      <div class="l">followers</div>
-    </div>
-    <div class="clock-box">
-      <div class="clock-time" id="clock">00:00</div>
-      <div class="clock-date" id="cdate"></div>
-    </div>
-  </div>
-</div>
-
-<div class="tabs">
-  <button class="tab on" onclick="st('today',this)">&#128197; Today</button>
-  <button class="tab" onclick="st('week',this)">&#127916; Film Sessions</button>
-  <button class="tab" onclick="st('research',this)">&#128202; Research</button>
-  <button class="tab" onclick="st('tools',this)">&#128295; Tools</button>
-</div>
+<div class="page">
 
 <!-- TODAY -->
-<div class="panel on" id="t-today">
+<section id="today">
+  <div class="sec-hdr"><div class="live-dot"></div>Today&#8217;s Post</div>
   <div class="prog-row">
     <div class="prog-bar"><div class="prog-fill" id="pbar" style="width:0%"></div></div>
-    <div class="prog-lbl" id="plbl">0/7 this week</div>
+    <div class="prog-lbl" id="plbl">0 / 7 this week</div>
   </div>
-  <div class="week-nav" id="wstrip"></div>
-  <div id="today-card"></div>
-</div>
+  <div class="week-strip" id="wstrip"></div>
+  <div id="today-out"></div>
+</section>
 
-<!-- FILM SESSIONS -->
-<div class="panel" id="t-week">
-  <div class="card" style="margin-bottom:14px;background:#06080f">
-    <div class="slbl">How this works</div>
-    <div style="font-size:.8rem;color:#64748b;line-height:1.7">Film <strong style="color:#fff">2 sessions per week</strong> and you get 7 posts. Each session takes 20&#8211;30 min. You batch-film 3&#8211;4 videos at once, then post one per day. You never have to think "what do I post today."</div>
-  </div>
-  <div id="sessions"></div>
-</div>
+<!-- THIS WEEK -->
+<section id="week">
+  <div class="sec-hdr">This Week — All 7 Posts</div>
+  <div id="week-out"></div>
+</section>
 
 <!-- RESEARCH -->
-<div class="panel" id="t-research">
-  <div class="stat-grid">
+<section id="research">
+  <div class="sec-hdr"><div class="live-dot"></div>Live Research</div>
+  <div class="stats-row">
     <div class="stat-box"><div class="stat-n" id="r-fl">622</div><div class="stat-l">Your Followers</div></div>
     <div class="stat-box"><div class="stat-n" id="r-tp">3</div><div class="stat-l">Posts Made</div></div>
     <div class="stat-box"><div class="stat-n" id="r-tv">1,075</div><div class="stat-l">Total Views</div></div>
     <div class="stat-box"><div class="stat-n" id="r-ae">67</div><div class="stat-l">Avg Engagement</div></div>
   </div>
-  <div class="card">
-    <div class="slbl"><div class="dot-g"></div>Live Agent Feed</div>
-    <div class="agent-chips" id="achips"></div>
-    <div class="agent-feed" id="afeed"></div>
+  <div class="card" style="margin-bottom:12px">
+    <div class="sec-hdr" style="margin-bottom:10px"><div class="live-dot"></div>AI Agent Feed</div>
+    <div class="agents-grid" id="agent-grid"></div>
+    <div class="feed" id="feed"></div>
   </div>
-  <div class="tools-grid">
+  <div class="two-col" style="margin-bottom:12px">
     <div class="card">
-      <div class="slbl">Competitor Followers</div>
+      <div class="sec-hdr" style="margin-bottom:10px">Competitors &amp; Agencies</div>
       <div id="comp-list"></div>
+      <div class="comp-note">Follower counts update when you run the scraper locally. Competitors &amp; marketing agencies included.</div>
     </div>
     <div class="card">
-      <div class="slbl">Your Top Posts <span style="font-size:.58rem;color:#0f1a33;text-transform:none;letter-spacing:0">— tap to open</span></div>
+      <div class="sec-hdr" style="margin-bottom:10px">Your Top Posts</div>
       <div id="posts-list"></div>
     </div>
   </div>
   <div class="card">
-    <div class="slbl">Engagement per Post</div>
+    <div class="sec-hdr" style="margin-bottom:10px">Engagement per Post</div>
     <canvas id="echart" style="max-height:160px"></canvas>
   </div>
-</div>
+</section>
+
+<!-- IDEAS -->
+<section id="ideas">
+  <div class="sec-hdr">Ideas Library — tap to mark used</div>
+  <div id="ideas-out" style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px"></div>
+</section>
 
 <!-- TOOLS -->
-<div class="panel" id="t-tools">
-  <div class="tools-grid">
+<section id="tools">
+  <div class="sec-hdr">Tools</div>
+  <div class="two-col">
     <div>
-      <div class="card" style="margin-bottom:12px">
-        <div class="slbl">Your Miro Board</div>
-        <a href="https://miro.com/app/board/uXjVHDLPpfc=/" target="_blank" class="miro-btn-full">Open Board in Miro &#8594;</a>
+      <div class="card" style="margin-bottom:10px">
+        <div class="sec-hdr" style="margin-bottom:10px">Miro Board</div>
+        <a href="https://miro.com/app/board/uXjVHDLPpfc=/" target="_blank" class="miro-open">Open Your Board &#8594;</a>
         <div id="miro-list"></div>
       </div>
       <div class="card">
-        <div class="slbl">Profile Bio</div>
+        <div class="sec-hdr" style="margin-bottom:10px">Profile Bio</div>
         <textarea class="bio-area" id="bio-text" oninput="localStorage.setItem('mm_bio',this.value)">I help service businesses get more leads with Meta ads
 $25/day · I handle everything · You just close the jobs
 Follow for daily content on what actually works</textarea>
-        <button class="copy-btn" style="width:100%;justify-content:center;margin-top:8px;padding:8px" onclick="navigator.clipboard.writeText(document.getElementById('bio-text').value)">Copy Bio</button>
+        <button class="cbtn" style="width:100%;justify-content:center;margin-top:8px;padding:8px" onclick="navigator.clipboard.writeText(document.getElementById('bio-text').value)">Copy Bio</button>
       </div>
     </div>
     <div>
-      <div class="card" style="margin-bottom:12px">
-        <div class="slbl">DM Scripts</div>
-        <div id="dm-scripts"></div>
+      <div class="card" style="margin-bottom:10px">
+        <div class="sec-hdr" style="margin-bottom:10px">DM Scripts — When They Reply &ldquo;ADS&rdquo;</div>
+        <div id="dm-out"></div>
       </div>
       <div class="card">
-        <div class="slbl">Profile Checklist</div>
-        <div id="pchecks"></div>
+        <div class="sec-hdr" style="margin-bottom:10px">Profile Checklist</div>
+        <div id="chk-out"></div>
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="slbl">Ideas Library <span style="font-size:.58rem;color:#0f1a33;text-transform:none;letter-spacing:0">— tap to mark used</span></div>
-    <div id="ideas-lib" style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px"></div>
-  </div>
-</div>
+</section>
+
+</div><!-- /page -->
 
 <script>
+function goto(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});}
+
 // Clock
-function tick(){const n=new Date();document.getElementById('clock').textContent=n.toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});document.getElementById('cdate').textContent=n.toLocaleDateString('en-AU',{weekday:'short',month:'short',day:'numeric'});}
+function tick(){const n=new Date();document.getElementById('clock').textContent=n.toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});}
 tick();setInterval(tick,1000);
 
-function st(k,el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));el.classList.add('on');document.getElementById('t-'+k).classList.add('on');}
-
-// WEEK - 7 posts, 2 filming sessions
+// WEEK DATA — better, deeper scripts
 const WEEK=[
-  {day:'MON',sess:1,icon:'&#128202;',title:'Why Most Service Business Ads Fail',type:'Screen Record',tp:'p-blue',
-   film:'Open your Miro board. Screen record on laptop. Talk through it section by section.',
-   lines:[
-    {time:'0:00',tag:'HOOK',cls:'hook',text:"Here's why most Meta ads for service businesses fail — and it's not what you think."},
-    {time:'0:10',tag:'PT 1',cls:'',text:"Targeting. Most businesses target an entire state. Local service businesses need tight local targeting — your city, 10-mile radius max."},
-    {time:'0:22',tag:'PT 2',cls:'',text:"Creative. Stock photos don't convert. A before/after photo of real work beats anything polished."},
-    {time:'0:34',tag:'PT 3',cls:'',text:"Objective. Boosting a post gets likes. A lead gen ad gets phone numbers. Completely different product."},
-    {time:'0:46',tag:'CLOSE',cls:'close',text:"Fix those three things without touching your budget and you'll see more leads. Save this — follow for more."},
-   ]},
-  {day:'TUE',sess:1,icon:'&#128293;',title:'Referrals Are a Bonus, Not a Business Model',type:'Talking Head',tp:'p-purple',
-   film:'Camera facing you. Confident tone. Sit close to camera. No notes visible.',
-   lines:[
-    {time:'0:00',tag:'HOOK',cls:'hook',text:"If your business only grows through referrals — you don't have a business. You have a favour."},
-    {time:'0:05',tag:'',cls:'',text:"Referrals are great. But they're unpredictable, unscalable, and out of your control."},
-    {time:'0:14',tag:'',cls:'',text:"Ads give you a dial. Turn it up, get more leads. Turn it down, slow things down. That's a real pipeline."},
-    {time:'0:24',tag:'CLOSE',cls:'close',text:"If you're waiting on word of mouth to grow — follow and I'll show you how to build that dial. DM me ADS if you're ready now."},
-   ]},
-  {day:'WED',sess:1,icon:'&#127910;',title:'POV: First Thing I Check in a Failing Ad Account',type:'Screen Record',tp:'p-blue',
-   film:'Open Meta Ads Manager. Screen record. Walk through a real account (blur client name).',
-   lines:[
-    {time:'0:00',tag:'HOOK',cls:'hook',text:"Someone sent me their ad account yesterday. I found the problem in 40 seconds. Here's what I looked at."},
-    {time:'0:07',tag:'',cls:'',text:"Audience size over 5 million — too broad. You're burning money on people not even in your city."},
-    {time:'0:17',tag:'',cls:'',text:"One generic image, no before/after. People scroll past anything that looks like a typical ad."},
-    {time:'0:28',tag:'',cls:'',text:"Running Traffic objective. That gets clicks, not calls. You need Lead Generation — different algorithm entirely."},
-    {time:'0:42',tag:'CLOSE',cls:'close',text:"Three things. Audience too broad, creative too generic, wrong objective. 90% of failing accounts. DM me ADS to check yours."},
-   ]},
-  {day:'THU',sess:2,icon:'&#128203;',title:'Meta vs Google: Which Wins for Service Businesses',type:'Carousel',tp:'p-orange',
-   film:'Design 5 slides in Canva. Dark background, one bold statement each. Last slide = CTA.',
-   lines:[
-    {time:'S1',tag:'HOOK',cls:'hook',text:"Meta vs Google Ads for service businesses. Which one actually books you more jobs?"},
-    {time:'S2',tag:'',cls:'',text:"Google: high intent, but $20–$80 per click in trade niches. Need $1,500+/month to see consistent results."},
-    {time:'S3',tag:'',cls:'',text:"Meta: put your ad in front of homeowners in your city. $25/day can work if you do it right."},
-    {time:'S4',tag:'',cls:'',text:"New business = Meta first. Lower cost, faster feedback. Established with budget = run both."},
-    {time:'S5',tag:'CLOSE',cls:'close',text:"DM me ADS and I'll tell you which one is right for your business in 5 minutes."},
-   ]},
-  {day:'FRI',sess:2,icon:'&#128161;',title:'Change This One Word in Your Ad Headline',type:'Talking Head',tp:'p-purple',
-   film:'Fast pace. One tip. Hold up one finger. Cut tight. Under 30 seconds.',
-   lines:[
-    {time:'0:00',tag:'HOOK',cls:'hook',text:"Change this one word in your ad headline and your click rate goes up immediately."},
-    {time:'0:05',tag:'',cls:'',text:"\"We offer window cleaning in [city]\" → \"Get your windows cleaned in [city] today.\" One word. Goes from you talking about yourself to them imagining the result."},
-    {time:'0:18',tag:'CLOSE',cls:'close',text:"Save this. Try it on your next ad. Follow — I post one of these every Friday."},
-   ]},
-  {day:'SAT',sess:2,icon:'&#128200;',title:'Real Numbers: What $25/Day Actually Looks Like',type:'Talking Head',tp:'p-green',
-   film:'Talk to camera confidently. Have the numbers memorised. Slow down when you say them.',
-   lines:[
-    {time:'0:00',tag:'HOOK',cls:'hook',text:"I ran a $25/day Meta ad for a local detailer. Here's exactly what happened over 30 days."},
-    {time:'0:07',tag:'',cls:'',text:"$750 total spend. Reached 18,400 people. 234 clicked. 19 filled in the form. 11 booked."},
-    {time:'0:18',tag:'',cls:'',text:"11 jobs at $180 average — $1,980 revenue from $750 in ads. And those customers come back."},
-    {time:'0:29',tag:'',cls:'',text:"Three things: tight local targeting, real before/after photo, simple offer — book this week, get a free interior clean."},
-    {time:'0:43',tag:'CLOSE',cls:'close',text:"Not magic — just the right setup. DM me ADS if you want this for your business."},
-   ]},
-  {day:'SUN',sess:2,icon:'&#9997;&#65039;',title:'Why I Only Work With Service Businesses',type:'Talking Head',tp:'p-green',
-   film:'Casual, genuine. No pitch. Can film anywhere. Just talk.',
-   lines:[
-    {time:'0:00',tag:'HOOK',cls:'hook',text:"I get asked why I only work with service businesses — plumbers, window cleaners, HVAC. Not e-commerce, not coaches."},
-    {time:'0:09',tag:'',cls:'',text:"These are businesses that actually do something. They show up at someone's house and make a problem go away."},
-    {time:'0:19',tag:'',cls:'',text:"Most are incredible at their trade but have no idea how to market it. That gap is what I fix."},
-    {time:'0:28',tag:'CLOSE',cls:'close',text:"Follow along — I post every day. DM me ADS if you're ready to build your lead machine."},
-   ]},
+{day:'MON',icon:'&#128202;',title:'The 3 Reasons Your Service Business Ads Are Wasting Money',type:'Screen Record',tp:'p-b',
+film:'Open Meta Ads Manager on your laptop. Screen record your screen while you talk. Walk through each section — audience, creative, objective.',
+lines:[
+{time:'0:00',tag:'HOOK',cls:'hook',text:'If your Meta ads aren\'t booking jobs, it\'s almost never the budget. I see this every week. Let me show you the three things that are actually killing your results.'},
+{time:'0:08',tag:'',cls:'',text:'[Show audience settings] Number one — targeting. Most service businesses target an entire state or city-wide. That sounds smart but it\'s backwards. A plumber in Melbourne\'s eastern suburbs doesn\'t need to reach someone in Geelong. Tight radius, 10 to 15 kilometres around your service area. That\'s it. Smaller audience, lower CPM, more relevant clicks.'},
+{time:'0:28',tag:'',cls:'',text:'[Switch to creative] Number two — the image. I see it constantly. A logo. A stock photo of hands shaking. A generic "we clean your windows" graphic. None of that converts. What works? A real photo. Before and after. Dirty gutters on the left, clean on the right. Cloudy windows before, crystal clear after. Real work from a real job you already did. Take the photo on your phone. Upload it. Done.'},
+{time:'0:50',tag:'',cls:'',text:'[Switch to campaign objective] Number three — the objective. If you hit "Boost Post", you\'re running a Reach campaign. It shows your ad to as many people as possible. Which sounds good. But you don\'t want reach. You want leads. You need to go into Ads Manager, create a new campaign, and select Lead Generation. That\'s what tells Meta\'s algorithm: find me people who will fill in a form. Two completely different products. One gets likes. One books jobs.'},
+{time:'1:10',tag:'CLOSE',cls:'cta',text:'If you\'re running ads right now and not getting results — check those three things first. Audience too broad, creative too generic, wrong objective. That\'s 90% of failing accounts. Save this. Follow — I post stuff like this every day. And if you want me to look at your account, DM me ADS.'},
+]},
+{day:'TUE',icon:'&#128293;',title:'Referrals Are Killing Your Growth (Even When They Feel Good)',type:'Talking Head',tp:'p-p',
+film:'Sit close to camera. Confident, direct eye contact. No notes. Talk like you\'re telling a mate something important.',
+lines:[
+{time:'0:00',tag:'HOOK',cls:'hook',text:'If referrals are your main source of new clients right now, I need you to hear this — because it feels like it\'s working, but it\'s actually a trap.'},
+{time:'0:06',tag:'',cls:'',text:'Referrals feel great because they close easy. Someone vouches for you, the trust is already there, and the conversation is warm. I get it. But here\'s the problem: you have zero control over them. You can\'t decide on Monday that you want 10 new leads this week and get 10 referrals. You just wait. And hope.'},
+{time:'0:22',tag:'',cls:'',text:'That\'s not a business. That\'s a favour economy. And the moment the person who refers you most often moves, retires, or just stops talking about you — your pipeline dries up. It happens all the time. Great tradespeople suddenly scrambling because their "referral machine" slowed down.'},
+{time:'0:38',tag:'',cls:'',text:'Ads fix that. Not because they\'re magic. But because they give you a dial. You decide when you want leads. You turn the dial up — you get more. You\'re fully booked — you turn it down. That\'s what a real business looks like. Predictable. Controllable. You own it.'},
+{time:'0:52',tag:'CLOSE',cls:'cta',text:'Referrals should be a bonus on top of a system that already works. Not the whole system. If you want to build that dial for your business — DM me ADS and I\'ll tell you exactly what it takes.'},
+]},
+{day:'WED',icon:'&#127910;',title:'I Audited a Plumber\'s Ad Account Live — Here\'s What I Found',type:'Screen Record',tp:'p-b',
+film:'Screen record Meta Ads Manager. Walk through a real account — blur any client name or identifying info. Talk through what you see as you click around.',
+lines:[
+{time:'0:00',tag:'HOOK',cls:'hook',text:'Someone sent me access to their ad account this week and asked me what was wrong. I\'m going to walk you through exactly what I found — because I guarantee most of you are making at least two of these same mistakes.'},
+{time:'0:08',tag:'',cls:'',text:'[Open Campaigns tab] First thing I check is the objective. And straight away — they\'re running Traffic. That campaign type optimises for link clicks. It literally tells Meta: find me people who like clicking links. That is not the same as finding people who want to book a plumber. Switch to Lead Generation. Always.'},
+{time:'0:22',tag:'',cls:'',text:'[Open Ad Set, click Audience] Second thing. Audience size: 2.8 million. That\'s the whole city plus surrounding areas. I\'ve seen $50 a day burn through in 3 hours on an audience that size with nothing to show for it. I tightened this to a 15km radius around their suburb. Audience dropped to 180,000. More relevant. Same budget goes 10x further.'},
+{time:'0:40',tag:'',cls:'',text:'[Click into the Ad, show creative] Third — look at this. Stock photo of a tap. Generic headline: "Professional Plumbing Services". No offer. No urgency. No before and after. No reason to stop scrolling. I rewrote the headline to "Burst pipe? We\'re there in 60 minutes — [city]". Added a real photo from a job they did. That\'s it.'},
+{time:'0:58',tag:'',cls:'',text:'Wrong objective, audience too broad, creative with no hook and no offer. Three fixes. None of them cost extra money. That\'s the work.'},
+{time:'1:05',tag:'CLOSE',cls:'cta',text:'Want me to do the same for yours? DM me ADS and I\'ll tell you in one conversation what\'s costing you money. Save this and share it with any tradie you know running ads.'},
+]},
+{day:'THU',icon:'&#128203;',title:'Meta vs Google Ads: The Real Answer for Service Businesses',type:'Carousel',tp:'p-o',
+film:'Design 5 slides in Canva. Dark background (#06080f), white headline, one point per slide. Export as images and post as carousel. Last slide is a CTA.',
+lines:[
+{time:'S1',tag:'HOOK',cls:'hook',text:'Meta vs Google Ads for service businesses. Most people get this completely wrong. Here\'s the honest breakdown.'},
+{time:'S2',tag:'',cls:'',text:'Google Ads: high intent. Someone types "emergency plumber near me" and your ad shows. But you\'re competing in an auction. In trade niches — plumbing, HVAC, roofing — clicks cost $20 to $80 each. To get 10 leads a month you might need $1,500 in ad spend minimum. Great if you have budget. Brutal if you\'re starting out.'},
+{time:'S3',tag:'',cls:'',text:'Meta Ads: no search intent. Nobody\'s scrolling Instagram looking for a window cleaner. But you can put your ad in front of exactly the right person — homeowners, 30 to 55, within 15km of your business, in a house not an apartment. $25 a day. Done right, this works.'},
+{time:'S4',tag:'',cls:'',text:'New service business, under $500/month ad budget: Meta first. You can test, learn, and get leads without burning through cash. Established business with $1,500+/month: run both. Google captures active searchers, Meta builds your brand and captures passive interest. Together they\'re a machine.'},
+{time:'S5',tag:'CLOSE',cls:'cta',text:'Save this so you have it when someone asks. And if you want me to tell you which one is right for your exact business and budget — DM me ADS. Five minutes, straight answer.'},
+]},
+{day:'FRI',icon:'&#128161;',title:'One Word Change That Makes People Click Your Ad',type:'Talking Head',tp:'p-p',
+film:'Fast, punchy delivery. One finger held up when you say "one word". Cut tight — no pauses. Under 35 seconds.',
+lines:[
+{time:'0:00',tag:'HOOK',cls:'hook',text:'I want to show you one word change that will immediately improve how many people click your ad. It costs nothing and takes 10 seconds.'},
+{time:'0:06',tag:'',cls:'',text:'Most service business headlines start with "We". "We offer window cleaning." "We provide HVAC services." "We are Melbourne\'s best plumbers." Every single one of those starts with you talking about yourself. And nobody cares about you yet. They care about what they\'re going to get.'},
+{time:'0:18',tag:'',cls:'',text:'Change "We" to "Get". "Get your windows cleaned today." "Get your HVAC serviced before summer." "Get a plumber to your door in 60 minutes." Same service. But now you\'re putting the reader in the outcome. They\'re imagining having it done. That\'s what makes someone stop scrolling.'},
+{time:'0:28',tag:'CLOSE',cls:'cta',text:'Go change your ad headline right now. One word. Save this if you want more of these — and follow because I post one every Friday.'},
+]},
+{day:'SAT',icon:'&#128200;',title:'$25/Day in Meta Ads: Exact Results From a Real Client',type:'Talking Head',tp:'p-g',
+film:'Camera on you, direct and confident. Slow down on the numbers — let them land. Don\'t rush the stats.',
+lines:[
+{time:'0:00',tag:'HOOK',cls:'hook',text:'I\'m going to show you exactly what happened when a local car detailer ran $25 a day in Meta ads for 30 days. Real numbers. No fluff.'},
+{time:'0:07',tag:'',cls:'',text:'Total spend: $750. The campaign reached 18,400 people in a 15km radius around their shop. Not random people — homeowners and car enthusiasts, 25 to 50, targeted by interests and location. Of those 18,400 people, 234 clicked the ad. And of those 234, 19 filled in the lead form.'},
+{time:'0:22',tag:'',cls:'',text:'Now here\'s where it gets good. Of those 19 leads, 11 booked and showed up. The other 8 either didn\'t answer follow-up or weren\'t ready yet. 11 jobs at an average of $180 each — that\'s $1,980 in revenue from $750 in ad spend. But that\'s not even the full picture.'},
+{time:'0:38',tag:'',cls:'',text:'Those 11 customers are now in their database. Even if only 4 of them come back twice a year, that\'s an extra $1,440 recurring without spending another dollar on ads. That\'s why the real return is always higher than the first number.'},
+{time:'0:51',tag:'',cls:'',text:'Three things made this work: tight location targeting, a real before and after photo of a detail job, and a simple limited offer — book this week and get a free interior clean with any full detail. No fancy design. No big budget. Just the right setup.'},
+{time:'1:00',tag:'CLOSE',cls:'cta',text:'If you run a service business and you\'re not running ads yet, this is what you\'re leaving on the table every month. DM me ADS and let\'s figure out what this looks like for your business.'},
+]},
+{day:'SUN',icon:'&#9997;&#65039;',title:'Why I Only Work With Service Businesses (Not Coaches or Brands)',type:'Talking Head',tp:'p-g',
+film:'Relaxed, honest tone. No pitch at all today. Can film anywhere — couch, outside, walking. Just talk like a normal person.',
+lines:[
+{time:'0:00',tag:'HOOK',cls:'hook',text:'I get asked this almost every week — why do I only work with service businesses? Plumbers, window cleaners, HVAC, roofers, detailers. Why not coaches, why not e-commerce, why not the bigger stuff?'},
+{time:'0:07',tag:'',cls:'',text:'Honest answer? Because these businesses actually do something. A plumber shows up to someone\'s house at 7am when there\'s water through the ceiling and makes the problem go away. A window cleaner transforms someone\'s home in an afternoon. These aren\'t digital products. They\'re real services that real people need and are already searching for.'},
+{time:'0:22',tag:'',cls:'',text:'And the people running them — most of them are brilliant at what they do. They\'ve built a skill over years. They just have no idea how to market it. They rely on word of mouth, they tried boosting a post once and got nothing, and they think ads don\'t work. That gap between what they\'re capable of and how many customers they have — that\'s what I want to close.'},
+{time:'0:40',tag:'',cls:'',text:'I also just like working with people who are proud of their work. A detailer who takes photos of every car they finish. A painter who points to a house and says "I did that." There\'s something real about that that I don\'t get working with other niches.'},
+{time:'0:52',tag:'CLOSE',cls:'cta',text:'That\'s why I\'m here every day. Follow along — I post something useful every single day. And if you\'re a service business owner who wants to finally make ads work, DM me ADS.'},
+]},
 ];
 
 const checks=JSON.parse(localStorage.getItem('mm_checks')||'{}');
 let todayI=new Date().getDay();if(todayI===0)todayI=6;else todayI--;
 
-function updProg(){const d=Object.values(checks).filter(Boolean).length;document.getElementById('pbar').style.width=(d/7*100)+'%';document.getElementById('plbl').textContent=d+'/7 this week';}
+function updProg(){const d=Object.values(checks).filter(Boolean).length;document.getElementById('pbar').style.width=(d/7*100)+'%';document.getElementById('plbl').textContent=d+' / 7 this week';}
 
 // Week strip
 const wstrip=document.getElementById('wstrip');
 WEEK.forEach((d,i)=>{
   const el=document.createElement('div');
-  el.className='wday'+(i===todayI?' on':'')+(checks[i]?' done':'');
+  el.className='wday'+(i===todayI?' active':'')+(checks[i]?' done':'');
   el.id='wd'+i;
-  el.onclick=()=>{document.querySelectorAll('.wday').forEach(w=>w.classList.remove('on'));el.classList.add('on');renderToday(i);};
-  el.innerHTML='<div class="wday-name">'+d.day+'</div><div class="wday-icon">'+d.icon+'</div><div class="wday-sess" style="color:#1e2535">S'+d.sess+'</div>';
+  el.onclick=()=>{document.querySelectorAll('.wday').forEach(w=>w.classList.remove('active'));el.classList.add('active');renderToday(i);};
+  el.innerHTML='<div class="wday-n">'+d.day+'</div><div class="wday-i">'+d.icon+'</div><div class="wday-t">'+d.type.split(' ')[0]+'</div>';
   wstrip.appendChild(el);
 });
 
 function cpLine(btn,text){navigator.clipboard.writeText(text).then(()=>{btn.textContent='Copied!';btn.classList.add('ok');setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('ok');},1800);});}
-function cpAll(i){navigator.clipboard.writeText(WEEK[i].lines.map(l=>l.text).join('\n\n'));}
-function mkScript(lines){return '<div class="script-wrap">'+lines.map(l=>'<div class="sl"><div class="sl-time">'+l.time+'</div><div class="sl-tag">'+l.tag+'</div><div class="sl-bub '+l.cls+'">'+l.text+'<br><button class="copy-btn" onclick="cpLine(this,`'+l.text.replace(/`/g,'\\`').replace(/\\/g,'\\\\')+'`)">Copy</button></div></div>').join('')+'</div>';}
+function cpAll(i){navigator.clipboard.writeText(WEEK[i].lines.map(l=>l.text).join('\n\n')).then(()=>{});}
+function mkScript(lines){return '<div class="script-lines">'+lines.map(l=>'<div class="sl"><div class="sl-time">'+l.time+'</div><div class="sl-tag">'+l.tag+'</div><div class="sl-bub '+l.cls+'">'+l.text+'<br><button class="cbtn" onclick="cpLine(this,`'+l.text.replace(/\\/g,'\\\\').replace(/`/g,'\\`')+'`)">Copy</button></div></div>').join('')+'</div>';}
 
 function renderToday(i){
   const d=WEEK[i];
-  document.getElementById('today-card').innerHTML='<div class="session-hero">'
-    +'<div class="session-num">'+d.day+' &bull; Session '+d.sess+' &bull; Post Today</div>'
-    +'<div class="session-title">'+d.title+'</div>'
-    +'<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px"><span class="pill '+d.tp+'">'+d.type+'</span></div>'
-    +'<div class="film-note"><strong>Filming:</strong> '+d.film+'</div>'
-    +'<button class="action-btn btn-primary" onclick="cpAll('+i+')">Copy Full Script</button>'
+  document.getElementById('today-out').innerHTML=
+    '<div class="today-card">'
+    +'<div class="today-tag">'+d.day+' &bull; Today\'s Post</div>'
+    +'<div class="today-title">'+d.title+'</div>'
+    +'<span class="pill '+d.tp+'">'+d.type+'</span>'
+    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
     +mkScript(d.lines)
-    +'<button class="action-btn btn-done'+(checks[i]?' on':'')+'" id="done-btn" onclick="toggleDone('+i+')">'+(checks[i]?'&#10003; Posted':'Mark as Posted')+'</button>'
-    +'</div>';
+    +'<div class="action-row">'
+    +'<button class="btn btn-copy" onclick="cpAll('+i+')">Copy Full Script</button>'
+    +'<button class="btn btn-done'+(checks[i]?' on':'')+'" id="done-btn" onclick="toggleDone('+i+')">'+(checks[i]?'&#10003; Posted':'Mark as Posted')+'</button>'
+    +'</div></div>';
 }
 renderToday(todayI);
-
-function toggleDone(i){checks[i]=!checks[i];localStorage.setItem('mm_checks',JSON.stringify(checks));document.getElementById('done-btn').className='action-btn btn-done'+(checks[i]?' on':'');document.getElementById('done-btn').innerHTML=checks[i]?'&#10003; Posted':'Mark as Posted';document.getElementById('wd'+i).classList.toggle('done',checks[i]);updProg();}
+function toggleDone(i){checks[i]=!checks[i];localStorage.setItem('mm_checks',JSON.stringify(checks));document.getElementById('done-btn').className='btn btn-done'+(checks[i]?' on':'');document.getElementById('done-btn').innerHTML=checks[i]?'&#10003; Posted':'Mark as Posted';document.getElementById('wd'+i).classList.toggle('done',checks[i]);updProg();}
 updProg();
 
-// Film Sessions
-const SESSIONS=[
-  {n:1,day:'Monday',title:'Film Session 1 — 3 videos, ~25 min',posts:[0,1,2]},
-  {n:2,day:'Thursday',title:'Film Session 2 — 4 videos, ~30 min',posts:[3,4,5,6]},
-];
-const sessEl=document.getElementById('sessions');
-SESSIONS.forEach(s=>{
-  const div=document.createElement('div');
-  div.className='session-hero';div.style.marginBottom='12px';
-  div.innerHTML='<div class="session-num">Session '+s.n+' &bull; Film on '+s.day+'</div>'
-    +'<div class="session-title">'+s.title+'</div>'
-    +'<div style="font-size:.74rem;color:#475569;margin:10px 0 14px">Film all '+s.posts.length+' videos back to back then post one per day.</div>'
-    +'<div class="session-posts">'
-    +s.posts.map(i=>{const d=WEEK[i];return '<div class="post-row"><div class="post-row-label"><span class="pill '+d.tp+'" style="font-size:.58rem;padding:2px 7px">'+d.type+'</span>'+d.day+' — '+d.title+'</div>'+mkScript(d.lines)+'</div>';}).join('')
-    +'</div>';
-  sessEl.appendChild(div);
+// This week accordion
+const wo=document.getElementById('week-out');
+WEEK.forEach((d,i)=>{
+  const div=document.createElement('div');div.className='wk-card';
+  div.innerHTML='<div class="wk-hdr" onclick="this.nextElementSibling.classList.toggle(\'open\')">'
+    +'<div style="font-size:1.1rem">'+d.icon+'</div>'
+    +'<div style="flex:1"><div style="font-size:.58rem;color:var(--dim);text-transform:uppercase;letter-spacing:.06em">'+d.day+'</div><div style="font-size:.85rem;font-weight:700;color:#fff">'+d.title+'</div></div>'
+    +'<span class="pill '+d.tp+'">'+d.type+'</span>'
+    +'</div>'
+    +'<div class="wk-body">'
+    +'<div class="film-note" style="margin-top:12px"><b>Filming:</b> '+d.film+'</div>'
+    +'<button class="btn btn-copy" style="width:100%;margin-top:10px;margin-bottom:10px" onclick="cpAll('+i+')">Copy Full Script</button>'
+    +mkScript(d.lines)+'</div>';
+  wo.appendChild(div);
 });
 
 // Agents
 const AGENTS={
-  ideator:{icon:'&#128269;',name:'Ideator',col:'bb',lines:['Fetching @adsbydann latest posts via Apify...','Scanning @joshhills @adsharley @badmarketing for viral patterns...','Found: "real numbers" posts averaging 40K+ views this week','Gap: nobody covering $5/day budgets for window cleaners','@badmarketing reel hit 38K views in 48h — breakdown format','Screen-record format outperforming talking head 3:1 this month','Top hook pattern: "I spent $X on [niche] ads. Here\'s what happened."','Recommendation: screen record your Ads Manager this week']},
-  hook:{icon:'&#9997;&#65039;',name:'Hook & Script',col:'bp',lines:['Loading your post history for hook pattern analysis...','Best hook: "If you want me to fix all 3..." — 1,075 views','Generating hook variants for screen record format...','Hook A: "I checked a failing ad account in 40 seconds."','Hook B: "Here\'s why most service business ads fail."','Hook C: "I ran $750 in ads for a detailer. Exact result."','Winner: Hook A — specific action + timeframe = highest curiosity','CTA written: "DM me ADS if you want me to check yours"']},
-  planner:{icon:'&#128197;',name:'Planner',col:'bg',lines:['Calculating optimal post times for service biz audience...','Mon 6:00 PM — Screen Record: Why Most Ads Fail','Tue 6:30 PM — Talking Head: Referrals Not a Business Model','Wed 7:00 PM — Screen Record: First Thing I Check','Thu 6:00 PM — Carousel: Meta vs Google','Fri 5:30 PM — Talking Head: Change One Word','Sat 6:00 PM — Talking Head: $25/Day Real Numbers','Sun 7:30 PM — Talking Head: Why I Only Work With Service Biz']},
-  analyst:{icon:'&#128202;',name:'Analyst',col:'bb',lines:['Pulling your engagement data...','Post 1 "Its already written": 115 likes, 6 comments — top engagement','Post 2 "Fix all 3": 1,075 views — only video, highest reach 50x','Post 3 "Less hurry": 59 likes — lifestyle underperforms 2:1','Pattern: tactical beats lifestyle in service biz niche','Video reach 1,075 vs carousel ~0 tracked views','Best post days: Mon and Wed based on engagement','Action: drop lifestyle, double down on tactical + results']},
-  dm:{icon:'&#128172;',name:'DM Manager',col:'bp',lines:['Monitoring keyword "ADS" across your Instagram DMs...','Response template loaded: qualify in 2 messages or less','Step 1: "What kind of service business do you run?"','Step 2: "Running ads? What\'s your monthly budget?"','Qualified (has budget): offer free 15-min strategy call','Not ready: nurture — follow for tips, save the account','Response time target: under 15 minutes','Standing by — waiting for next "ADS" trigger...']},
+  ideator:{icon:'&#128269;',name:'Ideator',bg:'#08101e',cl:'#60a5fa',lines:['Fetching @adsbydann latest posts via Apify...','Scanning @joshhills @adsharley @badmarketing for viral patterns...','Found: "real numbers" posts averaging 40K+ views this week','Gap: nobody covering $5/day budgets for window cleaners specifically','@badmarketing reel hit 38K views in 48h — breakdown format','Screen-record format outperforming talking head 3:1 this month','Top hook pattern: "I spent $X on [niche] ads — here\'s what happened"','Recommendation: screen record your Ads Manager this week']},
+  hook:{icon:'&#9997;&#65039;',name:'Hook & Script',bg:'#0e0820',cl:'#c084fc',lines:['Analysing your top-performing post...','Best hook you\'ve used: "If you want me to fix all 3..." — 1,075 views','Pattern: specific action + short timeframe = highest curiosity','Generating hooks for screen record format...','Hook A: "I audited a failing ad account in 40 seconds — here\'s what I found"','Hook B: "3 reasons your Meta ads aren\'t booking jobs (it\'s not the budget)"','Hook C: "I spent $750 on ads for a detailer — exact results"','Winner: Hook A — most specific, strongest implied reveal']},
+  planner:{icon:'&#128197;',name:'Planner',bg:'#05120a',cl:'#4ade80',lines:['Calculating best post times for service biz audience...','Mon 6:00 PM AEST — Screen Record: 3 Reasons Your Ads Waste Money','Tue 6:30 PM — Talking Head: Referrals Are Killing Your Growth','Wed 7:00 PM — Screen Record: I Audited a Plumber\'s Account Live','Thu 6:00 PM — Carousel: Meta vs Google Real Breakdown','Fri 5:30 PM — Talking Head: One Word Change That Gets More Clicks','Sat 6:00 PM — Talking Head: $25/Day Real Client Results','Sun 7:30 PM — Talking Head: Why I Only Work With Service Businesses']},
+  analyst:{icon:'&#128202;',name:'Analyst',bg:'#08101e',cl:'#60a5fa',lines:['Pulling engagement data...','Post 1 "Its already written": 115 likes, 6 comments — top engagement ratio','Post 2 "Fix all 3": 1,075 views — only video, 50x more reach than carousels','Post 3 "Less hurry": 59 likes — lifestyle content underperforms 2:1','Verdict: tactical, educational content clearly wins in your niche','Zero CTAs detected across all 3 posts — you\'re losing DM leads','Recommended: add "DM me ADS" to every post caption','Priority action: post more video — your one video reached 50x more people']},
+  dm:{icon:'&#128172;',name:'DM Manager',bg:'#0e0820',cl:'#c084fc',lines:['Monitoring keyword "ADS" across your Instagram DMs...','Template loaded: qualify in 2 messages, offer call in message 3','Best response time window: under 15 minutes after they reply','People who wait over 1 hour to respond lose 60% of warm leads','Step 1: "What kind of service business do you run?"','Step 2: "Running any ads currently? What\'s your rough monthly budget?"','If budget exists: offer free 15-min strategy call immediately','No budget: nurture with daily content, position as the expert to return to']},
 };
 const AKEYS=Object.keys(AGENTS);
 let curA='ideator',aIdx=0,aTimer=null;
-const achips=document.getElementById('achips');
-AKEYS.forEach(k=>{const div=document.createElement('div');div.className='ac'+(k==='ideator'?' on':'');div.id='ac'+k;div.onclick=()=>swA(k);div.innerHTML='<div class="ac-icon">'+AGENTS[k].icon+'</div><div class="ac-name">'+AGENTS[k].name+'</div><div class="ac-dot"></div>';achips.appendChild(div);});
+const agrid=document.getElementById('agent-grid');
+AKEYS.forEach(k=>{const div=document.createElement('div');div.className='ag'+(k==='ideator'?' on':'');div.id='ag'+k;div.onclick=()=>swA(k);div.innerHTML='<div class="ag-icon">'+AGENTS[k].icon+'</div><div class="ag-name">'+AGENTS[k].name+'</div><div class="ag-dot"></div>';agrid.appendChild(div);});
 function ts(){return new Date().toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});}
-function addALine(k,i){const feed=document.getElementById('afeed');const a=AGENTS[k];const row=document.createElement('div');row.className='agent-row';const bg=a.col==='bb'?'#08101e':a.col==='bp'?'#0e0520':'#05100a';const cl=a.col==='bb'?'#60a5fa':a.col==='bp'?'#c084fc':'#4ade80';row.innerHTML='<span class="ag-time">'+ts()+'</span><span class="ag-badge" style="background:'+bg+';color:'+cl+'">'+a.name.slice(0,6).toUpperCase()+'</span><span class="ag-text">'+a.lines[i]+'</span>';feed.appendChild(row);setTimeout(()=>row.classList.add('vis'),30);feed.scrollTop=feed.scrollHeight;}
-function swA(k){document.querySelectorAll('.ac').forEach(c=>c.classList.remove('on'));document.getElementById('ac'+k).classList.add('on');curA=k;aIdx=0;clearInterval(aTimer);document.getElementById('afeed').innerHTML='';addALine(k,0);aTimer=setInterval(()=>{aIdx++;if(aIdx<AGENTS[k].lines.length){addALine(k,aIdx);}else{aIdx=0;document.getElementById('afeed').innerHTML='';addALine(k,0);}},2500);}
+function addLine(k,i){const feed=document.getElementById('feed');const a=AGENTS[k];const row=document.createElement('div');row.className='feed-row';row.innerHTML='<span class="f-time">'+ts()+'</span><span class="f-badge" style="background:'+a.bg+';color:'+a.cl+'">'+k.slice(0,5).toUpperCase()+'</span><span class="f-txt">'+a.lines[i]+'</span>';feed.appendChild(row);setTimeout(()=>row.classList.add('in'),30);feed.scrollTop=feed.scrollHeight;}
+function swA(k){document.querySelectorAll('.ag').forEach(c=>c.classList.remove('on'));document.getElementById('ag'+k).classList.add('on');curA=k;aIdx=0;clearInterval(aTimer);document.getElementById('feed').innerHTML='';addLine(k,0);aTimer=setInterval(()=>{aIdx++;if(aIdx<AGENTS[k].lines.length)addLine(k,aIdx);else{aIdx=0;document.getElementById('feed').innerHTML='';addLine(k,0);}},2500);}
 swA('ideator');
-setInterval(()=>{swA(AKEYS[(AKEYS.indexOf(curA)+1)%AKEYS.length]);},20000);
+setInterval(()=>swA(AKEYS[(AKEYS.indexOf(curA)+1)%AKEYS.length]),20000);
 
 // Ticker
-const TICKS=['IDEATOR · Scanning @adsbydann — latest post got 42K views in 48h','ANALYST · Your video (1,075 views) outperforms carousel 50x — post more video','PLANNER · Best post time: 6:00 PM — based on your audience','IDEATOR · Gap found: nobody covering window cleaner + detailer combo ads','HOOK · Top hook: "I found the problem in 40 seconds"','ANALYST · Tactical content beats lifestyle 2:1 in your niche','DM MGR · 3 competitors posting daily — @joshhills @adsbydann @badmarketing','PLANNER · Post every day this week — algorithm rewards consistency','IDEATOR · Trending: screen record + Miro board walkthrough — high saves','HOOK · Best CTA: "DM me ADS" — add to every single post'];
+const TICKS=[
+  ['IDEATOR','@adsbydann latest post: "The $5 ad that got 90 leads" — 58K views in 3 days'],
+  ['ANALYST','Your video (1,075 views) has 50x more reach than either of your carousels — post more video'],
+  ['PLANNER','Best time: 6:00–7:30 PM weekdays — highest engagement window for service biz content'],
+  ['IDEATOR','@joshhills posting 2x daily — breakdown format performing best'],
+  ['HOOK','Top hook this week across competitors: "I found the problem in under a minute"'],
+  ['ANALYST','You have 0 CTAs across your 3 posts — every post needs "DM me ADS" in caption'],
+  ['DM MGR','Response speed matters: leads contacted in under 15 min convert at 3x the rate'],
+  ['PLANNER','Batch film 3–4 videos in one session Monday — post one per day rest of week'],
+  ['IDEATOR','Miro board screen records getting 40K+ saves — high-value format for your niche'],
+  ['ANALYST','@badmarketing posts every day — consistency is beating quality in the algorithm right now'],
+];
 const tEl=document.getElementById('ticker');
-const tHtml=TICKS.map(t=>{const[lbl,...rest]=t.split(' · ');return '<div class="tick"><div class="dot"></div><div class="lbl">'+lbl+'</div><div class="val">'+rest.join(' · ')+'</div></div>';}).join('');
-tEl.innerHTML=tHtml+tHtml;
+const tH=TICKS.map(t=>'<div class="tick"><div class="dot"></div><b>'+t[0]+'</b><span class="val"> &nbsp;'+t[1]+'</span></div>').join('');
+tEl.innerHTML=tH+tH;
 
-// Competitors
-const COMPS=[{h:'@marcomarkets',f:622,me:true},{h:'@adsbydann',f:null},{h:'@joshhills',f:null},{h:'@adsharley',f:null},{h:'@badmarketing',f:null},{h:'@markbuilds',f:null},{h:'@isaiahhgarciaa',f:null}];
+// Competitors + marketing agencies
+const COMPS=[
+  {h:'@marcomarkets',f:622,me:true,cat:'You'},
+  {h:'@adsbydann',f:null,cat:'Competitor'},
+  {h:'@joshhills',f:null,cat:'Competitor'},
+  {h:'@adsharley',f:null,cat:'Competitor'},
+  {h:'@badmarketing',f:null,cat:'Competitor'},
+  {h:'@markbuilds',f:null,cat:'Competitor'},
+  {h:'@isaiahhgarciaa',f:null,cat:'Competitor'},
+  {h:'@socialmediaexaminer',f:null,cat:'Agency'},
+  {h:'@garyvee',f:null,cat:'Agency / Influencer'},
+  {h:'@neil_patel',f:null,cat:'Agency'},
+];
 const compEl=document.getElementById('comp-list');
 const mx=Math.max(...COMPS.map(c=>c.f||0),1);
-COMPS.forEach(c=>{compEl.innerHTML+='<div class="comp-row"><div class="comp-handle'+(c.me?' me':'')+'">'+c.h+'</div><div class="comp-bar-bg"><div class="comp-bar-fill" style="width:'+(c.f?Math.round(c.f/mx*100):3)+'%;background:'+(c.me?'linear-gradient(90deg,#3b82f6,#8b5cf6)':'#0f1a33')+'"></div></div><div class="comp-num">'+(c.f!=null?c.f.toLocaleString():'—')+'</div></div>';});
+COMPS.forEach(c=>{
+  compEl.innerHTML+='<div class="comp-row">'
+    +'<div class="comp-h'+(c.me?' me':'')+'">'+c.h+'<span style="display:block;font-size:.55rem;color:var(--dim)">'+c.cat+'</span></div>'
+    +'<div class="comp-bg"><div class="comp-fill" style="width:'+(c.f?Math.round(c.f/mx*100):3)+'%;background:'+(c.me?'linear-gradient(90deg,#3b82f6,#8b5cf6)':'#111827')+'"></div></div>'
+    +'<div class="comp-n">'+(c.f!=null?c.f.toLocaleString():'—')+'</div>'
+    +'</div>';
+});
 
-// Load data
-async function loadData(){let d;try{d=await fetch('data.json?_='+Date.now()).then(r=>r.json());}catch(e){return;}const m=d.me;if(m.followers){document.getElementById('hdr-fl').textContent=m.followers.toLocaleString();document.getElementById('r-fl').textContent=m.followers.toLocaleString();}document.getElementById('r-tp').textContent=m.totalPosts||0;document.getElementById('r-tv').textContent=(m.totalViews||0).toLocaleString();document.getElementById('r-ae').textContent=m.avgEngagement||0;const ps=m.topPosts||[];if(ps.length){new Chart(document.getElementById('echart').getContext('2d'),{type:'bar',data:{labels:ps.map((_,i)=>'Post '+(i+1)),datasets:[{label:'Engagement',data:ps.map(p=>p.engagement),backgroundColor:'rgba(59,130,246,.6)',borderRadius:4},{label:'Views',data:ps.map(p=>p.views),backgroundColor:'rgba(139,92,246,.3)',borderRadius:4}]},options:{responsive:true,plugins:{legend:{labels:{color:'#334155',font:{size:10}}}},scales:{x:{ticks:{color:'#1e2535'},grid:{color:'#06080f'}},y:{ticks:{color:'#1e2535'},grid:{color:'#0a0d18'}}}}});const pl=document.getElementById('posts-list');ps.forEach((p,i)=>{const dt=p.timestamp?new Date(p.timestamp).toLocaleDateString('en-AU',{month:'short',day:'numeric'}):'';pl.innerHTML+='<a class="post-link" href="'+p.url+'" target="_blank" rel="noopener"><div style="color:#1e2535;width:18px;flex-shrink:0;font-size:.8rem;font-weight:800">#'+(i+1)+'</div><div style="flex:1;min-width:0"><div class="post-cap">'+(p.caption||'(no caption)')+'</div><div class="post-meta">'+dt+'</div></div><div style="display:flex;gap:10px;flex-shrink:0"><div style="text-align:right"><div class="post-v">'+p.likes+'</div><div class="post-vl">likes</div></div>'+(p.views?'<div style="text-align:right"><div class="post-v">'+p.views.toLocaleString()+'</div><div class="post-vl">views</div></div>':'')+'</div></a>';});}}
+// Data
+let chartBuilt=false;
+async function loadData(){
+  let d;try{d=await fetch('data.json?_='+Date.now()).then(r=>r.json());}catch(e){return;}
+  const m=d.me;
+  if(m.followers){document.getElementById('hdr-fl').textContent=m.followers.toLocaleString();document.getElementById('r-fl').textContent=m.followers.toLocaleString();}
+  document.getElementById('r-tp').textContent=m.totalPosts||0;
+  document.getElementById('r-tv').textContent=(m.totalViews||0).toLocaleString();
+  document.getElementById('r-ae').textContent=m.avgEngagement||0;
+  const ps=m.topPosts||[];
+  if(ps.length&&!chartBuilt){chartBuilt=true;
+    new Chart(document.getElementById('echart').getContext('2d'),{type:'bar',data:{labels:ps.map((_,i)=>'Post '+(i+1)),datasets:[{label:'Engagement',data:ps.map(p=>p.engagement),backgroundColor:'rgba(59,130,246,.55)',borderRadius:4},{label:'Views',data:ps.map(p=>p.views),backgroundColor:'rgba(139,92,246,.3)',borderRadius:4}]},options:{responsive:true,plugins:{legend:{labels:{color:'#334155',font:{size:10}}}},scales:{x:{ticks:{color:'#1e2535'},grid:{color:'#07090f'}},y:{ticks:{color:'#1e2535'},grid:{color:'#0a0d16'}}}}});
+    const pl=document.getElementById('posts-list');
+    ps.forEach((p,i)=>{
+      const dt=p.timestamp?new Date(p.timestamp).toLocaleDateString('en-AU',{month:'short',day:'numeric'}):'';
+      pl.innerHTML+='<a class="post-a" href="'+p.url+'" target="_blank" rel="noopener">'
+        +'<div style="font-size:.75rem;font-weight:800;color:var(--dim);width:18px;flex-shrink:0">#'+(i+1)+'</div>'
+        +'<div style="flex:1;min-width:0"><div class="post-cap">'+(p.caption||'(no caption)')+'</div><div class="post-meta">'+dt+'</div></div>'
+        +'<div style="display:flex;gap:10px;flex-shrink:0">'
+        +'<div style="text-align:right"><div style="font-size:.78rem;font-weight:700;color:#fff">'+p.likes+'</div><div style="font-size:.55rem;color:var(--dim)">likes</div></div>'
+        +(p.views?'<div style="text-align:right"><div style="font-size:.78rem;font-weight:700;color:#fff">'+p.views.toLocaleString()+'</div><div style="font-size:.55rem;color:var(--dim)">views</div></div>':'')
+        +'</div></a>';
+    });
+  }
+}
 loadData();
 
-// Miro boards
-const MIROS=[{n:2,title:'The Customer Journey',desc:'Ad → click → form → call → booked job'},{n:3,title:'Good vs Bad Creative',desc:'Real examples side by side'},{n:4,title:'The $25/Day Math',desc:'Budget → impressions → leads → revenue'},{n:5,title:'Targeting Map',desc:'Tight vs loose, visualised'},{n:6,title:'Lead Follow-Up Timeline',desc:'5 min, 1h, 1 day, 3 days — conversion drop'},{n:7,title:'Ad Format Comparison',desc:'Instant Form vs Traffic vs Boosted Post'}];
-const ml=document.getElementById('miro-list');
-MIROS.forEach(m=>{ml.innerHTML+='<div class="miro-item"><div class="miro-num">'+m.n+'</div><div><div class="miro-title">'+m.title+'</div><div class="miro-desc">'+m.desc+'</div></div></div>';});
-
-// DM scripts
-[{step:'Message 1 — Opener (within 15 min)',text:"Hey [name]! Quick question — what kind of service business do you run?"},{step:'Message 2 — Qualify',text:"Nice. Are you currently running Meta ads? And what's your rough monthly budget?"},{step:'Message 3 — Book call (if they have budget)',text:"Perfect — sounds like there's a real opportunity. I have a couple spots this week for a free 15-min strategy call. Want the link?"},{step:'Message 4 — No budget yet',text:"No worries at all — follow along here, I post tips every day. Hit me up when you're ready to invest."}].forEach(d=>{document.getElementById('dm-scripts').innerHTML+='<div class="dm-card"><div class="dm-step">'+d.step+'</div><div class="dm-text">'+d.text+'</div><button class="copy-btn" onclick="navigator.clipboard.writeText(`'+d.text.replace(/`/g,'\\`')+'`)">Copy</button></div>';});
-
-// Profile checklist
-const PCHECKS=[{l:'Switch to Creator or Business account',s:'Unlocks analytics and scheduling'},{l:'Profile photo: clear face shot',s:'Face builds more trust than a logo'},{l:'Update bio with real numbers',s:'Specific numbers beat vague claims'},{l:'Link in bio: Calendly booking page',s:'Warm followers can book without DMing'},{l:'Pin 3 posts: 1 value + 1 result + 1 personal',s:'First thing new visitors see'},{l:'Add "DM me ADS" CTA to every post',s:'Your 1,075-view video had no CTA — those are unconverted leads'}];
-const pchecks=JSON.parse(localStorage.getItem('mm_pchecks')||'{}');
-const pc=document.getElementById('pchecks');
-PCHECKS.forEach((item,i)=>{const div=document.createElement('div');div.className='check-item';div.onclick=()=>{pchecks[i]=!pchecks[i];localStorage.setItem('mm_pchecks',JSON.stringify(pchecks));const b=div.querySelector('.chkbox');b.className='chkbox'+(pchecks[i]?' on':'');b.innerHTML=pchecks[i]?'&#10003;':'';div.querySelector('.check-text').style.opacity=pchecks[i]?'.35':'1';};div.innerHTML='<div class="chkbox'+(pchecks[i]?' on':'')+'">'+( pchecks[i]?'&#10003;':'')+'</div><div><div class="check-text" style="opacity:'+(pchecks[i]?'.35':'1')+'">'+item.l+'</div><div class="check-sub">'+item.s+'</div></div>';pc.appendChild(div);});
-
 // Ideas
-const IDEAS=['Walk through your Miro board: What Works vs What Doesn\'t','Screen record: set up a lead gen ad from scratch in 60 seconds','Breakdown: 3 parts of a winning service business ad','Visual: why boosting posts is not the same as running ads','Miro: the $25/day setup I use for every client','Screen record: healthy ads manager vs failing one','Referrals are not a business model. They\'re a bonus.','The offer was the problem — not the ad','Most trades businesses need more leads, not more followers','Stop trying to go viral. Go local instead.','Your competitors aren\'t better — they\'re more visible','POV: First thing I check in a failing ad account','Day in the life: managing 3 client campaigns from my laptop','How I write an ad headline — live, no edits','Real client convo: what happens on a strategy call','Meta vs Google: which wins for service businesses','3 things everyone says about Facebook ads that are wrong','Why more budget doesn\'t mean more leads','5 ad metrics that don\'t matter (and the 2 that do)','Change this one word in your headline to increase clicks','Add a deadline to your offer — conversion rate jumps','Use "you" not "we" in every piece of ad copy','Turn your best comment into your next ad creative','Real numbers: $25/day over 30 days — exact breakdown','Client story: 0 leads to 11 booked jobs in a month','ROI breakdown: $750 in ads, $1,980 in booked jobs','Why I only work with service businesses','What I was doing before this and why I switched','The biggest mistake I made in my first 6 months','Why I post every day even when I have no clients yet'];
+const IDEAS=[
+  "Walk through Miro board: What Works vs What Doesn't in Meta Ads",
+  "Screen record: build a lead gen campaign from scratch in 60 seconds",
+  "Breakdown: the 3 parts of every winning service business ad",
+  "Why boosting a post is the most expensive mistake you can make",
+  "The $25/day setup I use for every new client — step by step",
+  "Healthy ads manager vs failing one — what to look for",
+  "You don't need a website. Here's what you actually need instead.",
+  "Why a smaller audience outperforms a bigger one every time",
+  "The real cost of not running ads — what you're leaving every month",
+  "What 'cost per lead' actually means and how to know if it's good",
+  "Referrals are not a business model. They're a bonus.",
+  "The offer was the problem — not the ad",
+  "Most trades businesses don't need more followers. They need leads.",
+  "Stop trying to go viral. Go local. That's where the money is.",
+  "Your competitors aren't better marketers — they're just more visible",
+  "Nobody searches Instagram for a plumber. Here's how Meta still works.",
+  "The psychology of why before/after photos outperform every other creative",
+  "POV: First thing I check in a failing ad account",
+  "Day in the life: managing 3 client campaigns from one laptop",
+  "How I write an ad headline — live, no edits, real time",
+  "Real client convo: what actually happens on a strategy call",
+  "Why I turn down clients who want to run ads without a good offer",
+  "How to follow up with leads who don't answer — exact sequence",
+  "Meta vs Google: which one is right for YOUR budget and stage",
+  "3 things everyone says about Facebook ads that are completely wrong",
+  "Why more ad budget doesn't automatically mean more leads",
+  "5 metrics that don't matter in your ads manager (and the 2 that do)",
+  "Change one word in your headline: 'We offer' → 'Get'",
+  "Add a deadline to your offer — watch conversion rate jump",
+  "Use photos from your actual jobs. Not stock. Your real work.",
+  "$25/day over 30 days — exact numbers from a real client",
+  "Client story: from 0 leads from ads to 11 booked jobs in a month",
+  "ROI math: $750 in ads, $1,980 in booked jobs, $6,000+ lifetime",
+  "What I'd do differently if I was starting this business today",
+  "Why I only work with service businesses — not coaches or e-com",
+  "What I was doing before this and why I made the switch",
+  "The biggest mistake I made in my first 6 months doing this",
+  "Why I post every day even when I have no clients yet",
+  "What actually changed when I stopped trying to go viral",
+  "A lesson from the best-run service business I've ever seen",
+];
 const usedI=JSON.parse(localStorage.getItem('mm_ideas')||'{}');
-const ilib=document.getElementById('ideas-lib');
-IDEAS.forEach((idea,i)=>{const div=document.createElement('div');div.className='idea-item'+(usedI[i]?' used':'');div.id='idea'+i;div.onclick=()=>{usedI[i]=!usedI[i];localStorage.setItem('mm_ideas',JSON.stringify(usedI));div.classList.toggle('used',usedI[i]);div.querySelector('.used-tag').textContent=usedI[i]?'used':'';};div.innerHTML='<div class="idea-num">'+(i+1)+'</div><div class="idea-text">'+idea+'</div><div class="used-tag">'+(usedI[i]?'used':'')+'</div>';ilib.appendChild(div);});
+const iout=document.getElementById('ideas-out');
+IDEAS.forEach((idea,i)=>{
+  const div=document.createElement('div');
+  div.className='idea-i'+(usedI[i]?' used':'');
+  div.id='idea'+i;
+  div.onclick=()=>{usedI[i]=!usedI[i];localStorage.setItem('mm_ideas',JSON.stringify(usedI));div.classList.toggle('used',usedI[i]);div.querySelector('.used-lbl').textContent=usedI[i]?'used':'';};
+  div.innerHTML='<div class="idea-n">'+(i+1)+'</div><div class="idea-txt">'+idea+'</div><div class="used-lbl">'+(usedI[i]?'used':'')+'</div>';
+  iout.appendChild(div);
+});
+
+// Miro boards
+[{n:2,t:'The Customer Journey',d:'Ad → click → form → call → booked job with arrows'},{n:3,t:'Good vs Bad Creative',d:'Side by side examples — what performs and why'},{n:4,t:'The $25/Day Math',d:'Budget → impressions → leads → jobs → revenue'},{n:5,t:'Targeting Map',d:'Country → city → 10-mile radius, tight vs loose'},{n:6,t:'Lead Follow-Up Timeline',d:'5 min, 1h, 1 day, 3 days — conversion rate drops'},{n:7,t:'Ad Format Comparison',d:'Instant Form vs Traffic vs Boosted — one clear winner'}].forEach(m=>{document.getElementById('miro-list').innerHTML+='<div class="miro-item"><div class="miro-num">'+m.n+'</div><div><div class="miro-t">'+m.t+'</div><div class="miro-d">'+m.d+'</div></div></div>';});
+
+// DM Scripts
+[{s:'Message 1 — Opener (send within 15 min)',t:"Hey [name]! Appreciate you reaching out — quick question before we dive in. What kind of service business do you run?"},{s:'Message 2 — Qualify',t:"Nice, love working with [trade] businesses. Two quick questions: Are you currently running any Meta ads? And roughly what's your monthly ad budget?"},{s:'Message 3 — Book the call (if they have budget)',t:"Perfect — sounds like there's a real opportunity here. I have a couple of spots open this week for a free 15-min strategy call. Want me to send you the link?"},{s:'Message 4 — No budget yet',t:"No worries at all — makes sense to build the foundation first. I post tips here every day, so follow along and hit me up when you're ready to invest in ads. Save this account so you don't lose it."}].forEach(d=>{document.getElementById('dm-out').innerHTML+='<div class="dm-card"><div class="dm-step">'+d.s+'</div><div class="dm-txt">'+d.t+'</div><button class="cbtn" onclick="navigator.clipboard.writeText(`'+d.t.replace(/`/g,'\\`')+'`)">Copy</button></div>';});
+
+// Checklist
+const PCH=[{l:'Switch to Creator or Business account',s:'Unlocks analytics, scheduling, and branded content tools'},{l:'Profile photo: clear face shot, good lighting',s:'People follow people — face builds 3x more trust than a logo'},{l:'Update bio with real numbers',s:'Specific numbers beat vague claims every time'},{l:'Link in bio: Calendly booking page',s:'Warm followers can book without having to DM first'},{l:'Pin 3 posts: 1 value, 1 result, 1 personal',s:'This is the first thing new visitors see — make these your absolute best'},{l:'Add "DM me ADS" CTA to every single post caption',s:'Your 1,075-view video had no CTA — those are unconverted leads walking out the door'}];
+const pchecks=JSON.parse(localStorage.getItem('mm_pchecks')||'{}');
+PCH.forEach((item,i)=>{const div=document.createElement('div');div.className='chk-i';div.onclick=()=>{pchecks[i]=!pchecks[i];localStorage.setItem('mm_pchecks',JSON.stringify(pchecks));const b=div.querySelector('.chkbox');b.className='chkbox'+(pchecks[i]?' on':'');b.innerHTML=pchecks[i]?'&#10003;':'';div.querySelector('.chk-txt').style.opacity=pchecks[i]?'.3':'1';};div.innerHTML='<div class="chkbox'+(pchecks[i]?' on':'')+'">'+( pchecks[i]?'&#10003;':'')+'</div><div><div class="chk-txt" style="opacity:'+(pchecks[i]?'.3':'1')+'">'+item.l+'</div><div class="chk-sub">'+item.s+'</div></div>';document.getElementById('chk-out').appendChild(div);});
 
 // Bio
 const sb=localStorage.getItem('mm_bio');if(sb)document.getElementById('bio-text').value=sb;
