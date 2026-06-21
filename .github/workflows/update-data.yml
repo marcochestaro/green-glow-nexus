@@ -15,7 +15,8 @@ jobs:
       - name: Checkout main branch
         uses: actions/checkout@v4
         with:
-          ref: claude/practical-faraday-cindzs
+          ref: main
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -31,14 +32,14 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add dashboard/data.json
           git diff --staged --quiet || git commit -m "Auto-update: Instagram data $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git push origin claude/practical-faraday-cindzs
+          git push origin main
 
       - name: Sync updated files to gh-pages
         run: |
           cp dashboard/data.json /tmp/data.json
           git fetch origin gh-pages
           git checkout gh-pages
-          git checkout claude/practical-faraday-cindzs -- dashboard/index.html
+          git checkout main -- dashboard/index.html
           cp /tmp/data.json data.json
           git add index.html data.json
           git diff --staged --quiet || git commit -m "Auto-sync dashboard to gh-pages $(date -u '+%Y-%m-%d %H:%M UTC')"
