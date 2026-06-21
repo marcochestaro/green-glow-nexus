@@ -470,9 +470,20 @@ Follow for daily content on what actually works</textarea>
 <!-- AGENTS VIEW -->
 <div class="view" id="view-agents">
 <div class="agents-wrap">
-  <div style="margin-bottom:20px">
-    <div style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:4px">My Agents</div>
-    <div style="font-size:.75rem;color:var(--sub)" id="agents-date"></div>
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:20px">
+    <div>
+      <div style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:4px">My Agents</div>
+      <div style="font-size:.72rem;color:var(--sub)" id="agents-date">Loading...</div>
+    </div>
+    <a id="run-research-btn" href="https://github.com/marcochestaro/green-glow-nexus/actions/workflows/agent-research.yml" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#0a1020;border:1px solid #1e2d4a;color:#93c5fd;font-size:.72rem;font-weight:600;padding:8px 14px;border-radius:8px;white-space:nowrap;text-decoration:none;flex-shrink:0">
+      Run Research &#8599;
+    </a>
+  </div>
+  <div id="agents-loading" style="text-align:center;padding:40px 20px;display:none">
+    <div style="display:inline-flex;align-items:center;gap:10px;color:var(--sub);font-size:.8rem">
+      <span class="live-dot"></span>Agents are researching...
+    </div>
+    <div style="font-size:.7rem;color:var(--sub);margin-top:8px">Usually takes 30-60 seconds. Refresh this page after the GitHub Action completes.</div>
   </div>
   <div id="agents-out"></div>
 </div>
@@ -1072,94 +1083,61 @@ PLAN_CATS.forEach(renderTasks);
 if(plan.notes)document.getElementById('plan-notes').value=plan.notes;
 
 // ── Agents ─────────────────────────────────────────────────────────────
-const AGENTS=[
-{
-  name:'Ads',
-  role:'What to test, how to spend, when to scale.',
-  color:'#3b82f6',
-  badge:'Strategy',
-  badgeStyle:'background:#0a1020;color:#93c5fd;border:1px solid #1a2a45',
-  reports:[
-    {headline:'Test one variable this week — not three.',body:'Most accounts underperform because they change the objective, audience, and creative at the same time and can never tell what worked. This week: lock your objective to Lead Generation, keep your current audience, and run two creatives head-to-head. Same budget split 50/50. After 3 days, kill the loser and put 100% behind the winner.',actions:['Set campaign objective to Lead Generation if you haven\'t already','Create 2 ad creatives — same offer, different hook or image','Check results after 72 hours and cut the lower CPL ad']},
-    {headline:'Your audience is probably too broad.',body:'Default targeting in Meta is set to reach everyone, which sounds good but actually dilutes your spend fast. For a service business, tight radius targeting — 15km or less from where you operate — consistently outperforms broad. Layer in homeowners or household income if your offer fits. Narrow = more relevant = cheaper leads.',actions:['Open Ads Manager and check your audience size — should be 100k-300k for local','Set location to a 10-15km radius around your service area','Add 1-2 interest layers: homeowners, home improvement, or income brackets']},
-    {headline:'Wednesday is the strongest lead day — are you spending into it?',body:'Meta automatically distributes your daily budget, but it won\'t always push spend toward peak days unless you tell it to. Historically, Tuesday-Thursday converts at 20-30% lower CPL than Mondays or weekends for service businesses. Consider scheduling your ads to run heavier Tuesday-Thursday if you\'re getting inconsistent results.',actions:['Check your cost per lead by day of week in Ads Manager breakdowns','If weekends are draining budget without results, set schedule to pause Sat-Sun','Review your top performing ad days over the last 30 days']},
-    {headline:'One campaign, one ad set, two creatives — that\'s the setup.',body:'Account complexity is the enemy of learning. If you have 4 campaigns, 3 ad sets, and 6 creatives running, Meta can\'t optimize properly and neither can you. Consolidate. One Lead Gen campaign, one ad set targeting your local radius, two creatives in rotation. Let Meta learn. Once you hit 50 leads in a set, you have enough data to make real decisions.',actions:['Audit your Ads Manager — are you running more than 1 campaign?','Consolidate into one campaign if you have split budgets across multiple','Target 50 leads before making any major strategic changes']},
-    {headline:'Your offer is doing more work than your creative.',body:'The most common thing I see in failing accounts: great design, terrible offer. Nobody books a window cleaner because the ad looked professional. They book because the offer removed friction — "Book this week, windows done Saturday, free interior add-on." Lead with the outcome and the timeline. The creative just needs to be real and clear.',actions:['Rewrite your current ad headline to lead with the outcome, not the service','Add a deadline or time-specific hook to your offer','Test a real photo from a job vs your current image or video']},
-    {headline:'$25/day minimum — below that the algorithm can\'t learn.',body:'Meta\'s algorithm needs roughly 50 conversions per week per ad set to exit the learning phase. At $25/day on a lead objective, that\'s workable. Below $15/day and you\'re likely stuck in learning limbo indefinitely — you\'ll see inconsistent results no matter how good the creative is. If you\'re under budget, consolidate ad sets before adding more.',actions:['Confirm your daily budget is $25 or more per ad set','Check if your campaigns are in learning phase — should exit after ~50 leads','If stuck in learning: increase budget 20% rather than creating a new campaign']},
-    {headline:'Review your top 3 ads from the last 90 days — film a version of the best one.',body:'The best predictor of what will work next week is what worked last month. Open your Ads Manager, filter by last 90 days, sort by lowest CPL. Your top ad is telling you something: the hook, the format, the offer. Film a direct remake or a variation of that structure. Don\'t guess — let the data tell you what to make next.',actions:['Open Ads Manager → filter 90 days → sort by lowest cost per lead','Screenshot your top performing ad creative','Plan a remake or variation of that ad for this week']},
-  ]
-},
-{
-  name:'Creative',
-  role:'Hooks, angles, and ad concepts to make every week.',
-  color:'#a78bfa',
-  badge:'Creative',
-  badgeStyle:'background:#130820;color:#c4b5fd;border:1px solid #25104a',
-  reports:[
-    {headline:'10 hooks ready to film this week.',body:'Each of these is written for service business content. Pick one and film it today.',actions:['Hook 1: "Most service businesses waste their first $500 in ads on this one mistake."','Hook 2: "I told a plumber to stop boosting posts. 3 weeks later, 14 leads from $25 a day."','Hook 3: "Your ad isn\'t failing because of your budget. It\'s failing because of this."','Hook 4: "The one-sentence offer that books 80% of leads who see it."','Hook 5: "Before you spend another dollar on ads — fix these 3 things first."']},
-    {headline:'5 ad concepts that work in service niches right now.',body:'These are angles performing across home services on Meta. Adapt to your offer.',actions:['Concept 1: The audit reveal — screen record a real (or mock) failing account, walk through the fixes live','Concept 2: The math breakdown — $25 in, exact numbers out, show the full funnel','Concept 3: The objection killer — "I tried ads and they didn\'t work" + why that actually happens','Concept 4: The before/after — a client before working with you vs after. Real numbers only.','Concept 5: The day-in-the-life — behind the scenes managing client campaigns, no editing required']},
-    {headline:'3 content ideas you can film in under 15 minutes.',body:'No prep required for any of these.',actions:['Idea 1: Open your phone, show your Ads Manager in real time, talk through what you\'re seeing','Idea 2: Hold up 1 finger and say "One word that immediately gets more clicks on your ad headline"','Idea 3: Film your reaction to a boosted post vs a proper lead gen campaign side by side']},
-    {headline:'2 contrarian angles that stop the scroll.',body:'These go against what most people post — which is why they get attention.',actions:['Angle 1: "More followers won\'t get you more clients. Here\'s what actually moves the needle."','Angle 2: "A $200 ad campaign outperformed a $2,000 one. Here\'s exactly why."']},
-    {headline:'Carousel format is underused — and it compounds.',body:'Carousels get saved and shared more than Reels on average for educational content. A well-structured 5-slide carousel on a topic like Meta vs Google, or the funnel math, gets shown to people repeatedly as they swipe. Build one carousel per week alongside your video content and your account\'s average view time increases significantly.',actions:['Plan a 5-slide carousel for this week on a topic you know well','Slide 1 = bold hook. Slides 2-4 = one point each. Slide 5 = CTA only.','Use Canva dark template — dark background, white headline, no clutter']},
-    {headline:'Your hook determines 80% of your results.',body:'Most people spend time on the body of their script or the caption. But the first 3 seconds of a video and the first line of an ad is what determines whether anyone sees the rest. Spend more time on your hook than anything else. Write 5 versions before you film. The best hook is specific, creates a pattern interrupt, and implies the viewer will gain something real.',actions:['Write 5 different hooks for this week\'s video before filming','Test: does it create curiosity? Does it promise a specific outcome? Does it speak to a real pain?','Film your video starting with the 2 best hooks — use the better performing one']},
-    {headline:'Sunday is for planning angles, not scrambling for topics.',body:'The accounts that post consistently don\'t wing it every day. They know on Sunday what they\'re filming Monday through Saturday. Your WEEK tab has your scripts — read through them today and decide which you\'re filming, which days, and what extra setup you need. Batch film where possible: two talking heads in one setup takes 20 minutes total.',actions:['Read through all 7 scripts in the This Week tab','Decide which days you\'re filming each one','Identify any props or screen recordings you need to prepare in advance']},
-  ]
-},
-{
-  name:'Critic',
-  role:'What\'s wrong with your scripts and ads. Honest.',
-  color:'#ef4444',
-  badge:'Critique',
-  badgeStyle:'background:#1a0505;color:#fca5a5;border:1px solid #3b0d0d',
-  reports:[
-    {headline:'What\'s most likely wrong with your current ad right now.',body:'Based on common patterns in service business Meta accounts at your stage, here are the most likely issues — not guesses, but what I see in 80% of audits at this level.',actions:['Your hook probably starts with "We" or with your business name — nobody cares yet, lead with a pain or outcome instead','Your offer probably has no deadline or urgency — "Contact us today" is not an offer, "Book before Friday and get X" is','Your creative is probably a stock photo or generic graphic — real photos from real jobs outperform stock 3:1 on average']},
-    {headline:'Caption audit: 3 things most captions get wrong.',body:'The caption is where the sale happens after the video. Most people treat it as an afterthought.',actions:['Missing the first hook line — first 1-2 words before the "more" cutoff need to create a reason to tap. "Most service businesses..." beats "We offer..."','No CTA — "DM me ADS" needs to appear verbatim in every caption. Not "reach out", not "click the link", not "follow for more"','Too long with no structure — break it into short lines with line breaks. Dense paragraphs get skipped.']},
-    {headline:'Your offer is the weakest part of your funnel right now.',body:'Service businesses almost universally lead with what they do instead of what the client gets. "Meta Ads Management" is not an offer. "I set up your first campaign, manage it for 30 days, and you only pay if we get leads" is an offer. Make it specific, make it risk-reduced, make it about them.',actions:['Rewrite your core offer as: "You get [specific outcome] in [specific timeframe] — [what removes their risk]"','If you don\'t have a money-back or guarantee mechanism, add a softer one: free audit, first campaign reviewed, no contract','Test the rewritten offer in your next ad — don\'t change the creative, only the offer wording']},
-    {headline:'3 things that are silently killing your engagement.',body:'You might be posting consistently and still plateauing. These are the invisible killers.',actions:['Posting time: if you\'re posting before 9am or after 9pm, you\'re posting to nobody. 6-7:30pm EST is peak for your content type','No engagement in the first 10 minutes: commenting on other accounts 15 minutes before you post primes the algorithm. Try it once this week.','Hashtags without strategy: 5 specific, relevant hashtags beat 30 generic ones. #metaads, #servicebasiness, #facebookadstips — not #marketing #business #entrepreneur']},
-    {headline:'Script review: what to check before you hit record.',body:'Run every script through this 4-point check before filming.',actions:['Does the hook name a specific person or problem? ("If you run a service business and..." not "If you\'re a business owner...")','Does every line push toward the CTA, or are there lines that just fill time? Cut anything that doesn\'t earn its place.','Is your CTA exactly "DM me ADS" or does it say something vague like "reach out"? Exact phrase matters — people don\'t improvise their response.','Is the script under 60 seconds if it\'s a talking head? Over 60s loses 40-60% of viewers before the CTA.']},
-    {headline:'Your landing page (or lack of one) is likely losing half your leads.',body:'If your ad sends people to your Instagram profile, your website homepage, or anywhere without a clear single next action — you\'re losing leads that the ad paid for. The only acceptable destination for a Lead Gen or Traffic campaign is a page with one CTA. Either a Meta instant form, a Calendly link, or a single-field landing page.',actions:['Check where your current ad sends people after they click','If it goes to your homepage or profile: set up a Meta Instant Form instead — free, fast, converts better','Your Instant Form should have 3 fields max: name, phone, and one qualifying question like "What service do you need?"']},
-    {headline:'Weekly self-audit: 5 questions to ask before you post.',body:'Run these every Sunday when planning the week.',actions:['What is the one thing I want the viewer to do after watching this? (If the answer isn\'t "DM me ADS", rewrite the CTA)','Does my hook name a specific person, pain, or outcome in the first 3 seconds?','Am I showing proof or am I just making claims? (Real numbers, real clients, real results beat generic statements)','Is my offer specific enough that someone could repeat it to a friend in one sentence?','Did I post at a time when my audience is actually online this week?']},
-  ]
-},
-{
-  name:'Competitors',
-  role:'What competitors are doing and how to use it.',
-  color:'#22c55e',
-  badge:'Intel',
-  badgeStyle:'background:#030f07;color:#86efac;border:1px solid #0d2a18',
-  reports:[
-    {headline:'How to run a competitor audit in 20 minutes.',body:'Open the Meta Ad Library (link in Research & Tools on home). Search for accounts in your niche. Here\'s what to look for and how to use what you find.',actions:['Search: "meta ads service business" or your direct competitors\' account names','Look at ads running for 2+ weeks — long-running ads are profitable ads. Study what they\'re doing.','Note the hook style: are they using questions, bold statements, or data? What format — video or image?','Check their offer: is there a specific guarantee, price point, or outcome promise you\'re not making?']},
-    {headline:'3 competitor content patterns worth tracking this week.',body:'These are the formats most common in top-performing accounts in the Meta ads education niche right now.',actions:['Pattern 1: The "I audited X and found Y" — screen record format, very high trust signal, easy to replicate with client permission','Pattern 2: The "one thing" video — specific, fast, under 30 seconds, single insight. Low effort, high repeat watchability.','Pattern 3: Real client results with exact numbers — not case studies, just raw data in a talking head. Builds credibility faster than anything else.']},
-    {headline:'What a strong competitor profile looks like — use it as a benchmark.',body:'The best accounts in your niche share a consistent setup. If you\'re not doing all of these, you\'re behind on profile trust signals.',actions:['Pinned post 1: A result post with real numbers ("Client got 11 leads in 30 days from $25/day")','Pinned post 2: A value post that teaches something immediately useful — the kind people save','Pinned post 3: A personal story or why post — who you are, what you do, why you\'re different','Bio: specific number in it (followers, clients helped, cost per lead). Vague bios don\'t convert.']},
-    {headline:'The Meta Ad Library is your free research tool — use it weekly.',body:'Every Thursday, spend 10 minutes in the Ad Library before you plan next week\'s content. Look for patterns across the 5-10 accounts in your niche.',actions:['Go to facebook.com/ads/library — link is on your home page','Filter by: your country, All Ads, and search your competitor or niche keyword','Sort by oldest to newest to find what\'s been running the longest (long-running = profitable)','Screenshot the top 3 hooks you see — these are your data-backed content ideas for next week']},
-    {headline:'Offers your competitors are using that you might not be.',body:'The offer is the single biggest differentiator in service business ads. Here\'s what\'s working in the market right now.',actions:['Risk reversal: "Free audit before you spend a dollar" — removes the biggest objection for skeptical leads','Guarantee: "If we don\'t generate leads in the first 30 days, you get a full refund" — rare enough in this niche to stand out completely','Specificity: "I set up your campaign, write your ad copy, and manage everything for 30 days" beats "I run ads for service businesses"']},
-    {headline:'How to turn competitor research into your next 3 posts.',body:'The fastest content research loop: competitor audit → pattern identification → your version.',actions:['Find 1 video from a competitor that has 2x their average engagement','Write down why it worked: was it the hook, the format, the data, the story?','Film your version — same structure, your angle, your numbers. Don\'t copy, adapt.','Do this once a week and you\'ll never run out of proven content ideas again.']},
-    {headline:'Your positioning gap: most accounts don\'t own a specific niche.',body:'The highest-performing service business ad accounts own a specific niche rather than saying "I help all businesses." Window cleaning, HVAC, landscaping — the more specific your positioning, the more your audience feels spoken to. Competitors who go broad get ignored. The ones who say "I specifically help HVAC businesses get 10-15 leads a month" win.',actions:['Identify your 1-2 strongest service business niches from past results or interest','Rewrite your bio to name that niche specifically — even temporarily to test','Film one piece of content speaking directly to that niche this week and track engagement vs your general content']},
-  ]
-},
-];
+const AGENT_META = {
+  ads:         {name:'Ads',         role:'What to test, how to spend, when to scale.', color:'#3b82f6'},
+  creative:    {name:'Creative',    role:'Hooks, angles, and ad concepts to make every week.', color:'#a78bfa'},
+  critic:      {name:'Critic',      role:"What's wrong with your scripts and ads. Honest.", color:'#ef4444'},
+  competitors: {name:'Competitors', role:'What competitors are doing and how to use it.', color:'#22c55e'},
+};
 
-document.getElementById('agents-date').textContent=fmtFull(today);
-
-const agentsOut=document.getElementById('agents-out');
-AGENTS.forEach(agent=>{
-  const report=agent.reports[todayI];
-  const card=document.createElement('div');
-  card.className='agent-card';
-  card.innerHTML=
-    '<div class="agent-bar" style="background:'+agent.color+'"></div>'
+function renderAgentCard(key, report, updatedDisplay) {
+  const meta = AGENT_META[key];
+  const card = document.createElement('div');
+  card.className = 'agent-card';
+  card.innerHTML =
+    '<div class="agent-bar" style="background:'+meta.color+'"></div>'
     +'<div class="agent-head">'
-    +'<div style="flex:1"><div style="display:flex;align-items:center;gap:8px;margin-bottom:3px"><div class="agent-name">'+agent.name+'</div><span class="live-label"><span class="live-dot"></span>Live</span></div><div class="agent-role">'+agent.role+'</div></div>'
+    +'<div style="flex:1"><div style="display:flex;align-items:center;gap:8px;margin-bottom:3px">'
+    +'<div class="agent-name">'+meta.name+'</div>'
+    +'<span class="live-label"><span class="live-dot"></span>Live</span>'
+    +'</div><div class="agent-role">'+meta.role+'</div></div>'
     +'</div>'
     +'<div class="agent-body">'
-    +'<div class="agent-report-label">Today\'s finding</div>'
+    +'<div class="agent-report-label">Latest finding</div>'
     +'<div class="agent-headline">'+report.headline+'</div>'
     +'<div class="agent-actions">'
     +report.actions.map(a=>'<div class="agent-action"><div class="agent-action-text">'+a+'</div></div>').join('')
     +'</div>'
+    +(report.source?'<div style="font-size:.6rem;color:var(--sub);margin-top:10px">Source: '+report.source+'</div>':'')
     +'</div>'
-    +'<div class="agent-footer" style="display:flex;align-items:center;justify-content:space-between"><span>Researched today</span><span style="color:'+agent.color+';font-weight:600">'+agent.name+'</span></div>';
-  agentsOut.appendChild(card);
-});
+    +'<div class="agent-footer" style="display:flex;align-items:center;justify-content:space-between">'
+    +'<span>Researched '+updatedDisplay+'</span>'
+    +'<span style="color:'+meta.color+';font-weight:600">'+meta.name+'</span>'
+    +'</div>';
+  return card;
+}
+
+async function loadAgents() {
+  const out = document.getElementById('agents-out');
+  const dateEl = document.getElementById('agents-date');
+  try {
+    const data = await fetch('agents-data.json?_='+Date.now()).then(r=>r.json());
+    if (!data.updated || !data.agents || !Object.keys(data.agents).length) {
+      dateEl.textContent = 'No research yet — click Run Research above to start.';
+      out.innerHTML = '<div style="text-align:center;padding:40px 20px;color:var(--sub);font-size:.8rem">Tap "Run Research" above to trigger your agents. Results appear here once the GitHub Action completes (about 60 seconds).</div>';
+      return;
+    }
+    dateEl.textContent = 'Last researched: ' + data.updated_display;
+    ['ads','creative','critic','competitors'].forEach(key => {
+      if (data.agents[key]) {
+        out.appendChild(renderAgentCard(key, data.agents[key], data.updated_display));
+      }
+    });
+  } catch(e) {
+    dateEl.textContent = 'Could not load research data.';
+    out.innerHTML = '<div style="text-align:center;padding:40px 20px;color:var(--sub);font-size:.8rem">Click "Run Research" to trigger your agents for the first time.</div>';
+  }
+}
+loadAgents();
 </script>
 </body></html>
