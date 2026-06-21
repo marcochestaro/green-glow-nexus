@@ -1076,12 +1076,14 @@ if(planRaw.lockedFor && planRaw.lockedFor < todayStr){
   localStorage.setItem('mm_plan',JSON.stringify(planRaw));
 }
 let plan=Object.assign({content:[],outreach:[],growth:[],notes:'',lockedFor:null},planRaw);
-// Sanitize: convert old string-format tasks to objects, drop anything invalid
+// Drop any saved tasks whose text doesn't match current suggestions
+// (renamed suggestions stay in localStorage invisibly and fill the quota)
+const VALID_TEXTS=new Set(Object.values(SUGGESTIONS).flatMap(a=>a.map(s=>s.text)));
 ['content','outreach','growth'].forEach(cat=>{
   plan[cat]=(plan[cat]||[])
     .filter(t=>t)
     .map(t=>typeof t==='string'?{text:t,done:false}:t)
-    .filter(t=>typeof t.text==='string');
+    .filter(t=>VALID_TEXTS.has(t.text));
 });
 localStorage.setItem('mm_plan',JSON.stringify(plan));
 
