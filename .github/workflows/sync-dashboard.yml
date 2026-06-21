@@ -1,0 +1,34 @@
+name: Sync Dashboard to gh-pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'dashboard/**'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Sync dashboard to gh-pages
+        run: |
+          cp dashboard/index.html /tmp/index.html
+          cp dashboard/data.json /tmp/data.json 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin gh-pages
+          git checkout gh-pages
+          cp /tmp/index.html index.html
+          [ -f /tmp/data.json ] && cp /tmp/data.json data.json || true
+          git add index.html data.json 2>/dev/null || git add index.html
+          git diff --staged --quiet || git commit -m "Auto-sync dashboard to gh-pages $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push origin gh-pages
