@@ -1,0 +1,126 @@
+const fs = require('fs');
+const path = require('path');
+
+const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MarcoMarkets — Content Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"><\/script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,sans-serif;background:#0f1117;color:#e2e8f0;min-height:100vh;padding:24px}
+h1{font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:4px}
+.subtitle{color:#64748b;font-size:.85rem;margin-bottom:24px}
+.grid{display:grid;gap:16px}
+.row2{grid-template-columns:1fr 1fr}
+.row3{grid-template-columns:1fr 1fr 1fr}
+.row4{grid-template-columns:repeat(4,1fr)}
+.card{background:#1a1f2e;border:1px solid #2d3748;border-radius:12px;padding:20px}
+.card-title{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:#64748b;margin-bottom:12px}
+.stat{font-size:2.4rem;font-weight:700;color:#fff;line-height:1}
+.stat-label{font-size:.8rem;color:#64748b;margin-top:4px}
+.badge{display:inline-block;font-size:.7rem;padding:2px 8px;border-radius:20px;font-weight:600}
+.badge-blue{background:#1e3a5f;color:#60a5fa}
+.badge-green{background:#14532d;color:#4ade80}
+.badge-purple{background:#3b0764;color:#c084fc}
+.agent-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
+.agent-card{background:#1a1f2e;border:1px solid #2d3748;border-radius:12px;padding:16px;text-align:center;cursor:pointer;transition:border-color .2s,transform .2s}
+.agent-card:hover{border-color:#3b82f6;transform:translateY(-2px)}
+.agent-card.active{border-color:#3b82f6;background:#1e2d4a}
+.agent-avatar{width:52px;height:52px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+.agent-name{font-size:.8rem;font-weight:600;color:#e2e8f0;margin-bottom:4px}
+.agent-status{font-size:.7rem;color:#64748b}
+.agent-status.live{color:#4ade80}
+.pulse{display:inline-block;width:6px;height:6px;border-radius:50%;background:#4ade80;margin-right:4px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.output-panel{background:#0d1117;border:1px solid #2d3748;border-radius:8px;padding:16px;min-height:160px;font-family:monospace;font-size:.8rem;color:#94a3b8;line-height:1.8}
+.line .ts{color:#334155;margin-right:8px}
+.line .tag{margin-right:6px}
+.line .msg{color:#e2e8f0}
+.post-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #1e2535;cursor:pointer;text-decoration:none;color:inherit;transition:background .15s;border-radius:6px}
+.post-row:last-child{border-bottom:none}
+.post-row:hover{background:#1e2535;padding-left:8px}
+.post-rank{font-size:1.1rem;font-weight:700;color:#334155;width:22px;text-align:center;flex-shrink:0}
+.post-info{flex:1;min-width:0}
+.post-caption{font-size:.82rem;color:#cbd5e1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
+.post-meta{font-size:.72rem;color:#475569}
+.post-stats{display:flex;gap:12px;flex-shrink:0}
+.post-stat{text-align:right}
+.post-stat .val{font-size:.9rem;font-weight:600;color:#fff}
+.post-stat .lbl{font-size:.65rem;color:#475569}
+.comp-row{margin-bottom:10px}
+.comp-header{display:flex;justify-content:space-between;margin-bottom:4px}
+.comp-handle{font-size:.8rem;color:#94a3b8}
+.comp-count{font-size:.8rem;font-weight:600;color:#e2e8f0}
+.bar-bg{background:#1e2535;border-radius:4px;height:8px}
+.bar-fill{height:8px;border-radius:4px;transition:width 1s ease}
+canvas{max-height:220px}
+@media(max-width:900px){.row4,.agent-grid{grid-template-columns:1fr 1fr}.row2,.row3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<h1>@marcomarkets — Content HQ</h1>
+<div class="subtitle" id="pulled-at">Loading...</div>
+
+<div class="grid row4" style="margin-bottom:16px">
+  <div class="card"><div class="card-title">Followers</div><div class="stat" id="followers">—</div><div class="stat-label">Instagram</div></div>
+  <div class="card"><div class="card-title">Total Posts</div><div class="stat" id="total-posts">—</div><div class="stat-label">scraped</div></div>
+  <div class="card"><div class="card-title">Total Views</div><div class="stat" id="total-views">—</div><div class="stat-label">video plays</div></div>
+  <div class="card"><div class="card-title">Avg Engagement</div><div class="stat" id="avg-eng">—</div><div class="stat-label">likes + comments / post</div></div>
+</div>
+
+<div class="card" style="margin-bottom:16px">
+  <div class="card-title" style="margin-bottom:14px">AI Agents</div>
+  <div class="agent-grid">
+    <div class="agent-card active" onclick="selectAgent('ideator')" id="card-ideator">
+      <div class="agent-avatar" style="background:#1e3a5f">&#128269;</div>
+      <div class="agent-name">Ideator</div>
+      <div class="agent-status live"><span class="pulse"></span>Ready</div>
+    </div>
+    <div class="agent-card" onclick="selectAgent('hook')" id="card-hook">
+      <div class="agent-avatar" style="background:#3b0764">&#9997;&#65039;</div>
+      <div class="agent-name">Hook &amp; Script</div>
+      <div class="agent-status live"><span class="pulse"></span>Ready</div>
+    </div>
+    <div class="agent-card" onclick="selectAgent('planner')" id="card-planner">
+      <div class="agent-avatar" style="background:#14532d">&#128197;</div>
+      <div class="agent-name">Planner</div>
+      <div class="agent-status live"><span class="pulse"></span>Ready</div>
+    </div>
+    <div class="agent-card" onclick="selectAgent('analyst')" id="card-analyst">
+      <div class="agent-avatar" style="background:#431407">&#128202;</div>
+      <div class="agent-name">Analyst</div>
+      <div class="agent-status live"><span class="pulse"></span>Ready</div>
+    </div>
+    <div class="agent-card" onclick="selectAgent('dm')" id="card-dm">
+      <div class="agent-avatar" style="background:#1c1917">&#128172;</div>
+      <div class="agent-name">DM Manager</div>
+      <div class="agent-status live"><span class="pulse"></span>Ready</div>
+    </div>
+  </div>
+  <div class="output-panel" id="agent-output"></div>
+</div>
+
+<div class="grid row2" style="margin-bottom:16px">
+  <div class="card"><div class="card-title">Engagement per Post</div><canvas id="engChart"></canvas></div>
+  <div class="card"><div class="card-title">Top Posts <span style="font-size:.7rem;color:#475569;text-transform:none;letter-spacing:0">(click to open Instagram)</span></div><div id="top-posts"></div></div>
+</div>
+
+<div class="card"><div class="card-title">Competitor Follower Comparison</div><div id="competitors"></div></div>
+
+<script>
+const AGENT_OUTPUTS={ideator:[{tag:'IDEATOR',cls:'badge-blue',msg:'Scanning competitor posts for viral patterns...'},{tag:'IDEATOR',cls:'badge-blue',msg:'Found 3 high-engagement hooks in the Meta ads niche this week.'},{tag:'IDEATOR',cls:'badge-blue',msg:'Top angle: "3 mistakes costing window cleaners leads"'},{tag:'IDEATOR',cls:'badge-blue',msg:'Recommended: before/after ad breakdown reel targeting HVAC owners.'}],hook:[{tag:'HOOK',cls:'badge-purple',msg:'Writing hook for service business reel...'},{tag:'HOOK',cls:'badge-purple',msg:'Hook: "Your ads aren\'t broken. Your offer is."'},{tag:'HOOK',cls:'badge-purple',msg:'Script: 30-sec reel exposing the #1 reason landscaper ads fail.'},{tag:'HOOK',cls:'badge-purple',msg:'CTA: "DM me ADS if you want this fixed for your business."'}],planner:[{tag:'PLANNER',cls:'badge-green',msg:'Building this week\'s content calendar...'},{tag:'PLANNER',cls:'badge-green',msg:'Mon: Education reel — ad targeting mistakes'},{tag:'PLANNER',cls:'badge-green',msg:'Wed: Social proof — client result screenshot'},{tag:'PLANNER',cls:'badge-green',msg:'Fri: Promotional — DM CTA reel'}],analyst:[{tag:'ANALYST',cls:'badge-blue',msg:'Analysing your last 3 posts...'},{tag:'ANALYST',cls:'badge-blue',msg:'Best performer: "Its already written" — 121 engagement.'},{tag:'ANALYST',cls:'badge-blue',msg:'Video content drives views; carousels drive engagement.'},{tag:'ANALYST',cls:'badge-blue',msg:'Recommendation: more carousel breakdowns + 1 video/week.'}],dm:[{tag:'DM MGR',cls:'badge-purple',msg:'DM Manager standing by...'},{tag:'DM MGR',cls:'badge-purple',msg:'Template ready: lead qualification for inbound "ADS" replies.'},{tag:'DM MGR',cls:'badge-purple',msg:'Tone: helpful, not salesy. Qualify then book call.'},{tag:'DM MGR',cls:'badge-purple',msg:'Response time target: under 15 minutes.'}]};
+function selectAgent(key){document.querySelectorAll('.agent-card').forEach(c=>c.classList.remove('active'));document.getElementById('card-'+key).classList.add('active');const panel=document.getElementById('agent-output');panel.innerHTML='';const now=new Date();AGENT_OUTPUTS[key].forEach((line,i)=>{const t=new Date(now.getTime()+i*60000);const ts=t.getHours().toString().padStart(2,'0')+':'+t.getMinutes().toString().padStart(2,'0');panel.innerHTML+='<div class="line"><span class="ts">'+ts+'<\/span> <span class="tag badge '+line.cls+'">'+line.tag+'<\/span> <span class="msg">'+line.msg+'<\/span><\/div>';});}
+selectAgent('ideator');
+async function loadData(){let data;try{data=await fetch('data.json?_='+Date.now()).then(r=>r.json());}catch(e){console.warn('No data.json');return;}const me=data.me;document.getElementById('pulled-at').textContent='Last updated: '+new Date(data.pulledAt).toLocaleString();document.getElementById('followers').textContent=(me.followers||0).toLocaleString();document.getElementById('total-posts').textContent=me.totalPosts||0;document.getElementById('total-views').textContent=(me.totalViews||0).toLocaleString();document.getElementById('avg-eng').textContent=me.avgEngagement||0;const posts=me.topPosts||[];const ctx=document.getElementById('engChart').getContext('2d');new Chart(ctx,{type:'bar',data:{labels:posts.map((_,i)=>'Post '+(i+1)),datasets:[{label:'Engagement',data:posts.map(p=>p.engagement),backgroundColor:'rgba(59,130,246,0.7)',borderColor:'#3b82f6',borderWidth:1,borderRadius:4},{label:'Views',data:posts.map(p=>p.views),backgroundColor:'rgba(139,92,246,0.5)',borderColor:'#8b5cf6',borderWidth:1,borderRadius:4}]},options:{responsive:true,plugins:{legend:{labels:{color:'#94a3b8',font:{size:11}}}},scales:{x:{ticks:{color:'#475569'},grid:{color:'#1e2535'}},y:{ticks:{color:'#475569'},grid:{color:'#1e2535'}}}}});const container=document.getElementById('top-posts');posts.forEach((p,i)=>{const date=p.timestamp?new Date(p.timestamp).toLocaleDateString('en-AU',{month:'short',day:'numeric'}):'';const typeColor=p.type==='Video'?'badge-purple':p.type==='Sidecar'?'badge-blue':'badge-green';container.innerHTML+='<a class="post-row" href="'+p.url+'" target="_blank" rel="noopener"><div class="post-rank">#'+(i+1)+'<\/div><div class="post-info"><div class="post-caption">'+(p.caption||'(no caption)')+'<\/div><div class="post-meta">'+date+' &nbsp; <span class="badge '+typeColor+'">'+p.type+'<\/span><\/div><\/div><div class="post-stats"><div class="post-stat"><div class="val">'+p.likes+'<\/div><div class="lbl">likes<\/div><\/div><div class="post-stat"><div class="val">'+p.comments+'<\/div><div class="lbl">comments<\/div><\/div>'+(p.views?'<div class="post-stat"><div class="val">'+p.views.toLocaleString()+'<\/div><div class="lbl">views<\/div><\/div>':'')+'<\/div><\/a>';});const compContainer=document.getElementById('competitors');const competitors=Array.isArray(data.competitors)?data.competitors:[];const myFollowers=me.followers||0;const allEntries=[{handle:'marcomarkets (you)',followers:myFollowers,isMe:true},...competitors.map(c=>({handle:'@'+(c.handle||''),followers:c.followers||null,isMe:false}))];const maxF=Math.max(...allEntries.map(e=>e.followers||0),1);allEntries.forEach(entry=>{const pct=entry.followers?Math.round((entry.followers/maxF)*100):0;const color=entry.isMe?'linear-gradient(90deg,#3b82f6,#60a5fa)':'linear-gradient(90deg,#334155,#475569)';compContainer.innerHTML+='<div class="comp-row"><div class="comp-header"><span class="comp-handle">'+entry.handle+'<\/span><span class="comp-count">'+(entry.followers!=null?entry.followers.toLocaleString():'—')+'<\/span><\/div><div class="bar-bg"><div class="bar-fill" style="width:'+pct+'%;background:'+color+'"><\/div><\/div><\/div>';});}
+loadData();
+<\/script>
+</body>
+</html>`;
+
+const out = path.join(process.env.HOME, 'content-agent', 'dashboard', 'index.html');
+fs.writeFileSync(out, html);
+console.log('Dashboard written to: ' + out);
+console.log('File size: ' + html.length + ' bytes');
