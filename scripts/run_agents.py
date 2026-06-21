@@ -180,9 +180,10 @@ From this week's REAL data, give him:
 Respond ONLY with this JSON:
 {{
   "headline": "the single biggest content opportunity this week, max 12 words",
+  "format": "one of: Reel | Carousel | Story | Talking Head Reel | Screen Record Reel — whichever fits best this week",
   "actions": [
     "specific hook or opening line he can use TODAY — write it out word for word",
-    "a complete video idea: format, topic, first line, why it'll work this week",
+    "a complete video idea: topic, first line, why it'll work this week",
     "one thing killing reach right now that he should avoid"
   ],
   "source": "where this data came from"
@@ -282,6 +283,7 @@ From this week's real data, find him:
 Respond ONLY with this JSON:
 {{
   "headline": "the biggest gap or opportunity you found vs competitors, max 12 words",
+  "format": "one of: Reel | Carousel | Story | Talking Head Reel | Screen Record Reel — whichever best fits the opportunity you found",
   "actions": [
     "uncovered content angle: specific topic and why competitors are missing it",
     "urgent pain point from real posts this week: write it as a video hook he can film tomorrow",
