@@ -40,8 +40,8 @@ async function runScraper(handles) {
   console.log('Starting Apify run for:', handles.join(', '));
   const run = await apifyRequest('POST', '/v2/acts/apify~instagram-scraper/runs', {
     usernames: handles,
-    resultsType: 'profiles',
-    resultsLimit: 1,
+    resultsType: 'details',
+    resultsLimit: 10,
   });
   const runId = run.data && run.data.id;
   if (!runId) throw new Error('Failed to start run: ' + JSON.stringify(run));
@@ -66,15 +66,17 @@ async function runScraper(handles) {
 async function main() {
   const items = await runScraper(ALL_HANDLES);
 
-  // Debug: log first item to help diagnose field name changes
-  if (items.length > 0) {
-    const first = items[0];
-    console.log('Sample item keys:', Object.keys(first).slice(0, 20).join(', '));
-    if (first.error) console.log('Item error:', first.error, first.errorDescription);
-    else console.log('Sample followers field:', first.followersCount, first.followedByCount, first.followers);
+  console.log('Total items returned:', items.length);
+  const errorItems = items.filter(i => i.error);
+  const goodItems = items.filter(i => !i.error);
+  if (errorItems.length > 0) console.log('Error items:', errorItems.length, '— first error:', errorItems[0].error, errorItems[0].errorDescription);
+  if (goodItems.length > 0) {
+    const first = goodItems[0];
+    console.log('Good item keys:', Object.keys(first).slice(0, 25).join(', '));
+    console.log('Good item username:', first.username, '| followersCount:', first.followersCount, '| ownerId:', first.ownerId);
   }
-  const meData = items.find(i => (i.username || i.ownerUsername || '').toLowerCase() === ME.toLowerCase()) || {};
-  const topPosts = (meData.latestPosts || meData.posts || meData.topPosts || [])
+  const meData = goodItems.find(i => (i.username || i.ownerUsername || '').toLowerCase() === ME.toLowerCase()) || {};
+  const topPosts = (meData.latestPosts || meData.posts || meData.topPosts || meData.recentPosts || [])
     .slice(0, 6)
     .map(p => ({
       id: p.id || '',
@@ -89,7 +91,7 @@ async function main() {
     }));
 
   const competitors = COMPETITORS.map(handle => {
-    const c = items.find(i => (i.username || '').toLowerCase() === handle.toLowerCase()) || {};
+    const c = goodItems.find(i => (i.username || '').toLowerCase() === handle.toLowerCase()) || {};
     return {
       handle,
       followers: c.followersCount || c.followedByCount || c.followers || null,
