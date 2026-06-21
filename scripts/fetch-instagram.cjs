@@ -39,9 +39,10 @@ function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 async function runScraper(handles) {
   console.log('Starting Apify run for:', handles.join(', '));
   const run = await apifyRequest('POST', '/v2/acts/apify~instagram-scraper/runs', {
-    directUrls: handles.map(h => `https://www.instagram.com/${h}/`),
+    usernames: handles,
     resultsType: 'details',
     resultsLimit: 10,
+    proxy: { useApifyProxy: true, apifyProxyGroups: ['SHADER'] },
   });
   const runId = run.data && run.data.id;
   if (!runId) throw new Error('Failed to start run: ' + JSON.stringify(run));
