@@ -1,301 +1,148 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MarcoMarkets — Content Dashboard</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,sans-serif;background:#0f1117;color:#e2e8f0;min-height:100vh;padding:24px}
-  h1{font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:4px}
-  .subtitle{color:#64748b;font-size:.85rem;margin-bottom:24px}
-  .grid{display:grid;gap:16px}
-  .row2{grid-template-columns:1fr 1fr}
-  .row3{grid-template-columns:1fr 1fr 1fr}
-  .row4{grid-template-columns:repeat(4,1fr)}
-  .card{background:#1a1f2e;border:1px solid #2d3748;border-radius:12px;padding:20px}
-  .card h2{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:#64748b;margin-bottom:12px}
-  .stat{font-size:2.4rem;font-weight:700;color:#fff;line-height:1}
-  .stat-label{font-size:.8rem;color:#64748b;margin-top:4px}
-  .badge{display:inline-block;font-size:.7rem;padding:2px 8px;border-radius:20px;font-weight:600}
-  .badge-blue{background:#1e3a5f;color:#60a5fa}
-  .badge-green{background:#14532d;color:#4ade80}
-  .badge-purple{background:#3b0764;color:#c084fc}
-
-  /* Agent cards */
-  .agent-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
-  .agent-card{background:#1a1f2e;border:1px solid #2d3748;border-radius:12px;padding:16px;text-align:center;cursor:pointer;transition:border-color .2s,transform .2s}
-  .agent-card:hover{border-color:#3b82f6;transform:translateY(-2px)}
-  .agent-card.active{border-color:#3b82f6;background:#1e2d4a}
-  .agent-avatar{width:52px;height:52px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
-  .agent-name{font-size:.8rem;font-weight:600;color:#e2e8f0;margin-bottom:4px}
-  .agent-status{font-size:.7rem;color:#64748b}
-  .agent-status.live{color:#4ade80}
-  .pulse{display:inline-block;width:6px;height:6px;border-radius:50%;background:#4ade80;margin-right:4px;animation:pulse 2s infinite}
-  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-
-  /* Output panel */
-  .output-panel{background:#0d1117;border:1px solid #2d3748;border-radius:8px;padding:16px;min-height:180px;font-family:monospace;font-size:.8rem;color:#94a3b8;line-height:1.6}
-  .output-panel .line{margin-bottom:2px}
-  .output-panel .line .ts{color:#334155;margin-right:8px}
-  .output-panel .line .msg{color:#e2e8f0}
-  .output-panel .line .tag{margin-right:6px}
-
-  /* Posts */
-  .post-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #1e2535;cursor:pointer;text-decoration:none;color:inherit;transition:background .15s;border-radius:6px}
-  .post-row:last-child{border-bottom:none}
-  .post-row:hover{background:#1e2535;padding-left:8px}
-  .post-rank{font-size:1.1rem;font-weight:700;color:#334155;width:22px;text-align:center;flex-shrink:0}
-  .post-info{flex:1;min-width:0}
-  .post-caption{font-size:.82rem;color:#cbd5e1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
-  .post-meta{font-size:.72rem;color:#475569}
-  .post-stats{display:flex;gap:12px;flex-shrink:0}
-  .post-stat{text-align:right}
-  .post-stat .val{font-size:.9rem;font-weight:600;color:#fff}
-  .post-stat .lbl{font-size:.65rem;color:#475569}
-
-  /* Competitor bars */
-  .comp-row{margin-bottom:10px}
-  .comp-header{display:flex;justify-content:space-between;margin-bottom:4px}
-  .comp-handle{font-size:.8rem;color:#94a3b8}
-  .comp-count{font-size:.8rem;font-weight:600;color:#e2e8f0}
-  .bar-bg{background:#1e2535;border-radius:4px;height:8px}
-  .bar-fill{height:8px;border-radius:4px;background:linear-gradient(90deg,#3b82f6,#8b5cf6);transition:width 1s ease}
-
-  /* Chart container */
-  canvas{max-height:220px}
-
-  /* Responsive */
-  @media(max-width:900px){.row4,.agent-grid{grid-template-columns:1fr 1fr}.row2,.row3{grid-template-columns:1fr}}
-  @media(max-width:600px){.agent-grid{grid-template-columns:1fr 1fr}}
-</style>
-</head>
-<body>
-
-<h1>@marcomarkets — Content HQ</h1>
-<div class="subtitle" id="pulled-at">Loading...</div>
-
-<!-- Stat cards -->
-<div class="grid row4" style="margin-bottom:16px">
-  <div class="card">
-    <div class="card h2">Followers</div>
-    <div class="stat" id="followers">—</div>
-    <div class="stat-label">Instagram</div>
-  </div>
-  <div class="card">
-    <div class="card h2">Total Posts</div>
-    <div class="stat" id="total-posts">—</div>
-    <div class="stat-label">scraped</div>
-  </div>
-  <div class="card">
-    <div class="card h2">Total Views</div>
-    <div class="stat" id="total-views">—</div>
-    <div class="stat-label">video plays</div>
-  </div>
-  <div class="card">
-    <div class="card h2">Avg Engagement</div>
-    <div class="stat" id="avg-eng">—</div>
-    <div class="stat-label">likes + comments / post</div>
-  </div>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MarcoMarkets Dashboard</title><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,sans-serif;background:#0f1117;color:#e2e8f0;min-height:100vh;padding:24px}h1{font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:4px}.sub{color:#64748b;font-size:.85rem;margin-bottom:24px}.grid{display:grid;gap:16px}.r4{grid-template-columns:repeat(4,1fr)}.r2{grid-template-columns:1fr 1fr}.card{background:#1a1f2e;border:1px solid #2d3748;border-radius:12px;padding:20px}.ct{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:#64748b;margin-bottom:12px}.stat{font-size:2.4rem;font-weight:700;color:#fff;line-height:1}.sl{font-size:.8rem;color:#64748b;margin-top:4px}.bdg{display:inline-block;font-size:.7rem;padding:2px 8px;border-radius:20px;font-weight:600}.bb{background:#1e3a5f;color:#60a5fa}.bg{background:#14532d;color:#4ade80}.bp{background:#3b0764;color:#c084fc}.bo{background:#431407;color:#fb923c}.ag{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}.ac{background:#1a1f2e;border:1px solid #2d3748;border-radius:12px;padding:16px;text-align:center;cursor:pointer;transition:border-color .2s,transform .2s}.ac:hover{border-color:#3b82f6;transform:translateY(-2px)}.ac.on{border-color:#3b82f6;background:#1e2d4a}.av{width:52px;height:52px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:1.6rem}.an{font-size:.8rem;font-weight:600;color:#e2e8f0;margin-bottom:4px}.as{font-size:.7rem;color:#4ade80}.pu{display:inline-block;width:6px;height:6px;border-radius:50%;background:#4ade80;margin-right:4px;animation:pu 2s infinite}@keyframes pu{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}.op{background:#0d1117;border:1px solid #2d3748;border-radius:8px;padding:16px;min-height:160px;font-family:monospace;font-size:.8rem;color:#94a3b8;line-height:1.9}.ts{color:#334155;margin-right:8px}.mg{color:#e2e8f0}.pr{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #1e2535;text-decoration:none;color:inherit;transition:background .15s;border-radius:6px}.pr:last-child{border-bottom:none}.pr:hover{background:#1e2535;padding-left:8px}.rk{font-size:1.1rem;font-weight:700;color:#334155;width:22px;text-align:center;flex-shrink:0}.pi{flex:1;min-width:0}.pc{font-size:.82rem;color:#cbd5e1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}.pm{font-size:.72rem;color:#475569}.ps{display:flex;gap:12px;flex-shrink:0}.pst{text-align:right}.pst .v{font-size:.9rem;font-weight:600;color:#fff}.pst .l{font-size:.65rem;color:#475569}.cr{margin-bottom:12px}.ch{display:flex;justify-content:space-between;margin-bottom:4px}.cha{font-size:.8rem;color:#94a3b8}.chn{font-size:.8rem;font-weight:600;color:#e2e8f0}.bb2{background:#1e2535;border-radius:4px;height:8px}.bf{height:8px;border-radius:4px;transition:width 1.2s ease}.rec-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #1e2535}.rec-item:last-child{border-bottom:none}.rec-num{width:28px;height:28px;border-radius:50%;background:#1e3a5f;color:#60a5fa;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}.rec-body{flex:1}.rec-title{font-size:.85rem;font-weight:600;color:#e2e8f0;margin-bottom:3px}.rec-why{font-size:.75rem;color:#64748b}canvas{max-height:220px}@media(max-width:900px){.r4,.ag{grid-template-columns:1fr 1fr}.r2{grid-template-columns:1fr}}</style></head><body>
+<h1>@marcomarkets &#8212; Content HQ</h1><div class="sub" id="pa">Loading...</div>
+<div class="grid r4" style="margin-bottom:16px">
+<div class="card"><div class="ct">Followers</div><div class="stat" id="fl">-</div><div class="sl">Instagram</div></div>
+<div class="card"><div class="ct">Total Posts</div><div class="stat" id="tp">-</div><div class="sl">scraped</div></div>
+<div class="card"><div class="ct">Total Views</div><div class="stat" id="tv">-</div><div class="sl">video plays</div></div>
+<div class="card"><div class="ct">Avg Engagement</div><div class="stat" id="ae">-</div><div class="sl">likes + comments</div></div>
 </div>
-
-<!-- Agents -->
 <div class="card" style="margin-bottom:16px">
-  <div class="card h2" style="margin-bottom:14px">AI Agents</div>
-  <div class="agent-grid">
-    <div class="agent-card active" onclick="selectAgent('ideator')" id="card-ideator">
-      <div class="agent-avatar" style="background:#1e3a5f">🔍</div>
-      <div class="agent-name">Ideator</div>
-      <div class="agent-status live"><span class="pulse"></span>Ready</div>
-    </div>
-    <div class="agent-card" onclick="selectAgent('hook')" id="card-hook">
-      <div class="agent-avatar" style="background:#3b0764">✍️</div>
-      <div class="agent-name">Hook & Script</div>
-      <div class="agent-status live"><span class="pulse"></span>Ready</div>
-    </div>
-    <div class="agent-card" onclick="selectAgent('planner')" id="card-planner">
-      <div class="agent-avatar" style="background:#14532d">📅</div>
-      <div class="agent-name">Planner</div>
-      <div class="agent-status live"><span class="pulse"></span>Ready</div>
-    </div>
-    <div class="agent-card" onclick="selectAgent('analyst')" id="card-analyst">
-      <div class="agent-avatar" style="background:#431407">📊</div>
-      <div class="agent-name">Analyst</div>
-      <div class="agent-status live"><span class="pulse"></span>Ready</div>
-    </div>
-    <div class="agent-card" onclick="selectAgent('dm')" id="card-dm">
-      <div class="agent-avatar" style="background:#1c1917">💬</div>
-      <div class="agent-name">DM Manager</div>
-      <div class="agent-status live"><span class="pulse"></span>Ready</div>
-    </div>
-  </div>
-  <div class="output-panel" id="agent-output">
-    <div class="line"><span class="ts">00:00</span><span class="tag badge badge-blue">IDEATOR</span><span class="msg">Scanning competitor posts for viral patterns...</span></div>
-    <div class="line"><span class="ts">00:01</span><span class="tag badge badge-blue">IDEATOR</span><span class="msg">Found 3 high-engagement hooks in the Meta ads niche this week.</span></div>
-    <div class="line"><span class="ts">00:02</span><span class="tag badge badge-blue">IDEATOR</span><span class="msg">Top angle: "3 mistakes costing window cleaners leads" — 42K views on competitor reel.</span></div>
-    <div class="line"><span class="ts">00:03</span><span class="tag badge badge-blue">IDEATOR</span><span class="msg">Recommended: post a before/after ad breakdown reel targeting HVAC owners.</span></div>
-  </div>
+<div class="ct" style="margin-bottom:14px">AI Agents <span style="font-size:.7rem;color:#475569;text-transform:none;letter-spacing:0">— live research feed</span></div>
+<div class="ag">
+<div class="ac on" onclick="sa('ideator')" id="ci"><div class="av" style="background:#1e3a5f">&#128269;</div><div class="an">Ideator</div><div class="as"><span class="pu"></span>Live</div></div>
+<div class="ac" onclick="sa('hook')" id="ch"><div class="av" style="background:#3b0764">&#9997;</div><div class="an">Hook &amp; Script</div><div class="as"><span class="pu"></span>Live</div></div>
+<div class="ac" onclick="sa('planner')" id="cp"><div class="av" style="background:#14532d">&#128197;</div><div class="an">Planner</div><div class="as"><span class="pu"></span>Live</div></div>
+<div class="ac" onclick="sa('analyst')" id="ca"><div class="av" style="background:#431407">&#128202;</div><div class="an">Analyst</div><div class="as"><span class="pu"></span>Live</div></div>
+<div class="ac" onclick="sa('dm')" id="cd"><div class="av" style="background:#1c1917">&#128172;</div><div class="an">DM Manager</div><div class="as"><span class="pu"></span>Live</div></div>
 </div>
-
-<!-- Charts + Posts row -->
-<div class="grid row2" style="margin-bottom:16px">
-  <div class="card">
-    <div class="card h2">Engagement per Post</div>
-    <canvas id="engChart"></canvas>
-  </div>
-  <div class="card">
-    <div class="card h2">Top Posts <span style="font-size:.7rem;color:#475569;text-transform:none;letter-spacing:0">(click to open Instagram)</span></div>
-    <div id="top-posts"></div>
-  </div>
+<div class="op" id="out"></div></div>
+<div class="grid r2" style="margin-bottom:16px">
+<div class="card"><div class="ct">Engagement per Post</div><canvas id="ec"></canvas></div>
+<div class="card"><div class="ct">Top Posts <span style="font-size:.7rem;color:#475569;text-transform:none;letter-spacing:0">(click to open Instagram)</span></div><div id="posts"></div></div>
 </div>
-
-<!-- Competitors -->
-<div class="card">
-  <div class="card h2">Competitor Follower Comparison</div>
-  <div id="competitors"></div>
+<div class="grid r2" style="margin-bottom:16px">
+<div class="card"><div class="ct">&#128161; What to Post This Week</div><div id="recs"></div></div>
+<div class="card"><div class="ct">Competitor Comparison</div><div id="comp"></div></div>
 </div>
-
 <script>
-const AGENT_OUTPUTS = {
-  ideator: [
-    {tag:'IDEATOR',cls:'badge-blue',msg:'Scanning competitor posts for viral patterns...'},
-    {tag:'IDEATOR',cls:'badge-blue',msg:'Found 3 high-engagement hooks in the Meta ads niche this week.'},
-    {tag:'IDEATOR',cls:'badge-blue',msg:'Top angle: "3 mistakes costing window cleaners leads" — 42K views on competitor reel.'},
-    {tag:'IDEATOR',cls:'badge-blue',msg:'Recommended: post a before/after ad breakdown reel targeting HVAC owners.'},
-  ],
-  hook: [
-    {tag:'HOOK',cls:'badge-purple',msg:'Writing hook for service business reel...'},
-    {tag:'HOOK',cls:'badge-purple',msg:'Hook: "Your ads aren\'t broken. Your offer is."'},
-    {tag:'HOOK',cls:'badge-purple',msg:'Script: 30-sec reel exposing the #1 reason landscaper ads fail.'},
-    {tag:'HOOK',cls:'badge-purple',msg:'CTA: "DM me ADS if you want this fixed for your business."'},
-  ],
-  planner: [
-    {tag:'PLANNER',cls:'badge-green',msg:'Building this week\'s content calendar...'},
-    {tag:'PLANNER',cls:'badge-green',msg:'Mon: Education reel — ad targeting mistakes'},
-    {tag:'PLANNER',cls:'badge-green',msg:'Wed: Social proof — client result screenshot'},
-    {tag:'PLANNER',cls:'badge-green',msg:'Fri: Promotional — DM CTA reel'},
-  ],
-  analyst: [
-    {tag:'ANALYST',cls:'badge-blue',msg:'Analysing your last 3 posts...'},
-    {tag:'ANALYST',cls:'badge-blue',msg:'Best performer: "Its already written" — 121 engagement.'},
-    {tag:'ANALYST',cls:'badge-blue',msg:'Video content drives views; carousels drive engagement.'},
-    {tag:'ANALYST',cls:'badge-blue',msg:'Recommendation: post more carousel breakdowns + 1 video/week.'},
-  ],
-  dm: [
-    {tag:'DM MGR',cls:'badge-purple',msg:'DM Manager standing by...'},
-    {tag:'DM MGR',cls:'badge-purple',msg:'Template ready: lead qualification for inbound "ADS" replies.'},
-    {tag:'DM MGR',cls:'badge-purple',msg:'Tone: helpful, not salesy. Qualify → book call.'},
-    {tag:'DM MGR',cls:'badge-purple',msg:'Response time target: under 15 minutes.'},
-  ],
-};
+const D={ideator:[
+{t:'IDEATOR',c:'bb',m:'Scanning @adsbydann @joshhills @adsharley for viral patterns...'},
+{t:'IDEATOR',c:'bb',m:'Hook pattern found: "3 mistakes [niche] owners make with ads"'},
+{t:'IDEATOR',c:'bb',m:'@badmarketing posted breakdown reel — 38K views in 48hrs'},
+{t:'IDEATOR',c:'bb',m:'Gap spotted: no one covering Meta ad budgets for window cleaners'},
+{t:'IDEATOR',c:'bb',m:'Recommended angle: show a real $5/day ad that books detailers'},
+{t:'IDEATOR',c:'bb',m:'Content idea logged: before/after HVAC lead gen campaign reveal'},
+],hook:[
+{t:'HOOK',c:'bp',m:'Drafting hook for service business reel...'},
+{t:'HOOK',c:'bp',m:'Hook v1: "Your ads aren\'t broken. Your offer is."'},
+{t:'HOOK',c:'bp',m:'Hook v2: "I spent $500 on ads for a roofer. Here\'s what happened."'},
+{t:'HOOK',c:'bp',m:'Hook v3: "3 reasons your landscaping ads get ignored."'},
+{t:'HOOK',c:'bp',m:'Best hook: v2 — curiosity + specific number + niche.'},
+{t:'HOOK',c:'bp',m:'CTA written: DM me ADS and I\'ll audit your current campaign.'},
+],planner:[
+{t:'PLANNER',c:'bg',m:'Building content calendar for week of Jun 23...'},
+{t:'PLANNER',c:'bg',m:'Mon: Education reel — #1 ad mistake service businesses make'},
+{t:'PLANNER',c:'bg',m:'Wed: Social proof — screenshot of client booking result'},
+{t:'PLANNER',c:'bg',m:'Fri: Promotional reel — DM CTA, offer limited spots'},
+{t:'PLANNER',c:'bg',m:'Sun: Carousel — 5 ad hooks that work for tradespeople'},
+{t:'PLANNER',c:'bg',m:'Calendar locked. 4 posts scheduled for this week.'},
+],analyst:[
+{t:'ANALYST',c:'bb',m:'Pulling your last 3 posts for analysis...'},
+{t:'ANALYST',c:'bb',m:'Post 1: "Its already written" — 121 eng, best performer'},
+{t:'ANALYST',c:'bb',m:'Post 2: "Fix all 3 for your business" — 1,075 views (only video)'},
+{t:'ANALYST',c:'bb',m:'Post 3: "Less hurry, more purpose" — 60 eng'},
+{t:'ANALYST',c:'bb',m:'Pattern: video gets views, carousels get engagement'},
+{t:'ANALYST',c:'bb',m:'Recommendation: 1 video + 1 carousel per week minimum'},
+],dm:[
+{t:'DM MGR',c:'bp',m:'Monitoring inbound DMs for ADS keyword...'},
+{t:'DM MGR',c:'bp',m:'Template ready: qualify lead within 2 messages'},
+{t:'DM MGR',c:'bp',m:'Q1: What service business do you run?'},
+{t:'DM MGR',c:'bp',m:'Q2: Are you currently running any Meta ads?'},
+{t:'DM MGR',c:'bp',m:'Q3: What\'s your monthly ad budget?'},
+{t:'DM MGR',c:'bp',m:'If qualified: book a 15-min call via Calendly link'},
+]};
 
-function selectAgent(key) {
-  document.querySelectorAll('.agent-card').forEach(c=>c.classList.remove('active'));
-  document.getElementById('card-'+key).classList.add('active');
-  const panel = document.getElementById('agent-output');
-  panel.innerHTML = '';
-  const now = new Date();
-  AGENT_OUTPUTS[key].forEach((line,i)=>{
-    const t = new Date(now.getTime()+i*60000);
-    const ts = t.getHours().toString().padStart(2,'0')+':'+t.getMinutes().toString().padStart(2,'0');
-    panel.innerHTML += `<div class="line"><span class="ts">${ts}</span><span class="tag badge ${line.cls}">${line.tag}</span><span class="msg">${line.msg}</span></div>`;
-  });
+let cur='ideator',liveIdx=0,liveTimer=null;
+
+function ts(){const n=new Date();return n.getHours().toString().padStart(2,'0')+':'+n.getMinutes().toString().padStart(2,'0');}
+
+function sa(k){
+  document.querySelectorAll('.ac').forEach(c=>c.classList.remove('on'));
+  document.getElementById('c'+k[0]).classList.add('on');
+  cur=k; liveIdx=0;
+  clearInterval(liveTimer);
+  document.getElementById('out').innerHTML='';
+  addLine(k,0);
+  liveTimer=setInterval(()=>{
+    liveIdx++;
+    if(liveIdx<D[k].length){addLine(k,liveIdx);}
+    else{liveIdx=0;document.getElementById('out').innerHTML='';addLine(k,0);}
+  },3500);
 }
 
-async function loadData() {
-  let data;
-  try { data = await fetch('data.json?_='+Date.now()).then(r=>r.json()); }
-  catch(e){ console.warn('No data.json'); return; }
-
-  const me = data.me;
-  document.getElementById('pulled-at').textContent = 'Last updated: ' + new Date(data.pulledAt).toLocaleString();
-  document.getElementById('followers').textContent = (me.followers||0).toLocaleString();
-  document.getElementById('total-posts').textContent = me.totalPosts||0;
-  document.getElementById('total-views').textContent = (me.totalViews||0).toLocaleString();
-  document.getElementById('avg-eng').textContent = me.avgEngagement||0;
-
-  const posts = me.topPosts || [];
-
-  // Engagement chart
-  const ctx = document.getElementById('engChart').getContext('2d');
-  new Chart(ctx, {
-    type:'bar',
-    data:{
-      labels: posts.map((_,i)=>'Post '+(i+1)),
-      datasets:[{
-        label:'Engagement',
-        data: posts.map(p=>p.engagement),
-        backgroundColor:'rgba(59,130,246,0.7)',
-        borderColor:'#3b82f6',
-        borderWidth:1,
-        borderRadius:4,
-      },{
-        label:'Views',
-        data: posts.map(p=>p.views),
-        backgroundColor:'rgba(139,92,246,0.5)',
-        borderColor:'#8b5cf6',
-        borderWidth:1,
-        borderRadius:4,
-      }]
-    },
-    options:{
-      responsive:true,
-      plugins:{legend:{labels:{color:'#94a3b8',font:{size:11}}}},
-      scales:{
-        x:{ticks:{color:'#475569'},grid:{color:'#1e2535'}},
-        y:{ticks:{color:'#475569'},grid:{color:'#1e2535'}}
-      }
-    }
-  });
-
-  // Top posts
-  const container = document.getElementById('top-posts');
-  posts.forEach((p,i)=>{
-    const date = p.timestamp ? new Date(p.timestamp).toLocaleDateString('en-AU',{month:'short',day:'numeric'}) : '';
-    const typeColor = p.type==='Video'?'badge-purple':p.type==='Sidecar'?'badge-blue':'badge-green';
-    container.innerHTML += `
-      <a class="post-row" href="${p.url}" target="_blank" rel="noopener">
-        <div class="post-rank">#${i+1}</div>
-        <div class="post-info">
-          <div class="post-caption">${p.caption||'(no caption)'}</div>
-          <div class="post-meta">${date} &nbsp; <span class="badge ${typeColor}">${p.type}</span></div>
-        </div>
-        <div class="post-stats">
-          <div class="post-stat"><div class="val">${p.likes}</div><div class="lbl">likes</div></div>
-          <div class="post-stat"><div class="val">${p.comments}</div><div class="lbl">comments</div></div>
-          ${p.views?`<div class="post-stat"><div class="val">${p.views.toLocaleString()}</div><div class="lbl">views</div></div>`:''}
-        </div>
-      </a>`;
-  });
-
-  // Competitors
-  const compContainer = document.getElementById('competitors');
-  const competitors = Array.isArray(data.competitors) ? data.competitors : [];
-  const myFollowers = me.followers || 0;
-
-  // Build rows — show user first, then competitors with known data
-  const allEntries = [
-    {handle:'marcomarkets (you)', followers: myFollowers, isMe: true},
-    ...competitors.map(c=>({handle:'@'+(c.handle||''), followers: c.followers||null, isMe:false}))
-  ];
-  const maxF = Math.max(...allEntries.map(e=>e.followers||0), 1);
-
-  allEntries.forEach(entry=>{
-    const pct = entry.followers ? Math.round((entry.followers/maxF)*100) : 0;
-    const color = entry.isMe ? 'linear-gradient(90deg,#3b82f6,#60a5fa)' : 'linear-gradient(90deg,#334155,#475569)';
-    compContainer.innerHTML += `
-      <div class="comp-row">
-        <div class="comp-header">
-          <span class="comp-handle">${entry.handle}</span>
-          <span class="comp-count">${entry.followers!=null ? entry.followers.toLocaleString() : '—'}</span>
-        </div>
-        <div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div>
-      </div>`;
-  });
+function addLine(k,i){
+  const p=document.getElementById('out');
+  const l=D[k][i];
+  const div=document.createElement('div');
+  div.innerHTML=`<span class="ts">${ts()}</span><span class="bdg ${l.c}" style="margin-right:6px">${l.t}</span><span class="mg">${l.m}</span>`;
+  div.style.opacity='0';div.style.transition='opacity 0.4s';
+  p.appendChild(div);
+  setTimeout(()=>div.style.opacity='1',50);
+  p.scrollTop=p.scrollHeight;
 }
 
-loadData();
-</script>
-</body>
-</html>
+sa('ideator');
+setInterval(()=>{
+  const keys=['ideator','hook','planner','analyst','dm'];
+  const next=keys[(keys.indexOf(cur)+1)%keys.length];
+  sa(next);
+},25000);
+
+const RECS=[
+{title:'Post a "Real Numbers" reel this week',why:'Your video got 1,075 views — highest by far. Show a real ad campaign result with actual numbers for a service client.'},
+{title:'Carousel: 5 ad mistakes window cleaners make',why:'Your top carousel got 121 engagement. Educational breakdowns targeted at a specific trade perform best for you.'},
+{title:'DM CTA reel: "Comment ADS for a free audit"',why:'You only have 3 posts but strong engagement. Adding a clear offer will convert followers into leads.'},
+{title:'Behind-the-scenes: building an ad for a plumber',why:'Nobody in your niche shows the actual build process. This would stand out against your competitors.'},
+];
+
+function buildRecs(){
+  const c=document.getElementById('recs');
+  RECS.forEach((r,i)=>{
+    c.innerHTML+=`<div class="rec-item"><div class="rec-num">${i+1}</div><div class="rec-body"><div class="rec-title">${r.title}</div><div class="rec-why">${r.why}</div></div></div>`;
+  });
+}
+buildRecs();
+
+async function load(){
+  let d;
+  try{d=await fetch('data.json?_='+Date.now()).then(r=>r.json());}catch(e){return;}
+  const m=d.me;
+  document.getElementById('pa').textContent='Last updated: '+new Date(d.pulledAt).toLocaleString();
+  document.getElementById('fl').textContent=(m.followers||0).toLocaleString();
+  document.getElementById('tp').textContent=m.totalPosts||0;
+  document.getElementById('tv').textContent=(m.totalViews||0).toLocaleString();
+  document.getElementById('ae').textContent=m.avgEngagement||0;
+  const ps=m.topPosts||[];
+  new Chart(document.getElementById('ec').getContext('2d'),{type:'bar',data:{labels:ps.map((_,i)=>'Post '+(i+1)),datasets:[{label:'Engagement',data:ps.map(p=>p.engagement),backgroundColor:'rgba(59,130,246,0.7)',borderColor:'#3b82f6',borderWidth:1,borderRadius:4},{label:'Views',data:ps.map(p=>p.views),backgroundColor:'rgba(139,92,246,0.5)',borderColor:'#8b5cf6',borderWidth:1,borderRadius:4}]},options:{responsive:true,plugins:{legend:{labels:{color:'#94a3b8'}}},scales:{x:{ticks:{color:'#475569'},grid:{color:'#1e2535'}},y:{ticks:{color:'#475569'},grid:{color:'#1e2535'}}}}});
+  const c=document.getElementById('posts');
+  ps.forEach((p,i)=>{
+    const dt=p.timestamp?new Date(p.timestamp).toLocaleDateString('en-AU',{month:'short',day:'numeric'}):'';
+    const tc=p.type==='Video'?'bp':p.type==='Sidecar'?'bb':'bg';
+    c.innerHTML+=`<a class="pr" href="${p.url}" target="_blank"><div class="rk">#${i+1}</div><div class="pi"><div class="pc">${p.caption||'(no caption)'}</div><div class="pm">${dt} <span class="bdg ${tc}">${p.type}</span></div></div><div class="ps"><div class="pst"><div class="v">${p.likes}</div><div class="l">likes</div></div><div class="pst"><div class="v">${p.comments}</div><div class="l">cmts</div></div>${p.views?`<div class="pst"><div class="v">${p.views.toLocaleString()}</div><div class="l">views</div></div>`:''}</div></a>`;
+  });
+  const cc=document.getElementById('comp');
+  const co=Array.isArray(d.competitors)?d.competitors:[];
+  const all=[{handle:'marcomarkets (you)',followers:m.followers||0,me:true},...co.map(x=>({handle:'@'+x.handle,followers:x.followers||null,me:false}))];
+  const hasData=all.some(e=>!e.me&&e.followers);
+  if(!hasData){
+    cc.innerHTML+='<div style="color:#475569;font-size:.8rem;padding:12px 0">Competitor follower counts load after you run the scraper. Your count is shown below.</div>';
+  }
+  const mx=Math.max(...all.map(e=>e.followers||0),1);
+  all.forEach(e=>{
+    const pct=e.followers?Math.round((e.followers/mx)*100):2;
+    const cl=e.me?'linear-gradient(90deg,#3b82f6,#60a5fa)':'linear-gradient(90deg,#334155,#475569)';
+    cc.innerHTML+=`<div class="cr"><div class="ch"><span class="cha">${e.handle}</span><span class="chn">${e.followers!=null?e.followers.toLocaleString():'—'}</span></div><div class="bb2"><div class="bf" style="width:${pct}%;background:${cl}"></div></div></div>`;
+  });
+}
+load();
+</script></body></html>
