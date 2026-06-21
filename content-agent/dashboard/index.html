@@ -3,354 +3,459 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MarcoMarkets — Content Agent</title>
+<title>MarcoMarkets — Content Command</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; min-height: 100vh; }
 
-  header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; }
-  header h1 { font-size: 20px; font-weight: 700; color: #2563EB; }
-  header span { font-size: 13px; color: #94a3b8; }
+/* Header */
+.header { display: flex; align-items: center; justify-content: space-between; padding: 18px 32px; background: #161b27; border-bottom: 1px solid #1e2536; }
+.header-left { display: flex; align-items: center; gap: 12px; }
+.logo { font-size: 18px; font-weight: 800; color: #fff; }
+.logo span { color: #3b82f6; }
+.badge { background: #1e3a5f; color: #60a5fa; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+.header-right { display: flex; align-items: center; gap: 16px; }
+.live-dot { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #94a3b8; }
+.live-dot::before { content: ''; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 1.5s infinite; display: block; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.3)} }
+.updated { font-size: 11px; color: #475569; }
 
-  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 28px 24px; }
 
-  /* Stats row */
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
-  .stat-card { background: #fff; border-radius: 12px; padding: 20px 24px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
-  .stat-card .label { font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 8px; }
-  .stat-card .value { font-size: 28px; font-weight: 700; color: #1e293b; }
-  .stat-card .sub { font-size: 12px; color: #64748b; margin-top: 4px; }
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 28px; }
+.stat { background: #161b27; border: 1px solid #1e2536; border-radius: 12px; padding: 18px 20px; position: relative; overflow: hidden; }
+.stat::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); }
+.stat .label { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+.stat .value { font-size: 26px; font-weight: 800; color: #fff; line-height: 1; }
+.stat .sub { font-size: 11px; color: #475569; margin-top: 6px; }
+.stat .trend { font-size: 11px; color: #22c55e; margin-top: 4px; font-weight: 600; }
 
-  /* Agent cards */
-  .section-title { font-size: 14px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 16px; }
-  .agents { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 40px; }
-  .agent-card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); cursor: pointer; transition: box-shadow .2s, transform .2s; border: 2px solid transparent; }
-  .agent-card:hover { box-shadow: 0 4px 16px rgba(37,99,235,.12); transform: translateY(-2px); border-color: #2563EB; }
-  .agent-card.active { border-color: #2563EB; }
-  .agent-icon { width: 40px; height: 40px; border-radius: 10px; background: #eff6ff; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 12px; position: relative; }
-  .agent-icon .pulse { position: absolute; top: -3px; right: -3px; width: 10px; height: 10px; border-radius: 50%; background: #22c55e; }
-  .agent-icon .pulse::after { content: ''; position: absolute; inset: -3px; border-radius: 50%; background: #22c55e; opacity: .4; animation: pulse 1.8s infinite; }
-  @keyframes pulse { 0%,100%{transform:scale(1);opacity:.4} 50%{transform:scale(1.6);opacity:0} }
-  .agent-name { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
-  .agent-desc { font-size: 11px; color: #94a3b8; line-height: 1.5; margin-bottom: 12px; }
-  .agent-metric { font-size: 11px; color: #2563EB; font-weight: 600; }
+/* Section titles */
+.section-title { font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; }
 
-  /* Detail panel */
-  .detail-panel { background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.06); margin-bottom: 40px; overflow: hidden; display: none; }
-  .detail-panel.open { display: block; }
-  .detail-header { padding: 20px 24px; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 12px; }
-  .detail-header h2 { font-size: 16px; font-weight: 700; }
-  .detail-body { padding: 24px; }
+/* Agent cards */
+.agents { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 28px; }
+.agent { background: #161b27; border: 1px solid #1e2536; border-radius: 12px; padding: 16px; cursor: pointer; transition: all .2s; position: relative; }
+.agent:hover, .agent.active { border-color: #3b82f6; background: #1a2540; }
+.agent-avatar { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-size: 28px; background: #1e2a40; position: relative; }
+.agent-avatar .status { position: absolute; bottom: 1px; right: 1px; width: 12px; height: 12px; background: #22c55e; border-radius: 50%; border: 2px solid #161b27; }
+.agent-name { font-size: 12px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 4px; }
+.agent-stat { font-size: 10px; color: #64748b; text-align: center; margin-bottom: 2px; }
+.agent-metric { font-size: 13px; font-weight: 800; color: #3b82f6; text-align: center; margin: 6px 0 4px; }
+.agent-tag { font-size: 10px; color: #22c55e; text-align: center; }
 
-  /* Top posts */
-  .posts { display: flex; flex-direction: column; gap: 12px; }
-  .post-item { display: flex; align-items: center; gap: 16px; padding: 14px 16px; background: #f8fafc; border-radius: 8px; text-decoration: none; color: inherit; transition: background .15s; }
-  .post-item:hover { background: #eff6ff; }
-  .post-rank { font-size: 18px; font-weight: 800; color: #cbd5e1; width: 28px; flex-shrink: 0; }
-  .post-info { flex: 1; }
-  .post-caption { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
-  .post-meta { font-size: 11px; color: #94a3b8; }
-  .post-stats { display: flex; gap: 16px; }
-  .post-stat { text-align: right; }
-  .post-stat .n { font-size: 15px; font-weight: 700; color: #2563EB; }
-  .post-stat .l { font-size: 10px; color: #94a3b8; }
+/* Detail panel */
+.detail { background: #161b27; border: 1px solid #1e2536; border-radius: 12px; margin-bottom: 28px; display: none; overflow: hidden; }
+.detail.open { display: block; }
+.detail-head { padding: 16px 20px; border-bottom: 1px solid #1e2536; display: flex; align-items: center; gap: 10px; }
+.detail-head h3 { font-size: 15px; font-weight: 700; color: #fff; }
+.detail-body { padding: 20px; font-size: 13px; line-height: 1.8; color: #94a3b8; white-space: pre-wrap; }
+.detail-body strong { color: #e2e8f0; }
 
-  /* Output sections */
-  .output-box { background: #f8fafc; border-radius: 8px; padding: 16px; font-size: 13px; line-height: 1.7; color: #334155; white-space: pre-wrap; }
-  .tag { display: inline-block; background: #eff6ff; color: #2563EB; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; margin: 2px; }
+/* Charts row */
+.charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+.chart-card { background: #161b27; border: 1px solid #1e2536; border-radius: 12px; padding: 20px; }
+.chart-card h4 { font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 16px; }
 
-  @media(max-width:768px){
-    .stats { grid-template-columns: repeat(2,1fr); }
-    .agents { grid-template-columns: repeat(2,1fr); }
-    header { padding: 16px 20px; }
-    .container { padding: 20px 16px; }
-  }
+/* Competitor table */
+.comp-card { background: #161b27; border: 1px solid #1e2536; border-radius: 12px; padding: 20px; margin-bottom: 28px; }
+.comp-card h4 { font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 16px; }
+.comp-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.comp-handle { font-size: 12px; color: #94a3b8; width: 140px; flex-shrink: 0; }
+.comp-handle.you { color: #3b82f6; font-weight: 700; }
+.comp-bar-wrap { flex: 1; background: #1e2536; border-radius: 4px; height: 6px; overflow: hidden; }
+.comp-bar { height: 100%; border-radius: 4px; background: #334155; transition: width 1s ease; }
+.comp-bar.you { background: linear-gradient(90deg, #3b82f6, #8b5cf6); }
+.comp-followers { font-size: 11px; color: #475569; width: 50px; text-align: right; flex-shrink: 0; }
+
+/* Posts */
+.posts-card { background: #161b27; border: 1px solid #1e2536; border-radius: 12px; padding: 20px; }
+.posts-card h4 { font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 16px; }
+.post-row { display: flex; align-items: center; gap: 14px; padding: 12px 14px; background: #0f1117; border-radius: 8px; margin-bottom: 8px; text-decoration: none; color: inherit; cursor: pointer; transition: background .15s; border: 1px solid transparent; }
+.post-row:hover { background: #1a2540; border-color: #3b82f6; }
+.post-num { font-size: 16px; font-weight: 800; color: #1e2536; width: 24px; flex-shrink: 0; }
+.post-info { flex: 1; }
+.post-caption { font-size: 13px; color: #e2e8f0; font-weight: 500; margin-bottom: 3px; }
+.post-meta { font-size: 11px; color: #475569; }
+.post-nums { display: flex; gap: 16px; }
+.pn { text-align: right; }
+.pn .n { font-size: 14px; font-weight: 700; color: #3b82f6; }
+.pn .l { font-size: 10px; color: #475569; }
+
+@media(max-width:900px){
+  .stats { grid-template-columns: repeat(3,1fr); }
+  .agents { grid-template-columns: repeat(3,1fr); }
+  .charts-row { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
 
-<header>
-  <h1>@marcomarkets</h1>
-  <span id="pulled-at">Loading...</span>
-</header>
+<div class="header">
+  <div class="header-left">
+    <div class="logo">marco<span>markets</span></div>
+    <div class="badge">Content Command</div>
+  </div>
+  <div class="header-right">
+    <div class="live-dot">Live</div>
+    <div class="updated" id="updated">—</div>
+  </div>
+</div>
 
 <div class="container">
 
   <!-- Stats -->
   <div class="stats">
-    <div class="stat-card">
+    <div class="stat">
       <div class="label">Followers</div>
-      <div class="value" id="stat-followers">—</div>
+      <div class="value" id="s-followers">—</div>
       <div class="sub">@marcomarkets</div>
     </div>
-    <div class="stat-card">
+    <div class="stat">
       <div class="label">Total Posts</div>
-      <div class="value" id="stat-posts">—</div>
+      <div class="value" id="s-posts">—</div>
       <div class="sub">Instagram</div>
     </div>
-    <div class="stat-card">
+    <div class="stat">
       <div class="label">Total Views</div>
-      <div class="value" id="stat-views">—</div>
+      <div class="value" id="s-views">—</div>
       <div class="sub">Video plays</div>
     </div>
-    <div class="stat-card">
+    <div class="stat">
       <div class="label">Avg Engagement</div>
-      <div class="value" id="stat-eng">—</div>
-      <div class="sub">Likes + comments</div>
+      <div class="value" id="s-eng">—</div>
+      <div class="sub">Per post</div>
+    </div>
+    <div class="stat">
+      <div class="label">Eng Rate</div>
+      <div class="value" id="s-rate">—</div>
+      <div class="sub">vs followers</div>
+      <div class="trend" id="s-trend"></div>
     </div>
   </div>
 
   <!-- Agents -->
   <div class="section-title">Your 5 Agents</div>
   <div class="agents">
-    <div class="agent-card" onclick="openAgent('ideator')">
-      <div class="agent-icon">💡<span class="pulse"></span></div>
+    <div class="agent" onclick="openAgent('ideator',this)">
+      <div class="agent-avatar">💡<span class="status"></span></div>
       <div class="agent-name">Ideator</div>
-      <div class="agent-desc">Scouts viral content ideas from your niche</div>
-      <div class="agent-metric">3 ideas ready</div>
+      <div class="agent-stat">Content ideas</div>
+      <div class="agent-metric">3 ready</div>
+      <div class="agent-tag">● Active</div>
     </div>
-    <div class="agent-card" onclick="openAgent('hook')">
-      <div class="agent-icon">✍️<span class="pulse"></span></div>
+    <div class="agent" onclick="openAgent('hook',this)">
+      <div class="agent-avatar">✍️<span class="status"></span></div>
       <div class="agent-name">Hook & Script</div>
-      <div class="agent-desc">Writes hooks and full video scripts</div>
-      <div class="agent-metric">2 scripts ready</div>
+      <div class="agent-stat">Video scripts</div>
+      <div class="agent-metric">2 scripts</div>
+      <div class="agent-tag">● Active</div>
     </div>
-    <div class="agent-card" onclick="openAgent('planner')">
-      <div class="agent-icon">📅<span class="pulse"></span></div>
+    <div class="agent" onclick="openAgent('planner',this)">
+      <div class="agent-avatar">📅<span class="status"></span></div>
       <div class="agent-name">Planner</div>
-      <div class="agent-desc">Builds your daily content calendar</div>
-      <div class="agent-metric">7-day plan ready</div>
+      <div class="agent-stat">Content calendar</div>
+      <div class="agent-metric">7-day plan</div>
+      <div class="agent-tag">● Active</div>
     </div>
-    <div class="agent-card" onclick="openAgent('analyst')">
-      <div class="agent-icon">📊<span class="pulse"></span></div>
+    <div class="agent" onclick="openAgent('analyst',this)">
+      <div class="agent-avatar">📊<span class="status"></span></div>
       <div class="agent-name">Analyst</div>
-      <div class="agent-desc">Analyses your stats and what's working</div>
+      <div class="agent-stat">Stats & trends</div>
       <div class="agent-metric" id="analyst-metric">—</div>
+      <div class="agent-tag">● Active</div>
     </div>
-    <div class="agent-card" onclick="openAgent('dm')">
-      <div class="agent-icon">💬<span class="pulse"></span></div>
+    <div class="agent" onclick="openAgent('dm',this)">
+      <div class="agent-avatar">💬<span class="status"></span></div>
       <div class="agent-name">DM Manager</div>
-      <div class="agent-desc">Drafts responses to incoming DMs</div>
-      <div class="agent-metric">3 templates ready</div>
+      <div class="agent-stat">Response drafts</div>
+      <div class="agent-metric">3 templates</div>
+      <div class="agent-tag">● Active</div>
     </div>
   </div>
 
-  <!-- Detail Panel -->
-  <div class="detail-panel" id="detail-panel">
-    <div class="detail-header">
-      <span id="detail-icon" style="font-size:24px"></span>
-      <h2 id="detail-title"></h2>
+  <!-- Detail panel -->
+  <div class="detail" id="detail">
+    <div class="detail-head">
+      <span id="detail-icon" style="font-size:20px"></span>
+      <h3 id="detail-title"></h3>
     </div>
     <div class="detail-body" id="detail-body"></div>
   </div>
 
-  <!-- Top Posts -->
-  <div class="section-title">Your Top Posts</div>
-  <div class="posts" id="posts-list"></div>
+  <!-- Charts -->
+  <div class="charts-row">
+    <div class="chart-card">
+      <h4>Post Performance — Engagement</h4>
+      <canvas id="engChart" height="160"></canvas>
+    </div>
+    <div class="chart-card">
+      <h4>Post Performance — Views</h4>
+      <canvas id="viewChart" height="160"></canvas>
+    </div>
+  </div>
+
+  <!-- Competitor comparison -->
+  <div class="comp-card">
+    <h4>Where You Stand in Your Niche — Followers</h4>
+    <div id="comp-list"></div>
+  </div>
+
+  <!-- Top posts -->
+  <div class="posts-card">
+    <h4>All-Time Top Posts</h4>
+    <div id="posts-list"></div>
+  </div>
 
 </div>
 
 <script>
 const AGENTS = {
   ideator: {
-    icon: '💡',
-    title: 'Ideator — Content Ideas',
-    body: `<p style="margin-bottom:16px;font-size:13px;color:#64748b;">Based on your niche (Meta ads for service businesses) and what's trending with your competitors, here are your top 3 content ideas this week:</p>
-    <div class="output-box"><strong>Idea 1 — "The $500 ad that got a plumber 12 jobs in a week"</strong>
+    icon: '💡', title: 'Ideator — Content Ideas This Week',
+    body: `Based on your niche (Meta ads for service businesses) and competitor trends:
+
+<strong>Idea 1 — "The $500 ad that got a plumber 12 jobs in a week"</strong>
 Format: Talking head / screen share
 Hook: "This plumber had never run ads in his life. Here's the exact ad that got him 12 jobs in 7 days."
-Why it works: Specific niche + specific result = high trust signal for service business owners.
+Why it works: Specific niche + specific result = instant trust.
 
 <strong>Idea 2 — "3 things service businesses waste money on with Meta ads"</strong>
-Format: List / carousel
+Format: Carousel (4 slides)
 Hook: "Most window cleaners are burning $500/mo on ads and don't even know it."
 Why it works: Loss aversion. Service owners are scared of wasting money.
 
 <strong>Idea 3 — "I rewrote this roofing ad live — here's what changed"</strong>
 Format: Screen share / before & after
 Hook: "Roofer sent me his ad. I fixed it in 4 minutes. Here's exactly what I changed."
-Why it works: Transformation content. Proves expertise without pitching.</div>`
+Why it works: Transformation content. Proves expertise without pitching.`
   },
   hook: {
-    icon: '✍️',
-    title: 'Hook & Script Writer',
-    body: `<p style="margin-bottom:16px;font-size:13px;color:#64748b;">Two ready-to-record scripts based on your best-performing content style:</p>
-    <div class="output-box"><strong>Script 1 — "The 3-ad framework for service businesses"</strong>
+    icon: '✍️', title: 'Hook & Script — Ready to Record',
+    body: `<strong>Script 1 — "The 3-ad framework for service businesses"</strong>
 
 HOOK (0–3s):
 "If you run a service business and your ads aren't working, it's probably one of these 3 things."
 
 BODY (3–45s):
-"Number one — you're targeting too broad. Most plumbers I talk to are targeting 'homeowners 18–65 in [city]'. That's everyone. Narrow it to 35–55, homeowners, household income $75k+. Instantly cheaper clicks.
+"Number one — you're targeting too broad. Narrow to 35–55, homeowners, $75k+ income. Instantly cheaper clicks.
+Number two — your creative looks like an ad. iPhone video, natural light, no logo. That stops the scroll.
+Number three — your offer is weak. 'Free quote' is not an offer. 'Show up same day or it's free' — that's an offer."
 
-Number two — your creative looks like an ad. iPhone video, natural light, you talking directly to camera, no logo slapped on it. That stops the scroll.
-
-Number three — your offer is weak. 'Call us for a free quote' is not an offer. 'We'll show up same day or the job is free' — that's an offer.
-
-Fix these three things this week."
-
-CTA (last 3s):
-"DM me 'ADS' and I'll look at your current ad for free."
+CTA: "DM me 'ADS' and I'll review your current ad for free."
 
 ---
 
-<strong>Script 2 — "Why your Meta ad got cheap clicks but zero calls"</strong>
+<strong>Script 2 — "Why cheap clicks ≠ calls"</strong>
 
-HOOK (0–3s):
-"Getting cheap clicks but zero calls from your Meta ads? Here's why."
+HOOK: "Getting cheap clicks but zero calls from Meta ads? Here's exactly why."
 
-BODY (3–40s):
-"Cheap clicks mean Meta found people willing to click. But clicks don't pay your bills — calls do.
+BODY: "Cheap clicks mean Meta found clickers — not buyers. The problem is your landing page. You sent them to your homepage with 11 things to click. People need ONE thing: one button, one offer, one page."
 
-The problem is almost always your landing page. You sent them to your website homepage. Your website has 11 things to click, a gallery of old jobs, and your phone number buried at the bottom.
-
-People need ONE thing to do. One button. One offer. One page.
-
-Build a simple landing page — headline, 3 bullet points, one form. That's it."
-
-CTA:
-"Want me to review your setup? DM me 'ADS'."</div>`
+CTA: "DM me 'ADS' and I'll look at your setup."`
   },
   planner: {
-    icon: '📅',
-    title: 'Planner — 7-Day Content Calendar',
-    body: `<div class="output-box"><strong>Week of Jun 23 – Jun 29, 2026</strong>
+    icon: '📅', title: 'Planner — This Week\'s Calendar',
+    body: `<strong>Week of Jun 23 – Jun 29, 2026</strong>
 
-Mon Jun 23 — 🎬 Video
+Mon Jun 23  🎬  Video
 "The $500 ad that got a plumber 12 jobs in a week"
 Format: Talking head | CTA: DM 'ADS'
 
-Tue Jun 24 — 🖼️ Carousel
-"3 things service businesses waste money on with Meta ads"
+Tue Jun 24  🖼️  Carousel
+"3 things service businesses waste money on"
 Format: 4-slide carousel | CTA: Save this post
 
-Wed Jun 25 — 💬 Social proof
-Screenshot/story of a client result
+Wed Jun 25  💬  Social proof
+Client result screenshot or story
 Format: Image + caption | CTA: DM 'ADS'
 
-Thu Jun 26 — 🎬 Video
-"I rewrote this roofing ad live — here's what changed"
+Thu Jun 26  🎬  Video
+"I rewrote this roofing ad live"
 Format: Screen share | CTA: DM 'ADS'
 
-Fri Jun 27 — 📖 Educational
+Fri Jun 27  📖  Educational
 "Why cheap clicks don't mean more calls"
 Format: Talking head | CTA: Follow for more
 
-Sat Jun 28 — 🔄 Repurpose
-Best-performing post from this week → Stories
-Format: Story slides
+Sat Jun 28  🔄  Repurpose
+Best post of the week → Stories
 
-Sun Jun 29 — 🗓️ Rest / plan next week
-Review what got the most engagement. Note topics for next week.</div>`
+Sun Jun 29  📋  Plan next week
+Review engagement. Note what to double down on.`
   },
   analyst: {
-    icon: '📊',
-    title: 'Analyst — What\'s Working',
-    body: `<div id="analyst-output"></div>`
+    icon: '📊', title: 'Analyst — What\'s Working',
+    body: ''
   },
   dm: {
-    icon: '💬',
-    title: 'DM Manager — Response Templates',
-    body: `<p style="margin-bottom:16px;font-size:13px;color:#64748b;">Three ready-to-use DM response templates:</p>
-    <div class="output-box"><strong>Template 1 — Someone DMs "ADS"</strong>
+    icon: '💬', title: 'DM Manager — Response Templates',
+    body: `<strong>Template 1 — Someone DMs "ADS"</strong>
 
 "Hey [name]! Thanks for reaching out.
 
 Quick question — what kind of service business do you run and what's your current monthly ad spend?
 
-I want to make sure I can actually help before we hop on a call."
+Want to make sure I can actually help before we hop on a call."
 
 ---
 
 <strong>Template 2 — "How much do you charge?"</strong>
 
-"Depends on what you need! I work with service businesses on their Meta ads — everything from setting up campaigns from scratch to fixing ones that aren't converting.
+"Depends on what you need. I work with service businesses on Meta ads — from setting up campaigns from scratch to fixing ones that aren't converting.
 
-What's going on with your ads right now? Are you running anything currently?"
+What's going on with your ads right now?"
 
 ---
 
 <strong>Template 3 — "Does this work for [niche]?"</strong>
 
-"Yes, 100%. I work specifically with service businesses — window cleaners, detailers, plumbers, HVAC, landscapers. The same framework applies across all of them.
+"Yes, 100%. I work specifically with service businesses — window cleaners, detailers, plumbers, HVAC, landscapers. Same framework across all of them.
 
-What niche are you in? I can tell you exactly what's working right now."</div>`
+What niche are you in? I can tell you exactly what's working right now."`
   }
 };
 
 let currentAgent = null;
 
-function openAgent(key) {
-  const panel = document.getElementById('detail-panel');
+function openAgent(key, el) {
+  const panel = document.getElementById('detail');
   if (currentAgent === key && panel.classList.contains('open')) {
     panel.classList.remove('open');
     currentAgent = null;
-    document.querySelectorAll('.agent-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.agent').forEach(a => a.classList.remove('active'));
     return;
   }
   currentAgent = key;
-  document.querySelectorAll('.agent-card').forEach(c => c.classList.remove('active'));
-  event.currentTarget.classList.add('active');
+  document.querySelectorAll('.agent').forEach(a => a.classList.remove('active'));
+  el.classList.add('active');
 
   const a = AGENTS[key];
   document.getElementById('detail-icon').textContent = a.icon;
   document.getElementById('detail-title').textContent = a.title;
-  document.getElementById('detail-body').innerHTML = a.body;
 
-  if (key === 'analyst') renderAnalyst();
+  if (key === 'analyst') {
+    renderAnalyst();
+  } else {
+    document.getElementById('detail-body').innerHTML = a.body;
+  }
 
   panel.classList.add('open');
-  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function renderAnalyst() {
-  fetch('data.json').then(r => r.json()).then(data => {
-    const posts = data.me.topPosts || [];
-    const topPost = posts[0];
-    const html = `<div class="output-box"><strong>Account Overview</strong>
-Followers: ${data.me.followers?.toLocaleString() ?? '—'}
-Total posts: ${data.me.totalPosts}
-Total video views: ${data.me.totalViews?.toLocaleString() ?? '—'}
-Avg engagement per post: ${data.me.avgEngagement}
+  fetch('data.json').then(r => r.json()).then(d => {
+    const top = d.me.topPosts[0];
+    const rate = ((d.me.avgEngagement / d.me.followers) * 100).toFixed(1);
+    document.getElementById('detail-body').innerHTML = `<strong>Account Overview</strong>
+Followers: ${d.me.followers.toLocaleString()} | Posts: ${d.me.totalPosts} | Views: ${d.me.totalViews.toLocaleString()} | Avg Eng: ${d.me.avgEngagement} | Eng Rate: ${rate}%
 
-<strong>Top Performing Post</strong>
-"${topPost?.caption || '—'}"
-Likes: ${topPost?.likes ?? '—'} | Comments: ${topPost?.comments ?? '—'}
-URL: ${topPost?.url ?? '—'}
+<strong>Top Post</strong>
+"${top.caption}"
+${top.likes} likes · ${top.comments} comments · ${top.views ? top.views.toLocaleString() + ' views' : 'carousel'}
+${top.url}
 
 <strong>What's Working</strong>
-• Carousel/Sidecar posts are getting your highest engagement (115 likes on "Its already written")
-• Your CTA posts ("DM me ADS") are getting views but lower likes — the hook is working, the offer is landing
-• You have 3 posts and 622 followers — your engagement rate is strong (avg ${data.me.avgEngagement} per post = ${((data.me.avgEngagement / data.me.followers) * 100).toFixed(1)}%)
+• Carousel posts are your highest engagement format (115 likes on "Its already written")
+• Your CTA posts get views but lower likes — hook is working, offer is landing
+• ${rate}% engagement rate is strong for your follower count
 
 <strong>Recommendation</strong>
-Post more carousel content. Your best post is a carousel. Double down on that format and educational content — your audience responds to it.</div>`;
-    document.getElementById('analyst-output').innerHTML = html;
+Post more carousel content. Your #1 post is a carousel. Double down on education + carousels.`;
   });
 }
 
-fetch('data.json').then(r => r.json()).then(data => {
-  const me = data.me;
-  document.getElementById('stat-followers').textContent = me.followers?.toLocaleString() ?? '—';
-  document.getElementById('stat-posts').textContent = me.totalPosts;
-  document.getElementById('stat-views').textContent = me.totalViews?.toLocaleString() ?? '—';
-  document.getElementById('stat-eng').textContent = me.avgEngagement;
-  document.getElementById('analyst-metric').textContent = `Eng rate ${((me.avgEngagement / me.followers) * 100).toFixed(1)}%`;
-  document.getElementById('pulled-at').textContent = 'Updated ' + new Date(data.pulledAt).toLocaleDateString();
+const COMPETITORS = [
+  { handle: '@adsbydann', followers: 48000 },
+  { handle: '@joshhills', followers: 31000 },
+  { handle: '@adsharley', followers: 22000 },
+  { handle: '@badmarketing', followers: 18000 },
+  { handle: '@markbuilds', followers: 12000 },
+  { handle: '@isaiahhgarciaa', followers: 8500 },
+  { handle: '@marcomarkets', followers: 622, you: true },
+];
 
-  const list = document.getElementById('posts-list');
-  (me.topPosts || []).forEach((p, i) => {
-    list.innerHTML += `
-    <a class="post-item" href="${p.url}" target="_blank">
-      <div class="post-rank">#${i+1}</div>
+fetch('data.json').then(r => r.json()).then(d => {
+  const me = d.me;
+
+  document.getElementById('s-followers').textContent = me.followers.toLocaleString();
+  document.getElementById('s-posts').textContent = me.totalPosts;
+  document.getElementById('s-views').textContent = me.totalViews.toLocaleString();
+  document.getElementById('s-eng').textContent = me.avgEngagement;
+  const rate = ((me.avgEngagement / me.followers) * 100).toFixed(1);
+  document.getElementById('s-rate').textContent = rate + '%';
+  document.getElementById('s-trend').textContent = '↑ Strong';
+  document.getElementById('analyst-metric').textContent = rate + '% rate';
+  document.getElementById('updated').textContent = 'Updated ' + new Date(d.pulledAt).toLocaleDateString();
+
+  // Charts
+  const posts = me.topPosts;
+  const labels = posts.map((p, i) => `Post ${i + 1}`);
+  const engData = posts.map(p => p.engagement);
+  const viewData = posts.map(p => p.views);
+
+  const chartOpts = {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: '#475569', font: { size: 11 } }, grid: { color: '#1e2536' } },
+      y: { ticks: { color: '#475569', font: { size: 11 } }, grid: { color: '#1e2536' } }
+    },
+    onClick: (e, els, chart) => {
+      if (els.length) {
+        const idx = els[0].index;
+        window.open(posts[idx].url, '_blank');
+      }
+    }
+  };
+
+  new Chart(document.getElementById('engChart'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{ data: engData, backgroundColor: '#3b82f6', borderRadius: 6, hoverBackgroundColor: '#60a5fa' }]
+    },
+    options: { ...chartOpts, plugins: { ...chartOpts.plugins, tooltip: { callbacks: { label: ctx => `${ctx.raw} engagement — click to open post` } } } }
+  });
+
+  new Chart(document.getElementById('viewChart'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{ data: viewData, backgroundColor: '#8b5cf6', borderRadius: 6, hoverBackgroundColor: '#a78bfa' }]
+    },
+    options: { ...chartOpts, plugins: { ...chartOpts.plugins, tooltip: { callbacks: { label: ctx => `${ctx.raw} views — click to open post` } } } }
+  });
+
+  // Competitor bars
+  const sorted = [...COMPETITORS].sort((a, b) => b.followers - a.followers);
+  const max = sorted[0].followers;
+  const list = document.getElementById('comp-list');
+  sorted.forEach(c => {
+    const pct = Math.max(2, (c.followers / max) * 100).toFixed(1);
+    list.innerHTML += `<div class="comp-row">
+      <div class="comp-handle ${c.you ? 'you' : ''}">${c.handle}${c.you ? ' ← you' : ''}</div>
+      <div class="comp-bar-wrap"><div class="comp-bar ${c.you ? 'you' : ''}" style="width:${pct}%"></div></div>
+      <div class="comp-followers">${c.followers >= 1000 ? (c.followers/1000).toFixed(0)+'k' : c.followers}</div>
+    </div>`;
+  });
+
+  // Posts
+  const pl = document.getElementById('posts-list');
+  posts.forEach((p, i) => {
+    pl.innerHTML += `<a class="post-row" href="${p.url}" target="_blank">
+      <div class="post-num">#${i+1}</div>
       <div class="post-info">
-        <div class="post-caption">${p.caption || '(no caption)'}</div>
-        <div class="post-meta">${p.type} · ${p.timestamp?.slice(0,10)}</div>
+        <div class="post-caption">${p.caption}</div>
+        <div class="post-meta">${p.type} · ${p.timestamp.slice(0,10)}</div>
       </div>
-      <div class="post-stats">
-        <div class="post-stat"><div class="n">${p.likes}</div><div class="l">likes</div></div>
-        <div class="post-stat"><div class="n">${p.comments}</div><div class="l">comments</div></div>
-        ${p.views ? `<div class="post-stat"><div class="n">${p.views.toLocaleString()}</div><div class="l">views</div></div>` : ''}
+      <div class="post-nums">
+        <div class="pn"><div class="n">${p.likes}</div><div class="l">likes</div></div>
+        <div class="pn"><div class="n">${p.comments}</div><div class="l">comments</div></div>
+        ${p.views ? `<div class="pn"><div class="n">${p.views.toLocaleString()}</div><div class="l">views</div></div>` : ''}
       </div>
     </a>`;
   });
