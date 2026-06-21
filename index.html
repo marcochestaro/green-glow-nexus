@@ -15,9 +15,8 @@ button{font-family:inherit}
 .nl:hover{color:#cbd5e1;background:var(--dim)}
 .nl.on{color:#fff;background:var(--dim)}
 .nav-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
-.nav-fl{font-size:.85rem;font-weight:700;color:#fff;line-height:1}
-.nav-fl-lbl{font-size:.55rem;color:var(--sub);margin-top:2px;text-align:center;text-transform:uppercase;letter-spacing:.04em}
-.clock{font-size:.78rem;font-weight:500;color:var(--sub);font-variant-numeric:tabular-nums}
+.clock{font-size:.78rem;font-weight:600;color:#94a3b8;font-variant-numeric:tabular-nums;white-space:nowrap}
+.clock-tz{font-size:.58rem;color:var(--sub);margin-left:3px}
 
 /* VIEWS */
 .view{display:none}
@@ -26,35 +25,41 @@ button{font-family:inherit}
 /* ─── HOME ──────────────────────────────────────────────── */
 .home-wrap{min-height:calc(100vh - 52px);display:flex;flex-direction:column}
 .home-hero{background:linear-gradient(160deg,#0c0f1a 0%,#07080b 60%);border-bottom:1px solid var(--border);padding:36px 20px 32px;position:relative;overflow:hidden}
-.home-hero::before{content:'';position:absolute;top:-120px;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(59,130,246,.06) 0%,transparent 70%);pointer-events:none}
-.home-hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:220px;height:220px;background:radial-gradient(circle,rgba(167,139,250,.04) 0%,transparent 70%);pointer-events:none}
+.home-hero::before{content:'';position:absolute;top:-120px;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(59,130,246,.07) 0%,transparent 70%);pointer-events:none}
+.home-hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:220px;height:220px;background:radial-gradient(circle,rgba(167,139,250,.05) 0%,transparent 70%);pointer-events:none}
 .home-eyebrow{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--sub);margin-bottom:10px}
 .home-greeting{font-size:1.75rem;font-weight:700;color:#fff;line-height:1.15;margin-bottom:6px;letter-spacing:-.02em}
-.home-date-line{font-size:.8rem;color:var(--sub);margin-bottom:32px}
-.home-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:14px;overflow:hidden;border:1px solid var(--border)}
-.hs{background:var(--card);padding:18px 14px;position:relative}
-.hs::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
-.hs:nth-child(1)::before{background:var(--blue)}
-.hs:nth-child(2)::before{background:var(--purple)}
-.hs:nth-child(3)::before{background:var(--green)}
-.hs-n{font-size:1.55rem;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1}
-.hs-l{font-size:.6rem;color:var(--sub);margin-top:5px;text-transform:uppercase;letter-spacing:.06em}
+.home-date-line{font-size:.8rem;color:var(--sub)}
 
 .home-body{flex:1;padding:20px 16px;max-width:600px;width:100%;margin:0 auto}
-.today-banner{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color .2s;margin-bottom:12px;position:relative}
-.today-banner:hover{border-color:#2a3a5c}
-.today-banner:active{transform:scale(.99)}
-.tb-accent{height:3px;background:linear-gradient(90deg,var(--blue),var(--purple))}
-.tb-inner{padding:16px 18px 18px}
-.tb-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.tb-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub)}
-.tb-arrow{font-size:.7rem;color:var(--sub)}
-.tb-day{font-size:.72rem;font-weight:600;color:var(--blue);margin-bottom:6px}
-.tb-title{font-size:.95rem;font-weight:700;color:#fff;line-height:1.4;margin-bottom:10px}
-.tb-type{display:inline-block;font-size:.62rem;font-weight:600;padding:2px 9px;border-radius:20px;background:var(--dim);color:#64748b;border:1px solid var(--border)}
 
-.home-section-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin:20px 0 10px}
-.nav-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+/* DAILY BRIEF — PROMINENT */
+.brief-card{background:linear-gradient(135deg,#0d1020 0%,#0c0e13 100%);border:1px solid #1e2535;border-radius:16px;overflow:hidden;margin:20px 0 16px;box-shadow:0 0 0 1px rgba(59,130,246,.08),0 4px 24px rgba(0,0,0,.4)}
+.brief-bar{height:3px;background:linear-gradient(90deg,#6366f1,#3b82f6,#38bdf8)}
+.brief-inner{padding:18px 20px}
+.brief-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.brief-dot{width:7px;height:7px;border-radius:50%;background:#3b82f6;box-shadow:0 0 8px #3b82f6}
+.brief-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#6366f1}
+.brief-focus{font-size:.98rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;letter-spacing:-.01em}
+.brief-text{font-size:.78rem;color:#64748b;line-height:1.6}
+
+/* TODAY POST — PROMINENT */
+.home-section-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin:0 0 10px}
+.today-banner{background:linear-gradient(135deg,#080f1e 0%,#0a0c12 100%);border:1px solid #1e2d4a;border-radius:16px;overflow:hidden;cursor:pointer;transition:all .2s;position:relative;box-shadow:0 0 0 1px rgba(59,130,246,.1),0 4px 20px rgba(0,0,0,.3);margin-bottom:20px}
+.today-banner:hover{border-color:#2a4070;transform:translateY(-1px);box-shadow:0 0 0 1px rgba(59,130,246,.2),0 8px 30px rgba(0,0,0,.4)}
+.today-banner:active{transform:scale(.99)}
+.tb-accent{height:3px;background:linear-gradient(90deg,#3b82f6,#6366f1,#a78bfa)}
+.tb-inner{padding:18px 20px 20px}
+.tb-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.tb-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#3b82f6}
+.tb-open{font-size:.68rem;color:#3b82f6;border:1px solid #1e2d4a;padding:3px 10px;border-radius:20px}
+.tb-day{font-size:.72rem;font-weight:600;color:#64748b;margin-bottom:6px}
+.tb-title{font-size:1.05rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:12px;letter-spacing:-.01em}
+.tb-footer{display:flex;align-items:center;gap:8px}
+.tb-type{display:inline-block;font-size:.62rem;font-weight:600;padding:3px 10px;border-radius:20px}
+
+/* QUICK ACCESS */
+.nav-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
 .nav-tile{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 16px 14px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
 .nav-tile:hover{border-color:#252d40;background:#0f1118}
 .nav-tile:active{transform:scale(.98)}
@@ -62,6 +67,17 @@ button{font-family:inherit}
 .nt-title{font-size:.85rem;font-weight:600;color:#fff;margin-bottom:3px}
 .nt-desc{font-size:.68rem;color:var(--sub);line-height:1.4}
 .nt-arrow{font-size:.65rem;color:var(--sub);margin-top:8px;display:block}
+
+/* POST MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.85);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.modal-overlay.on{display:block}
+.modal-box{background:#09090f;border-top:1px solid var(--border);border-radius:20px 20px 0 0;min-height:90vh;margin-top:5vh;padding:0 0 40px;position:relative}
+.modal-bar{height:4px;background:linear-gradient(90deg,#3b82f6,#6366f1,#a78bfa);border-radius:20px 20px 0 0}
+.modal-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 0}
+.modal-close{background:var(--dim);border:none;color:#94a3b8;width:32px;height:32px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.modal-close:hover{background:#252836;color:#fff}
+.modal-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#3b82f6}
+.modal-body{padding:16px 20px}
 
 /* PAGE */
 .page{max-width:860px;margin:0 auto;padding:20px 16px}
@@ -93,8 +109,7 @@ section{margin-bottom:44px;scroll-margin-top:64px}
 .tc-day{font-size:.72rem;font-weight:600;color:var(--blue);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
 .tc-title{font-size:1.1rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:12px}
 .type-badge{display:inline-block;font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:20px;background:var(--dim);color:var(--sub);border:1px solid var(--border);margin-bottom:14px;text-transform:uppercase;letter-spacing:.04em}
-.type-badge.video{background:#0a1020;color:#93c5fd;border-color:#1a2a45}
-.type-badge.screen{background:#0a1020;color:#93c5fd;border-color:#1a2a45}
+.type-badge.video,.type-badge.screen{background:#0a1020;color:#93c5fd;border-color:#1a2a45}
 .type-badge.carousel{background:#130a00;color:#fdba74;border-color:#2a1800}
 .type-badge.talking{background:#130820;color:#c4b5fd;border-color:#25104a}
 .film-note{background:#050608;border-left:2px solid var(--blue);padding:11px 13px;border-radius:0 8px 8px 0;font-size:.75rem;color:#4a5568;line-height:1.6;margin-bottom:16px}
@@ -102,10 +117,10 @@ section{margin-bottom:44px;scroll-margin-top:64px}
 
 /* SCRIPT */
 .script-lines{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
-.sl{display:grid;grid-template-columns:42px 1fr;gap:8px;align-items:start}
+.sl{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:start}
 .sl-meta{text-align:right;padding-top:10px}
-.sl-time{font-size:.58rem;color:var(--sub);display:block}
-.sl-tag{font-size:.55rem;font-weight:700;color:var(--sub);text-transform:uppercase;display:block;margin-top:1px}
+.sl-seg{font-size:.63rem;font-weight:600;color:#475569;display:block;line-height:1.3}
+.sl-dur{font-size:.58rem;color:var(--sub);display:block;margin-top:2px}
 .sl-bub{background:#050709;border:1px solid var(--border);border-radius:9px;padding:11px 13px;font-size:.8rem;color:#94a3b8;line-height:1.6}
 .sl-bub.hook{border-color:#1a2a45;background:#060c1a}
 .sl-bub.cta{border-color:#0d2218;background:#04090a}
@@ -186,28 +201,29 @@ section{margin-bottom:44px;scroll-margin-top:64px}
 .chk-sub{font-size:.62rem;color:var(--sub);opacity:.6;margin-top:2px}
 .divider{height:1px;background:var(--border);margin:14px 0}
 
-/* DAILY BRIEF */
-.brief-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:12px}
-.brief-bar{height:2px;background:linear-gradient(90deg,var(--purple),#38bdf8)}
-.brief-inner{padding:14px 16px}
-.brief-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:8px}
-.brief-focus{font-size:.85rem;font-weight:700;color:#fff;margin-bottom:6px}
-.brief-text{font-size:.75rem;color:#4a5568;line-height:1.55}
-.brief-comp{display:flex;align-items:center;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);flex-wrap:wrap}
-.brief-comp-label{font-size:.62rem;color:var(--sub);flex-shrink:0}
-.brief-comp-val{font-size:.72rem;font-weight:600;color:#94a3b8}
-
 /* SUGGESTION CHIPS */
 .chips-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
 .chip{padding:5px 11px;border-radius:20px;font-size:.7rem;font-weight:500;color:var(--sub);border:1px solid var(--border);background:#050608;cursor:pointer;transition:all .15s;white-space:nowrap}
 .chip:hover{border-color:var(--blue);color:#93c5fd;background:#07101e}
 .chip:active{transform:scale(.97)}
 
-/* SCRIPT SEGMENT */
-.sl{display:grid;grid-template-columns:130px 1fr;gap:10px;align-items:start}
-.sl-meta{padding-top:10px;text-align:right}
-.sl-seg{font-size:.65rem;font-weight:600;color:#64748b;display:block;line-height:1.3}
-.sl-dur{font-size:.58rem;color:var(--sub);display:block;margin-top:2px}
+/* AGENTS */
+.agents-wrap{max-width:860px;margin:0 auto;padding:20px 16px}
+.agent-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:12px}
+.agent-bar{height:3px}
+.agent-head{padding:16px 18px 14px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;border-bottom:1px solid var(--border)}
+.agent-name{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:4px}
+.agent-role{font-size:.68rem;color:var(--sub);line-height:1.45}
+.agent-badge{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+.agent-body{padding:16px 18px}
+.agent-report-label{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px}
+.agent-headline{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4}
+.agent-text{font-size:.78rem;color:#64748b;line-height:1.65;margin-bottom:14px}
+.agent-actions{display:flex;flex-direction:column;gap:6px}
+.agent-action{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:#050709;border:1px solid var(--border);border-radius:8px}
+.agent-action-num{font-size:.62rem;font-weight:700;color:var(--sub);width:16px;flex-shrink:0;padding-top:1px}
+.agent-action-text{font-size:.75rem;color:#94a3b8;line-height:1.5;flex:1}
+.agent-footer{padding:10px 18px;border-top:1px solid var(--border);font-size:.6rem;color:var(--sub)}
 </style></head><body>
 
 <!-- NAV -->
@@ -221,15 +237,24 @@ section{margin-bottom:44px;scroll-margin-top:64px}
     <button class="nl" onclick="showView('content');goto('ideas')">Ideas</button>
     <button class="nl" onclick="showView('content');goto('tools')">Tools</button>
     <button class="nl" onclick="showView('content');goto('plan')">Tomorrow</button>
+    <button class="nl" id="nl-agents" onclick="showView('agents')">Agents</button>
   </div>
   <div class="nav-right">
-    <div style="text-align:center">
-      <div class="nav-fl" id="hdr-fl">—</div>
-      <div class="nav-fl-lbl">followers</div>
-    </div>
-    <div class="clock" id="clock">00:00</div>
+    <div class="clock"><span id="clock">00:00</span><span class="clock-tz">EST</span></div>
   </div>
 </nav>
+
+<!-- POST MODAL -->
+<div class="modal-overlay" id="post-modal" onclick="closeModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-bar"></div>
+    <div class="modal-head">
+      <div class="modal-label">Today's Post</div>
+      <button class="modal-close" onclick="closePostModal()">&#215;</button>
+    </div>
+    <div class="modal-body" id="modal-content"></div>
+  </div>
+</div>
 
 <!-- HOME VIEW -->
 <div class="view on" id="view-home">
@@ -241,62 +266,67 @@ section{margin-bottom:44px;scroll-margin-top:64px}
     </div>
 
     <div class="home-body">
+      <!-- DAILY BRIEF -->
       <div class="brief-card">
         <div class="brief-bar"></div>
         <div class="brief-inner">
-          <div class="brief-label">Today's brief</div>
+          <div class="brief-eyebrow">
+            <div class="brief-dot"></div>
+            <div class="brief-label">Today's brief</div>
+          </div>
           <div class="brief-focus" id="brief-focus"></div>
           <div class="brief-text" id="brief-text"></div>
-          <div class="brief-comp" id="brief-comp" style="display:none">
-            <div class="brief-comp-label">Top competitor:</div>
-            <div class="brief-comp-val" id="brief-comp-val"></div>
-          </div>
-        </div>
-      </div>
-      <div class="home-section-label">Today's post</div>
-      <div class="today-banner" onclick="showView('content');goto('today')">
-        <div class="tb-accent"></div>
-        <div class="tb-inner">
-          <div class="tb-top">
-            <div class="tb-label">Post now</div>
-            <div class="tb-arrow">&#8599;</div>
-          </div>
-          <div class="tb-day" id="home-today-day"></div>
-          <div class="tb-title" id="home-today-title"></div>
-          <div class="tb-type" id="home-today-type"></div>
         </div>
       </div>
 
-      <div class="home-section-label">Quick access</div>
+      <!-- TODAY'S POST -->
+      <div class="home-section-label">Today's post</div>
+      <div class="today-banner" id="today-banner" onclick="openPostModal()">
+        <div class="tb-accent"></div>
+        <div class="tb-inner">
+          <div class="tb-top">
+            <div class="tb-label">Tap to open full script</div>
+            <div class="tb-open">Open &#8599;</div>
+          </div>
+          <div class="tb-day" id="home-today-day"></div>
+          <div class="tb-title" id="home-today-title"></div>
+          <div class="tb-footer">
+            <div class="tb-type" id="home-today-type"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUICK ACCESS -->
+      <div class="home-section-label">Research & tools</div>
       <div class="nav-grid">
-        <div class="nav-tile" onclick="showView('content');goto('week')">
-          <div class="nt-dot" style="background:var(--blue)"></div>
-          <div class="nt-title">This Week</div>
-          <div class="nt-desc">All 7 scripts with filming notes</div>
+        <div class="nav-tile" onclick="showView('agents')">
+          <div class="nt-dot" style="background:#6366f1"></div>
+          <div class="nt-title">My Agents</div>
+          <div class="nt-desc">Daily reports from your 4 personal research agents</div>
           <span class="nt-arrow">&#8594;</span>
         </div>
-        <div class="nav-tile" onclick="showView('content');goto('research')">
+        <div class="nav-tile" onclick="window.open('https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=AU&media_type=all','_blank')">
+          <div class="nt-dot" style="background:var(--blue)"></div>
+          <div class="nt-title">Meta Ad Library</div>
+          <div class="nt-desc">See exactly what competitors are running right now</div>
+          <span class="nt-arrow">&#8594;</span>
+        </div>
+        <div class="nav-tile" onclick="showView('content');goto('week')">
           <div class="nt-dot" style="background:var(--purple)"></div>
-          <div class="nt-title">Stats</div>
-          <div class="nt-desc">Followers, views, competitors</div>
+          <div class="nt-title">This Week's Scripts</div>
+          <div class="nt-desc">All 7 posts with filming notes and timing labels</div>
           <span class="nt-arrow">&#8594;</span>
         </div>
         <div class="nav-tile" onclick="showView('content');goto('ideas')">
           <div class="nt-dot" style="background:var(--green)"></div>
           <div class="nt-title">Content Ideas</div>
-          <div class="nt-desc">40 ideas, mark off used ones</div>
-          <span class="nt-arrow">&#8594;</span>
-        </div>
-        <div class="nav-tile" onclick="showView('content');goto('tools')">
-          <div class="nt-dot" style="background:var(--orange)"></div>
-          <div class="nt-title">Tools</div>
-          <div class="nt-desc">DM scripts, bio, checklist</div>
+          <div class="nt-desc">40 ready-to-use ideas — mark off what you've filmed</div>
           <span class="nt-arrow">&#8594;</span>
         </div>
         <div class="nav-tile" onclick="showView('content');goto('plan')">
           <div class="nt-dot" style="background:#38bdf8"></div>
           <div class="nt-title">Tomorrow's Plan</div>
-          <div class="nt-desc">Tasks for content, outreach, growth</div>
+          <div class="nt-desc">Pick your tasks for tomorrow from pre-built chips</div>
           <span class="nt-arrow">&#8594;</span>
         </div>
       </div>
@@ -386,7 +416,8 @@ Follow for daily content on what actually works</textarea>
     <div id="plan-date" style="font-size:.75rem;color:var(--sub);margin-bottom:14px"></div>
 
     <div style="margin-bottom:18px">
-      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:10px">Content</div>
+      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:6px">Content</div>
+      <div style="font-size:.68rem;color:var(--sub);margin-bottom:10px">Tap to add to your checklist</div>
       <div class="chips-wrap" id="chips-content"></div>
       <div id="plan-content-tasks"></div>
       <button class="cbtn" style="margin-top:6px" onclick="addTask('content')">+ Write your own</button>
@@ -395,7 +426,8 @@ Follow for daily content on what actually works</textarea>
     <div class="divider"></div>
 
     <div style="margin-bottom:18px;margin-top:18px">
-      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:10px">Outreach &amp; DMs</div>
+      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:6px">Outreach &amp; DMs</div>
+      <div style="font-size:.68rem;color:var(--sub);margin-bottom:10px">Tap to add to your checklist</div>
       <div class="chips-wrap" id="chips-outreach"></div>
       <div id="plan-outreach-tasks"></div>
       <button class="cbtn" style="margin-top:6px" onclick="addTask('outreach')">+ Write your own</button>
@@ -404,7 +436,8 @@ Follow for daily content on what actually works</textarea>
     <div class="divider"></div>
 
     <div style="margin-top:18px;margin-bottom:18px">
-      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:10px">Growth &amp; Profile</div>
+      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:6px">Growth &amp; Profile</div>
+      <div style="font-size:.68rem;color:var(--sub);margin-bottom:10px">Tap to add to your checklist</div>
       <div class="chips-wrap" id="chips-growth"></div>
       <div id="plan-growth-tasks"></div>
       <button class="cbtn" style="margin-top:6px" onclick="addTask('growth')">+ Write your own</button>
@@ -422,6 +455,17 @@ Follow for daily content on what actually works</textarea>
 </div>
 </div>
 
+<!-- AGENTS VIEW -->
+<div class="view" id="view-agents">
+<div class="agents-wrap">
+  <div style="margin-bottom:20px">
+    <div style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:4px">My Agents</div>
+    <div style="font-size:.75rem;color:var(--sub)" id="agents-date"></div>
+  </div>
+  <div id="agents-out"></div>
+</div>
+</div>
+
 <script>
 // ── Views ──────────────────────────────────────────────────────────────
 function showView(v){
@@ -433,15 +477,14 @@ function showView(v){
 }
 function goto(id){setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},60);}
 
-// ── Clock ─────────────────────────────────────────────────────────────
+// ── Clock (EST) ────────────────────────────────────────────────────────
 function tick(){
   const n=new Date();
-  document.getElementById('clock').textContent=n.toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit',hour12:false});
+  document.getElementById('clock').textContent=n.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:true,timeZone:'America/New_York'});
 }
 tick();setInterval(tick,10000);
 
-// ── Dates ─────────────────────────────────────────────────────────────
-// Get Monday of current week
+// ── Dates ──────────────────────────────────────────────────────────────
 function getMondayOfWeek(d){
   const day=d.getDay();
   const diff=day===0?-6:1-day;
@@ -460,24 +503,21 @@ function weekDate(i){const d=new Date(weekMon);d.setDate(weekMon.getDate()+i);re
 function fmtShort(d){return DAYS[d.getDay()===0?6:d.getDay()-1]+' '+d.getDate();}
 function fmtFull(d){const dn=d.getDay()===0?6:d.getDay()-1;return FULL_DAYS[dn]+', '+MONTHS[d.getMonth()]+' '+d.getDate();}
 
-// Today index (0=Mon, 6=Sun)
 let todayI=today.getDay();if(todayI===0)todayI=6;else todayI--;
 
-// Home page date
-const homeDate=document.getElementById('home-date');
-homeDate.textContent=fmtFull(today);
+document.getElementById('home-date').textContent=fmtFull(today);
 const hr=today.getHours();
 document.getElementById('home-greeting').textContent=hr<12?'morning':hr<17?'afternoon':'evening';
 
 // ── Daily Brief ────────────────────────────────────────────────────────
 const DAILY_BRIEF=[
   {focus:"Film your video today, then batch one more while you're set up.",text:"Monday is the best day to get ahead. Film two back-to-back and you're covered for Tuesday too. Screen records take 30 min. Talking heads take 10. You have time."},
-  {focus:"Every caption needs a CTA. Check your last 3 posts.",text:'Without a CTA, people watch and scroll. "DM me ADS" at the end of every caption is the difference between a view and a lead. Add it to anything missing.'},
-  {focus:"Check what your competitors posted this week.",text:"Open 2-3 competitor accounts and see what's performing. Look at comments — what are people asking? That's your next video idea. Best research is free."},
-  {focus:"Best post time tonight: 6-7:30 PM AEST. Set a reminder now.",text:"Thursday evening is peak engagement for service business content. Schedule for 6 PM and stay on for 10 minutes after to reply to early comments."},
+  {focus:"Every caption needs a CTA. Check your last 3 posts.",text:'Without a CTA, people watch and scroll. "DM me ADS" at the end of every caption is the difference between a view and a lead. Go add it to anything missing.'},
+  {focus:"Check what your competitors posted this week.",text:"Open 2-3 competitor accounts and see what's performing. Look at the comments — what are people asking? That's your next video idea. Best research you can do is free."},
+  {focus:"Best post time tonight: 6-7:30 PM EST. Set a reminder now.",text:"Thursday evening is peak engagement for service business content. Schedule for 6 PM and stay online for 10 minutes after posting to reply to early comments — it signals to the algorithm."},
   {focus:"End the week strong. Post before 6 PM today.",text:"Friday afternoon content performs well — people are winding down and scrolling more. A short punchy talking head today carries engagement into the weekend."},
   {focus:"Post today. Less competition on weekends = more reach.",text:"Most accounts don't post on weekends. Less noise in the feed means more reach for your content for the same effort."},
-  {focus:"Plan your week now. Read all 7 scripts in This Week.",text:"Sunday is for planning. Read through the scripts, decide which ones you're filming and when, block out filming time. Five minutes now saves an hour of scrambling."},
+  {focus:"Plan your week now. Read all 7 scripts in This Week.",text:"Sunday is for planning. Read through the scripts, decide which ones you're filming and when, block out filming time. Five minutes now saves an hour of scrambling Monday morning."},
 ];
 (function(){
   const b=DAILY_BRIEF[todayI];
@@ -558,7 +598,7 @@ lines:[
 ]},
 ];
 
-const checks=JSON.parsese(localStorage.getItem('mm_checks')||'{}');
+const checks=JSON.parse(localStorage.getItem('mm_checks')||'{}');
 
 function typeBadgeClass(type){
   if(type==='Screen Record')return 'screen';
@@ -568,15 +608,56 @@ function typeBadgeClass(type){
   return '';
 }
 
+function typeBadgeStyle(type){
+  if(type==='Screen Record'||type==='Video')return 'background:#0a1020;color:#93c5fd;border:1px solid #1a2a45';
+  if(type==='Talking Head')return 'background:#130820;color:#c4b5fd;border:1px solid #25104a';
+  if(type==='Carousel')return 'background:#130a00;color:#fdba74;border:1px solid #2a1800';
+  return 'background:var(--dim);color:var(--sub);border:1px solid var(--border)';
+}
+
 // Populate home today card
 (function(){
   const d=WEEK[todayI];
   const dt=weekDate(todayI);
   document.getElementById('home-today-day').textContent=fmtFull(dt);
   document.getElementById('home-today-title').textContent=d.title;
-  const tbType=document.getElementById('home-today-type');
-  tbType.textContent=d.type;tbType.className='tb-type '+typeBadgeClass(d.type);
+  const tb=document.getElementById('home-today-type');
+  tb.textContent=d.type;tb.style.cssText=typeBadgeStyle(d.type);
 })();
+
+// ── Post Modal ─────────────────────────────────────────────────────────
+function openPostModal(){
+  const i=todayI;
+  const d=WEEK[i];
+  const dt=weekDate(i);
+  document.getElementById('modal-content').innerHTML=
+    '<div class="tc-day" style="margin-bottom:6px">'+fmtFull(dt)+'</div>'
+    +'<div class="tc-title" style="font-size:1.1rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:12px">'+d.title+'</div>'
+    +'<div style="display:inline-block;font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:16px;'+typeBadgeStyle(d.type)+'">'+d.type+'</div>'
+    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
+    +mkScript(d.lines)
+    +'<div class="action-row" style="margin-top:4px">'
+    +'<button class="btn btn-primary" onclick="cpAll('+i+')">Copy Full Script</button>'
+    +'<button class="btn btn-done'+(checks[i]?' on':'')+'" id="modal-done-btn" onclick="toggleDoneModal('+i+')">'+(checks[i]?'Posted':'Mark Posted')+'</button>'
+    +'</div>';
+  document.getElementById('post-modal').classList.add('on');
+  document.body.style.overflow='hidden';
+}
+function closePostModal(){
+  document.getElementById('post-modal').classList.remove('on');
+  document.body.style.overflow='';
+}
+function closeModal(e){if(e.target===document.getElementById('post-modal'))closePostModal();}
+function toggleDoneModal(i){
+  checks[i]=!checks[i];
+  localStorage.setItem('mm_checks',JSON.stringify(checks));
+  const btn=document.getElementById('modal-done-btn');
+  if(btn){btn.className='btn btn-done'+(checks[i]?' on':'');btn.textContent=checks[i]?'Posted':'Mark Posted';}
+  const donebtn=document.getElementById('done-btn');
+  if(donebtn){donebtn.className='btn btn-done'+(checks[i]?' on':'');donebtn.textContent=checks[i]?'Posted':'Mark Posted';}
+  document.getElementById('wd'+i).classList.toggle('done',checks[i]);
+  updProg();
+}
 
 // Progress
 function updProg(){
@@ -674,19 +755,17 @@ async function loadData(){
   const m=d.me;
   if(m.followers){
     const f=m.followers.toLocaleString();
-    document.getElementById('hdr-fl').textContent=f;
+    document.getElementById('hdr-fl') && (document.getElementById('hdr-fl').textContent=f);
     document.getElementById('r-fl').textContent=f;
-    document.getElementById('home-fl').textContent=f;
   }
-  if(m.totalPosts!=null){document.getElementById('home-posts').textContent=m.totalPosts;document.getElementById('r-tp').textContent=m.totalPosts;}
-  if(m.totalViews!=null){document.getElementById('home-views').textContent=(m.totalViews).toLocaleString();document.getElementById('r-tv').textContent=(m.totalViews).toLocaleString();}
+  if(m.totalPosts!=null)document.getElementById('r-tp').textContent=m.totalPosts;
+  if(m.totalViews!=null)document.getElementById('r-tv').textContent=(m.totalViews).toLocaleString();
   if(m.avgEngagement!=null)document.getElementById('r-ae').textContent=m.avgEngagement;
 
-  // Top posts
   const ps=m.topPosts||[];
   const pl=document.getElementById('posts-list');
   ps.forEach((p,i)=>{
-    const dt=p.timestamp?new Date(p.timestamp).toLocaleDateString('en-AU',{month:'short',day:'numeric'}):'';
+    const dt=p.timestamp?new Date(p.timestamp).toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'America/New_York'}):'';
     pl.innerHTML+=
       '<a class="post-a" href="'+p.url+'" target="_blank" rel="noopener">'
       +'<div style="font-size:.72rem;font-weight:700;color:var(--sub);width:20px;flex-shrink:0">#'+(i+1)+'</div>'
@@ -697,7 +776,6 @@ async function loadData(){
       +'</div></a>';
   });
 
-  // Competitors from data.json
   const compData=d.competitors||[];
   const compEl=document.getElementById('comp-list');
   compEl.innerHTML='';
@@ -817,7 +895,7 @@ const sb=localStorage.getItem('mm_bio');if(sb)document.getElementById('bio-text'
 const SUGGESTIONS={
   content:['Film today\'s video','Batch film 2-3 videos in one session','Film a screen record in Ads Manager','Write captions for 3 posts','Create a carousel in Canva','Reply to all comments from today','Post to Instagram Stories','Check which post performed best this week','Film a day-in-the-life clip','Repost a top post to Stories'],
   outreach:['Reply to all unread DMs','Follow 20 local service business owners','Leave 10 genuine comments in your niche','DM 5 accounts who engaged with your posts','Follow up with leads who didn\'t respond','Send opener DM to 3 new accounts','Check competitor comments for pain points','Like and comment on 10 posts from target audience'],
-  growth:['Post at 6-7:30 PM AEST tonight','Update bio with latest follower count','Pin your best performing post','Check analytics in Meta Business Suite','Add DM me ADS CTA to last 3 captions','Research one competitor\'s top video','Schedule next 3 posts in advance','Check profile — does it clearly say what you do?','Read through next week\'s scripts'],
+  growth:['Post at 6-7:30 PM EST tonight','Update bio with latest follower count','Pin your best performing post','Check analytics in Meta Business Suite','Add DM me ADS CTA to last 3 captions','Research one competitor\'s top video','Schedule next 3 posts in advance','Check profile — does it clearly say what you do?','Read through next week\'s scripts'],
 };
 
 const PLAN_CATS=['content','outreach','growth'];
@@ -885,5 +963,98 @@ function removeTask(cat,i){
 
 PLAN_CATS.forEach(renderTasks);
 if(plan.notes)document.getElementById('plan-notes').value=plan.notes;
+
+// ── Agents ─────────────────────────────────────────────────────────────
+const AGENTS=[
+{
+  name:'Meta Ads Strategist',
+  role:'Senior media buyer. Campaign structure, targeting, budget, scaling decisions.',
+  color:'#3b82f6',
+  badge:'Strategy',
+  badgeStyle:'background:#0a1020;color:#93c5fd;border:1px solid #1a2a45',
+  reports:[
+    {headline:'Test one variable this week — not three.',body:'Most accounts underperform because they change the objective, audience, and creative at the same time and can never tell what worked. This week: lock your objective to Lead Generation, keep your current audience, and run two creatives head-to-head. Same budget split 50/50. After 3 days, kill the loser and put 100% behind the winner.',actions:['Set campaign objective to Lead Generation if you haven\'t already','Create 2 ad creatives — same offer, different hook or image','Check results after 72 hours and cut the lower CPL ad']},
+    {headline:'Your audience is probably too broad.',body:'Default targeting in Meta is set to reach everyone, which sounds good but actually dilutes your spend fast. For a service business, tight radius targeting — 15km or less from where you operate — consistently outperforms broad. Layer in homeowners or household income if your offer fits. Narrow = more relevant = cheaper leads.',actions:['Open Ads Manager and check your audience size — should be 100k-300k for local','Set location to a 10-15km radius around your service area','Add 1-2 interest layers: homeowners, home improvement, or income brackets']},
+    {headline:'Wednesday is the strongest lead day — are you spending into it?',body:'Meta automatically distributes your daily budget, but it won\'t always push spend toward peak days unless you tell it to. Historically, Tuesday-Thursday converts at 20-30% lower CPL than Mondays or weekends for service businesses. Consider scheduling your ads to run heavier Tuesday-Thursday if you\'re getting inconsistent results.',actions:['Check your cost per lead by day of week in Ads Manager breakdowns','If weekends are draining budget without results, set schedule to pause Sat-Sun','Review your top performing ad days over the last 30 days']},
+    {headline:'One campaign, one ad set, two creatives — that\'s the setup.',body:'Account complexity is the enemy of learning. If you have 4 campaigns, 3 ad sets, and 6 creatives running, Meta can\'t optimize properly and neither can you. Consolidate. One Lead Gen campaign, one ad set targeting your local radius, two creatives in rotation. Let Meta learn. Once you hit 50 leads in a set, you have enough data to make real decisions.',actions:['Audit your Ads Manager — are you running more than 1 campaign?','Consolidate into one campaign if you have split budgets across multiple','Target 50 leads before making any major strategic changes']},
+    {headline:'Your offer is doing more work than your creative.',body:'The most common thing I see in failing accounts: great design, terrible offer. Nobody books a window cleaner because the ad looked professional. They book because the offer removed friction — "Book this week, windows done Saturday, free interior add-on." Lead with the outcome and the timeline. The creative just needs to be real and clear.',actions:['Rewrite your current ad headline to lead with the outcome, not the service','Add a deadline or time-specific hook to your offer','Test a real photo from a job vs your current image or video']},
+    {headline:'$25/day minimum — below that the algorithm can\'t learn.',body:'Meta\'s algorithm needs roughly 50 conversions per week per ad set to exit the learning phase. At $25/day on a lead objective, that\'s workable. Below $15/day and you\'re likely stuck in learning limbo indefinitely — you\'ll see inconsistent results no matter how good the creative is. If you\'re under budget, consolidate ad sets before adding more.',actions:['Confirm your daily budget is $25 or more per ad set','Check if your campaigns are in learning phase — should exit after ~50 leads','If stuck in learning: increase budget 20% rather than creating a new campaign']},
+    {headline:'Review your top 3 ads from the last 90 days — film a version of the best one.',body:'The best predictor of what will work next week is what worked last month. Open your Ads Manager, filter by last 90 days, sort by lowest CPL. Your top ad is telling you something: the hook, the format, the offer. Film a direct remake or a variation of that structure. Don\'t guess — let the data tell you what to make next.',actions:['Open Ads Manager → filter 90 days → sort by lowest cost per lead','Screenshot your top performing ad creative','Plan a remake or variation of that ad for this week']},
+  ]
+},
+{
+  name:'Creative Strategist',
+  role:'Hooks, ad concepts, content angles. Highest ROI work in any Meta account.',
+  color:'#a78bfa',
+  badge:'Creative',
+  badgeStyle:'background:#130820;color:#c4b5fd;border:1px solid #25104a',
+  reports:[
+    {headline:'10 hooks ready to film this week.',body:'Each of these is written for service business content. Pick one and film it today.',actions:['Hook 1: "Most service businesses waste their first $500 in ads on this one mistake."','Hook 2: "I told a plumber to stop boosting posts. 3 weeks later, 14 leads from $25 a day."','Hook 3: "Your ad isn\'t failing because of your budget. It\'s failing because of this."','Hook 4: "The one-sentence offer that books 80% of leads who see it."','Hook 5: "Before you spend another dollar on ads — fix these 3 things first."']},
+    {headline:'5 ad concepts that work in service niches right now.',body:'These are angles performing across home services on Meta. Adapt to your offer.',actions:['Concept 1: The audit reveal — screen record a real (or mock) failing account, walk through the fixes live','Concept 2: The math breakdown — $25 in, exact numbers out, show the full funnel','Concept 3: The objection killer — "I tried ads and they didn\'t work" + why that actually happens','Concept 4: The before/after — a client before working with you vs after. Real numbers only.','Concept 5: The day-in-the-life — behind the scenes managing client campaigns, no editing required']},
+    {headline:'3 content ideas you can film in under 15 minutes.',body:'No prep required for any of these.',actions:['Idea 1: Open your phone, show your Ads Manager in real time, talk through what you\'re seeing','Idea 2: Hold up 1 finger and say "One word that immediately gets more clicks on your ad headline"','Idea 3: Film your reaction to a boosted post vs a proper lead gen campaign side by side']},
+    {headline:'2 contrarian angles that stop the scroll.',body:'These go against what most people post — which is why they get attention.',actions:['Angle 1: "More followers won\'t get you more clients. Here\'s what actually moves the needle."','Angle 2: "A $200 ad campaign outperformed a $2,000 one. Here\'s exactly why."']},
+    {headline:'Carousel format is underused — and it compounds.',body:'Carousels get saved and shared more than Reels on average for educational content. A well-structured 5-slide carousel on a topic like Meta vs Google, or the funnel math, gets shown to people repeatedly as they swipe. Build one carousel per week alongside your video content and your account\'s average view time increases significantly.',actions:['Plan a 5-slide carousel for this week on a topic you know well','Slide 1 = bold hook. Slides 2-4 = one point each. Slide 5 = CTA only.','Use Canva dark template — dark background, white headline, no clutter']},
+    {headline:'Your hook determines 80% of your results.',body:'Most people spend time on the body of their script or the caption. But the first 3 seconds of a video and the first line of an ad is what determines whether anyone sees the rest. Spend more time on your hook than anything else. Write 5 versions before you film. The best hook is specific, creates a pattern interrupt, and implies the viewer will gain something real.',actions:['Write 5 different hooks for this week\'s video before filming','Test: does it create curiosity? Does it promise a specific outcome? Does it speak to a real pain?','Film your video starting with the 2 best hooks — use the better performing one']},
+    {headline:'Sunday is for planning angles, not scrambling for topics.',body:'The accounts that post consistently don\'t wing it every day. They know on Sunday what they\'re filming Monday through Saturday. Your WEEK tab has your scripts — read through them today and decide which you\'re filming, which days, and what extra setup you need. Batch film where possible: two talking heads in one setup takes 20 minutes total.',actions:['Read through all 7 scripts in the This Week tab','Decide which days you\'re filming each one','Identify any props or screen recordings you need to prepare in advance']},
+  ]
+},
+{
+  name:'Ad Critic',
+  role:'Quality control. Reviews scripts, offers, and ad structure. Brutally honest.',
+  color:'#ef4444',
+  badge:'Critique',
+  badgeStyle:'background:#1a0505;color:#fca5a5;border:1px solid #3b0d0d',
+  reports:[
+    {headline:'What\'s most likely wrong with your current ad right now.',body:'Based on common patterns in service business Meta accounts at your stage, here are the most likely issues — not guesses, but what I see in 80% of audits at this level.',actions:['Your hook probably starts with "We" or with your business name — nobody cares yet, lead with a pain or outcome instead','Your offer probably has no deadline or urgency — "Contact us today" is not an offer, "Book before Friday and get X" is','Your creative is probably a stock photo or generic graphic — real photos from real jobs outperform stock 3:1 on average']},
+    {headline:'Caption audit: 3 things most captions get wrong.',body:'The caption is where the sale happens after the video. Most people treat it as an afterthought.',actions:['Missing the first hook line — first 1-2 words before the "more" cutoff need to create a reason to tap. "Most service businesses..." beats "We offer..."','No CTA — "DM me ADS" needs to appear verbatim in every caption. Not "reach out", not "click the link", not "follow for more"','Too long with no structure — break it into short lines with line breaks. Dense paragraphs get skipped.']},
+    {headline:'Your offer is the weakest part of your funnel right now.',body:'Service businesses almost universally lead with what they do instead of what the client gets. "Meta Ads Management" is not an offer. "I set up your first campaign, manage it for 30 days, and you only pay if we get leads" is an offer. Make it specific, make it risk-reduced, make it about them.',actions:['Rewrite your core offer as: "You get [specific outcome] in [specific timeframe] — [what removes their risk]"','If you don\'t have a money-back or guarantee mechanism, add a softer one: free audit, first campaign reviewed, no contract','Test the rewritten offer in your next ad — don\'t change the creative, only the offer wording']},
+    {headline:'3 things that are silently killing your engagement.',body:'You might be posting consistently and still plateauing. These are the invisible killers.',actions:['Posting time: if you\'re posting before 9am or after 9pm, you\'re posting to nobody. 6-7:30pm EST is peak for your content type','No engagement in the first 10 minutes: commenting on other accounts 15 minutes before you post primes the algorithm. Try it once this week.','Hashtags without strategy: 5 specific, relevant hashtags beat 30 generic ones. #metaads, #servicebasiness, #facebookadstips — not #marketing #business #entrepreneur']},
+    {headline:'Script review: what to check before you hit record.',body:'Run every script through this 4-point check before filming.',actions:['Does the hook name a specific person or problem? ("If you run a service business and..." not "If you\'re a business owner...")','Does every line push toward the CTA, or are there lines that just fill time? Cut anything that doesn\'t earn its place.','Is your CTA exactly "DM me ADS" or does it say something vague like "reach out"? Exact phrase matters — people don\'t improvise their response.','Is the script under 60 seconds if it\'s a talking head? Over 60s loses 40-60% of viewers before the CTA.']},
+    {headline:'Your landing page (or lack of one) is likely losing half your leads.',body:'If your ad sends people to your Instagram profile, your website homepage, or anywhere without a clear single next action — you\'re losing leads that the ad paid for. The only acceptable destination for a Lead Gen or Traffic campaign is a page with one CTA. Either a Meta instant form, a Calendly link, or a single-field landing page.',actions:['Check where your current ad sends people after they click','If it goes to your homepage or profile: set up a Meta Instant Form instead — free, fast, converts better','Your Instant Form should have 3 fields max: name, phone, and one qualifying question like "What service do you need?"']},
+    {headline:'Weekly self-audit: 5 questions to ask before you post.',body:'Run these every Sunday when planning the week.',actions:['What is the one thing I want the viewer to do after watching this? (If the answer isn\'t "DM me ADS", rewrite the CTA)','Does my hook name a specific person, pain, or outcome in the first 3 seconds?','Am I showing proof or am I just making claims? (Real numbers, real clients, real results beat generic statements)','Is my offer specific enough that someone could repeat it to a friend in one sentence?','Did I post at a time when my audience is actually online this week?']},
+  ]
+},
+{
+  name:'Competitor Intelligence',
+  role:'Monitors competitors, offers, content patterns and emerging market angles.',
+  color:'#22c55e',
+  badge:'Intel',
+  badgeStyle:'background:#030f07;color:#86efac;border:1px solid #0d2a18',
+  reports:[
+    {headline:'How to run a competitor audit in 20 minutes.',body:'Open the Meta Ad Library (link in Research & Tools on home). Search for accounts in your niche. Here\'s what to look for and how to use what you find.',actions:['Search: "meta ads service business" or your direct competitors\' account names','Look at ads running for 2+ weeks — long-running ads are profitable ads. Study what they\'re doing.','Note the hook style: are they using questions, bold statements, or data? What format — video or image?','Check their offer: is there a specific guarantee, price point, or outcome promise you\'re not making?']},
+    {headline:'3 competitor content patterns worth tracking this week.',body:'These are the formats most common in top-performing accounts in the Meta ads education niche right now.',actions:['Pattern 1: The "I audited X and found Y" — screen record format, very high trust signal, easy to replicate with client permission','Pattern 2: The "one thing" video — specific, fast, under 30 seconds, single insight. Low effort, high repeat watchability.','Pattern 3: Real client results with exact numbers — not case studies, just raw data in a talking head. Builds credibility faster than anything else.']},
+    {headline:'What a strong competitor profile looks like — use it as a benchmark.',body:'The best accounts in your niche share a consistent setup. If you\'re not doing all of these, you\'re behind on profile trust signals.',actions:['Pinned post 1: A result post with real numbers ("Client got 11 leads in 30 days from $25/day")','Pinned post 2: A value post that teaches something immediately useful — the kind people save','Pinned post 3: A personal story or why post — who you are, what you do, why you\'re different','Bio: specific number in it (followers, clients helped, cost per lead). Vague bios don\'t convert.']},
+    {headline:'The Meta Ad Library is your free research tool — use it weekly.',body:'Every Thursday, spend 10 minutes in the Ad Library before you plan next week\'s content. Look for patterns across the 5-10 accounts in your niche.',actions:['Go to facebook.com/ads/library — link is on your home page','Filter by: your country, All Ads, and search your competitor or niche keyword','Sort by oldest to newest to find what\'s been running the longest (long-running = profitable)','Screenshot the top 3 hooks you see — these are your data-backed content ideas for next week']},
+    {headline:'Offers your competitors are using that you might not be.',body:'The offer is the single biggest differentiator in service business ads. Here\'s what\'s working in the market right now.',actions:['Risk reversal: "Free audit before you spend a dollar" — removes the biggest objection for skeptical leads','Guarantee: "If we don\'t generate leads in the first 30 days, you get a full refund" — rare enough in this niche to stand out completely','Specificity: "I set up your campaign, write your ad copy, and manage everything for 30 days" beats "I run ads for service businesses"']},
+    {headline:'How to turn competitor research into your next 3 posts.',body:'The fastest content research loop: competitor audit → pattern identification → your version.',actions:['Find 1 video from a competitor that has 2x their average engagement','Write down why it worked: was it the hook, the format, the data, the story?','Film your version — same structure, your angle, your numbers. Don\'t copy, adapt.','Do this once a week and you\'ll never run out of proven content ideas again.']},
+    {headline:'Your positioning gap: most accounts don\'t own a specific niche.',body:'The highest-performing service business ad accounts own a specific niche rather than saying "I help all businesses." Window cleaning, HVAC, landscaping — the more specific your positioning, the more your audience feels spoken to. Competitors who go broad get ignored. The ones who say "I specifically help HVAC businesses get 10-15 leads a month" win.',actions:['Identify your 1-2 strongest service business niches from past results or interest','Rewrite your bio to name that niche specifically — even temporarily to test','Film one piece of content speaking directly to that niche this week and track engagement vs your general content']},
+  ]
+},
+];
+
+document.getElementById('agents-date').textContent='Daily reports — '+fmtFull(today);
+
+const agentsOut=document.getElementById('agents-out');
+AGENTS.forEach(agent=>{
+  const report=agent.reports[todayI];
+  const card=document.createElement('div');
+  card.className='agent-card';
+  card.innerHTML=
+    '<div class="agent-bar" style="background:'+agent.color+'"></div>'
+    +'<div class="agent-head">'
+    +'<div><div class="agent-name">'+agent.name+'</div><div class="agent-role">'+agent.role+'</div></div>'
+    +'<div class="agent-badge" style="'+agent.badgeStyle+'">'+agent.badge+'</div>'
+    +'</div>'
+    +'<div class="agent-body">'
+    +'<div class="agent-report-label">Today\'s report</div>'
+    +'<div class="agent-headline">'+report.headline+'</div>'
+    +'<div class="agent-text">'+report.body+'</div>'
+    +'<div class="agent-actions">'
+    +report.actions.map((a,i)=>'<div class="agent-action"><div class="agent-action-num">'+(i+1)+'</div><div class="agent-action-text">'+a+'</div></div>').join('')
+    +'</div>'
+    +'</div>'
+    +'<div class="agent-footer">Updated: '+fmtFull(today)+' &nbsp;·&nbsp; '+agent.name+'</div>';
+  agentsOut.appendChild(card);
+});
 </script>
 </body></html>
