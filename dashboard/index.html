@@ -1105,6 +1105,7 @@ function renderAgentCard(key, report, updatedDisplay) {
     +'<div class="agent-body">'
     +'<div class="agent-report-label">Latest finding</div>'
     +'<div class="agent-headline">'+report.headline+'</div>'
+    +(report.format?'<div style="display:inline-flex;align-items:center;gap:6px;margin:8px 0 4px"><span style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub)">Format</span><span style="font-size:.65rem;font-weight:700;color:#38bdf8;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.25);border-radius:20px;padding:2px 10px">'+report.format+'</span></div>':'')
     +'<div class="agent-actions">'
     +report.actions.map(a=>'<div class="agent-action"><div class="agent-action-text">'+a+'</div></div>').join('')
     +'</div>'
