@@ -37,10 +37,11 @@ jobs:
 
       - name: Sync updated files to gh-pages
         run: |
+          cp dashboard/data.json /tmp/data.json
           git fetch origin gh-pages
           git checkout gh-pages
           git checkout claude/practical-faraday-cindzs -- dashboard/index.html
-          cp dashboard/data.json data.json
+          cp /tmp/data.json data.json
           git add index.html data.json
           git diff --staged --quiet || git commit -m "Auto-sync dashboard to gh-pages $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push origin gh-pages
