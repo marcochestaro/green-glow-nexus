@@ -185,6 +185,29 @@ section{margin-bottom:44px;scroll-margin-top:64px}
 .chk-txt{font-size:.78rem;color:var(--sub)}
 .chk-sub{font-size:.62rem;color:var(--sub);opacity:.6;margin-top:2px}
 .divider{height:1px;background:var(--border);margin:14px 0}
+
+/* DAILY BRIEF */
+.brief-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:12px}
+.brief-bar{height:2px;background:linear-gradient(90deg,var(--purple),#38bdf8)}
+.brief-inner{padding:14px 16px}
+.brief-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:8px}
+.brief-focus{font-size:.85rem;font-weight:700;color:#fff;margin-bottom:6px}
+.brief-text{font-size:.75rem;color:#4a5568;line-height:1.55}
+.brief-comp{display:flex;align-items:center;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);flex-wrap:wrap}
+.brief-comp-label{font-size:.62rem;color:var(--sub);flex-shrink:0}
+.brief-comp-val{font-size:.72rem;font-weight:600;color:#94a3b8}
+
+/* SUGGESTION CHIPS */
+.chips-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.chip{padding:5px 11px;border-radius:20px;font-size:.7rem;font-weight:500;color:var(--sub);border:1px solid var(--border);background:#050608;cursor:pointer;transition:all .15s;white-space:nowrap}
+.chip:hover{border-color:var(--blue);color:#93c5fd;background:#07101e}
+.chip:active{transform:scale(.97)}
+
+/* SCRIPT SEGMENT */
+.sl{display:grid;grid-template-columns:130px 1fr;gap:10px;align-items:start}
+.sl-meta{padding-top:10px;text-align:right}
+.sl-seg{font-size:.65rem;font-weight:600;color:#64748b;display:block;line-height:1.3}
+.sl-dur{font-size:.58rem;color:var(--sub);display:block;margin-top:2px}
 </style></head><body>
 
 <!-- NAV -->
@@ -215,23 +238,21 @@ section{margin-bottom:44px;scroll-margin-top:64px}
       <div class="home-eyebrow">@marcomarkets &nbsp;·&nbsp; Meta Ads</div>
       <div class="home-greeting">Good <span id="home-greeting">evening</span>,<br>Marco.</div>
       <div class="home-date-line" id="home-date"></div>
-      <div class="home-stats">
-        <div class="hs">
-          <div class="hs-n" id="home-fl">—</div>
-          <div class="hs-l">Followers</div>
-        </div>
-        <div class="hs">
-          <div class="hs-n" id="home-posts">—</div>
-          <div class="hs-l">Posts</div>
-        </div>
-        <div class="hs">
-          <div class="hs-n" id="home-views">—</div>
-          <div class="hs-l">Views</div>
-        </div>
-      </div>
     </div>
 
     <div class="home-body">
+      <div class="brief-card">
+        <div class="brief-bar"></div>
+        <div class="brief-inner">
+          <div class="brief-label">Today's brief</div>
+          <div class="brief-focus" id="brief-focus"></div>
+          <div class="brief-text" id="brief-text"></div>
+          <div class="brief-comp" id="brief-comp" style="display:none">
+            <div class="brief-comp-label">Top competitor:</div>
+            <div class="brief-comp-val" id="brief-comp-val"></div>
+          </div>
+        </div>
+      </div>
       <div class="home-section-label">Today's post</div>
       <div class="today-banner" onclick="showView('content');goto('today')">
         <div class="tb-accent"></div>
@@ -365,25 +386,28 @@ Follow for daily content on what actually works</textarea>
     <div id="plan-date" style="font-size:.75rem;color:var(--sub);margin-bottom:14px"></div>
 
     <div style="margin-bottom:18px">
-      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:8px">Content</div>
+      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:10px">Content</div>
+      <div class="chips-wrap" id="chips-content"></div>
       <div id="plan-content-tasks"></div>
-      <button class="cbtn" style="margin-top:6px" onclick="addTask('content')">+ Add task</button>
+      <button class="cbtn" style="margin-top:6px" onclick="addTask('content')">+ Write your own</button>
     </div>
 
     <div class="divider"></div>
 
     <div style="margin-bottom:18px;margin-top:18px">
-      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:8px">Outreach &amp; DMs</div>
+      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:10px">Outreach &amp; DMs</div>
+      <div class="chips-wrap" id="chips-outreach"></div>
       <div id="plan-outreach-tasks"></div>
-      <button class="cbtn" style="margin-top:6px" onclick="addTask('outreach')">+ Add task</button>
+      <button class="cbtn" style="margin-top:6px" onclick="addTask('outreach')">+ Write your own</button>
     </div>
 
     <div class="divider"></div>
 
     <div style="margin-top:18px;margin-bottom:18px">
-      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:8px">Growth &amp; Profile</div>
+      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:10px">Growth &amp; Profile</div>
+      <div class="chips-wrap" id="chips-growth"></div>
       <div id="plan-growth-tasks"></div>
-      <button class="cbtn" style="margin-top:6px" onclick="addTask('growth')">+ Add task</button>
+      <button class="cbtn" style="margin-top:6px" onclick="addTask('growth')">+ Write your own</button>
     </div>
 
     <div class="divider"></div>
@@ -445,75 +469,96 @@ homeDate.textContent=fmtFull(today);
 const hr=today.getHours();
 document.getElementById('home-greeting').textContent=hr<12?'morning':hr<17?'afternoon':'evening';
 
+// ── Daily Brief ────────────────────────────────────────────────────────
+const DAILY_BRIEF=[
+  {focus:"Film your video today, then batch one more while you're set up.",text:"Monday is the best day to get ahead. Film two back-to-back and you're covered for Tuesday too. Screen records take 30 min. Talking heads take 10. You have time."},
+  {focus:"Every caption needs a CTA. Check your last 3 posts.",text:'Without a CTA, people watch and scroll. "DM me ADS" at the end of every caption is the difference between a view and a lead. Add it to anything missing.'},
+  {focus:"Check what your competitors posted this week.",text:"Open 2-3 competitor accounts and see what's performing. Look at comments — what are people asking? That's your next video idea. Best research is free."},
+  {focus:"Best post time tonight: 6-7:30 PM AEST. Set a reminder now.",text:"Thursday evening is peak engagement for service business content. Schedule for 6 PM and stay on for 10 minutes after to reply to early comments."},
+  {focus:"End the week strong. Post before 6 PM today.",text:"Friday afternoon content performs well — people are winding down and scrolling more. A short punchy talking head today carries engagement into the weekend."},
+  {focus:"Post today. Less competition on weekends = more reach.",text:"Most accounts don't post on weekends. Less noise in the feed means more reach for your content for the same effort."},
+  {focus:"Plan your week now. Read all 7 scripts in This Week.",text:"Sunday is for planning. Read through the scripts, decide which ones you're filming and when, block out filming time. Five minutes now saves an hour of scrambling."},
+];
+(function(){
+  const b=DAILY_BRIEF[todayI];
+  document.getElementById('brief-focus').textContent=b.focus;
+  document.getElementById('brief-text').textContent=b.text;
+})();
+
 // ── Week content ───────────────────────────────────────────────────────
 const WEEK=[
-{title:'The 3 Reasons Your Service Business Ads Are Wasting Money',type:'Screen Record',
-film:'Open Meta Ads Manager on your laptop. Screen record while you talk through each section — audience, creative, objective.',
+{title:'The $25 a Day Math — What a Small Budget Actually Produces',type:'Screen Record',
+film:'Open Miro or a simple graphic showing a funnel. Screen record as you walk through each number. Speak slowly — the math is the content.',
 lines:[
-{time:'0:00',tag:'HOOK',cls:'hook',text:'If your Meta ads aren\'t booking jobs, it\'s almost never the budget. I see this every week. Let me show you the three things that are actually killing your results.'},
-{time:'0:08',tag:'',cls:'',text:'[Show audience settings] Number one — targeting. Most service businesses target an entire state or city-wide. That sounds smart but it\'s backwards. A plumber in Melbourne\'s eastern suburbs doesn\'t need to reach someone in Geelong. Tight radius, 10 to 15 kilometres around your service area. That\'s it. Smaller audience, lower CPM, more relevant clicks.'},
-{time:'0:28',tag:'',cls:'',text:'[Switch to creative] Number two — the image. I see it constantly. A logo. A stock photo of hands shaking. A generic "we clean your windows" graphic. None of that converts. What works? A real photo. Before and after. Dirty gutters on the left, clean on the right. Cloudy windows before, crystal clear after. Real work from a real job you already did. Take the photo on your phone. Upload it. Done.'},
-{time:'0:50',tag:'',cls:'',text:'[Switch to campaign objective] Number three — the objective. If you hit "Boost Post", you\'re running a Reach campaign. It shows your ad to as many people as possible. Which sounds good. But you don\'t want reach. You want leads. You need to go into Ads Manager, create a new campaign, and select Lead Generation. That\'s what tells Meta\'s algorithm: find me people who will fill in a form. Two completely different products. One gets likes. One books jobs.'},
-{time:'1:10',tag:'CTA',cls:'cta',text:'If you\'re running ads right now and not getting results — check those three things first. Audience too broad, creative too generic, wrong objective. That\'s 90% of failing accounts. Save this. Follow — I post stuff like this every day. And if you want me to look at your account, DM me ADS.'},
+{time:'Opening',tag:'6s',cls:'hook',text:"This is the $25 a day math — what a small daily ad budget actually produces for a service business."},
+{time:'Ad Spend → Impressions',tag:'8s',cls:'',text:"You start with $25 a day, and that typically reaches around 3,000 people through impressions. That's just Meta showing your ad to the right audience in your area."},
+{time:'Link Clicks',tag:'7s',cls:'',text:"Out of those 3,000 people, around 60 of them actually click — because the hook and the offer did their job."},
+{time:'Leads',tag:'9s',cls:'',text:"Those clicks turn into 3 to 5 leads per day. People actually filling out the form and raising their hand."},
+{time:'Jobs Booked',tag:'9s',cls:'',text:"Out of those leads, you're realistically booking 1 to 2 jobs. And that's where the real math starts to matter."},
+{time:'Revenue',tag:'10s',cls:'',text:"One to two booked jobs a week brings in $200 or more in revenue — and that's on a $25 a day budget."},
+{time:'The Breakdown',tag:'12s',cls:'',text:"Run that for 7 days and you're spending $175 total. But one single booked job covers that, often 5 to 10 times over depending on the service."},
+{time:'Service Examples',tag:'10s',cls:'',text:"Window cleaning runs $150 to $300 a job. Landscaping is $200 to $600. HVAC is $400 to $1,500. Painting can be $800 to $3,000."},
+{time:'Closer',tag:'8s',cls:'cta',text:"At the end of the day, a service business only needs 1 to 2 booked jobs a week to profit from $25 a day ads. DM me ADS if you want to set this up."},
 ]},
-{title:'Referrals Are Killing Your Growth (Even When They Feel Good)',type:'Talking Head',
-film:'Sit close to camera. Confident, direct eye contact. No notes. Talk like you\'re telling a mate something important.',
+{title:"Referrals Feel Good. But They're Keeping You Stuck.",type:'Talking Head',
+film:"Sit close to camera. Direct, confident. Talk like you're telling a mate something he needs to hear. No notes, no rushing.",
 lines:[
-{time:'0:00',tag:'HOOK',cls:'hook',text:'If referrals are your main source of new clients right now, I need you to hear this — because it feels like it\'s working, but it\'s actually a trap.'},
-{time:'0:06',tag:'',cls:'',text:'Referrals feel great because they close easy. Someone vouches for you, the trust is already there, and the conversation is warm. I get it. But here\'s the problem: you have zero control over them. You can\'t decide on Monday that you want 10 new leads this week and get 10 referrals. You just wait. And hope.'},
-{time:'0:22',tag:'',cls:'',text:'That\'s not a business. That\'s a favour economy. And the moment the person who refers you most often moves, retires, or just stops talking about you — your pipeline dries up. It happens all the time. Great tradespeople suddenly scrambling because their "referral machine" slowed down.'},
-{time:'0:38',tag:'',cls:'',text:'Ads fix that. Not because they\'re magic. But because they give you a dial. You decide when you want leads. You turn the dial up — you get more. You\'re fully booked — you turn it down. That\'s what a real business looks like. Predictable. Controllable. You own it.'},
-{time:'0:52',tag:'CTA',cls:'cta',text:'Referrals should be a bonus on top of a system that already works. Not the whole system. If you want to build that dial for your business — DM me ADS and I\'ll tell you exactly what it takes.'},
+{time:'Hook',tag:'5s',cls:'hook',text:"If referrals are your main source of clients right now — I need you to hear this. Because it feels like it's working, but it's actually keeping you stuck."},
+{time:'Why It Feels Good',tag:'8s',cls:'',text:"Referrals close easy because the trust is already there. I get it. But the problem is you have zero control. You can't decide Monday you want 10 new leads this week and get 10 referrals. You just wait. And hope."},
+{time:'The Real Risk',tag:'8s',cls:'',text:"The moment your main referrer slows down — moves, retires, just stops talking about you — your whole pipeline dries up. It happens to great tradespeople all the time."},
+{time:'What Ads Do',tag:'8s',cls:'',text:"Ads give you a dial. You want more leads, you turn it up. You're fully booked, you turn it down. That's what a real business looks like — predictable, controllable, you own it."},
+{time:'Close',tag:'5s',cls:'cta',text:"Referrals should be a bonus on top of a system that works. Not the whole system. DM me ADS if you want to build the dial."},
 ]},
-{title:'I Audited a Plumber\'s Ad Account Live — Here\'s What I Found',type:'Screen Record',
-film:'Screen record Meta Ads Manager. Walk through a real account — blur any client name or identifying info. Talk through what you see as you click around.',
+{title:"I Audited a Failing Ad Account — Here's Exactly What I Found",type:'Screen Record',
+film:"Screen record Meta Ads Manager. Walk through a real account — blur any identifying info. Click through each section slowly as you talk.",
 lines:[
-{time:'0:00',tag:'HOOK',cls:'hook',text:'Someone sent me access to their ad account this week and asked me what was wrong. I\'m going to walk you through exactly what I found — because I guarantee most of you are making at least two of these same mistakes.'},
-{time:'0:08',tag:'',cls:'',text:'[Open Campaigns tab] First thing I check is the objective. And straight away — they\'re running Traffic. That campaign type optimises for link clicks. It literally tells Meta: find me people who like clicking links. That is not the same as finding people who want to book a plumber. Switch to Lead Generation. Always.'},
-{time:'0:22',tag:'',cls:'',text:'[Open Ad Set, click Audience] Second thing. Audience size: 2.8 million. That\'s the whole city plus surrounding areas. I\'ve seen $50 a day burn through in 3 hours on an audience that size with nothing to show for it. I tightened this to a 15km radius around their suburb. Audience dropped to 180,000. More relevant. Same budget goes 10x further.'},
-{time:'0:40',tag:'',cls:'',text:'[Click into the Ad, show creative] Third — look at this. Stock photo of a tap. Generic headline: "Professional Plumbing Services". No offer. No urgency. No before and after. No reason to stop scrolling. I rewrote the headline to "Burst pipe? We\'re there in 60 minutes — [city]". Added a real photo from a job they did. That\'s it.'},
-{time:'0:58',tag:'',cls:'',text:'Wrong objective, audience too broad, creative with no hook and no offer. Three fixes. None of them cost extra money. That\'s the work.'},
-{time:'1:05',tag:'CTA',cls:'cta',text:'Want me to do the same for yours? DM me ADS and I\'ll tell you in one conversation what\'s costing you money. Save this and share it with any tradie you know running ads.'},
+{time:'Opening',tag:'6s',cls:'hook',text:"Someone gave me access to their ad account this week and asked what's wrong. I'm walking you through exactly what I found — because most of you are making at least two of these same mistakes."},
+{time:'Mistake 1 — Objective',tag:'12s',cls:'',text:"First thing I check is the campaign objective. They're running Traffic. That tells Meta: find me people who like clicking links. Not people who want to book a plumber. Switch to Lead Generation — always. That one change alone makes a real difference."},
+{time:'Mistake 2 — Audience',tag:'12s',cls:'',text:"Next, the audience. 2.8 million people — that's the whole city. I've seen $50 a day burn in 3 hours on an audience that size. I pulled it back to a 15km radius. Down to 180,000 people. Same budget, 10 times more relevant."},
+{time:'Mistake 3 — Creative',tag:'12s',cls:'',text:"Then the ad itself. Stock photo of a tap. Headline says Professional Plumbing Services. No offer, no urgency, no reason to stop scrolling. I rewrote it to Burst pipe? We're there in 60 minutes and swapped in a real photo from one of their jobs. That's it."},
+{time:'Summary',tag:'6s',cls:'',text:"Wrong objective, audience too broad, creative with no hook. Three fixes. None of them cost extra money."},
+{time:'Close',tag:'6s',cls:'cta',text:"Want me to do the same for yours? DM me ADS and I'll tell you in one conversation exactly what's costing you money."},
 ]},
-{title:'Meta vs Google Ads: The Real Answer for Service Businesses',type:'Carousel',
-film:'Design 5 slides in Canva. Dark background, white headline, one point per slide. Export as images and post as carousel. Last slide is CTA.',
+{title:'Meta vs Google — The Honest Answer for Service Businesses',type:'Carousel',
+film:'5 clean slides in Canva. Dark background, white bold headline, one point per slide. Minimal design — the words do the work.',
 lines:[
-{time:'Slide 1',tag:'HOOK',cls:'hook',text:'Meta vs Google Ads for service businesses. Most people get this completely wrong. Here\'s the honest breakdown.'},
-{time:'Slide 2',tag:'',cls:'',text:'Google Ads: high intent. Someone types "emergency plumber near me" and your ad shows. But you\'re competing in an auction. In trade niches — plumbing, HVAC, roofing — clicks cost $20 to $80 each. To get 10 leads a month you might need $1,500 in ad spend minimum.'},
-{time:'Slide 3',tag:'',cls:'',text:'Meta Ads: no search intent. Nobody\'s scrolling Instagram looking for a window cleaner. But you can put your ad in front of exactly the right person — homeowners, 30 to 55, within 15km of your business. $25 a day. Done right, this works.'},
-{time:'Slide 4',tag:'',cls:'',text:'New business, under $500/month budget: Meta first. Test, learn, get leads without burning through cash. Established business with $1,500+/month: run both. Google captures active searchers, Meta builds your brand. Together they\'re a machine.'},
-{time:'Slide 5',tag:'CTA',cls:'cta',text:'Save this so you have it when someone asks. And if you want me to tell you which one is right for your exact business and budget — DM me ADS. Five minutes, straight answer.'},
+{time:'Slide 1 — Hook',tag:'',cls:'hook',text:"Meta vs Google for service businesses. Most people get this completely wrong. Here's the honest breakdown."},
+{time:'Slide 2 — Google',tag:'',cls:'',text:"Google Ads: someone types emergency plumber near me and your ad shows. High intent. But clicks cost $20 to $80 in trade niches. To get 10 leads a month you might need $1,500 minimum. Great if you have budget. Rough if you're starting out."},
+{time:'Slide 3 — Meta',tag:'',cls:'',text:"Meta Ads: nobody's scrolling looking for a window cleaner. But you can target homeowners, 30 to 55, within 15km of your business, for $25 a day. No search intent needed — you create the need with the right creative."},
+{time:'Slide 4 — The Answer',tag:'',cls:'',text:"Under $500 a month: start with Meta. Test, learn, get leads without burning cash. Over $1,500 a month: run both. Google catches people already searching. Meta catches passive interest. Together they're a machine."},
+{time:'Slide 5 — CTA',tag:'',cls:'cta',text:"Save this so you have it when someone asks. And if you want me to tell you which one is right for your situation — DM me ADS."},
 ]},
-{title:'One Word Change That Makes People Click Your Ad',type:'Talking Head',
-film:'Fast, punchy delivery. One finger held up when you say "one word". Cut tight — no pauses. Under 35 seconds.',
+{title:'One Word That Gets More People to Click Your Ad',type:'Talking Head',
+film:'Fast and punchy. Hold up one finger when you say one word. Cut tight, no dead space. Under 40 seconds total.',
 lines:[
-{time:'0:00',tag:'HOOK',cls:'hook',text:'I want to show you one word change that will immediately improve how many people click your ad. It costs nothing and takes 10 seconds.'},
-{time:'0:06',tag:'',cls:'',text:'Most service business headlines start with "We". "We offer window cleaning." "We provide HVAC services." "We are Melbourne\'s best plumbers." Every single one of those starts with you talking about yourself. And nobody cares about you yet. They care about what they\'re going to get.'},
-{time:'0:18',tag:'',cls:'',text:'Change "We" to "Get". "Get your windows cleaned today." "Get your HVAC serviced before summer." "Get a plumber to your door in 60 minutes." Same service. But now you\'re putting the reader in the outcome. They\'re imagining having it done. That\'s what makes someone stop scrolling.'},
-{time:'0:28',tag:'CTA',cls:'cta',text:'Go change your ad headline right now. One word. Save this if you want more of these — and follow because I post one every Friday.'},
+{time:'Hook',tag:'5s',cls:'hook',text:"One word change that will immediately get more people clicking your ad. Costs nothing, takes 10 seconds."},
+{time:'The Problem',tag:'8s',cls:'',text:"Most service businesses start their headline with We. We offer window cleaning. We are Melbourne's best plumbers. Every one of those is you talking about yourself. And nobody cares about you yet — they care about what they're going to get."},
+{time:'The Fix',tag:'8s',cls:'',text:"Change We to Get. Get your windows cleaned today. Get a plumber to your door in 60 minutes. Same service — but now the reader is imagining the outcome. That's what makes them stop scrolling."},
+{time:'Close',tag:'5s',cls:'cta',text:"Go change your headline right now. One word. Follow — I post stuff like this every week."},
 ]},
-{title:'$25/Day in Meta Ads: Exact Results From a Real Client',type:'Talking Head',
-film:'Camera on you, direct and confident. Slow down on the numbers — let them land. Don\'t rush the stats.',
+{title:'$25 a Day in Ads — Real Numbers From a Real Client',type:'Talking Head',
+film:"Direct to camera, confident. Slow down on every number and let it land. Don't rush through the stats — they're the whole point.",
 lines:[
-{time:'0:00',tag:'HOOK',cls:'hook',text:'I\'m going to show you exactly what happened when a local car detailer ran $25 a day in Meta ads for 30 days. Real numbers. No fluff.'},
-{time:'0:07',tag:'',cls:'',text:'Total spend: $750. The campaign reached 18,400 people in a 15km radius around their shop. Not random people — homeowners and car enthusiasts, 25 to 50, targeted by interests and location. Of those 18,400 people, 234 clicked the ad. And of those 234, 19 filled in the lead form.'},
-{time:'0:22',tag:'',cls:'',text:'Now here\'s where it gets good. Of those 19 leads, 11 booked and showed up. The other 8 either didn\'t answer follow-up or weren\'t ready yet. 11 jobs at an average of $180 each — that\'s $1,980 in revenue from $750 in ad spend.'},
-{time:'0:38',tag:'',cls:'',text:'Those 11 customers are now in their database. Even if only 4 of them come back twice a year, that\'s an extra $1,440 recurring without spending another dollar on ads. That\'s why the real return is always higher than the first number.'},
-{time:'0:51',tag:'',cls:'',text:'Three things made this work: tight location targeting, a real before and after photo of a detail job, and a simple limited offer — book this week and get a free interior clean with any full detail.'},
-{time:'1:00',tag:'CTA',cls:'cta',text:'If you run a service business and you\'re not running ads yet, this is what you\'re leaving on the table every month. DM me ADS and let\'s figure out what this looks like for your business.'},
+{time:'Hook',tag:'5s',cls:'hook',text:"I'm going to show you exactly what happened when a local car detailer ran $25 a day in Meta ads for 30 days. Real numbers, no fluff."},
+{time:'The Reach',tag:'7s',cls:'',text:"Total spend: $750. That reached 18,400 people in a 15km radius — homeowners and car enthusiasts, 25 to 50, targeted by interest and location."},
+{time:'Clicks and Leads',tag:'8s',cls:'',text:"Of those 18,400, 234 clicked the ad. Of those 234, 19 filled in the lead form. Cost per lead: about $39."},
+{time:'Jobs Booked',tag:'8s',cls:'',text:"Out of 19 leads, 11 booked and showed up. 11 jobs at $180 each — that's $1,980 in revenue from $750 in spend."},
+{time:'The Real Return',tag:'8s',cls:'',text:"But those 11 customers are now in the database. Even if 4 come back twice a year, that's another $1,440 recurring without spending another dollar."},
+{time:'What Made It Work',tag:'8s',cls:'',text:"Tight location targeting. A real before and after photo from an actual job. And a simple offer — book this week, get a free interior clean. No fancy design. Just the right setup."},
+{time:'Close',tag:'5s',cls:'cta',text:"This is what you're leaving on the table every month without ads. DM me ADS and let's work out what this looks like for your business."},
 ]},
-{title:'Why I Only Work With Service Businesses (Not Coaches or Brands)',type:'Talking Head',
-film:'Relaxed, honest tone. No pitch. Film anywhere — couch, outside, walking. Just talk like a normal person.',
+{title:'Why I Only Work With Service Businesses',type:'Talking Head',
+film:'Relaxed, honest, no pitch. Film anywhere comfortable — couch, outside, wherever. Just talk like a normal person.',
 lines:[
-{time:'0:00',tag:'HOOK',cls:'hook',text:'I get asked this almost every week — why do I only work with service businesses? Plumbers, window cleaners, HVAC, roofers, detailers. Why not coaches, why not e-commerce, why not the bigger stuff?'},
-{time:'0:07',tag:'',cls:'',text:'Honest answer? Because these businesses actually do something. A plumber shows up to someone\'s house at 7am when there\'s water through the ceiling and makes the problem go away. A window cleaner transforms someone\'s home in an afternoon. These aren\'t digital products. They\'re real services that real people need.'},
-{time:'0:22',tag:'',cls:'',text:'And the people running them — most of them are brilliant at what they do. They\'ve built a skill over years. They just have no idea how to market it. They rely on word of mouth, they tried boosting a post once and got nothing, and they think ads don\'t work. That gap between what they\'re capable of and how many customers they have — that\'s what I want to close.'},
-{time:'0:40',tag:'',cls:'',text:'I also just like working with people who are proud of their work. A detailer who takes photos of every car they finish. A painter who points to a house and says "I did that." There\'s something real about that.'},
-{time:'0:52',tag:'CTA',cls:'cta',text:'That\'s why I\'m here every day. Follow along — I post something useful every single day. And if you\'re a service business owner who wants to finally make ads work, DM me ADS.'},
+{time:'Hook',tag:'5s',cls:'hook',text:"People ask me all the time — why only service businesses? Why not coaches, why not e-com, why not something bigger?"},
+{time:'Honest Answer',tag:'10s',cls:'',text:"Because these businesses actually do something. A plumber shows up at 7am when there's water through the ceiling and fixes it. A window cleaner transforms someone's home in an afternoon. Real skills, real people, real need. And most of the people running them are genuinely excellent at what they do."},
+{time:'The Gap',tag:'8s',cls:'',text:"They've built a skill over years. They just don't know how to market it. They rely on word of mouth, tried boosting a post once, got nothing, and now think ads don't work. That gap between what they're capable of and how many customers they have — that's what I want to close."},
+{time:'The Real Reason',tag:'7s',cls:'',text:"I also just like working with people who are proud of their work. A detailer who photographs every car. A painter who points to a house and says I did that. There's something real about that."},
+{time:'Close',tag:'5s',cls:'cta',text:"That's why I'm here every day. Follow along. And if you run a service business and want to make ads finally work — DM me ADS."},
 ]},
 ];
 
-const checks=JSON.parse(localStorage.getItem('mm_checks')||'{}');
+const checks=JSON.parsese(localStorage.getItem('mm_checks')||'{}');
 
 function typeBadgeClass(type){
   if(type==='Screen Record')return 'screen';
@@ -560,7 +605,7 @@ function cpAll(i){navigator.clipboard.writeText(WEEK[i].lines.map(l=>l.text).joi
 function mkScript(lines){
   return '<div class="script-lines">'+lines.map(l=>
     '<div class="sl">'
-    +'<div class="sl-meta"><span class="sl-time">'+l.time+'</span><span class="sl-tag">'+l.tag+'</span></div>'
+    +'<div class="sl-meta"><span class="sl-seg">'+l.time+'</span>'+(l.tag?'<span class="sl-dur">'+l.tag+'</span>':'')+'</div>'
     +'<div class="sl-bub '+l.cls+'">'+l.text+'<br><button class="cbtn" onclick="cpLine(this,`'+l.text.replace(/\\/g,'\\\\').replace(/`/g,'\\`')+'`)">Copy</button></div>'
     +'</div>'
   ).join('')+'</div>';
@@ -769,8 +814,34 @@ const sb=localStorage.getItem('mm_bio');if(sb)document.getElementById('bio-text'
   document.getElementById('plan-date').textContent='Planning for: '+fmtFull(tmr);
 })();
 
+const SUGGESTIONS={
+  content:['Film today\'s video','Batch film 2-3 videos in one session','Film a screen record in Ads Manager','Write captions for 3 posts','Create a carousel in Canva','Reply to all comments from today','Post to Instagram Stories','Check which post performed best this week','Film a day-in-the-life clip','Repost a top post to Stories'],
+  outreach:['Reply to all unread DMs','Follow 20 local service business owners','Leave 10 genuine comments in your niche','DM 5 accounts who engaged with your posts','Follow up with leads who didn\'t respond','Send opener DM to 3 new accounts','Check competitor comments for pain points','Like and comment on 10 posts from target audience'],
+  growth:['Post at 6-7:30 PM AEST tonight','Update bio with latest follower count','Pin your best performing post','Check analytics in Meta Business Suite','Add DM me ADS CTA to last 3 captions','Research one competitor\'s top video','Schedule next 3 posts in advance','Check profile — does it clearly say what you do?','Read through next week\'s scripts'],
+};
+
 const PLAN_CATS=['content','outreach','growth'];
 let plan=JSON.parse(localStorage.getItem('mm_plan')||'{"content":[],"outreach":[],"growth":[],"notes":""}');
+
+PLAN_CATS.forEach(cat=>{
+  const wrap=document.getElementById('chips-'+cat);
+  if(!wrap)return;
+  SUGGESTIONS[cat].forEach(s=>{
+    const chip=document.createElement('div');
+    chip.className='chip';
+    chip.textContent=s;
+    chip.onclick=()=>{
+      if((plan[cat]||[]).some(t=>t.text===s))return;
+      if(!plan[cat])plan[cat]=[];
+      plan[cat].push({text:s,done:false});
+      localStorage.setItem('mm_plan',JSON.stringify(plan));
+      renderTasks(cat);
+      chip.style.cssText='border-color:var(--blue);color:#93c5fd;background:#07101e';
+      setTimeout(()=>{chip.style.cssText='';},700);
+    };
+    wrap.appendChild(chip);
+  });
+});
 
 function savePlan(){
   plan.notes=document.getElementById('plan-notes').value;
@@ -784,15 +855,15 @@ function renderTasks(cat){
     const row=document.createElement('div');
     row.style.cssText='display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--dim)';
     row.innerHTML=
-      '<div class="chkbox'+(task.done?' on':'')+'" onclick="toggleTask(\''+cat+'\','+i+')" style="cursor:pointer">'+(task.done?'✓':'')+'</div>'
-      +'<div style="flex:1;font-size:.78rem;color:'+(task.done?'var(--sub)':'#94a3b8')+';'+(task.done?'text-decoration:line-through;opacity:.4':'')+'">'+task.text+'</div>'
-      +'<button onclick="removeTask(\''+cat+'\','+i+')" style="background:none;border:none;color:var(--sub);cursor:pointer;font-size:.7rem;padding:2px 6px" title="Remove">x</button>';
+      '<div class="chkbox'+(task.done?' on':'')+'" onclick="toggleTask(\''+cat+'\','+i+')" style="cursor:pointer">'+(task.done?'&#10003;':'')+'</div>'
+      +'<div style="flex:1;font-size:.78rem;color:'+(task.done?'var(--sub)':'#94a3b8')+';'+(task.done?'text-decoration:line-through;opacity:.35':'')+'">'+task.text+'</div>'
+      +'<button onclick="removeTask(\''+cat+'\','+i+')" style="background:none;border:none;color:var(--sub);cursor:pointer;font-size:.8rem;padding:2px 8px">&#215;</button>';
     el.appendChild(row);
   });
 }
 
 function addTask(cat){
-  const text=prompt('Add task for tomorrow:');
+  const text=prompt('Add your own task:');
   if(!text||!text.trim())return;
   if(!plan[cat])plan[cat]=[];
   plan[cat].push({text:text.trim(),done:false});
