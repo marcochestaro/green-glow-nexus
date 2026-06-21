@@ -23,9 +23,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Fetch Instagram data via Apify
-        env:
-          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+      - name: Fetch Instagram data
         run: node scripts/fetch-instagram.cjs
 
       - name: Commit updated data.json to main branch
