@@ -1200,14 +1200,9 @@ function showUseMenu(btn,idx){
   const menu=document.createElement('div');
   menu.className='use-menu';
   menu.innerHTML=
-    // recommended
-    '<div style="font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub);padding:6px 12px 2px">Recommended</div>'
-    +'<div class="use-menu-item use-menu-rec" onclick="openContentModal('+idx+');this.closest(\'.use-menu\').remove()">🎬 Turn into content</div>'
-    +'<div style="height:1px;background:var(--border);margin:4px 8px"></div>'
-    +'<div style="font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub);padding:6px 12px 2px">Other options</div>'
+    '<div class="use-menu-item use-menu-rec" onclick="openContentModal('+idx+');this.closest(\'.use-menu\').remove()">🎬 Turn into a Reel script ★</div>'
     +'<div class="use-menu-item" onclick="addIdeaToPlan('+idx+');this.closest(\'.use-menu\').remove()">📋 Add to tomorrow\'s plan</div>'
-    +'<div class="use-menu-item" onclick="saveIdea('+idx+');this.closest(\'.use-menu\').remove()">💡 Save as idea</div>'
-    +'<div class="use-menu-item" onclick="navigator.clipboard.writeText(ACTION_TEXTS['+idx+']).then(()=>{this.textContent=\'✓ Copied\'});setTimeout(()=>this.closest(\'.use-menu\')&&this.closest(\'.use-menu\').remove(),1200)">📄 Copy text</div>';
+    +'<div class="use-menu-item" onclick="navigator.clipboard.writeText(ACTION_TEXTS['+idx+']).then(()=>{this.textContent=\'✓ Copied\'});setTimeout(()=>this.closest(\'.use-menu\')&&this.closest(\'.use-menu\').remove(),1200)">📄 Copy</div>';
   btn.parentElement.appendChild(menu);
   setTimeout(()=>document.addEventListener('click',function h(e){if(!menu.contains(e.target)&&e.target!==btn){menu.remove();document.removeEventListener('click',h);}},),50);
 }
