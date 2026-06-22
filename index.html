@@ -700,7 +700,7 @@ function renderModal(i,ver){
     +'</div>'
     +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
     +mkScript(d.lines,ver)
-    +mkCaption(d,i)
+    +mkCaption(d,i,'modal')
     +'<div class="action-row" style="margin-top:12px">'
     +'<button class="btn btn-primary" onclick="cpAll('+i+')">Copy Script</button>'
     +'<button class="btn btn-done'+(checks[i]?' on':'')+'" id="modal-done-btn" onclick="toggleDoneModal('+i+')">'+(checks[i]?'Posted':'Mark Posted')+'</button>'
@@ -776,21 +776,20 @@ function durForVer(lines,ver){
   return scriptDuration(filterLines(lines,ver));
 }
 
-function mkCaption(d,i){
+function mkCaption(d,i,ctx){
   const caps=d.captions&&d.captions.length?d.captions:(d.caption?[{label:'A',text:d.caption}]:null);
   if(!caps)return '';
-  const id='cap-'+i;
+  const id='cap-'+(ctx||'x')+'-'+i;
   const encoded=encodeURIComponent(JSON.stringify(caps));
   const first=caps[0].text;
-  const safe=first.replace(/\\/g,'\\\\').replace(/`/g,'\\`');
-  const btns=caps.map((c,ci)=>'<button class="ver-btn'+(ci===0?' on':'')+'" id="'+id+'-btn-'+ci+'" onclick="swapCap(\''+id+'\','+ci+')">'+c.label+'</button>').join('');
+  const btns=caps.map((c,ci)=>'<button class="ver-btn'+(ci===0?' on':'')+'" onclick="swapCap(\''+id+'\','+ci+')">'+c.label+'</button>').join('');
   return '<div style="margin:16px 0 0">'
     +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">'
     +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub)">Caption</div>'
     +'<div class="ver-toggle" style="margin:0">'+btns+'</div>'
     +'</div>'
     +'<div id="'+id+'" data-caps="'+encoded+'" style="background:#050608;border:1px solid var(--border);border-radius:9px;padding:13px 14px;font-size:.78rem;color:#64748b;line-height:1.8;white-space:pre-wrap">'+first+'</div>'
-    +'<button class="cbtn" id="'+id+'-copy" style="margin-top:6px" onclick="cpCap(this,\''+id+'\')">Copy Caption</button>'
+    +'<button class="cbtn" style="margin-top:6px" onclick="cpCap(this,\''+id+'\')">Copy Caption</button>'
     +'</div>';
 }
 function swapCap(id,ci){
@@ -798,7 +797,7 @@ function swapCap(id,ci){
   if(!el)return;
   const caps=JSON.parse(decodeURIComponent(el.dataset.caps));
   el.textContent=caps[ci].text;
-  el.closest('div').querySelectorAll('.ver-btn').forEach((b,j)=>b.classList.toggle('on',j===ci));
+  el.parentElement.querySelectorAll('.ver-btn').forEach((b,j)=>b.classList.toggle('on',j===ci));
 }
 function cpCap(btn,id){
   const el=document.getElementById(id);
@@ -824,9 +823,9 @@ function verToggleHTML(elId,i,ver){
   const mid=durForVer(d.lines,'mid');
   const full=durForVer(d.lines,'full');
   return '<div class="ver-toggle">'
-    +'<button class="ver-btn'+(ver==='short'?' on':'')+'" onclick="setVer(\''+elId+'\','+i+',\'short\')">Short '+(short?'· '+short:'')+'</button>'
-    +'<button class="ver-btn'+(ver==='mid'?' on':'')+'" onclick="setVer(\''+elId+'\','+i+',\'mid\')">Medium '+(mid?'· '+mid:'')+'</button>'
-    +'<button class="ver-btn'+(ver==='full'?' on':'')+'" onclick="setVer(\''+elId+'\','+i+',\'full\')">Full '+(full?'· '+full:'')+'</button>'
+    +'<button class="ver-btn'+(ver==='short'?' on':'')+'" data-ver="short" onclick="setVer(\''+elId+'\','+i+',\'short\')">Short '+(short?'· '+short:'')+'</button>'
+    +'<button class="ver-btn'+(ver==='mid'?' on':'')+'" data-ver="mid" onclick="setVer(\''+elId+'\','+i+',\'mid\')">Medium '+(mid?'· '+mid:'')+'</button>'
+    +'<button class="ver-btn'+(ver==='full'?' on':'')+'" data-ver="full" onclick="setVer(\''+elId+'\','+i+',\'full\')">Full '+(full?'· '+full:'')+'</button>'
     +'</div>';
 }
 
@@ -841,7 +840,7 @@ function setVer(elId,i,ver){
     if(sc)sc.innerHTML=mkScript(WEEK[i].lines,ver);
     // update active state on toggle buttons
     const tog=document.getElementById('wktog-'+i);
-    if(tog)tog.querySelectorAll('.ver-btn').forEach(b=>b.classList.toggle('on',b.textContent.toLowerCase().startsWith(ver)));
+    if(tog)tog.querySelectorAll('.ver-btn').forEach(b=>b.classList.toggle('on',b.dataset.ver===ver));
   }
 }
 
@@ -867,7 +866,7 @@ function renderToday(i,ver){
     +'</div>'
     +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
     +mkScript(d.lines,ver)
-    +mkCaption(d,i)
+    +mkCaption(d,i,'today')
     +'<div class="action-row" style="margin-top:12px">'
     +'<button class="btn btn-primary" onclick="cpAll('+i+')">Copy Script</button>'
     +'<button class="btn btn-done'+(checks[i]?' on':'')+'" id="done-btn" onclick="toggleDone('+i+')">'+(checks[i]?'Posted':'Mark Posted')+'</button>'
@@ -909,7 +908,7 @@ WEEK.forEach((d,i)=>{
     +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
     +'<button class="btn btn-primary" style="width:100%;margin:10px 0;flex:none" onclick="cpAll('+i+')">Copy Script</button>'
     +'<div id="wkscript-'+i+'">'+mkScript(d.lines,'full')+'</div>'
-    +mkCaption(d,i)
+    +mkCaption(d,i,'wk')
     +'</div>';
   wo.appendChild(div);
 });
