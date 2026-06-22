@@ -101,19 +101,23 @@ Format instruction: {type_instruction}
 The script must have:
 - A strong hook (first 3-5 seconds — make them stop scrolling)
 - Clear value in the middle (teach something real and specific)
-- A CTA at the end ("DM me ADS" or "follow @marcomarkets")
+- A closing line — but ONLY add a CTA ("DM me ADS" / "follow @marcomarkets") if this is one of the max-2 CTA videos for the week. Otherwise end with a punchy value statement, no pitch at all.
+
+CTA RULE — applies to BOTH the script lines and captions together:
+- Max 2 out of 7 videos per week should have any CTA anywhere (script or caption)
+- No-CTA video: the Close line ends on a clean insight or statement — no "DM me", no "follow", no ask anywhere
+- CTA video: the Close line says it, and at least one caption option can include it
+- Script and captions must match — never pitch in the script if captions don't, and vice versa
 
 Also write 3 caption options. Follow this rule strictly:
 
 MOST VIDEOS — keep captions short (josh.hills0 style):
 - lowercase, conversational, no hashtags (or max 1-2)
-- Option A: 1-2 lines, pure insight, no CTA
-- Option B: 2-3 lines expanding the idea, maybe a soft CTA once every few videos
+- Option A: 1-2 lines, pure insight
+- Option B: 2-3 lines expanding the idea
 - Option C: one sentence — the core point only
 
-EXCEPTION — only write a long caption if the video hook says something like "here's how I do X" or "this is how I get clients" and the video deliberately teases "see the caption." In that case, Option B can be the full step-by-step breakdown (5-10 lines) that delivers the real value the hook promised. Still lowercase. No hashtag walls.
-
-Do NOT pitch on every video. Max 2 out of 7 videos per week should have any CTA. The rest are pure value.
+EXCEPTION — only write a long caption if the video hook says something like "here's how I do X" or "this is how I get clients" and the video deliberately teases "see the caption." In that case, Option B can be the full step-by-step breakdown (5-10 lines). Still lowercase. No hashtag walls.
 
 Respond ONLY with this JSON:
 {{
@@ -130,7 +134,7 @@ Respond ONLY with this JSON:
     {{"time": "Point 1", "tag": "8s", "cls": "", "text": "exact words"}},
     {{"time": "Point 2", "tag": "8s", "cls": "", "text": "exact words"}},
     {{"time": "Point 3", "tag": "8s", "cls": "", "text": "exact words"}},
-    {{"time": "Close", "tag": "5s", "cls": "cta", "text": "exact CTA words"}}
+    {{"time": "Close", "tag": "5s", "cls": "cta", "text": "closing words — CTA only if this is a CTA video, otherwise a clean value statement, no pitch"}}
   ]
 }}"""
 
