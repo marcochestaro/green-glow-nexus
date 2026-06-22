@@ -342,9 +342,6 @@ section{margin-bottom:44px;scroll-margin-top:64px}
           <span class="nt-arrow">&#8594;</span>
         </div>
       </div>
-
-      <!-- TOMORROW'S PLAN REMINDER -->
-      <div id="plan-reminder" style="display:none;margin-top:18px"></div>
     </div>
   </div>
 </div>
@@ -427,35 +424,43 @@ Follow for daily content on what actually works</textarea>
 <!-- TOMORROW'S PLAN -->
 <section id="plan">
   <div class="sec-label">Tomorrow's Plan</div>
-  <div id="plan-locked-view" style="display:none"></div>
-  <div id="plan-build-view">
-    <div style="font-size:.72rem;color:var(--sub);margin-bottom:14px" id="plan-date"></div>
+  <div class="card" style="margin-bottom:10px">
+    <div id="plan-date" style="font-size:.75rem;color:var(--sub);margin-bottom:14px"></div>
 
-    <div style="font-size:.65rem;color:var(--sub);margin-bottom:18px;line-height:1.5">Pick <strong style="color:#c7d2fe">2 from each section</strong>. Tap to add, tap again to remove.</div>
-
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub)">Content</div>
-      <div id="count-content" style="font-size:.65rem;font-weight:700;color:var(--sub)">0 / 2</div>
-    </div>
-    <div id="chips-content" style="display:flex;flex-direction:column;gap:7px;margin-bottom:20px"></div>
-
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub)">Outreach</div>
-      <div id="count-outreach" style="font-size:.65rem;font-weight:700;color:var(--sub)">0 / 2</div>
-    </div>
-    <div id="chips-outreach" style="display:flex;flex-direction:column;gap:7px;margin-bottom:20px"></div>
-
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub)">Growth</div>
-      <div id="count-growth" style="font-size:.65rem;font-weight:700;color:var(--sub)">0 / 2</div>
-    </div>
-    <div id="chips-growth" style="display:flex;flex-direction:column;gap:7px;margin-bottom:22px"></div>
-
-    <div style="margin-bottom:14px">
-      <textarea id="plan-notes" class="bio-area" placeholder="Anything else to add..." style="min-height:60px" oninput="savePlan()"></textarea>
+    <div style="margin-bottom:18px">
+      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:6px">Content</div>
+      <div style="font-size:.68rem;color:var(--sub);margin-bottom:10px">Tap to add to your checklist</div>
+      <div class="chips-wrap" id="chips-content"></div>
+      <div id="plan-content-tasks"></div>
+      <button class="cbtn" style="margin-top:6px" onclick="addTask('content')">+ Write your own</button>
     </div>
 
-    <button id="plan-lock-btn" onclick="lockPlan()" style="width:100%;padding:14px;border-radius:12px;background:linear-gradient(135deg,#1d4ed8,#6366f1);border:none;color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;letter-spacing:.02em">Lock in Plan for Tomorrow</button>
+    <div class="divider"></div>
+
+    <div style="margin-bottom:18px;margin-top:18px">
+      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:6px">Outreach &amp; DMs</div>
+      <div style="font-size:.68rem;color:var(--sub);margin-bottom:10px">Tap to add to your checklist</div>
+      <div class="chips-wrap" id="chips-outreach"></div>
+      <div id="plan-outreach-tasks"></div>
+      <button class="cbtn" style="margin-top:6px" onclick="addTask('outreach')">+ Write your own</button>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="margin-top:18px;margin-bottom:18px">
+      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:6px">Growth &amp; Profile</div>
+      <div style="font-size:.68rem;color:var(--sub);margin-bottom:10px">Tap to add to your checklist</div>
+      <div class="chips-wrap" id="chips-growth"></div>
+      <div id="plan-growth-tasks"></div>
+      <button class="cbtn" style="margin-top:6px" onclick="addTask('growth')">+ Write your own</button>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="margin-top:18px">
+      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:8px">Notes</div>
+      <textarea id="plan-notes" class="bio-area" placeholder="Anything else to remember for tomorrow..." style="min-height:70px" oninput="savePlan()"></textarea>
+    </div>
   </div>
 </section>
 
@@ -547,11 +552,7 @@ const DAILY_BRIEF=[
 const WEEK=[
 {title:'The $25 a Day Math — What a Small Budget Actually Produces',type:'Screen Record',
 film:'Open Miro or a simple graphic showing a funnel. Screen record as you walk through each number. Speak slowly — the math is the content.',
-captions:[
-  {label:'A',text:'$25 a day. that\'s all it takes to get consistent leads for a service business when the setup is right.'},
-  {label:'B',text:'most service businesses spend more on fuel than on ads.\n\n$25 a day in Meta can bring in 3–5 leads a week. one booked job covers the whole week of spend.\n\nfollow @marcomarkets if you run a service business and want to know how to set this up'},
-  {label:'C',text:'one booked job covers the entire week of ad spend.\n\nthat\'s the math.'},
-],
+caption:'$25 a day. Here\'s exactly what that produces for a service business.\n\n3,000 impressions → 60 clicks → 3-5 leads → 1-2 booked jobs.\n\nOne job covers the entire week of ad spend. Often 5-10x over.\n\nWindow cleaning: $150-300/job\nLandscaping: $200-600\nHVAC: $400-1,500\nPainting: $800-3,000\n\nYou don\'t need a big budget. You need the right setup.\n\nDM me ADS and I\'ll show you how to build this for your business.\n\n#metaads #facebookads #servicebasiness #leadgeneration #smallbusiness',
 lines:[
 {time:'Opening',tag:'6s',cls:'hook',text:"This is the $25 a day math — what a small daily ad budget actually produces for a service business."},
 {time:'Ad Spend → Impressions',tag:'8s',cls:'',text:"You start with $25 a day, and that typically reaches around 3,000 people through impressions. That's just Meta showing your ad to the right audience in your area."},
@@ -565,11 +566,7 @@ lines:[
 ]},
 {title:"Referrals Feel Good. But They're Keeping You Stuck.",type:'Talking Head',
 film:"Sit close to camera. Direct, confident. Talk like you're telling a mate something he needs to hear. No notes, no rushing.",
-captions:[
-  {label:'A',text:'referrals are a bonus, not a business model.\n\nif you can\'t control your lead flow you don\'t have a real business yet.'},
-  {label:'B',text:'the moment your best referrer moves, retires, or just stops talking about you — your phone goes quiet.\n\nads give you a dial you actually control.\n\nfollow @marcomarkets if you run a service business and want leads that don\'t depend on luck'},
-  {label:'C',text:'control your leads or they control you.'},
-],
+caption:'Referrals feel like they\'re working. They\'re not — they\'re a trap.\n\nYou can\'t control them. You can\'t scale them. And when they slow down, your pipeline dries up overnight.\n\nAds give you a dial.\n\nTurn it up when you want more leads.\nTurn it down when you\'re fully booked.\n\nThat\'s what a real business looks like — one you actually control.\n\nDM me ADS if you\'re ready to stop waiting and start building a system.\n\n#servicebasiness #metaads #tradie #plumber #localbasiness',
 lines:[
 {time:'Hook',tag:'5s',cls:'hook',text:"If referrals are your main source of clients right now — I need you to hear this. Because it feels like it's working, but it's actually keeping you stuck."},
 {time:'Why It Feels Good',tag:'8s',cls:'',text:"Referrals close easy because the trust is already there. I get it. But the problem is you have zero control. You can't decide Monday you want 10 new leads this week and get 10 referrals. You just wait. And hope."},
@@ -579,11 +576,7 @@ lines:[
 ]},
 {title:"I Audited a Failing Ad Account — Here's Exactly What I Found",type:'Screen Record',
 film:"Screen record Meta Ads Manager. Walk through a real account — blur any identifying info. Click through each section slowly as you talk.",
-captions:[
-  {label:'A',text:'audited a failing ad account this week. wrong objective, 2.8 million person audience, stock photo with no hook.\n\nthree fixes. no extra spend.'},
-  {label:'B',text:'most failing ads have the same three problems.\n\nwrong objective. audience too broad. creative with no reason to stop scrolling.\n\nnone of these cost money to fix.'},
-  {label:'C',text:'i\'ll look at your ad account and tell you exactly what\'s wrong.\n\nDM me ADS\n\nfollow @marcomarkets if you run a service business and want to know why your ads aren\'t working'},
-],
+caption:'I audited a failing ad account this week. Here\'s exactly what I found.\n\nMistake 1 — Wrong objective\nRunning Traffic instead of Lead Generation. Telling Meta to find clickers, not buyers.\n\nMistake 2 — Audience too broad\n2.8 million people. Pulled it back to a 15km radius. Down to 180k. Same budget, 10x more relevant.\n\nMistake 3 — No hook in the creative\nStock photo. Generic headline. Zero reason to stop scrolling.\n\nThree fixes. Zero extra spend.\n\nDM me ADS and I\'ll tell you exactly what\'s costing you money in one conversation.\n\n#metaads #facebookads #adsmanager #leadgeneration #servicebasiness',
 lines:[
 {time:'Opening',tag:'6s',cls:'hook',text:"Someone gave me access to their ad account this week and asked what's wrong. I'm walking you through exactly what I found — because most of you are making at least two of these same mistakes."},
 {time:'Mistake 1 — Objective',tag:'12s',cls:'',text:"First thing I check is the campaign objective. They're running Traffic. That tells Meta: find me people who like clicking links. Not people who want to book a plumber. Switch to Lead Generation — always. That one change alone makes a real difference."},
@@ -594,11 +587,7 @@ lines:[
 ]},
 {title:'Meta vs Google — The Honest Answer for Service Businesses',type:'Carousel',
 film:'5 clean slides in Canva. Dark background, white bold headline, one point per slide. Minimal design — the words do the work.',
-captions:[
-  {label:'A',text:'under $500/month → start with Meta.\nover $1,500/month → run both.\n\nthat\'s the honest answer.'},
-  {label:'B',text:'google catches people already searching. Meta creates demand before they search.\n\nboth work. it just depends where you\'re at budget-wise.'},
-  {label:'C',text:'the question isn\'t Meta or Google.\n\nit\'s which one makes sense at your current budget.\n\nfollow @marcomarkets if you run a service business and want the honest breakdown'},
-],
+caption:'Meta vs Google for service businesses — most people get this wrong.\n\nGoogle: high intent, but $20-80 per click in trade niches. You need $1,500+/month to see consistent leads.\n\nMeta: no one\'s searching for a window cleaner — but you can put your ad in front of 180,000 homeowners within 15km for $25/day.\n\nUnder $500/month → start with Meta.\nOver $1,500/month → run both.\n\nSave this. You\'ll need it.\n\nDM me ADS if you want me to tell you which one is right for where you\'re at right now.\n\n#metaads #googleads #servicebasiness #localmarketing #facebookads',
 lines:[
 {time:'Slide 1 — Hook',tag:'',cls:'hook',text:"Meta vs Google for service businesses. Most people get this completely wrong. Here's the honest breakdown."},
 {time:'Slide 2 — Google',tag:'',cls:'',text:"Google Ads: someone types emergency plumber near me and your ad shows. High intent. But clicks cost $20 to $80 in trade niches. To get 10 leads a month you might need $1,500 minimum. Great if you have budget. Rough if you're starting out."},
@@ -608,11 +597,7 @@ lines:[
 ]},
 {title:'One Word That Gets More People to Click Your Ad',type:'Talking Head',
 film:'Fast and punchy. Hold up one finger when you say one word. Cut tight, no dead space. Under 40 seconds total.',
-captions:[
-  {label:'A',text:'change "we" to "get" in your ad headline.\n\nsame service. completely different response.'},
-  {label:'B',text:'"we offer window cleaning" → nobody cares.\n"get your windows cleaned today" → now they\'re imagining it.\n\none word.'},
-  {label:'C',text:'the word "we" is killing your click rate.\n\nstart with "get" instead. takes 10 seconds.\n\nfollow @marcomarkets for one thing like this every day'},
-],
+caption:'One word. That\'s it.\n\nChange "We" to "Get" in your ad headline.\n\n"We offer window cleaning" → nobody cares.\n"Get your windows cleaned today" → now they\'re imagining the result.\n\nSame service. Completely different response.\n\nGo change your headline right now. Takes 10 seconds.\n\nFollow for one thing every day that makes your ads work better.\n\n#metaads #facebookads #adcopywriting #servicebasiness #marketingtips',
 lines:[
 {time:'Hook',tag:'5s',cls:'hook',text:"One word change that will immediately get more people clicking your ad. Costs nothing, takes 10 seconds."},
 {time:'The Problem',tag:'8s',cls:'',text:"Most service businesses start their headline with We. We offer window cleaning. We are Melbourne's best plumbers. Every one of those is you talking about yourself. And nobody cares about you yet — they care about what they're going to get."},
@@ -621,11 +606,7 @@ lines:[
 ]},
 {title:'$25 a Day in Ads — Real Numbers From a Real Client',type:'Talking Head',
 film:"Direct to camera, confident. Slow down on every number and let it land. Don't rush through the stats — they're the whole point.",
-captions:[
-  {label:'A',text:'$750 in ads. $1,980 in revenue. 11 booked jobs.\n\ncar detailer. 30 days. $25/day.'},
-  {label:'B',text:'the math works when the setup is right.\n\n$25/day got a local car detailer 19 leads and 11 booked jobs in one month. cost per lead: $39.'},
-  {label:'C',text:'this is what $750 in Meta ads looked like for a local car detailer last month.\n\nfollow @marcomarkets if you want to know what it could look like for yours'},
-],
+caption:'Car detailer. $25/day in Meta ads. 30 days. Here\'s exactly what happened.\n\nTotal spend: $750\nPeople reached: 18,400\nClicks: 234\nLeads: 19\nBooked jobs: 11\nRevenue: $1,980\n\nCost per lead: $39\nReturn on spend: 2.6x\n\nBut those 11 customers are now in the database. Even if 4 come back twice a year — that\'s another $1,440 without spending a dollar more.\n\nThis is what you\'re leaving on the table every month.\n\nDM me ADS and let\'s work out what this looks like for your business.\n\n#metaads #facebookads #servicebasiness #casestudy #results',
 lines:[
 {time:'Hook',tag:'5s',cls:'hook',text:"I'm going to show you exactly what happened when a local car detailer ran $25 a day in Meta ads for 30 days. Real numbers, no fluff."},
 {time:'The Reach',tag:'7s',cls:'',text:"Total spend: $750. That reached 18,400 people in a 15km radius — homeowners and car enthusiasts, 25 to 50, targeted by interest and location."},
@@ -637,11 +618,7 @@ lines:[
 ]},
 {title:'Why I Only Work With Service Businesses',type:'Talking Head',
 film:'Relaxed, honest, no pitch. Film anywhere comfortable — couch, outside, wherever. Just talk like a normal person.',
-captions:[
-  {label:'A',text:'a plumber who shows up at 7am and fixes the problem is more valuable than most people sitting behind a laptop.\n\nthey just need the marketing.'},
-  {label:'B',text:'i only work with service businesses. not coaches, not e-com.\n\npeople who actually do something.'},
-  {label:'C',text:'the gap between how good these tradies are at their job and how many customers they have is wild.\n\nthat\'s what i\'m here to fix.\n\nfollow @marcomarkets'},
-],
+caption:'People ask why I only work with service businesses. Not coaches. Not e-com. Not "brands."\n\nBecause these businesses actually do something.\n\nA plumber shows up at 7am when there\'s water through the ceiling and fixes it. A painter points to a house and says I did that. Real skills. Real people. Real need.\n\nMost of them are excellent at what they do. They just don\'t know how to market it.\n\nThat gap — between what they\'re capable of and how many customers they have — that\'s what I\'m here to close.\n\nIf that\'s you, DM me ADS.\n\n#servicebasiness #tradie #plumber #metaads #smallbusiness',
 lines:[
 {time:'Hook',tag:'5s',cls:'hook',text:"People ask me all the time — why only service businesses? Why not coaches, why not e-com, why not something bigger?"},
 {time:'Honest Answer',tag:'10s',cls:'',text:"Because these businesses actually do something. A plumber shows up at 7am when there's water through the ceiling and fixes it. A window cleaner transforms someone's home in an afternoon. Real skills, real people, real need. And most of the people running them are genuinely excellent at what they do."},
@@ -669,14 +646,14 @@ function typeBadgeStyle(type){
 }
 
 // Populate home today card
-function buildHomeCard(){
+(function(){
   const d=WEEK[todayI];
   const dt=weekDate(todayI);
   document.getElementById('home-today-day').textContent=fmtFull(dt);
   document.getElementById('home-today-title').textContent=d.title;
   const tb=document.getElementById('home-today-type');
   tb.textContent=d.type;tb.style.cssText=typeBadgeStyle(d.type);
-}
+})();
 
 // ── Post Modal ─────────────────────────────────────────────────────────
 function renderModal(i,ver){
@@ -730,19 +707,16 @@ function updProg(){
 }
 
 // Week strip
-function buildWeekStrip(){
-  const wstrip=document.getElementById('wstrip');
-  wstrip.innerHTML='';
-  WEEK.forEach((d,i)=>{
-    const dt=weekDate(i);
-    const el=document.createElement('div');
-    el.className='wday'+(i===todayI?' active':'')+(checks[i]?' done':'');
-    el.id='wd'+i;
-    el.onclick=()=>{document.querySelectorAll('.wday').forEach(w=>w.classList.remove('active'));el.classList.add('active');renderToday(i);};
-    el.innerHTML='<div class="wday-n">'+DAYS[i]+'</div><div class="wday-d">'+dt.getDate()+'</div><div class="wday-t">'+d.type.split(' ')[0]+'</div>';
-    wstrip.appendChild(el);
-  });
-}
+const wstrip=document.getElementById('wstrip');
+WEEK.forEach((d,i)=>{
+  const dt=weekDate(i);
+  const el=document.createElement('div');
+  el.className='wday'+(i===todayI?' active':'')+(checks[i]?' done':'');
+  el.id='wd'+i;
+  el.onclick=()=>{document.querySelectorAll('.wday').forEach(w=>w.classList.remove('active'));el.classList.add('active');renderToday(i);};
+  el.innerHTML='<div class="wday-n">'+DAYS[i]+'</div><div class="wday-d">'+dt.getDate()+'</div><div class="wday-t">'+d.type.split(' ')[0]+'</div>';
+  wstrip.appendChild(el);
+});
 
 // Script renderer
 function cpLine(btn,text){
@@ -775,26 +749,33 @@ function durForVer(lines,ver){
 }
 
 function mkCaption(d,i){
-  const caps=d.captions||(d.caption?[{label:'A',text:d.caption}]:null);
-  if(!caps||!caps.length)return '';
-  const id='cap'+i;
-  let out='<div style="margin:16px 0 0" id="'+id+'" data-caps="'+encodeURIComponent(JSON.stringify(caps))+'">'
-    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:8px">Caption</div>';
-  if(caps.length>1)out+='<div style="display:flex;gap:6px;margin-bottom:8px">'+caps.map((c,ci)=>'<button class="ver-btn'+(ci===0?' on':'')+'" onclick="swapCap(\''+id+'\','+ci+')">'+c.label+'</button>').join('')+'</div>';
-  out+='<div class="cap-text" style="background:#050608;border:1px solid var(--border);border-radius:9px;padding:13px 14px;font-size:.78rem;color:#64748b;line-height:1.8;white-space:pre-wrap">'+caps[0].text.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</div>'
-    +'<button class="cbtn cap-copy" style="margin-top:6px" onclick="cpCap(this)">Copy Caption</button>'
+  const caps=d.captions&&d.captions.length?d.captions:(d.caption?[{label:'A',text:d.caption}]:null);
+  if(!caps)return '';
+  const id='cap-'+i;
+  const encoded=encodeURIComponent(JSON.stringify(caps));
+  const first=caps[0].text;
+  const safe=first.replace(/\\/g,'\\\\').replace(/`/g,'\\`');
+  const btns=caps.map((c,ci)=>'<button class="ver-btn'+(ci===0?' on':'')+'" id="'+id+'-btn-'+ci+'" onclick="swapCap(\''+id+'\','+ci+')">'+c.label+'</button>').join('');
+  return '<div style="margin:16px 0 0">'
+    +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">'
+    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub)">Caption</div>'
+    +'<div class="ver-toggle" style="margin:0">'+btns+'</div>'
+    +'</div>'
+    +'<div id="'+id+'" data-caps="'+encoded+'" style="background:#050608;border:1px solid var(--border);border-radius:9px;padding:13px 14px;font-size:.78rem;color:#64748b;line-height:1.8;white-space:pre-wrap">'+first+'</div>'
+    +'<button class="cbtn" id="'+id+'-copy" style="margin-top:6px" onclick="cpCap(this,\''+id+'\')">Copy Caption</button>'
     +'</div>';
-  return out;
 }
 function swapCap(id,ci){
   const el=document.getElementById(id);
+  if(!el)return;
   const caps=JSON.parse(decodeURIComponent(el.dataset.caps));
-  el.querySelector('.cap-text').textContent=caps[ci].text;
-  el.querySelectorAll('.ver-btn').forEach((b,i)=>b.classList.toggle('on',i===ci));
+  el.textContent=caps[ci].text;
+  el.closest('div').querySelectorAll('.ver-btn').forEach((b,j)=>b.classList.toggle('on',j===ci));
 }
-function cpCap(btn){
-  const text=btn.closest('[data-caps]').querySelector('.cap-text').textContent;
-  navigator.clipboard.writeText(text).then(()=>{btn.textContent='Copied';setTimeout(()=>btn.textContent='Copy Caption',1600)});
+function cpCap(btn,id){
+  const el=document.getElementById(id);
+  if(!el)return;
+  navigator.clipboard.writeText(el.textContent).then(()=>{btn.textContent='Copied';setTimeout(()=>btn.textContent='Copy Caption',1600)});
 }
 
 function mkScript(lines,ver){
@@ -828,11 +809,11 @@ function setVer(elId,i,ver){
   if(elId==='today')renderToday(i,ver);
   else if(elId==='modal')renderModal(i,ver);
   else if(elId==='wkv-'+i){
-    // week accordion version toggle
     const sc=document.getElementById('wkscript-'+i);
     if(sc)sc.innerHTML=mkScript(WEEK[i].lines,ver);
-    // re-render toggle to update active state
-    const tog=document.querySelector('[onclick*="setVer(\'wkv-'+i+'\'"]')&&document.getElementById('wkv-'+i);
+    // update active state on toggle buttons
+    const tog=document.getElementById('wktog-'+i);
+    if(tog)tog.querySelectorAll('.ver-btn').forEach(b=>b.classList.toggle('on',b.textContent.toLowerCase().startsWith(ver)));
   }
 }
 
@@ -865,6 +846,8 @@ function renderToday(i,ver){
     +'</div>'
     +'</div></div>';
 }
+renderToday(todayI);
+
 function toggleDone(i){
   checks[i]=!checks[i];
   localStorage.setItem('mm_checks',JSON.stringify(checks));
@@ -877,55 +860,31 @@ function toggleDone(i){
 updProg();
 
 // This week accordion
-function buildWeekAccordion(){
-  const wo=document.getElementById('week-out');
-  wo.innerHTML='';
-  WEEK.forEach((d,i)=>{
-    const dt=weekDate(i);
-    const div=document.createElement('div');
-    div.className='wk-card';
-    div.innerHTML=
-      '<div class="wk-hdr" onclick="this.nextElementSibling.classList.toggle(\'open\')">'
-      +'<div class="wk-hdr-info">'
-      +'<div class="wk-day">'+FULL_DAYS[i]+', '+MONTHS[dt.getMonth()]+' '+dt.getDate()+'</div>'
-      +'<div class="wk-title">'+d.title+'</div>'
-      +'</div>'
-      +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
-      +'</div>'
-      +'<div class="wk-body">'
-      +'<div style="margin:12px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
-      +(scriptDuration(d.lines)?'<div class="dur-badge">'+scriptDuration(d.lines)+' total</div>':'')
-      +verToggleHTML('wkv-'+i,i,'full')
-      +'</div>'
-      +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
-      +'<button class="btn btn-primary" style="width:100%;margin:10px 0;flex:none" onclick="cpAll('+i+')">Copy Script</button>'
-      +'<div id="wkscript-'+i+'">'+mkScript(d.lines,'full')+'</div>'
-      +mkCaption(d,i)
-      +'</div>';
-    wo.appendChild(div);
-  });
-}
-
-// ── Load weekly scripts from JSON (auto-updated every Sunday) ──────────
-(async function initWeek(){
-  try {
-    const data = await fetch('scripts-data.json?_='+Date.now()).then(r=>r.json());
-    if(data.scripts && data.scripts.length===7){
-      // Find current Monday
-      const mon=new Date(today);
-      mon.setDate(today.getDate()-((today.getDay()+6)%7));
-      const monStr=mon.toISOString().split('T')[0];
-      if(data.week_of===monStr){
-        WEEK=data.scripts;
-        console.log('Live scripts loaded for week of',data.week_of_display);
-      }
-    }
-  } catch(e){ /* use hardcoded WEEK */ }
-  buildHomeCard();
-  buildWeekStrip();
-  renderToday(todayI);
-  buildWeekAccordion();
-})();
+const wo=document.getElementById('week-out');
+WEEK.forEach((d,i)=>{
+  const dt=weekDate(i);
+  const div=document.createElement('div');
+  div.className='wk-card';
+  div.innerHTML=
+    '<div class="wk-hdr" onclick="this.nextElementSibling.classList.toggle(\'open\')">'
+    +'<div class="wk-hdr-info">'
+    +'<div class="wk-day">'+FULL_DAYS[i]+', '+MONTHS[dt.getMonth()]+' '+dt.getDate()+'</div>'
+    +'<div class="wk-title">'+d.title+'</div>'
+    +'</div>'
+    +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
+    +'</div>'
+    +'<div class="wk-body">'
+    +'<div style="margin:12px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
+    +(scriptDuration(d.lines)?'<div class="dur-badge">'+scriptDuration(d.lines)+' total</div>':'')
+    +'<div id="wktog-'+i+'">'+verToggleHTML('wkv-'+i,i,'full')+'</div>'
+    +'</div>'
+    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
+    +'<button class="btn btn-primary" style="width:100%;margin:10px 0;flex:none" onclick="cpAll('+i+')">Copy Script</button>'
+    +'<div id="wkscript-'+i+'">'+mkScript(d.lines,'full')+'</div>'
+    +mkCaption(d,i)
+    +'</div>';
+  wo.appendChild(div);
+});
 
 // Stats data
 async function loadData(){
@@ -1066,202 +1025,82 @@ PCH.forEach((item,i)=>{
 const sb=localStorage.getItem('mm_bio');if(sb)document.getElementById('bio-text').value=sb;
 
 // ── Tomorrow's Plan ────────────────────────────────────────────────────
+(function(){
+  const tmr=new Date(today);tmr.setDate(today.getDate()+1);
+  document.getElementById('plan-date').textContent='Planning for: '+fmtFull(tmr);
+})();
+
 const SUGGESTIONS={
-  content:[
-    {text:"Film today's script",tip:"Pick today's format from This Week's Scripts. One take is enough — hook → value → DM me ADS. Don't overthink it."},
-    {text:"Batch film 2–3 videos",tip:"Set up once (good lighting, phone on tripod) then film 3 scripts back to back. Saves hours during the week."},
-    {text:"Screen record in Ads Manager",tip:"Open your account or demo one. Walk through a real metric — even if it's small. Real data beats fake polish every time."},
-    {text:"Film a niche story tutorial",tip:"Pick ONE niche (e.g. window cleaners). Film a 30s story specifically for them — start with 'This is for window cleaners only.' Then tag 10–15 of them on Close Friends. The green circle bumps your story to the top of their inbox."},
-    {text:"Post to Stories with a poll",tip:"Repost today's Reel to your Story. Add a poll: 'Running Meta ads? Yes / Not yet'. Gets real responses and starts DM conversations."},
-    {text:"Film a behind-the-scenes clip",tip:"20–30 seconds of your workflow. Your screen, your setup, you editing. People follow people — show what your day actually looks like."},
-    {text:"Create a carousel in Canva",tip:"5 slides, dark background, bold headline each slide. Best topics: $25/day math, Meta vs Google, the 3 ad mistakes. 30 mins max."},
-    {text:"Write captions for 3 posts",tip:"Open This Week's Scripts → Caption section. Copy Option A or B, change one personal detail, done. Don't write from scratch."},
-  ],
-  outreach:[
-    {text:"Alert: Close Friends niche story",tip:"Step 1 — Search one niche on Instagram (e.g. 'window cleaner Sydney'). Find 10–15 active accounts.\nStep 2 — Add them to your Close Friends list.\nStep 3 — Film a short story speaking directly to that niche ('Hey window cleaners, this one's for you...').\nStep 4 — Post it to Close Friends only.\nResult: They see a green circle around your story — it sits at the top of their inbox above everyone else. Most will watch it. Some will DM you."},
-    {text:"Reply to every DM today",tip:"Don't leave anyone on read. Even 'Hey thanks — what kind of business do you run?' keeps it going. Leads die in silence."},
-    {text:"DM 5 people who engaged",tip:"Anyone who liked or commented today — send: 'Hey, appreciate the support. What kind of business do you run?' Simple. Human. Effective."},
-    {text:"Follow up with 3 quiet leads",tip:"Check your DMs for anyone who went quiet after showing interest. Send: 'Hey just checking in — still thinking about running ads?' Short, no pressure."},
-    {text:"Send opener to 3 cold accounts",tip:"Find 3 service biz owners who look active (recent posts, decent following). Use DM Script 1. Send it. The only bad outreach is no outreach."},
-    {text:"Reply to comments on last 3 posts",tip:"Go back and reply to every unanswered comment. Signals activity to the algorithm and shows you're real — not just posting and ghosting."},
-  ],
-  growth:[
-    {text:"Post at 6–7:30 PM tonight",tip:"This is the best window for reach. Set a reminder right now before you forget. Timing matters — don't guess."},
-    {text:"Check your analytics",tip:"Open Instagram Insights. Look at: reach, profile visits, and which post got the most. Whatever that hook was — film it again."},
-    {text:"Schedule next 3 posts",tip:"Open Meta Business Suite → Content → Schedule. Get 3 posts queued. Frees up tomorrow completely."},
-    {text:"Research a competitor's top Reel",tip:"Find one creator in your niche. Open their profile, sort by most-liked. Watch their top Reel. Note: the hook, the format, the CTA. One steal per day compounds."},
-    {text:"Update your bio",tip:"Update the follower number if it changed. Make sure the first line says exactly who you help and what they get. Specific > clever."},
-    {text:"Audit your profile as a stranger",tip:"Go to your profile and scroll through the last 9 posts. Does it look like a real authority account? Is there a clear theme? If not, what's the weakest post?"},
-    {text:"Read next week's scripts",tip:"Go to This Week's Scripts. Read each one. Mentally decide which you're filming and on what day. 5 minutes now saves 30 minutes of 'what do I post' later."},
-  ],
+  content:['Film today\'s video','Batch film 2-3 videos in one session','Film a screen record in Ads Manager','Write captions for 3 posts','Create a carousel in Canva','Reply to all comments from today','Post to Instagram Stories','Check which post performed best this week','Film a day-in-the-life clip','Repost a top post to Stories'],
+  outreach:['Reply to all unread DMs','Follow 20 local service business owners','Leave 10 genuine comments in your niche','DM 5 accounts who engaged with your posts','Follow up with leads who didn\'t respond','Send opener DM to 3 new accounts','Check competitor comments for pain points','Like and comment on 10 posts from target audience'],
+  growth:['Post at 6-7:30 PM EST tonight','Update bio with latest follower count','Pin your best performing post','Check analytics in Meta Business Suite','Add DM me ADS CTA to last 3 captions','Research one competitor\'s top video','Schedule next 3 posts in advance','Check profile — does it clearly say what you do?','Read through next week\'s scripts'],
 };
 
-const tmrDate=new Date(today);tmrDate.setDate(today.getDate()+1);
-const tmrStr=tmrDate.toISOString().split('T')[0];
-const todayStr=today.toISOString().split('T')[0];
-document.getElementById('plan-date').textContent='Planning for: '+fmtFull(tmrDate);
+const PLAN_CATS=['content','outreach','growth'];
+let plan=JSON.parse(localStorage.getItem('mm_plan')||'{"content":[],"outreach":[],"growth":[],"notes":""}');
 
-let planRaw=JSON.parse(localStorage.getItem('mm_plan')||'{}');
-// Reset if locked date passed
-if(planRaw.lockedFor && planRaw.lockedFor < todayStr){
-  planRaw={content:[],outreach:[],growth:[],notes:'',lockedFor:null};
-  localStorage.setItem('mm_plan',JSON.stringify(planRaw));
-}
-let plan=Object.assign({content:[],outreach:[],growth:[],notes:'',lockedFor:null},planRaw);
-// Drop any saved tasks whose text doesn't match current suggestions
-// (renamed suggestions stay in localStorage invisibly and fill the quota)
-const VALID_TEXTS=new Set(Object.values(SUGGESTIONS).flatMap(a=>a.map(s=>s.text)));
-['content','outreach','growth'].forEach(cat=>{
-  plan[cat]=(plan[cat]||[])
-    .filter(t=>t)
-    .map(t=>typeof t==='string'?{text:t,done:false}:t)
-    .filter(t=>VALID_TEXTS.has(t.text));
+PLAN_CATS.forEach(cat=>{
+  const wrap=document.getElementById('chips-'+cat);
+  if(!wrap)return;
+  SUGGESTIONS[cat].forEach(s=>{
+    const chip=document.createElement('div');
+    chip.className='chip';
+    chip.textContent=s;
+    chip.onclick=()=>{
+      if((plan[cat]||[]).some(t=>t.text===s))return;
+      if(!plan[cat])plan[cat]=[];
+      plan[cat].push({text:s,done:false});
+      localStorage.setItem('mm_plan',JSON.stringify(plan));
+      renderTasks(cat);
+      chip.style.cssText='border-color:var(--blue);color:#93c5fd;background:#07101e';
+      setTimeout(()=>{chip.style.cssText='';},700);
+    };
+    wrap.appendChild(chip);
+  });
 });
-localStorage.setItem('mm_plan',JSON.stringify(plan));
 
 function savePlan(){
-  plan.notes=(document.getElementById('plan-notes')||{}).value||plan.notes;
+  plan.notes=document.getElementById('plan-notes').value;
   localStorage.setItem('mm_plan',JSON.stringify(plan));
 }
 
-const MAX_PER_CAT=2;  // 2 per section = max 6 tasks total
-const chipRefreshers={};
-
-['content','outreach','growth'].forEach(cat=>{
-  const wrap=document.getElementById('chips-'+cat);
-  if(!wrap)return;
-  const refreshers=[];
-  SUGGESTIONS[cat].forEach(s=>{
-    const el=document.createElement('div');
-    const isOn=()=>(plan[cat]||[]).some(t=>t.text===s.text);
-    const refresh=()=>{
-      const on=isOn();
-      const atLimit=(plan[cat]||[]).length>=MAX_PER_CAT;
-      const locked=!on&&atLimit;
-      el.style.cssText='background:'+(on?'rgba(99,102,241,.12)':'#050709')+';border:1px solid '+(on?'#6366f1':locked?'var(--dim)':'var(--border)')+';border-radius:11px;padding:11px 13px;cursor:'+(locked?'default':'pointer')+';transition:all .15s;opacity:'+(locked?.4:1);
-      el.querySelector('.pc-check').style.cssText='width:18px;height:18px;border-radius:50%;border:1.5px solid '+(on?'#6366f1':'var(--border)')+';display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#fff;flex-shrink:0;background:'+(on?'#6366f1':'none');
-      el.querySelector('.pc-check').textContent=on?'✓':'';
-      el.querySelector('.pc-label').style.color=on?'#c7d2fe':locked?'var(--sub)':'#94a3b8';
-    };
-    el.innerHTML='<div style="display:flex;align-items:flex-start;gap:10px">'
-      +'<div class="pc-check"></div>'
-      +'<div style="flex:1">'
-      +'<div class="pc-label" style="font-size:.78rem;font-weight:600;line-height:1.3">'+s.text+'</div>'
-      +'<div style="font-size:.68rem;color:var(--sub);line-height:1.5;margin-top:5px;white-space:pre-line">'+s.tip+'</div>'
-      +'</div></div>';
-    el.onclick=()=>{
-      if(!plan[cat])plan[cat]=[];
-      const idx=plan[cat].findIndex(t=>t.text===s.text);
-      if(idx<0&&(plan[cat]||[]).length>=MAX_PER_CAT)return;
-      if(idx>=0)plan[cat].splice(idx,1);
-      else plan[cat].push({text:s.text,done:false});
-      savePlan();
-      refreshers.forEach(r=>r());
-      const cc=document.getElementById('count-'+cat);
-      if(cc)cc.textContent=(plan[cat]||[]).length+' / '+MAX_PER_CAT;
-      if(cc)cc.style.color=(plan[cat]||[]).length>=MAX_PER_CAT?'#818cf8':'var(--sub)';
-      renderPlanReminder();
-    };
-    wrap.appendChild(el);
-    refreshers.push(refresh);
-    refresh();
+function renderTasks(cat){
+  const el=document.getElementById('plan-'+cat+'-tasks');
+  el.innerHTML='';
+  (plan[cat]||[]).forEach((task,i)=>{
+    const row=document.createElement('div');
+    row.style.cssText='display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--dim)';
+    row.innerHTML=
+      '<div class="chkbox'+(task.done?' on':'')+'" onclick="toggleTask(\''+cat+'\','+i+')" style="cursor:pointer">'+(task.done?'&#10003;':'')+'</div>'
+      +'<div style="flex:1;font-size:.78rem;color:'+(task.done?'var(--sub)':'#94a3b8')+';'+(task.done?'text-decoration:line-through;opacity:.35':'')+'">'+task.text+'</div>'
+      +'<button onclick="removeTask(\''+cat+'\','+i+')" style="background:none;border:none;color:var(--sub);cursor:pointer;font-size:.8rem;padding:2px 8px">&#215;</button>';
+    el.appendChild(row);
   });
-  chipRefreshers[cat]=()=>refreshers.forEach(r=>r());
-});
-
-function lockPlan(){
-  const notes=document.getElementById('plan-notes');
-  if(notes)plan.notes=notes.value;
-  const all=[...(plan.content||[]),...(plan.outreach||[]),...(plan.growth||[])];
-  if(!all.length){alert('Pick at least one task first.');return;}
-  plan.lockedFor=tmrStr;
-  savePlan();
-  renderPlanView();
-  renderPlanReminder();
 }
 
-function unlockPlan(){
-  plan.lockedFor=null;
-  savePlan();
-  renderPlanView();
-  renderPlanReminder();
-  Object.values(chipRefreshers).forEach(r=>r());
+function addTask(cat){
+  const text=prompt('Add your own task:');
+  if(!text||!text.trim())return;
+  if(!plan[cat])plan[cat]=[];
+  plan[cat].push({text:text.trim(),done:false});
+  localStorage.setItem('mm_plan',JSON.stringify(plan));
+  renderTasks(cat);
 }
 
-function togglePlanTask(i){
-  const all=[...(plan.content||[]),...(plan.outreach||[]),...(plan.growth||[])];
-  // find which cat and index
-  let offset=0;
-  for(const cat of['content','outreach','growth']){
-    const arr=plan[cat]||[];
-    if(i-offset<arr.length){arr[i-offset].done=!arr[i-offset].done;break;}
-    offset+=arr.length;
-  }
-  savePlan();
-  renderPlanView();
-  renderPlanReminder();
+function toggleTask(cat,i){
+  plan[cat][i].done=!plan[cat][i].done;
+  localStorage.setItem('mm_plan',JSON.stringify(plan));
+  renderTasks(cat);
 }
 
-// Build a lookup: task text → tip
-const TIP_LOOKUP={};
-Object.values(SUGGESTIONS).forEach(arr=>arr.forEach(s=>{TIP_LOOKUP[s.text]=s.tip;}));
-
-function renderPlanView(){
-  const locked=plan.lockedFor===tmrStr;
-  document.getElementById('plan-build-view').style.display=locked?'none':'block';
-  const lv=document.getElementById('plan-locked-view');
-  if(!locked){lv.style.display='none';return;}
-  lv.style.display='block';
-  const all=[];
-  ['content','outreach','growth'].forEach(cat=>(plan[cat]||[]).forEach((t,i)=>all.push({...t,cat,localI:i})));
-  const done=all.filter(t=>t.done).length;
-  lv.innerHTML='<div style="background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.3);border-radius:14px;padding:16px 15px;margin-bottom:12px">'
-    +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">'
-    +'<div><div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#818cf8">Today\'s Plan</div>'
-    +'<div style="font-size:.75rem;color:var(--sub);margin-top:2px">'+done+' of '+all.length+' done</div></div>'
-    +'<button onclick="unlockPlan()" style="font-size:.62rem;color:var(--sub);background:none;border:1px solid var(--border);border-radius:20px;padding:4px 10px;cursor:pointer">Edit</button>'
-    +'</div>'
-    +all.map((t,gi)=>{
-      const tip=TIP_LOOKUP[t.text]||'';
-      return '<div style="padding:10px 0;border-bottom:1px solid var(--dim)">'
-        +'<div onclick="togglePlanTask('+gi+')" style="display:flex;align-items:flex-start;gap:10px;cursor:pointer">'
-        +'<div style="width:20px;height:20px;border-radius:50%;border:1.5px solid '+(t.done?'#6366f1':'var(--border)')+';display:flex;align-items:center;justify-content:center;font-size:.65rem;color:#fff;flex-shrink:0;margin-top:1px;background:'+(t.done?'#6366f1':'none')+'">'+(t.done?'✓':'')+'</div>'
-        +'<div style="flex:1">'
-        +'<div style="font-size:.8rem;font-weight:600;color:'+(t.done?'var(--sub)':'#e2e8f0')+';'+(t.done?'text-decoration:line-through;opacity:.4':'')+';line-height:1.3">'+t.text+'</div>'
-        +(tip&&!t.done?'<div style="font-size:.67rem;color:var(--sub);line-height:1.5;margin-top:5px;white-space:pre-line">'+tip+'</div>':'')
-        +'</div></div></div>';
-    }).join('')
-    +(plan.notes?'<div style="margin-top:12px;font-size:.72rem;color:var(--sub);line-height:1.5;border-top:1px solid var(--dim);padding-top:10px">'+plan.notes+'</div>':'')
-    +'</div>';
+function removeTask(cat,i){
+  plan[cat].splice(i,1);
+  localStorage.setItem('mm_plan',JSON.stringify(plan));
+  renderTasks(cat);
 }
 
-function renderPlanReminder(){
-  const el=document.getElementById('plan-reminder');
-  if(!el)return;
-  const all=[...(plan.content||[]),...(plan.outreach||[]),...(plan.growth||[])];
-  const locked=plan.lockedFor===tmrStr;
-  if(!all.length||!locked){el.style.display='none';return;}
-  const done=all.filter(t=>t.done).length;
-  el.style.display='block';
-  el.innerHTML='<div onclick="showView(\'content\');goto(\'plan\')" style="background:#050c14;border:1px solid rgba(99,102,241,.25);border-radius:12px;padding:14px 15px;cursor:pointer">'
-    +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">'
-    +'<div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#818cf8">Tomorrow\'s Plan</div>'
-    +'<div style="display:flex;align-items:center;gap:8px"><div style="font-size:.6rem;color:var(--sub)">'+done+'/'+all.length+' done</div><span style="color:#818cf8;font-size:.75rem">&#8594;</span></div>'
-    +'</div>'
-    +all.map(t=>'<div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--dim)">'
-      +'<div style="width:15px;height:15px;border-radius:50%;border:1.5px solid '+(t.done?'#6366f1':'var(--border)')+';flex-shrink:0;background:'+(t.done?'#6366f1':'none')+';display:flex;align-items:center;justify-content:center;font-size:.5rem;color:#fff">'+(t.done?'✓':'')+'</div>'
-      +'<div style="font-size:.73rem;color:'+(t.done?'var(--sub)':'#94a3b8')+';'+(t.done?'text-decoration:line-through;opacity:.4':'')+';line-height:1.4">'+t.text+'</div>'
-      +'</div>').join('')
-    +'</div>';
-}
-
-['content','outreach','growth'].forEach(cat=>{
-  const cc=document.getElementById('count-'+cat);
-  if(cc){cc.textContent=(plan[cat]||[]).length+' / '+MAX_PER_CAT;cc.style.color=(plan[cat]||[]).length>=MAX_PER_CAT?'#818cf8':'var(--sub)';}
-});
-if(plan.notes)setTimeout(()=>{const n=document.getElementById('plan-notes');if(n)n.value=plan.notes;},0);
-renderPlanView();
-renderPlanReminder();
+PLAN_CATS.forEach(renderTasks);
+if(plan.notes)document.getElementById('plan-notes').value=plan.notes;
 
 // ── Agents ─────────────────────────────────────────────────────────────
 const AGENT_META = {
