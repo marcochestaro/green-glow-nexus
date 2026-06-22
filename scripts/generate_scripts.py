@@ -103,11 +103,17 @@ The script must have:
 - Clear value in the middle (teach something real and specific)
 - A CTA at the end ("DM me ADS" or "follow @marcomarkets")
 
-Also write 3 short captions in this style:
-- lowercase, conversational, no hashtag spam (max 3 hashtags or none)
+Also write 3 caption options. Follow this rule strictly:
+
+MOST VIDEOS — keep captions short (josh.hills0 style):
+- lowercase, conversational, no hashtags (or max 1-2)
 - Option A: 1-2 lines, pure insight, no CTA
-- Option B: 2-3 lines expanding the idea, soft follow CTA
-- Option C: very short — just the core point in one sentence
+- Option B: 2-3 lines expanding the idea, maybe a soft CTA once every few videos
+- Option C: one sentence — the core point only
+
+EXCEPTION — only write a long caption if the video hook says something like "here's how I do X" or "this is how I get clients" and the video deliberately teases "see the caption." In that case, Option B can be the full step-by-step breakdown (5-10 lines) that delivers the real value the hook promised. Still lowercase. No hashtag walls.
+
+Do NOT pitch on every video. Max 2 out of 7 videos per week should have any CTA. The rest are pure value.
 
 Respond ONLY with this JSON:
 {{
