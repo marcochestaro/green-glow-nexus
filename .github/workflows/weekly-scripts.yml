@@ -1,0 +1,54 @@
+name: Weekly Script Generator
+
+on:
+  schedule:
+    - cron: '0 10 * * 0'   # Every Sunday 10am UTC = 8pm AEST / 6am EST
+  workflow_dispatch:        # Manual trigger
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate scripts
+        env:
+          CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+        run: python scripts/generate_scripts.py
+
+      - name: Create Miro carousel boards
+        env:
+          MIRO_ACCESS_TOKEN: ${{ secrets.MIRO_ACCESS_TOKEN }}
+        run: python scripts/create_miro_boards.py
+
+      - name: Commit scripts to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dashboard/scripts-data.json dashboard/miro-boards.json
+          git diff --staged --quiet || git commit -m "Weekly update $(date -u '+%Y-%m-%d')"
+          git push origin main
+
+      - name: Sync to gh-pages
+        run: |
+          cp dashboard/scripts-data.json /tmp/scripts-data.json
+          cp dashboard/miro-boards.json /tmp/miro-boards.json 2>/dev/null || true
+          git fetch origin gh-pages
+          git checkout gh-pages
+          cp /tmp/scripts-data.json scripts-data.json
+          [ -f /tmp/miro-boards.json ] && cp /tmp/miro-boards.json miro-boards.json || true
+          git add scripts-data.json miro-boards.json 2>/dev/null || git add scripts-data.json
+          git diff --staged --quiet || git commit -m "Sync weekly content to gh-pages $(date -u '+%Y-%m-%d')"
+          git push --force origin gh-pages
