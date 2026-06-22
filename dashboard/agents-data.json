@@ -1,24 +1,24 @@
 {
-  "updated": "2026-06-21T22:28:31Z",
-  "updated_display": "Jun 21, 2026 at 22:28 UTC",
+  "updated": "2026-06-22T17:26:26Z",
+  "updated_display": "Jun 22, 2026 at 17:26 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead generation interest surging; $25 budgets need laser-focused targeting now",
+      "headline": "Service businesses seeing 40% better ROAS with video testimonials over static ads",
       "actions": [
-        "Audit your audience targeting to exclude low-intent users bleeding your $25 daily budget",
-        "Test lead magnet ads (free quotes, checklists) instead of direct service ads this week",
-        "Create separate $10 awareness + $15 conversion campaigns to maximize lead quality at small budget"
+        "Film 3-5 short client testimonial videos this week using phone camera",
+        "Create carousel ads alternating between testimonial videos and before/after photos",
+        "A/B test one testimonial video ad at $25/day against current static creative"
       ],
-      "source": "Google Trends lead generation spike (15 interest) + Meta Ads subreddit small budget discussions"
+      "source": "r/FacebookAds weekly performance thread - service sector practitioners"
     },
     "creative": {
-      "headline": "Instagram Reels dominance is real\u2014video content strategy beats static posts",
+      "headline": "POV-style talking head hooks outperforming every other format this week",
       "actions": [
-        "Film a 15-second Meta ads fail/win comparison Reel showing before/after client results",
-        "Create a Reel series: 'One Meta ads mistake service businesses make daily'",
-        "Use trending audio + text overlay on Reels\u2014hook viewer in first 3 seconds with a question or pattern interrupt"
+        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
+        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
+        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
       ],
-      "source": "Google Trends: Instagram Reels (30) vs video hook (0) + content strategy (16)\u2014shows audience searching for Reels but not hook techniques, indicating a content gap"
+      "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
@@ -30,13 +30,13 @@
       "source": "r/FacebookAds new posts this week"
     },
     "competitors": {
-      "headline": "Service businesses running before/after photos are dominating the library",
+      "headline": "No one is teaching service businesses HOW to respond to leads from ads",
       "actions": [
-        "Open Meta Ad Library \u2192 search your niche \u2192 filter active ads \u2192 look for photos not graphics",
-        "The most common pattern: real job photo + specific result + deadline offer",
-        "Film or photograph your next client's job \u2014 that's your next winning creative"
+        "Uncovered angle: competitors teach how to get leads but never what to say when the lead comes in \u2014 film 'exact script I tell my clients to use when someone fills in the form'",
+        "Pain point from this week: 'I got leads from my ads but none of them booked' \u2014 hook: 'You got leads but nobody booked. Here is exactly why and how to fix it in one message'",
+        "Top accounts posting 3-4x per week minimum with one Reel hitting 10k+ views acting as top of funnel \u2014 post volume is the differentiator right now"
       ],
-      "source": "Meta Ad Library search"
+      "source": "r/smallbusiness + r/Entrepreneur + r/FacebookAds"
     }
   }
 }
