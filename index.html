@@ -701,6 +701,14 @@ function typeBadgeClass(type){
   return '';
 }
 
+function postFormatBadge(type){
+  if(type==='Carousel')
+    return '<span style="font-size:.65rem;font-weight:700;background:#130a00;color:#fdba74;border:1px solid #2a1800;border-radius:20px;padding:3px 10px">📸 Carousel Post</span>';
+  // Talking Head + Screen Record → Reel, suggest Stories share
+  return '<span style="font-size:.65rem;font-weight:700;background:#07101e;color:#93c5fd;border:1px solid #1a2a45;border-radius:20px;padding:3px 10px">🎬 Reel</span>'
+    +'<span style="font-size:.62rem;color:var(--sub);margin-left:6px">+ share to Stories after</span>';
+}
+
 function typeBadgeStyle(type){
   if(type==='Screen Record'||type==='Video')return 'background:#0a1020;color:#93c5fd;border:1px solid #1a2a45';
   if(type==='Talking Head')return 'background:#130820;color:#c4b5fd;border:1px solid #25104a';
@@ -730,6 +738,7 @@ function renderModal(i,ver){
     +'<div style="font-size:1.1rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:12px">'+d.title+'</div>'
     +'<div class="script-meta-row">'
     +'<div style="display:inline-block;font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:20px;'+typeBadgeStyle(d.type)+'">'+d.type+'</div>'
+    +postFormatBadge(d.type)
     +(dur?'<div class="dur-badge">'+dur+' total</div>':'')
     +verToggleHTML('modal',i,ver)
     +'</div>'
@@ -896,6 +905,7 @@ function renderToday(i,ver){
     +'</div>'
     +'<div class="script-meta-row">'
     +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
+    +postFormatBadge(d.type)
     +(dur?'<div class="dur-badge">'+dur+' total</div>':'')
     +verToggleHTML('today',i,ver)
     +'</div>'
@@ -937,6 +947,7 @@ WEEK.forEach((d,i)=>{
     +'</div>'
     +'<div class="wk-body">'
     +'<div style="margin:12px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
+    +postFormatBadge(d.type)
     +(scriptDuration(d.lines)?'<div class="dur-badge">'+scriptDuration(d.lines)+' total</div>':'')
     +'<div id="wktog-'+i+'">'+verToggleHTML('wkv-'+i,i,'full')+'</div>'
     +'</div>'
