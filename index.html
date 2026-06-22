@@ -760,44 +760,44 @@ function scriptDuration(lines){
   return m?(m+'m '+(s?s+'s':'')):(s+'s');
 }
 
-// version: 'short' = hook+cta only, 'mid' = hook + half middle + cta, 'full' = all
+// version: 'short' = hook+cta only, 'mid' = hook + first half of middle + cta, 'full' = all
 function filterLines(lines,ver){
   if(ver==='full')return lines;
-  const core=lines.filter(l=>l.cls==='hook'||l.cls==='cta');
-  if(ver==='short')return core;
-  // mid: hook + first 2 middle + cta
   const hook=lines.filter(l=>l.cls==='hook');
-  const mid=lines.filter(l=>l.cls!=='hook'&&l.cls!=='cta').slice(0,2);
   const cta=lines.filter(l=>l.cls==='cta');
-  return [...hook,...mid,...cta];
+  if(ver==='short')return [...hook,...cta];
+  const middle=lines.filter(l=>l.cls!=='hook'&&l.cls!=='cta');
+  const half=Math.max(1,Math.ceil(middle.length/2));
+  return [...hook,...middle.slice(0,half),...cta];
 }
 
 function durForVer(lines,ver){
   return scriptDuration(filterLines(lines,ver));
 }
 
+const CAP_STORE={};
 function mkCaption(d,i,ctx){
   const caps=d.captions&&d.captions.length?d.captions:(d.caption?[{label:'A',text:d.caption}]:null);
   if(!caps)return '';
   const id='cap-'+(ctx||'x')+'-'+i;
-  const encoded=encodeURIComponent(JSON.stringify(caps));
-  const first=caps[0].text;
+  CAP_STORE[id]=caps;
   const btns=caps.map((c,ci)=>'<button class="ver-btn'+(ci===0?' on':'')+'" onclick="swapCap(\''+id+'\','+ci+')">'+c.label+'</button>').join('');
-  return '<div style="margin:16px 0 0">'
+  return '<div id="'+id+'-wrap" style="margin:16px 0 0">'
     +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">'
     +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub)">Caption</div>'
     +'<div class="ver-toggle" style="margin:0">'+btns+'</div>'
     +'</div>'
-    +'<div id="'+id+'" data-caps="'+encoded+'" style="background:#050608;border:1px solid var(--border);border-radius:9px;padding:13px 14px;font-size:.78rem;color:#64748b;line-height:1.8;white-space:pre-wrap">'+first+'</div>'
+    +'<div id="'+id+'" style="background:#050608;border:1px solid var(--border);border-radius:9px;padding:13px 14px;font-size:.78rem;color:#64748b;line-height:1.8;white-space:pre-wrap">'+caps[0].text+'</div>'
     +'<button class="cbtn" style="margin-top:6px" onclick="cpCap(this,\''+id+'\')">Copy Caption</button>'
     +'</div>';
 }
 function swapCap(id,ci){
   const el=document.getElementById(id);
-  if(!el)return;
-  const caps=JSON.parse(decodeURIComponent(el.dataset.caps));
+  const wrap=document.getElementById(id+'-wrap');
+  const caps=CAP_STORE[id];
+  if(!el||!caps)return;
   el.textContent=caps[ci].text;
-  el.parentElement.querySelectorAll('.ver-btn').forEach((b,j)=>b.classList.toggle('on',j===ci));
+  if(wrap)wrap.querySelectorAll('.ver-btn').forEach((b,j)=>b.classList.toggle('on',j===ci));
 }
 function cpCap(btn,id){
   const el=document.getElementById(id);
