@@ -480,6 +480,17 @@ Follow for daily content on what actually works</textarea>
 
     <div class="divider"></div>
 
+    <div style="margin-top:18px;margin-bottom:18px" id="agent-picks-section">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+        <div style="font-size:.78rem;font-weight:600;color:#fff">From Agents</div>
+        <span style="font-size:.6rem;font-weight:700;color:#38bdf8;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);border-radius:20px;padding:2px 8px">Live research</span>
+      </div>
+      <div style="font-size:.68rem;color:var(--sub);margin-bottom:10px">Things you picked from your agent cards</div>
+      <div id="plan-agent-picks"><div style="font-size:.72rem;color:var(--sub);padding:10px 0">Nothing picked yet — go to Agents and tap "Use →" on an insight.</div></div>
+    </div>
+
+    <div class="divider"></div>
+
     <div style="margin-top:18px">
       <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:8px">Notes</div>
       <textarea id="plan-notes" class="bio-area" placeholder="Anything else to remember for tomorrow..." style="min-height:70px" oninput="savePlan()"></textarea>
@@ -1215,7 +1226,31 @@ function renderAgentCard(key, report, updatedDisplay) {
 const ACTION_STORE={};  // sid → text
 let USED=JSON.parse(localStorage.getItem('mm_used_actions')||'{}'); // sid → {label, option}
 
-function saveUsed(){localStorage.setItem('mm_used_actions',JSON.stringify(USED));}
+function saveUsed(){localStorage.setItem('mm_used_actions',JSON.stringify(USED));renderAgentPicks();}
+
+function renderAgentPicks(){
+  const el=document.getElementById('plan-agent-picks');
+  if(!el)return;
+  const entries=Object.entries(USED);
+  if(!entries.length){
+    el.innerHTML='<div style="font-size:.72rem;color:var(--sub);padding:10px 0">Nothing picked yet — go to Agents and tap "Use →" on an insight.</div>';
+    return;
+  }
+  const agentNames={ads:'Ads Agent',creative:'Creative Agent',critic:'Critic Agent',competitors:'Competitor Agent'};
+  el.innerHTML=entries.map(([sid,entry])=>{
+    const agentKey=sid.split('-')[0];
+    const text=ACTION_STORE[sid]||'';
+    const short=text.split('.')[0].slice(0,90)+(text.split('.')[0].length>90?'…':'');
+    return '<div style="display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:#050709;border:1px solid var(--border);border-radius:8px;margin-bottom:6px">'
+      +'<div style="flex:1">'
+      +'<div style="font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub);margin-bottom:3px">'+agentNames[agentKey]+'</div>'
+      +'<div style="font-size:.75rem;color:#cbd5e1;line-height:1.5">'+short+'</div>'
+      +'<div style="font-size:.62rem;color:#4ade80;margin-top:4px">'+entry.label+'</div>'
+      +'</div>'
+      +'<button class="use-undo" style="margin-top:2px;flex-shrink:0" onclick="undoAction(\''+sid+'\')">Undo</button>'
+      +'</div>';
+  }).join('');
+}
 
 function showUseMenu(btn,sid){
   document.querySelectorAll('.use-menu').forEach(m=>m.remove());
@@ -1397,6 +1432,7 @@ async function loadAgents() {
         out.appendChild(renderAgentCard(key, data.agents[key], localTime));
       }
     });
+    renderAgentPicks();
   } catch(e) {
     dateEl.textContent = 'Could not load research data.';
     out.innerHTML = '<div style="text-align:center;padding:40px 20px;color:var(--sub);font-size:.8rem">Tap "Run Research" to trigger your agents.</div>';
@@ -1404,5 +1440,6 @@ async function loadAgents() {
 }
 loadAgents();
 renderIdeasPanel();
+renderAgentPicks();
 </script>
 </body></html>
