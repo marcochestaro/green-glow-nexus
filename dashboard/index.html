@@ -749,13 +749,33 @@ function durForVer(lines,ver){
 }
 
 function mkCaption(d,i){
-  if(!d.caption)return '';
-  const safe=d.caption.replace(/\\/g,'\\\\').replace(/`/g,'\\`');
+  const caps=d.captions&&d.captions.length?d.captions:(d.caption?[{label:'A',text:d.caption}]:null);
+  if(!caps)return '';
+  const id='cap-'+i;
+  const encoded=encodeURIComponent(JSON.stringify(caps));
+  const first=caps[0].text;
+  const safe=first.replace(/\\/g,'\\\\').replace(/`/g,'\\`');
+  const btns=caps.map((c,ci)=>'<button class="ver-btn'+(ci===0?' on':'')+'" id="'+id+'-btn-'+ci+'" onclick="swapCap(\''+id+'\','+ci+')">'+c.label+'</button>').join('');
   return '<div style="margin:16px 0 0">'
-    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:8px">Caption</div>'
-    +'<div style="background:#050608;border:1px solid var(--border);border-radius:9px;padding:13px 14px;font-size:.78rem;color:#64748b;line-height:1.8;white-space:pre-wrap">'+d.caption+'</div>'
-    +'<button class="cbtn" style="margin-top:6px" onclick="navigator.clipboard.writeText(`'+safe+'`).then(()=>{this.textContent=\'Copied\';setTimeout(()=>this.textContent=\'Copy Caption\',1600)})">Copy Caption</button>'
+    +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">'
+    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub)">Caption</div>'
+    +'<div class="ver-toggle" style="margin:0">'+btns+'</div>'
+    +'</div>'
+    +'<div id="'+id+'" data-caps="'+encoded+'" style="background:#050608;border:1px solid var(--border);border-radius:9px;padding:13px 14px;font-size:.78rem;color:#64748b;line-height:1.8;white-space:pre-wrap">'+first+'</div>'
+    +'<button class="cbtn" id="'+id+'-copy" style="margin-top:6px" onclick="cpCap(this,\''+id+'\')">Copy Caption</button>'
     +'</div>';
+}
+function swapCap(id,ci){
+  const el=document.getElementById(id);
+  if(!el)return;
+  const caps=JSON.parse(decodeURIComponent(el.dataset.caps));
+  el.textContent=caps[ci].text;
+  el.closest('div').querySelectorAll('.ver-btn').forEach((b,j)=>b.classList.toggle('on',j===ci));
+}
+function cpCap(btn,id){
+  const el=document.getElementById(id);
+  if(!el)return;
+  navigator.clipboard.writeText(el.textContent).then(()=>{btn.textContent='Copied';setTimeout(()=>btn.textContent='Copy Caption',1600)});
 }
 
 function mkScript(lines,ver){
@@ -789,11 +809,11 @@ function setVer(elId,i,ver){
   if(elId==='today')renderToday(i,ver);
   else if(elId==='modal')renderModal(i,ver);
   else if(elId==='wkv-'+i){
-    // week accordion version toggle
     const sc=document.getElementById('wkscript-'+i);
     if(sc)sc.innerHTML=mkScript(WEEK[i].lines,ver);
-    // re-render toggle to update active state
-    const tog=document.querySelector('[onclick*="setVer(\'wkv-'+i+'\'"]')&&document.getElementById('wkv-'+i);
+    // update active state on toggle buttons
+    const tog=document.getElementById('wktog-'+i);
+    if(tog)tog.querySelectorAll('.ver-btn').forEach(b=>b.classList.toggle('on',b.textContent.toLowerCase().startsWith(ver)));
   }
 }
 
@@ -856,7 +876,7 @@ WEEK.forEach((d,i)=>{
     +'<div class="wk-body">'
     +'<div style="margin:12px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
     +(scriptDuration(d.lines)?'<div class="dur-badge">'+scriptDuration(d.lines)+' total</div>':'')
-    +verToggleHTML('wkv-'+i,i,'full')
+    +'<div id="wktog-'+i+'">'+verToggleHTML('wkv-'+i,i,'full')+'</div>'
     +'</div>'
     +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
     +'<button class="btn btn-primary" style="width:100%;margin:10px 0;flex:none" onclick="cpAll('+i+')">Copy Script</button>'
