@@ -230,6 +230,10 @@ section{margin-bottom:44px;scroll-margin-top:64px}
 .use-menu-item:hover{background:rgba(255,255,255,.06);color:#fff}
 .use-menu-rec{color:#c4b5fd;font-weight:600;background:rgba(196,181,253,.08)}
 .use-menu-rec:hover{background:rgba(196,181,253,.16)}
+.agent-action-used{opacity:.7;background:#03050a}
+.used-tag{font-size:.6rem;font-weight:700;color:#4ade80;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.2);border-radius:20px;padding:2px 8px;white-space:nowrap}
+.use-undo{font-size:.58rem;color:var(--sub);background:none;border:none;cursor:pointer;text-decoration:underline;padding:0}
+.use-undo:hover{color:#e2e8f0}
 .agent-footer{padding:10px 18px;border-top:1px solid var(--border);font-size:.6rem;color:var(--sub)}
 
 /* LIVE DOT */
@@ -1158,9 +1162,12 @@ const AGENT_META = {
 };
 
 function renderAgentCard(key, report, updatedDisplay) {
+  if(report&&updatedDisplay){AGENT_REPORTS[key]=report;report._updatedDisplay=updatedDisplay;}
+  else if(AGENT_REPORTS[key]){report=AGENT_REPORTS[key];updatedDisplay=report._updatedDisplay;}
   const meta = AGENT_META[key];
   const card = document.createElement('div');
   card.className = 'agent-card';
+  card.id='agent-card-'+key;
   card.innerHTML =
     '<div class="agent-bar" style="background:'+meta.color+'"></div>'
     +'<div class="agent-head">'
@@ -1174,11 +1181,24 @@ function renderAgentCard(key, report, updatedDisplay) {
     +'<div class="agent-headline">'+report.headline+'</div>'
     +(report.format?'<div style="display:inline-flex;align-items:center;gap:6px;margin:8px 0 4px"><span style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub)">Format</span><span style="font-size:.65rem;font-weight:700;color:#38bdf8;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.25);border-radius:20px;padding:2px 10px">'+report.format+'</span></div>':'')
     +'<div class="agent-actions">'
-    +report.actions.map(a=>{
-      const idx=ACTION_TEXTS.length;
-      ACTION_TEXTS.push(a);
-      return '<div class="agent-action"><div class="agent-action-text">'+a+'</div>'
-        +'<button class="use-btn" onclick="showUseMenu(this,'+idx+')">Use this →</button>'
+    +report.actions.map((a,ai)=>{
+      const sid=key+'-'+ai;
+      ACTION_STORE[sid]=a;
+      const used=USED[sid];
+      if(used){
+        return '<div class="agent-action agent-action-used" id="aa-'+sid+'">'
+          +'<div class="agent-action-text" style="color:#475569">'+a+'</div>'
+          +'<div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0">'
+          +'<span class="used-tag">'+used.label+'</span>'
+          +'<button class="use-undo" onclick="undoAction(\''+sid+'\')">Undo</button>'
+          +'</div></div>';
+      }
+      const agentUsed=Object.keys(USED).some(k=>k.startsWith(key+'-'));
+      return '<div class="agent-action" id="aa-'+sid+'">'
+        +'<div class="agent-action-text">'+a+'</div>'
+        +(agentUsed
+          ? '<span style="font-size:.6rem;color:var(--sub);flex-shrink:0">picked</span>'
+          : '<button class="use-btn" onclick="showUseMenu(this,\''+sid+'\')">Use →</button>')
         +'</div>';
     }).join('')
     +'</div>'
@@ -1192,74 +1212,139 @@ function renderAgentCard(key, report, updatedDisplay) {
 }
 
 // ── Use-this system ────────────────────────────────────────────────────
-const ACTION_TEXTS=[];
-let ideas=JSON.parse(localStorage.getItem('mm_ideas')||'[]');
+const ACTION_STORE={};  // sid → text
+let USED=JSON.parse(localStorage.getItem('mm_used_actions')||'{}'); // sid → {label, option}
 
-function showUseMenu(btn,idx){
+function saveUsed(){localStorage.setItem('mm_used_actions',JSON.stringify(USED));}
+
+function showUseMenu(btn,sid){
   document.querySelectorAll('.use-menu').forEach(m=>m.remove());
   const menu=document.createElement('div');
   menu.className='use-menu';
   menu.innerHTML=
-    '<div class="use-menu-item use-menu-rec" onclick="openContentModal('+idx+');this.closest(\'.use-menu\').remove()">🎬 Turn into a Reel script ★</div>'
-    +'<div class="use-menu-item" onclick="addIdeaToPlan('+idx+');this.closest(\'.use-menu\').remove()">📋 Add to tomorrow\'s plan</div>'
-    +'<div class="use-menu-item" onclick="navigator.clipboard.writeText(ACTION_TEXTS['+idx+']).then(()=>{this.textContent=\'✓ Copied\'});setTimeout(()=>this.closest(\'.use-menu\')&&this.closest(\'.use-menu\').remove(),1200)">📄 Copy</div>';
+    '<div class="use-menu-item use-menu-rec" onclick="pickAction(\''+sid+'\',\'content\');this.closest(\'.use-menu\').remove()">🎬 Turn into Reel script ★</div>'
+    +'<div class="use-menu-item" onclick="pickAction(\''+sid+'\',\'plan\');this.closest(\'.use-menu\').remove()">📋 Add to tomorrow\'s plan</div>'
+    +'<div class="use-menu-item" onclick="pickAction(\''+sid+'\',\'copy\');this.closest(\'.use-menu\').remove()">📄 Copy text</div>';
   btn.parentElement.appendChild(menu);
   setTimeout(()=>document.addEventListener('click',function h(e){if(!menu.contains(e.target)&&e.target!==btn){menu.remove();document.removeEventListener('click',h);}},),50);
 }
 
-function openContentModal(idx){
-  const text=ACTION_TEXTS[idx];
-  // Build a content concept from the action text
+function pickAction(sid,option){
+  const text=ACTION_STORE[sid];
+  if(!text)return;
+  const agentKey=sid.split('-')[0];
+  // prevent duplicate pick for same agent
+  if(Object.keys(USED).some(k=>k.startsWith(agentKey+'-'))){
+    showToast('Already picked one from this agent — undo it first');return;
+  }
+  let label='';
+  if(option==='content'){
+    label='🎬 Script idea';
+    openContentModal(sid);
+  } else if(option==='plan'){
+    label='📋 Added to plan';
+    const short=text.replace(/^[^:]+:\s*/,'').split('.')[0].slice(0,80);
+    if(!plan.content)plan.content=[];
+    plan.content.push({text:short,done:false,custom:true});
+    localStorage.setItem('mm_plan',JSON.stringify(plan));
+    showToast('Added to tomorrow\'s plan → Content section');
+  } else if(option==='copy'){
+    label='📄 Copied';
+    navigator.clipboard.writeText(text);
+    showToast('Copied to clipboard');
+  }
+  USED[sid]={label,option};
+  saveUsed();
+  refreshActionRow(sid);
+  // gray out sibling actions in same agent
+  const ai=sid.split('-')[1];
+  ['0','1','2'].filter(i=>i!==ai).forEach(i=>{
+    const row=document.getElementById('aa-'+agentKey+'-'+i);
+    if(row){const b=row.querySelector('.use-btn');if(b){b.replaceWith(Object.assign(document.createElement('span'),{style:'font-size:.6rem;color:var(--sub);flex-shrink:0',textContent:'picked'}));}}
+  });
+}
+
+function undoAction(sid){
+  const entry=USED[sid];
+  if(!entry)return;
+  // undo plan add
+  if(entry.option==='plan'){
+    const text=ACTION_STORE[sid];
+    const short=text?text.replace(/^[^:]+:\s*/,'').split('.')[0].slice(0,80):'';
+    if(plan.content){
+      const i=plan.content.findIndex(t=>t.text===short);
+      if(i>=0){plan.content.splice(i,1);localStorage.setItem('mm_plan',JSON.stringify(plan));}
+    }
+  }
+  delete USED[sid];
+  saveUsed();
+  // re-render the whole agent section so "Use →" buttons come back
+  const agentKey=sid.split('-')[0];
+  refreshAgentCard(agentKey);
+  showToast('Undone');
+}
+
+function refreshActionRow(sid){
+  const row=document.getElementById('aa-'+sid);
+  if(!row)return;
+  const used=USED[sid];
+  const text=ACTION_STORE[sid]||'';
+  if(used){
+    row.classList.add('agent-action-used');
+    row.innerHTML='<div class="agent-action-text" style="color:#475569">'+text+'</div>'
+      +'<div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0">'
+      +'<span class="used-tag">'+used.label+'</span>'
+      +'<button class="use-undo" onclick="undoAction(\''+sid+'\')">Undo</button>'
+      +'</div>';
+  }
+}
+
+// Re-render a single agent card (needed after undo)
+const AGENT_REPORTS={};
+function refreshAgentCard(key){
+  const report=AGENT_REPORTS[key];
+  if(!report)return;
+  const existing=document.getElementById('agent-card-'+key);
+  if(!existing)return;
+  const newCard=renderAgentCard(key,report._updatedDisplay);
+  existing.replaceWith(newCard);
+}
+
+function openContentModal(sid){
+  const text=ACTION_STORE[sid]||'';
   const sentences=text.split(/\.|—/).map(s=>s.trim()).filter(Boolean);
   const hook=sentences[0]||text;
   const detail=sentences.slice(1,3).join('. ')+(sentences.length>1?'.':'');
   const isResult=/\d+|result|case|client|number/i.test(text);
   const isHook=/hook|open|start|first line/i.test(text);
   const isMistake=/mistake|wrong|avoid|stop|don't|killing/i.test(text);
-  const type=isResult?'Talking Head — Client Result':isHook?'Talking Head — Hook Style':isMistake?'Talking Head — Common Mistake':'Talking Head';
-
+  const type=isResult?'Talking Head — Client Result':isHook?'Talking Head — Hook':isMistake?'Talking Head — Mistake':'Talking Head';
   const el=document.getElementById('content-modal');
   document.getElementById('content-modal-body').innerHTML=
-    '<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:6px">Suggested format</div>'
-    +'<div style="font-size:.75rem;font-weight:700;color:#c4b5fd;margin-bottom:16px">'+type+'</div>'
-    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:6px">Hook (first 3 seconds)</div>'
-    +'<div style="background:#050608;border:1px solid var(--border);border-radius:8px;padding:11px 13px;font-size:.78rem;color:#e2e8f0;line-height:1.6;margin-bottom:14px">'+hook+'</div>'
-    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:6px">What to cover</div>'
-    +'<div style="background:#050608;border:1px solid var(--border);border-radius:8px;padding:11px 13px;font-size:.78rem;color:#94a3b8;line-height:1.6;margin-bottom:14px">'+(detail||text)+'</div>'
-    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:6px">CTA</div>'
-    +'<div style="background:#050608;border:1px solid var(--border);border-radius:8px;padding:11px 13px;font-size:.78rem;color:#94a3b8;line-height:1.6;margin-bottom:18px">DM me ADS if you want help with this for your business.</div>'
+    '<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:4px">Format</div>'
+    +'<div style="font-size:.8rem;font-weight:700;color:#c4b5fd;margin-bottom:14px">'+type+'</div>'
+    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:4px">Hook</div>'
+    +'<div style="background:#050608;border:1px solid var(--border);border-radius:8px;padding:11px 13px;font-size:.78rem;color:#e2e8f0;line-height:1.6;margin-bottom:12px">'+hook+'</div>'
+    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:4px">What to cover</div>'
+    +'<div style="background:#050608;border:1px solid var(--border);border-radius:8px;padding:11px 13px;font-size:.78rem;color:#94a3b8;line-height:1.6;margin-bottom:12px">'+(detail||text)+'</div>'
+    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:4px">CTA</div>'
+    +'<div style="background:#050608;border:1px solid var(--border);border-radius:8px;padding:11px 13px;font-size:.78rem;color:#94a3b8;line-height:1.6;margin-bottom:16px">DM me ADS if you want this for your business.</div>'
     +'<div style="display:flex;gap:8px;flex-wrap:wrap">'
-    +'<button class="btn btn-primary" onclick="saveConceptToPlan('+idx+')">Add to plan</button>'
-    +'<button class="btn" onclick="saveIdea('+idx+');showToast(\'Saved as idea\')">Save as idea</button>'
-    +'<button class="btn" onclick="navigator.clipboard.writeText(ACTION_TEXTS['+idx+']).then(()=>showToast(\'Copied\'))">Copy original</button>'
+    +'<button class="btn btn-primary" onclick="addConceptToPlan(\''+sid+'\')">+ Add to plan too</button>'
+    +'<button class="btn" onclick="navigator.clipboard.writeText(ACTION_STORE[\''+sid+'\']).then(()=>showToast(\'Copied\'))">Copy original</button>'
     +'</div>';
   el.classList.add('on');
   document.body.style.overflow='hidden';
 }
 
-function saveConceptToPlan(idx){
-  addIdeaToPlan(idx);
-  document.getElementById('content-modal').classList.remove('on');
-  document.body.style.overflow='';
-}
-
-function saveIdea(idx){
-  const text=ACTION_TEXTS[idx];
-  ideas.unshift({text,saved:new Date().toISOString()});
-  localStorage.setItem('mm_ideas',JSON.stringify(ideas));
-  renderIdeasPanel();
-  showToast('Idea saved');
-}
-
-function addIdeaToPlan(idx){
-  const text=ACTION_TEXTS[idx];
-  // truncate to a usable plan item
+function addConceptToPlan(sid){
+  const text=ACTION_STORE[sid]||'';
   const short=text.replace(/^[^:]+:\s*/,'').split('.')[0].slice(0,80);
   if(!plan.content)plan.content=[];
-  if(plan.content.length>=2){showToast('Plan full — max 2 content tasks');return;}
+  if(plan.content.some(t=>t.text===short)){showToast('Already in plan');return;}
   plan.content.push({text:short,done:false,custom:true});
   localStorage.setItem('mm_plan',JSON.stringify(plan));
-  showToast('Added to tomorrow\'s plan');
+  showToast('Also added to plan → Content section');
 }
 
 function showToast(msg){
