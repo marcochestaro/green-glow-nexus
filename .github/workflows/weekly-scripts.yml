@@ -28,20 +28,27 @@ jobs:
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
         run: python scripts/generate_scripts.py
 
+      - name: Create Miro carousel boards
+        env:
+          MIRO_ACCESS_TOKEN: ${{ secrets.MIRO_ACCESS_TOKEN }}
+        run: python scripts/create_miro_boards.py
+
       - name: Commit scripts to main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add dashboard/scripts-data.json
-          git diff --staged --quiet || git commit -m "Weekly scripts update $(date -u '+%Y-%m-%d')"
+          git add dashboard/scripts-data.json dashboard/miro-boards.json
+          git diff --staged --quiet || git commit -m "Weekly update $(date -u '+%Y-%m-%d')"
           git push origin main
 
       - name: Sync to gh-pages
         run: |
           cp dashboard/scripts-data.json /tmp/scripts-data.json
+          cp dashboard/miro-boards.json /tmp/miro-boards.json 2>/dev/null || true
           git fetch origin gh-pages
           git checkout gh-pages
           cp /tmp/scripts-data.json scripts-data.json
-          git add scripts-data.json
-          git diff --staged --quiet || git commit -m "Sync weekly scripts to gh-pages $(date -u '+%Y-%m-%d')"
+          [ -f /tmp/miro-boards.json ] && cp /tmp/miro-boards.json miro-boards.json || true
+          git add scripts-data.json miro-boards.json 2>/dev/null || git add scripts-data.json
+          git diff --staged --quiet || git commit -m "Sync weekly content to gh-pages $(date -u '+%Y-%m-%d')"
           git push --force origin gh-pages
