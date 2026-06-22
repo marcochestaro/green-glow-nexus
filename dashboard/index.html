@@ -669,14 +669,14 @@ function typeBadgeStyle(type){
 }
 
 // Populate home today card
-(function(){
+function buildHomeCard(){
   const d=WEEK[todayI];
   const dt=weekDate(todayI);
   document.getElementById('home-today-day').textContent=fmtFull(dt);
   document.getElementById('home-today-title').textContent=d.title;
   const tb=document.getElementById('home-today-type');
   tb.textContent=d.type;tb.style.cssText=typeBadgeStyle(d.type);
-})();
+}
 
 // ── Post Modal ─────────────────────────────────────────────────────────
 function renderModal(i,ver){
@@ -730,16 +730,19 @@ function updProg(){
 }
 
 // Week strip
-const wstrip=document.getElementById('wstrip');
-WEEK.forEach((d,i)=>{
-  const dt=weekDate(i);
-  const el=document.createElement('div');
-  el.className='wday'+(i===todayI?' active':'')+(checks[i]?' done':'');
-  el.id='wd'+i;
-  el.onclick=()=>{document.querySelectorAll('.wday').forEach(w=>w.classList.remove('active'));el.classList.add('active');renderToday(i);};
-  el.innerHTML='<div class="wday-n">'+DAYS[i]+'</div><div class="wday-d">'+dt.getDate()+'</div><div class="wday-t">'+d.type.split(' ')[0]+'</div>';
-  wstrip.appendChild(el);
-});
+function buildWeekStrip(){
+  const wstrip=document.getElementById('wstrip');
+  wstrip.innerHTML='';
+  WEEK.forEach((d,i)=>{
+    const dt=weekDate(i);
+    const el=document.createElement('div');
+    el.className='wday'+(i===todayI?' active':'')+(checks[i]?' done':'');
+    el.id='wd'+i;
+    el.onclick=()=>{document.querySelectorAll('.wday').forEach(w=>w.classList.remove('active'));el.classList.add('active');renderToday(i);};
+    el.innerHTML='<div class="wday-n">'+DAYS[i]+'</div><div class="wday-d">'+dt.getDate()+'</div><div class="wday-t">'+d.type.split(' ')[0]+'</div>';
+    wstrip.appendChild(el);
+  });
+}
 
 // Script renderer
 function cpLine(btn,text){
@@ -862,8 +865,6 @@ function renderToday(i,ver){
     +'</div>'
     +'</div></div>';
 }
-renderToday(todayI);
-
 function toggleDone(i){
   checks[i]=!checks[i];
   localStorage.setItem('mm_checks',JSON.stringify(checks));
@@ -876,31 +877,55 @@ function toggleDone(i){
 updProg();
 
 // This week accordion
-const wo=document.getElementById('week-out');
-WEEK.forEach((d,i)=>{
-  const dt=weekDate(i);
-  const div=document.createElement('div');
-  div.className='wk-card';
-  div.innerHTML=
-    '<div class="wk-hdr" onclick="this.nextElementSibling.classList.toggle(\'open\')">'
-    +'<div class="wk-hdr-info">'
-    +'<div class="wk-day">'+FULL_DAYS[i]+', '+MONTHS[dt.getMonth()]+' '+dt.getDate()+'</div>'
-    +'<div class="wk-title">'+d.title+'</div>'
-    +'</div>'
-    +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
-    +'</div>'
-    +'<div class="wk-body">'
-    +'<div style="margin:12px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
-    +(scriptDuration(d.lines)?'<div class="dur-badge">'+scriptDuration(d.lines)+' total</div>':'')
-    +verToggleHTML('wkv-'+i,i,'full')
-    +'</div>'
-    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
-    +'<button class="btn btn-primary" style="width:100%;margin:10px 0;flex:none" onclick="cpAll('+i+')">Copy Script</button>'
-    +'<div id="wkscript-'+i+'">'+mkScript(d.lines,'full')+'</div>'
-    +mkCaption(d,i)
-    +'</div>';
-  wo.appendChild(div);
-});
+function buildWeekAccordion(){
+  const wo=document.getElementById('week-out');
+  wo.innerHTML='';
+  WEEK.forEach((d,i)=>{
+    const dt=weekDate(i);
+    const div=document.createElement('div');
+    div.className='wk-card';
+    div.innerHTML=
+      '<div class="wk-hdr" onclick="this.nextElementSibling.classList.toggle(\'open\')">'
+      +'<div class="wk-hdr-info">'
+      +'<div class="wk-day">'+FULL_DAYS[i]+', '+MONTHS[dt.getMonth()]+' '+dt.getDate()+'</div>'
+      +'<div class="wk-title">'+d.title+'</div>'
+      +'</div>'
+      +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
+      +'</div>'
+      +'<div class="wk-body">'
+      +'<div style="margin:12px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
+      +(scriptDuration(d.lines)?'<div class="dur-badge">'+scriptDuration(d.lines)+' total</div>':'')
+      +verToggleHTML('wkv-'+i,i,'full')
+      +'</div>'
+      +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
+      +'<button class="btn btn-primary" style="width:100%;margin:10px 0;flex:none" onclick="cpAll('+i+')">Copy Script</button>'
+      +'<div id="wkscript-'+i+'">'+mkScript(d.lines,'full')+'</div>'
+      +mkCaption(d,i)
+      +'</div>';
+    wo.appendChild(div);
+  });
+}
+
+// ── Load weekly scripts from JSON (auto-updated every Sunday) ──────────
+(async function initWeek(){
+  try {
+    const data = await fetch('scripts-data.json?_='+Date.now()).then(r=>r.json());
+    if(data.scripts && data.scripts.length===7){
+      // Find current Monday
+      const mon=new Date(today);
+      mon.setDate(today.getDate()-((today.getDay()+6)%7));
+      const monStr=mon.toISOString().split('T')[0];
+      if(data.week_of===monStr){
+        WEEK=data.scripts;
+        console.log('Live scripts loaded for week of',data.week_of_display);
+      }
+    }
+  } catch(e){ /* use hardcoded WEEK */ }
+  buildHomeCard();
+  buildWeekStrip();
+  renderToday(todayI);
+  buildWeekAccordion();
+})();
 
 // Stats data
 async function loadData(){
