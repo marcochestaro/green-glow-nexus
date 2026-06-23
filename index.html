@@ -585,7 +585,7 @@ const DAILY_BRIEF=[
 
 // ── Week content ───────────────────────────────────────────────────────
 const WEEK=[
-{title:'The $25 a Day Math — What a Small Budget Actually Produces',type:'Screen Record',
+{title:'The $25 a Day Math — What a Small Budget Actually Produces',type:'Screen Record',recCap:0,recVer:'full',
 overlay:{line1:'The $25/day ad math',line2:'(what it actually produces)'},
 film:'Open Miro or a simple graphic showing a funnel. Screen record as you walk through each number. Speak slowly — the math is the content.',
 captions:[
@@ -603,7 +603,7 @@ lines:[
 {time:'The Breakdown',tag:'12s',cls:'',text:"$175 spent over 7 days. One booked job covers it — often 5 to 10 times over. That's what $25 a day actually produces when the setup is right."},
 {time:'Closer',tag:'8s',cls:'cta',text:"You don't need a big budget. You just need the right setup. DM me ADS and I'll show you what this looks like for your business."},
 ]},
-{title:"Referrals Feel Good. But They're Keeping You Stuck.",type:'Talking Head',
+{title:"Referrals Feel Good. But They're Keeping You Stuck.",type:'Talking Head',recCap:2,recVer:'full',
 overlay:{line1:'Referrals are keeping you stuck',line2:'(here\'s why)'},
 film:"Sit close to camera. Direct, confident. Talk like you're telling a mate something he needs to hear. No notes, no rushing.",
 captions:[
@@ -618,7 +618,7 @@ lines:[
 {time:'What Ads Do',tag:'8s',cls:'',text:"Ads give you a dial. Need more leads? Turn it up. Fully booked? Turn it down. That's what a real pipeline looks like — one you actually control."},
 {time:'Close',tag:'5s',cls:'',text:"Referrals are great as a bonus. They're not a strategy."},
 ]},
-{title:"I Audited a Failing Ad Account — Here's Exactly What I Found",type:'Screen Record',
+{title:"I Audited a Failing Ad Account — Here's Exactly What I Found",type:'Screen Record',recCap:0,recVer:'full',
 overlay:{line1:'I audited a failing ad account',line2:'(every mistake I found)'},
 film:"Screen record Meta Ads Manager. Walk through a real account — blur any identifying info. Click through each section slowly as you talk.",
 captions:[
@@ -633,7 +633,7 @@ lines:[
 {time:'Mistake 3 — Creative',tag:'12s',cls:'',text:"Then the ad itself. Stock photo of a tap. Headline: Professional Plumbing Services. No offer, no hook, no reason to stop scrolling. Rewrote it to Burst pipe? We're there in 60 minutes. Swapped in a real job photo. That's the whole fix."},
 {time:'Close',tag:'6s',cls:'',text:"Wrong objective, audience too wide, creative with no hook. Three changes. None of them cost extra money."},
 ]},
-{title:'Meta vs Google — The Honest Answer for Service Businesses',type:'Carousel',
+{title:'Meta vs Google — The Honest Answer for Service Businesses',type:'Carousel',recCap:1,
 film:'5 clean slides in Canva. Dark background, white bold headline, one point per slide. Minimal design — the words do the work.',
 captions:[
 {label:'A',text:'under $500/month → meta.\nover $1,500/month → both.\n\neverything else is just personal preference.'},
@@ -647,7 +647,7 @@ lines:[
 {time:'Slide 4 — The Answer',tag:'',cls:'',text:"Under $500 a month: start with Meta. Lower cost, faster to test, easier to learn. Over $1,500 a month: run both. Google catches people already searching. Meta catches everyone else. Together they cover the whole market."},
 {time:'Slide 5 — Close',tag:'',cls:'',text:"Under $500 — Meta. Over $1,500 — both. That's the honest answer."},
 ]},
-{title:'One Word That Gets More People to Click Your Ad',type:'Talking Head',
+{title:'One Word That Gets More People to Click Your Ad',type:'Talking Head',recCap:0,recVer:'short',
 overlay:{line1:'One word change',line2:'(gets more people clicking your ad)'},
 film:'Fast and punchy. Hold up one finger when you say one word. Cut tight, no dead space. Under 40 seconds total.',
 captions:[
@@ -661,7 +661,7 @@ lines:[
 {time:'The Fix',tag:'8s',cls:'',text:"Swap We for Get. Get your windows cleaned today. Get a plumber to your door in 60 minutes. Same service, completely different feeling. Now the person reading it is already imagining the result. That's what stops the scroll."},
 {time:'Close',tag:'5s',cls:'',text:"One word. Go test it this week."},
 ]},
-{title:'$25 a Day in Ads — Real Numbers From a Real Client',type:'Talking Head',
+{title:'$25 a Day in Ads — Real Numbers From a Real Client',type:'Talking Head',recCap:2,recVer:'full',
 overlay:{line1:'$750 in ads. $1,980 back.',line2:'(30-day real result)'},
 film:"Direct to camera, confident. Slow down on every number and let it land. Don't rush through the stats — they're the whole point.",
 captions:[
@@ -678,7 +678,7 @@ lines:[
 {time:'What Made It Work',tag:'8s',cls:'',text:"Tight location targeting. A real before and after photo. One simple offer — book this week, get a free interior clean. That's it. No fancy stuff."},
 {time:'Close',tag:'5s',cls:'cta',text:"Every month without ads is money you're leaving on the table. DM me ADS and let's run the numbers for your business."},
 ]},
-{title:'Why I Only Work With Service Businesses',type:'Talking Head',
+{title:'Why I Only Work With Service Businesses',type:'Talking Head',recCap:0,recVer:'full',
 overlay:{line1:'Why I only work with service businesses',line2:'(not what you\'d expect)'},
 film:'Relaxed, honest, no pitch. Film anywhere comfortable — couch, outside, wherever. Just talk like a normal person.',
 captions:[
@@ -732,7 +732,7 @@ function typeBadgeStyle(type){
 
 // ── Post Modal ─────────────────────────────────────────────────────────
 function renderModal(i,ver){
-  ver=ver||scriptVers.modal||'full';
+  ver=ver||scriptVers.modal||(WEEK[i].recVer||'full');
   scriptVers.modal=ver;
   const d=WEEK[i];
   const dt=weekDate(i);
@@ -828,14 +828,15 @@ function mkCaption(d,i,ctx){
   const caps=d.captions&&d.captions.length?d.captions:(d.caption?[{label:'A',text:d.caption}]:null);
   if(!caps)return '';
   const id='cap-'+(ctx||'x')+'-'+i;
+  const rec=(d.recCap!=null)?d.recCap:0;
   CAP_STORE[id]=caps;
-  const btns=caps.map((c,ci)=>'<button class="ver-btn'+(ci===0?' on':'')+'" onclick="swapCap(\''+id+'\','+ci+')">'+c.label+'</button>').join('');
+  const btns=caps.map((c,ci)=>'<button class="ver-btn'+(ci===rec?' on':'')+'" onclick="swapCap(\''+id+'\','+ci+')">'+(ci===rec?'★ ':'')+c.label+'</button>').join('');
   return '<div id="'+id+'-wrap" style="margin:16px 0 0">'
     +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">'
     +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub)">Caption</div>'
     +'<div class="ver-toggle" style="margin:0">'+btns+'</div>'
     +'</div>'
-    +'<div id="'+id+'" style="background:#050608;border:1px solid var(--border);border-radius:9px;padding:13px 14px;font-size:.78rem;color:#64748b;line-height:1.8;white-space:pre-wrap">'+caps[0].text+'</div>'
+    +'<div id="'+id+'" style="background:#050608;border:1px solid var(--border);border-radius:9px;padding:13px 14px;font-size:.78rem;color:#64748b;line-height:1.8;white-space:pre-wrap">'+caps[rec].text+'</div>'
     +'<button class="cbtn" style="margin-top:6px" onclick="cpCap(this,\''+id+'\')">Copy Caption</button>'
     +'</div>';
 }
@@ -882,17 +883,17 @@ function verToggleHTML(elId,i,ver){
   const d=WEEK[i];
   const isCarousel=d.type==='Carousel';
   if(isCarousel)return '';
+  const rec=d.recVer||'full';
   const short=durForVer(d.lines,'short');
   const mid=durForVer(d.lines,'mid');
   const full=durForVer(d.lines,'full');
-  return '<div class="ver-toggle">'
-    +'<button class="ver-btn'+(ver==='short'?' on':'')+'" data-ver="short" onclick="setVer(\''+elId+'\','+i+',\'short\')">Short '+(short?'· '+short:'')+'</button>'
-    +'<button class="ver-btn'+(ver==='mid'?' on':'')+'" data-ver="mid" onclick="setVer(\''+elId+'\','+i+',\'mid\')">Medium '+(mid?'· '+mid:'')+'</button>'
-    +'<button class="ver-btn'+(ver==='full'?' on':'')+'" data-ver="full" onclick="setVer(\''+elId+'\','+i+',\'full\')">Full '+(full?'· '+full:'')+'</button>'
-    +'</div>';
+  const lbl=(v,label,dur)=>'<button class="ver-btn'+(ver===v?' on':'')+'" data-ver="'+v+'" onclick="setVer(\''+elId+'\','+i+',\''+v+'\')">'+(rec===v?'★ ':'')+label+(dur?' · '+dur:'')+'</button>';
+  return '<div class="ver-toggle">'+lbl('short','Short',short)+lbl('mid','Medium',mid)+lbl('full','Full',full)+'</div>';
 }
 
 const scriptVers={today:'full',modal:'full'};
+// default each script to its recommended version on first load
+WEEK.forEach((d,i)=>{if(d.recVer)scriptVers['wkv-'+i]=d.recVer;});
 
 function setVer(elId,i,ver){
   scriptVers[elId]=ver;
@@ -909,7 +910,7 @@ function setVer(elId,i,ver){
 
 // Render today
 function renderToday(i,ver){
-  ver=ver||scriptVers.today||'full';
+  ver=ver||scriptVers.today||(WEEK[i].recVer||'full');
   scriptVers.today=ver;
   const d=WEEK[i];
   const dt=weekDate(i);
