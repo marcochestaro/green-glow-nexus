@@ -30,6 +30,12 @@ Every rule below applies permanently. Never break these without Marco explicitly
 - Option C: one sentence — the core point only.
 - No pitching on non-CTA videos in any caption option.
 
+### Script tone
+- Chill, real, easy to follow — like a knowledgeable friend talking, not a hype guy or corporate marketer.
+- Conversational and confident. Professional but never stiff.
+- Never use "tradies" — say "service business owners", "business owners", or name the trade directly (plumber, detailer, window cleaner, etc).
+- Scripts are for Instagram and TikTok.
+
 ### Script lines
 - Strong hook first (3–5s), real value in the middle, clean close.
 - Close line: CTA only on the 2 allowed videos; otherwise end on insight.
