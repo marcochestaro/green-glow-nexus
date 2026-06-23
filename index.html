@@ -586,6 +586,7 @@ const DAILY_BRIEF=[
 // ── Week content ───────────────────────────────────────────────────────
 const WEEK=[
 {title:'The $25 a Day Math — What a Small Budget Actually Produces',type:'Screen Record',
+overlay:{line1:'The $25/day ad math',line2:'(what it actually produces)'},
 film:'Open Miro or a simple graphic showing a funnel. Screen record as you walk through each number. Speak slowly — the math is the content.',
 captions:[
 {label:'A',text:'$25/day → 3,000 impressions → 60 clicks → 3–5 leads → 1–2 booked jobs.\n\none job covers the whole week of ad spend.'},
@@ -603,6 +604,7 @@ lines:[
 {time:'Closer',tag:'8s',cls:'cta',text:"You don't need a big budget. You just need the right setup. DM me ADS and I'll show you what this looks like for your business."},
 ]},
 {title:"Referrals Feel Good. But They're Keeping You Stuck.",type:'Talking Head',
+overlay:{line1:'Referrals are keeping you stuck',line2:'(here\'s why)'},
 film:"Sit close to camera. Direct, confident. Talk like you're telling a mate something he needs to hear. No notes, no rushing.",
 captions:[
 {label:'A',text:'referrals aren\'t a lead source. they\'re a bonus.\n\nthe moment your main referrer slows down, your whole pipeline goes with them.'},
@@ -617,6 +619,7 @@ lines:[
 {time:'Close',tag:'5s',cls:'',text:"Referrals are great as a bonus. They're not a strategy."},
 ]},
 {title:"I Audited a Failing Ad Account — Here's Exactly What I Found",type:'Screen Record',
+overlay:{line1:'I audited a failing ad account',line2:'(every mistake I found)'},
 film:"Screen record Meta Ads Manager. Walk through a real account — blur any identifying info. Click through each section slowly as you talk.",
 captions:[
 {label:'A',text:'wrong objective. audience too broad. stock photo with no hook.\n\nthree mistakes. zero extra spend to fix any of them.'},
@@ -645,6 +648,7 @@ lines:[
 {time:'Slide 5 — Close',tag:'',cls:'',text:"Under $500 — Meta. Over $1,500 — both. That's the honest answer."},
 ]},
 {title:'One Word That Gets More People to Click Your Ad',type:'Talking Head',
+overlay:{line1:'One word change',line2:'(gets more people clicking your ad)'},
 film:'Fast and punchy. Hold up one finger when you say one word. Cut tight, no dead space. Under 40 seconds total.',
 captions:[
 {label:'A',text:'"we offer window cleaning" → nobody cares.\n"get your windows cleaned today" → they\'re already imagining it.\n\nchange we to get. same service, different result.'},
@@ -658,6 +662,7 @@ lines:[
 {time:'Close',tag:'5s',cls:'',text:"One word. Go test it this week."},
 ]},
 {title:'$25 a Day in Ads — Real Numbers From a Real Client',type:'Talking Head',
+overlay:{line1:'$750 in ads. $1,980 back.',line2:'(30-day real result)'},
 film:"Direct to camera, confident. Slow down on every number and let it land. Don't rush through the stats — they're the whole point.",
 captions:[
 {label:'A',text:'car detailer. $750 spent. 11 booked jobs. $1,980 revenue.\n\ncost per lead: $39. and those 11 clients are now in the database.'},
@@ -674,6 +679,7 @@ lines:[
 {time:'Close',tag:'5s',cls:'cta',text:"Every month without ads is money you're leaving on the table. DM me ADS and let's run the numbers for your business."},
 ]},
 {title:'Why I Only Work With Service Businesses',type:'Talking Head',
+overlay:{line1:'Why I only work with service businesses',line2:'(not what you\'d expect)'},
 film:'Relaxed, honest, no pitch. Film anywhere comfortable — couch, outside, wherever. Just talk like a normal person.',
 captions:[
 {label:'A',text:'a plumber shows up at 7am when there\'s water through the ceiling and just fixes it.\n\nmost of them are really good at what they do. they just never learned how to market it.'},
@@ -740,7 +746,7 @@ function renderModal(i,ver){
     +(dur?'<div class="dur-badge">'+dur+' total</div>':'')
     +verToggleHTML('modal',i,ver)
     +'</div>'
-    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
+    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'+mkOverlay(d)
     +mkScript(d.lines,ver)
     +mkCaption(d,i,'modal')
     +'<div class="action-row" style="margin-top:12px">'
@@ -847,6 +853,21 @@ function cpCap(btn,id){
   navigator.clipboard.writeText(el.textContent).then(()=>{btn.textContent='Copied';setTimeout(()=>btn.textContent='Copy Caption',1600)});
 }
 
+function mkOverlay(d){
+  if(!d.overlay)return '';
+  return '<div style="margin:14px 0 4px">'
+    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:8px">On-Screen Text</div>'
+    +'<div style="background:#0a0a14;border:1px solid #2a1a4a;border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px">'
+    +'<span style="font-size:.95rem;font-weight:800;color:#fff;line-height:1.25">'+d.overlay.line1+'</span>'
+    +'<span style="font-size:.8rem;color:#a78bfa;font-weight:500">'+d.overlay.line2+'</span>'
+    +'<div style="margin-top:8px;display:flex;gap:8px">'
+    +'<button class="cbtn" onclick="navigator.clipboard.writeText(\''+d.overlay.line1+'\\n'+d.overlay.line2+'\').then(()=>{this.textContent=\'Copied\';setTimeout(()=>this.textContent=\'Copy Text\',1600)})">Copy Text</button>'
+    +'<span style="font-size:.6rem;color:var(--sub);align-self:center">Add in CapCut as a text layer over your opening frame</span>'
+    +'</div>'
+    +'</div>'
+    +'</div>';
+}
+
 function mkScript(lines,ver){
   const fl=filterLines(lines,ver||'full');
   return '<div class="script-lines">'+fl.map(l=>
@@ -907,7 +928,7 @@ function renderToday(i,ver){
     +(dur?'<div class="dur-badge">'+dur+' total</div>':'')
     +verToggleHTML('today',i,ver)
     +'</div>'
-    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
+    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'+mkOverlay(d)
     +mkScript(d.lines,ver)
     +mkCaption(d,i,'today')
     +'<div class="action-row" style="margin-top:12px">'
@@ -949,7 +970,7 @@ WEEK.forEach((d,i)=>{
     +(scriptDuration(d.lines)?'<div class="dur-badge">'+scriptDuration(d.lines)+' total</div>':'')
     +'<div id="wktog-'+i+'">'+verToggleHTML('wkv-'+i,i,'full')+'</div>'
     +'</div>'
-    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
+    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'+mkOverlay(d)
     +'<button class="btn btn-primary" style="width:100%;margin:10px 0;flex:none" onclick="cpAll('+i+')">Copy Script</button>'
     +'<div id="wkscript-'+i+'">'+mkScript(d.lines,'full')+'</div>'
     +mkCaption(d,i,'wk')
