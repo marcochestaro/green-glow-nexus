@@ -124,7 +124,9 @@ EXCEPTION — only write a long caption if the video hook says something like "h
 Respond ONLY with this JSON:
 {{
   "title": "short punchy title for the video, max 8 words",
-  "overlay": {{"line1": "bold short hook text for on-screen overlay (like josh.hills0 style — 4-7 words, no punctuation)", "line2": "(the curiosity or pain point in parentheses — one short line)"}},  
+  "overlay": {{"line1": "bold short hook text for on-screen overlay (like josh.hills0 style — 4-7 words, no punctuation)", "line2": "(the curiosity or pain point in parentheses — one short line)"}},
+  "recCap": 0,
+  "recVer": "full",  
   "type": "{post_type}",
   "film": "one sentence filming tip for Marco — where to film it, what to show, how to deliver it",
   "captions": [
