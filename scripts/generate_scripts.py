@@ -90,7 +90,7 @@ def generate_script(topic, post_type, day_label):
         'Carousel': '5 slides. Each slide is one bold point. Minimal design, dark background.',
     }.get(post_type, 'Direct to camera.')
 
-    prompt = f"""You are writing Instagram and TikTok content for @marcomarkets — Marco, who runs Meta ads for local service businesses (plumbers, window cleaners, landscapers, HVAC, car detailers) at $25/day budgets. His audience is service business owners who want more leads.
+    prompt = f"""You are writing Instagram and TikTok content for @marcomarkets — Marco, who runs Meta ads for local service businesses (plumbers, window cleaners, landscapers, HVAC, car detailers) at $25/day budgets. His audience is service business owners who want more leads. Never talk negatively about other niches like e-commerce or coaches — Marco may work with them in the future.
 
 Tone: chill, real, easy to follow. Like a knowledgeable friend talking — not a hype guy, not a corporate marketer. Conversational and confident. Professional but never stiff. No slang like "tradies". Say "service business owners" or just "business owners" or name the trade directly (plumber, detailer, etc).
 

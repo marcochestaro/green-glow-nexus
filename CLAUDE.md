@@ -34,6 +34,7 @@ Every rule below applies permanently. Never break these without Marco explicitly
 - Professional and confident — sounds like someone who knows exactly what they're doing and has seen the results.
 - Chill and easy to follow — like a knowledgeable friend, not a hype guy or corporate marketer.
 - Never self-deprecating or "figuring it out" — Marco is the authority on Meta ads for service businesses.
+- Never talk negatively about e-commerce, coaches, or other niches — Marco may work with them in the future. Just say he's focused on service businesses right now.
 - Conversational but sharp. Never stiff. Never salesy.
 - Never use "tradies" — say "service business owners", "business owners", or name the trade directly.
 - Scripts are for Instagram and TikTok.
