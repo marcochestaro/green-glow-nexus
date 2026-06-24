@@ -1,15 +1,15 @@
 {
-  "updated": "2026-06-23T15:44:00Z",
-  "updated_display": "Jun 23, 2026 at 15:44 UTC",
+  "updated": "2026-06-24T15:29:26Z",
+  "updated_display": "Jun 24, 2026 at 15:29 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing 40% better ROI with video testimonials over static ads",
+      "headline": "Service businesses seeing zero search volume signals market saturation risk",
       "actions": [
-        "Film 3-5 short customer testimonial videos this week using your phone",
-        "Create carousel ads alternating between testimonial videos and before/after photos",
-        "A/B test one testimonial video ad against your current static creative at $25/day"
+        "Audit your $25/day budget split across 3-5 micro-locations instead of broad targeting",
+        "Test audience exclusions: exclude competitors' website visitors to reduce wasted spend",
+        "Switch to Lead Form Ads with pre-filled phone numbers to lower friction on mobile"
       ],
-      "source": "r/FacebookAds weekly strategy discussion - video content outperforming static for local services"
+      "source": "Google Trends zero interest spike + Reddit r/FacebookAds service business discussions"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
@@ -21,13 +21,13 @@
       "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
-      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
+      "headline": "Meta Ads breaking due to iOS 14.5 tracking limitations",
       "actions": [
-        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
-        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
-        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
+        "Verify all conversion pixels are properly implemented with server-side tracking",
+        "Check Ads Manager Events Manager for data gaps or 'Unmatched' conversions",
+        "Compare conversion counts week-over-week; drops of 20%+ indicate tracking loss"
       ],
-      "source": "r/FacebookAds new posts this week"
+      "source": "Meta Ads community reports this week showing widespread iOS conversion tracking issues"
     },
     "competitors": {
       "headline": "No one is teaching service businesses HOW to respond to leads from ads",
