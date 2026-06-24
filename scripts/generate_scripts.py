@@ -100,6 +100,8 @@ Topic: {topic}
 
 Format instruction: {type_instruction}
 
+OVERLAY RULE: Only include an overlay for Talking Head videos. For Screen Record and Carousel, set overlay to null — the screen content is already the hook and text overlay would cover it.
+
 The script must have:
 - A strong hook (first 3-5 seconds — make them stop scrolling)
 - Clear value in the middle (teach something real and specific)
@@ -124,7 +126,7 @@ EXCEPTION — only write a long caption if the video hook says something like "h
 Respond ONLY with this JSON:
 {{
   "title": "short punchy title for the video, max 8 words",
-  "overlay": {{"line1": "bold short hook text for on-screen overlay (like josh.hills0 style — 4-7 words, no punctuation)", "line2": "(the curiosity or pain point in parentheses — one short line)"}},
+  "overlay": null,
   "recCap": 0,
   "recVer": "full",  
   "type": "{post_type}",
