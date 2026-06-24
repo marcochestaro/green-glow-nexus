@@ -871,6 +871,28 @@ function mkOverlay(d){
 
 function mkScript(lines,ver){
   const fl=filterLines(lines,ver||'full');
+  // For carousel, render slide previews instead of plain lines
+  const isCarousel=fl.some(l=>l.time&&l.time.toLowerCase().includes('slide'));
+  if(isCarousel){
+    return '<div style="display:flex;flex-direction:column;gap:12px;margin-top:4px">'
+      +fl.map((l,si)=>{
+        const num=si+1;
+        const txt=l.text.replace(/`/g,'\\`');
+        return '<div style="background:#0a0a0a;border:1px solid #222;border-radius:12px;overflow:hidden">'
+          +'<div style="background:#111;padding:8px 14px;display:flex;align-items:center;justify-content:space-between">'
+          +'<span style="font-size:.6rem;font-weight:700;color:#666;text-transform:uppercase;letter-spacing:.08em">Slide '+num+' of '+fl.length+'</span>'
+          +'<span style="font-size:.6rem;color:#444">'+l.time+'</span>'
+          +'</div>'
+          +'<div style="background:#0d0d0d;min-height:120px;display:flex;align-items:center;justify-content:center;padding:20px 18px;text-align:center">'
+          +'<div style="font-size:'+(si===0?'1.05':'0.88')+'rem;font-weight:'+(si===0?'800':'600')+';color:'+(si===0?'#fff':'#e2e8f0')+';line-height:1.45;max-width:340px">'+l.text+'</div>'
+          +'</div>'
+          +'<div style="padding:8px 12px;border-top:1px solid #1a1a1a">'
+          +'<button class="cbtn" onclick="cpLine(this,`'+txt+'`)">Copy slide text</button>'
+          +'</div>'
+          +'</div>';
+      }).join('')
+      +'</div>';
+  }
   return '<div class="script-lines">'+fl.map(l=>
     '<div class="sl">'
     +'<div class="sl-meta"><span class="sl-seg">'+l.time+'</span>'+(l.tag?'<span class="sl-dur">'+l.tag+'</span>':'')+'</div>'
