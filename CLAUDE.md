@@ -31,10 +31,13 @@ Every rule below applies permanently. Never break these without Marco explicitly
 - No pitching on non-CTA videos in any caption option.
 
 ### Script tone
-- Chill, real, easy to follow — like a knowledgeable friend talking, not a hype guy or corporate marketer.
-- Conversational and confident. Professional but never stiff.
-- Never use "tradies" — say "service business owners", "business owners", or name the trade directly (plumber, detailer, window cleaner, etc).
+- Professional and confident — sounds like someone who knows exactly what they're doing and has seen the results.
+- Chill and easy to follow — like a knowledgeable friend, not a hype guy or corporate marketer.
+- Never self-deprecating or "figuring it out" — Marco is the authority on Meta ads for service businesses.
+- Conversational but sharp. Never stiff. Never salesy.
+- Never use "tradies" — say "service business owners", "business owners", or name the trade directly.
 - Scripts are for Instagram and TikTok.
+- **Majority Talking Head** — most weeks should be 4-5 Talking Head, 1 Screen Record, 1 Carousel.
 
 ### Script lines
 - Strong hook first (3–5s), real value in the middle, clean close.
