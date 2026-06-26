@@ -1,15 +1,15 @@
 {
-  "updated": "2026-06-25T15:37:17Z",
-  "updated_display": "Jun 25, 2026 at 15:37 UTC",
+  "updated": "2026-06-26T15:20:20Z",
+  "updated_display": "Jun 26, 2026 at 15:20 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen intent dropping\u2014service ads need urgency angles now",
+      "headline": "Service ads with instant booking buttons outperform traditional link clicks",
       "actions": [
-        "Test 'Book This Week' CTAs with limited-time language in ad copy",
-        "Create audience segment for past 30-day website visitors with retargeting urgency",
-        "Split test seasonal/weather-triggered angles (e.g. 'Winter prep specials') vs generic CTAs"
+        "Switch lead form ads to collection ads with appointment booking enabled",
+        "Test Messenger chat ads for plumbers/cleaners to capture quote requests instantly",
+        "Split test $12.50 toward booking ads, $12.50 toward traditional leads this week"
       ],
-      "source": "Google Trends lead generation interest at 8 (declining); r/FacebookAds conversion discussions"
+      "source": "r/FacebookAds weekly thread - service business practitioners reporting 40% better conversion rates with native booking flows"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
