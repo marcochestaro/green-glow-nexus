@@ -1,24 +1,25 @@
 {
-  "updated": "2026-06-26T15:20:20Z",
-  "updated_display": "Jun 26, 2026 at 15:20 UTC",
+  "updated": "2026-06-27T14:22:59Z",
+  "updated_display": "Jun 27, 2026 at 14:22 UTC",
   "agents": {
     "ads": {
-      "headline": "Service ads with instant booking buttons outperform traditional link clicks",
+      "headline": "Lead generation interest spiking\u2014service businesses competing harder for budget share",
       "actions": [
-        "Switch lead form ads to collection ads with appointment booking enabled",
-        "Test Messenger chat ads for plumbers/cleaners to capture quote requests instantly",
-        "Split test $12.50 toward booking ads, $12.50 toward traditional leads this week"
+        "Audit your $25/day allocation across 3-5 tightest competitor keywords in your service category",
+        "Test audience layering (homeowner + recent movers + high intent) to reduce CPC pressure",
+        "Create service-specific lead magnets (free inspection checklist, quick quote form) to improve conversion rate above competitors"
       ],
-      "source": "r/FacebookAds weekly thread - service business practitioners reporting 40% better conversion rates with native booking flows"
+      "source": "Google Trends lead generation spike (17 vs historical average) + r/FacebookAds discussion patterns"
     },
     "creative": {
-      "headline": "POV-style talking head hooks outperforming every other format this week",
+      "headline": "Unable to generate strategy \u2014 no performance data available",
+      "format": "N/A",
       "actions": [
-        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
-        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
-        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
+        "The Google Trends data shows all zeros (indicating no search volume tracked for those terms this week)",
+        "The 'what's failing' section is empty with no complaints or performance metrics listed",
+        "Without actual engagement data (views, saves, shares, DMs, CTR by content type), any recommendation would be a guess, not strategy"
       ],
-      "source": "r/socialmediamarketing + r/InstagramMarketing"
+      "source": "Incomplete dataset \u2014 need: top 5 performing posts this week (by saves/shares/DMs), audience demographics, hook types tested, and documented complaints/failures"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
