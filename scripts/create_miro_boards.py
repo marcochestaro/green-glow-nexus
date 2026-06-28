@@ -504,12 +504,28 @@ def save_boards(boards, used_titles):
         json.dump(data, f, indent=2)
 
 
+def get_team_id():
+    r = requests.get(f'{API}/orgs', headers=HEADERS, timeout=20)
+    if r.ok:
+        orgs = r.json().get('data', [])
+        if orgs:
+            org_id = orgs[0]['id']
+            tr = requests.get(f'{API}/orgs/{org_id}/teams', headers=HEADERS, timeout=20)
+            if tr.ok:
+                teams = tr.json().get('data', [])
+                if teams:
+                    return teams[0]['id']
+    return None
+
 def create_board(title):
-    r = requests.post(f'{API}/boards', headers=HEADERS, json={
+    payload = {
         "name": title,
         "description": "Weekly carousel — @marcomarkets",
-        "policy": {"permissionsPolicy": {"collaborationToolsStartAccess": "all_editors", "copyAccess": "anyone", "sharingAccess": "team_members_with_editing_rights"}},
-    }, timeout=20)
+    }
+    team_id = get_team_id()
+    if team_id:
+        payload["teamId"] = team_id
+    r = requests.post(f'{API}/boards', headers=HEADERS, json=payload, timeout=20)
     r.raise_for_status()
     return r.json()
 
@@ -564,6 +580,8 @@ def main():
             print(f"  → {view_link}")
         except Exception as e:
             print(f"  Error creating board: {e}")
+            if hasattr(e, 'response') and e.response is not None:
+                print(f"  Response body: {e.response.text}")
 
     save_boards(new_boards, newly_used)
     print(f"Done. {len(this_week)} boards created.")
