@@ -748,6 +748,8 @@ function renderModal(i,ver){
     +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'+mkOverlay(d)
     +mkScript(d.lines,ver)
     +mkCaption(d,i,'modal')
+    +(d.stories&&d.stories.length?'<div style="margin-top:20px"><div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px">Stories Plan</div>'
+      +d.stories.map((s,si)=>'<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><div style="min-width:20px;height:20px;border-radius:50%;background:var(--dim);font-size:.65rem;font-weight:700;color:#94a3b8;display:flex;align-items:center;justify-content:center">'+(si+1)+'</div><div style="font-size:.82rem;color:#cbd5e1;line-height:1.5">'+s+'</div></div>').join('')+'</div>':'')
     +'<div class="action-row" style="margin-top:12px">'
     +'<button class="btn btn-primary" onclick="cpAll('+i+')">Copy Script</button>'
     +'<button class="btn btn-done'+(checks[i]?' on':'')+'" id="modal-done-btn" onclick="toggleDoneModal('+i+')">'+(checks[i]?'Posted':'Mark Posted')+'</button>'
@@ -953,6 +955,8 @@ function renderToday(i,ver){
     +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'+mkOverlay(d)
     +mkScript(d.lines,ver)
     +mkCaption(d,i,'today')
+    +(d.stories&&d.stories.length?'<div style="margin-top:20px"><div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px">Stories Plan</div>'
+      +d.stories.map((s,si)=>'<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><div style="min-width:20px;height:20px;border-radius:50%;background:var(--dim);font-size:.65rem;font-weight:700;color:#94a3b8;display:flex;align-items:center;justify-content:center">'+(si+1)+'</div><div style="font-size:.82rem;color:#cbd5e1;line-height:1.5">'+s+'</div></div>').join('')+'</div>':'')
     +'<div class="action-row" style="margin-top:12px">'
     +'<button class="btn btn-primary" onclick="cpAll('+i+')">Copy Script</button>'
     +'<button class="btn btn-done'+(checks[i]?' on':'')+'" id="done-btn" onclick="toggleDone('+i+')">'+(checks[i]?'Posted':'Mark Posted')+'</button>'
