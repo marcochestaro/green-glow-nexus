@@ -1,7 +1,386 @@
 {
-  "generated": null,
-  "generated_display": null,
-  "week_of": null,
-  "week_of_display": null,
-  "scripts": []
+  "generated": "2026-06-28T11:44:56Z",
+  "generated_display": "Jun 28, 2026 at 11:44 UTC",
+  "week_of": "2026-06-29",
+  "week_of_display": "Jun 29, 2026",
+  "scripts": [
+    {
+      "title": "Why service businesses crush it on Meta ads",
+      "overlay": null,
+      "recCap": 0,
+      "recVer": "full",
+      "type": "Talking Head",
+      "film": "Film in your home office or workspace, sitting down, relaxed posture. Look directly at camera. Natural lighting. Lean in slightly when making key points\u2014it feels conversational, not preachy.",
+      "captions": [
+        {
+          "label": "A",
+          "text": "service businesses have a built-in advantage on meta that most people miss"
+        },
+        {
+          "label": "B",
+          "text": "service businesses win on meta because:\n\u2022 people are actively searching for solutions\n\u2022 they buy fast\n\u2022 margins are better\n\u2022 no inventory headaches"
+        },
+        {
+          "label": "C",
+          "text": "local service = ready buyers + fast decisions"
+        }
+      ],
+      "lines": [
+        {
+          "time": "Hook",
+          "tag": "5s",
+          "cls": "hook",
+          "text": "If you run a service business, you're actually in the best position to make Meta ads work. And most people don't realize why."
+        },
+        {
+          "time": "Point 1",
+          "tag": "8s",
+          "cls": "",
+          "text": "When someone searches for a plumber or a window cleaner, they need you *now*. It's not a maybe\u2014it's a problem they're trying to solve today. That means they're already warm when your ad shows up."
+        },
+        {
+          "time": "Point 2",
+          "tag": "8s",
+          "cls": "",
+          "text": "The buying cycle is short. A homeowner sees your ad, calls you, books you, and you're done in days. You're not waiting months for someone to decide. That speed matters on Meta because you can optimize faster and actually see what works."
+        },
+        {
+          "time": "Point 3",
+          "tag": "8s",
+          "cls": "",
+          "text": "Plus, your margins are clean. You're not sitting on inventory. You don't have returns or refund issues eating into your profit. Every lead that turns into a job is money in your pocket."
+        },
+        {
+          "time": "Close",
+          "tag": "5s",
+          "cls": "",
+          "text": "Service businesses have all the right fundamentals for paid ads. You just have to set them up correctly."
+        }
+      ]
+    },
+    {
+      "title": "Why broad audiences kill your local ad results",
+      "overlay": null,
+      "recCap": 0,
+      "recVer": "full",
+      "type": "Screen Record",
+      "film": "Open Meta Ads Manager, find a campaign, show the Audience section. Click into it and scroll through the broad targeting settings. Narrate while pointing at specific settings like age range, interests, and location radius. Keep it slow enough to read but natural \u2014 like you're just showing a friend what you're looking at.",
+      "captions": [
+        {
+          "label": "A",
+          "text": "broad targeting = paying for clicks from people who don't need you"
+        },
+        {
+          "label": "B",
+          "text": "when you target too wide, you're basically showing ads to tire shops when you're a plumber. shrink the audience, shrink the waste."
+        },
+        {
+          "label": "C",
+          "text": "specific beats big every time in local ads"
+        }
+      ],
+      "lines": [
+        {
+          "time": "Hook",
+          "tag": "5s",
+          "cls": "hook",
+          "text": "most service business owners are throwing money away because their audience is way too broad"
+        },
+        {
+          "time": "Point 1",
+          "tag": "8s",
+          "cls": "",
+          "text": "see this audience size right here? when it's too big, you're paying for impressions from people who literally can't use your service. wrong zip code, wrong income, wrong problem entirely"
+        },
+        {
+          "time": "Point 2",
+          "tag": "8s",
+          "cls": "",
+          "text": "at twenty-five bucks a day, you don't have budget to educate people who aren't ready to buy. every click needs to count. so your audience radius should be tight, your interests should be specific, your location should be surgical"
+        },
+        {
+          "time": "Point 3",
+          "tag": "8s",
+          "cls": "",
+          "text": "a plumber should target homeowners within five miles who've shown interest in home improvement, not just anyone aged thirty-five to fifty-four in a fifty-mile radius. totally different result"
+        },
+        {
+          "time": "Close",
+          "tag": "5s",
+          "cls": "",
+          "text": "narrow your audience, and you'll watch your cost per lead drop fast"
+        }
+      ]
+    },
+    {
+      "title": "Real photos beat stock images every time",
+      "overlay": "Real Job Photo vs Stock",
+      "recCap": 0,
+      "recVer": "full",
+      "type": "Talking Head",
+      "film": "Film Marco sitting or standing casually in his office or home setup. Direct eye contact to camera. Natural lighting. Keep it relaxed \u2014 maybe he pulls up his phone to reference an example ad, or gestures naturally while explaining.",
+      "captions": [
+        {
+          "label": "A",
+          "text": "your real before-and-after beats a staged stock photo every single time. people know the difference."
+        },
+        {
+          "label": "B",
+          "text": "stock photos are cheap for a reason. a real job photo from last week? that's what gets clicks. that's what gets leads."
+        },
+        {
+          "label": "C",
+          "text": "real work > perfect staging. always."
+        }
+      ],
+      "lines": [
+        {
+          "time": "Hook",
+          "tag": "5s",
+          "cls": "hook",
+          "text": "If you're using stock photos in your service ads, you're leaving leads on the table. And I can prove it."
+        },
+        {
+          "time": "Point 1",
+          "tag": "8s",
+          "cls": "",
+          "text": "A plumber I work with switched from a generic stock image to an actual photo of a job he finished last week. Click rate went from like two percent to almost six percent. Same budget, same audience, same ad copy. Just the photo changed."
+        },
+        {
+          "time": "Point 2",
+          "tag": "8s",
+          "cls": "",
+          "text": "Here's why it works \u2014 people scroll past perfect all day. A real before-and-after, dirt on the hands, actual results in an actual kitchen? That's proof. That's trust. Stock photos say you didn't bother. Real photos say you're legit."
+        },
+        {
+          "time": "Point 3",
+          "tag": "8s",
+          "cls": "",
+          "text": "Next time you finish a job, take a photo. Bad lighting, messy truck in the background, doesn't matter. That's your best ad asset. Way better than anything you're paying five bucks for."
+        },
+        {
+          "time": "Close",
+          "tag": "5s",
+          "cls": "",
+          "text": "Authenticity still converts better than polish. Use what you've got."
+        }
+      ]
+    },
+    {
+      "title": "What happens when you stop relying on word of mouth",
+      "overlay": null,
+      "recCap": 0,
+      "recVer": "full",
+      "type": "Carousel",
+      "film": "Film yourself at your desk or standing casually. Use simple text overlays on each slide \u2014 just the bold point. Deliver each line naturally, like you're explaining this to a business owner over coffee. No fancy transitions, let the ideas land.",
+      "captions": [
+        {
+          "label": "A",
+          "text": "word of mouth gets you 5 jobs. ads get you 15. the difference is you actually control it."
+        },
+        {
+          "label": "B",
+          "text": "most service business owners are stuck waiting for referrals. they could be booking consistent work every week instead. it's just a different system."
+        },
+        {
+          "label": "C",
+          "text": "word of mouth is a lottery ticket. ads are a business tool."
+        }
+      ],
+      "lines": [
+        {
+          "time": "Hook",
+          "tag": "5s",
+          "cls": "hook",
+          "text": "Most service business owners are waiting for word of mouth to bring in their next job. Here's what they're actually missing."
+        },
+        {
+          "time": "Point 1",
+          "tag": "8s",
+          "cls": "",
+          "text": "Word of mouth is random. You get a call when a customer feels like referring you. Could be next week, could be next month. You have zero control over the timing."
+        },
+        {
+          "time": "Point 2",
+          "tag": "8s",
+          "cls": "",
+          "text": "Ads are predictable. You spend 25 bucks a day, you know roughly how many people see your business. You know when leads come in. It's a system you can actually rely on."
+        },
+        {
+          "time": "Point 3",
+          "tag": "8s",
+          "cls": "",
+          "text": "Word of mouth caps out. Your past customers can only refer so many people. Ads scale up. You want 20 jobs a month instead of 5? You turn up the dial."
+        },
+        {
+          "time": "Close",
+          "tag": "5s",
+          "cls": "",
+          "text": "The plumbers and cleaners winning right now aren't relying on luck. They're using both \u2014 but ads are doing the heavy lifting."
+        }
+      ]
+    },
+    {
+      "title": "Stop saying professional and reliable",
+      "overlay": null,
+      "recCap": 0,
+      "recVer": "full",
+      "type": "Talking Head",
+      "film": "Film Marco at eye level in natural light, casual setting. Lean in slightly on the hook. Use hand gestures when explaining why the phrase fails. Direct eye contact throughout.",
+      "captions": [
+        {
+          "label": "A",
+          "text": "every plumber says this. nobody clicks because of it"
+        },
+        {
+          "label": "B",
+          "text": "your ad says professional and reliable. so does the guy next to you. people don't hire based on promises \u2014 they hire based on proof or urgency"
+        },
+        {
+          "label": "C",
+          "text": "the words that actually convert say what you do or why now \u2014 not how you do it"
+        }
+      ],
+      "lines": [
+        {
+          "time": "Hook",
+          "tag": "5s",
+          "cls": "hook",
+          "text": "If your ad says you're professional and reliable, you're already losing"
+        },
+        {
+          "time": "Point 1",
+          "tag": "8s",
+          "cls": "",
+          "text": "Because every single plumber, HVAC tech, and window cleaner says the exact same thing. So it doesn't stand out. It just blends in with everyone else"
+        },
+        {
+          "time": "Point 2",
+          "tag": "8s",
+          "cls": "",
+          "text": "People don't scroll past an ad and think, 'Oh, professional and reliable \u2014 that's the one.' They click because they see a problem being solved or a reason to act now"
+        },
+        {
+          "time": "Point 3",
+          "tag": "8s",
+          "cls": "",
+          "text": "What actually converts? 'Same-day appointments available,' 'no call-out fee,' 'emergency service until 10 PM.' Specific. Believable. Gives someone a reason to pick up the phone"
+        },
+        {
+          "time": "Close",
+          "tag": "5s",
+          "cls": "",
+          "text": "Save professional for the sales call. Use your ad to show what makes you different"
+        }
+      ]
+    },
+    {
+      "title": "How Meta decides who sees your ad",
+      "overlay": "text",
+      "recCap": 0,
+      "recVer": "full",
+      "type": "Talking Head",
+      "film": "Film Marco sitting casually, direct to camera in natural light. Relaxed posture, confident but not intense. Let him use one hand gesture when explaining the algorithm layers.",
+      "captions": [
+        {
+          "label": "A",
+          "text": "meta doesn't just guess who needs your service \u2014 it learns from every person who actually calls"
+        },
+        {
+          "label": "B",
+          "text": "the algorithm watches three things: who's clicked before, who looks like them, and what time they're most likely to book. that's how $25/day finds your next client"
+        },
+        {
+          "label": "C",
+          "text": "meta's targeting gets smarter the more conversions you send it"
+        }
+      ],
+      "lines": [
+        {
+          "time": "Hook",
+          "tag": "5s",
+          "cls": "hook",
+          "text": "Here's the thing \u2014 Meta's not showing your plumbing ad to random people. It's actually way more intentional than that."
+        },
+        {
+          "time": "Point 1",
+          "tag": "8s",
+          "cls": "",
+          "text": "When you set up a conversion campaign, Meta starts learning from day one. Every person who calls you, books you, fills out a form \u2014 Meta remembers that. It builds a profile of who actually converts for you."
+        },
+        {
+          "time": "Point 2",
+          "tag": "8s",
+          "cls": "",
+          "text": "Then it finds more people who look like them. Same age, location, interests, behavior patterns. People who are basically clones of your actual customers."
+        },
+        {
+          "time": "Point 3",
+          "tag": "8s",
+          "cls": "",
+          "text": "And it gets smart about timing too. If your best customers are booking at 8 PM on a Wednesday, Meta figures that out. It shows your ad when they're most likely to actually reach out."
+        },
+        {
+          "time": "Close",
+          "tag": "5s",
+          "cls": "",
+          "text": "The better your tracking is, the better Meta gets at finding the right people. That's why even at $25 a day, it works."
+        }
+      ]
+    },
+    {
+      "title": "Why your Meta ads aren't getting leads",
+      "overlay": "text overlay with the 3 mistakes listed",
+      "recCap": 0,
+      "recVer": "full",
+      "type": "Talking Head",
+      "film": "Film Marco sitting at a desk or casual setup, direct eye contact with camera. Lean in slightly when listing each mistake. Natural hand gestures but not overdone. Clean background.",
+      "captions": [
+        {
+          "label": "A",
+          "text": "your targeting is too broad. narrow it down."
+        },
+        {
+          "label": "B",
+          "text": "most service business owners are running ads to everyone. no wonder the leads suck. here's what actually works: tighter targeting, better landing page, clear offer."
+        },
+        {
+          "label": "C",
+          "text": "the 3 reasons your Meta ads fail: targeting, landing page, offer clarity."
+        }
+      ],
+      "lines": [
+        {
+          "time": "Hook",
+          "tag": "5s",
+          "cls": "hook",
+          "text": "You're spending money on Meta ads and getting nothing back. There's a reason. And I'm about to tell you what it is."
+        },
+        {
+          "time": "Mistake 1",
+          "tag": "8s",
+          "cls": "",
+          "text": "First one\u2014your targeting is way too broad. You're running ads to basically anyone in your city. That's not how this works. Get specific. If you're a plumber, you're not talking to everyone. You're talking to homeowners who actually need plumbing work. Location, age range, interests. Tighten it up."
+        },
+        {
+          "time": "Mistake 2",
+          "tag": "8s",
+          "cls": "",
+          "text": "Second\u2014your landing page is weak or doesn't exist. You're sending people to your homepage and wondering why they bounce. They don't care about your whole story. They want to know: can you fix my problem, how much, how fast? Make it crystal clear in the first second."
+        },
+        {
+          "time": "Mistake 3",
+          "tag": "8s",
+          "cls": "",
+          "text": "Third\u2014your offer is fuzzy. 'Call for a free quote' isn't an offer. That's what everyone says. What's actually different? Same-day service? Money-back guarantee? Free inspection? Tell them why they should pick up the phone right now, not later."
+        },
+        {
+          "time": "Close",
+          "tag": "5s",
+          "cls": "",
+          "text": "Fix those three things and your leads go up. It's that simple."
+        }
+      ]
+    }
+  ]
 }
