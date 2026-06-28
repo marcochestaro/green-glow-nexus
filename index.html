@@ -701,12 +701,7 @@ lines:[
 ]},
 ];
 
-// Miro carousel board topics for this week (auto-created every Sunday)
-const MIRO_BOARDS=[
-  {topic:'Why Free Quotes Are Killing Your Conversion Rate',url:'https://miro.com/app/dashboard/'},
-  {topic:'The 5-Step Lead Follow-Up That Books More Jobs',url:'https://miro.com/app/dashboard/'},
-  {topic:'What a High-Converting Meta Ad Looks Like for Service Businesses',url:'https://miro.com/app/dashboard/'},
-];
+const MIRO_BOARDS=[];
 
 const checks=JSON.parse(localStorage.getItem('mm_checks')||'{}');
 
@@ -1026,17 +1021,30 @@ WEEK.forEach((d,i)=>{
 });
 
 // Miro boards render
-(function(){
+(async function(){
   const mo=document.getElementById('miro-out');
   if(!mo)return;
-  mo.innerHTML='<div style="font-size:.75rem;color:var(--sub);margin-bottom:16px">3 new carousel boards created this week. Open each in Miro to design.</div>'
-    +MIRO_BOARDS.map((b,i)=>'<div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px">'
-      +'<div style="min-width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#a78bfa);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff">'+(i+1)+'</div>'
-      +'<div style="flex:1"><div style="font-size:.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:2px">'+b.topic+'</div>'
-      +'<div style="font-size:.68rem;color:var(--sub)">Carousel · This week</div></div>'
-      +'<a href="'+b.url+'" target="_blank" rel="noopener" style="font-size:.72rem;font-weight:600;color:#6366f1;white-space:nowrap">Open ↗</a>'
-      +'</div>').join('')
-    +'<div style="font-size:.65rem;color:var(--sub);margin-top:8px;padding:12px;background:var(--dim);border-radius:8px">Boards are auto-created every Sunday via the GitHub Action. Topics are pulled from the 42-topic pool and never repeat.</div>';
+  function renderMiro(boards,updated){
+    if(!boards||!boards.length){
+      mo.innerHTML='<div style="background:var(--dim);border-radius:10px;padding:20px;text-align:center">'
+        +'<div style="font-size:.88rem;color:#94a3b8;margin-bottom:6px">No boards yet</div>'
+        +'<div style="font-size:.72rem;color:var(--sub)">Boards are created automatically every Sunday. Make sure <code style="background:#1a1d24;padding:2px 5px;border-radius:4px">MIRO_ACCESS_TOKEN</code> is set in GitHub Actions secrets.</div>'
+        +'</div>';
+      return;
+    }
+    mo.innerHTML='<div style="font-size:.72rem;color:var(--sub);margin-bottom:14px">Created '+(updated||'this week')+' · 3 boards from the 42-topic pool</div>'
+      +boards.map((b,i)=>'<div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px">'
+        +'<div style="min-width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#a78bfa);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff">'+(i+1)+'</div>'
+        +'<div style="flex:1"><div style="font-size:.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:2px">'+(b.title||b.topic||'Board '+(i+1))+'</div>'
+        +'<div style="font-size:.68rem;color:var(--sub)">Carousel · '+(b.slide_count||5)+' slides</div></div>'
+        +(b.url?'<a href="'+b.url+'" target="_blank" rel="noopener" style="font-size:.72rem;font-weight:600;color:#6366f1;white-space:nowrap">Open ↗</a>':'')
+        +'</div>').join('');
+  }
+  try{
+    const r=await fetch('miro-boards.json?_='+Date.now());
+    const d=await r.json();
+    renderMiro(d.boards,d.updated_display);
+  }catch(e){renderMiro([]);}
 })();
 
 // Stats data
