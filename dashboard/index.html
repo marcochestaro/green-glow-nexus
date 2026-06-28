@@ -260,6 +260,7 @@ section{margin-bottom:44px;scroll-margin-top:64px}
     <button class="nl" onclick="showView('content');goto('ideas')">Ideas</button>
     <button class="nl" onclick="showView('content');goto('tools')">Tools</button>
     <button class="nl" onclick="showView('content');goto('plan')">Tomorrow</button>
+    <button class="nl" onclick="showView('content');goto('miro')">Miro</button>
     <button class="nl" id="nl-agents" onclick="showView('agents')">Agents</button>
   </div>
   <div class="nav-right">
@@ -498,6 +499,12 @@ Follow for daily content on what actually works</textarea>
   </div>
 </section>
 
+<!-- MIRO BOARDS -->
+<section id="miro">
+  <div class="sec-label">Miro Carousel Boards</div>
+  <div id="miro-out"></div>
+</section>
+
 </div>
 </div>
 
@@ -692,6 +699,13 @@ lines:[
 {time:'Why It Works',tag:'8s',cls:'',text:"Most people don't try it because it feels too small. But the math doesn't care how it feels. A tight local audience, a real offer, a simple creative — that's all it takes."},
 {time:'Close',tag:'5s',cls:'',text:"The budget isn't the issue. The setup is. Start at $25 and build from there."},
 ]},
+];
+
+// Miro carousel board topics for this week (auto-created every Sunday)
+const MIRO_BOARDS=[
+  {topic:'Why Free Quotes Are Killing Your Conversion Rate',url:'https://miro.com/app/dashboard/'},
+  {topic:'The 5-Step Lead Follow-Up That Books More Jobs',url:'https://miro.com/app/dashboard/'},
+  {topic:'What a High-Converting Meta Ad Looks Like for Service Businesses',url:'https://miro.com/app/dashboard/'},
 ];
 
 const checks=JSON.parse(localStorage.getItem('mm_checks')||'{}');
@@ -982,13 +996,18 @@ WEEK.forEach((d,i)=>{
   const dt=weekDate(i);
   const div=document.createElement('div');
   div.className='wk-card';
+  const hookLine=d.lines.find(l=>l.cls==='hook')||d.lines[0];
   div.innerHTML=
     '<div class="wk-hdr" onclick="this.nextElementSibling.classList.toggle(\'open\')">'
     +'<div class="wk-hdr-info">'
     +'<div class="wk-day">'+FULL_DAYS[i]+', '+MONTHS[dt.getMonth()]+' '+dt.getDate()+'</div>'
     +'<div class="wk-title">'+d.title+'</div>'
+    +(hookLine?'<div style="font-size:.72rem;color:#64748b;margin-top:5px;line-height:1.4;font-style:italic">"'+hookLine.text+'"</div>':'')
     +'</div>'
+    +'<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">'
     +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
+    +(checks[i]?'<div style="font-size:.6rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.08em">✓ Posted</div>':'')
+    +'</div>'
     +'</div>'
     +'<div class="wk-body">'
     +'<div style="margin:12px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
@@ -1000,9 +1019,25 @@ WEEK.forEach((d,i)=>{
     +'<button class="btn btn-primary" style="width:100%;margin:10px 0;flex:none" onclick="cpAll('+i+')">Copy Script</button>'
     +'<div id="wkscript-'+i+'">'+mkScript(d.lines,'full')+'</div>'
     +mkCaption(d,i,'wk')
+    +(d.stories&&d.stories.length?'<div style="margin-top:20px"><div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px">Stories Plan</div>'
+      +d.stories.map((s,si)=>'<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><div style="min-width:20px;height:20px;border-radius:50%;background:var(--dim);font-size:.65rem;font-weight:700;color:#94a3b8;display:flex;align-items:center;justify-content:center">'+(si+1)+'</div><div style="font-size:.82rem;color:#cbd5e1;line-height:1.5">'+s+'</div></div>').join('')+'</div>':'')
     +'</div>';
   wo.appendChild(div);
 });
+
+// Miro boards render
+(function(){
+  const mo=document.getElementById('miro-out');
+  if(!mo)return;
+  mo.innerHTML='<div style="font-size:.75rem;color:var(--sub);margin-bottom:16px">3 new carousel boards created this week. Open each in Miro to design.</div>'
+    +MIRO_BOARDS.map((b,i)=>'<div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px">'
+      +'<div style="min-width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#a78bfa);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff">'+(i+1)+'</div>'
+      +'<div style="flex:1"><div style="font-size:.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:2px">'+b.topic+'</div>'
+      +'<div style="font-size:.68rem;color:var(--sub)">Carousel · This week</div></div>'
+      +'<a href="'+b.url+'" target="_blank" rel="noopener" style="font-size:.72rem;font-weight:600;color:#6366f1;white-space:nowrap">Open ↗</a>'
+      +'</div>').join('')
+    +'<div style="font-size:.65rem;color:var(--sub);margin-top:8px;padding:12px;background:var(--dim);border-radius:8px">Boards are auto-created every Sunday via the GitHub Action. Topics are pulled from the 42-topic pool and never repeat.</div>';
+})();
 
 // Stats data
 async function loadData(){
