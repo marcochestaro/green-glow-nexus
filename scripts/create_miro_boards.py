@@ -19,28 +19,18 @@ HEADERS = {
     'Accept': 'application/json',
 }
 
-# 42 unique topics — 14 weeks of 3 boards each before anything could theoretically repeat.
+# 41 unique topics — pool exhausts before repeating. Add new topics when needed.
 # When the pool is fully exhausted the script flags it but does NOT reset — new topics must be added.
 CAROUSEL_TOPICS = [
     # ── Budget & math ───────────────────────────────────────────────────────────
     {
-        "title": "$25/Day Ad Budget Math — How It Actually Works",
+        "title": "The ROI Math Behind a Profitable Meta Campaign",
         "slides": [
-            ("$25/day doesn't sound like much.", "But here's the actual math that gets service businesses booked."),
-            ("Day 1–5: Learning phase", "Meta is figuring out who clicks. Don't judge results yet. Let it run."),
-            ("Day 6–14: Optimisation kicks in", "CPL drops. Leads start coming in. This is where it starts working."),
-            ("Day 15–30: Compound effect", "The algorithm has data. Cost per lead is at its lowest. Consistent bookings."),
-            ("The result after 30 days?", "Real clients. DM me ADS if you want this for your business."),
-        ]
-    },
-    {
-        "title": "What $500/Month in Meta Ads Actually Buys You",
-        "slides": [
-            ("$500/month sounds like a lot. Here's what it actually produces.", "For a local service business running it right."),
-            ("$500 ÷ 30 days = $16.67/day", "That's enough to run one solid lead generation campaign in a local radius."),
-            ("At $25 CPL (realistic after week 2)", "You get roughly 20 leads per month from $500 in spend."),
-            ("If you close 30% of those leads", "That's 6 new jobs. At $300 average job value = $1,800 revenue from $500 spend."),
-            ("3.6x return. Every month. Predictably.", "DM me ADS to make this work for your trade."),
+            ("Every dollar you spend on Meta ads should be accountable.", "Here's how to think about the return — for a local service business running it right."),
+            ("Start with your cost per lead (CPL)", "A well-optimised campaign after week 2 should be bringing leads in at a cost you can sustain."),
+            ("Then look at close rate", "If you close 30% of leads, 20 leads = 6 booked jobs. That's the number that matters."),
+            ("Then calculate job value × volume", "Average job value × booked jobs = revenue from ads. Divide by ad spend = your ROAS."),
+            ("3x+ return is realistic. And it compounds.", "DM me ADS to see what the math looks like for your trade."),
         ]
     },
     {
@@ -69,7 +59,7 @@ CAROUSEL_TOPICS = [
         "slides": [
             ("Most service business ad headlines are invisible.", "Here's the formula that makes them stop."),
             ("The formula: Pain + Timeframe + Outcome", "You don't need to be clever. You need to be specific."),
-            ("Bad: 'Professional Window Cleaning Services'", "Zero reason to click. Sounds like every other tradie."),
+            ("Bad: 'Professional Window Cleaning Services'", "Zero reason to click. Sounds like every other business."),
             ("Good: 'Get your windows spotless before the weekend — we come to you'", "Specific. Local. Time-anchored. Outcome clear."),
             ("Rewrite yours with this formula.", "DM me ADS if you want me to look at your current headline."),
         ]
@@ -88,7 +78,7 @@ CAROUSEL_TOPICS = [
     {
         "title": "What 'Professional and Reliable' Is Actually Costing You",
         "slides": [
-            ("'Professional and reliable' is in every tradie ad.", "That's exactly why it doesn't work."),
+            ("'Professional and reliable' is in every service business ad.", "That's exactly why it doesn't work."),
             ("When everyone says the same thing, no one stands out.", "Your audience becomes blind to it."),
             ("Replace claims with proof.", "Not 'reliable' — 'responded within 2 hours, job done same day.'"),
             ("Replace adjectives with outcomes.", "Not 'professional' — 'left the site cleaner than we found it, no callbacks.'"),
@@ -154,8 +144,8 @@ CAROUSEL_TOPICS = [
             ("Everyone asks: Meta or Google?", "Here's the honest breakdown for local service businesses."),
             ("Google Ads: High intent, high cost", "People are searching right now. But CPL can hit $80–$150+ for competitive trades."),
             ("Meta Ads: Lower cost, broader reach", "CPL of $20–$50 is realistic. You interrupt people — so your creative has to be good."),
-            ("The real answer?", "Start with Meta at $25/day. Get leads. Prove the model. Scale to Google later."),
-            ("For most tradies just starting out?", "Meta wins. DM me ADS to talk through your situation."),
+            ("The real answer?", "Start with Meta. Get leads. Prove the model. Scale to Google later."),
+            ("For most service businesses starting out?", "Meta wins. DM me ADS to talk through your situation."),
         ]
     },
     {
@@ -173,7 +163,7 @@ CAROUSEL_TOPICS = [
         "slides": [
             ("I don't run Google Ads. I don't run TikTok Ads.", "Here's exactly why I'm 100% focused on Meta for service businesses."),
             ("Meta has the most accurate local targeting", "You can hit a 20km radius around any suburb. Google can't match the geo-precision."),
-            ("The CPL is the most controllable", "At $25/day you get real data fast. Google often needs $50–100/day before it optimises."),
+            ("The CPL is the most controllable", "You get real data fast on a lean budget. Google typically needs significantly more spend before it optimises."),
             ("Service businesses have visual proof", "Before/after photos. Job site footage. That works perfectly on Instagram and Facebook feeds."),
             ("The audience is there.", "Every homeowner, landlord, and property manager is on Meta. Your buyers are already there."),
         ]
@@ -275,7 +265,7 @@ CAROUSEL_TOPICS = [
     {
         "title": "How a Window Cleaner Got 11 Jobs in 30 Days With Meta Ads",
         "slides": [
-            ("Real numbers from a real client.", "Window cleaner. $25/day. 30 days. Here's what happened."),
+            ("Real numbers from a real client.", "Window cleaner. Lean daily budget. 30 days. Here's what happened."),
             ("Week 1: Setup + learning phase", "3 leads. Cost per lead: $58. Felt slow. We kept it running."),
             ("Week 2: Algorithm optimises", "7 leads. CPL dropped to $31. 4 booked jobs confirmed."),
             ("Week 3–4: Consistency hits", "11 leads. CPL: $22. 7 booked jobs. $700 spent. Revenue from ads: $2,800+."),
@@ -293,7 +283,7 @@ CAROUSEL_TOPICS = [
         ]
     },
     {
-        "title": "Car Detailer. $25/Day. 30 Days. Real Numbers.",
+        "title": "Car Detailer. First Meta Campaign. Real Numbers.",
         "slides": [
             ("Mobile car detailer. First time running Meta ads.", "Here's exactly what happened when we turned it on."),
             ("Week 1", "5 leads at $35 CPL. 2 booked. Revenue: $380. Spend: $175. Early signal is good."),
@@ -326,7 +316,7 @@ CAROUSEL_TOPICS = [
     {
         "title": "Why Posting Every Day on Instagram Actually Works for Getting Clients",
         "slides": [
-            ("Most tradies think Instagram is for influencers.", "Here's why daily posting is actually your best free lead source."),
+            ("Most service business owners think Instagram is for influencers.", "Here's why daily posting is actually your best free lead source."),
             ("Every post is a trust touchpoint", "A potential client might see 10 of your posts before they ever DM you. That's 10 reasons to trust you."),
             ("Instagram rewards consistency with reach", "Post daily for 30 days and your account's baseline reach increases. The algorithm rewards volume."),
             ("Your content is your ad", "When someone sees your post and then your ad, the conversion cost drops. Warm traffic converts cheaper."),
@@ -378,7 +368,7 @@ CAROUSEL_TOPICS = [
     {
         "title": "Why 'Get a Free Quote' Is the Weakest CTA You Can Use",
         "slides": [
-            ("Every tradie ad ends with 'get a free quote'.", "Here's why it's killing your conversion rate."),
+            ("Every service business ad ends with 'get a free quote'.", "Here's why it's killing your conversion rate."),
             ("Free quotes are table stakes", "Everyone offers them. It gives the lead zero reason to choose you over the next guy."),
             ("Better CTAs tell them what happens next", "'Book your spot' — implies limited availability. 'Get your price in 60 seconds' — implies speed."),
             ("The best CTAs include a benefit", "'Get a free same-day quote' or 'See if we service your suburb' both beat generic."),
@@ -390,7 +380,7 @@ CAROUSEL_TOPICS = [
         "title": "When to Scale Your Meta Ad Budget (And When Not To)",
         "slides": [
             ("Most businesses scale too fast or not at all.", "Here's the exact signal to look for before increasing budget."),
-            ("The rule: only scale on a profitable CPL", "If you're not profitable at $25/day, spending $100/day just loses you money faster."),
+            ("The rule: only scale on a profitable CPL", "If you're not profitable at your current budget, increasing spend just loses money faster."),
             ("The signal to scale: consistent results over 14 days", "Same CPL week over week. Leads converting to jobs. Then consider scaling."),
             ("How to scale: 20% budget increases only", "Don't double your budget overnight. Meta re-enters learning phase. 20% bumps preserve optimisation."),
             ("Scale when it's working. Fix it when it's not.", "DM me ADS to know which stage you're at."),
@@ -420,7 +410,7 @@ CAROUSEL_TOPICS = [
     {
         "title": "The Real Reason Most Tradies Don't Run Ads",
         "slides": [
-            ("It's not budget. It's not time.", "Here's the real reason most tradies never run ads — and why it's costing them."),
+            ("It's not budget. It's not time.", "Here's the real reason most service business owners never run ads — and why it's costing them."),
             ("Fear of it not working", "They've heard stories. A mate spent $500 and got nothing. So they write off the whole channel."),
             ("Wrong setup = wrong result", "The mate who got nothing ran a boosted post with no offer and a stock photo. That's not a Meta ad."),
             ("The real risk is doing nothing", "Referrals dry up. You have no predictable lead source. You're always one slow month away from stress."),
@@ -434,13 +424,13 @@ CAROUSEL_TOPICS = [
             ("Consistent leads = predictable revenue", "You know roughly what next month looks like. You can plan staff, equipment, capacity."),
             ("Consistent leads = less desperation", "You stop taking every job that calls. You can be selective. Raise prices."),
             ("Consistent leads = growth by choice", "You scale when you want to. Hire when it makes sense. Not because you're scrambling."),
-            ("A $25/day ad campaign done right delivers this.", "DM me ADS — I'll show you what it takes for your specific trade."),
+            ("A well-run Meta campaign delivers this.", "DM me ADS — I'll show you what it takes for your specific trade."),
         ]
     },
     {
         "title": "Why Most Service Businesses Plateau at $10k/Month",
         "slides": [
-            ("There's a ceiling most tradies hit and can't break through.", "Here's why it happens and what breaks you through it."),
+            ("There's a ceiling most service businesses hit and can't break through.", "Here's why it happens and what breaks you through it."),
             ("The ceiling is usually a lead source problem", "You're at max capacity for word-of-mouth. Referrals can't scale beyond a point."),
             ("Adding ads breaks the ceiling", "New lead volume forces decisions: hire, specialise, raise prices, systemise."),
             ("But ads alone aren't the answer", "You need a follow-up system, a clear offer, and capacity to handle more work."),

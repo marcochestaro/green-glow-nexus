@@ -11,8 +11,8 @@ CLAUDE_API_KEY = os.environ.get('CLAUDE_API_KEY', '')
 OUTPUT_FILE = os.path.join(os.path.dirname(__file__), '..', 'dashboard', 'scripts-data.json')
 
 # No Carousel — only Talking Head and Screen Record
-# Pattern: 5 Talking Head, 1 Screen Record, 1 Talking Head per week
-TYPES = ['Talking Head', 'Talking Head', 'Screen Record', 'Talking Head', 'Talking Head', 'Talking Head', 'Talking Head']
+# Pattern: 5 Talking Head, 2 Screen Record per week
+TYPES = ['Talking Head', 'Talking Head', 'Screen Record', 'Talking Head', 'Talking Head', 'Screen Record', 'Talking Head']
 
 TOPIC_POOL = [
     # Ads strategy
