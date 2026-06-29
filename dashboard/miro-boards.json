@@ -4,29 +4,30 @@
   "boards": [
     {
       "title": "The ROI Math Behind a Profitable Meta Campaign",
-      "board_id": "uXjVHA4Y8ro=",
-      "url": "https://miro.com/app/board/uXjVHA4Y8ro=/",
+      "board_id": "uXjVHA_LH4o=",
+      "url": "https://miro.com/app/board/uXjVHA_LH4o=/",
       "layout": "funnel",
       "created": "2026-06-29T00:00:00Z"
     },
     {
       "title": "Why Your Ad Spend Feels Wasted (And How to Fix It)",
-      "board_id": "uXjVHA4Y808=",
-      "url": "https://miro.com/app/board/uXjVHA4Y808=/",
+      "board_id": "uXjVHA_NFMk=",
+      "url": "https://miro.com/app/board/uXjVHA_NFMk=/",
       "layout": "problems",
       "created": "2026-06-29T00:00:00Z"
     },
     {
-      "title": "The 4 Elements of a Winning Local Ad",
-      "board_id": "uXjVHA_E6LA=",
-      "url": "https://miro.com/app/board/uXjVHA_E6LA=/",
-      "layout": "steps",
+      "title": "What Happens in the First 30 Days of Meta Ads",
+      "board_id": "uXjVHA_NN1w=",
+      "url": "https://miro.com/app/board/uXjVHA_NN1w=/",
+      "layout": "timeline",
       "created": "2026-06-29T00:00:00Z"
     }
   ],
   "used_titles": [
     "The ROI Math Behind a Profitable Meta Campaign",
     "Why Your Ad Spend Feels Wasted (And How to Fix It)",
-    "The 4 Elements of a Winning Local Ad"
+    "The 4 Elements of a Winning Local Ad",
+    "What Happens in the First 30 Days of Meta Ads"
   ]
 }
