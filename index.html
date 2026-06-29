@@ -703,6 +703,55 @@ lines:[
 
 const MIRO_BOARDS=[];
 
+function normaliseScripts(scripts){
+  return scripts.map(s=>({
+    title:s.title,
+    type:s.type||'Talking Head',
+    recCap:s.recCap||0,
+    recVer:s.recVer||'full',
+    overlay:s.overlay&&typeof s.overlay==='object'?s.overlay:{line1:s.overlay||'',line2:''},
+    film:s.film||'',
+    stories:s.stories||[],
+    captions:s.captions||[],
+    lines:s.lines||[],
+  }));
+}
+
+let WEEK_LOADED=false;
+
+async function loadScriptsData(){
+  try{
+    const r=await fetch('scripts-data.json?_='+Date.now());
+    const d=await r.json();
+    if(!d.scripts||!d.scripts.length)return;
+    const norm=normaliseScripts(d.scripts);
+    WEEK.splice(0,WEEK.length,...norm);
+    WEEK_LOADED=true;
+    rebuildAll();
+  }catch(e){}
+}
+
+function rebuildAll(){
+  // Rebuild week strip
+  const wstrip=document.getElementById('wstrip');
+  wstrip.innerHTML='';
+  WEEK.forEach((d,i)=>{
+    const dt=weekDate(i);
+    const el=document.createElement('div');
+    el.className='wday'+(i===todayI?' active':'')+(checks[i]?' done':'');
+    el.id='wd'+i;
+    el.onclick=()=>{document.querySelectorAll('.wday').forEach(w=>w.classList.remove('active'));el.classList.add('active');renderToday(i);};
+    el.innerHTML='<div class="wday-n">'+DAYS[i]+'</div><div class="wday-d">'+dt.getDate()+'</div><div class="wday-t">'+d.type.split(' ')[0]+'</div>';
+    wstrip.appendChild(el);
+  });
+  // Rebuild week accordion
+  const wo=document.getElementById('week-out');
+  if(wo)wo.innerHTML='';
+  buildWeekAccordion();
+  renderToday(todayI);
+  updProg();
+}
+
 const checks=JSON.parse(localStorage.getItem('mm_checks')||'{}');
 
 function typeBadgeClass(type){
@@ -986,39 +1035,44 @@ function toggleDone(i){
 updProg();
 
 // This week accordion
-const wo=document.getElementById('week-out');
-WEEK.forEach((d,i)=>{
-  const dt=weekDate(i);
-  const div=document.createElement('div');
-  div.className='wk-card';
-  const hookLine=d.lines.find(l=>l.cls==='hook')||d.lines[0];
-  div.innerHTML=
-    '<div class="wk-hdr" onclick="this.nextElementSibling.classList.toggle(\'open\')">'
-    +'<div class="wk-hdr-info">'
-    +'<div class="wk-day">'+FULL_DAYS[i]+', '+MONTHS[dt.getMonth()]+' '+dt.getDate()+'</div>'
-    +'<div class="wk-title">'+d.title+'</div>'
-    +(hookLine?'<div style="font-size:.72rem;color:#64748b;margin-top:5px;line-height:1.4;font-style:italic">"'+hookLine.text+'"</div>':'')
-    +'</div>'
-    +'<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">'
-    +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
-    +(checks[i]?'<div style="font-size:.6rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.08em">✓ Posted</div>':'')
-    +'</div>'
-    +'</div>'
-    +'<div class="wk-body">'
-    +'<div style="margin:12px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
-    +postFormatBadge(d.type)
-    +(scriptDuration(d.lines)?'<div class="dur-badge">'+scriptDuration(d.lines)+' total</div>':'')
-    +'<div id="wktog-'+i+'">'+verToggleHTML('wkv-'+i,i,'full')+'</div>'
-    +'</div>'
-    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'+mkOverlay(d)
-    +'<button class="btn btn-primary" style="width:100%;margin:10px 0;flex:none" onclick="cpAll('+i+')">Copy Script</button>'
-    +'<div id="wkscript-'+i+'">'+mkScript(d.lines,'full')+'</div>'
-    +mkCaption(d,i,'wk')
-    +(d.stories&&d.stories.length?'<div style="margin-top:20px"><div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px">Stories Plan</div>'
-      +d.stories.map((s,si)=>'<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><div style="min-width:20px;height:20px;border-radius:50%;background:var(--dim);font-size:.65rem;font-weight:700;color:#94a3b8;display:flex;align-items:center;justify-content:center">'+(si+1)+'</div><div style="font-size:.82rem;color:#cbd5e1;line-height:1.5">'+s+'</div></div>').join('')+'</div>':'')
-    +'</div>';
-  wo.appendChild(div);
-});
+function buildWeekAccordion(){
+  const wo=document.getElementById('week-out');
+  if(!wo)return;
+  WEEK.forEach((d,i)=>{
+    const dt=weekDate(i);
+    const div=document.createElement('div');
+    div.className='wk-card';
+    const hookLine=d.lines.find(l=>l.cls==='hook')||d.lines[0];
+    div.innerHTML=
+      '<div class="wk-hdr" onclick="this.nextElementSibling.classList.toggle(\'open\')">'
+      +'<div class="wk-hdr-info">'
+      +'<div class="wk-day">'+FULL_DAYS[i]+', '+MONTHS[dt.getMonth()]+' '+dt.getDate()+'</div>'
+      +'<div class="wk-title">'+d.title+'</div>'
+      +(hookLine?'<div style="font-size:.72rem;color:#64748b;margin-top:5px;line-height:1.4;font-style:italic">"'+hookLine.text+'"</div>':'')
+      +'</div>'
+      +'<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">'
+      +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
+      +(checks[i]?'<div style="font-size:.6rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.08em">✓ Posted</div>':'')
+      +'</div>'
+      +'</div>'
+      +'<div class="wk-body">'
+      +'<div style="margin:12px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
+      +postFormatBadge(d.type)
+      +(scriptDuration(d.lines)?'<div class="dur-badge">'+scriptDuration(d.lines)+' total</div>':'')
+      +'<div id="wktog-'+i+'">'+verToggleHTML('wkv-'+i,i,'full')+'</div>'
+      +'</div>'
+      +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'+mkOverlay(d)
+      +'<button class="btn btn-primary" style="width:100%;margin:10px 0;flex:none" onclick="cpAll('+i+')">Copy Script</button>'
+      +'<div id="wkscript-'+i+'">'+mkScript(d.lines,'full')+'</div>'
+      +mkCaption(d,i,'wk')
+      +(d.stories&&d.stories.length?'<div style="margin-top:20px"><div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px">Stories Plan</div>'
+        +d.stories.map((s,si)=>'<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><div style="min-width:20px;height:20px;border-radius:50%;background:var(--dim);font-size:.65rem;font-weight:700;color:#94a3b8;display:flex;align-items:center;justify-content:center">'+(si+1)+'</div><div style="font-size:.82rem;color:#cbd5e1;line-height:1.5">'+s+'</div></div>').join('')+'</div>':'')
+      +'</div>';
+    wo.appendChild(div);
+  });
+}
+buildWeekAccordion();
+loadScriptsData();
 
 // Miro boards render
 (async function(){
