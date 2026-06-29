@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
 Weekly Miro carousel board creator — topic-aware visual layouts.
-Same visual style (light gray bg, circles, labels, connectors, callout boxes)
-but layout adapts to the topic type so each board looks different.
+Boards use the default Miro canvas background (no custom frame/bg shape).
+Layout adapts to topic type: funnel, problems, steps, comparison, case_study.
+No CTA on boards — pure value only. Circles + labels + arrows, clean and simple.
 """
 
 import os, json, requests
@@ -524,9 +525,9 @@ def api_post(path, payload):
 
 
 def add_circle(board_id, content, x, y, size, fill):
-    """Circle shape with content centered inside."""
+    """Colored circle with short label inside, on the default Miro canvas (no background frame)."""
     return api_post(f'/boards/{board_id}/shapes', {
-        'data': {'shape': 'circle', 'content': content},
+        'data': {'shape': 'circle', 'content': f'<strong>{content}</strong>'},
         'style': {
             'fillColor': fill,
             'fontColor': WHITE,
@@ -534,8 +535,7 @@ def add_circle(board_id, content, x, y, size, fill):
             'borderWidth': '2',
             'textAlign': 'center',
             'textAlignVertical': 'middle',
-            'fontSize': '14',
-            'fontWeight': 'bold',
+            'fontSize': '16',
             'fillOpacity': '1',
         },
         'position': {'x': x, 'y': y, 'origin': 'center'},
@@ -543,17 +543,14 @@ def add_circle(board_id, content, x, y, size, fill):
     })
 
 
-def add_rect(board_id, content, x, y, w, h, fill, text_color=WHITE, border_color=None, font_size='14', align='center'):
+def add_bar(board_id, x, y, w, h, fill):
+    """Plain colored rectangle for bar chart layout."""
     return api_post(f'/boards/{board_id}/shapes', {
-        'data': {'shape': 'rectangle', 'content': content},
+        'data': {'shape': 'rectangle', 'content': ''},
         'style': {
             'fillColor': fill,
-            'fontColor': text_color,
-            'borderColor': border_color or fill,
-            'borderWidth': '3',
-            'textAlign': align,
-            'textAlignVertical': 'middle',
-            'fontSize': font_size,
+            'borderColor': fill,
+            'borderWidth': '2',
             'fillOpacity': '1',
         },
         'position': {'x': x, 'y': y, 'origin': 'center'},
@@ -561,24 +558,24 @@ def add_rect(board_id, content, x, y, w, h, fill, text_color=WHITE, border_color
     })
 
 
-def add_text(board_id, content, x, y, w, font_size, color, bold=False):
+def add_text(board_id, content, x, y, w, font_size, color, bold=False, align='center'):
     text = f'<strong>{content}</strong>' if bold else content
     return api_post(f'/boards/{board_id}/texts', {
         'data': {'content': text},
-        'style': {'color': color, 'fontSize': str(font_size), 'textAlign': 'center'},
+        'style': {'color': color, 'fontSize': str(font_size), 'textAlign': align},
         'position': {'x': x, 'y': y, 'origin': 'center'},
         'geometry': {'width': w},
     })
 
 
-def add_arrow(board_id, from_id, to_id, color=GRAY):
+def add_arrow(board_id, from_id, to_id, color='#94a3b8'):
     try:
         api_post(f'/boards/{board_id}/connectors', {
             'startItem': {'id': from_id, 'snapTo': 'right'},
             'endItem':   {'id': to_id,   'snapTo': 'left'},
             'style': {
                 'strokeColor': color,
-                'strokeWidth': '2',
+                'strokeWidth': '3',
                 'endStrokeCap': 'filled_triangle',
                 'startStrokeCap': 'none',
                 'strokeStyle': 'normal',
@@ -588,203 +585,160 @@ def add_arrow(board_id, from_id, to_id, color=GRAY):
         print(f"  Arrow skipped: {e}")
 
 
-def board_header(board_id, title, total_w, y_offset=-120):
-    add_text(board_id, title, x=total_w / 2, y=y_offset, w=total_w, font_size=28, color=DARK, bold=True)
-    add_text(board_id, '@marcomarkets', x=total_w / 2, y=y_offset + 50, w=total_w, font_size=16, color=GRAY)
-
-
-def board_callout(board_id, text, cx, y, w=900):
-    add_rect(board_id, text, x=cx, y=y, w=w, h=80,
-             fill=WHITE, text_color=DARK, border_color='#cbd5e1', font_size='15')
+def board_header(board_id, title, total_w):
+    """Title + handle — no background shape, sits on Miro's default canvas."""
+    add_text(board_id, title, x=total_w / 2, y=-100, w=min(total_w, 1200),
+             font_size=30, color=DARK, bold=True)
+    add_text(board_id, '@marcomarkets', x=total_w / 2, y=-55, w=400,
+             font_size=16, color=GRAY)
 
 
 # ── Layout builders ────────────────────────────────────────────────────────────
+# No background frames or white boxes — everything floats on the Miro canvas.
+# No CTA on any board. Pure value only.
 
 def build_funnel(board_id, topic):
-    """Decreasing circles connected horizontally — good for flows and funnels."""
+    """Decreasing circles connected by arrows — for flows, ROI math, timelines."""
     slides = topic['slides']
     n = len(slides)
-    sizes = [300 - i * 28 for i in range(n)]  # e.g. 300, 272, 244, 216, 188
-    gap = 50
-    # Center x of each circle accounting for variable sizes
+    # Circle sizes decrease left to right (largest = input, smallest = output)
+    sizes = [300 - i * 26 for i in range(n)]
+    gap = 55
     xs = []
-    cx = sizes[0] / 2
+    cx = 0
     for i, size in enumerate(sizes):
-        if i == 0:
-            cx = size / 2
-        else:
-            cx += sizes[i - 1] / 2 + gap + size / 2
+        cx = cx + (sizes[i - 1] / 2 + gap + size / 2) if i > 0 else size / 2
         xs.append(cx)
 
-    total_w = xs[-1] + sizes[-1] / 2
+    total_w = xs[-1] + sizes[-1] / 2 + 40
     board_header(board_id, topic['title'], total_w)
 
-    y_circle = 300
-    circle_ids = []
+    y = 300
+    ids = []
     for i, (label, sublabel) in enumerate(slides):
         color = FUNNEL_COLORS[i % len(FUNNEL_COLORS)]
-        short = label[:22]
-        shape = add_circle(board_id, short, x=xs[i], y=y_circle, size=sizes[i], fill=color)
-        circle_ids.append(shape['id'])
-        # Label below circle
-        add_text(board_id, label, x=xs[i], y=y_circle + sizes[i] / 2 + 25,
-                 w=max(sizes[i] + 40, 200), font_size=13, color=DARK, bold=True)
-        add_text(board_id, sublabel, x=xs[i], y=y_circle + sizes[i] / 2 + 55,
-                 w=max(sizes[i] + 60, 220), font_size=12, color=GRAY)
+        s = sizes[i]
+        shape = add_circle(board_id, label[:20], x=xs[i], y=y, size=s, fill=color)
+        ids.append(shape['id'])
+        add_text(board_id, sublabel, x=xs[i], y=y + s / 2 + 30,
+                 w=s + 60, font_size=13, color=GRAY)
 
-    for i in range(len(circle_ids) - 1):
-        add_arrow(board_id, circle_ids[i], circle_ids[i + 1], color='#94a3b8')
+    for i in range(len(ids) - 1):
+        add_arrow(board_id, ids[i], ids[i + 1])
 
-    if topic.get('callout'):
-        board_callout(board_id, topic['callout'], cx=total_w / 2, y=y_circle + sizes[0] / 2 + 140)
-
-    print(f"  → funnel: {n} circles built")
+    print(f"  → funnel: {n} circles")
 
 
 def build_problems(board_id, topic):
-    """Equal circles side by side, each a different color — good for problems/mistakes."""
+    """Equal circles, each a different color — for mistakes, problems, reasons."""
     slides = topic['slides']
     n = len(slides)
-    size = 240
-    gap = 70
-    spacing = size + gap
-    total_w = n * size + (n - 1) * gap + 100
+    size = 250
+    gap = 80
+    total_w = n * size + (n - 1) * gap + 80
 
     board_header(board_id, topic['title'], total_w)
 
-    y_circle = 280
-    for i, (label, detail) in enumerate(slides):
+    y = 300
+    for i, (label, sublabel) in enumerate(slides):
         color = PROBLEM_COLORS[i % len(PROBLEM_COLORS)]
-        x = 50 + size / 2 + i * spacing
-        short = label[:20]
-        add_circle(board_id, short, x=x, y=y_circle, size=size, fill=color)
-        # Label below (colored to match circle)
-        add_text(board_id, label, x=x, y=y_circle + size / 2 + 28,
-                 w=size + 40, font_size=14, color=color, bold=True)
-        # Explanation box below label
-        add_rect(board_id, detail, x=x, y=y_circle + size / 2 + 120,
-                 w=size + 30, h=110,
-                 fill=WHITE, text_color=DARK, border_color=color, font_size='13', align='left')
+        x = 40 + size / 2 + i * (size + gap)
+        add_circle(board_id, label[:20], x=x, y=y, size=size, fill=color)
+        add_text(board_id, sublabel, x=x, y=y + size / 2 + 30,
+                 w=size + 40, font_size=13, color=GRAY)
 
-    if topic.get('callout'):
-        board_callout(board_id, topic['callout'], cx=total_w / 2, y=y_circle + size / 2 + 275)
-
-    print(f"  → problems: {n} circles built")
+    print(f"  → problems: {n} circles")
 
 
 def build_steps(board_id, topic):
-    """Numbered circles same color, connected by arrows — good for how-tos and checklists."""
+    """Numbered blue circles, connected by arrows — for how-tos and checklists."""
     slides = topic['slides']
     n = len(slides)
-    size = 210
-    gap = 60
-    spacing = size + gap
-    total_w = n * size + (n - 1) * gap + 100
+    size = 220
+    gap = 65
+    total_w = n * size + (n - 1) * gap + 80
 
     board_header(board_id, topic['title'], total_w)
 
-    y_circle = 280
-    circle_ids = []
-    for i, (label, detail) in enumerate(slides):
-        x = 50 + size / 2 + i * spacing
+    y = 300
+    ids = []
+    for i, (label, sublabel) in enumerate(slides):
+        x = 40 + size / 2 + i * (size + gap)
         num = f'0{i+1}' if i + 1 < 10 else str(i + 1)
-        shape = add_circle(board_id, num, x=x, y=y_circle, size=size, fill=STEP_COLOR)
-        circle_ids.append(shape['id'])
-        add_text(board_id, label, x=x, y=y_circle + size / 2 + 28,
-                 w=size + 30, font_size=13, color=DARK, bold=True)
-        add_text(board_id, detail, x=x, y=y_circle + size / 2 + 60,
-                 w=size + 40, font_size=12, color=GRAY)
+        shape = add_circle(board_id, f'{num}\n{label[:18]}', x=x, y=y, size=size, fill=STEP_COLOR)
+        ids.append(shape['id'])
+        add_text(board_id, sublabel, x=x, y=y + size / 2 + 30,
+                 w=size + 40, font_size=13, color=GRAY)
 
-    for i in range(len(circle_ids) - 1):
-        add_arrow(board_id, circle_ids[i], circle_ids[i + 1], color='#94a3b8')
+    for i in range(len(ids) - 1):
+        add_arrow(board_id, ids[i], ids[i + 1])
 
-    if topic.get('callout'):
-        board_callout(board_id, topic['callout'], cx=total_w / 2, y=y_circle + size / 2 + 130)
-
-    print(f"  → steps: {n} circles built")
+    print(f"  → steps: {n} circles")
 
 
 def build_comparison(board_id, topic):
-    """Two large circles side by side — left=bad/before (red), right=good/after (green)."""
+    """Two large circles with VS between them — for before/after, bad vs good."""
     slides = topic['slides']
-    left_label, left_detail = slides[0]
-    right_label, right_detail = slides[1]
+    left_label, left_sub = slides[0]
+    right_label, right_sub = slides[1]
 
-    size = 280
-    gap = 160  # space for VS label in center
-    total_w = size * 2 + gap + 200
+    size = 300
+    gap = 180
+    total_w = size * 2 + gap + 120
 
     board_header(board_id, topic['title'], total_w)
 
-    y_circle = 270
-    lx = 100 + size / 2
-    rx = total_w - 100 - size / 2
+    y = 300
+    lx = 60 + size / 2
+    rx = total_w - 60 - size / 2
 
-    add_circle(board_id, left_label[:18], x=lx, y=y_circle, size=size, fill=COMP_LEFT)
-    add_circle(board_id, right_label[:18], x=rx, y=y_circle, size=size, fill=COMP_RIGHT)
+    add_circle(board_id, left_label[:20], x=lx, y=y, size=size, fill=COMP_LEFT)
+    add_circle(board_id, right_label[:20], x=rx, y=y, size=size, fill=COMP_RIGHT)
 
-    # VS label in center
-    add_text(board_id, 'VS', x=total_w / 2, y=y_circle,
-             w=80, font_size=32, color='#94a3b8', bold=True)
+    add_text(board_id, 'VS', x=total_w / 2, y=y, w=100,
+             font_size=36, color='#94a3b8', bold=True)
 
-    # Detail boxes below each circle
-    add_rect(board_id, left_detail, x=lx, y=y_circle + size / 2 + 120,
-             w=size + 80, h=130, fill=WHITE, text_color=DARK, border_color=COMP_LEFT,
-             font_size='13', align='left')
-    add_rect(board_id, right_detail, x=rx, y=y_circle + size / 2 + 120,
-             w=size + 80, h=130, fill=WHITE, text_color=DARK, border_color=COMP_RIGHT,
-             font_size='13', align='left')
+    add_text(board_id, left_sub, x=lx, y=y + size / 2 + 35,
+             w=size + 60, font_size=13, color=GRAY)
+    add_text(board_id, right_sub, x=rx, y=y + size / 2 + 35,
+             w=size + 60, font_size=13, color=GRAY)
 
     if topic.get('formula'):
-        add_text(board_id, topic['formula'], x=total_w / 2, y=y_circle + size / 2 + 70,
-                 w=500, font_size=15, color=DARK, bold=True)
+        add_text(board_id, topic['formula'], x=total_w / 2, y=y + size / 2 + 100,
+                 w=600, font_size=16, color=DARK, bold=True)
 
-    if topic.get('callout'):
-        board_callout(board_id, topic['callout'], cx=total_w / 2, y=y_circle + size / 2 + 290)
-
-    print(f"  → comparison: 2 circles built")
+    print(f"  → comparison: 2 circles")
 
 
 def build_case_study(board_id, topic):
-    """Rising bar chart — good for weekly results and metric progressions."""
+    """Rising bar chart — for client results and weekly metric progressions."""
     slides = topic['slides']
     n = len(slides)
-    bar_w = 200
+    bar_w = 180
     gap = 50
-    spacing = bar_w + gap
-    # Bar heights increase left to right
-    min_h, max_h = 120, 380
-    step = (max_h - min_h) / max(n - 1, 1)
-    heights = [int(min_h + i * step) for i in range(n)]
+    min_h, max_h = 100, 360
+    step_h = (max_h - min_h) / max(n - 1, 1)
+    heights = [int(min_h + i * step_h) for i in range(n)]
 
-    total_w = n * bar_w + (n - 1) * gap + 120
-    ground_y = 520  # y of the bottom of the tallest bar
+    total_w = n * bar_w + (n - 1) * gap + 100
+    ground_y = 480
 
     board_header(board_id, topic['title'], total_w)
 
     for i, (label, detail) in enumerate(slides):
         color = CASE_COLORS[i % len(CASE_COLORS)]
         h = heights[i]
-        x = 60 + bar_w / 2 + i * spacing
-        bar_top_y = ground_y - h
-
-        # The bar (rectangle)
-        add_rect(board_id, '', x=x, y=bar_top_y + h / 2, w=bar_w, h=h,
-                 fill=color, font_size='13')
-
-        # Label inside bar (at top of bar if tall enough)
-        if h > 80:
-            add_text(board_id, label, x=x, y=bar_top_y + 30,
-                     w=bar_w - 10, font_size=14, color=WHITE, bold=True)
-
-        # Detail text below bar
+        x = 50 + bar_w / 2 + i * (bar_w + gap)
+        top_y = ground_y - h
+        add_bar(board_id, x=x, y=top_y + h / 2, w=bar_w, h=h, fill=color)
+        # Phase label above bar
+        add_text(board_id, label, x=x, y=top_y - 30,
+                 w=bar_w + 20, font_size=14, color=DARK, bold=True)
+        # Metric detail below bar
         add_text(board_id, detail, x=x, y=ground_y + 30,
-                 w=bar_w + 20, font_size=12, color=GRAY)
+                 w=bar_w + 30, font_size=12, color=GRAY)
 
-    if topic.get('callout'):
-        board_callout(board_id, topic['callout'], cx=total_w / 2, y=ground_y + 110)
-
-    print(f"  → case_study: {n} bars built")
+    print(f"  → case_study: {n} bars")
 
 
 LAYOUT_BUILDERS = {
