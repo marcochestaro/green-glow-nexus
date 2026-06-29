@@ -1,6 +1,22 @@
 {
-  "updated": "2026-06-29T18:15:45Z",
-  "updated_display": "Jun 29, 2026 at 18:15 UTC",
-  "boards": [],
-  "used_titles": []
+  "updated": "2026-06-29T00:00:00Z",
+  "updated_display": "Jun 29, 2026",
+  "boards": [
+    {
+      "title": "The ROI Math Behind a Profitable Meta Campaign",
+      "board_id": "uXjVHA5J9MY=",
+      "url": "https://miro.com/app/board/uXjVHA5J9MY=/",
+      "created": "2026-06-29T00:00:00Z"
+    },
+    {
+      "title": "Why Your Ad Spend Feels Wasted (And How to Fix It)",
+      "board_id": "uXjVHA4hxIY=",
+      "url": "https://miro.com/app/board/uXjVHA4hxIY=/",
+      "created": "2026-06-29T00:00:00Z"
+    }
+  ],
+  "used_titles": [
+    "The ROI Math Behind a Profitable Meta Campaign",
+    "Why Your Ad Spend Feels Wasted (And How to Fix It)"
+  ]
 }
