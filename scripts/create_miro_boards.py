@@ -507,29 +507,133 @@ def get_team_id():
                     return teams[0]['id']
     return None
 
-def create_board(title):
-    payload = {
-        "name": title,
-        "description": "Weekly carousel — @marcomarkets",
-    }
-    team_id = get_team_id()
-    if team_id:
-        payload["teamId"] = team_id
-    r = requests.post(f'{API}/boards', headers=HEADERS, json=payload, timeout=20)
-    r.raise_for_status()
+# Visual layout constants — Instagram square card proportions
+CARD_W = 640
+CARD_H = 640
+CARD_GAP = 60
+
+# Dark-themed slide styles: (fill, text, accent border/label)
+SLIDE_STYLES = [
+    ('#0d1117', '#ffffff', '#3b82f6'),   # Hook: dark bg, blue accent
+    ('#0f172a', '#e2e8f0', '#60a5fa'),   # Point 1: slate, light blue
+    ('#0f172a', '#e2e8f0', '#34d399'),   # Point 2: slate, green
+    ('#0f172a', '#e2e8f0', '#f59e0b'),   # Point 3: slate, amber
+    ('#0d1117', '#ffffff', '#3b82f6'),   # Close: back to dark + blue
+]
+
+
+def api_post(path, payload):
+    r = requests.post(f'{API}{path}', headers=HEADERS, json=payload, timeout=30)
+    if not r.ok:
+        print(f"  API error {r.status_code} on {path}: {r.text[:300]}")
+        r.raise_for_status()
     return r.json()
 
 
-def add_slide_doc(board_id, slides):
-    content = ""
-    for i, (heading, body) in enumerate(slides, 1):
-        content += f"## Slide {i}\n**{heading}**\n\n{body}\n\n---\n\n"
-    r = requests.post(f'{API}/boards/{board_id}/documents', headers=HEADERS, json={
-        "data": {"content": content, "type": "text"},
-        "style": {"textAlign": "left"},
-        "position": {"x": 0, "y": 0},
-        "geometry": {"width": 800},
-    }, timeout=20)
+def add_shape(board_id, content, x, y, fill, text_color, border_color):
+    return api_post(f'/boards/{board_id}/shapes', {
+        'data': {'shape': 'rectangle', 'content': content},
+        'style': {
+            'fillColor': fill,
+            'fontColor': text_color,
+            'borderColor': border_color,
+            'borderWidth': '3',
+            'textAlign': 'left',
+            'textAlignVertical': 'top',
+            'fontSize': '18',
+            'borderOpacity': '1',
+            'fillOpacity': '1',
+        },
+        'position': {'x': x, 'y': y, 'origin': 'center'},
+        'geometry': {'width': CARD_W, 'height': CARD_H},
+    })
+
+
+def add_label(board_id, content, x, y, width, font_size, color, bold=False):
+    return api_post(f'/boards/{board_id}/texts', {
+        'data': {'content': f'<strong>{content}</strong>' if bold else content},
+        'style': {
+            'color': color,
+            'fontSize': str(font_size),
+            'textAlign': 'left',
+        },
+        'position': {'x': x, 'y': y, 'origin': 'center'},
+        'geometry': {'width': width},
+    })
+
+
+def add_connector(board_id, from_id, to_id, color='#475569'):
+    try:
+        api_post(f'/boards/{board_id}/connectors', {
+            'startItem': {'id': from_id, 'snapTo': 'right'},
+            'endItem': {'id': to_id, 'snapTo': 'left'},
+            'style': {
+                'strokeColor': color,
+                'strokeWidth': '2',
+                'endStrokeCap': 'filled_triangle',
+                'startStrokeCap': 'none',
+                'strokeStyle': 'normal',
+            },
+        })
+    except Exception as e:
+        print(f"  Connector skipped (non-fatal): {e}")
+
+
+def build_visual_board(board_id, topic):
+    """Create a visual carousel layout: slides side-by-side with arrows."""
+    slides = topic['slides']
+    title = topic['title']
+
+    total_w = len(slides) * CARD_W + (len(slides) - 1) * CARD_GAP
+    start_x = CARD_W / 2
+
+    # Board title above the cards
+    add_label(board_id, title,
+              x=total_w / 2, y=-90, width=total_w,
+              font_size=26, color='#0f172a', bold=True)
+
+    # Handle tag below title
+    add_label(board_id, '@marcomarkets',
+              x=total_w / 2, y=-55, width=total_w,
+              font_size=15, color='#64748b')
+
+    card_ids = []
+    for i, (heading, body) in enumerate(slides):
+        fill, text_col, accent = SLIDE_STYLES[min(i, len(SLIDE_STYLES) - 1)]
+        x = start_x + i * (CARD_W + CARD_GAP)
+        y = CARD_H / 2
+
+        slide_num = f'0{i+1}' if i + 1 < 10 else str(i + 1)
+        # HTML content inside the card
+        content = (
+            f'<p><strong>{slide_num}</strong></p>'
+            f'<p> </p>'
+            f'<p><strong>{heading}</strong></p>'
+            f'<p> </p>'
+            f'<p>{body}</p>'
+        )
+
+        shape = add_shape(board_id, content,
+                          x=x, y=y,
+                          fill=fill, text_color=text_col, border_color=accent)
+        card_ids.append(shape['id'])
+
+    # Connect cards left → right with arrows
+    for i in range(len(card_ids) - 1):
+        add_connector(board_id, card_ids[i], card_ids[i + 1], color='#94a3b8')
+
+    print(f"  → {len(slides)} cards + {len(card_ids)-1} connectors built")
+
+
+def create_board(title):
+    payload = {
+        'name': title,
+        'description': 'Weekly carousel — @marcomarkets',
+    }
+    team_id = get_team_id()
+    if team_id:
+        payload['teamId'] = team_id
+    r = requests.post(f'{API}/boards', headers=HEADERS, json=payload, timeout=20)
     r.raise_for_status()
     return r.json()
 
@@ -541,13 +645,12 @@ def main():
 
     used_titles, existing_boards = load_used_topics()
 
-    # Pick topics not yet used — never repeats, never resets
     available = [t for t in CAROUSEL_TOPICS if t['title'] not in used_titles]
     if not available:
         print("All carousel topics have been used. Add new topics to CAROUSEL_TOPICS to continue.")
         return
-    if len(available) < 3:
-        print(f"Only {len(available)} topic(s) left in pool — using what's available.")
+    if len(available) < 2:
+        print(f"Only {len(available)} topic(s) left — using what's available.")
 
     this_week = available[:2]
     new_boards = list(existing_boards)
@@ -559,19 +662,17 @@ def main():
             board = create_board(topic['title'])
             board_id = board['id']
             view_link = board.get('viewLink', f"https://miro.com/app/board/{board_id}/")
-            add_slide_doc(board_id, topic['slides'])
+            build_visual_board(board_id, topic)
             new_boards.append({
-                "title": topic['title'],
-                "board_id": board_id,
-                "url": view_link,
-                "created": datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+                'title': topic['title'],
+                'board_id': board_id,
+                'url': view_link,
+                'created': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
             })
             newly_used.append(topic['title'])
             print(f"  → {view_link}")
         except Exception as e:
             print(f"  Error creating board: {e}")
-            if hasattr(e, 'response') and e.response is not None:
-                print(f"  Response body: {e.response.text}")
 
     save_boards(new_boards, newly_used)
     print(f"Done. {len(this_week)} boards created.")
