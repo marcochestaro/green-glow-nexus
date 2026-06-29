@@ -38,7 +38,8 @@ Every rule below applies permanently. Never break these without Marco explicitly
 - Conversational but sharp. Never stiff. Never salesy.
 - Never use "tradies" — say "service business owners", "business owners", or name the trade directly.
 - Scripts are for Instagram and TikTok.
-- **Majority Talking Head** — most weeks should be 4-5 Talking Head, 1 Screen Record, 1 Carousel.
+- **No Carousel** — only Talking Head and Screen Record. Most weeks: 6 Talking Head, 1 Screen Record.
+- **No specific dollar amounts** like "$25/day" — don't position Marco's service as cheap. Talk about ad spend in general terms or focus on results/ratios.
 
 ### Script lines
 - Strong hook first (3–5s), real value in the middle, clean close.
