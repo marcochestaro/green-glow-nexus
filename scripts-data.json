@@ -1,28 +1,28 @@
 {
-  "generated": "2026-06-29T01:46:56Z",
-  "generated_display": "Jun 29, 2026 at 01:46 UTC",
+  "generated": "2026-06-29T01:57:56Z",
+  "generated_display": "Jun 29, 2026 at 01:57 UTC",
   "week_of": "2026-07-06",
   "week_of_display": "Jul 06, 2026",
   "scripts": [
     {
-      "title": "How a plumber cut CPL from $120 to $38",
-      "overlay": "Marco Markets",
+      "title": "Why Your Meta Ads Aren't Getting Leads",
+      "overlay": "text",
       "recCap": 0,
       "recVer": "full",
       "type": "Talking Head",
-      "film": "Film in natural light, sitting at a desk or casual setup. Look directly at camera. Lean in slightly when delivering the hook and the specific numbers \u2014 make it feel like you're sharing insider info with a friend.",
+      "film": "Film Marco sitting at a desk or casual setup, direct eye contact with camera. Natural lighting. Relaxed posture. Let him gesture naturally when explaining each mistake \u2014 feel conversational, not scripted.",
       "captions": [
         {
           "label": "A",
-          "text": "most plumbers are bidding on every single keyword. that's the problem."
+          "text": "most service business owners are making one of these three mistakes. check which one is killing your leads"
         },
         {
           "label": "B",
-          "text": "most plumbers bid on every keyword and burn through budget fast. narrow your focus, quality beats volume every time."
+          "text": "your ad might be fine. but if you're running it to the wrong audience or sending them somewhere confusing, you won't get leads. here are the three biggest killers"
         },
         {
           "label": "C",
-          "text": "stop chasing every lead. chase the right ones."
+          "text": "bad targeting, bad landing page, bad follow-up. pick one and fix it"
         }
       ],
       "lines": [
@@ -30,53 +30,53 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "This plumber was spending a hundred and twenty dollars per lead. Then we cut it to thirty-eight. Here's what changed."
+          "text": "So you're running Meta ads, spending twenty-five bucks a day, and getting nothing. Let me tell you the three mistakes that are probably killing your leads right now."
         },
         {
           "time": "Point 1",
           "tag": "8s",
           "cls": "",
-          "text": "He was bidding on everything. Water heater installs, burst pipes, drain cleaning, emergency calls, routine maintenance \u2014 all of it. Wide net, but it was eating his budget alive."
+          "text": "First one \u2014 you're targeting too broad. You're saying yes to every homeowner in a fifty-mile radius. But you only service a specific area, right? Tighten that radius. Target people who are actually close enough to call you. Waste of money otherwise."
         },
         {
           "time": "Point 2",
           "tag": "8s",
           "cls": "",
-          "text": "We pulled back and only targeted emergency plumbing in his service area. Fewer leads, but way higher quality. People calling with burst pipes or no hot water are ready to hire. They're not shopping around."
+          "text": "Second \u2014 your landing page is confusing. They click your ad and end up somewhere that doesn't match what the ad promised. Or there's friction. Too many steps. No clear way to book or call. People bounce. Make it dead simple \u2014 one goal, one button, clear next step."
         },
         {
           "time": "Point 3",
           "tag": "8s",
           "cls": "",
-          "text": "We tightened his location radius too. Staying local means faster response times, better reviews, repeat work. His ads started converting way better because he was reaching the right person, in the right place, at the right moment."
+          "text": "Third \u2014 you're not following up. Someone fills out a form or calls and you ghost them. Or you take six hours to respond. These businesses move fast. Respond in minutes, not hours. That's the difference between a lead and a lost opportunity."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "Quality beats volume every single time. When you're running ads at twenty-five bucks a day, precision matters more than reach."
+          "text": "Fix any one of these and you'll see a shift. It's usually not the ad \u2014 it's where it's going or what happens after."
         }
       ]
     },
     {
-      "title": "Why 'professional and reliable' kills your ads",
+      "title": "The offer that makes people actually call",
       "overlay": null,
       "recCap": 0,
       "recVer": "full",
       "type": "Screen Record",
-      "film": "Screen record Meta Ads Manager showing an ad creative with generic copy like 'professional and reliable service' \u2014 highlight the text as you talk. Then show a contrasting ad with specific benefit copy. Keep it slow and clear so people can read what you're pointing at.",
+      "film": "Screen record yourself in Meta Ads Manager, navigating to an ad creative or draft. Show the ad copy section clearly. Point to different parts of the offer as you talk through them. Keep it relaxed \u2014 this is a walkthrough, not a presentation.",
       "captions": [
         {
           "label": "A",
-          "text": "every plumber and window cleaner says the same thing. nobody cares."
+          "text": "your offer needs to answer one question: why would i pick up the phone right now instead of next week?"
         },
         {
           "label": "B",
-          "text": "\"professional and reliable\" is what you say when you have nothing specific to say. your customer doesn't remember it. they remember the one who solves their actual problem."
+          "text": "most service business owners write offers that are too generic. show the specific result, the timeline, and remove the friction to call. that's the difference between okay and calls."
         },
         {
           "label": "C",
-          "text": "generic words = generic results"
+          "text": "people don't call because your service is good. they call because your offer makes it easy."
         }
       ],
       "lines": [
@@ -84,53 +84,53 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "I see this in like 90% of service business ads and it's costing you leads. Watch."
+          "text": "Most offers sound the same. Here's what actually makes someone pick up the phone."
         },
         {
           "time": "Point 1",
           "tag": "8s",
           "cls": "",
-          "text": "Every plumber, every window cleaner, every HVAC guy is saying 'professional and reliable.' Your customer has heard it a thousand times. It means nothing."
+          "text": "First thing \u2014 stop saying 'call for a free estimate.' Everyone says that. Instead, tell them what they're getting and when. Like 'Free inspection today, same-day quote.' That's specific. That's a real reason to call now."
         },
         {
           "time": "Point 2",
           "tag": "8s",
           "cls": "",
-          "text": "What actually works is being specific about what you solve. Like 'Burst pipes fixed same day' or 'Gutters cleaned, no mess left behind.' That's the thing they actually care about."
+          "text": "Second thing \u2014 address the friction. People delay because they're thinking 'this will take forever' or 'it'll be expensive.' Your offer should answer that. Something like 'Most jobs scheduled within 48 hours' or 'Fixed pricing, no surprises.' That removes the doubt."
         },
         {
           "time": "Point 3",
           "tag": "8s",
           "cls": "",
-          "text": "Generic words blend in with everyone else. Specific words make people stop and think 'wait, that's exactly what I need.' That's the ad that gets the call."
+          "text": "And third \u2014 make the call easy. Not just 'call now.' Give them one number, one way to reach you. Remove the options. Simplicity wins."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "Say what you actually do, not what you think you should say. Big difference in your results."
+          "text": "An offer that works isn't about being clever. It's about being clear and honest about what they get and why today matters."
         }
       ]
     },
     {
-      "title": "What $25/day actually looks like after 30 days",
-      "overlay": "text overlay with key numbers from the script",
+      "title": "What $25/day actually gets you",
+      "overlay": "text",
       "recCap": 0,
       "recVer": "full",
       "type": "Talking Head",
-      "film": "Film sitting down, casual setup (kitchen or office chair works). Look at camera like you're explaining to a friend. Have a notepad or phone visible but don't read from it \u2014 just glance if you need to remember numbers. Natural lighting, no dramatic angles.",
+      "film": "Film Marco sitting or standing casually, well-lit face, direct eye contact. Relaxed energy \u2014 like he's explaining this to a friend over coffee. No graphics needed; his confidence in the numbers is the hook.",
       "captions": [
         {
           "label": "A",
-          "text": "30 days. $750 spent. real numbers from a plumbing account"
+          "text": "$25/day isn't tiny. it's actually enough to get real results if you know how to set it up."
         },
         {
           "label": "B",
-          "text": "everyone wants to know what $25/day actually generates. here's what we saw in month one: 18 qualified leads, 4 booked jobs, $3,200 in revenue"
+          "text": "$25/day = roughly 750 impressions + 15-25 clicks + 2-4 qualified leads per month. depends on your area and offer, but that's the ballpark for most service businesses."
         },
         {
           "label": "C",
-          "text": "small budget doesn't mean small results \u2014 it means being precise"
+          "text": "small budgets work. you just need the right structure."
         }
       ],
       "lines": [
@@ -138,53 +138,53 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "So everyone asks me \u2014 what does a $25 a day ad account actually look like after a month? Like, real numbers. And I'm gonna show you."
+          "text": "so everyone asks me \u2014 what does $25 a day actually get you? and the answer is way more than people think."
         },
         {
           "time": "Point 1",
           "tag": "8s",
           "cls": "",
-          "text": "We ran this for a plumber. Thirty days, $750 total spend. And we got 18 qualified leads that came through from the ads. Not random clicks \u2014 actual people needing service."
+          "text": "on $25 a day, you're looking at around 750 impressions per month. that's people seeing your ad. from that, you get maybe 15 to 25 clicks depending on how tight your targeting is."
         },
         {
           "time": "Point 2",
           "tag": "8s",
           "cls": "",
-          "text": "Out of those 18, he booked 4 jobs. Four actual appointments where the customer showed up. That's about $3,200 in revenue from a $750 spend. So the math works."
+          "text": "and here's the real number \u2014 2 to 4 qualified leads per month. could be more if you're a plumber in a busy area, could be less if you're competing in a saturated market. but that's the real-world range."
         },
         {
           "time": "Point 3",
           "tag": "8s",
           "cls": "",
-          "text": "But here's what matters more \u2014 month two was better. Because we weren't guessing. We knew what worked, and we scaled it. That's what happens when you actually let an account run and optimize."
+          "text": "the key is you're not throwing it at a wide audience. you're being surgical with location, service type, and audience fit. that's why the leads actually matter."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "Small budget doesn't mean small results. It just means you have to be really, really precise with who you're talking to."
+          "text": "people think small budgets can't work. but if you set it up right, $25 a day is legit."
         }
       ]
     },
     {
-      "title": "why broad audiences kill local ad results",
+      "title": "Referrals are keeping you stuck",
       "overlay": null,
       "recCap": 0,
       "recVer": "full",
       "type": "Carousel",
-      "film": "Film at desk or standing in front of a simple background. Show Meta Ads Manager on screen if possible \u2014 walk through audience settings. Keep it conversational, like you're explaining this to a friend over coffee. Speak directly to camera between slides.",
+      "film": "Film yourself at your desk or standing casually. Speak directly to camera. Each slide should show the bold text clearly on dark background \u2014 let the words do the work while you deliver the message naturally.",
       "captions": [
         {
           "label": "A",
-          "text": "broad audiences = wasted budget for local service businesses. your best customer is hyper-specific."
+          "text": "referrals feel safe but they're capping your growth. here's why."
         },
         {
           "label": "B",
-          "text": "if you're a plumber in atlanta, targeting everyone within 50 miles who owns a home is too loose. you need intent + location + actual problem. that's how $25/day becomes 5 leads, not zero."
+          "text": "your friends know like 20 people. meta knows millions. that's the difference between staying small and scaling."
         },
         {
           "label": "C",
-          "text": "specificity beats scale in local services. always."
+          "text": "referrals = limited pipeline. ads = predictable pipeline."
         }
       ],
       "lines": [
@@ -192,119 +192,53 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "most service business owners are throwing away budget on broad audiences. here's why that doesn't work."
-        },
-        {
-          "time": "Slide 1",
-          "tag": "8s",
-          "cls": "",
-          "text": "broad audience = everyone in your radius. that's homeowners, renters, business owners, people who never call plumbers. Meta's guessing who needs you."
-        },
-        {
-          "time": "Slide 2",
-          "tag": "8s",
-          "cls": "",
-          "text": "your actual customer is specific. they own a home, they have a water issue right now, they live three miles from your service area, and they're actively looking for help."
-        },
-        {
-          "time": "Slide 3",
-          "tag": "8s",
-          "cls": "",
-          "text": "tight audience = less waste. when you narrow down location, homeowner status, and behavior, your $25 a day hits people who actually convert."
-        },
-        {
-          "time": "Slide 4",
-          "tag": "8s",
-          "cls": "",
-          "text": "broad = low intent. specific = ready to book. Meta's algorithm gets better faster when you give it a real target, not everyone."
-        },
-        {
-          "time": "Slide 5",
-          "tag": "8s",
-          "cls": "",
-          "text": "Slide: 'Stop guessing. Start converting.'"
-        },
-        {
-          "time": "Close",
-          "tag": "5s",
-          "cls": "",
-          "text": "specificity beats scale every time in local services. narrow beats broad."
-        }
-      ]
-    },
-    {
-      "title": "Why retargeting is your cheapest lead source",
-      "overlay": null,
-      "recCap": 0,
-      "recVer": "full",
-      "type": "Talking Head",
-      "film": "Film in your office or workspace, sitting down, relaxed. Look at camera like you're explaining this to a friend. Maybe gesture with hands when you say 'people who've already seen you' \u2014 make it visual and conversational.",
-      "captions": [
-        {
-          "label": "A",
-          "text": "retargeting is literally just showing your ads to people who already know you exist"
-        },
-        {
-          "label": "B",
-          "text": "most service business owners ignore retargeting then wonder why their cold traffic costs so much. the cheapest leads are the ones who've already visited you."
-        },
-        {
-          "label": "C",
-          "text": "people who've seen you once are way cheaper to convert than strangers"
-        }
-      ],
-      "lines": [
-        {
-          "time": "Hook",
-          "tag": "5s",
-          "cls": "hook",
-          "text": "If you're spending all your budget on cold traffic, you're leaving your cheapest leads on the table."
+          "text": "So you're waiting for referrals to come in. That's actually holding you back."
         },
         {
           "time": "Point 1",
           "tag": "8s",
           "cls": "",
-          "text": "Retargeting is just showing ads to people who've already visited your website or seen your content. They know you exist. That's huge."
+          "text": "Referrals are based on how many people your customers know. That's a tiny pool. You're competing for scraps with everyone else hoping the phone rings."
         },
         {
           "time": "Point 2",
           "tag": "8s",
           "cls": "",
-          "text": "A cold lead might cost you five, ten bucks to convert. Someone who's already checked you out? Two or three bucks. Sometimes less. The trust is already there."
+          "text": "The real problem is you have no control. You're at the mercy of word of mouth. One bad month, zero referrals. No strategy, no consistency."
         },
         {
           "time": "Point 3",
           "tag": "8s",
           "cls": "",
-          "text": "Most service business owners don't even set it up. They run cold traffic, get tired of the cost, and quit. Retargeting changes the entire game."
+          "text": "With ads, you're reaching thousands of people actually searching for your service right now. You're not waiting. You're actively getting in front of people ready to hire."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "Start small with retargeting and watch your cost per lead drop. Your best customers are always the ones who've already found you."
+          "text": "Referrals plus ads means consistent leads and a business that doesn't depend on luck."
         }
       ]
     },
     {
-      "title": "Why service businesses win on Meta ads",
-      "overlay": null,
+      "title": "How a plumber cut his cost per lead to $38",
+      "overlay": "text overlay with key stat or hook phrase",
       "recCap": 0,
       "recVer": "full",
       "type": "Talking Head",
-      "film": "Film in your workspace or home office, natural lighting, directly facing camera. Lean in slightly when delivering the hook \u2014 make it feel like you're telling them something they need to hear. Stay still and confident through the middle points.",
+      "film": "Film Marco sitting down, casual setup (kitchen or home office works), looking directly at camera. Relaxed but engaged. Let him gesture naturally when explaining the three changes.",
       "captions": [
         {
           "label": "A",
-          "text": "service businesses have a built-in advantage on meta most people don't talk about"
+          "text": "his first mistake was targeting too wide. then everything changed."
         },
         {
           "label": "B",
-          "text": "if you run a plumbing, hvac, or detailing business \u2014 meta ads hit different than other niches. here's why"
+          "text": "most plumbers waste money on broad targeting. this guy narrowed his radius, tightened his keywords, and killed his cpl. here's what shifted."
         },
         {
           "label": "C",
-          "text": "your customers are already looking to solve a problem right now \u2014 meta just connects the dots"
+          "text": "three changes dropped his cost per lead from $120 to $38."
         }
       ],
       "lines": [
@@ -312,53 +246,53 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "service businesses are actually in the best position to crush Meta ads \u2014 and most of you don't even realize it"
+          "text": "This plumber was spending $120 for every lead. Then he made three changes and cut it down to $38. Let me show you what he actually did."
         },
         {
           "time": "Point 1",
           "tag": "8s",
           "cls": "",
-          "text": "when someone's water heater breaks at 2 AM, they're not thinking about price comparison \u2014 they need a plumber now. that's intent. your customer is already motivated to buy"
+          "text": "First thing \u2014 he stopped targeting the entire city. He narrowed it down to three neighborhoods where his average job value was highest. People in those areas booked faster and had bigger jobs."
         },
         {
           "time": "Point 2",
           "tag": "8s",
           "cls": "",
-          "text": "e-commerce and other niches? they're fighting to create desire. they're trying to convince people they need something. you? your customers already know they need you \u2014 Meta just puts you in front of them at the right moment"
+          "text": "Second, he tightened his ad copy to be super specific. Instead of 'plumbing services,' he was saying 'emergency leak repair under $500' or 'water heater replacement same day.' His click-through rate went up, his wasted clicks went down."
         },
         {
           "time": "Point 3",
           "tag": "8s",
           "cls": "",
-          "text": "that's why $25 a day works so well for window cleaners, detailers, landscapers. you're not trying to convince anyone. you're just being there when they're actively searching for a solution"
+          "text": "Third \u2014 and this one matters \u2014 he tested his landing page. Simple stuff. Phone number bigger, form simpler, and one clear call to action. More people actually contacted him from the same traffic."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "stop thinking of your business like you're competing with everyone else \u2014 you're not. you're solving an immediate problem. that's a different game entirely"
+          "text": "The math is simple: smarter targeting, better messaging, cleaner funnel. That's how you drop your cost per lead without increasing your budget."
         }
       ]
     },
     {
-      "title": "The hook formula that works for service ads",
-      "overlay": null,
+      "title": "Why service businesses win with Meta ads",
+      "overlay": "Marco Markets",
       "recCap": 0,
       "recVer": "full",
       "type": "Talking Head",
-      "film": "Film in natural light, sitting or standing casually. Look directly at camera. Lean in slightly during the hook. Use hand gestures when explaining the three parts of the formula \u2014 keep it natural and conversational.",
+      "film": "Film Marco sitting down, relaxed, direct eye contact. He's in a home office or casual space. Natural lighting. No background clutter. He leans in slightly when making key points \u2014 feels like a genuine conversation, not a presentation.",
       "captions": [
         {
           "label": "A",
-          "text": "every service ad needs these three things to stop the scroll"
+          "text": "service businesses have the easiest path to profitable ads on meta"
         },
         {
           "label": "B",
-          "text": "problem + proof + simple ask. use this formula and your ad works. ignore it and it doesn't."
+          "text": "here's why plumbers, cleaners, and detailers outperform other niches on meta:\n\n\u2014 local intent is built in\n\u2014 high customer lifetime value\n\u2014 short sales cycle\n\u2014 recurring revenue\n\nthat's the advantage"
         },
         {
           "label": "C",
-          "text": "the same hook formula works whether you're a plumber or a landscaper"
+          "text": "local intent + high ltv + short sales cycle = profitable ads"
         }
       ],
       "lines": [
@@ -366,31 +300,85 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "Most service business ads fail at the exact same place \u2014 the first three seconds. But there's a formula that literally works for every trade."
+          "text": "if you run a service business and you're not using Meta ads yet, you're actually sitting on the easiest path to consistent leads"
         },
         {
           "time": "Point 1",
           "tag": "8s",
           "cls": "",
-          "text": "First part: show the problem. Not some random problem \u2014 the one your customer actually has right now. A clogged drain. A dirty truck. Dead grass. Something real."
+          "text": "the person searching for a plumber or a window cleaner is already looking to hire someone right now. they're not browsing, they're not comparing a hundred options. they need the work done. that intent is already there."
         },
         {
           "time": "Point 2",
           "tag": "8s",
           "cls": "",
-          "text": "Second part: show proof it works. That's a before and after, a testimonial, or just you doing the work. Doesn't have to be fancy. Just proof that you actually fix the problem."
+          "text": "and because you're local, your customer lifetime value is insane compared to other businesses. one plumbing client calls you back for maintenance, for repairs, for emergencies. You're in their phone. That's recurring revenue."
         },
         {
           "time": "Point 3",
           "tag": "8s",
           "cls": "",
-          "text": "Third part: ask them to do one simple thing. Call you. Book a quote. Text you. Doesn't matter which \u2014 just make it stupid easy. No friction."
+          "text": "a detailer gets paid in days. a landscaper books jobs in the same week. Your sales cycle is short. Meta shows results fast. You don't have to wait three months to know if ads are working."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "Problem, proof, simple ask. That's it. Use that formula and your ad works for $25 a day. Every single time."
+          "text": "That combination \u2014 local intent, high lifetime value, and a short sales cycle \u2014 is exactly what makes Meta profitable for service businesses. You've already got the hard part figured out."
+        }
+      ]
+    },
+    {
+      "title": "Why ads actually do work for service businesses",
+      "overlay": null,
+      "recCap": 0,
+      "recVer": "full",
+      "type": "Talking Head",
+      "film": "Film Marco sitting down, relaxed, direct to camera in natural light. Lean in slightly when delivering the hook. Maintain eye contact throughout. Let him use his hands naturally when explaining the three points.",
+      "captions": [
+        {
+          "label": "A",
+          "text": "most service business owners tested ads wrong the first time"
+        },
+        {
+          "label": "B",
+          "text": "they think ads don't work because they set them up wrong. here's what actually fails: no clear offer, no local targeting, stopping after 2 weeks"
+        },
+        {
+          "label": "C",
+          "text": "ads work. you just gotta know what you're doing"
+        }
+      ],
+      "lines": [
+        {
+          "time": "Hook",
+          "tag": "5s",
+          "cls": "hook",
+          "text": "I talk to service business owners all the time who say ads don't work for them. And I get it \u2014 they tried it once, spent two hundred bucks, got nothing back, and decided it wasn't for them. But here's the thing: that's not because ads don't work. That's because something else went wrong."
+        },
+        {
+          "time": "Point 1",
+          "tag": "8s",
+          "cls": "",
+          "text": "Most of the time, it's the offer. You're running an ad with no clear reason for someone to call you right now. Like, a plumber just saying 'we do plumbing' isn't enough. But 'emergency plumbing, same-day service, no call-out fee' \u2014 that gets calls."
+        },
+        {
+          "time": "Point 2",
+          "tag": "8s",
+          "cls": "",
+          "text": "Second thing: targeting. You gotta be hitting the right area, the right distance from your business. If you're a window cleaner in Phoenix and your ads are showing up in Flagstaff, nothing's gonna happen. Local targeting isn't optional \u2014 it's everything."
+        },
+        {
+          "time": "Point 3",
+          "tag": "8s",
+          "cls": "",
+          "text": "And third \u2014 and this kills most people \u2014 they give up too fast. They'll run ads for a week, maybe two, see no results, and shut it down. But consistent $25 a day for a month? That's when you start seeing real leads come in."
+        },
+        {
+          "time": "Close",
+          "tag": "5s",
+          "cls": "",
+          "text": "Ads work. I've seen it happen a hundred times. You just gotta set them up right and actually let them run."
         }
       ]
     }
