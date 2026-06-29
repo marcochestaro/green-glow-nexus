@@ -387,7 +387,14 @@ section{margin-bottom:44px;scroll-margin-top:64px}
 
 <!-- THIS WEEK -->
 <section id="week">
-  <div class="sec-label">This Week — All 7 Posts</div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+    <div class="sec-label" style="margin-bottom:0">Scripts</div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <button id="week-nav-prev" onclick="changeViewWeek(-1)" style="background:var(--dim);border:none;color:#94a3b8;width:28px;height:28px;border-radius:6px;font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center">‹</button>
+      <div id="week-nav-label" style="font-size:.72rem;font-weight:600;color:#cbd5e1;white-space:nowrap">This Week</div>
+      <button id="week-nav-next" onclick="changeViewWeek(1)" style="background:var(--dim);border:none;color:#94a3b8;width:28px;height:28px;border-radius:6px;font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center">›</button>
+    </div>
+  </div>
   <div id="week-out"></div>
 </section>
 
@@ -717,22 +724,62 @@ function normaliseScripts(scripts){
   }));
 }
 
-let WEEK_LOADED=false;
+let ALL_WEEKS=[];   // [{week_of, week_of_display, scripts:[]}]
+let VIEW_WEEK_IDX=0; // which week we're viewing in the "This Week" section
+
+function getCurrentWeekIdx(){
+  if(!ALL_WEEKS.length)return 0;
+  const todayStr=new Date().toISOString().slice(0,10);
+  // Find the week whose Monday <= today < Monday+7
+  for(let i=ALL_WEEKS.length-1;i>=0;i--){
+    if(ALL_WEEKS[i].week_of<=todayStr)return i;
+  }
+  return 0;
+}
 
 async function loadScriptsData(){
   try{
     const r=await fetch('scripts-data.json?_='+Date.now());
     const d=await r.json();
-    if(!d.scripts||!d.scripts.length)return;
-    const norm=normaliseScripts(d.scripts);
-    WEEK.splice(0,WEEK.length,...norm);
-    WEEK_LOADED=true;
+    if(d.weeks&&d.weeks.length){
+      ALL_WEEKS=d.weeks.map(w=>({...w,scripts:normaliseScripts(w.scripts)}));
+    } else if(d.scripts&&d.scripts.length){
+      ALL_WEEKS=[{week_of:d.week_of||'',week_of_display:d.week_of_display||'This Week',scripts:normaliseScripts(d.scripts)}];
+    } else return;
+    VIEW_WEEK_IDX=getCurrentWeekIdx();
+    const curWeek=ALL_WEEKS[VIEW_WEEK_IDX];
+    WEEK.splice(0,WEEK.length,...curWeek.scripts);
     rebuildAll();
   }catch(e){}
 }
 
+function changeViewWeek(delta){
+  const next=VIEW_WEEK_IDX+delta;
+  if(next<0||next>=ALL_WEEKS.length)return;
+  VIEW_WEEK_IDX=next;
+  const w=ALL_WEEKS[VIEW_WEEK_IDX];
+  document.getElementById('week-out').innerHTML='';
+  buildWeekAccordionFrom(w.scripts,w.week_of);
+  updateWeekNav();
+}
+
+function updateWeekNav(){
+  const w=ALL_WEEKS[VIEW_WEEK_IDX];
+  const curIdx=getCurrentWeekIdx();
+  let label=w.week_of_display||w.week_of;
+  if(VIEW_WEEK_IDX===curIdx)label='This Week — '+label;
+  else if(VIEW_WEEK_IDX<curIdx)label='Previous — '+label;
+  else label='Next — '+label;
+  const lbl=document.getElementById('week-nav-label');
+  if(lbl)lbl.textContent=label;
+  const prev=document.getElementById('week-nav-prev');
+  const next=document.getElementById('week-nav-next');
+  if(prev)prev.style.opacity=VIEW_WEEK_IDX===0?'.3':'1';
+  if(next)next.style.opacity=VIEW_WEEK_IDX===ALL_WEEKS.length-1?'.3':'1';
+}
+
 function rebuildAll(){
-  // Rebuild week strip
+  // Rebuild week strip (Today tab — always current week)
   const wstrip=document.getElementById('wstrip');
   wstrip.innerHTML='';
   WEEK.forEach((d,i)=>{
@@ -744,10 +791,12 @@ function rebuildAll(){
     el.innerHTML='<div class="wday-n">'+DAYS[i]+'</div><div class="wday-d">'+dt.getDate()+'</div><div class="wday-t">'+d.type.split(' ')[0]+'</div>';
     wstrip.appendChild(el);
   });
-  // Rebuild week accordion
+  // Rebuild week accordion for viewed week
   const wo=document.getElementById('week-out');
   if(wo)wo.innerHTML='';
-  buildWeekAccordion();
+  const vw=ALL_WEEKS[VIEW_WEEK_IDX]||{scripts:WEEK,week_of:''};
+  buildWeekAccordionFrom(vw.scripts,vw.week_of);
+  updateWeekNav();
   renderToday(todayI);
   updProg();
 }
@@ -1034,19 +1083,22 @@ function toggleDone(i){
 }
 updProg();
 
-// This week accordion
-function buildWeekAccordion(){
+// Week accordion — accepts a scripts array + optional weekOf date string
+function buildWeekAccordionFrom(scripts, weekOf){
   const wo=document.getElementById('week-out');
   if(!wo)return;
-  WEEK.forEach((d,i)=>{
-    const dt=weekDate(i);
+  // Compute Monday date for this weekOf
+  let baseDate=weekOf?new Date(weekOf+'T00:00:00Z'):weekDate(0);
+  scripts.forEach((d,i)=>{
+    const dt=new Date(baseDate);
+    dt.setUTCDate(dt.getUTCDate()+i);
     const div=document.createElement('div');
     div.className='wk-card';
     const hookLine=d.lines.find(l=>l.cls==='hook')||d.lines[0];
     div.innerHTML=
       '<div class="wk-hdr" onclick="this.nextElementSibling.classList.toggle(\'open\')">'
       +'<div class="wk-hdr-info">'
-      +'<div class="wk-day">'+FULL_DAYS[i]+', '+MONTHS[dt.getMonth()]+' '+dt.getDate()+'</div>'
+      +'<div class="wk-day">'+FULL_DAYS[i]+', '+MONTHS[dt.getUTCMonth()]+' '+dt.getUTCDate()+'</div>'
       +'<div class="wk-title">'+d.title+'</div>'
       +(hookLine?'<div style="font-size:.72rem;color:#64748b;margin-top:5px;line-height:1.4;font-style:italic">"'+hookLine.text+'"</div>':'')
       +'</div>'
@@ -1071,7 +1123,7 @@ function buildWeekAccordion(){
     wo.appendChild(div);
   });
 }
-buildWeekAccordion();
+buildWeekAccordionFrom(WEEK,'');
 loadScriptsData();
 
 // Miro boards render
