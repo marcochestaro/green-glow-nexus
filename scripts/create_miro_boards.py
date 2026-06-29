@@ -252,13 +252,13 @@ CAROUSEL_TOPICS = [
         ]
     },
     {
-        "title": "The Gap Between Tradies and Marketing Agencies",
+        "title": "The Gap Between Service Businesses and Marketing Agencies",
         "slides": [
-            ("Most marketing agencies charge $1,500–$3,000/month.", "For a service business doing $10k/month, that's 15–30% of revenue. Brutal."),
-            ("And most agencies don't understand trade businesses.", "They run the same generic ads they'd run for a dentist or a gym."),
-            ("The gap is real.", "Tradies need someone who speaks their language and knows their numbers."),
+            ("Most marketing agencies don't understand service businesses.", "They run the same generic ads they'd run for a dentist, a gym, or an e-commerce brand."),
+            ("They don't speak the language.", "They don't know your job values, your close rates, or what a booked job is actually worth."),
+            ("The gap is real.", "Service business owners need someone who knows their numbers and has seen actual results in their niche."),
             ("What you actually need:", "A simple lead gen campaign. A follow-up system. A clear offer. That's it."),
-            ("You don't need an agency. You need a system.", "DM me ADS — I'll show you what that looks like for your trade."),
+            ("You don't need a big agency. You need the right system.", "DM me ADS — I'll show you what that looks like for your trade."),
         ]
     },
     # ── Client results ──────────────────────────────────────────────────────────

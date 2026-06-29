@@ -40,6 +40,7 @@ Every rule below applies permanently. Never break these without Marco explicitly
 - Scripts are for Instagram and TikTok.
 - **No Carousel** — only Talking Head and Screen Record. Most weeks: 5 Talking Head, 2 Screen Record.
 - **No specific dollar amounts** like "$25/day" — don't position Marco's service as cheap. Talk about ad spend in general terms or focus on results/ratios.
+- **Never mention pricing for Marco's service** — no monthly rates, no package prices, nothing about what Marco charges. Pure value only.
 
 ### Script lines
 - Strong hook first (3–5s), real value in the middle, clean close.
