@@ -3,20 +3,30 @@
   "updated_display": "Jun 29, 2026",
   "boards": [
     {
-      "title": "The ROI Math — Meta Ads for Service Businesses",
-      "board_id": "uXjVHA49cHM=",
-      "url": "https://miro.com/app/board/uXjVHA49cHM=/",
+      "title": "The ROI Math Behind a Profitable Meta Campaign",
+      "board_id": "uXjVHA4Y8p4=",
+      "url": "https://miro.com/app/board/uXjVHA4Y8p4=/",
+      "layout": "funnel",
       "created": "2026-06-29T00:00:00Z"
     },
     {
-      "title": "Why Your Ad Spend Feels Wasted",
-      "board_id": "uXjVHA4LMIg=",
-      "url": "https://miro.com/app/board/uXjVHA4LMIg=/",
+      "title": "Why Your Ad Spend Feels Wasted (And How to Fix It)",
+      "board_id": "uXjVHA4YnvA=",
+      "url": "https://miro.com/app/board/uXjVHA4YnvA=/",
+      "layout": "problems",
+      "created": "2026-06-29T00:00:00Z"
+    },
+    {
+      "title": "The 4 Elements of a Winning Local Ad",
+      "board_id": "uXjVHA4Y4Jg=",
+      "url": "https://miro.com/app/board/uXjVHA4Y4Jg=/",
+      "layout": "steps",
       "created": "2026-06-29T00:00:00Z"
     }
   ],
   "used_titles": [
     "The ROI Math Behind a Profitable Meta Campaign",
-    "Why Your Ad Spend Feels Wasted (And How to Fix It)"
+    "Why Your Ad Spend Feels Wasted (And How to Fix It)",
+    "The 4 Elements of a Winning Local Ad"
   ]
 }
