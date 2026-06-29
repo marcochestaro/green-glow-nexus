@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """
-Weekly Miro carousel board creator.
-Runs every Sunday alongside the script generator.
-Creates 3 new carousel boards from a rotating topic pool — no Claude API needed.
-Tracks created boards in dashboard/miro-boards.json to avoid repeats.
+Weekly Miro carousel board creator — topic-aware visual layouts.
+Same visual style (light gray bg, circles, labels, connectors, callout boxes)
+but layout adapts to the topic type so each board looks different.
 """
 
 import os, json, requests
@@ -19,457 +18,791 @@ HEADERS = {
     'Accept': 'application/json',
 }
 
-# 41 unique topics — pool exhausts before repeating. Add new topics when needed.
-# When the pool is fully exhausted the script flags it but does NOT reset — new topics must be added.
+WHITE = '#ffffff'
+DARK  = '#1e293b'
+GRAY  = '#64748b'
+
+# Per-layout color palettes
+FUNNEL_COLORS  = ['#3b82f6', '#06b6d4', '#14b8a6', '#16a34a', '#15803d']
+PROBLEM_COLORS = ['#ef4444', '#f97316', '#8b5cf6', '#06b6d4', '#eab308']
+STEP_COLOR     = '#3b82f6'
+COMP_LEFT      = '#ef4444'
+COMP_RIGHT     = '#16a34a'
+CASE_COLORS    = ['#94a3b8', '#60a5fa', '#3b82f6', '#1d4ed8', '#1e3a8a']
+
+
+# 41 unique topics — pool exhausts before repeating.
+# layout: funnel | problems | steps | comparison | case_study
 CAROUSEL_TOPICS = [
     # ── Budget & math ───────────────────────────────────────────────────────────
     {
         "title": "The ROI Math Behind a Profitable Meta Campaign",
+        "layout": "funnel",
         "slides": [
-            ("Every dollar you spend on Meta ads should be accountable.", "Here's how to think about the return — for a local service business running it right."),
-            ("Start with your cost per lead (CPL)", "A well-optimised campaign after week 2 should be bringing leads in at a cost you can sustain."),
-            ("Then look at close rate", "If you close 30% of leads, 20 leads = 6 booked jobs. That's the number that matters."),
-            ("Then calculate job value × volume", "Average job value × booked jobs = revenue from ads. Divide by ad spend = your ROAS."),
-            ("3x+ return is realistic. And it compounds.", "DM me ADS to see what the math looks like for your trade."),
-        ]
+            ("AD SPEND", "Every dollar you put in is tracked and accountable."),
+            ("COST PER LEAD", "A well-optimised campaign brings CPL down week over week."),
+            ("CLOSE RATE", "If you close 30% of leads, 20 leads = 6 booked jobs."),
+            ("REVENUE", "Average job value x booked jobs = your revenue from ads."),
+            ("3x+ ROAS", "One booked job covers a full week of ad spend — often more."),
+        ],
+        "callout": "one booked job covers the full week of ad spend — often 5-10x over depending on the trade",
     },
     {
         "title": "Why Your Ad Spend Feels Wasted (And How to Fix It)",
+        "layout": "problems",
         "slides": [
-            ("You spent $200 on ads. Got nothing. Here's what actually went wrong.", "It's rarely what you think."),
-            ("Problem 1: You judged it too early", "Meta needs 50 conversion events to exit the learning phase. That takes time and budget."),
-            ("Problem 2: You changed it mid-run", "Every edit resets the learning phase. Patience is the strategy."),
-            ("Problem 3: Wrong campaign objective", "Traffic campaigns get clicks. Lead campaigns get leads. They're not the same."),
-            ("The fix: set it up right once, then leave it alone for 14 days.", "DM me ADS to get the setup right."),
-        ]
+            ("TOO EARLY", "You judged it before Meta exited the learning phase. It needed more time."),
+            ("CHANGED IT", "Every edit resets the learning phase. Patience is the actual strategy."),
+            ("WRONG OBJECTIVE", "Traffic campaigns get clicks. Lead campaigns get leads. Not the same thing."),
+        ],
+        "callout": "set it up right once — then leave it alone for 14 days",
     },
     # ── Ad creative & copy ──────────────────────────────────────────────────────
     {
         "title": "The 4 Elements of a Winning Local Ad",
+        "layout": "steps",
         "slides": [
-            ("Every high-converting local ad has exactly 4 things.", "Most service businesses are missing at least 2."),
-            ("1. A specific hook", "Not 'we're professional and reliable.' Something that makes them stop scrolling."),
-            ("2. A clear outcome", "Not what you do — what they GET. 'Clean gutters in 2 hours, no mess left behind.'"),
-            ("3. Proof", "A real photo. A real number. A real client result. One is enough."),
-            ("4. One simple CTA", "'Get a free quote' beats 'learn more' every time. Make it easy to say yes."),
-        ]
+            ("STRONG HOOK", "Not 'professional and reliable.' Something that stops the scroll in 3 seconds."),
+            ("CLEAR OUTCOME", "Not what you do — what they GET. Specific and tangible."),
+            ("REAL PROOF", "A real photo. A real number. A real result. One is enough."),
+            ("SIMPLE CTA", "'Get a free quote' beats 'learn more' every time. Make it easy to say yes."),
+        ],
+        "callout": "most service businesses are missing at least 2 of these 4",
     },
     {
         "title": "How to Write an Ad Headline That Actually Converts",
+        "layout": "comparison",
         "slides": [
-            ("Most service business ad headlines are invisible.", "Here's the formula that makes them stop."),
-            ("The formula: Pain + Timeframe + Outcome", "You don't need to be clever. You need to be specific."),
-            ("Bad: 'Professional Window Cleaning Services'", "Zero reason to click. Sounds like every other business."),
-            ("Good: 'Get your windows spotless before the weekend — we come to you'", "Specific. Local. Time-anchored. Outcome clear."),
-            ("Rewrite yours with this formula.", "DM me ADS if you want me to look at your current headline."),
-        ]
+            ("INVISIBLE HEADLINE", "Professional Window Cleaning Services — zero reason to click. Sounds like everyone else."),
+            ("CONVERTING HEADLINE", "Get your windows spotless before the weekend — we come to you — specific, local, outcome-driven."),
+        ],
+        "formula": "Pain + Timeframe + Outcome",
+        "callout": "you don't need to be clever — you need to be specific",
     },
     {
         "title": "5 Hook Formulas That Work for Every Service Business Ad",
+        "layout": "steps",
         "slides": [
-            ("The first 3 seconds decide everything.", "Here are 5 hooks that work — steal them."),
-            ("Hook 1: The number hook", "'3 mistakes that are killing your ad results' — specificity creates curiosity."),
-            ("Hook 2: The call-out hook", "'If you're a plumber in Brisbane running ads, watch this' — instant relevance."),
-            ("Hook 3: The result hook", "'How this landscaper got 14 leads in a week for $320' — proof before explanation."),
-            ("Hook 4: The against the grain hook", "'Stop targeting homeowners — here's what actually works'"),
-            ("Hook 5: The pain hook", "'You ran ads. Nobody called. Here's the exact reason why.'"),
-        ]
+            ("THE NUMBER", "'3 mistakes killing your ad results' — specificity creates curiosity."),
+            ("THE CALL-OUT", "'If you're a plumber in Brisbane running ads, watch this' — instant relevance."),
+            ("THE RESULT", "'How this landscaper got 14 leads in a week' — proof before explanation."),
+            ("AGAINST THE GRAIN", "'Stop targeting homeowners — here's what actually works'"),
+            ("THE PAIN", "'You ran ads. Nobody called. Here's the exact reason why.'"),
+        ],
+        "callout": "the first 3 seconds decide everything — steal these",
     },
     {
         "title": "What 'Professional and Reliable' Is Actually Costing You",
+        "layout": "comparison",
         "slides": [
-            ("'Professional and reliable' is in every service business ad.", "That's exactly why it doesn't work."),
-            ("When everyone says the same thing, no one stands out.", "Your audience becomes blind to it."),
-            ("Replace claims with proof.", "Not 'reliable' — 'responded within 2 hours, job done same day.'"),
-            ("Replace adjectives with outcomes.", "Not 'professional' — 'left the site cleaner than we found it, no callbacks.'"),
-            ("Specific always beats generic.", "DM me ADS to rewrite your ad copy with this approach."),
-        ]
+            ("WHAT YOU'RE SAYING", "'Professional and reliable' — in every ad, ignored by everyone, costs you clicks."),
+            ("WHAT WORKS", "'Responded in 2 hours, job done same day, no callbacks' — specific proof beats adjectives every time."),
+        ],
+        "formula": "Replace claims with proof. Replace adjectives with outcomes.",
+        "callout": "specific always beats generic",
     },
     {
         "title": "How to Use a Real Job Photo to 3x Your Click Rate",
+        "layout": "steps",
         "slides": [
-            ("Stock photos kill click rates.", "Here's why real job photos outperform them every time."),
-            ("Real photos prove you actually do the work.", "Stock photos feel like marketing. Real photos feel like evidence."),
-            ("The best performing ad photos:", "Before/after. Mid-job. The finished result with you in it."),
-            ("What to shoot on your next job", "One wide shot. One close-up. One with you or your team visible."),
-            ("Real beats polished every time in local service ads.", "DM me ADS to talk through your creative."),
-        ]
+            ("BEFORE/AFTER", "The most reliable visual format in any trade. Instant proof."),
+            ("MID-JOB SHOT", "Shows the work is real. Authenticity outperforms polish every time."),
+            ("YOU IN THE FRAME", "A face in the photo builds trust. Stock images don't."),
+            ("THE RESULT", "Clean, sharp, finished work. Let the job speak for itself."),
+        ],
+        "callout": "real beats polished every time in local service ads",
     },
     # ── Mistakes & fixes ────────────────────────────────────────────────────────
     {
         "title": "Why Your Meta Ad Isn't Getting Leads",
+        "layout": "problems",
         "slides": [
-            ("Your ad is live. No leads. Here's exactly why.", "It's almost always one of these 3 things."),
-            ("Mistake 1: Weak hook", "The first 3 seconds didn't make them stop. They kept scrolling. The rest didn't matter."),
-            ("Mistake 2: No specific offer", "You listed your service. You didn't give them a reason to act RIGHT NOW."),
-            ("Mistake 3: Wrong objective", "Boosting a post isn't the same as running a Lead Generation campaign. Different result entirely."),
-            ("Fix one of these today.", "DM me ADS and I'll tell you which one is costing you the most."),
-        ]
+            ("WEAK HOOK", "First 3 seconds didn't stop the scroll. The rest didn't matter."),
+            ("NO OFFER", "You listed your service. You didn't give them a reason to act right now."),
+            ("WRONG SETUP", "Boosting a post isn't the same as a Lead Generation campaign."),
+        ],
+        "callout": "fix one of these today — they're almost always the cause",
     },
     {
         "title": "The Boosted Post Trap — Why It's Not the Same as a Real Ad",
+        "layout": "comparison",
         "slides": [
-            ("Boosting a post is not running a Meta ad.", "Here's the difference — and why it matters for your leads."),
-            ("Boosted post: optimised for engagement", "Meta shows it to people likely to like or comment. Not to people likely to book."),
-            ("Real Lead Ad: optimised for conversions", "Meta shows it to people who've shown buying intent. Completely different audience."),
-            ("Boosted posts build vanity metrics.", "Real campaigns build pipelines. Same budget. Very different results."),
-            ("Stop boosting. Start campaigning.", "DM me ADS to set up your first real lead generation campaign."),
-        ]
+            ("BOOSTED POST", "Optimised for engagement — Meta shows it to people who like and comment, not people who book."),
+            ("REAL LEAD AD", "Optimised for conversions — Meta finds people with buying intent. Completely different audience."),
+        ],
+        "formula": "Same budget. Very different results.",
+        "callout": "stop boosting — start running lead generation campaigns",
     },
     {
         "title": "Why Your Ad Works for 3 Days Then Dies",
+        "layout": "problems",
         "slides": [
-            ("Your ad runs great for 3 days then goes cold.", "Here's exactly why — and how to fix it."),
-            ("Cause 1: Ad fatigue in a small audience", "You've shown it to everyone in your radius who'll click it. The pool is tapped."),
-            ("Cause 2: You're in a micro-niche audience", "Narrow targeting exhausts fast. Broad audiences have more runway."),
-            ("Cause 3: You only have one creative", "Rotate 2–3 different images or videos. Fresh creative restarts performance."),
-            ("Fix: broaden audience + add a second creative.", "DM me ADS to diagnose which one it is."),
-        ]
+            ("AUDIENCE TAPPED", "You've shown it to everyone in your radius who'll click. The pool is exhausted."),
+            ("MICRO-NICHE", "Narrow targeting runs out fast. Broad audiences have more runway."),
+            ("ONE CREATIVE", "Rotate 2-3 images or videos. Fresh creative restarts performance."),
+        ],
+        "callout": "broaden the audience and add a second creative",
     },
     {
         "title": "5 Things to Check in Ads Manager Every Week",
+        "layout": "steps",
         "slides": [
-            ("Most service businesses set up their ad and never look at it.", "Here's what to actually check — and how often."),
-            ("1. Cost per lead (CPL)", "Should be trending down week over week after day 14. If it's going up, your creative is fatiguing."),
-            ("2. Frequency", "If frequency hits 3+, your audience has seen it 3 times. Time to refresh the creative."),
-            ("3. Click-through rate (CTR)", "Under 1%? Your hook is the problem. 2%+ means your creative is working."),
-            ("4. Lead quality (not just volume)", "Are the leads booking? If not, your targeting or offer needs adjusting."),
-            ("5. Amount spent vs leads", "Simple division. Know your CPL every single week."),
-        ]
+            ("COST PER LEAD", "Should trend down after day 14. Going up means creative is fatiguing."),
+            ("FREQUENCY", "Hits 3+? Your audience has seen it 3 times. Refresh the creative."),
+            ("CLICK-THROUGH RATE", "Under 1%? The hook is the problem. 2%+ means creative is working."),
+            ("LEAD QUALITY", "Are leads booking? If not, targeting or offer needs adjusting."),
+            ("SPEND vs LEADS", "Simple division. Know your CPL every single week."),
+        ],
+        "callout": "most businesses set up their ad and never look at it again",
     },
     # ── Platform & strategy ─────────────────────────────────────────────────────
     {
         "title": "Meta vs Google — The Honest Answer for Service Businesses",
+        "layout": "comparison",
         "slides": [
-            ("Everyone asks: Meta or Google?", "Here's the honest breakdown for local service businesses."),
-            ("Google Ads: High intent, high cost", "People are searching right now. But CPL can hit $80–$150+ for competitive trades."),
-            ("Meta Ads: Lower cost, broader reach", "CPL of $20–$50 is realistic. You interrupt people — so your creative has to be good."),
-            ("The real answer?", "Start with Meta. Get leads. Prove the model. Scale to Google later."),
-            ("For most service businesses starting out?", "Meta wins. DM me ADS to talk through your situation."),
-        ]
+            ("GOOGLE ADS", "High intent, high cost — CPL can hit $80-$150+ for competitive trades. People are actively searching."),
+            ("META ADS", "Lower cost, broader reach — CPL of $20-$50 is realistic. You interrupt them so creative matters."),
+        ],
+        "formula": "Start with Meta. Prove the model. Scale to Google later.",
+        "callout": "for most service businesses starting out — Meta wins",
     },
     {
         "title": "How the Meta Algorithm Decides Who Sees Your Ad",
+        "layout": "funnel",
         "slides": [
-            ("Meta doesn't show your ad to everyone.", "It shows it to who it thinks will take action. Here's how it decides."),
-            ("It starts with your campaign objective", "Lead gen objective = Meta finds people likely to fill out a form. Traffic = likely to click. Choose carefully."),
-            ("Then it looks at your creative", "High CTR signals relevance. Meta rewards relevant ads with cheaper reach."),
-            ("Then it looks at your audience signals", "Your location radius, any interests you set, and past converters all shape who it targets."),
-            ("The better your creative, the cheaper your leads.", "DM me ADS to improve your creative performance."),
-        ]
+            ("OBJECTIVE", "Lead gen objective tells Meta to find people who fill out forms."),
+            ("CREATIVE SIGNAL", "High CTR = relevance. Meta rewards relevant ads with cheaper reach."),
+            ("AUDIENCE SIGNALS", "Location, interests, past converters — all shape who gets targeted."),
+            ("OPTIMISATION", "Meta learns with every conversion event. Gets smarter over time."),
+            ("CHEAPER LEADS", "Better creative = lower CPL. The algorithm rewards performance."),
+        ],
+        "callout": "the better your creative, the cheaper your leads",
     },
     {
         "title": "Why I Only Run Meta Ads for Service Businesses",
+        "layout": "problems",
         "slides": [
-            ("I don't run Google Ads. I don't run TikTok Ads.", "Here's exactly why I'm 100% focused on Meta for service businesses."),
-            ("Meta has the most accurate local targeting", "You can hit a 20km radius around any suburb. Google can't match the geo-precision."),
-            ("The CPL is the most controllable", "You get real data fast on a lean budget. Google typically needs significantly more spend before it optimises."),
-            ("Service businesses have visual proof", "Before/after photos. Job site footage. That works perfectly on Instagram and Facebook feeds."),
-            ("The audience is there.", "Every homeowner, landlord, and property manager is on Meta. Your buyers are already there."),
-        ]
+            ("LOCAL TARGETING", "Hit a 20km radius around any suburb. Precision that's hard to match elsewhere."),
+            ("CONTROLLABLE CPL", "Real data fast on a lean budget. You see what's working before scaling."),
+            ("VISUAL PROOF", "Before/after photos and job footage perform perfectly on Instagram and Facebook."),
+            ("BUYERS ARE THERE", "Every homeowner and property manager is already on Meta. Your audience is waiting."),
+        ],
+        "callout": "focused on service businesses — the ROI math just works",
     },
     # ── Targeting & audiences ───────────────────────────────────────────────────
     {
         "title": "Why Broad Audiences Beat Narrow Targeting for Local Service Ads",
+        "layout": "comparison",
         "slides": [
-            ("Most service businesses over-target their Meta ads.", "And it's costing them money."),
-            ("Narrow targeting = small pool + high CPM", "You're telling Meta to find a rare person. That's expensive."),
-            ("Broad targeting = Meta does the work", "Let the algorithm find who's most likely to convert. It's better at this than you are."),
-            ("The only thing to restrict: location", "Set your radius. Then let Meta optimise everything else."),
-            ("Trust the algorithm for who. Control the geography.", "DM me ADS if you want help setting this up."),
-        ]
+            ("NARROW TARGETING", "Small pool + high CPM — you're telling Meta to find a rare person. Expensive."),
+            ("BROAD TARGETING", "Meta does the work — the algorithm finds who's most likely to convert. Cheaper, faster."),
+        ],
+        "formula": "The only thing to restrict: your location radius.",
+        "callout": "trust the algorithm for who — control the geography",
     },
     {
         "title": "Retargeting — The Cheapest Leads You'll Ever Get",
+        "layout": "steps",
         "slides": [
-            ("Most service businesses run one campaign and wonder why leads are expensive.", "Retargeting is the answer."),
-            ("What is retargeting?", "Showing ads only to people who've already seen your content or visited your page."),
-            ("Why it's cheaper", "These people already know you exist. Conversion rate is 3–5x higher than cold traffic."),
-            ("How to set it up", "Create a custom audience from Instagram engagers or website visitors. Budget $5–10/day on top of your cold campaign."),
-            ("Cold campaign finds them. Retargeting closes them.", "DM me ADS to add this to your setup."),
-        ]
+            ("COLD CAMPAIGN", "Finds new people. Higher CPL. Builds awareness across your area."),
+            ("THEY SEE YOU", "Visit your page, watch your video, engage with a post. Now Meta knows them."),
+            ("RETARGETING HITS", "Show ads only to warm people who already know you exist."),
+            ("THEY CONVERT", "3-5x higher conversion rate than cold traffic. Same product, cheaper lead."),
+        ],
+        "callout": "cold campaign finds them — retargeting closes them",
     },
     {
         "title": "Lookalike Audiences — When to Use Them and When Not To",
+        "layout": "steps",
         "slides": [
-            ("Lookalike audiences sound powerful.", "But most service businesses use them at the wrong time. Here's the truth."),
-            ("What a lookalike does", "Meta finds people similar to your existing customers or leads. Powerful — but only with enough data."),
-            ("The problem: you need 100+ source events minimum", "If you have fewer leads or customers than that, your lookalike will be inaccurate."),
-            ("When to use it", "After 3–6 months of lead gen campaigns. Upload your booked client list. Build from there."),
-            ("For now? Broad + location beats lookalike every time.", "DM me ADS to talk through your audience strategy."),
-        ]
+            ("WHAT IT DOES", "Meta finds people similar to your existing customers or leads."),
+            ("THE PROBLEM", "You need 100+ source events minimum — fewer and it's inaccurate."),
+            ("WHEN TO USE IT", "After 3-6 months. Upload your booked client list. Build from there."),
+            ("FOR NOW", "Broad + location beats lookalike every time until your data is solid."),
+        ],
+        "callout": "powerful — but only when you have enough data to feed it",
     },
     # ── Lead forms & conversion ─────────────────────────────────────────────────
     {
         "title": "How to Set Up a Lead Form That Actually Converts",
+        "layout": "steps",
         "slides": [
-            ("Your Meta lead form is losing you bookings.", "Here's how to fix it in 10 minutes."),
-            ("Keep it to 3 fields max", "Name, phone, suburb. Every extra field drops your conversion rate by 10–20%."),
-            ("Write a custom thank-you message", "Don't use the default. Tell them exactly what happens next: 'I'll call you within 2 hours.'"),
-            ("Add one qualifying question", "One question only. 'Are you looking to book within the next 2 weeks?' Filters time-wasters."),
-            ("Follow up within 1 hour", "Speed to lead is everything. After 1 hour, your close rate drops by 80%."),
-        ]
+            ("3 FIELDS MAX", "Name, phone, suburb. Every extra field drops conversion rate by 10-20%."),
+            ("CUSTOM THANK YOU", "Tell them exactly what happens next. 'I'll call you within 2 hours.'"),
+            ("ONE QUALIFIER", "One question only. Filters time-wasters without killing conversion."),
+            ("FOLLOW UP FAST", "Speed to lead is everything. After 1 hour, close rate drops 80%."),
+        ],
+        "callout": "your form is losing you bookings — fix it in 10 minutes",
     },
     {
         "title": "Why Speed to Lead Is Worth More Than Your Ad Creative",
+        "layout": "funnel",
         "slides": [
-            ("You can have the best ad in the world.", "But if you call your leads 24 hours later, you're losing half your bookings."),
-            ("Study: leads contacted within 5 minutes", "Are 9x more likely to convert than leads contacted after 30 minutes."),
-            ("After 1 hour, close rate drops 80%.", "The lead has moved on. Called someone else. Forgotten they even filled in the form."),
-            ("The fix: set up an instant SMS or email auto-reply", "Let them know you'll call within 2 hours. Then actually call within 2 hours."),
-            ("Your follow-up speed is your competitive advantage.", "DM me ADS — I'll show you the exact follow-up system I give clients."),
-        ]
+            ("LEAD COMES IN", "They filled out your form. They're interested right now."),
+            ("5 MINUTES", "Contact within 5 minutes — 9x more likely to convert."),
+            ("30 MINUTES", "Conversion rate drops sharply. They're already comparing options."),
+            ("1 HOUR", "Close rate down 80%. They've moved on or called someone else."),
+            ("24 HOURS", "Effectively gone. They've forgotten they even filled in the form."),
+        ],
+        "callout": "your follow-up speed is your competitive advantage",
     },
     {
         "title": "What to Say When a Lead Calls From Your Meta Ad",
+        "layout": "steps",
         "slides": [
-            ("You got a lead. They called.", "Most service businesses fumble this moment. Here's exactly what to say."),
-            ("Don't open with your price", "Price before value kills the sale. Get context first."),
-            ("Ask: 'What's going on for you?'", "Let them explain the problem. You're solving it — not just quoting it."),
-            ("Then confirm: 'When do you need this done by?'", "Urgency tells you how hot the lead is. Act accordingly."),
-            ("Then give a specific next step.", "'I can come out Thursday at 10am to take a look — does that work?' Close the loop."),
-        ]
+            ("DON'T OPEN WITH PRICE", "Price before value kills the sale. Get context first."),
+            ("ASK WHAT'S GOING ON", "Let them explain the problem. You're solving it — not just quoting it."),
+            ("CONFIRM THEIR TIMELINE", "'When do you need this done by?' Urgency tells you how hot the lead is."),
+            ("GIVE A NEXT STEP", "'I can come out Thursday at 10am — does that work?' Close the loop."),
+        ],
+        "callout": "most service businesses fumble this moment — don't",
     },
     # ── Mindset & positioning ───────────────────────────────────────────────────
     {
         "title": "The Referral Trap — Why Word of Mouth Is Keeping You Stuck",
+        "layout": "comparison",
         "slides": [
-            ("Referrals feel safe. But they're actually limiting your growth.", "Here's why."),
-            ("You can't control when referrals come in.", "Feast and famine. You're at the mercy of other people's conversations."),
-            ("You can't scale what you can't predict.", "A referral business has a ceiling. An ad-driven business has a dial."),
-            ("Referrals reward being liked. Ads reward being found.", "Different games. Different growth trajectories."),
-            ("You don't have to choose — but you do have to add ads.", "DM me ADS to build the predictable side of your business."),
-        ]
+            ("REFERRALS", "You can't control when they come in. Feast and famine. At the mercy of other people's conversations."),
+            ("ADS", "A predictable lead dial you control. You decide volume. You decide when to scale."),
+        ],
+        "formula": "Referrals reward being liked. Ads reward being found.",
+        "callout": "you can't scale what you can't predict",
     },
     {
         "title": "Why Service Businesses Are Built for Meta Ads",
+        "layout": "problems",
         "slides": [
-            ("E-commerce brands fight for attention on Meta.", "Service businesses have an unfair advantage. Here's why."),
-            ("You serve a specific location", "Your ad only needs to reach people in your city or suburb. Tiny pool. Cheap reach."),
-            ("You have a visual product", "Before/after photos. Job site footage. Real proof of work. Instagram was built for this."),
-            ("Your sale is high-value and recurring", "One new customer from ads could be worth $500–$5,000+ over their lifetime."),
-            ("The ROI math works better for you than for any product brand.", "DM me ADS to start the math for your specific trade."),
-        ]
+            ("LOCATION IS SPECIFIC", "Your ad only needs to reach people in your suburb. Tiny pool. Cheap reach."),
+            ("WORK IS VISUAL", "Before/after photos and job footage — Instagram was built for this."),
+            ("HIGH JOB VALUE", "One new client from ads could be worth hundreds to thousands over their lifetime."),
+            ("LOW COMPETITION", "Most service businesses aren't running Meta ads yet. You dominate by showing up."),
+        ],
+        "callout": "the ROI math works better for you than for any product brand",
     },
     {
         "title": "The Gap Between Service Businesses and Marketing Agencies",
+        "layout": "comparison",
         "slides": [
-            ("Most marketing agencies don't understand service businesses.", "They run the same generic ads they'd run for a dentist, a gym, or an e-commerce brand."),
-            ("They don't speak the language.", "They don't know your job values, your close rates, or what a booked job is actually worth."),
-            ("The gap is real.", "Service business owners need someone who knows their numbers and has seen actual results in their niche."),
-            ("What you actually need:", "A simple lead gen campaign. A follow-up system. A clear offer. That's it."),
-            ("You don't need a big agency. You need the right system.", "DM me ADS — I'll show you what that looks like for your trade."),
-        ]
+            ("GENERIC AGENCY", "Runs the same ads they'd run for a dentist or a gym — doesn't know your job values, close rates, or what a booked job is worth."),
+            ("WHAT YOU ACTUALLY NEED", "Simple lead gen campaign. A clear offer. A follow-up system. Someone who knows your trade numbers."),
+        ],
+        "formula": "You don't need a big agency. You need the right system.",
+        "callout": "the gap is real — and it's costing service businesses leads",
     },
     # ── Client results ──────────────────────────────────────────────────────────
     {
         "title": "How a Window Cleaner Got 11 Jobs in 30 Days With Meta Ads",
+        "layout": "case_study",
         "slides": [
-            ("Real numbers from a real client.", "Window cleaner. Lean daily budget. 30 days. Here's what happened."),
-            ("Week 1: Setup + learning phase", "3 leads. Cost per lead: $58. Felt slow. We kept it running."),
-            ("Week 2: Algorithm optimises", "7 leads. CPL dropped to $31. 4 booked jobs confirmed."),
-            ("Week 3–4: Consistency hits", "11 leads. CPL: $22. 7 booked jobs. $700 spent. Revenue from ads: $2,800+."),
-            ("4x return on ad spend in 30 days.", "DM me ADS if you want results like this for your business."),
-        ]
+            ("WEEK 1", "3 leads at $58 CPL — felt slow, kept it running"),
+            ("WEEK 2", "7 leads at $31 CPL — 4 booked jobs confirmed"),
+            ("WEEK 3", "11 leads at $22 CPL — 7 booked, algorithm dialled in"),
+            ("MONTH 1", "4x return on ad spend — $700 in, $2,800+ revenue out"),
+        ],
+        "callout": "week 1 is always the hardest — the businesses that quit never see week 3",
     },
     {
         "title": "How a Plumber Cut His Cost Per Lead From $120 to $38",
+        "layout": "case_study",
         "slides": [
-            ("A plumber came to me with a broken Meta ad setup.", "He was getting leads but at $120 each. That's not a business — that's a bleed."),
-            ("The diagnosis: wrong campaign objective", "He was running a Traffic campaign. Meta was sending clicks, not leads."),
-            ("Fix 1: Switch to Lead Generation objective", "Immediately Meta started targeting people who fill out forms. CPL dropped to $71."),
-            ("Fix 2: Simplify the lead form to 3 fields", "Name, phone, postcode. Removed 4 extra questions. CPL dropped to $38."),
-            ("Same budget. Same audience. Better setup.", "DM me ADS to audit your current setup."),
-        ]
+            ("THE PROBLEM", "Running a Traffic campaign — Meta was sending clicks, not leads. CPL: $120"),
+            ("FIX 1", "Switched to Lead Generation objective — CPL dropped to $71"),
+            ("FIX 2", "Simplified lead form to 3 fields — CPL dropped to $38"),
+            ("THE RESULT", "Same budget, same audience — better setup changed everything"),
+        ],
+        "callout": "the setup matters more than the budget",
     },
     {
         "title": "Car Detailer. First Meta Campaign. Real Numbers.",
+        "layout": "case_study",
         "slides": [
-            ("Mobile car detailer. First time running Meta ads.", "Here's exactly what happened when we turned it on."),
-            ("Week 1", "5 leads at $35 CPL. 2 booked. Revenue: $380. Spend: $175. Early signal is good."),
-            ("Week 2", "9 leads at $28 CPL. 4 booked. Revenue: $760. Spend: $175. CPL dropping."),
-            ("Week 3–4", "14 leads at $22 CPL. 7 booked. Revenue: $1,330. Spend: $350. Dialled in."),
-            ("Month 1 total: $700 spent. $2,470 revenue. 3.5x ROAS.", "DM me ADS if you want this for your detail business."),
-        ]
+            ("WEEK 1", "5 leads at $35 CPL — 2 booked, early signal is good"),
+            ("WEEK 2", "9 leads at $28 CPL — 4 booked, CPL dropping"),
+            ("WEEKS 3-4", "14 leads at $22 CPL — 7 booked, algorithm dialled in"),
+            ("MONTH 1", "3.5x ROAS — first campaign, never run ads before"),
+        ],
+        "callout": "first campaign, never run ads before — the results are there when it's set up right",
     },
     {
         "title": "Landscaper: $0 to Fully Booked in 6 Weeks",
+        "layout": "case_study",
         "slides": [
-            ("Landscaper. Never run ads before. Relied entirely on referrals.", "Here's what happened when we switched that."),
-            ("Week 1–2: Building the baseline", "Testing 2 creatives — a job site photo and a before/after. The before/after won by 40%."),
-            ("Week 3: First booked jobs from ads", "CPL at $41. 3 jobs booked. Covers the full month of ad spend."),
-            ("Week 4–6: Fully booked", "Waiting list started forming. Raised his prices. Started referring overflow work to others."),
-            ("Same skills. Same area. Just visible now.", "DM me ADS to turn on visibility for your trade."),
-        ]
+            ("WEEKS 1-2", "Testing 2 creatives — before/after won by 40% over job site photo"),
+            ("WEEK 3", "First booked jobs from ads — covered the full month of ad spend"),
+            ("WEEK 4", "Waiting list started forming — raised prices"),
+            ("WEEK 6", "Fully booked, referring overflow, running entirely on ads"),
+        ],
+        "callout": "same skills, same area — just visible now",
     },
     # ── Content & Instagram growth ──────────────────────────────────────────────
     {
         "title": "What Happens in the First 30 Days of Meta Ads",
+        "layout": "funnel",
         "slides": [
-            ("Most service businesses quit Meta ads inside 2 weeks.", "Here's exactly what's supposed to happen — and when."),
-            ("Week 1: The learning phase", "Meta is testing audiences and placements. Costs look high. This is normal. Don't touch it."),
-            ("Week 2: First real leads", "The algorithm has enough data to start finding your buyer. Leads come in but inconsistently."),
-            ("Week 3–4: Consistency", "CPL drops. Bookings become predictable. The hard part is behind you."),
-            ("The only way to fail is to stop.", "DM me ADS if you want to see real numbers from this process."),
-        ]
+            ("DAY 1-7", "Learning phase — Meta tests audiences and placements. Costs look high. Normal. Don't touch."),
+            ("DAY 8-14", "First real leads — algorithm has data, finds your buyer. Inconsistent but real."),
+            ("DAY 15-21", "Consistency starts — CPL drops. Bookings become more predictable."),
+            ("DAY 22-30", "Dialled in — CPL stable, leads steady. The hard part is behind you."),
+        ],
+        "callout": "the only way to fail is to stop",
     },
     {
         "title": "Why Posting Every Day on Instagram Actually Works for Getting Clients",
+        "layout": "steps",
         "slides": [
-            ("Most service business owners think Instagram is for influencers.", "Here's why daily posting is actually your best free lead source."),
-            ("Every post is a trust touchpoint", "A potential client might see 10 of your posts before they ever DM you. That's 10 reasons to trust you."),
-            ("Instagram rewards consistency with reach", "Post daily for 30 days and your account's baseline reach increases. The algorithm rewards volume."),
-            ("Your content is your ad", "When someone sees your post and then your ad, the conversion cost drops. Warm traffic converts cheaper."),
-            ("Post daily. Keep it simple. Show the work.", "DM me ADS — I'll tell you what to post this week."),
-        ]
+            ("TRUST TOUCHPOINTS", "A potential client might see 10 posts before they DM you. That's 10 reasons to trust you."),
+            ("ALGORITHM REWARDS VOLUME", "Post daily for 30 days and your baseline reach increases. Consistency compounds."),
+            ("WARM TRAFFIC", "When someone sees your content and then your ad, conversion cost drops significantly."),
+            ("SHOW THE WORK", "Post the jobs. Real photos. Real results. That's the whole strategy."),
+        ],
+        "callout": "post daily — keep it simple — show the work",
     },
     {
         "title": "The 3-Second Rule — Why Most Reels Fail Immediately",
+        "layout": "comparison",
         "slides": [
-            ("If you don't hook them in 3 seconds, they're gone.", "Here's why most Reels fail before they even begin."),
-            ("The algorithm watches completion rate", "If people scroll past in 2 seconds, Meta stops pushing your Reel. Dead before it started."),
-            ("The most common mistake: slow intro", "'Hey guys, welcome back, today I want to talk about...' — already scrolled past."),
-            ("What works: start mid-sentence", "Act like they've already been watching for 10 seconds. Drop them into the middle of something."),
-            ("Open with the most interesting thing you have to say.", "Not a warm-up. Not an intro. The thing."),
-        ]
+            ("WHAT KILLS IT", "'Hey guys, welcome back, today I want to talk about...' — already scrolled past before you finish the sentence."),
+            ("WHAT WORKS", "Start mid-sentence. Drop them into the middle of something. Act like they've been watching for 10 seconds."),
+        ],
+        "formula": "Open with the most interesting thing you have to say.",
+        "callout": "if you don't hook them in 3 seconds, they're gone",
     },
     {
         "title": "5 Instagram Post Ideas for Any Service Business This Week",
+        "layout": "steps",
         "slides": [
-            ("No idea what to post?", "Here are 5 content types that always perform for service businesses."),
-            ("1. Before/after", "The most reliable post format in any trade. One photo. Instant proof."),
-            ("2. Common mistake in your industry", "'The #1 mistake homeowners make before calling a plumber' — positions you as the expert."),
-            ("3. Your process in 60 seconds", "Show them what actually happens when they hire you. Demystify the job."),
-            ("4. A price myth", "'What does a full car detail actually cost? Here's the breakdown.' Transparent = trustworthy."),
-            ("5. A client result with a number", "'This took 45 minutes and saved the client $800 in repairs.' Specific = believable."),
-        ]
+            ("BEFORE/AFTER", "The most reliable format in any trade. One photo. Instant proof."),
+            ("COMMON MISTAKE", "'The #1 mistake homeowners make before calling a plumber' — instant authority."),
+            ("YOUR PROCESS", "Show what actually happens when they hire you. Demystify the job."),
+            ("A PRICE MYTH", "'What does a full detail actually cost?' Transparent = trustworthy."),
+            ("CLIENT RESULT", "'This took 45 minutes and saved $800 in repairs.' Specific = believable."),
+        ],
+        "callout": "pick one, shoot it today — consistency beats perfection",
     },
     # ── Offer & positioning ─────────────────────────────────────────────────────
     {
         "title": "How to Write an Offer That Makes People Want to Call",
+        "layout": "comparison",
         "slides": [
-            ("Most service business offers are invisible.", "Here's how to write one that actually makes people act."),
-            ("The anatomy of a strong offer:", "Specific outcome + timeframe + risk reversal."),
-            ("Weak offer: 'Free quote on all jobs'", "Everyone offers this. It means nothing. It creates no urgency."),
-            ("Strong offer: 'Book this week and we'll have your gutters cleared same-day — or it's free'", "Specific. Urgent. Risk reversed. That's memorable."),
-            ("You don't need a discount. You need a reason to act now.", "DM me ADS to write the offer for your trade."),
-        ]
+            ("WEAK OFFER", "'Free quote on all jobs' — everyone offers this. No urgency, no reason to choose you."),
+            ("STRONG OFFER", "'Book this week and we'll have it done same-day — or it's free' — specific, urgent, risk reversed."),
+        ],
+        "formula": "Specific outcome + timeframe + risk reversal.",
+        "callout": "you don't need a discount — you need a reason to act now",
     },
     {
         "title": "The Difference Between a Good Ad and a Great Ad",
+        "layout": "comparison",
         "slides": [
-            ("Good ads get clicks.", "Great ads get bookings. Here's the difference."),
-            ("Good ad: describes the service", "Professional window cleaning. Fast. Reliable. Call us today."),
-            ("Great ad: describes the transformation", "'Your windows will be spotless in 90 minutes. No streaks. We clean up after ourselves. Book online.'"),
-            ("Good ad: speaks to everyone", "Broad language. No specific person addressed."),
-            ("Great ad: speaks to one person", "'If you're a homeowner in [suburb] who wants...' — they feel like you wrote it for them."),
-        ]
+            ("GOOD AD", "Describes the service and speaks to everyone. 'Professional window cleaning. Fast. Reliable. Call us today.'"),
+            ("GREAT AD", "Describes the transformation and speaks to one person. 'Spotless windows in 90 minutes — book online.'"),
+        ],
+        "formula": "Good ads get clicks. Great ads get bookings.",
+        "callout": "speak to one person — make them feel like you wrote it for them",
     },
     {
         "title": "Why 'Get a Free Quote' Is the Weakest CTA You Can Use",
+        "layout": "comparison",
         "slides": [
-            ("Every service business ad ends with 'get a free quote'.", "Here's why it's killing your conversion rate."),
-            ("Free quotes are table stakes", "Everyone offers them. It gives the lead zero reason to choose you over the next guy."),
-            ("Better CTAs tell them what happens next", "'Book your spot' — implies limited availability. 'Get your price in 60 seconds' — implies speed."),
-            ("The best CTAs include a benefit", "'Get a free same-day quote' or 'See if we service your suburb' both beat generic."),
-            ("Make your CTA feel like the first step of something good.", "DM me ADS if you want me to rewrite yours."),
-        ]
+            ("WEAK CTA", "'Get a free quote' — table stakes, everyone offers it, zero reason to choose you over the next result."),
+            ("STRONG CTA", "'Book your spot' or 'Get your price in 60 seconds' — implies scarcity, speed, and a clear next step."),
+        ],
+        "formula": "Make your CTA feel like the first step of something good.",
+        "callout": "your CTA is the last thing standing between them and a lead",
     },
     # ── Scaling & systems ───────────────────────────────────────────────────────
     {
         "title": "When to Scale Your Meta Ad Budget (And When Not To)",
+        "layout": "funnel",
         "slides": [
-            ("Most businesses scale too fast or not at all.", "Here's the exact signal to look for before increasing budget."),
-            ("The rule: only scale on a profitable CPL", "If you're not profitable at your current budget, increasing spend just loses money faster."),
-            ("The signal to scale: consistent results over 14 days", "Same CPL week over week. Leads converting to jobs. Then consider scaling."),
-            ("How to scale: 20% budget increases only", "Don't double your budget overnight. Meta re-enters learning phase. 20% bumps preserve optimisation."),
-            ("Scale when it's working. Fix it when it's not.", "DM me ADS to know which stage you're at."),
-        ]
+            ("PROFITABLE CPL", "Only scale if you're already profitable. More budget on a broken campaign loses money faster."),
+            ("14 DAYS CONSISTENT", "Same CPL week over week, leads converting to jobs — now consider scaling."),
+            ("20% INCREASES ONLY", "Don't double the budget overnight. 20% bumps preserve the algorithm's optimisation."),
+            ("WATCH FOR 7 DAYS", "After each increase, monitor CPL for a week before the next bump."),
+            ("THEN SCALE AGAIN", "Repeat. Slow and steady scales without breaking the campaign."),
+        ],
+        "callout": "scale when it's working — fix it when it's not",
     },
     {
         "title": "How to Run Meta Ads in a Slow Season Without Wasting Money",
+        "layout": "steps",
         "slides": [
-            ("Slow season doesn't mean stop ads.", "It means run them smarter. Here's how."),
-            ("Drop budget but don't turn it off", "Turning off resets the learning phase. Drop to $10–15/day minimum to keep the algorithm warm."),
-            ("Shift objective to brand awareness", "Build your audience during slow season. Retarget them when demand returns."),
-            ("Run engagement ads on your best performing posts", "Cheap. Builds social proof. Keeps your page active without burning lead gen budget."),
-            ("The businesses that run through slow season", "Own market share when demand picks up. DM me ADS to set up a slow-season strategy."),
-        ]
+            ("DON'T TURN IT OFF", "Turning off resets the learning phase. Drop budget to a low minimum to keep the algorithm warm."),
+            ("SHIFT OBJECTIVE", "Run engagement or awareness ads during slow season. Build the audience for when demand returns."),
+            ("RETARGET WARM PEOPLE", "Run low-budget retargeting to stay top of mind with people who've engaged."),
+            ("STAY VISIBLE", "Businesses that run through slow season own market share when demand picks up."),
+        ],
+        "callout": "slow season is when your competitors go quiet — don't",
     },
     {
         "title": "How to Test 2 Ads Without Wasting Your Budget",
+        "layout": "steps",
         "slides": [
-            ("Most service businesses run one ad and hope it works.", "Testing 2 is the smarter move — here's how to do it without doubling your spend."),
-            ("Run them in the same ad set", "Same audience. Same budget. Two different creatives. Let Meta split traffic between them."),
-            ("What to test first: the creative (image or video)", "Don't test audience, budget, and creative at once. One variable at a time."),
-            ("When to call a winner: after 50+ impressions each", "Not after 2 days. Give Meta time to find the right people for each creative."),
-            ("Kill the loser. Scale the winner.", "Simple. Repeatable. DM me ADS to set this up."),
-        ]
+            ("SAME AD SET", "Same audience, same budget — two different creatives. Let Meta split traffic between them."),
+            ("TEST CREATIVE FIRST", "Don't test audience, budget, and creative at once. One variable at a time."),
+            ("WAIT FOR 50+ IMPRESSIONS", "Not after 2 days. Give Meta time to find the right people for each creative."),
+            ("KILL THE LOSER", "Scale the winner. Simple. Repeatable. No guessing."),
+        ],
+        "callout": "most businesses run one ad and hope — testing is the smarter move",
     },
     # ── Mindset & business ──────────────────────────────────────────────────────
     {
-        "title": "The Real Reason Most Tradies Don't Run Ads",
+        "title": "The Real Reason Most Service Business Owners Don't Run Ads",
+        "layout": "problems",
         "slides": [
-            ("It's not budget. It's not time.", "Here's the real reason most service business owners never run ads — and why it's costing them."),
-            ("Fear of it not working", "They've heard stories. A mate spent $500 and got nothing. So they write off the whole channel."),
-            ("Wrong setup = wrong result", "The mate who got nothing ran a boosted post with no offer and a stock photo. That's not a Meta ad."),
-            ("The real risk is doing nothing", "Referrals dry up. You have no predictable lead source. You're always one slow month away from stress."),
-            ("Ads are a skill. Like tiling. Like quoting.", "You learn it once and use it forever. DM me ADS to start."),
-        ]
+            ("FEAR OF FAILURE", "They've heard stories — a mate spent money and got nothing. So they write off the whole channel."),
+            ("WRONG SETUP", "The mate who got nothing ran a boosted post with a stock photo. That's not a Meta ad."),
+            ("DOING NOTHING", "Referrals dry up. No predictable lead source. One slow month from stress."),
+        ],
+        "callout": "ads are a skill — you learn it once and use it forever",
     },
     {
         "title": "What 'Consistent Leads' Actually Means for a Service Business",
+        "layout": "steps",
         "slides": [
-            ("Everyone says they want consistent leads.", "But most service businesses have never actually had them. Here's what it looks like."),
-            ("Consistent leads = predictable revenue", "You know roughly what next month looks like. You can plan staff, equipment, capacity."),
-            ("Consistent leads = less desperation", "You stop taking every job that calls. You can be selective. Raise prices."),
-            ("Consistent leads = growth by choice", "You scale when you want to. Hire when it makes sense. Not because you're scrambling."),
-            ("A well-run Meta campaign delivers this.", "DM me ADS — I'll show you what it takes for your specific trade."),
-        ]
+            ("PREDICTABLE REVENUE", "You know roughly what next month looks like. You can plan staff, equipment, capacity."),
+            ("LESS DESPERATION", "You stop taking every job. You can be selective. Raise prices."),
+            ("GROWTH BY CHOICE", "Scale when you want to. Hire when it makes sense. Not because you're scrambling."),
+            ("REAL BUSINESS", "A well-run campaign delivers this — leads in, calendar full, stress out."),
+        ],
+        "callout": "most service businesses have never actually had consistent leads",
     },
     {
         "title": "Why Most Service Businesses Plateau at $10k/Month",
+        "layout": "funnel",
         "slides": [
-            ("There's a ceiling most service businesses hit and can't break through.", "Here's why it happens and what breaks you through it."),
-            ("The ceiling is usually a lead source problem", "You're at max capacity for word-of-mouth. Referrals can't scale beyond a point."),
-            ("Adding ads breaks the ceiling", "New lead volume forces decisions: hire, specialise, raise prices, systemise."),
-            ("But ads alone aren't the answer", "You need a follow-up system, a clear offer, and capacity to handle more work."),
-            ("The $10k ceiling is a systems problem, not a skill problem.", "DM me ADS to map out what breaking through looks like for your business."),
-        ]
+            ("THE CEILING", "Referrals max out. Word-of-mouth can't scale beyond a point."),
+            ("ADD ADS", "New lead volume forces decisions — hire, specialise, raise prices, systemise."),
+            ("BUILD SYSTEMS", "Follow-up, clear offer, capacity to handle the work. Not just the ads."),
+            ("BREAK THROUGH", "The businesses that break $10k have a predictable lead source and a system to handle it."),
+        ],
+        "callout": "it's a systems problem — not a skills problem",
     },
     # ── Niche specifics ─────────────────────────────────────────────────────────
     {
         "title": "Meta Ads for Plumbers — What Works and What Doesn't",
+        "layout": "problems",
         "slides": [
-            ("Plumbing is one of the most competitive local service niches on Meta.", "Here's what actually works."),
-            ("What doesn't work: generic plumbing ads", "'We fix all plumbing issues! Call now!' — ignored. Too broad."),
-            ("What works: urgency-based creative", "'Burst pipe? We respond within 60 minutes in [suburb]' — specific, urgent, local."),
-            ("What works: seasonal angles", "'Hot water system going cold before summer? Get it sorted now.' Timely hooks convert."),
-            ("What works: before/after with job story", "'$150 repair that saved this homeowner $3,000 in water damage' — proof + outcome."),
-        ]
+            ("GENERIC ADS FAIL", "'We fix all plumbing issues! Call now!' — too broad, instantly ignored."),
+            ("URGENCY WORKS", "'Burst pipe? We respond within 60 minutes in [suburb]' — specific, urgent, local."),
+            ("SEASONAL ANGLES", "'Hot water system going cold before winter?' — timely hooks convert every time."),
+        ],
+        "callout": "plumbing is competitive on Meta — the angle is everything",
     },
     {
         "title": "Meta Ads for Landscapers — The Angle That Always Works",
+        "layout": "steps",
         "slides": [
-            ("Landscaping is visual.", "That's your biggest advantage on Instagram. Here's how to use it."),
-            ("Your best ad is your last finished job", "Take 3 photos before you pack up. Wide shot, close-up, transformation shot."),
-            ("The angle that converts: aspiration not desperation", "Don't talk about overgrown lawns. Talk about the result — 'ready to host again by the weekend.'"),
-            ("Seasonal timing is everything", "Spring clean-ups, pre-summer prep, end-of-year tidy. Match your ad to the calendar."),
-            ("One before/after per week on Instagram", "Consistent visible proof. That's the content strategy. DM me ADS to pair it with paid."),
-        ]
+            ("SHOOT THE JOB", "Take 3 photos before you pack up — wide shot, close-up, transformation shot."),
+            ("SELL THE RESULT", "Don't talk about overgrown lawns. Talk about being 'ready to host again by the weekend.'"),
+            ("TIME IT SEASONALLY", "Spring clean-ups, pre-summer prep, end-of-year tidy — match your ad to the calendar."),
+            ("POST THE BEFORE/AFTER", "One photo per week. Consistent visual proof. That's the whole content strategy."),
+        ],
+        "callout": "landscaping is visual — that's your biggest advantage on Instagram",
     },
     {
         "title": "Meta Ads for Window Cleaners — Why This Niche Prints Money",
+        "layout": "problems",
         "slides": [
-            ("Window cleaning is one of the best niches for Meta ads.", "Here's exactly why — and how to maximise it."),
-            ("Low ticket, high frequency", "Average job: $150–$300. Most clients rebook every 3–6 months. LTV is real."),
-            ("Visual proof is easy", "Before/after windows are instantly satisfying. High CTR creative almost by default."),
-            ("Tight local radius works perfectly", "You serve a suburb or 20km radius. Meta's geo-targeting was built for this."),
-            ("Low competition from other window cleaners on Meta", "Most aren't running ads. You dominate by just showing up consistently."),
-        ]
+            ("HIGH FREQUENCY", "Average job repeats every 3-6 months. LTV is real and predictable."),
+            ("EASY VISUAL PROOF", "Before/after windows are instantly satisfying. High CTR by default."),
+            ("LOW COMPETITION", "Most window cleaners aren't running Meta ads. You dominate by just showing up."),
+        ],
+        "callout": "window cleaning is one of the best niches for Meta ads — the math works",
     },
 ]
 
+
+# ── API helpers ────────────────────────────────────────────────────────────────
+
+def api_post(path, payload):
+    r = requests.post(f'{API}{path}', headers=HEADERS, json=payload, timeout=30)
+    if not r.ok:
+        print(f"  API error {r.status_code} on {path}: {r.text[:300]}")
+        r.raise_for_status()
+    return r.json()
+
+
+def add_circle(board_id, content, x, y, size, fill):
+    """Circle shape with content centered inside."""
+    return api_post(f'/boards/{board_id}/shapes', {
+        'data': {'shape': 'circle', 'content': content},
+        'style': {
+            'fillColor': fill,
+            'fontColor': WHITE,
+            'borderColor': fill,
+            'borderWidth': '2',
+            'textAlign': 'center',
+            'textAlignVertical': 'middle',
+            'fontSize': '14',
+            'fontWeight': 'bold',
+            'fillOpacity': '1',
+        },
+        'position': {'x': x, 'y': y, 'origin': 'center'},
+        'geometry': {'width': size, 'height': size},
+    })
+
+
+def add_rect(board_id, content, x, y, w, h, fill, text_color=WHITE, border_color=None, font_size='14', align='center'):
+    return api_post(f'/boards/{board_id}/shapes', {
+        'data': {'shape': 'rectangle', 'content': content},
+        'style': {
+            'fillColor': fill,
+            'fontColor': text_color,
+            'borderColor': border_color or fill,
+            'borderWidth': '3',
+            'textAlign': align,
+            'textAlignVertical': 'middle',
+            'fontSize': font_size,
+            'fillOpacity': '1',
+        },
+        'position': {'x': x, 'y': y, 'origin': 'center'},
+        'geometry': {'width': w, 'height': h},
+    })
+
+
+def add_text(board_id, content, x, y, w, font_size, color, bold=False):
+    text = f'<strong>{content}</strong>' if bold else content
+    return api_post(f'/boards/{board_id}/texts', {
+        'data': {'content': text},
+        'style': {'color': color, 'fontSize': str(font_size), 'textAlign': 'center'},
+        'position': {'x': x, 'y': y, 'origin': 'center'},
+        'geometry': {'width': w},
+    })
+
+
+def add_arrow(board_id, from_id, to_id, color=GRAY):
+    try:
+        api_post(f'/boards/{board_id}/connectors', {
+            'startItem': {'id': from_id, 'snapTo': 'right'},
+            'endItem':   {'id': to_id,   'snapTo': 'left'},
+            'style': {
+                'strokeColor': color,
+                'strokeWidth': '2',
+                'endStrokeCap': 'filled_triangle',
+                'startStrokeCap': 'none',
+                'strokeStyle': 'normal',
+            },
+        })
+    except Exception as e:
+        print(f"  Arrow skipped: {e}")
+
+
+def board_header(board_id, title, total_w, y_offset=-120):
+    add_text(board_id, title, x=total_w / 2, y=y_offset, w=total_w, font_size=28, color=DARK, bold=True)
+    add_text(board_id, '@marcomarkets', x=total_w / 2, y=y_offset + 50, w=total_w, font_size=16, color=GRAY)
+
+
+def board_callout(board_id, text, cx, y, w=900):
+    add_rect(board_id, text, x=cx, y=y, w=w, h=80,
+             fill=WHITE, text_color=DARK, border_color='#cbd5e1', font_size='15')
+
+
+# ── Layout builders ────────────────────────────────────────────────────────────
+
+def build_funnel(board_id, topic):
+    """Decreasing circles connected horizontally — good for flows and funnels."""
+    slides = topic['slides']
+    n = len(slides)
+    sizes = [300 - i * 28 for i in range(n)]  # e.g. 300, 272, 244, 216, 188
+    gap = 50
+    # Center x of each circle accounting for variable sizes
+    xs = []
+    cx = sizes[0] / 2
+    for i, size in enumerate(sizes):
+        if i == 0:
+            cx = size / 2
+        else:
+            cx += sizes[i - 1] / 2 + gap + size / 2
+        xs.append(cx)
+
+    total_w = xs[-1] + sizes[-1] / 2
+    board_header(board_id, topic['title'], total_w)
+
+    y_circle = 300
+    circle_ids = []
+    for i, (label, sublabel) in enumerate(slides):
+        color = FUNNEL_COLORS[i % len(FUNNEL_COLORS)]
+        short = label[:22]
+        shape = add_circle(board_id, short, x=xs[i], y=y_circle, size=sizes[i], fill=color)
+        circle_ids.append(shape['id'])
+        # Label below circle
+        add_text(board_id, label, x=xs[i], y=y_circle + sizes[i] / 2 + 25,
+                 w=max(sizes[i] + 40, 200), font_size=13, color=DARK, bold=True)
+        add_text(board_id, sublabel, x=xs[i], y=y_circle + sizes[i] / 2 + 55,
+                 w=max(sizes[i] + 60, 220), font_size=12, color=GRAY)
+
+    for i in range(len(circle_ids) - 1):
+        add_arrow(board_id, circle_ids[i], circle_ids[i + 1], color='#94a3b8')
+
+    if topic.get('callout'):
+        board_callout(board_id, topic['callout'], cx=total_w / 2, y=y_circle + sizes[0] / 2 + 140)
+
+    print(f"  → funnel: {n} circles built")
+
+
+def build_problems(board_id, topic):
+    """Equal circles side by side, each a different color — good for problems/mistakes."""
+    slides = topic['slides']
+    n = len(slides)
+    size = 240
+    gap = 70
+    spacing = size + gap
+    total_w = n * size + (n - 1) * gap + 100
+
+    board_header(board_id, topic['title'], total_w)
+
+    y_circle = 280
+    for i, (label, detail) in enumerate(slides):
+        color = PROBLEM_COLORS[i % len(PROBLEM_COLORS)]
+        x = 50 + size / 2 + i * spacing
+        short = label[:20]
+        add_circle(board_id, short, x=x, y=y_circle, size=size, fill=color)
+        # Label below (colored to match circle)
+        add_text(board_id, label, x=x, y=y_circle + size / 2 + 28,
+                 w=size + 40, font_size=14, color=color, bold=True)
+        # Explanation box below label
+        add_rect(board_id, detail, x=x, y=y_circle + size / 2 + 120,
+                 w=size + 30, h=110,
+                 fill=WHITE, text_color=DARK, border_color=color, font_size='13', align='left')
+
+    if topic.get('callout'):
+        board_callout(board_id, topic['callout'], cx=total_w / 2, y=y_circle + size / 2 + 275)
+
+    print(f"  → problems: {n} circles built")
+
+
+def build_steps(board_id, topic):
+    """Numbered circles same color, connected by arrows — good for how-tos and checklists."""
+    slides = topic['slides']
+    n = len(slides)
+    size = 210
+    gap = 60
+    spacing = size + gap
+    total_w = n * size + (n - 1) * gap + 100
+
+    board_header(board_id, topic['title'], total_w)
+
+    y_circle = 280
+    circle_ids = []
+    for i, (label, detail) in enumerate(slides):
+        x = 50 + size / 2 + i * spacing
+        num = f'0{i+1}' if i + 1 < 10 else str(i + 1)
+        shape = add_circle(board_id, num, x=x, y=y_circle, size=size, fill=STEP_COLOR)
+        circle_ids.append(shape['id'])
+        add_text(board_id, label, x=x, y=y_circle + size / 2 + 28,
+                 w=size + 30, font_size=13, color=DARK, bold=True)
+        add_text(board_id, detail, x=x, y=y_circle + size / 2 + 60,
+                 w=size + 40, font_size=12, color=GRAY)
+
+    for i in range(len(circle_ids) - 1):
+        add_arrow(board_id, circle_ids[i], circle_ids[i + 1], color='#94a3b8')
+
+    if topic.get('callout'):
+        board_callout(board_id, topic['callout'], cx=total_w / 2, y=y_circle + size / 2 + 130)
+
+    print(f"  → steps: {n} circles built")
+
+
+def build_comparison(board_id, topic):
+    """Two large circles side by side — left=bad/before (red), right=good/after (green)."""
+    slides = topic['slides']
+    left_label, left_detail = slides[0]
+    right_label, right_detail = slides[1]
+
+    size = 280
+    gap = 160  # space for VS label in center
+    total_w = size * 2 + gap + 200
+
+    board_header(board_id, topic['title'], total_w)
+
+    y_circle = 270
+    lx = 100 + size / 2
+    rx = total_w - 100 - size / 2
+
+    add_circle(board_id, left_label[:18], x=lx, y=y_circle, size=size, fill=COMP_LEFT)
+    add_circle(board_id, right_label[:18], x=rx, y=y_circle, size=size, fill=COMP_RIGHT)
+
+    # VS label in center
+    add_text(board_id, 'VS', x=total_w / 2, y=y_circle,
+             w=80, font_size=32, color='#94a3b8', bold=True)
+
+    # Detail boxes below each circle
+    add_rect(board_id, left_detail, x=lx, y=y_circle + size / 2 + 120,
+             w=size + 80, h=130, fill=WHITE, text_color=DARK, border_color=COMP_LEFT,
+             font_size='13', align='left')
+    add_rect(board_id, right_detail, x=rx, y=y_circle + size / 2 + 120,
+             w=size + 80, h=130, fill=WHITE, text_color=DARK, border_color=COMP_RIGHT,
+             font_size='13', align='left')
+
+    if topic.get('formula'):
+        add_text(board_id, topic['formula'], x=total_w / 2, y=y_circle + size / 2 + 70,
+                 w=500, font_size=15, color=DARK, bold=True)
+
+    if topic.get('callout'):
+        board_callout(board_id, topic['callout'], cx=total_w / 2, y=y_circle + size / 2 + 290)
+
+    print(f"  → comparison: 2 circles built")
+
+
+def build_case_study(board_id, topic):
+    """Rising bar chart — good for weekly results and metric progressions."""
+    slides = topic['slides']
+    n = len(slides)
+    bar_w = 200
+    gap = 50
+    spacing = bar_w + gap
+    # Bar heights increase left to right
+    min_h, max_h = 120, 380
+    step = (max_h - min_h) / max(n - 1, 1)
+    heights = [int(min_h + i * step) for i in range(n)]
+
+    total_w = n * bar_w + (n - 1) * gap + 120
+    ground_y = 520  # y of the bottom of the tallest bar
+
+    board_header(board_id, topic['title'], total_w)
+
+    for i, (label, detail) in enumerate(slides):
+        color = CASE_COLORS[i % len(CASE_COLORS)]
+        h = heights[i]
+        x = 60 + bar_w / 2 + i * spacing
+        bar_top_y = ground_y - h
+
+        # The bar (rectangle)
+        add_rect(board_id, '', x=x, y=bar_top_y + h / 2, w=bar_w, h=h,
+                 fill=color, font_size='13')
+
+        # Label inside bar (at top of bar if tall enough)
+        if h > 80:
+            add_text(board_id, label, x=x, y=bar_top_y + 30,
+                     w=bar_w - 10, font_size=14, color=WHITE, bold=True)
+
+        # Detail text below bar
+        add_text(board_id, detail, x=x, y=ground_y + 30,
+                 w=bar_w + 20, font_size=12, color=GRAY)
+
+    if topic.get('callout'):
+        board_callout(board_id, topic['callout'], cx=total_w / 2, y=ground_y + 110)
+
+    print(f"  → case_study: {n} bars built")
+
+
+LAYOUT_BUILDERS = {
+    'funnel':      build_funnel,
+    'problems':    build_problems,
+    'steps':       build_steps,
+    'comparison':  build_comparison,
+    'case_study':  build_case_study,
+}
+
+
+def build_visual_board(board_id, topic):
+    layout = topic.get('layout', 'steps')
+    builder = LAYOUT_BUILDERS.get(layout, build_steps)
+    builder(board_id, topic)
+
+
+# ── Board management ───────────────────────────────────────────────────────────
 
 def load_used_topics():
     if os.path.exists(BOARDS_FILE):
@@ -507,129 +840,9 @@ def get_team_id():
                     return teams[0]['id']
     return None
 
-# Visual layout constants — Instagram square card proportions
-CARD_W = 640
-CARD_H = 640
-CARD_GAP = 60
-
-# Dark-themed slide styles: (fill, text, accent border/label)
-SLIDE_STYLES = [
-    ('#0d1117', '#ffffff', '#3b82f6'),   # Hook: dark bg, blue accent
-    ('#0f172a', '#e2e8f0', '#60a5fa'),   # Point 1: slate, light blue
-    ('#0f172a', '#e2e8f0', '#34d399'),   # Point 2: slate, green
-    ('#0f172a', '#e2e8f0', '#f59e0b'),   # Point 3: slate, amber
-    ('#0d1117', '#ffffff', '#3b82f6'),   # Close: back to dark + blue
-]
-
-
-def api_post(path, payload):
-    r = requests.post(f'{API}{path}', headers=HEADERS, json=payload, timeout=30)
-    if not r.ok:
-        print(f"  API error {r.status_code} on {path}: {r.text[:300]}")
-        r.raise_for_status()
-    return r.json()
-
-
-def add_shape(board_id, content, x, y, fill, text_color, border_color):
-    return api_post(f'/boards/{board_id}/shapes', {
-        'data': {'shape': 'rectangle', 'content': content},
-        'style': {
-            'fillColor': fill,
-            'fontColor': text_color,
-            'borderColor': border_color,
-            'borderWidth': '3',
-            'textAlign': 'left',
-            'textAlignVertical': 'top',
-            'fontSize': '18',
-            'borderOpacity': '1',
-            'fillOpacity': '1',
-        },
-        'position': {'x': x, 'y': y, 'origin': 'center'},
-        'geometry': {'width': CARD_W, 'height': CARD_H},
-    })
-
-
-def add_label(board_id, content, x, y, width, font_size, color, bold=False):
-    return api_post(f'/boards/{board_id}/texts', {
-        'data': {'content': f'<strong>{content}</strong>' if bold else content},
-        'style': {
-            'color': color,
-            'fontSize': str(font_size),
-            'textAlign': 'left',
-        },
-        'position': {'x': x, 'y': y, 'origin': 'center'},
-        'geometry': {'width': width},
-    })
-
-
-def add_connector(board_id, from_id, to_id, color='#475569'):
-    try:
-        api_post(f'/boards/{board_id}/connectors', {
-            'startItem': {'id': from_id, 'snapTo': 'right'},
-            'endItem': {'id': to_id, 'snapTo': 'left'},
-            'style': {
-                'strokeColor': color,
-                'strokeWidth': '2',
-                'endStrokeCap': 'filled_triangle',
-                'startStrokeCap': 'none',
-                'strokeStyle': 'normal',
-            },
-        })
-    except Exception as e:
-        print(f"  Connector skipped (non-fatal): {e}")
-
-
-def build_visual_board(board_id, topic):
-    """Create a visual carousel layout: slides side-by-side with arrows."""
-    slides = topic['slides']
-    title = topic['title']
-
-    total_w = len(slides) * CARD_W + (len(slides) - 1) * CARD_GAP
-    start_x = CARD_W / 2
-
-    # Board title above the cards
-    add_label(board_id, title,
-              x=total_w / 2, y=-90, width=total_w,
-              font_size=26, color='#0f172a', bold=True)
-
-    # Handle tag below title
-    add_label(board_id, '@marcomarkets',
-              x=total_w / 2, y=-55, width=total_w,
-              font_size=15, color='#64748b')
-
-    card_ids = []
-    for i, (heading, body) in enumerate(slides):
-        fill, text_col, accent = SLIDE_STYLES[min(i, len(SLIDE_STYLES) - 1)]
-        x = start_x + i * (CARD_W + CARD_GAP)
-        y = CARD_H / 2
-
-        slide_num = f'0{i+1}' if i + 1 < 10 else str(i + 1)
-        # HTML content inside the card
-        content = (
-            f'<p><strong>{slide_num}</strong></p>'
-            f'<p> </p>'
-            f'<p><strong>{heading}</strong></p>'
-            f'<p> </p>'
-            f'<p>{body}</p>'
-        )
-
-        shape = add_shape(board_id, content,
-                          x=x, y=y,
-                          fill=fill, text_color=text_col, border_color=accent)
-        card_ids.append(shape['id'])
-
-    # Connect cards left → right with arrows
-    for i in range(len(card_ids) - 1):
-        add_connector(board_id, card_ids[i], card_ids[i + 1], color='#94a3b8')
-
-    print(f"  → {len(slides)} cards + {len(card_ids)-1} connectors built")
-
 
 def create_board(title):
-    payload = {
-        'name': title,
-        'description': 'Weekly carousel — @marcomarkets',
-    }
+    payload = {'name': title, 'description': 'Weekly board — @marcomarkets'}
     team_id = get_team_id()
     if team_id:
         payload['teamId'] = team_id
@@ -647,17 +860,17 @@ def main():
 
     available = [t for t in CAROUSEL_TOPICS if t['title'] not in used_titles]
     if not available:
-        print("All carousel topics have been used. Add new topics to CAROUSEL_TOPICS to continue.")
+        print("All topics have been used. Add new topics to CAROUSEL_TOPICS to continue.")
         return
-    if len(available) < 2:
+    if len(available) < 3:
         print(f"Only {len(available)} topic(s) left — using what's available.")
 
-    this_week = available[:2]
+    this_week = available[:3]
     new_boards = list(existing_boards)
     newly_used = list(used_titles)
 
     for topic in this_week:
-        print(f"Creating board: {topic['title']}")
+        print(f"Creating board: {topic['title']} [{topic.get('layout', 'steps')}]")
         try:
             board = create_board(topic['title'])
             board_id = board['id']
@@ -667,6 +880,7 @@ def main():
                 'title': topic['title'],
                 'board_id': board_id,
                 'url': view_link,
+                'layout': topic.get('layout', 'steps'),
                 'created': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
             })
             newly_used.append(topic['title'])
