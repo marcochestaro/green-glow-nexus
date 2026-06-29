@@ -559,7 +559,7 @@ def main():
     if len(available) < 3:
         print(f"Only {len(available)} topic(s) left in pool — using what's available.")
 
-    this_week = available[:3]
+    this_week = available[:2]
     new_boards = list(existing_boards)
     newly_used = list(used_titles)
 
