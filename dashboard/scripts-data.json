@@ -297,24 +297,24 @@
           "stories": []
         },
         {
-          "title": "The ROI Math Behind a Profitable Meta Campaign",
+          "title": "The Follow-Up Window (Why Your Leads Go Cold)",
           "overlay": null,
           "recCap": 0,
           "recVer": "full",
           "type": "Screen Record",
-          "film": "Screen record the Miro board at https://miro.com/app/board/uXjVHAajvwA=/. Walk through each step in the funnel with your cursor — pause on each one so viewers can read it. Speak naturally as you point through REACH, CLICK, LEAD, CLIENT. Let the board do the visual work.",
+          "film": "Screen record the Miro board at https://miro.com/app/board/uXjVHAapziQ=/. Start at the header, then walk your cursor left to right through the four circles — pause on each one. Slow down on 24 HOURS. Then drop to the fix and the callout. Keep your voice calm and direct, like this is a fact they should already know.",
           "captions": [
             {
               "label": "A",
-              "text": "most service business owners are losing money at one specific step in their funnel. the ad is almost never the problem."
+              "text": "your leads aren't going cold. you're just calling them too late."
             },
             {
               "label": "B",
-              "text": "your meta campaign is four steps: reach, click, lead, client. most service businesses bleed money between steps 2 and 3 — not because the ad is bad, but because what happens after the click is broken."
+              "text": "a lead fills in a form because they're thinking about their problem right now. wait 5 minutes — high chance they book. wait an hour — chance drops. wait 24 hours — they've called someone else. the follow-up window is real and most service businesses miss it completely."
             },
             {
               "label": "C",
-              "text": "fix one step in this chain and your whole return improves without spending more."
+              "text": "call within 5 minutes. every time. no exceptions."
             }
           ],
           "lines": [
@@ -322,54 +322,47 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Walk through this with me — most service business owners are losing money at one specific step in their ad funnel, and they don't know which one."
+              "text": "Your Meta ads are probably working. Your follow-up is what's killing the leads."
             },
             {
               "time": "Point 1",
               "tag": "8s",
               "cls": "",
-              "text": "Step one — Reach. Your ad gets in front of the right people. If targeting is too broad, you're paying to reach people who'd never hire you. That's where the waste starts — before anyone even sees your creative."
+              "text": "The moment someone fills in your lead form, they are at peak interest. They just searched for help, saw your ad, and made a decision. That window is tiny. Call them within five minutes and your chance of booking is extremely high. That's the data across thousands of service businesses."
             },
             {
               "time": "Point 2",
               "tag": "8s",
               "cls": "",
-              "text": "Step two — Click. A strong hook earns the click. Weak creative loses them right here. Step three — Lead. Your landing page or offer converts that click into a real inquiry. This is where most service businesses actually bleed money. A good ad sending people to a weak page is just expensive traffic."
-            },
-            {
-              "time": "Point 3",
-              "tag": "8s",
-              "cls": "",
-              "text": "Step four — Client. Your follow-up speed and how you present converts that lead into a paying job. Most owners pour all their focus into the ad and ignore everything after it. Fix step three or four and your return improves without touching the campaign."
+              "text": "Wait one hour — that chance has already dropped significantly. Wait 24 hours and you've basically lost them. Not because they forgot you — because your competitor who called in five minutes got the job. This is why business owners say their leads are low quality. The leads weren't low quality. The follow-up was slow."
             },
             {
               "time": "Close",
               "tag": "5s",
               "cls": "",
-              "text": "Find the leak. Fix it. Most of the time it's not the ad."
+              "text": "Build the system. Call within five minutes every time — and watch what happens to your close rate."
             }
           ],
           "stories": []
         },
         {
-          "title": "Why Your Ad Spend Feels Wasted (And How to Fix It)",
+          "title": "You're Targeting Too Broad (This Is Why Your Ads Waste Money)",
           "overlay": null,
           "recCap": 0,
           "recVer": "full",
-          "type": "Screen Record",
-          "film": "Screen record the Miro board at https://miro.com/app/board/uXjVHAajGag=/. Walk through each mistake circle with your cursor, pause so viewers can read it, then move to the fix. Let the board carry the visual — your voice is narrating what they're seeing.",
+          "film": "Screen record the Miro board at https://miro.com/app/board/BOARD_2_ID=/. Walk left column first — point at each mistake with your cursor and name it. Then move to the right column and walk through the fix for each one. Keep your cursor deliberate, pause after each point so viewers can absorb it.",
           "captions": [
             {
               "label": "A",
-              "text": "your ad spend isn't the problem. these three things are."
+              "text": "broad targeting isn't reaching more people. it's wasting money on the wrong ones."
             },
             {
               "label": "B",
-              "text": "if your meta ads feel like burning money, it's almost always wrong audience, weak creative, or no follow-up system. fix the biggest leak first and watch what changes."
+              "text": "most service businesses set their meta targeting to everyone in the city aged 18-65 and wonder why their leads are terrible. tighter audience, better leads, lower cost. here's exactly what to change."
             },
             {
               "label": "C",
-              "text": "ads don't fail. the system around them does."
+              "text": "the tighter your targeting, the cheaper your leads."
             }
           ],
           "lines": [
@@ -377,31 +370,25 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Three reasons your Meta ad spend feels like burning money — and none of them are the platform's fault."
+              "text": "If your Meta ads are reaching everyone, they're converting no one — and here's exactly why."
             },
             {
               "time": "Point 1",
               "tag": "8s",
               "cls": "",
-              "text": "Wrong audience. You're paying to reach people who will never buy from you. A window cleaner targeting everyone aged 18 to 65 in their city is paying for people in apartments with no windows to clean. Get specific — homeowners, the right suburbs, the right demographics. Tighter targeting means every dollar works harder."
+              "text": "Broad targeting means you're paying to show your ad to people who will never buy from you. A plumber showing ads to every adult in the city is paying for renters, apartment dwellers, people who do everything themselves. You're not buying leads — you're buying noise. The algorithm needs a specific signal to find the right buyer."
             },
             {
               "time": "Point 2",
               "tag": "8s",
               "cls": "",
-              "text": "Weak creative. The ad doesn't stop the scroll. No attention means no click means no lead. This is almost always a hook problem — the first two seconds aren't speaking to anyone's specific pain. It's generic. It gets ignored."
-            },
-            {
-              "time": "Point 3",
-              "tag": "8s",
-              "cls": "",
-              "text": "No follow-up system. This is the one nobody talks about. Your ad is actually working — leads are coming in — but they go cold because no one follows up fast enough. A lead that waits 24 hours for a call back is a lead you've already lost to your competitor."
+              "text": "The fix is specificity. Think about who actually hires you — homeowners, specific suburbs, certain demographics, people who've shown interest in home services. Narrow that down and Meta starts showing your ad to people who look like your actual customers. Your cost per lead drops. Your lead quality goes up. The same budget does more work."
             },
             {
               "time": "Close",
               "tag": "5s",
               "cls": "",
-              "text": "Fix the biggest leak first. Targeting, creative, or follow-up — find your one and start there."
+              "text": "Less reach, better leads. That's the trade — and it's always worth making."
             }
           ],
           "stories": []
@@ -703,24 +690,24 @@
           "stories": []
         },
         {
-          "title": "What Happens in the First 30 Days of Meta Ads",
+          "title": "The 3-Second Hook Formula (Why Most Ads Die Immediately)",
           "overlay": null,
           "recCap": 0,
           "recVer": "full",
           "type": "Screen Record",
-          "film": "Screen record the Miro board at https://miro.com/app/board/uXjVHAbJ6WA=/. Walk through each phase with your cursor, pausing so viewers can read each arrow. Let the phases do the visual work — your voice narrates what's happening in each one.",
+          "film": "Screen record the Miro board at https://miro.com/app/board/BOARD_3_ID=/. Walk through each section top to bottom — pause your cursor on each box and read the key point before moving on. Keep it calm and methodical. The board is doing the visual teaching, your voice is the commentary.",
           "captions": [
             {
               "label": "A",
-              "text": "most business owners quit at day 7. here's what the full 30-day picture actually looks like."
+              "text": "your ad has 3 seconds to earn the next 27. here's the formula."
             },
             {
               "label": "B",
-              "text": "the first 30 days of meta ads have four distinct phases — learning, data, scale, refine. most service businesses never get past phase one because they panic at the numbers and turn it off. here's what's supposed to happen."
+              "text": "most service business ads die in the first 3 seconds not because the offer is bad — but because the hook doesn't stop anyone. here's the exact structure that does: interrupt, deliver value, direct to action. simple. and most people aren't doing it."
             },
             {
               "label": "C",
-              "text": "you don't get results in week one. you get data. the results come later."
+              "text": "3 seconds to stop the scroll. 27 seconds to close the lead."
             }
           ],
           "lines": [
@@ -728,31 +715,31 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Most service business owners quit Meta ads at day 7 wondering why it isn't working. Here's what's actually supposed to happen across those 30 days."
+              "text": "Your ad has three seconds before someone scrolls past it forever — and most service business ads waste all three."
             },
             {
               "time": "Point 1",
               "tag": "8s",
               "cls": "",
-              "text": "Days 1 to 7 — the learning phase. Meta's algorithm is figuring out who responds to your ad. Your only job is to not touch anything. Changing settings, pausing, adjusting budget — all of it resets the learning phase. Just let it run."
+              "text": "Seconds one to three — the pattern interrupt. You need to say or show something that makes their thumb stop. Not your logo. Not your company name. Something that speaks directly to a problem they already have. A plumber who opens with 'water bill gone through the roof?' stops more scrolls than 'ABC Plumbing, serving your area.' Start with them, not you."
             },
             {
               "time": "Point 2",
               "tag": "8s",
               "cls": "",
-              "text": "Days 8 to 14 — first real data. You can see what's working. Make small adjustments if needed. Days 15 to 21 — you've found what converts. Now you scale it slowly. Increase budget by no more than 20 percent every few days. Cut what isn't converting."
+              "text": "Seconds four to twenty — deliver one clear piece of value. Not three tips. Not a full service breakdown. One insight that makes them think 'I didn't know that' or 'that's exactly my problem.' The moment someone learns something useful from your ad, you become the authority. That's when trust starts."
             },
             {
               "time": "Point 3",
               "tag": "8s",
               "cls": "",
-              "text": "Days 22 to 30 — leads are coming in consistently. Now you refine. Tighter audiences, stronger creative, lower cost per lead. This is where the real momentum starts building and your results compound week over week."
+              "text": "The last ten seconds — one clear next step. Not 'visit our website' and 'call us' and 'follow for more.' One action. Book now, send a message, click the link. The more options you give, the less likely they are to do any of them. Pick one and make it easy."
             },
             {
               "time": "Close",
               "tag": "5s",
               "cls": "",
-              "text": "By day 30 you know exactly what works in your market. The businesses with real results are the ones who committed past that uncomfortable first week."
+              "text": "Interrupt. Deliver. Direct. That's the whole formula — and it works every time you get it right."
             }
           ],
           "stories": []
@@ -1107,24 +1094,24 @@
       "stories": []
     },
     {
-      "title": "The ROI Math Behind a Profitable Meta Campaign",
+      "title": "The Follow-Up Window (Why Your Leads Go Cold)",
       "overlay": null,
       "recCap": 0,
       "recVer": "full",
       "type": "Screen Record",
-      "film": "Screen record the Miro board at https://miro.com/app/board/uXjVHAajvwA=/. Walk through each step in the funnel with your cursor — pause on each one so viewers can read it. Speak naturally as you point through REACH, CLICK, LEAD, CLIENT. Let the board do the visual work.",
+      "film": "Screen record the Miro board at https://miro.com/app/board/uXjVHAapziQ=/. Start at the header, then walk your cursor left to right through the four circles — pause on each one. Slow down on 24 HOURS. Then drop to the fix and the callout. Keep your voice calm and direct, like this is a fact they should already know.",
       "captions": [
         {
           "label": "A",
-          "text": "most service business owners are losing money at one specific step in their funnel. the ad is almost never the problem."
+          "text": "your leads aren't going cold. you're just calling them too late."
         },
         {
           "label": "B",
-          "text": "your meta campaign is four steps: reach, click, lead, client. most service businesses bleed money between steps 2 and 3 — not because the ad is bad, but because what happens after the click is broken."
+          "text": "a lead fills in a form because they're thinking about their problem right now. wait 5 minutes — high chance they book. wait an hour — chance drops. wait 24 hours — they've called someone else. the follow-up window is real and most service businesses miss it completely."
         },
         {
           "label": "C",
-          "text": "fix one step in this chain and your whole return improves without spending more."
+          "text": "call within 5 minutes. every time. no exceptions."
         }
       ],
       "lines": [
@@ -1132,54 +1119,48 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "Walk through this with me — most service business owners are losing money at one specific step in their ad funnel, and they don't know which one."
+          "text": "Your Meta ads are probably working. Your follow-up is what's killing the leads."
         },
         {
           "time": "Point 1",
           "tag": "8s",
           "cls": "",
-          "text": "Step one — Reach. Your ad gets in front of the right people. If targeting is too broad, you're paying to reach people who'd never hire you. That's where the waste starts — before anyone even sees your creative."
+          "text": "The moment someone fills in your lead form, they are at peak interest. They just searched for help, saw your ad, and made a decision. That window is tiny. Call them within five minutes and your chance of booking is extremely high. That's the data across thousands of service businesses."
         },
         {
           "time": "Point 2",
           "tag": "8s",
           "cls": "",
-          "text": "Step two — Click. A strong hook earns the click. Weak creative loses them right here. Step three — Lead. Your landing page or offer converts that click into a real inquiry. This is where most service businesses actually bleed money. A good ad sending people to a weak page is just expensive traffic."
-        },
-        {
-          "time": "Point 3",
-          "tag": "8s",
-          "cls": "",
-          "text": "Step four — Client. Your follow-up speed and how you present converts that lead into a paying job. Most owners pour all their focus into the ad and ignore everything after it. Fix step three or four and your return improves without touching the campaign."
+          "text": "Wait one hour — that chance has already dropped significantly. Wait 24 hours and you've basically lost them. Not because they forgot you — because your competitor who called in five minutes got the job. This is why business owners say their leads are low quality. The leads weren't low quality. The follow-up was slow."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "Find the leak. Fix it. Most of the time it's not the ad."
+          "text": "Build the system. Call within five minutes every time — and watch what happens to your close rate."
         }
       ],
       "stories": []
     },
     {
-      "title": "Why Your Ad Spend Feels Wasted (And How to Fix It)",
+      "title": "You're Targeting Too Broad (This Is Why Your Ads Waste Money)",
       "overlay": null,
       "recCap": 0,
       "recVer": "full",
       "type": "Screen Record",
-      "film": "Screen record the Miro board at https://miro.com/app/board/uXjVHAajGag=/. Walk through each mistake circle with your cursor, pause so viewers can read it, then move to the fix. Let the board carry the visual — your voice is narrating what they're seeing.",
+      "film": "Screen record the Miro board at https://miro.com/app/board/BOARD_2_ID=/. Walk left column first — point at each mistake with your cursor and name it. Then move to the right column and walk through the fix for each one. Keep your cursor deliberate, pause after each point so viewers can absorb it.",
       "captions": [
         {
           "label": "A",
-          "text": "your ad spend isn't the problem. these three things are."
+          "text": "broad targeting isn't reaching more people. it's wasting money on the wrong ones."
         },
         {
           "label": "B",
-          "text": "if your meta ads feel like burning money, it's almost always wrong audience, weak creative, or no follow-up system. fix the biggest leak first and watch what changes."
+          "text": "most service businesses set their meta targeting to everyone in the city aged 18-65 and wonder why their leads are terrible. tighter audience, better leads, lower cost. here's exactly what to change."
         },
         {
           "label": "C",
-          "text": "ads don't fail. the system around them does."
+          "text": "the tighter your targeting, the cheaper your leads."
         }
       ],
       "lines": [
@@ -1187,31 +1168,25 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "Three reasons your Meta ad spend feels like burning money — and none of them are the platform's fault."
+          "text": "If your Meta ads are reaching everyone, they're converting no one — and here's exactly why."
         },
         {
           "time": "Point 1",
           "tag": "8s",
           "cls": "",
-          "text": "Wrong audience. You're paying to reach people who will never buy from you. A window cleaner targeting everyone aged 18 to 65 in their city is paying for people in apartments with no windows to clean. Get specific — homeowners, the right suburbs, the right demographics. Tighter targeting means every dollar works harder."
+          "text": "Broad targeting means you're paying to show your ad to people who will never buy from you. A plumber showing ads to every adult in the city is paying for renters, apartment dwellers, people who do everything themselves. You're not buying leads — you're buying noise. The algorithm needs a specific signal to find the right buyer."
         },
         {
           "time": "Point 2",
           "tag": "8s",
           "cls": "",
-          "text": "Weak creative. The ad doesn't stop the scroll. No attention means no click means no lead. This is almost always a hook problem — the first two seconds aren't speaking to anyone's specific pain. It's generic. It gets ignored."
-        },
-        {
-          "time": "Point 3",
-          "tag": "8s",
-          "cls": "",
-          "text": "No follow-up system. This is the one nobody talks about. Your ad is actually working — leads are coming in — but they go cold because no one follows up fast enough. A lead that waits 24 hours for a call back is a lead you've already lost to your competitor."
+          "text": "The fix is specificity. Think about who actually hires you — homeowners, specific suburbs, certain demographics, people who've shown interest in home services. Narrow that down and Meta starts showing your ad to people who look like your actual customers. Your cost per lead drops. Your lead quality goes up. The same budget does more work."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "Fix the biggest leak first. Targeting, creative, or follow-up — find your one and start there."
+          "text": "Less reach, better leads. That's the trade — and it's always worth making."
         }
       ],
       "stories": []

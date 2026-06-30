@@ -3,24 +3,24 @@
   "updated_display": "Jun 30, 2026",
   "boards": [
     {
-      "title": "The ROI Math Behind a Profitable Meta Campaign",
-      "board_id": "uXjVHAajvwA=",
-      "url": "https://miro.com/app/board/uXjVHAajvwA=/",
-      "layout": "funnel",
-      "created": "2026-06-30T00:00:00Z"
-    },
-    {
-      "title": "Why Your Ad Spend Feels Wasted (And How to Fix It)",
-      "board_id": "uXjVHAajGag=",
-      "url": "https://miro.com/app/board/uXjVHAajGag=/",
-      "layout": "problems",
-      "created": "2026-06-30T00:00:00Z"
-    },
-    {
-      "title": "What Happens in the First 30 Days of Meta Ads",
-      "board_id": "uXjVHAbJ6WA=",
-      "url": "https://miro.com/app/board/uXjVHAbJ6WA=/",
+      "title": "The Follow-Up Window (Why Your Leads Go Cold)",
+      "board_id": "uXjVHAapziQ=",
+      "url": "https://miro.com/app/board/uXjVHAapziQ=/",
       "layout": "timeline",
+      "created": "2026-06-30T00:00:00Z"
+    },
+    {
+      "title": "You're Targeting Too Broad (This Is Why Your Ads Waste Money)",
+      "board_id": "PENDING",
+      "url": "PENDING",
+      "layout": "comparison",
+      "created": "2026-06-30T00:00:00Z"
+    },
+    {
+      "title": "The 3-Second Hook Formula (Why Most Ads Die Immediately)",
+      "board_id": "PENDING",
+      "url": "PENDING",
+      "layout": "formula",
       "created": "2026-06-30T00:00:00Z"
     }
   ],
@@ -28,6 +28,9 @@
     "The ROI Math Behind a Profitable Meta Campaign",
     "Why Your Ad Spend Feels Wasted (And How to Fix It)",
     "The 4 Elements of a Winning Local Ad",
-    "What Happens in the First 30 Days of Meta Ads"
+    "What Happens in the First 30 Days of Meta Ads",
+    "The Follow-Up Window (Why Your Leads Go Cold)",
+    "You're Targeting Too Broad (This Is Why Your Ads Waste Money)",
+    "The 3-Second Hook Formula (Why Most Ads Die Immediately)"
   ]
 }
