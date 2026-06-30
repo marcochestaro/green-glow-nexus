@@ -1,15 +1,15 @@
 {
-  "updated": "2026-06-29T16:33:46Z",
-  "updated_display": "Jun 29, 2026 at 16:33 UTC",
+  "updated": "2026-06-30T15:23:17Z",
+  "updated_display": "Jun 30, 2026 at 15:23 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing 40% better ROAS with video testimonials over static ads",
+      "headline": "Service businesses seeing 40% better ROAS with local audience targeting",
       "actions": [
-        "Film 3 quick client testimonial videos this week using phone camera",
-        "Test video testimonial creative at $5/day against current best performer",
-        "Create caption overlay with client name, service type, and transformation result"
+        "Create separate ad sets for 5-mile, 10-mile radius around service area",
+        "Test 'People who live in' vs 'People interested in' targeting for next $25 daily spend",
+        "Pull last 30 days performance by location in Ads Manager to find your best zones"
       ],
-      "source": "r/FacebookAds weekly discussion on video creative performance trends"
+      "source": "r/FacebookAds weekly thread - local service provider case studies"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
