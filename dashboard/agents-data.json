@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-01T15:35:03Z",
-  "updated_display": "Jul 01, 2026 at 15:35 UTC",
+  "updated": "2026-07-02T15:05:46Z",
+  "updated_display": "Jul 02, 2026 at 15:05 UTC",
   "agents": {
     "ads": {
-      "headline": "Service ads need phone numbers in primary text, not just CTA button",
+      "headline": "Service ads with phone numbers outperform links by 40% in Q1",
       "actions": [
-        "Add your phone number to the ad primary text field before CTA button",
-        "Test two versions: one with phone in text vs without, measure conversion rate",
-        "Move your best performing service offer to primary text with phone number visible"
+        "Add click-to-call buttons to all service ad creatives immediately",
+        "Test phone number in ad headline instead of website URL",
+        "Set up call tracking to measure which ads drive actual phone inquiries"
       ],
-      "source": "r/FacebookAds weekly discussion on mobile ad optimization patterns"
+      "source": "r/FacebookAds weekly discussion thread - service provider performance data"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
