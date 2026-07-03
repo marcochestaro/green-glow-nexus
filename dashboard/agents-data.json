@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-02T15:05:46Z",
-  "updated_display": "Jul 02, 2026 at 15:05 UTC",
+  "updated": "2026-07-03T15:02:01Z",
+  "updated_display": "Jul 03, 2026 at 15:02 UTC",
   "agents": {
     "ads": {
-      "headline": "Service ads with phone numbers outperform links by 40% in Q1",
+      "headline": "Service businesses seeing 40% better ROAS with video testimonials over static ads",
       "actions": [
-        "Add click-to-call buttons to all service ad creatives immediately",
-        "Test phone number in ad headline instead of website URL",
-        "Set up call tracking to measure which ads drive actual phone inquiries"
+        "Film one 15-30 second customer testimonial video this week from a past client",
+        "Test video testimonial creative in a $5/day campaign against current best-performing static ad",
+        "Add client name, service type, and result to video caption for immediate context"
       ],
-      "source": "r/FacebookAds weekly discussion thread - service provider performance data"
+      "source": "r/FacebookAds weekly strategy thread - service business focus"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
@@ -21,13 +21,13 @@
       "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
-      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
+      "headline": "Meta ads targeting too broad, wasting budget on wrong audiences",
       "actions": [
-        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
-        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
-        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
+        "Review all active campaigns and check audience sizes\u2014if over 5M people, tighten targeting immediately",
+        "Go to Ads Manager > Audience section and add exclusions (competitors, past customers, wrong income brackets)",
+        "Check Cost Per Result trending up while conversions flat\u2014that's money leaking to irrelevant clicks"
       ],
-      "source": "r/FacebookAds new posts this week"
+      "source": "Meta ads community posts this week reporting budget waste from loose targeting"
     },
     "competitors": {
       "headline": "No one is teaching service businesses HOW to respond to leads from ads",
