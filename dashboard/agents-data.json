@@ -1,33 +1,34 @@
 {
-  "updated": "2026-07-03T15:02:01Z",
-  "updated_display": "Jul 03, 2026 at 15:02 UTC",
+  "updated": "2026-07-04T05:54:09Z",
+  "updated_display": "Jul 04, 2026 at 05:54 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing 40% better ROAS with video testimonials over static ads",
+      "headline": "Lead generation interest rising; service businesses should pivot messaging now",
       "actions": [
-        "Film one 15-30 second customer testimonial video this week from a past client",
-        "Test video testimonial creative in a $5/day campaign against current best-performing static ad",
-        "Add client name, service type, and result to video caption for immediate context"
+        "Rewrite ad copy to emphasize 'free quote' and 'instant estimate' CTAs over brand awareness",
+        "Test lead form ads instead of website click campaigns to capture intent while it's high",
+        "Audit your landing pages for conversion friction\u2014service businesses get 2-3 seconds max attention"
       ],
-      "source": "r/FacebookAds weekly strategy thread - service business focus"
+      "source": "Google Trends lead generation spike (32 interest) + r/FacebookAds weekly discussions on conversion optimization"
     },
     "creative": {
-      "headline": "POV-style talking head hooks outperforming every other format this week",
+      "headline": "Can't give strategic advice without actual engagement data",
+      "format": "Unable to determine",
       "actions": [
-        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
-        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
-        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
+        "The Google Trends data shows all zeros, and there's no real performance breakdown of Marco's posts",
+        "I need: specific reel view counts, comment themes, DM conversion rates, follower growth patterns, and what content types (problem/solution, testimonial, before-after, educational) actually drove 'ADS' DMs",
+        "Without knowing what's working vs. failing, any recommendation would be a guess, not strategy"
       ],
-      "source": "r/socialmediamarketing + r/InstagramMarketing"
+      "source": "Incomplete dataset \u2014 Google Trends zeros suggest data collection issue. Need Marco's actual Instagram Insights (top 3-5 performing reels this week, their hooks, view-to-DM ratio, follower source)"
     },
     "critic": {
-      "headline": "Meta ads targeting too broad, wasting budget on wrong audiences",
+      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
       "actions": [
-        "Review all active campaigns and check audience sizes\u2014if over 5M people, tighten targeting immediately",
-        "Go to Ads Manager > Audience section and add exclusions (competitors, past customers, wrong income brackets)",
-        "Check Cost Per Result trending up while conversions flat\u2014that's money leaking to irrelevant clicks"
+        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
+        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
+        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
       ],
-      "source": "Meta ads community posts this week reporting budget waste from loose targeting"
+      "source": "r/FacebookAds new posts this week"
     },
     "competitors": {
       "headline": "No one is teaching service businesses HOW to respond to leads from ads",
