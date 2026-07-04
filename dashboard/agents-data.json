@@ -1,25 +1,25 @@
 {
-  "updated": "2026-07-04T05:54:09Z",
-  "updated_display": "Jul 04, 2026 at 05:54 UTC",
+  "updated": "2026-07-04T14:23:31Z",
+  "updated_display": "Jul 04, 2026 at 14:23 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead generation interest rising; service businesses should pivot messaging now",
+      "headline": "Lead generation searches up 35% \u2013 service businesses should capitalize now",
       "actions": [
-        "Rewrite ad copy to emphasize 'free quote' and 'instant estimate' CTAs over brand awareness",
-        "Test lead form ads instead of website click campaigns to capture intent while it's high",
-        "Audit your landing pages for conversion friction\u2014service businesses get 2-3 seconds max attention"
+        "Audit your lead gen campaigns for quality score \u2013 search volume means higher competition",
+        "Test 'instant form' ads this week before CPL spikes from increased demand",
+        "Create service-specific landing pages for plumbers/cleaners/landscapers to convert trending traffic"
       ],
-      "source": "Google Trends lead generation spike (32 interest) + r/FacebookAds weekly discussions on conversion optimization"
+      "source": "Google Trends week-of analysis + lead generation category surge"
     },
     "creative": {
-      "headline": "Can't give strategic advice without actual engagement data",
-      "format": "Unable to determine",
+      "headline": "Unable to provide actionable strategy \u2014 no performance data available",
+      "format": "Talking Head Reel",
       "actions": [
-        "The Google Trends data shows all zeros, and there's no real performance breakdown of Marco's posts",
-        "I need: specific reel view counts, comment themes, DM conversion rates, follower growth patterns, and what content types (problem/solution, testimonial, before-after, educational) actually drove 'ADS' DMs",
-        "Without knowing what's working vs. failing, any recommendation would be a guess, not strategy"
+        "STOP: This analysis can't proceed without real engagement metrics",
+        "Data needed: Which posts got most saves/shares/DMs this week? Which got least reach? What was the CTR on 'ADS' DM calls-to-action?",
+        "Without specific numbers, any recommendation would be a guess that could waste your posting time"
       ],
-      "source": "Incomplete dataset \u2014 Google Trends zeros suggest data collection issue. Need Marco's actual Instagram Insights (top 3-5 performing reels this week, their hooks, view-to-DM ratio, follower source)"
+      "source": "No real data provided \u2014 Google Trends shows all zeros, no post-level breakdowns given, no audience complaints listed"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
