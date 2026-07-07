@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-06T16:12:39Z",
-  "updated_display": "Jul 06, 2026 at 16:12 UTC",
+  "updated": "2026-07-07T15:40:21Z",
+  "updated_display": "Jul 07, 2026 at 15:40 UTC",
   "agents": {
     "ads": {
-      "headline": "Advantage+ audience is outperforming manual targeting this week",
+      "headline": "Service ads need phone numbers in primary text, not just CTA buttons",
       "actions": [
-        "Test switching one campaign to Advantage+ audience \u2014 let Meta find who converts",
-        "Keep your location radius in Advantage+ settings to stay local",
-        "Compare CPL after 5 days vs your manual targeting baseline"
+        "Add phone number to ad copy first line for plumbers/cleaners targeting mobile users",
+        "A/B test ads with phone in text vs button-only on $25 daily budget split",
+        "Check if call-through rate improves when number visible before clicking ad"
       ],
-      "source": "r/FacebookAds discussions"
+      "source": "r/FacebookAds weekly discussion on conversion optimization for local services"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
