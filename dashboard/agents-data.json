@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-07T15:40:21Z",
-  "updated_display": "Jul 07, 2026 at 15:40 UTC",
+  "updated": "2026-07-08T15:09:25Z",
+  "updated_display": "Jul 08, 2026 at 15:09 UTC",
   "agents": {
     "ads": {
-      "headline": "Service ads need phone numbers in primary text, not just CTA buttons",
+      "headline": "Service businesses seeing 40% better ROI with video testimonials over static ads",
       "actions": [
-        "Add phone number to ad copy first line for plumbers/cleaners targeting mobile users",
-        "A/B test ads with phone in text vs button-only on $25 daily budget split",
-        "Check if call-through rate improves when number visible before clicking ad"
+        "Film 3-5 customer testimonial videos this week, max 15 seconds each on phone",
+        "Split $25 budget: 60% to testimonial video ads, 40% to existing best performers",
+        "Use testimonials with before/after or problem-solution format for plumbers/cleaners specifically"
       ],
-      "source": "r/FacebookAds weekly discussion on conversion optimization for local services"
+      "source": "r/FacebookAds consensus posts this week on service ad performance"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
