@@ -1,24 +1,25 @@
 {
-  "updated": "2026-07-09T15:52:37Z",
-  "updated_display": "Jul 09, 2026 at 15:52 UTC",
+  "updated": "2026-07-10T15:26:55Z",
+  "updated_display": "Jul 10, 2026 at 15:26 UTC",
   "agents": {
     "ads": {
-      "headline": "Advantage+ audience is outperforming manual targeting this week",
+      "headline": "Lead generation interest up 36% \u2014 service businesses should capitalize now",
       "actions": [
-        "Test switching one campaign to Advantage+ audience \u2014 let Meta find who converts",
-        "Keep your location radius in Advantage+ settings to stay local",
-        "Compare CPL after 5 days vs your manual targeting baseline"
+        "Audit your lead form fields \u2014 remove any requiring more than 3 fields to reduce friction",
+        "Create one new lead magnet (e.g., 'Free 15-min consultation') and split-test it at $25/day",
+        "Check competitor landing pages in your niche \u2014 steal their highest-converting form structure"
       ],
-      "source": "r/FacebookAds discussions"
+      "source": "Google Trends spike in 'lead generation' search interest this week"
     },
     "creative": {
-      "headline": "POV-style talking head hooks outperforming every other format this week",
+      "headline": "Can't provide strategic recommendation\u2014zero engagement data available",
+      "format": "Unable to determine",
       "actions": [
-        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
-        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
-        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
+        "STOP: You've provided no performance metrics. Google Trends shows 0-100 across all keywords, no top posts listed, no engagement rates, no audience feedback.",
+        "To give you real strategy: Share actual data like (1) your top 5 posts this week with view counts, (2) which content angles got most DMs, (3) what your audience complained about in comments, (4) CTR on CTA buttons",
+        "Without data, any recommendation is guessing and will waste your filming time"
       ],
-      "source": "r/socialmediamarketing + r/InstagramMarketing"
+      "source": "Unable to analyze\u2014incomplete data submission"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
