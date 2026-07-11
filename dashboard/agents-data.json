@@ -1,34 +1,34 @@
 {
-  "updated": "2026-07-10T15:26:55Z",
-  "updated_display": "Jul 10, 2026 at 15:26 UTC",
+  "updated": "2026-07-11T14:18:24Z",
+  "updated_display": "Jul 11, 2026 at 14:18 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead generation interest up 36% \u2014 service businesses should capitalize now",
+      "headline": "Lead generation interest up 2x\u2014service businesses must act now",
       "actions": [
-        "Audit your lead form fields \u2014 remove any requiring more than 3 fields to reduce friction",
-        "Create one new lead magnet (e.g., 'Free 15-min consultation') and split-test it at $25/day",
-        "Check competitor landing pages in your niche \u2014 steal their highest-converting form structure"
+        "Audit your lead magnet messaging to match 'lead generation' search intent surge",
+        "Test form simplification (name + phone only) to capture the influx of intent-rich clicks",
+        "Increase daily budget allocation to lead gen campaigns by 15-20% this week while demand peaks"
       ],
-      "source": "Google Trends spike in 'lead generation' search interest this week"
+      "source": "Google Trends spike in lead generation keyword interest (43 score)"
     },
     "creative": {
-      "headline": "Can't provide strategic recommendation\u2014zero engagement data available",
-      "format": "Unable to determine",
+      "headline": "Cannot generate strategy \u2014 no performance data provided this week",
+      "format": "N/A",
       "actions": [
-        "STOP: You've provided no performance metrics. Google Trends shows 0-100 across all keywords, no top posts listed, no engagement rates, no audience feedback.",
-        "To give you real strategy: Share actual data like (1) your top 5 posts this week with view counts, (2) which content angles got most DMs, (3) what your audience complained about in comments, (4) CTR on CTA buttons",
-        "Without data, any recommendation is guessing and will waste your filming time"
+        "\u26a0\ufe0f You provided Google Trends data showing all zeros and empty complaint/failure data",
+        "To give you real recommendations, I need: actual Reel views, engagement rates, comment themes, DM conversion rates, or audience feedback from THIS week's posts",
+        "Share your Instagram Insights (top 3-5 performing posts + their view/engagement counts) and I'll give you exact hooks + video ideas"
       ],
-      "source": "Unable to analyze\u2014incomplete data submission"
+      "source": "Analysis blocked \u2014 insufficient data. Please provide: (1) Top 5 post performance metrics, (2) What your audience is commenting/DMing about, (3) Any competitor content you've noticed gaining traction"
     },
     "critic": {
-      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
+      "headline": "Targeting too broad, wasting budget on wrong audiences",
       "actions": [
-        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
-        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
-        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
+        "Review all active campaigns and check audience size\u2014aim for 50K-500K people, not millions",
+        "Go to Ads Manager > Campaign > Audience section and look at 'Estimated Daily Reach' numbers",
+        "Pull last 7 days of data by audience segment\u2014if Cost Per Lead doubled recently, broad targeting is likely culprit"
       ],
-      "source": "r/FacebookAds new posts this week"
+      "source": "Meta ads community posts this week reporting declining ROAS and rising CPL across service-based campaigns"
     },
     "competitors": {
       "headline": "No one is teaching service businesses HOW to respond to leads from ads",
