@@ -341,27 +341,27 @@
       "week_of_display": "Jul 13, 2026",
       "scripts": [
         {
-          "title": "You quit right before it started working",
+          "title": "What 'cost per lead' actually means and how to know if it's good",
           "overlay": {
-            "line1": "you quit between week 2 and week 4.",
-            "line2": "that's exactly when it starts working."
+            "line1": "why cheap leads are",
+            "line2": "costing you more."
           },
           "recCap": 0,
           "recVer": "full",
           "type": "Talking Head",
-          "film": "Sit down, natural light, steady confident energy. You've had this exact conversation with business owners dozens of times. Lean in on the learning phase point — that's the insight that lands. Deliver it like you're saving them from a mistake you've seen destroy campaigns.",
+          "film": "Sit down, natural light, direct to camera. Calm and matter-of-fact — most business owners have never been told this. Deliver it like a quick diagnosis.",
           "captions": [
             {
               "label": "A",
-              "text": "every business owner who tells me meta ads don't work quit somewhere between week 2 and week 4. every single one."
+              "text": "low cost per lead doesn't mean the campaign is working. low cost per booked job does."
             },
             {
               "label": "B",
-              "text": "weeks 1-2 are the learning phase. high cost, low volume — that's the algorithm working, not failing. by week 4 it's found your buyer. by week 6 the cost has dropped and the volume is consistent. the businesses seeing real results just stayed past the part that felt uncomfortable."
+              "text": "most service businesses judge their campaigns on cost per lead.\n\nbut a cheap lead that never picks up, never books, never converts — it cost you more than an expensive one that did.\n\nthe only number that matters is cost per booked job."
             },
             {
               "label": "C",
-              "text": "don't judge a campaign before 6 weeks. that's not optimism. that's just how it works."
+              "text": "judge the campaign on booked jobs. not leads."
             }
           ],
           "lines": [
@@ -369,45 +369,45 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Every business owner who tells me Meta ads don't work — I ask how long they ran it. The answer is always two to four weeks."
+              "text": "Everyone obsesses over cost per lead. But that number on its own tells you almost nothing."
             },
             {
               "time": "Middle",
               "tag": "20s",
               "cls": "",
-              "text": "Weeks one and two are the learning phase. High cost, low volume — that's the algorithm finding your buyer, not failing. By week four lead cost starts dropping. By week six it's consistent. The businesses with real lead flow right now just committed past the part that felt uncomfortable."
+              "text": "A lead that costs more and converts into a booked job beats a cheap lead that goes nowhere every time. What actually matters is cost per booked job. A business with a high close rate can run on expensive leads and still be profitable. A weak sales process bleeds out on cheap ones."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Six weeks before you judge. That's not hope — that's just how it works."
+              "text": "Know your numbers before you judge the campaign."
             }
           ],
           "stories": []
         },
         {
-          "title": "Traffic objective doesn't mean leads",
+          "title": "The offer was the problem — not the ad",
           "overlay": {
-            "line1": "you're getting clicks.",
-            "line2": "you're not getting calls. here's why."
+            "line1": "tested 6 creatives.",
+            "line2": "never tested the offer."
           },
           "recCap": 0,
           "recVer": "full",
           "type": "Talking Head",
-          "film": "Sit down, direct to camera, calm and clear. Lean in when you explain what the algorithm actually optimises for — that's the insight most people haven't heard. Confident, not lecture-y.",
+          "film": "Sit down, direct to camera. Slightly sharper energy — this one challenges what most people think. Deliver it like you've diagnosed this exact problem a hundred times.",
           "captions": [
             {
               "label": "A",
-              "text": "traffic objective doesn't mean leads. it means clicks. and those are not the same thing."
+              "text": "the ad gets people to look. the offer gets them to act. most businesses only ever fix the ad."
             },
             {
               "label": "B",
-              "text": "when you choose traffic, meta finds people who click. when you choose conversions, meta finds people who book. same ad, same budget — completely different outcome based on one setting. most service businesses are running the wrong objective and wondering why their phone isn't ringing."
+              "text": "changing your creative 10 times and getting the same result means the creative was never the problem.\n\nif someone can't immediately see why they should choose you over anyone else — fix the offer first. then run the ad."
             },
             {
               "label": "C",
-              "text": "tell meta what a real result looks like. it will go find more of them."
+              "text": "you can't out-advertise a weak offer."
             }
           ],
           "lines": [
@@ -415,45 +415,45 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Your campaign's getting clicks but the phone isn't ringing. It might come down to one setting."
+              "text": "You've rewritten the copy, changed the creative, tested five different hooks. Leads still aren't coming. The ad isn't the problem — the offer is."
             },
             {
               "time": "Middle",
               "tag": "20s",
               "cls": "",
-              "text": "Traffic objective tells Meta to find people who click. So it does — they land on your page and leave. Switch to Leads or Conversions and Meta finds people who fill in forms. Same ad, same budget, completely different outcome. One setting change."
+              "text": "An ad can only amplify what's already there. If the reason someone should call you over anyone else isn't immediately obvious, no creative testing fixes that. Before you touch the campaign again, ask: why should someone choose me specifically? If that answer isn't clear, start there."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Tell Meta what a real result looks like. It'll go find more of them."
+              "text": "Fix the offer first. Then the ad actually has something to work with."
             }
           ],
           "stories": []
         },
         {
-          "title": "Three reasons your lead cost keeps climbing",
+          "title": "Your competitors aren't better marketers — they're just more visible",
           "overlay": {
-            "line1": "lead cost going up?",
-            "line2": "it's one of these three things."
+            "line1": "same market. same skills.",
+            "line2": "they're getting all the leads."
           },
           "recCap": 0,
           "recVer": "full",
           "type": "Talking Head",
-          "film": "Sit down, natural light, structured delivery. This is a clear diagnostic — three points, clear and distinct. Slight pause between each one so it lands. Matter-of-fact, like you're reading the results of a test.",
+          "film": "Sit down, natural light, calm and confident. This one hits business owners hard — deliver it like a reality check, not a lecture. Easy and direct.",
           "captions": [
             {
               "label": "A",
-              "text": "climbing lead cost isn't random. it's always one of three things — and once you know which one, the fix is usually quick."
+              "text": "the business getting all the leads in your area isn't better at the job. they're just harder to ignore.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k–$50k a month with meta ads"
             },
             {
               "label": "B",
-              "text": "audience exhaustion, a landing page that stopped converting, or unqualified people filling your form. lead cost is a symptom. here's how to diagnose which one is actually the problem before you touch the campaign."
+              "text": "visibility compounds.\n\nsix months of consistent ads and people already know your name before they call. they trust you before the first conversation. that's not luck — that's what showing up every week builds.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k–$50k a month with meta ads"
             },
             {
               "label": "C",
-              "text": "diagnose before you change anything."
+              "text": "they're not beating you on skill. they're beating you on consistency."
             }
           ],
           "lines": [
@@ -461,45 +461,45 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "If your lead cost has been climbing, it's almost always one of three things."
+              "text": "The business in your area getting all the enquiries probably isn't better than you at what you do. They're just more visible."
             },
             {
               "time": "Middle",
               "tag": "20s",
               "cls": "",
-              "text": "Audience exhaustion — frequency is too high, you've burnt through your audience. Landing page drop-off — clicks coming in but no one's filling the form. Or no pre-qualification — everyone's submitting but most aren't real buyers. Diagnose which one it is first. The fix is different for each."
+              "text": "Visibility compounds. Six months of consistent ads and people already recognise the name before they call. They trust you before the first conversation. That doesn't come from one campaign. It comes from showing up consistently over time."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Don't change the campaign until you know what's actually broken."
+              "text": "The best time to start was six months ago. Second best time is now."
             }
           ],
           "stories": []
         },
         {
-          "title": "Cold and warm audiences should never be in the same campaign",
+          "title": "Why a smaller audience outperforms a bigger one every time",
           "overlay": {
-            "line1": "cold and warm audiences",
-            "line2": "should never be in the same campaign."
+            "line1": "target less people.",
+            "line2": "get more leads."
           },
           "recCap": 0,
           "recVer": "full",
           "type": "Talking Head",
-          "film": "Sit down, well-lit, direct to camera. Clear structured delivery — you're teaching something most people haven't been told. Light hand gestures when you break out the three creative angles. Confident, not stiff.",
+          "film": "Sit down, natural light, direct to camera. Simple and clean delivery — this is a counterintuitive point so let it land without rushing it.",
           "captions": [
             {
               "label": "A",
-              "text": "one campaign, one ad set, one audience — that's why your results are inconsistent."
+              "text": "a broad audience doesn't mean more leads. it means more budget on people who'll never call you."
             },
             {
               "label": "B",
-              "text": "cold traffic needs to be convinced you exist and that you solve their problem. warm traffic already knows you — they need a reason to act now. same message to both wastes money on one of them every time. here's how to split it properly."
+              "text": "when your targeting is too wide, meta guesses who to show your ad to — and it usually guesses wrong.\n\nnarrow it to the right suburbs, the right homeowner profile, people who've already shown interest.\n\nmeta finds your buyer faster and cheaper every time."
             },
             {
               "label": "C",
-              "text": "get the structure right first. everything else gets easier."
+              "text": "tight targeting, cheaper leads. every time.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k–$50k a month with meta ads"
             }
           ],
           "lines": [
@@ -507,45 +507,45 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Most service businesses run one campaign, one audience — and wonder why results are unpredictable. Structure is the problem."
+              "text": "More people seeing your ad doesn't mean more leads. It usually means more budget wasted on people who would never hire you."
             },
             {
               "time": "Middle",
               "tag": "20s",
               "cls": "",
-              "text": "Cold traffic has never heard of you. They need a hook, proof, a reason to trust. Warm traffic — people who've visited your site or engaged with your page — already know you. They need a reason to act now. Running the same message to both wastes money on one of them every time. Split them. Different creative, different message."
+              "text": "When your audience is tight — right suburbs, right profile, people who've already shown interest — Meta has a clear signal to work with. It finds your buyer faster and spends less doing it. Broad audiences make Meta guess. Specific ones let it do its job."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Get the structure right first. Everything else gets easier."
+              "text": "Reach fewer people. Reach the right ones."
             }
           ],
           "stories": []
         },
         {
-          "title": "A boosted post is not an ad",
+          "title": "Why boosting a post is the most expensive mistake you can make",
           "overlay": {
-            "line1": "a boosted post is not an ad.",
-            "line2": "i know it looks the same. it's not."
+            "line1": "the most expensive button on instagram.",
+            "line2": "and everyone keeps pressing it."
           },
           "recCap": 0,
           "recVer": "full",
           "type": "Talking Head",
-          "film": "Sit or stand, direct energy, slightly sharper delivery on this one. You've explained this a hundred times and it still surprises people. Brief and punchy. Phone in hand for a second when you mention the boost button — keeps it visual.",
+          "film": "Sit or stand, sharp energy. You've explained this a hundred times and it still surprises people. Keep it punchy — this one should feel like a wake-up call.",
           "captions": [
             {
               "label": "A",
-              "text": "boosting reaches people who already know you. real campaigns find the ones who don't know you yet but need you."
+              "text": "a boosted post reaches people who already follow you. an ad reaches people who've never heard of you but need you right now.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k–$50k a month with meta ads"
             },
             {
               "label": "B",
-              "text": "a boosted post shows your content to your existing audience. ads manager lets you target based on actual behaviour — homeowners in specific suburbs, people who've visited your website, people who've engaged with home service content. different tool, completely different result."
+              "text": "when you hit boost, meta shows your content to your existing audience — not new customers.\n\nads manager lets you target homeowners in specific areas, people actively searching, people who've visited your website. completely different result.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k–$50k a month with meta ads"
             },
             {
               "label": "C",
-              "text": "boost for reach. build campaigns for revenue."
+              "text": "the problem usually isn't the budget. it's where you're spending it.\n\nDM me \"ads\" if you want to see what this looks like for your business."
             }
           ],
           "lines": [
@@ -553,19 +553,19 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "If you're hitting the boost button and calling it running ads — you're not running ads."
+              "text": "The boost button feels like marketing. It isn't."
             },
             {
               "time": "Middle",
               "tag": "20s",
               "cls": "",
-              "text": "Boosting shows your content to people who already follow you. Ads Manager lets you find people who've never heard of you but need exactly what you do — homeowners in the right suburbs, people actively searching. Completely different tool. Completely different result. One builds reach. The other builds revenue."
+              "text": "When you boost, Meta shows your content to people who already follow you. No new customers. No one who's never heard of you. Real campaigns in Ads Manager target by intent — homeowners in the right areas, people actively looking. That's where new business comes from."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Boost for awareness. Build in Ads Manager for revenue. Know which one you're running."
+              "text": "Stop boosting. Start building campaigns."
             }
           ],
           "stories": []
