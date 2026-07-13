@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-03T15:02:01Z",
-  "updated_display": "Jul 03, 2026 at 15:02 UTC",
+  "updated": "2026-07-13T15:38:37Z",
+  "updated_display": "Jul 13, 2026 at 15:38 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing 40% better ROAS with video testimonials over static ads",
+      "headline": "Lead gen intent crashing\u2014pivot to brand awareness for $25 budgets",
       "actions": [
-        "Film one 15-30 second customer testimonial video this week from a past client",
-        "Test video testimonial creative in a $5/day campaign against current best-performing static ad",
-        "Add client name, service type, and result to video caption for immediate context"
+        "Switch 60% of budget to awareness campaigns targeting local service keywords",
+        "Test 15-second educational video ads showing before/after transformations",
+        "Create custom audiences from website visitors + past customers for retargeting"
       ],
-      "source": "r/FacebookAds weekly strategy thread - service business focus"
+      "source": "Google Trends - lead generation search volume dropped 73% week-over-week"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
@@ -21,13 +21,13 @@
       "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
-      "headline": "Meta ads targeting too broad, wasting budget on wrong audiences",
+      "headline": "Meta Conversion API not firing properly, killing attribution",
       "actions": [
-        "Review all active campaigns and check audience sizes\u2014if over 5M people, tighten targeting immediately",
-        "Go to Ads Manager > Audience section and add exclusions (competitors, past customers, wrong income brackets)",
-        "Check Cost Per Result trending up while conversions flat\u2014that's money leaking to irrelevant clicks"
+        "Check Meta Pixel and Conversion API event mapping in Events Manager",
+        "Verify server-side conversions are matching client-side events (should see both in dashboard)",
+        "Compare conversion counts this week vs last week; missing data = wrong optimization and wasted budget"
       ],
-      "source": "Meta ads community posts this week reporting budget waste from loose targeting"
+      "source": "Meta ads community reports - Week of Jan 13, 2025"
     },
     "competitors": {
       "headline": "No one is teaching service businesses HOW to respond to leads from ads",
