@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-12T14:23:14Z",
-  "updated_display": "Jul 12, 2026 at 14:23 UTC",
+  "updated": "2026-07-13T15:38:37Z",
+  "updated_display": "Jul 13, 2026 at 15:38 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead generation interest spiking\u2014service businesses competing harder for clicks",
+      "headline": "Lead gen intent crashing\u2014pivot to brand awareness for $25 budgets",
       "actions": [
-        "Audit your ad copy against competitors in r/FacebookAds top threads\u2014identify what messaging cuts through noise",
-        "Test location-based targeting tighter to reduce wasted spend on non-service-area clicks",
-        "Shift $5 from broad audiences to Custom Audiences of past website visitors\u2014higher conversion rate at same $25/day"
+        "Switch 60% of budget to awareness campaigns targeting local service keywords",
+        "Test 15-second educational video ads showing before/after transformations",
+        "Create custom audiences from website visitors + past customers for retargeting"
       ],
-      "source": "Google Trends lead generation spike + r/FacebookAds discussion volume this week"
+      "source": "Google Trends - lead generation search volume dropped 73% week-over-week"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
@@ -21,13 +21,13 @@
       "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
-      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
+      "headline": "Meta Conversion API not firing properly, killing attribution",
       "actions": [
-        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
-        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
-        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
+        "Check Meta Pixel and Conversion API event mapping in Events Manager",
+        "Verify server-side conversions are matching client-side events (should see both in dashboard)",
+        "Compare conversion counts this week vs last week; missing data = wrong optimization and wasted budget"
       ],
-      "source": "r/FacebookAds new posts this week"
+      "source": "Meta ads community reports - Week of Jan 13, 2025"
     },
     "competitors": {
       "headline": "No one is teaching service businesses HOW to respond to leads from ads",
