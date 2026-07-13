@@ -197,6 +197,21 @@ def generate_week(week_start, used_topics=None):
         "scripts": scripts,
     }
 
+def week_has_real_content(week):
+    """Return True if a week already has hand-crafted scripts (not placeholders)."""
+    scripts = week.get('scripts', [])
+    if len(scripts) < 5:
+        return False
+    for s in scripts:
+        lines = s.get('lines', [])
+        if not lines:
+            return False
+        for line in lines:
+            text = line.get('text', '')
+            if 'coming soon' in text.lower() or 'check back' in text.lower():
+                return False
+    return True
+
 def main():
     now = datetime.now(timezone.utc)
     # Week 1 = next Monday
@@ -204,31 +219,51 @@ def main():
     week1_start = (now + timedelta(days=days_to_monday)).replace(hour=0, minute=0, second=0, microsecond=0)
     week2_start = week1_start + timedelta(weeks=1)
 
-    week1 = generate_week(week1_start)
-    week1_topics = [s['title'] for s in week1['scripts']]
-    week2 = generate_week(week2_start, used_topics=week1_topics)
-
-    # Load existing weeks and keep any that aren't being replaced
+    # Load existing data — preserve weeks that already have real content
     existing_weeks = []
+    existing_data = {}
     try:
         with open(OUTPUT_FILE) as f:
-            old = json.load(f)
-            existing_weeks = old.get('weeks', [])
+            existing_data = json.load(f)
+            existing_weeks = existing_data.get('weeks', [])
     except Exception:
         pass
 
-    new_week_dates = {week1['week_of'], week2['week_of']}
+    existing_by_date = {w['week_of']: w for w in existing_weeks}
+
+    weeks_to_generate = []
+    for week_start in [week1_start, week2_start]:
+        date_key = week_start.strftime('%Y-%m-%d')
+        if date_key in existing_by_date and week_has_real_content(existing_by_date[date_key]):
+            print(f"Skipping {date_key} — already has real content.")
+        else:
+            weeks_to_generate.append(week_start)
+
+    if not weeks_to_generate:
+        print("All upcoming weeks already have content. Nothing to generate.")
+        return
+
+    used_topics = []
+    new_weeks = []
+    for week_start in weeks_to_generate:
+        week = generate_week(week_start, used_topics=used_topics)
+        used_topics += [s['title'] for s in week['scripts']]
+        new_weeks.append(week)
+
+    new_week_dates = {w['week_of'] for w in new_weeks}
     kept = [w for w in existing_weeks if w['week_of'] not in new_week_dates]
-    all_weeks = sorted(kept + [week1, week2], key=lambda w: w['week_of'])
+    all_weeks = sorted(kept + new_weeks, key=lambda w: w['week_of'])
+
+    week1 = next((w for w in all_weeks if w['week_of'] == week1_start.strftime('%Y-%m-%d')), all_weeks[0])
 
     output = {
         "generated": now.strftime('%Y-%m-%dT%H:%M:%SZ'),
         "generated_display": now.strftime('%b %d, %Y at %H:%M UTC'),
         "weeks": all_weeks,
-        # Keep legacy 'scripts' key pointing to week1 for backwards compat
         "scripts": week1['scripts'],
         "week_of": week1['week_of'],
         "week_of_display": week1['week_of_display'],
+        "ideas": existing_data.get('ideas', []),
     }
 
     with open(OUTPUT_FILE, 'w') as f:

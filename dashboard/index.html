@@ -749,6 +749,7 @@ async function loadScriptsData(){
     VIEW_WEEK_IDX=getCurrentWeekIdx();
     const curWeek=ALL_WEEKS[VIEW_WEEK_IDX];
     WEEK.splice(0,WEEK.length,...curWeek.scripts);
+    if(d.ideas&&d.ideas.length) renderIdeas(d.ideas);
     rebuildAll();
   }catch(e){}
 }
@@ -1242,16 +1243,20 @@ const IDEAS=[
   "What actually changed when I stopped trying to go viral",
   "A lesson from the best-run service business I've ever seen",
 ];
-const usedI=JSON.parse(localStorage.getItem('mm_ideas')||'{}');
-const iout=document.getElementById('ideas-out');
-IDEAS.forEach((idea,i)=>{
-  const div=document.createElement('div');
-  div.className='idea-i'+(usedI[i]?' used':'');
-  div.id='idea'+i;
-  div.onclick=()=>{usedI[i]=!usedI[i];localStorage.setItem('mm_ideas',JSON.stringify(usedI));div.classList.toggle('used',usedI[i]);div.querySelector('.used-lbl').textContent=usedI[i]?'used':'';};
-  div.innerHTML='<div class="idea-n">'+(i+1)+'</div><div class="idea-txt">'+idea+'</div><div class="used-lbl">'+(usedI[i]?'used':'')+'</div>';
-  iout.appendChild(div);
-});
+function renderIdeas(list){
+  const usedI=JSON.parse(localStorage.getItem('mm_ideas')||'{}');
+  const iout=document.getElementById('ideas-out');
+  iout.innerHTML='';
+  list.forEach((idea,i)=>{
+    const div=document.createElement('div');
+    div.className='idea-i'+(usedI[i]?' used':'');
+    div.id='idea'+i;
+    div.onclick=()=>{usedI[i]=!usedI[i];localStorage.setItem('mm_ideas',JSON.stringify(usedI));div.classList.toggle('used',usedI[i]);div.querySelector('.used-lbl').textContent=usedI[i]?'used':'';};
+    div.innerHTML='<div class="idea-n">'+(i+1)+'</div><div class="idea-txt">'+idea+'</div><div class="used-lbl">'+(usedI[i]?'used':'')+'</div>';
+    iout.appendChild(div);
+  });
+}
+renderIdeas(IDEAS);
 
 // DM Scripts
 [
