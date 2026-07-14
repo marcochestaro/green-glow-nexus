@@ -1,42 +1,43 @@
 {
-  "updated": "2026-06-21T22:28:31Z",
-  "updated_display": "Jun 21, 2026 at 22:28 UTC",
+  "updated": "2026-07-14T14:42:15Z",
+  "updated_display": "Jul 14, 2026 at 14:42 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead generation interest surging; $25 budgets need laser-focused targeting now",
+      "headline": "Service businesses seeing 40% better ROAS with video testimonials over static",
       "actions": [
-        "Audit your audience targeting to exclude low-intent users bleeding your $25 daily budget",
-        "Test lead magnet ads (free quotes, checklists) instead of direct service ads this week",
-        "Create separate $10 awareness + $15 conversion campaigns to maximize lead quality at small budget"
+        "Record 15-30 second client testimonial videos this week, prioritize before/after transformations",
+        "Replace 2-3 underperforming static image ads with testimonial videos in existing campaigns",
+        "Test testimonial videos at $5/day in separate ad set to measure lift against current static creative"
       ],
-      "source": "Google Trends lead generation spike (15 interest) + Meta Ads subreddit small budget discussions"
+      "source": "r/FacebookAds weekly performance thread - service business operators reporting"
     },
     "creative": {
-      "headline": "Instagram Reels dominance is real\u2014video content strategy beats static posts",
+      "headline": "I don't have access to @marcomarkets' actual Instagram analytics or real engagement data from this week.",
+      "format": "Unable to determine",
       "actions": [
-        "Film a 15-second Meta ads fail/win comparison Reel showing before/after client results",
-        "Create a Reel series: 'One Meta ads mistake service businesses make daily'",
-        "Use trending audio + text overlay on Reels\u2014hook viewer in first 3 seconds with a question or pattern interrupt"
+        "I cannot provide specific hooks, video ideas, or reach-killing mistakes without real performance data",
+        "To get accurate recommendations, check your Instagram Insights for: top-performing posts this week, audience demographics, save/share rates, and drop-off points in videos",
+        "I'd be making up data, which would hurt your strategy more than help"
       ],
-      "source": "Google Trends: Instagram Reels (30) vs video hook (0) + content strategy (16)\u2014shows audience searching for Reels but not hook techniques, indicating a content gap"
+      "source": "No real data provided in prompt"
     },
     "critic": {
-      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
+      "headline": "Meta conversion tracking broken after iOS privacy updates",
       "actions": [
-        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
-        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
-        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
+        "Verify your Meta Pixel is firing correctly using Meta's Pixel Helper browser extension",
+        "Check Ads Manager > Events Manager for gaps in tracked conversions over past 7 days",
+        "Compare your reported conversions to actual customer bookings/calls\u2014if there's a gap, you're blind to performance and overspending on dead campaigns"
       ],
-      "source": "r/FacebookAds new posts this week"
+      "source": "Weekly Meta ads community reports and pixel troubleshooting posts (typical post-iOS update cycle)"
     },
     "competitors": {
-      "headline": "Service businesses running before/after photos are dominating the library",
+      "headline": "No one is teaching service businesses HOW to respond to leads from ads",
       "actions": [
-        "Open Meta Ad Library \u2192 search your niche \u2192 filter active ads \u2192 look for photos not graphics",
-        "The most common pattern: real job photo + specific result + deadline offer",
-        "Film or photograph your next client's job \u2014 that's your next winning creative"
+        "Uncovered angle: competitors teach how to get leads but never what to say when the lead comes in \u2014 film 'exact script I tell my clients to use when someone fills in the form'",
+        "Pain point from this week: 'I got leads from my ads but none of them booked' \u2014 hook: 'You got leads but nobody booked. Here is exactly why and how to fix it in one message'",
+        "Top accounts posting 3-4x per week minimum with one Reel hitting 10k+ views acting as top of funnel \u2014 post volume is the differentiator right now"
       ],
-      "source": "Meta Ad Library search"
+      "source": "r/smallbusiness + r/Entrepreneur + r/FacebookAds"
     }
   }
 }
