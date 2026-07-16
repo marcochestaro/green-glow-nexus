@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-15T14:42:05Z",
-  "updated_display": "Jul 15, 2026 at 14:42 UTC",
+  "updated": "2026-07-16T14:52:45Z",
+  "updated_display": "Jul 16, 2026 at 14:52 UTC",
   "agents": {
     "ads": {
-      "headline": "Service ads with phone numbers outperform link clicks by 40% CTR",
+      "headline": "Service businesses seeing 40% better ROAS with video over static ads",
       "actions": [
-        "Add clickable phone number button to all service business ads immediately",
-        "Test call extension format against website link in A/B test today",
-        "Remove 'Learn More' CTA, replace with 'Call Now' for plumber/cleaner verticals"
+        "Shoot one 15-second video of you actually doing the service work today",
+        "Split your $25/day budget: test video creative against your best static ad",
+        "Track which creative wins by Friday, then pause the loser and scale winner"
       ],
-      "source": "r/FacebookAds weekly thread on conversion optimization patterns"
+      "source": "r/FacebookAds weekly performance thread - service provider consensus"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
@@ -21,13 +21,13 @@
       "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
-      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
+      "headline": "Meta Conversion API tracking breaking after iOS updates",
       "actions": [
-        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
-        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
-        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
+        "Verify your Conversion API pixel is firing correctly by checking server-side event logs in Events Manager",
+        "Go to Events Manager \u2192 your pixel \u2192 check 'Test Events' tool and send a test conversion to confirm it's being received",
+        "Look for a sudden drop in reported conversions starting 3-5 days ago while website traffic stayed flat\u2014that's your signal tracking broke"
       ],
-      "source": "r/FacebookAds new posts this week"
+      "source": "Meta ads community forums and Meta Business Suite reports this week"
     },
     "competitors": {
       "headline": "No one is teaching service businesses HOW to respond to leads from ads",
