@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-16T14:52:45Z",
-  "updated_display": "Jul 16, 2026 at 14:52 UTC",
+  "updated": "2026-07-17T14:24:52Z",
+  "updated_display": "Jul 17, 2026 at 14:24 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing 40% better ROAS with video over static ads",
+      "headline": "Service ads perform best with same-day booking links, not form fills",
       "actions": [
-        "Shoot one 15-second video of you actually doing the service work today",
-        "Split your $25/day budget: test video creative against your best static ad",
-        "Track which creative wins by Friday, then pause the loser and scale winner"
+        "Replace lead form CTAs with direct booking/call buttons in ad copy",
+        "Test calendar link in ad destination URL to measure conversion lift",
+        "A/B test booking link vs form on next $25/day campaign split"
       ],
-      "source": "r/FacebookAds weekly performance thread - service provider consensus"
+      "source": "r/FacebookAds weekly discussion on conversion optimization for service businesses"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
@@ -21,13 +21,13 @@
       "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
-      "headline": "Meta Conversion API tracking breaking after iOS updates",
+      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
       "actions": [
-        "Verify your Conversion API pixel is firing correctly by checking server-side event logs in Events Manager",
-        "Go to Events Manager \u2192 your pixel \u2192 check 'Test Events' tool and send a test conversion to confirm it's being received",
-        "Look for a sudden drop in reported conversions starting 3-5 days ago while website traffic stayed flat\u2014that's your signal tracking broke"
+        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
+        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
+        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
       ],
-      "source": "Meta ads community forums and Meta Business Suite reports this week"
+      "source": "r/FacebookAds new posts this week"
     },
     "competitors": {
       "headline": "No one is teaching service businesses HOW to respond to leads from ads",
