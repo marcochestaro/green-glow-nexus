@@ -1,24 +1,25 @@
 {
-  "updated": "2026-07-17T14:24:52Z",
-  "updated_display": "Jul 17, 2026 at 14:24 UTC",
+  "updated": "2026-07-18T14:15:43Z",
+  "updated_display": "Jul 18, 2026 at 14:15 UTC",
   "agents": {
     "ads": {
-      "headline": "Service ads perform best with same-day booking links, not form fills",
+      "headline": "Lead generation interest surging\u2014service businesses racing to capture demand",
       "actions": [
-        "Replace lead form CTAs with direct booking/call buttons in ad copy",
-        "Test calendar link in ad destination URL to measure conversion lift",
-        "A/B test booking link vs form on next $25/day campaign split"
+        "Audit your lead magnet: Is it specific to one service (e.g., 'free plumbing inspection') not generic?",
+        "Test lead form ads with phone number as primary CTA instead of website clicks at $25/day",
+        "Benchmark your lead cost this week against last week\u2014if it's rising, competitors are bidding up the category"
       ],
-      "source": "r/FacebookAds weekly discussion on conversion optimization for service businesses"
+      "source": "Google Trends this week (lead generation 52/100 vs meta ads 16/100)"
     },
     "creative": {
-      "headline": "POV-style talking head hooks outperforming every other format this week",
+      "headline": "I cannot provide accurate recommendations \u2014 data is incomplete",
+      "format": "Unable to determine",
       "actions": [
-        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
-        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
-        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
+        "The Google Trends data shows all zeros (0-100), indicating no search volume data",
+        "No 'What's failing' section was populated with real complaints or performance metrics",
+        "No actual top-performing content examples were provided to analyze"
       ],
-      "source": "r/socialmediamarketing + r/InstagramMarketing"
+      "source": "Insufficient data provided \u2014 need actual engagement metrics, watch time, DM conversion rates, and competitor analysis to give valid strategy"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
