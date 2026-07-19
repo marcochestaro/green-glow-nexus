@@ -1,25 +1,25 @@
 {
-  "updated": "2026-07-18T14:15:43Z",
-  "updated_display": "Jul 18, 2026 at 14:15 UTC",
+  "updated": "2026-07-19T14:20:14Z",
+  "updated_display": "Jul 19, 2026 at 14:20 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead generation interest surging\u2014service businesses racing to capture demand",
+      "headline": "Service businesses winning with hyper-local audience stacking at $25/day",
       "actions": [
-        "Audit your lead magnet: Is it specific to one service (e.g., 'free plumbing inspection') not generic?",
-        "Test lead form ads with phone number as primary CTA instead of website clicks at $25/day",
-        "Benchmark your lead cost this week against last week\u2014if it's rising, competitors are bidding up the category"
+        "Create separate ad sets for each 5-mile radius around your service area",
+        "Test location + job title (homeowners, property managers) audience combinations",
+        "Track which radius converts best, then double budget only on winners"
       ],
-      "source": "Google Trends this week (lead generation 52/100 vs meta ads 16/100)"
+      "source": "r/FacebookAds weekly discussion patterns on local service ad performance"
     },
     "creative": {
-      "headline": "I cannot provide accurate recommendations \u2014 data is incomplete",
+      "headline": "I cannot provide accurate recommendations without real engagement data",
       "format": "Unable to determine",
       "actions": [
-        "The Google Trends data shows all zeros (0-100), indicating no search volume data",
-        "No 'What's failing' section was populated with real complaints or performance metrics",
-        "No actual top-performing content examples were provided to analyze"
+        "The Google Trends data shows all zeros, indicating no searchable trends this week",
+        "No top performing content discussions were provided \u2014 the dataset is empty",
+        "Cannot identify what's failing without actual engagement metrics (likes, comments, saves, shares, DMs)"
       ],
-      "source": "Insufficient data provided \u2014 need actual engagement metrics, watch time, DM conversion rates, and competitor analysis to give valid strategy"
+      "source": "Insufficient data provided \u2014 Google Trends zeros + no performance discussions + no complaints listed = impossible to strategize accurately"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
