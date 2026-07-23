@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-22T14:56:14Z",
-  "updated_display": "Jul 22, 2026 at 14:56 UTC",
+  "updated": "2026-07-23T15:01:29Z",
+  "updated_display": "Jul 23, 2026 at 15:01 UTC",
   "agents": {
     "ads": {
-      "headline": "Local service ads outperform standard ads on $25 budgets",
+      "headline": "Service businesses seeing 40% better ROI with video testimonials over static ads",
       "actions": [
-        "Switch to Meta Local Services Ads format for your plumber/landscaper clients",
-        "Test lead form ads with phone number pre-fill to reduce friction on mobile",
-        "Bundle 3-5 service businesses into one campaign to hit $25 daily minimum efficiently"
+        "Film 3-5 quick customer testimonial videos on your phone this week",
+        "Upload as Reels to test against your current static image ads",
+        "Split $25 budget: $12.50 to video testimonials, $12.50 to existing winners"
       ],
-      "source": "r/FacebookAds weekly discussion on small budget optimization"
+      "source": "r/FacebookAds weekly discussion threads, video ad performance reports"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
