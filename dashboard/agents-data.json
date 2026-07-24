@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-23T15:01:29Z",
-  "updated_display": "Jul 23, 2026 at 15:01 UTC",
+  "updated": "2026-07-24T14:44:25Z",
+  "updated_display": "Jul 24, 2026 at 14:44 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing 40% better ROI with video testimonials over static ads",
+      "headline": "Service businesses winning with video testimonials over static image ads",
       "actions": [
-        "Film 3-5 quick customer testimonial videos on your phone this week",
-        "Upload as Reels to test against your current static image ads",
-        "Split $25 budget: $12.50 to video testimonials, $12.50 to existing winners"
+        "Record 15-second client testimonial videos this week, post to ad account",
+        "Create carousel ads alternating testimonial videos with before/after photos",
+        "A/B test one testimonial video ad against your current best performer"
       ],
-      "source": "r/FacebookAds weekly discussion threads, video ad performance reports"
+      "source": "r/FacebookAds weekly discussion on conversion rate optimization"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
