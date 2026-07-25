@@ -687,27 +687,27 @@
       "week_of_display": "Jul 21, 2026",
       "scripts": [
         {
-          "title": "39 leads. 14 booked. 30 days.",
-          "overlay": {
-            "line1": "39 leads.",
-            "line2": "14 booked. 30 days."
-          },
+          "title": "How a plumber went from slow weeks to a waiting list",
+          "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
-          "type": "Talking Head",
-          "film": "Sit down, direct to camera. Tell it like a story \u2014 calm and confident. Let the numbers do the work.",
+          "overlay": {
+            "line1": "slow weeks to",
+            "line2": "waiting list."
+          },
+          "film": "Direct to camera, confident. Tell it like a story \u2014 you've seen this play out enough times that it doesn't surprise you anymore.",
           "captions": [
             {
               "label": "A",
-              "text": "window cleaner. zero ad experience. one month.\n\n39 leads. 14 booked jobs. roughly $2,800 in revenue."
+              "text": "most plumbers rely entirely on referrals and word of mouth.\n\nwhich means some weeks are great and some weeks there's nothing.\n\none campaign changed that."
             },
             {
               "label": "B",
-              "text": "one campaign. one ad. one offer.\n\n39 leads came in.\n\n14 of them booked.\n\nhe was spending around $400/month to make it happen.\n\nthe ads weren't magic. the offer was simple and the follow-up was fast.\n\nthat's it."
+              "text": "he had the skill. he had the reviews. he just had no consistent way to get in front of new people.\n\nwe ran one campaign \u2014 local, simple offer, real job photo.\n\nwithin 60 days he had more work than he could take on alone.\n\nthat's what a well-run ad does for a service business."
             },
             {
               "label": "C",
-              "text": "simple offer. fast follow-up. that's the whole system."
+              "text": "the skill was always there. the visibility wasn't."
             }
           ],
           "lines": [
@@ -715,45 +715,44 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "A window cleaner came to me with zero ad experience and a basic offer.\n\nHere's what happened in the first 30 days."
+              "text": "This plumber had the skills, the reviews, and years of experience.\n\nHe just had no reliable way to get in front of new clients."
             },
             {
               "time": "Middle",
               "tag": "20s",
               "cls": "",
-              "text": "One campaign. One ad. One offer \u2014 free quote, same-week availability.\n\n39 leads came in.\n\n14 booked jobs.\n\nHis average job is around $200, so roughly $2,800 back from $400 in ad spend.\n\nThe ads weren't complicated.\n\nThe offer was clear and he called every lead within five minutes."
+              "text": "Some weeks were fully booked.\n\nOthers were completely dead.\n\nAll of it came down to whoever happened to refer him that week.\n\nWe ran one campaign \u2014 local radius, simple offer, real job photo from an actual job site.\n\nWithin 60 days he had more work than he could handle alone.\n\nHe turned down jobs for the first time in his career."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Simple offer. Fast follow-up.\n\nThat's the whole system."
+              "text": "The skill was always there.\n\nThe visibility wasn't."
             }
-          ],
-          "stories": []
+          ]
         },
         {
-          "title": "How I get inbound leads every week without cold outreach",
-          "overlay": {
-            "line1": "how i get clients",
-            "line2": "without cold outreach"
-          },
+          "title": "What I look at before I take on a service business client",
+          "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
-          "type": "Talking Head",
-          "film": "Sit down, relaxed, natural light. This one is personal \u2014 deliver it like you're letting people in on something.",
+          "overlay": {
+            "line1": "what i look for",
+            "line2": "before i say yes."
+          },
+          "film": "Direct to camera, relaxed but direct. Feels like you're being honest with your audience \u2014 selective, not salesy.",
           "captions": [
             {
               "label": "A",
-              "text": "i've never cold outreached.\n\nevery client i've signed found me through content."
+              "text": "i turn down clients every month.\n\nnot because i don't have space \u2014 because the fit has to be right for results to happen."
             },
             {
               "label": "B",
-              "text": "i post content that shows real results.\n\nreal numbers from real client campaigns.\n\npeople watch, learn something, and think \u2014 i want this guy running my ads.\n\nthat's the whole strategy.\n\ncontent that proves you know what you're doing is the best sales call you'll never have to make."
+              "text": "i look for three things before i take someone on.\n\nfirst \u2014 do they have a solid offer and a real way to follow up on leads.\n\nsecond \u2014 are they serious about growth, not just testing.\n\nthird \u2014 do they understand that ads are a tool, not a magic button.\n\nif all three are there, the results almost always come.\n\nif they're not, no amount of good ads fixes it."
             },
             {
               "label": "C",
-              "text": "prove you know what you're doing. the clients come to you."
+              "text": "good ads don't fix a broken business. but they accelerate a working one."
             }
           ],
           "lines": [
@@ -761,45 +760,44 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Every week I get service business owners DMing me asking for help with their Meta ads.\n\nI've never cold outreached. Here's exactly how."
+              "text": "I turn down clients every month.\n\nHere's exactly what I look for before I say yes."
             },
             {
               "time": "Middle",
               "tag": "20s",
               "cls": "",
-              "text": "I post content that shows real results.\n\nReal numbers from real client campaigns.\n\nI give away the framework for free.\n\nPeople watch, learn something, and think \u2014 I want this guy running my ads.\n\nThat's the whole strategy.\n\nContent that proves you know what you're doing is the best sales call you'll never have to make."
+              "text": "Three things.\n\nFirst \u2014 a real offer. Not 'call for a free quote.' Something specific that gives people a reason to act.\n\nSecond \u2014 a follow-up system. Ads bring leads. If nobody calls them back within minutes, those leads are gone.\n\nThird \u2014 they're serious about growth. Not testing with pocket change and expecting miracles.\n\nWhen all three are in place, the results are almost predictable."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Prove you know what you're doing.\n\nThe right people will find you."
+              "text": "Good ads don't fix a broken business.\n\nBut they accelerate a working one."
             }
-          ],
-          "stories": []
+          ]
         },
         {
-          "title": "What $500/month in Meta ads actually gets you",
-          "overlay": {
-            "line1": "what $500/month",
-            "line2": "in meta ads actually gets you"
-          },
+          "title": "The difference between service businesses that scale and those that stay stuck",
+          "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
-          "type": "Talking Head",
-          "film": "Sit down, direct. Walk through the numbers clearly \u2014 this is a breakdown, not a pitch.",
+          "overlay": {
+            "line1": "why some scale",
+            "line2": "and others stay stuck."
+          },
+          "film": "Direct to camera, steady. Reality check energy \u2014 confident, no fluff.",
           "captions": [
             {
               "label": "A",
-              "text": "most service businesses think they need a huge budget to see results.\n\nhere's what $500/month actually does."
+              "text": "the ones that scale aren't better at the job.\n\nthey just stopped waiting for word of mouth and built something that works every day."
             },
             {
               "label": "B",
-              "text": "$500/month is roughly $16 a day.\n\nfor a service business in most cities, that's enough to stay in front of your target market consistently.\n\nif your offer is solid and your follow-up is fast, you should be seeing 15-30 leads a month.\n\nat a 30% close rate, that's 5-9 new jobs.\n\ndepends on the trade, but that's typically 3-10x your ad spend in revenue.\n\nthe budget isn't the barrier."
+              "text": "i've worked with both.\n\nthe ones stuck at the same revenue year after year are almost always doing the exact same thing \u2014 waiting.\n\nwaiting for the next referral. waiting for the phone to ring. waiting for a slow week to pass.\n\nthe ones growing built a system that brings new clients in regardless of who refers them.\n\nthat's the only difference."
             },
             {
               "label": "C",
-              "text": "the budget isn't the barrier. the offer and the follow-up are."
+              "text": "visibility is the gap between a stuck business and a scaling one."
             }
           ],
           "lines": [
@@ -807,45 +805,44 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Most service business owners think they need a massive budget to see results.\n\nHere's what $500 a month actually gets you."
+              "text": "The service businesses that scale aren't more skilled than the ones that stay stuck.\n\nThey do one thing differently."
             },
             {
               "time": "Middle",
               "tag": "20s",
               "cls": "",
-              "text": "$500 a month is roughly $16 a day.\n\nFor a service business in most cities, that's enough to reach your market consistently.\n\nSolid offer, fast follow-up \u2014 you should see 15 to 30 leads a month.\n\nAt a 30% close rate, that's 5 to 9 new jobs.\n\nMost trades, that's 3 to 10x your ad spend back in revenue."
+              "text": "The stuck ones are waiting.\n\nWaiting for referrals. Waiting for the phone to ring. Waiting for a good month.\n\nThe ones growing built something that brings clients in every day \u2014 whether someone refers them or not.\n\nThey're not better at the trade.\n\nThey're just more visible.\n\nAnd visibility, in a local market, is not hard to own if you're willing to run ads."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "The budget isn't the barrier.\n\nThe offer and the follow-up are."
+              "text": "Visibility is the gap.\n\nAds close it."
             }
-          ],
-          "stories": []
+          ]
         },
         {
-          "title": "The exact system that gets service businesses inbound leads",
-          "overlay": {
-            "line1": "the exact system.",
-            "line2": "steal it."
-          },
+          "title": "What 90 days of properly run Meta ads looks like for a service business",
+          "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
-          "type": "Talking Head",
-          "film": "Sit down, confident. Walk through each step clearly \u2014 count them on your fingers if it helps.",
+          "overlay": {
+            "line1": "90 days.",
+            "line2": "what actually happens."
+          },
+          "film": "Direct to camera, measured pace. Walk through it like a timeline.",
           "captions": [
             {
               "label": "A",
-              "text": "most businesses skip steps 3, 4, and 5.\n\nthat's why they say meta doesn't work."
+              "text": "most business owners quit ads in week two.\n\nbefore meta's even had time to learn."
             },
             {
               "label": "B",
-              "text": "one campaign. one objective: leads.\n\none ad with a real job photo and a problem-first hook.\n\nan offer that's specific \u2014 not just \"free quote\".\n\ncall every lead within five minutes.\n\nfollow up three times if they don't answer.\n\nmost businesses skip the last two steps and wonder why nothing converts."
+              "text": "week one \u2014 the campaign goes live. leads start coming in. some are good, some aren't.\n\nweek two to four \u2014 meta learns who's converting. cost per lead starts dropping.\n\nmonth two \u2014 the campaign is consistent. predictable lead flow. owner starts planning for more capacity.\n\nmonth three \u2014 they stop worrying about where the next job is coming from.\n\nthat's what 90 days looks like when you don't quit early."
             },
             {
               "label": "C",
-              "text": "the system isn't complicated. most people just don't follow it."
+              "text": "the results don't come in week one. they come when you don't quit after week one."
             }
           ],
           "lines": [
@@ -853,45 +850,44 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Here's the exact system I use to get service businesses consistent inbound leads from Meta.\n\nSteal it."
+              "text": "Most service business owners quit ads before they've even given Meta a chance to work.\n\nHere's what actually happens when you don't."
             },
             {
               "time": "Middle",
               "tag": "20s",
               "cls": "",
-              "text": "One campaign. Objective: leads.\n\nOne ad \u2014 real job photo, problem-first hook.\n\nA specific offer, not just \"free quote\".\n\nCall every lead within five minutes.\n\nFollow up three times if they don't answer.\n\nMost businesses skip the last two steps.\n\nThat's why they say Meta doesn't work."
+              "text": "Week one \u2014 campaign goes live, leads come in, some are great, some aren't.\n\nWeeks two to four \u2014 Meta learns who converts. Cost per lead drops.\n\nMonth two \u2014 lead flow is consistent. The owner starts thinking about hiring.\n\nMonth three \u2014 they're not worried about where the next job is coming from.\n\nThat's the difference between quitting at week two and staying in."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "The system isn't complicated.\n\nMost people just don't follow it."
+              "text": "The results aren't in week one.\n\nThey're in what happens when you don't quit after week one."
             }
-          ],
-          "stories": []
+          ]
         },
         {
-          "title": "Your cost per lead is high because of this",
-          "overlay": {
-            "line1": "your cost per lead is high",
-            "line2": "because of this."
-          },
+          "title": "Why referrals are keeping your service business small",
+          "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
-          "type": "Talking Head",
-          "film": "Sit down, direct. Two-part breakdown \u2014 pause between each point so it lands.",
+          "overlay": {
+            "line1": "referrals are keeping",
+            "line2": "your business small."
+          },
+          "film": "Direct to camera, direct eye contact. Pattern interrupt \u2014 deliver with conviction.",
           "captions": [
             {
               "label": "A",
-              "text": "if your meta cost per lead is high, it's almost never the targeting.\n\nit's almost always the hook or the offer."
+              "text": "referrals feel safe because they close easy.\n\nbut they're also completely outside your control."
             },
             {
               "label": "B",
-              "text": "a strong hook gets people to stop scrolling.\n\na strong offer gets them to fill out the form.\n\nmost service businesses have a weak version of both.\n\nfix the hook first \u2014 change the first line of your ad.\n\nthen look at the offer and make it more specific.\n\ndo those two things before you change anything else."
+              "text": "referrals are great when they come.\n\nbut you can't predict when they come. you can't turn them up when you need more work. and you can't scale on something you have no control over.\n\nthe businesses consistently growing aren't waiting for someone to mention their name.\n\nthey built something that puts them in front of new people every single day.\n\nthat's the shift."
             },
             {
               "label": "C",
-              "text": "weak hook. weak offer. high cost per lead. fix those two things first."
+              "text": "you can't scale a business that depends on other people doing something for you."
             }
           ],
           "lines": [
@@ -899,42 +895,41 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "If your Meta cost per lead is too high, it's almost never the targeting.\n\nIt's almost always one of two things."
+              "text": "Referrals feel like a good lead source.\n\nAnd they are \u2014 when they come. The problem is you can't control when that is."
             },
             {
               "time": "Middle",
               "tag": "20s",
               "cls": "",
-              "text": "Either your hook isn't stopping people from scrolling.\n\nOr your offer isn't giving them a reason to fill out the form.\n\nA strong hook gets them to watch.\n\nA strong offer gets them to act.\n\nMost businesses have a weak version of both.\n\nFix the hook first. Then look at the offer."
+              "text": "You can't turn referrals up when you need more work.\n\nYou can't predict them, plan around them, or scale with them.\n\nEvery service business that grows past a certain point figured this out.\n\nThey stopped relying on other people to grow their business for them.\n\nAnd they built something that brings clients in every day \u2014 on their terms."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Change those two things before you touch anything else."
+              "text": "You can't scale a business that depends on other people doing something for you."
             }
-          ],
-          "stories": []
+          ]
         },
         {
-          "title": "Setting up a Meta lead gen campaign live \u2014 every decision explained",
-          "overlay": null,
-          "recCap": 0,
-          "recVer": "full",
+          "title": "Breaking down a campaign that booked a local business solid for 3 months",
           "type": "Screen Record",
-          "film": "Screen record Meta Ads Manager. Walk through every setting from campaign creation to publish \u2014 objective, budget, audience, creative, lead form. Explain every decision as you make it. Slow and deliberate \u2014 this is a tutorial they can actually follow.",
+          "recCap": 0,
+          "recVer": "full",
+          "overlay": null,
+          "film": "Screen record the campaign in Meta Ads Manager. Walk through the numbers \u2014 leads, cost per lead, timeline. Show the actual results.",
           "captions": [
             {
               "label": "A",
-              "text": "walking through every setting i use when building a meta lead gen campaign for a service business."
+              "text": "breaking down the campaign that kept a local service business booked solid for 3 months straight."
             },
             {
               "label": "B",
-              "text": "objective, budget, audience, creative, lead form.\n\nevery decision explained as i make it.\n\nthis is the exact setup i use for new clients.\n\ncopy it."
+              "text": "one campaign. one ad. ran for 90 days.\n\nhere's the breakdown \u2014 what the numbers looked like, what the offer was, and why it worked.\n\nthis is what a well-run campaign actually looks like over time."
             },
             {
               "label": "C",
-              "text": "this is the exact setup. copy it."
+              "text": "this is what 90 days of a properly run campaign looks like."
             }
           ],
           "lines": [
@@ -942,54 +937,53 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "I'm going to walk through exactly how I set up a Meta lead gen campaign for a service business.\n\nEvery setting. Every decision. Explained as I go."
+              "text": "This campaign ran for 90 days and kept a local service business booked solid the entire time.\n\nHere's exactly what it looked like."
             },
             {
               "time": "Point 1",
               "tag": "10s",
               "cls": "",
-              "text": "Campaign objective: leads. Not traffic, not awareness. Leads. Meta needs to know you want people to fill out a form \u2014 not just click."
+              "text": "One campaign, one ad set, one creative. We didn't touch it every week. We let Meta learn. By day 14 the cost per lead had dropped by nearly half from where it started."
             },
             {
               "time": "Point 2",
               "tag": "10s",
               "cls": "",
-              "text": "Audience: local radius around the business. Age range based on who actually hires them. No interest stacking \u2014 keep it simple and let Meta learn."
+              "text": "The offer wasn't complicated. Specific service, local area, clear next step. Lead form had three fields. Name, number, what's the job. That's it."
             },
             {
               "time": "Point 3",
               "tag": "10s",
               "cls": "",
-              "text": "Creative: real job photo, problem-first headline. Lead form: three fields max. Name, phone, what's the job? More than that and you lose them."
+              "text": "Month three \u2014 they had a waiting list. They turned down work for the first time. That's what staying in long enough looks like."
             },
             {
               "time": "Close",
               "tag": "5s",
               "cls": "",
-              "text": "This is the exact setup.\n\nRun it and let Meta do its job."
+              "text": "Most businesses quit before month two.\n\nThis is what happens when you don't."
             }
-          ],
-          "stories": []
+          ]
         },
         {
-          "title": "Breaking down the ad that got 41 leads in one week",
-          "overlay": null,
+          "title": "What separates a service business doing $10k/month from one doing $50k",
+          "type": "Screen Record",
           "recCap": 0,
           "recVer": "full",
-          "type": "Screen Record",
-          "film": "Screen record the actual ad in Meta Ads Manager or show a mockup of the creative. Walk through: the hook line, the photo choice, the offer, the lead form. Point to each element as you explain why it worked. Results visible on screen if possible.",
+          "overlay": null,
+          "film": "Screen record or whiteboard breakdown. Walk through the gap \u2014 lead volume, close rate, follow-up speed. Make it concrete.",
           "captions": [
             {
               "label": "A",
-              "text": "this ad got 41 leads in one week for a local service business.\n\nbreaking down exactly why it worked."
+              "text": "the gap between $10k and $50k months isn't skill.\n\nit's lead volume and how fast they follow up."
             },
             {
               "label": "B",
-              "text": "41 leads. one week. one ad.\n\nhere's what made it work.\n\nthe hook spoke directly to a problem the customer was already living.\n\nthe photo was real \u2014 from an actual job.\n\nthe offer was specific and had a clear next step.\n\nevery part of this was intentional."
+              "text": "i've seen both.\n\nthe $10k/month business has the skill. the reviews. the work quality.\n\nwhat they don't have is consistent lead flow and a follow-up system that converts.\n\nfix those two things and the revenue follows.\n\nthat's the whole difference."
             },
             {
               "label": "C",
-              "text": "41 leads. one week. here's the breakdown."
+              "text": "skill gets you $10k. systems get you $50k."
             }
           ],
           "lines": [
@@ -997,61 +991,60 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "This ad got 41 leads in one week for a local service business.\n\nI'm breaking down exactly why it worked."
+              "text": "The difference between a service business doing $10k a month and one doing $50k is almost never the quality of the work."
             },
             {
               "time": "Point 1",
               "tag": "10s",
               "cls": "",
-              "text": "The hook. First line spoke directly to a problem the customer was already dealing with. Not about the business \u2014 about them. That's what stopped the scroll."
+              "text": "The $10k business is good at the job. The $50k business is good at the job AND has a system bringing in leads every day. That's the first gap \u2014 consistent lead flow."
             },
             {
               "time": "Point 2",
               "tag": "10s",
               "cls": "",
-              "text": "The photo. Real job, real result. Not stock. You could tell it was genuine and that built instant trust before they even read a word."
+              "text": "The second gap is follow-up speed. The $50k business calls every lead within minutes. The $10k business calls when they get a chance. Same leads. Completely different close rate."
             },
             {
               "time": "Point 3",
               "tag": "10s",
               "cls": "",
-              "text": "The offer. Specific. Same-week availability, clear next step. One thing to do \u2014 fill out the form. No confusion, no options."
+              "text": "Fix the lead flow. Fix the follow-up. The revenue gap closes almost automatically."
             },
             {
               "time": "Close",
               "tag": "5s",
               "cls": "",
-              "text": "Every part of this was intentional.\n\nNow you know why it worked."
+              "text": "Skill gets you to $10k.\n\nSystems get you to $50k."
             }
-          ],
-          "stories": []
+          ]
         }
       ]
     }
   ],
   "scripts": [
     {
-      "title": "39 leads. 14 booked. 30 days.",
-      "overlay": {
-        "line1": "39 leads.",
-        "line2": "14 booked. 30 days."
-      },
+      "title": "How a plumber went from slow weeks to a waiting list",
+      "type": "Talking Head",
       "recCap": 0,
       "recVer": "full",
-      "type": "Talking Head",
-      "film": "Sit down, direct to camera. Tell it like a story \u2014 calm and confident. Let the numbers do the work.",
+      "overlay": {
+        "line1": "slow weeks to",
+        "line2": "waiting list."
+      },
+      "film": "Direct to camera, confident. Tell it like a story \u2014 you've seen this play out enough times that it doesn't surprise you anymore.",
       "captions": [
         {
           "label": "A",
-          "text": "window cleaner. zero ad experience. one month.\n\n39 leads. 14 booked jobs. roughly $2,800 in revenue."
+          "text": "most plumbers rely entirely on referrals and word of mouth.\n\nwhich means some weeks are great and some weeks there's nothing.\n\none campaign changed that."
         },
         {
           "label": "B",
-          "text": "one campaign. one ad. one offer.\n\n39 leads came in.\n\n14 of them booked.\n\nhe was spending around $400/month to make it happen.\n\nthe ads weren't magic. the offer was simple and the follow-up was fast.\n\nthat's it."
+          "text": "he had the skill. he had the reviews. he just had no consistent way to get in front of new people.\n\nwe ran one campaign \u2014 local, simple offer, real job photo.\n\nwithin 60 days he had more work than he could take on alone.\n\nthat's what a well-run ad does for a service business."
         },
         {
           "label": "C",
-          "text": "simple offer. fast follow-up. that's the whole system."
+          "text": "the skill was always there. the visibility wasn't."
         }
       ],
       "lines": [
@@ -1059,45 +1052,44 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "A window cleaner came to me with zero ad experience and a basic offer.\n\nHere's what happened in the first 30 days."
+          "text": "This plumber had the skills, the reviews, and years of experience.\n\nHe just had no reliable way to get in front of new clients."
         },
         {
           "time": "Middle",
           "tag": "20s",
           "cls": "",
-          "text": "One campaign. One ad. One offer \u2014 free quote, same-week availability.\n\n39 leads came in.\n\n14 booked jobs.\n\nHis average job is around $200, so roughly $2,800 back from $400 in ad spend.\n\nThe ads weren't complicated.\n\nThe offer was clear and he called every lead within five minutes."
+          "text": "Some weeks were fully booked.\n\nOthers were completely dead.\n\nAll of it came down to whoever happened to refer him that week.\n\nWe ran one campaign \u2014 local radius, simple offer, real job photo from an actual job site.\n\nWithin 60 days he had more work than he could handle alone.\n\nHe turned down jobs for the first time in his career."
         },
         {
           "time": "Close",
           "tag": "4s",
           "cls": "",
-          "text": "Simple offer. Fast follow-up.\n\nThat's the whole system."
+          "text": "The skill was always there.\n\nThe visibility wasn't."
         }
-      ],
-      "stories": []
+      ]
     },
     {
-      "title": "How I get inbound leads every week without cold outreach",
-      "overlay": {
-        "line1": "how i get clients",
-        "line2": "without cold outreach"
-      },
+      "title": "What I look at before I take on a service business client",
+      "type": "Talking Head",
       "recCap": 0,
       "recVer": "full",
-      "type": "Talking Head",
-      "film": "Sit down, relaxed, natural light. This one is personal \u2014 deliver it like you're letting people in on something.",
+      "overlay": {
+        "line1": "what i look for",
+        "line2": "before i say yes."
+      },
+      "film": "Direct to camera, relaxed but direct. Feels like you're being honest with your audience \u2014 selective, not salesy.",
       "captions": [
         {
           "label": "A",
-          "text": "i've never cold outreached.\n\nevery client i've signed found me through content."
+          "text": "i turn down clients every month.\n\nnot because i don't have space \u2014 because the fit has to be right for results to happen."
         },
         {
           "label": "B",
-          "text": "i post content that shows real results.\n\nreal numbers from real client campaigns.\n\npeople watch, learn something, and think \u2014 i want this guy running my ads.\n\nthat's the whole strategy.\n\ncontent that proves you know what you're doing is the best sales call you'll never have to make."
+          "text": "i look for three things before i take someone on.\n\nfirst \u2014 do they have a solid offer and a real way to follow up on leads.\n\nsecond \u2014 are they serious about growth, not just testing.\n\nthird \u2014 do they understand that ads are a tool, not a magic button.\n\nif all three are there, the results almost always come.\n\nif they're not, no amount of good ads fixes it."
         },
         {
           "label": "C",
-          "text": "prove you know what you're doing. the clients come to you."
+          "text": "good ads don't fix a broken business. but they accelerate a working one."
         }
       ],
       "lines": [
@@ -1105,45 +1097,44 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "Every week I get service business owners DMing me asking for help with their Meta ads.\n\nI've never cold outreached. Here's exactly how."
+          "text": "I turn down clients every month.\n\nHere's exactly what I look for before I say yes."
         },
         {
           "time": "Middle",
           "tag": "20s",
           "cls": "",
-          "text": "I post content that shows real results.\n\nReal numbers from real client campaigns.\n\nI give away the framework for free.\n\nPeople watch, learn something, and think \u2014 I want this guy running my ads.\n\nThat's the whole strategy.\n\nContent that proves you know what you're doing is the best sales call you'll never have to make."
+          "text": "Three things.\n\nFirst \u2014 a real offer. Not 'call for a free quote.' Something specific that gives people a reason to act.\n\nSecond \u2014 a follow-up system. Ads bring leads. If nobody calls them back within minutes, those leads are gone.\n\nThird \u2014 they're serious about growth. Not testing with pocket change and expecting miracles.\n\nWhen all three are in place, the results are almost predictable."
         },
         {
           "time": "Close",
           "tag": "4s",
           "cls": "",
-          "text": "Prove you know what you're doing.\n\nThe right people will find you."
+          "text": "Good ads don't fix a broken business.\n\nBut they accelerate a working one."
         }
-      ],
-      "stories": []
+      ]
     },
     {
-      "title": "What $500/month in Meta ads actually gets you",
-      "overlay": {
-        "line1": "what $500/month",
-        "line2": "in meta ads actually gets you"
-      },
+      "title": "The difference between service businesses that scale and those that stay stuck",
+      "type": "Talking Head",
       "recCap": 0,
       "recVer": "full",
-      "type": "Talking Head",
-      "film": "Sit down, direct. Walk through the numbers clearly \u2014 this is a breakdown, not a pitch.",
+      "overlay": {
+        "line1": "why some scale",
+        "line2": "and others stay stuck."
+      },
+      "film": "Direct to camera, steady. Reality check energy \u2014 confident, no fluff.",
       "captions": [
         {
           "label": "A",
-          "text": "most service businesses think they need a huge budget to see results.\n\nhere's what $500/month actually does."
+          "text": "the ones that scale aren't better at the job.\n\nthey just stopped waiting for word of mouth and built something that works every day."
         },
         {
           "label": "B",
-          "text": "$500/month is roughly $16 a day.\n\nfor a service business in most cities, that's enough to stay in front of your target market consistently.\n\nif your offer is solid and your follow-up is fast, you should be seeing 15-30 leads a month.\n\nat a 30% close rate, that's 5-9 new jobs.\n\ndepends on the trade, but that's typically 3-10x your ad spend in revenue.\n\nthe budget isn't the barrier."
+          "text": "i've worked with both.\n\nthe ones stuck at the same revenue year after year are almost always doing the exact same thing \u2014 waiting.\n\nwaiting for the next referral. waiting for the phone to ring. waiting for a slow week to pass.\n\nthe ones growing built a system that brings new clients in regardless of who refers them.\n\nthat's the only difference."
         },
         {
           "label": "C",
-          "text": "the budget isn't the barrier. the offer and the follow-up are."
+          "text": "visibility is the gap between a stuck business and a scaling one."
         }
       ],
       "lines": [
@@ -1151,45 +1142,44 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "Most service business owners think they need a massive budget to see results.\n\nHere's what $500 a month actually gets you."
+          "text": "The service businesses that scale aren't more skilled than the ones that stay stuck.\n\nThey do one thing differently."
         },
         {
           "time": "Middle",
           "tag": "20s",
           "cls": "",
-          "text": "$500 a month is roughly $16 a day.\n\nFor a service business in most cities, that's enough to reach your market consistently.\n\nSolid offer, fast follow-up \u2014 you should see 15 to 30 leads a month.\n\nAt a 30% close rate, that's 5 to 9 new jobs.\n\nMost trades, that's 3 to 10x your ad spend back in revenue."
+          "text": "The stuck ones are waiting.\n\nWaiting for referrals. Waiting for the phone to ring. Waiting for a good month.\n\nThe ones growing built something that brings clients in every day \u2014 whether someone refers them or not.\n\nThey're not better at the trade.\n\nThey're just more visible.\n\nAnd visibility, in a local market, is not hard to own if you're willing to run ads."
         },
         {
           "time": "Close",
           "tag": "4s",
           "cls": "",
-          "text": "The budget isn't the barrier.\n\nThe offer and the follow-up are."
+          "text": "Visibility is the gap.\n\nAds close it."
         }
-      ],
-      "stories": []
+      ]
     },
     {
-      "title": "The exact system that gets service businesses inbound leads",
-      "overlay": {
-        "line1": "the exact system.",
-        "line2": "steal it."
-      },
+      "title": "What 90 days of properly run Meta ads looks like for a service business",
+      "type": "Talking Head",
       "recCap": 0,
       "recVer": "full",
-      "type": "Talking Head",
-      "film": "Sit down, confident. Walk through each step clearly \u2014 count them on your fingers if it helps.",
+      "overlay": {
+        "line1": "90 days.",
+        "line2": "what actually happens."
+      },
+      "film": "Direct to camera, measured pace. Walk through it like a timeline.",
       "captions": [
         {
           "label": "A",
-          "text": "most businesses skip steps 3, 4, and 5.\n\nthat's why they say meta doesn't work."
+          "text": "most business owners quit ads in week two.\n\nbefore meta's even had time to learn."
         },
         {
           "label": "B",
-          "text": "one campaign. one objective: leads.\n\none ad with a real job photo and a problem-first hook.\n\nan offer that's specific \u2014 not just \"free quote\".\n\ncall every lead within five minutes.\n\nfollow up three times if they don't answer.\n\nmost businesses skip the last two steps and wonder why nothing converts."
+          "text": "week one \u2014 the campaign goes live. leads start coming in. some are good, some aren't.\n\nweek two to four \u2014 meta learns who's converting. cost per lead starts dropping.\n\nmonth two \u2014 the campaign is consistent. predictable lead flow. owner starts planning for more capacity.\n\nmonth three \u2014 they stop worrying about where the next job is coming from.\n\nthat's what 90 days looks like when you don't quit early."
         },
         {
           "label": "C",
-          "text": "the system isn't complicated. most people just don't follow it."
+          "text": "the results don't come in week one. they come when you don't quit after week one."
         }
       ],
       "lines": [
@@ -1197,45 +1187,44 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "Here's the exact system I use to get service businesses consistent inbound leads from Meta.\n\nSteal it."
+          "text": "Most service business owners quit ads before they've even given Meta a chance to work.\n\nHere's what actually happens when you don't."
         },
         {
           "time": "Middle",
           "tag": "20s",
           "cls": "",
-          "text": "One campaign. Objective: leads.\n\nOne ad \u2014 real job photo, problem-first hook.\n\nA specific offer, not just \"free quote\".\n\nCall every lead within five minutes.\n\nFollow up three times if they don't answer.\n\nMost businesses skip the last two steps.\n\nThat's why they say Meta doesn't work."
+          "text": "Week one \u2014 campaign goes live, leads come in, some are great, some aren't.\n\nWeeks two to four \u2014 Meta learns who converts. Cost per lead drops.\n\nMonth two \u2014 lead flow is consistent. The owner starts thinking about hiring.\n\nMonth three \u2014 they're not worried about where the next job is coming from.\n\nThat's the difference between quitting at week two and staying in."
         },
         {
           "time": "Close",
           "tag": "4s",
           "cls": "",
-          "text": "The system isn't complicated.\n\nMost people just don't follow it."
+          "text": "The results aren't in week one.\n\nThey're in what happens when you don't quit after week one."
         }
-      ],
-      "stories": []
+      ]
     },
     {
-      "title": "Your cost per lead is high because of this",
-      "overlay": {
-        "line1": "your cost per lead is high",
-        "line2": "because of this."
-      },
+      "title": "Why referrals are keeping your service business small",
+      "type": "Talking Head",
       "recCap": 0,
       "recVer": "full",
-      "type": "Talking Head",
-      "film": "Sit down, direct. Two-part breakdown \u2014 pause between each point so it lands.",
+      "overlay": {
+        "line1": "referrals are keeping",
+        "line2": "your business small."
+      },
+      "film": "Direct to camera, direct eye contact. Pattern interrupt \u2014 deliver with conviction.",
       "captions": [
         {
           "label": "A",
-          "text": "if your meta cost per lead is high, it's almost never the targeting.\n\nit's almost always the hook or the offer."
+          "text": "referrals feel safe because they close easy.\n\nbut they're also completely outside your control."
         },
         {
           "label": "B",
-          "text": "a strong hook gets people to stop scrolling.\n\na strong offer gets them to fill out the form.\n\nmost service businesses have a weak version of both.\n\nfix the hook first \u2014 change the first line of your ad.\n\nthen look at the offer and make it more specific.\n\ndo those two things before you change anything else."
+          "text": "referrals are great when they come.\n\nbut you can't predict when they come. you can't turn them up when you need more work. and you can't scale on something you have no control over.\n\nthe businesses consistently growing aren't waiting for someone to mention their name.\n\nthey built something that puts them in front of new people every single day.\n\nthat's the shift."
         },
         {
           "label": "C",
-          "text": "weak hook. weak offer. high cost per lead. fix those two things first."
+          "text": "you can't scale a business that depends on other people doing something for you."
         }
       ],
       "lines": [
@@ -1243,42 +1232,41 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "If your Meta cost per lead is too high, it's almost never the targeting.\n\nIt's almost always one of two things."
+          "text": "Referrals feel like a good lead source.\n\nAnd they are \u2014 when they come. The problem is you can't control when that is."
         },
         {
           "time": "Middle",
           "tag": "20s",
           "cls": "",
-          "text": "Either your hook isn't stopping people from scrolling.\n\nOr your offer isn't giving them a reason to fill out the form.\n\nA strong hook gets them to watch.\n\nA strong offer gets them to act.\n\nMost businesses have a weak version of both.\n\nFix the hook first. Then look at the offer."
+          "text": "You can't turn referrals up when you need more work.\n\nYou can't predict them, plan around them, or scale with them.\n\nEvery service business that grows past a certain point figured this out.\n\nThey stopped relying on other people to grow their business for them.\n\nAnd they built something that brings clients in every day \u2014 on their terms."
         },
         {
           "time": "Close",
           "tag": "4s",
           "cls": "",
-          "text": "Change those two things before you touch anything else."
+          "text": "You can't scale a business that depends on other people doing something for you."
         }
-      ],
-      "stories": []
+      ]
     },
     {
-      "title": "Setting up a Meta lead gen campaign live \u2014 every decision explained",
-      "overlay": null,
-      "recCap": 0,
-      "recVer": "full",
+      "title": "Breaking down a campaign that booked a local business solid for 3 months",
       "type": "Screen Record",
-      "film": "Screen record Meta Ads Manager. Walk through every setting from campaign creation to publish \u2014 objective, budget, audience, creative, lead form. Explain every decision as you make it. Slow and deliberate \u2014 this is a tutorial they can actually follow.",
+      "recCap": 0,
+      "recVer": "full",
+      "overlay": null,
+      "film": "Screen record the campaign in Meta Ads Manager. Walk through the numbers \u2014 leads, cost per lead, timeline. Show the actual results.",
       "captions": [
         {
           "label": "A",
-          "text": "walking through every setting i use when building a meta lead gen campaign for a service business."
+          "text": "breaking down the campaign that kept a local service business booked solid for 3 months straight."
         },
         {
           "label": "B",
-          "text": "objective, budget, audience, creative, lead form.\n\nevery decision explained as i make it.\n\nthis is the exact setup i use for new clients.\n\ncopy it."
+          "text": "one campaign. one ad. ran for 90 days.\n\nhere's the breakdown \u2014 what the numbers looked like, what the offer was, and why it worked.\n\nthis is what a well-run campaign actually looks like over time."
         },
         {
           "label": "C",
-          "text": "this is the exact setup. copy it."
+          "text": "this is what 90 days of a properly run campaign looks like."
         }
       ],
       "lines": [
@@ -1286,54 +1274,53 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "I'm going to walk through exactly how I set up a Meta lead gen campaign for a service business.\n\nEvery setting. Every decision. Explained as I go."
+          "text": "This campaign ran for 90 days and kept a local service business booked solid the entire time.\n\nHere's exactly what it looked like."
         },
         {
           "time": "Point 1",
           "tag": "10s",
           "cls": "",
-          "text": "Campaign objective: leads. Not traffic, not awareness. Leads. Meta needs to know you want people to fill out a form \u2014 not just click."
+          "text": "One campaign, one ad set, one creative. We didn't touch it every week. We let Meta learn. By day 14 the cost per lead had dropped by nearly half from where it started."
         },
         {
           "time": "Point 2",
           "tag": "10s",
           "cls": "",
-          "text": "Audience: local radius around the business. Age range based on who actually hires them. No interest stacking \u2014 keep it simple and let Meta learn."
+          "text": "The offer wasn't complicated. Specific service, local area, clear next step. Lead form had three fields. Name, number, what's the job. That's it."
         },
         {
           "time": "Point 3",
           "tag": "10s",
           "cls": "",
-          "text": "Creative: real job photo, problem-first headline. Lead form: three fields max. Name, phone, what's the job? More than that and you lose them."
+          "text": "Month three \u2014 they had a waiting list. They turned down work for the first time. That's what staying in long enough looks like."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "This is the exact setup.\n\nRun it and let Meta do its job."
+          "text": "Most businesses quit before month two.\n\nThis is what happens when you don't."
         }
-      ],
-      "stories": []
+      ]
     },
     {
-      "title": "Breaking down the ad that got 41 leads in one week",
-      "overlay": null,
+      "title": "What separates a service business doing $10k/month from one doing $50k",
+      "type": "Screen Record",
       "recCap": 0,
       "recVer": "full",
-      "type": "Screen Record",
-      "film": "Screen record the actual ad in Meta Ads Manager or show a mockup of the creative. Walk through: the hook line, the photo choice, the offer, the lead form. Point to each element as you explain why it worked. Results visible on screen if possible.",
+      "overlay": null,
+      "film": "Screen record or whiteboard breakdown. Walk through the gap \u2014 lead volume, close rate, follow-up speed. Make it concrete.",
       "captions": [
         {
           "label": "A",
-          "text": "this ad got 41 leads in one week for a local service business.\n\nbreaking down exactly why it worked."
+          "text": "the gap between $10k and $50k months isn't skill.\n\nit's lead volume and how fast they follow up."
         },
         {
           "label": "B",
-          "text": "41 leads. one week. one ad.\n\nhere's what made it work.\n\nthe hook spoke directly to a problem the customer was already living.\n\nthe photo was real \u2014 from an actual job.\n\nthe offer was specific and had a clear next step.\n\nevery part of this was intentional."
+          "text": "i've seen both.\n\nthe $10k/month business has the skill. the reviews. the work quality.\n\nwhat they don't have is consistent lead flow and a follow-up system that converts.\n\nfix those two things and the revenue follows.\n\nthat's the whole difference."
         },
         {
           "label": "C",
-          "text": "41 leads. one week. here's the breakdown."
+          "text": "skill gets you $10k. systems get you $50k."
         }
       ],
       "lines": [
@@ -1341,34 +1328,33 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "This ad got 41 leads in one week for a local service business.\n\nI'm breaking down exactly why it worked."
+          "text": "The difference between a service business doing $10k a month and one doing $50k is almost never the quality of the work."
         },
         {
           "time": "Point 1",
           "tag": "10s",
           "cls": "",
-          "text": "The hook. First line spoke directly to a problem the customer was already dealing with. Not about the business \u2014 about them. That's what stopped the scroll."
+          "text": "The $10k business is good at the job. The $50k business is good at the job AND has a system bringing in leads every day. That's the first gap \u2014 consistent lead flow."
         },
         {
           "time": "Point 2",
           "tag": "10s",
           "cls": "",
-          "text": "The photo. Real job, real result. Not stock. You could tell it was genuine and that built instant trust before they even read a word."
+          "text": "The second gap is follow-up speed. The $50k business calls every lead within minutes. The $10k business calls when they get a chance. Same leads. Completely different close rate."
         },
         {
           "time": "Point 3",
           "tag": "10s",
           "cls": "",
-          "text": "The offer. Specific. Same-week availability, clear next step. One thing to do \u2014 fill out the form. No confusion, no options."
+          "text": "Fix the lead flow. Fix the follow-up. The revenue gap closes almost automatically."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "Every part of this was intentional.\n\nNow you know why it worked."
+          "text": "Skill gets you to $10k.\n\nSystems get you to $50k."
         }
-      ],
-      "stories": []
+      ]
     }
   ],
   "week_of": "2026-07-21",
