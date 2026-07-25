@@ -687,27 +687,27 @@
       "week_of_display": "Jul 21, 2026",
       "scripts": [
         {
-          "title": "You're building a business that only works when you're chasing it",
+          "title": "You don't have a slow month problem \u2014 you have a leads problem",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "your business only works",
-            "line2": "when you're chasing it."
+            "line1": "slow months?",
+            "line2": "that's a leads problem."
           },
-          "film": "Direct to camera. Serious, direct. Let the hook land before you move on.",
+          "film": "Direct to camera. Casual, like you're just saying it how it is to a mate.",
           "captions": [
             {
               "label": "A",
-              "text": "if you stopped chasing work tomorrow, how long before the phone goes quiet?\n\nfor most service businesses \u2014 not long."
+              "text": "slow months aren't random.\n\nthey happen when you have no control over where your next job comes from."
             },
             {
               "label": "B",
-              "text": "referrals. word of mouth. the occasional job from a facebook group.\n\nnone of it works unless you're actively in it.\n\nthe moment you step back \u2014 go on holiday, get sick, take a week off \u2014 the pipeline dries up.\n\nthat's not a business. that's a job you created for yourself.\n\nthe business owners who've actually built something have a system that brings work in whether they're chasing it or not."
+              "text": "if your work dries up when referrals dry up \u2014 that's not bad luck.\n\nthat's a lead source problem.\n\nthe fix isn't working harder. it's building something that brings work in whether you're chasing it or not."
             },
             {
               "label": "C",
-              "text": "if your leads stop when you stop chasing, you don't have a business. you have a job."
+              "text": "slow months are a lead source problem. not a luck problem."
             }
           ],
           "lines": [
@@ -715,44 +715,44 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "If you stopped chasing work tomorrow \u2014 stopped following up, stopped asking for referrals \u2014 how long before your phone goes quiet?\n\nFor most service businesses, not long."
+              "text": "If you keep having slow months, it's not bad luck.\n\nIt's a lead source problem."
             },
             {
               "time": "Middle",
-              "tag": "20s",
+              "tag": "15s",
               "cls": "",
-              "text": "Referrals. Word of mouth. A job here and there from someone who remembered your name.\n\nNone of it works without you actively keeping it alive.\n\nThe moment you step back \u2014 take a holiday, get sick, just take a week off \u2014 the pipeline dries up.\n\nThat's not a business.\n\nThat's a job you created for yourself.\n\nThe owners who've actually built something have leads coming in whether they're chasing or not."
+              "text": "When all your work comes from referrals, you have zero control over when it comes.\n\nSome months are great. Others are dead.\n\nAnd you can't do anything about it.\n\nThe businesses that stay consistently busy built something that brings work in \u2014 whether someone refers them or not."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "If your leads stop when you stop chasing, you don't have a business.\n\nYou have a job."
+              "text": "Stop blaming the month.\n\nFix the lead source."
             }
           ]
         },
         {
-          "title": "The quiet week every service business owner dreads \u2014 and how to stop having them",
+          "title": "Your competitor is showing up in front of your customers every day",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "the quiet week",
-            "line2": "you keep dreading."
+            "line1": "your competitor",
+            "line2": "is stealing your customers."
           },
-          "film": "Direct to camera, relaxed. This one should feel like you're talking to someone who's been there \u2014 because they have.",
+          "film": "Direct to camera, straight-faced. Short and sharp \u2014 don't over-explain this one.",
           "captions": [
             {
               "label": "A",
-              "text": "every service business owner knows the feeling.\n\nmonday morning, barely anything in the diary, checking the phone every hour."
+              "text": "while you're waiting on the next referral, someone in your area is showing up in front of your potential customers every single day."
             },
             {
               "label": "B",
-              "text": "the quiet week isn't bad luck.\n\nit's what happens when your lead source is entirely outside your control.\n\nyou can't turn referrals up. you can't predict them. and you definitely can't scale on them.\n\nthe businesses that stopped having quiet weeks didn't get busier by accident.\n\nthey built something that puts them in front of new customers every single week \u2014 on their terms."
+              "text": "same service. same city. same customers.\n\nthey're just more visible than you.\n\nand in a local market, whoever shows up most consistently wins."
             },
             {
               "label": "C",
-              "text": "quiet weeks don't happen randomly. they happen when you have no control over where your next job comes from."
+              "text": "in a local market, whoever shows up most consistently wins."
             }
           ],
           "lines": [
@@ -760,44 +760,44 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Every service business owner knows that feeling.\n\nMonday morning. Barely anything in the diary. Checking the phone every hour waiting for something to come in."
+              "text": "Right now, while you're waiting on the next referral \u2014 a competitor in your area is showing up in front of your potential customers every single day."
             },
             {
               "time": "Middle",
-              "tag": "20s",
+              "tag": "15s",
               "cls": "",
-              "text": "That week doesn't come out of nowhere.\n\nIt comes because your leads depend entirely on other people doing something \u2014 referring you, recommending you, remembering your name.\n\nYou have no control over when that happens.\n\nOr if it happens at all.\n\nThe owners who stopped having those weeks built something that brings enquiries in consistently \u2014 not when someone happens to mention them."
+              "text": "Same service. Same city. Same customers.\n\nThey're just more visible than you.\n\nAnd in a local market, whoever shows up most consistently is who people call.\n\nIt's not about being better.\n\nIt's about being seen."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Quiet weeks don't happen randomly.\n\nThey happen when you have no control over where your next job comes from."
+              "text": "In a local market, the most visible business wins.\n\nNot always the best one."
             }
           ]
         },
         {
-          "title": "Most service businesses are one decision away from being fully booked",
+          "title": "Referrals are great \u2014 until they're not",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "one decision away",
-            "line2": "from fully booked."
+            "line1": "referrals are great.",
+            "line2": "until they're not."
           },
-          "film": "Direct to camera, punchy. This one should feel like a wake-up call \u2014 not aggressive, just clear.",
+          "film": "Direct to camera. Calm and matter-of-fact. Short pause after the hook.",
           "captions": [
             {
               "label": "A",
-              "text": "most service businesses already have everything they need to be fully booked.\n\nexcept one thing \u2014 a consistent way to get in front of new customers."
+              "text": "referrals feel safe.\n\nbut you can't turn them up when work gets slow. and that's the problem."
             },
             {
               "label": "B",
-              "text": "the skill is there. the experience is there. the reviews are there.\n\nthe only thing missing is visibility.\n\nlocal customers don't know you exist because you're not showing up in front of them.\n\nthe businesses that are turning down work aren't better at the job.\n\nthey just made the decision to show up consistently \u2014 and they did it before you."
+              "text": "great when they come. impossible to control when they don't.\n\nyou can't build a predictable business on something that works whenever it feels like it."
             },
             {
               "label": "C",
-              "text": "you already have everything you need. the only thing missing is visibility."
+              "text": "you can't scale a business on a lead source you can't control."
             }
           ],
           "lines": [
@@ -805,44 +805,44 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Most service businesses already have everything they need to be fully booked.\n\nExcept one thing."
+              "text": "Referrals are great.\n\nUntil work gets slow and you have no way to turn them up."
             },
             {
               "time": "Middle",
-              "tag": "20s",
+              "tag": "15s",
               "cls": "",
-              "text": "The skill is there.\n\nThe experience is there.\n\nThe reviews are there.\n\nThe only thing missing is visibility.\n\nLocal customers who would hire you tomorrow don't even know you exist \u2014 because you're not showing up in front of them.\n\nThe businesses in your area turning down work aren't better at the trade.\n\nThey just made one decision before you did."
+              "text": "You can't control when they come.\n\nYou can't predict them. You can't plan around them.\n\nAnd when they dry up, there's nothing to fall back on.\n\nThe service businesses that don't stress about quiet weeks aren't just luckier with referrals.\n\nThey have something else bringing work in."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "You already have everything you need.\n\nThe only thing missing is visibility."
+              "text": "You can't scale on a lead source you can't control."
             }
           ]
         },
         {
-          "title": "What actually separates the service businesses that scale from the ones that plateau",
+          "title": "You're one ad away from never worrying about where the next job comes from",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "why some scale.",
-            "line2": "why some don't."
+            "line1": "one ad away from",
+            "line2": "never worrying again."
           },
-          "film": "Direct to camera. Confident, measured. This one is a truth they probably haven't heard put this simply.",
+          "film": "Direct to camera, relaxed. Let this one breathe \u2014 it's aspirational, not urgent.",
           "captions": [
             {
               "label": "A",
-              "text": "i've worked with both.\n\nthe ones that scale and the ones that stay stuck at the same number year after year.\n\nthe difference is never the quality of the work."
+              "text": "most service business owners have never experienced consistent lead flow.\n\nwhen it happens, everything changes."
             },
             {
               "label": "B",
-              "text": "the ones stuck are waiting.\n\nfor the next referral. for a good month. for something to change on its own.\n\nthe ones scaling stopped waiting.\n\nthey built a system that brings new customers in every week \u2014 predictable, consistent, on their terms.\n\nthat's the whole gap. not skill. not experience. just how they get customers."
+              "text": "you stop taking every job because you're scared of a quiet week.\n\nyou get selective. better jobs, better clients, better margins.\n\nand you stop checking the phone wondering if something's coming in."
             },
             {
               "label": "C",
-              "text": "the ones scaling stopped waiting for customers to find them. the ones stuck are still waiting."
+              "text": "consistent leads change more than your revenue. they change how you run everything."
             }
           ],
           "lines": [
@@ -850,44 +850,44 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "I've worked with service businesses at every level.\n\nThe ones that scale and the ones that stay stuck at the same revenue year after year.\n\nThe difference is never what you think."
+              "text": "What would your business look like if you never had to worry about where the next job was coming from?"
             },
             {
               "time": "Middle",
-              "tag": "20s",
+              "tag": "15s",
               "cls": "",
-              "text": "It's not the quality of the work.\n\nIt's not experience, reviews, or how long they've been in the game.\n\nThe ones stuck are waiting \u2014 for referrals, for a good month, for something to change on its own.\n\nThe ones scaling stopped waiting.\n\nThey built something that brings new customers in every week \u2014 predictable, consistent, on their terms.\n\nThat's the only gap."
+              "text": "You'd stop saying yes to every job just to keep the week busy.\n\nYou'd get selective \u2014 better clients, better work, better pay.\n\nYou'd actually be able to plan ahead.\n\nThat's what consistent leads do.\n\nNot just more revenue \u2014 a completely different way of running your business."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "The ones scaling stopped waiting for customers to find them.\n\nThe ones stuck are still waiting."
+              "text": "Most service businesses are one working campaign away from that.\n\nThey just haven't started yet."
             }
           ]
         },
         {
-          "title": "If your best month came from referrals, you have a problem",
+          "title": "Why most service businesses that try ads say it doesn't work",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "your best month",
-            "line2": "came from referrals?"
+            "line1": "'ads don't work'",
+            "line2": "here's why you think that."
           },
-          "film": "Direct to camera. Bold opener \u2014 let it sit for a second before you explain it.",
+          "film": "Direct to camera. Reframe their belief without being condescending \u2014 you've heard this a hundred times.",
           "captions": [
             {
               "label": "A",
-              "text": "referrals feel like validation.\n\nbut if your best months depend on them, you have no control over when your next best month comes."
+              "text": "most service businesses that say ads don't work ran them for two weeks and stopped.\n\nthat's not the ads failing. that's quitting too early."
             },
             {
               "label": "B",
-              "text": "referrals are unpredictable by nature.\n\nyou can't turn them up when work is slow. you can't plan around them. you can't build a team on them.\n\nthe service businesses doing consistent numbers don't have better word of mouth.\n\nthey have a system that works whether someone refers them or not.\n\nreferrals become a bonus \u2014 not the whole strategy."
+              "text": "the first couple of weeks are always the hardest.\n\nthe platform is still figuring out who your customer is.\n\nmost people see slow results and pull the plug right before it turns around."
             },
             {
               "label": "C",
-              "text": "referrals are a bonus. not a strategy. you can't scale on something you can't control."
+              "text": "ads don't fail service businesses. quitting too early does."
             }
           ],
           "lines": [
@@ -895,41 +895,41 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "If your best months come from referrals \u2014 that's actually a problem.\n\nNot a sign things are working."
+              "text": "Every service business owner who says ads don't work \u2014 I want to know how long they actually ran them."
             },
             {
               "time": "Middle",
-              "tag": "20s",
+              "tag": "15s",
               "cls": "",
-              "text": "Referrals feel great.\n\nThey close easy, the trust is already there, and it feels like the business is working.\n\nBut you can't turn them up when work gets slow.\n\nYou can't plan a hire around them.\n\nYou can't build a real business on something completely outside your control.\n\nThe service businesses doing consistent numbers have referrals too \u2014 but they're a bonus, not the whole strategy."
+              "text": "Because almost every time, the answer is two weeks.\n\nMaybe three.\n\nThe platform needs time to learn who your customer is.\n\nThe first couple of weeks are always the slowest.\n\nAnd that's exactly when most people decide it doesn't work and turn it off."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Referrals are a bonus.\n\nNot a strategy."
+              "text": "Ads don't fail service businesses.\n\nImpatience does."
             }
           ]
         },
         {
-          "title": "What 90 days of consistent leads actually does to a service business",
+          "title": "What a booked-out service business actually looks like behind the scenes",
           "type": "Screen Record",
           "recCap": 0,
           "recVer": "full",
           "overlay": null,
-          "film": "Screen record a real campaign \u2014 show the numbers across 90 days. Lead volume, cost trend, timeline. Walk through what changes each month. Let the data tell the story without you having to oversell it.",
+          "film": "Screen record a real campaign dashboard \u2014 show the leads coming in, the numbers, what a healthy campaign looks like. Keep the commentary short and direct. Let the screen do the talking.",
           "captions": [
             {
               "label": "A",
-              "text": "this is what 90 days of consistent lead flow actually does to a service business.\n\nnot just the numbers \u2014 the whole business."
+              "text": "this is what the back end of a service business with consistent leads actually looks like."
             },
             {
               "label": "B",
-              "text": "month one \u2014 leads coming in, owner is still figuring out how to handle the volume.\n\nmonth two \u2014 things are predictable. they start being selective about which jobs to take.\n\nmonth three \u2014 waiting list. first time hiring. stopped worrying about next week.\n\nthat's the arc. most businesses never see it because they quit in month one."
+              "text": "leads coming in daily. predictable cost. owner not stressing about next week.\n\nthis is what it looks like when a campaign is set up right and left to run."
             },
             {
               "label": "C",
-              "text": "month one is uncertain. month three is a waiting list. most quit before they get there."
+              "text": "consistent leads, predictable cost, no more quiet weeks. this is what it looks like."
             }
           ],
           "lines": [
@@ -937,53 +937,53 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "This is what actually happens to a service business when leads come in consistently for 90 days.\n\nNot just the revenue \u2014 everything."
+              "text": "Let me show you what a service business with consistent leads actually looks like behind the scenes."
             },
             {
               "time": "Point 1",
               "tag": "10s",
               "cls": "",
-              "text": "Month one \u2014 leads are coming in but it feels uncertain. The owner is still adjusting to actually having enquiries to follow up on. Results are there but inconsistent."
+              "text": "Leads coming in every day. Not a flood \u2014 just consistent. Enough that the owner knows roughly what the week looks like before it starts."
             },
             {
               "time": "Point 2",
               "tag": "10s",
               "cls": "",
-              "text": "Month two \u2014 it gets predictable. They know roughly how many jobs are coming that week. They start turning down the ones that aren't worth it. Margins go up."
+              "text": "Cost per lead is predictable. Not perfect \u2014 it moves around \u2014 but predictable enough to plan around. The owner knows what a booked job costs them to get."
             },
             {
               "time": "Point 3",
               "tag": "10s",
               "cls": "",
-              "text": "Month three \u2014 waiting list. First hire. They stopped checking the phone wondering if something was coming in. That anxiety just goes away."
+              "text": "No more checking the phone hoping something comes in. The anxiety that comes with a slow week \u2014 it just goes away when the pipeline is full."
             },
             {
               "time": "Close",
               "tag": "5s",
               "cls": "",
-              "text": "Most service businesses never see month three.\n\nThey quit in month one when it feels uncertain."
+              "text": "This is what it looks like on the other side.\n\nMost service businesses never get here because they quit too early."
             }
           ]
         },
         {
-          "title": "I asked 10 service business owners why they haven't run ads \u2014 here's what they said",
+          "title": "The difference between a service business doing okay and one that's actually scaling",
           "type": "Screen Record",
           "recCap": 0,
           "recVer": "full",
           "overlay": null,
-          "film": "Screen record or face-to-camera with text on screen listing each reason. Walk through each one and give the real answer. Keep it conversational \u2014 not a lecture.",
+          "film": "Screen record a side-by-side or walk through a simple breakdown. Keep it visual and quick \u2014 this isn't a lecture, it's a comparison that clicks fast.",
           "captions": [
             {
               "label": "A",
-              "text": "i asked 10 service business owners why they haven't run ads.\n\nthe answers were almost identical."
+              "text": "the gap between doing okay and actually scaling is almost never the quality of the work."
             },
             {
               "label": "B",
-              "text": "'i tried it and it didn't work.'\n\n'i don't know how to set it up.'\n\n'i don't have the budget.'\n\n'i get enough work from referrals.'\n\nevery one of these is either a setup problem or a mindset that's keeping them stuck.\n\nhere's what's actually behind each one."
+              "text": "doing okay: busy some weeks, slow others, never sure what's coming.\n\nscaling: leads coming in consistently, owner can plan ahead, growth feels in control.\n\none of these has a system. the other is just hoping."
             },
             {
               "label": "C",
-              "text": "every reason service businesses give for not running ads comes down to the same two things: a bad experience or a fear of the unknown."
+              "text": "one has a system. the other is hoping. that's the whole difference."
             }
           ],
           "lines": [
@@ -991,31 +991,31 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "I asked 10 service business owners why they haven't run Meta ads.\n\nThe answers were almost word for word the same."
+              "text": "The difference between a service business doing okay and one that's actually growing \u2014 it's not the quality of the work."
             },
             {
               "time": "Point 1",
               "tag": "10s",
               "cls": "",
-              "text": "'I tried it and it didn't work.' \u2014 Almost always means they ran it themselves, had no real setup, and quit in the first two weeks before it had a chance to learn."
+              "text": "Doing okay: some weeks are packed, some are quiet, never really sure what's coming. Work depends on who happens to call or refer. No real control."
             },
             {
               "time": "Point 2",
               "tag": "10s",
               "cls": "",
-              "text": "'I get enough from referrals.' \u2014 Until they don't. And when referrals dry up there's nothing else. No backup. No system. Just hoping someone mentions their name."
+              "text": "Actually scaling: leads coming in every week. They know what their pipeline looks like. They can plan, hire, and grow \u2014 because the work is predictable."
             },
             {
               "time": "Point 3",
               "tag": "10s",
               "cls": "",
-              "text": "'I don't have the budget.' \u2014 The businesses consistently saying this are usually spending more on slow months than a proper campaign would have cost them to prevent it."
+              "text": "The gap between those two isn't skill or experience. It's whether they have a system bringing customers in \u2014 or whether they're just waiting."
             },
             {
               "time": "Close",
               "tag": "5s",
               "cls": "",
-              "text": "Every reason comes down to the same thing.\n\nA bad experience with the wrong setup \u2014 or waiting until it's urgent."
+              "text": "One has a system.\n\nThe other is hoping.\n\nThat's the whole difference."
             }
           ]
         }
@@ -1024,27 +1024,27 @@
   ],
   "scripts": [
     {
-      "title": "You're building a business that only works when you're chasing it",
+      "title": "You don't have a slow month problem \u2014 you have a leads problem",
       "type": "Talking Head",
       "recCap": 0,
       "recVer": "full",
       "overlay": {
-        "line1": "your business only works",
-        "line2": "when you're chasing it."
+        "line1": "slow months?",
+        "line2": "that's a leads problem."
       },
-      "film": "Direct to camera. Serious, direct. Let the hook land before you move on.",
+      "film": "Direct to camera. Casual, like you're just saying it how it is to a mate.",
       "captions": [
         {
           "label": "A",
-          "text": "if you stopped chasing work tomorrow, how long before the phone goes quiet?\n\nfor most service businesses \u2014 not long."
+          "text": "slow months aren't random.\n\nthey happen when you have no control over where your next job comes from."
         },
         {
           "label": "B",
-          "text": "referrals. word of mouth. the occasional job from a facebook group.\n\nnone of it works unless you're actively in it.\n\nthe moment you step back \u2014 go on holiday, get sick, take a week off \u2014 the pipeline dries up.\n\nthat's not a business. that's a job you created for yourself.\n\nthe business owners who've actually built something have a system that brings work in whether they're chasing it or not."
+          "text": "if your work dries up when referrals dry up \u2014 that's not bad luck.\n\nthat's a lead source problem.\n\nthe fix isn't working harder. it's building something that brings work in whether you're chasing it or not."
         },
         {
           "label": "C",
-          "text": "if your leads stop when you stop chasing, you don't have a business. you have a job."
+          "text": "slow months are a lead source problem. not a luck problem."
         }
       ],
       "lines": [
@@ -1052,44 +1052,44 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "If you stopped chasing work tomorrow \u2014 stopped following up, stopped asking for referrals \u2014 how long before your phone goes quiet?\n\nFor most service businesses, not long."
+          "text": "If you keep having slow months, it's not bad luck.\n\nIt's a lead source problem."
         },
         {
           "time": "Middle",
-          "tag": "20s",
+          "tag": "15s",
           "cls": "",
-          "text": "Referrals. Word of mouth. A job here and there from someone who remembered your name.\n\nNone of it works without you actively keeping it alive.\n\nThe moment you step back \u2014 take a holiday, get sick, just take a week off \u2014 the pipeline dries up.\n\nThat's not a business.\n\nThat's a job you created for yourself.\n\nThe owners who've actually built something have leads coming in whether they're chasing or not."
+          "text": "When all your work comes from referrals, you have zero control over when it comes.\n\nSome months are great. Others are dead.\n\nAnd you can't do anything about it.\n\nThe businesses that stay consistently busy built something that brings work in \u2014 whether someone refers them or not."
         },
         {
           "time": "Close",
           "tag": "4s",
           "cls": "",
-          "text": "If your leads stop when you stop chasing, you don't have a business.\n\nYou have a job."
+          "text": "Stop blaming the month.\n\nFix the lead source."
         }
       ]
     },
     {
-      "title": "The quiet week every service business owner dreads \u2014 and how to stop having them",
+      "title": "Your competitor is showing up in front of your customers every day",
       "type": "Talking Head",
       "recCap": 0,
       "recVer": "full",
       "overlay": {
-        "line1": "the quiet week",
-        "line2": "you keep dreading."
+        "line1": "your competitor",
+        "line2": "is stealing your customers."
       },
-      "film": "Direct to camera, relaxed. This one should feel like you're talking to someone who's been there \u2014 because they have.",
+      "film": "Direct to camera, straight-faced. Short and sharp \u2014 don't over-explain this one.",
       "captions": [
         {
           "label": "A",
-          "text": "every service business owner knows the feeling.\n\nmonday morning, barely anything in the diary, checking the phone every hour."
+          "text": "while you're waiting on the next referral, someone in your area is showing up in front of your potential customers every single day."
         },
         {
           "label": "B",
-          "text": "the quiet week isn't bad luck.\n\nit's what happens when your lead source is entirely outside your control.\n\nyou can't turn referrals up. you can't predict them. and you definitely can't scale on them.\n\nthe businesses that stopped having quiet weeks didn't get busier by accident.\n\nthey built something that puts them in front of new customers every single week \u2014 on their terms."
+          "text": "same service. same city. same customers.\n\nthey're just more visible than you.\n\nand in a local market, whoever shows up most consistently wins."
         },
         {
           "label": "C",
-          "text": "quiet weeks don't happen randomly. they happen when you have no control over where your next job comes from."
+          "text": "in a local market, whoever shows up most consistently wins."
         }
       ],
       "lines": [
@@ -1097,44 +1097,44 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "Every service business owner knows that feeling.\n\nMonday morning. Barely anything in the diary. Checking the phone every hour waiting for something to come in."
+          "text": "Right now, while you're waiting on the next referral \u2014 a competitor in your area is showing up in front of your potential customers every single day."
         },
         {
           "time": "Middle",
-          "tag": "20s",
+          "tag": "15s",
           "cls": "",
-          "text": "That week doesn't come out of nowhere.\n\nIt comes because your leads depend entirely on other people doing something \u2014 referring you, recommending you, remembering your name.\n\nYou have no control over when that happens.\n\nOr if it happens at all.\n\nThe owners who stopped having those weeks built something that brings enquiries in consistently \u2014 not when someone happens to mention them."
+          "text": "Same service. Same city. Same customers.\n\nThey're just more visible than you.\n\nAnd in a local market, whoever shows up most consistently is who people call.\n\nIt's not about being better.\n\nIt's about being seen."
         },
         {
           "time": "Close",
           "tag": "4s",
           "cls": "",
-          "text": "Quiet weeks don't happen randomly.\n\nThey happen when you have no control over where your next job comes from."
+          "text": "In a local market, the most visible business wins.\n\nNot always the best one."
         }
       ]
     },
     {
-      "title": "Most service businesses are one decision away from being fully booked",
+      "title": "Referrals are great \u2014 until they're not",
       "type": "Talking Head",
       "recCap": 0,
       "recVer": "full",
       "overlay": {
-        "line1": "one decision away",
-        "line2": "from fully booked."
+        "line1": "referrals are great.",
+        "line2": "until they're not."
       },
-      "film": "Direct to camera, punchy. This one should feel like a wake-up call \u2014 not aggressive, just clear.",
+      "film": "Direct to camera. Calm and matter-of-fact. Short pause after the hook.",
       "captions": [
         {
           "label": "A",
-          "text": "most service businesses already have everything they need to be fully booked.\n\nexcept one thing \u2014 a consistent way to get in front of new customers."
+          "text": "referrals feel safe.\n\nbut you can't turn them up when work gets slow. and that's the problem."
         },
         {
           "label": "B",
-          "text": "the skill is there. the experience is there. the reviews are there.\n\nthe only thing missing is visibility.\n\nlocal customers don't know you exist because you're not showing up in front of them.\n\nthe businesses that are turning down work aren't better at the job.\n\nthey just made the decision to show up consistently \u2014 and they did it before you."
+          "text": "great when they come. impossible to control when they don't.\n\nyou can't build a predictable business on something that works whenever it feels like it."
         },
         {
           "label": "C",
-          "text": "you already have everything you need. the only thing missing is visibility."
+          "text": "you can't scale a business on a lead source you can't control."
         }
       ],
       "lines": [
@@ -1142,44 +1142,44 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "Most service businesses already have everything they need to be fully booked.\n\nExcept one thing."
+          "text": "Referrals are great.\n\nUntil work gets slow and you have no way to turn them up."
         },
         {
           "time": "Middle",
-          "tag": "20s",
+          "tag": "15s",
           "cls": "",
-          "text": "The skill is there.\n\nThe experience is there.\n\nThe reviews are there.\n\nThe only thing missing is visibility.\n\nLocal customers who would hire you tomorrow don't even know you exist \u2014 because you're not showing up in front of them.\n\nThe businesses in your area turning down work aren't better at the trade.\n\nThey just made one decision before you did."
+          "text": "You can't control when they come.\n\nYou can't predict them. You can't plan around them.\n\nAnd when they dry up, there's nothing to fall back on.\n\nThe service businesses that don't stress about quiet weeks aren't just luckier with referrals.\n\nThey have something else bringing work in."
         },
         {
           "time": "Close",
           "tag": "4s",
           "cls": "",
-          "text": "You already have everything you need.\n\nThe only thing missing is visibility."
+          "text": "You can't scale on a lead source you can't control."
         }
       ]
     },
     {
-      "title": "What actually separates the service businesses that scale from the ones that plateau",
+      "title": "You're one ad away from never worrying about where the next job comes from",
       "type": "Talking Head",
       "recCap": 0,
       "recVer": "full",
       "overlay": {
-        "line1": "why some scale.",
-        "line2": "why some don't."
+        "line1": "one ad away from",
+        "line2": "never worrying again."
       },
-      "film": "Direct to camera. Confident, measured. This one is a truth they probably haven't heard put this simply.",
+      "film": "Direct to camera, relaxed. Let this one breathe \u2014 it's aspirational, not urgent.",
       "captions": [
         {
           "label": "A",
-          "text": "i've worked with both.\n\nthe ones that scale and the ones that stay stuck at the same number year after year.\n\nthe difference is never the quality of the work."
+          "text": "most service business owners have never experienced consistent lead flow.\n\nwhen it happens, everything changes."
         },
         {
           "label": "B",
-          "text": "the ones stuck are waiting.\n\nfor the next referral. for a good month. for something to change on its own.\n\nthe ones scaling stopped waiting.\n\nthey built a system that brings new customers in every week \u2014 predictable, consistent, on their terms.\n\nthat's the whole gap. not skill. not experience. just how they get customers."
+          "text": "you stop taking every job because you're scared of a quiet week.\n\nyou get selective. better jobs, better clients, better margins.\n\nand you stop checking the phone wondering if something's coming in."
         },
         {
           "label": "C",
-          "text": "the ones scaling stopped waiting for customers to find them. the ones stuck are still waiting."
+          "text": "consistent leads change more than your revenue. they change how you run everything."
         }
       ],
       "lines": [
@@ -1187,44 +1187,44 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "I've worked with service businesses at every level.\n\nThe ones that scale and the ones that stay stuck at the same revenue year after year.\n\nThe difference is never what you think."
+          "text": "What would your business look like if you never had to worry about where the next job was coming from?"
         },
         {
           "time": "Middle",
-          "tag": "20s",
+          "tag": "15s",
           "cls": "",
-          "text": "It's not the quality of the work.\n\nIt's not experience, reviews, or how long they've been in the game.\n\nThe ones stuck are waiting \u2014 for referrals, for a good month, for something to change on its own.\n\nThe ones scaling stopped waiting.\n\nThey built something that brings new customers in every week \u2014 predictable, consistent, on their terms.\n\nThat's the only gap."
+          "text": "You'd stop saying yes to every job just to keep the week busy.\n\nYou'd get selective \u2014 better clients, better work, better pay.\n\nYou'd actually be able to plan ahead.\n\nThat's what consistent leads do.\n\nNot just more revenue \u2014 a completely different way of running your business."
         },
         {
           "time": "Close",
           "tag": "4s",
           "cls": "",
-          "text": "The ones scaling stopped waiting for customers to find them.\n\nThe ones stuck are still waiting."
+          "text": "Most service businesses are one working campaign away from that.\n\nThey just haven't started yet."
         }
       ]
     },
     {
-      "title": "If your best month came from referrals, you have a problem",
+      "title": "Why most service businesses that try ads say it doesn't work",
       "type": "Talking Head",
       "recCap": 0,
       "recVer": "full",
       "overlay": {
-        "line1": "your best month",
-        "line2": "came from referrals?"
+        "line1": "'ads don't work'",
+        "line2": "here's why you think that."
       },
-      "film": "Direct to camera. Bold opener \u2014 let it sit for a second before you explain it.",
+      "film": "Direct to camera. Reframe their belief without being condescending \u2014 you've heard this a hundred times.",
       "captions": [
         {
           "label": "A",
-          "text": "referrals feel like validation.\n\nbut if your best months depend on them, you have no control over when your next best month comes."
+          "text": "most service businesses that say ads don't work ran them for two weeks and stopped.\n\nthat's not the ads failing. that's quitting too early."
         },
         {
           "label": "B",
-          "text": "referrals are unpredictable by nature.\n\nyou can't turn them up when work is slow. you can't plan around them. you can't build a team on them.\n\nthe service businesses doing consistent numbers don't have better word of mouth.\n\nthey have a system that works whether someone refers them or not.\n\nreferrals become a bonus \u2014 not the whole strategy."
+          "text": "the first couple of weeks are always the hardest.\n\nthe platform is still figuring out who your customer is.\n\nmost people see slow results and pull the plug right before it turns around."
         },
         {
           "label": "C",
-          "text": "referrals are a bonus. not a strategy. you can't scale on something you can't control."
+          "text": "ads don't fail service businesses. quitting too early does."
         }
       ],
       "lines": [
@@ -1232,41 +1232,41 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "If your best months come from referrals \u2014 that's actually a problem.\n\nNot a sign things are working."
+          "text": "Every service business owner who says ads don't work \u2014 I want to know how long they actually ran them."
         },
         {
           "time": "Middle",
-          "tag": "20s",
+          "tag": "15s",
           "cls": "",
-          "text": "Referrals feel great.\n\nThey close easy, the trust is already there, and it feels like the business is working.\n\nBut you can't turn them up when work gets slow.\n\nYou can't plan a hire around them.\n\nYou can't build a real business on something completely outside your control.\n\nThe service businesses doing consistent numbers have referrals too \u2014 but they're a bonus, not the whole strategy."
+          "text": "Because almost every time, the answer is two weeks.\n\nMaybe three.\n\nThe platform needs time to learn who your customer is.\n\nThe first couple of weeks are always the slowest.\n\nAnd that's exactly when most people decide it doesn't work and turn it off."
         },
         {
           "time": "Close",
           "tag": "4s",
           "cls": "",
-          "text": "Referrals are a bonus.\n\nNot a strategy."
+          "text": "Ads don't fail service businesses.\n\nImpatience does."
         }
       ]
     },
     {
-      "title": "What 90 days of consistent leads actually does to a service business",
+      "title": "What a booked-out service business actually looks like behind the scenes",
       "type": "Screen Record",
       "recCap": 0,
       "recVer": "full",
       "overlay": null,
-      "film": "Screen record a real campaign \u2014 show the numbers across 90 days. Lead volume, cost trend, timeline. Walk through what changes each month. Let the data tell the story without you having to oversell it.",
+      "film": "Screen record a real campaign dashboard \u2014 show the leads coming in, the numbers, what a healthy campaign looks like. Keep the commentary short and direct. Let the screen do the talking.",
       "captions": [
         {
           "label": "A",
-          "text": "this is what 90 days of consistent lead flow actually does to a service business.\n\nnot just the numbers \u2014 the whole business."
+          "text": "this is what the back end of a service business with consistent leads actually looks like."
         },
         {
           "label": "B",
-          "text": "month one \u2014 leads coming in, owner is still figuring out how to handle the volume.\n\nmonth two \u2014 things are predictable. they start being selective about which jobs to take.\n\nmonth three \u2014 waiting list. first time hiring. stopped worrying about next week.\n\nthat's the arc. most businesses never see it because they quit in month one."
+          "text": "leads coming in daily. predictable cost. owner not stressing about next week.\n\nthis is what it looks like when a campaign is set up right and left to run."
         },
         {
           "label": "C",
-          "text": "month one is uncertain. month three is a waiting list. most quit before they get there."
+          "text": "consistent leads, predictable cost, no more quiet weeks. this is what it looks like."
         }
       ],
       "lines": [
@@ -1274,53 +1274,53 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "This is what actually happens to a service business when leads come in consistently for 90 days.\n\nNot just the revenue \u2014 everything."
+          "text": "Let me show you what a service business with consistent leads actually looks like behind the scenes."
         },
         {
           "time": "Point 1",
           "tag": "10s",
           "cls": "",
-          "text": "Month one \u2014 leads are coming in but it feels uncertain. The owner is still adjusting to actually having enquiries to follow up on. Results are there but inconsistent."
+          "text": "Leads coming in every day. Not a flood \u2014 just consistent. Enough that the owner knows roughly what the week looks like before it starts."
         },
         {
           "time": "Point 2",
           "tag": "10s",
           "cls": "",
-          "text": "Month two \u2014 it gets predictable. They know roughly how many jobs are coming that week. They start turning down the ones that aren't worth it. Margins go up."
+          "text": "Cost per lead is predictable. Not perfect \u2014 it moves around \u2014 but predictable enough to plan around. The owner knows what a booked job costs them to get."
         },
         {
           "time": "Point 3",
           "tag": "10s",
           "cls": "",
-          "text": "Month three \u2014 waiting list. First hire. They stopped checking the phone wondering if something was coming in. That anxiety just goes away."
+          "text": "No more checking the phone hoping something comes in. The anxiety that comes with a slow week \u2014 it just goes away when the pipeline is full."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "Most service businesses never see month three.\n\nThey quit in month one when it feels uncertain."
+          "text": "This is what it looks like on the other side.\n\nMost service businesses never get here because they quit too early."
         }
       ]
     },
     {
-      "title": "I asked 10 service business owners why they haven't run ads \u2014 here's what they said",
+      "title": "The difference between a service business doing okay and one that's actually scaling",
       "type": "Screen Record",
       "recCap": 0,
       "recVer": "full",
       "overlay": null,
-      "film": "Screen record or face-to-camera with text on screen listing each reason. Walk through each one and give the real answer. Keep it conversational \u2014 not a lecture.",
+      "film": "Screen record a side-by-side or walk through a simple breakdown. Keep it visual and quick \u2014 this isn't a lecture, it's a comparison that clicks fast.",
       "captions": [
         {
           "label": "A",
-          "text": "i asked 10 service business owners why they haven't run ads.\n\nthe answers were almost identical."
+          "text": "the gap between doing okay and actually scaling is almost never the quality of the work."
         },
         {
           "label": "B",
-          "text": "'i tried it and it didn't work.'\n\n'i don't know how to set it up.'\n\n'i don't have the budget.'\n\n'i get enough work from referrals.'\n\nevery one of these is either a setup problem or a mindset that's keeping them stuck.\n\nhere's what's actually behind each one."
+          "text": "doing okay: busy some weeks, slow others, never sure what's coming.\n\nscaling: leads coming in consistently, owner can plan ahead, growth feels in control.\n\none of these has a system. the other is just hoping."
         },
         {
           "label": "C",
-          "text": "every reason service businesses give for not running ads comes down to the same two things: a bad experience or a fear of the unknown."
+          "text": "one has a system. the other is hoping. that's the whole difference."
         }
       ],
       "lines": [
@@ -1328,31 +1328,31 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "I asked 10 service business owners why they haven't run Meta ads.\n\nThe answers were almost word for word the same."
+          "text": "The difference between a service business doing okay and one that's actually growing \u2014 it's not the quality of the work."
         },
         {
           "time": "Point 1",
           "tag": "10s",
           "cls": "",
-          "text": "'I tried it and it didn't work.' \u2014 Almost always means they ran it themselves, had no real setup, and quit in the first two weeks before it had a chance to learn."
+          "text": "Doing okay: some weeks are packed, some are quiet, never really sure what's coming. Work depends on who happens to call or refer. No real control."
         },
         {
           "time": "Point 2",
           "tag": "10s",
           "cls": "",
-          "text": "'I get enough from referrals.' \u2014 Until they don't. And when referrals dry up there's nothing else. No backup. No system. Just hoping someone mentions their name."
+          "text": "Actually scaling: leads coming in every week. They know what their pipeline looks like. They can plan, hire, and grow \u2014 because the work is predictable."
         },
         {
           "time": "Point 3",
           "tag": "10s",
           "cls": "",
-          "text": "'I don't have the budget.' \u2014 The businesses consistently saying this are usually spending more on slow months than a proper campaign would have cost them to prevent it."
+          "text": "The gap between those two isn't skill or experience. It's whether they have a system bringing customers in \u2014 or whether they're just waiting."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "Every reason comes down to the same thing.\n\nA bad experience with the wrong setup \u2014 or waiting until it's urgent."
+          "text": "One has a system.\n\nThe other is hoping.\n\nThat's the whole difference."
         }
       ]
     }
