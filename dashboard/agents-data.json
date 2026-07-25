@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-24T14:44:25Z",
-  "updated_display": "Jul 24, 2026 at 14:44 UTC",
+  "updated": "2026-07-25T14:26:52Z",
+  "updated_display": "Jul 25, 2026 at 14:26 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses winning with video testimonials over static image ads",
+      "headline": "Service ads need local proof: reviews beat polished creative every time",
       "actions": [
-        "Record 15-second client testimonial videos this week, post to ad account",
-        "Create carousel ads alternating testimonial videos with before/after photos",
-        "A/B test one testimonial video ad against your current best performer"
+        "Add customer testimonial videos to ad creative, prioritize 3+ star reviews visibly",
+        "Test ads with before/after photos from real local jobs over stock images",
+        "Pin top Google/Facebook reviews in ad copy, mention 'trusted by [city] residents'"
       ],
-      "source": "r/FacebookAds weekly discussion on conversion rate optimization"
+      "source": "r/FacebookAds weekly thread on service business ad performance patterns"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
