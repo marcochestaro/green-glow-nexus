@@ -687,27 +687,27 @@
       "week_of_display": "Jul 21, 2026",
       "scripts": [
         {
-          "title": "The hook formula I use for every service business ad",
+          "title": "Your ad isn't failing because of the creative \u2014 it's the offer",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "the hook formula",
-            "line2": "i use every time."
+            "line1": "it's not the creative.",
+            "line2": "it's the offer."
           },
-          "film": "Direct to camera. Teach it clearly \u2014 like you're breaking down something simple that most people overcomplicate.",
+          "film": "Direct to camera. Confident, matter-of-fact. You've diagnosed this problem a hundred times.",
           "captions": [
             {
               "label": "A",
-              "text": "most service business ads fail in the first two seconds.\n\nnot because the offer is bad. because the hook doesn't stop anyone."
+              "text": "most service businesses blame the ad when leads don't come.\n\nusually it's not the ad. it's what the ad is asking people to do."
             },
             {
               "label": "B",
-              "text": "the formula i use every time:\n\nname the problem your customer is already living + make it specific to their situation.\n\n'tired of chasing unreliable tradespeople?' \u2014 that's a hook for a customer.\n\n'your meta ads aren't getting leads because of this one thing' \u2014 that's a hook for a business owner.\n\nspecific beats general every time. the more your hook sounds like something they've already thought, the more they stop."
+              "text": "'call us for a free quote' is not an offer.\n\nevery competitor in your area is saying the exact same thing.\n\nan offer gives someone a specific reason to act right now \u2014 not just contact you in general.\n\nsame-week availability. a specific result they can expect. a clear next step.\n\nchange the offer before you change anything else."
             },
             {
               "label": "C",
-              "text": "your hook should sound like a thought they've already had. that's what stops the scroll."
+              "text": "change the offer before you change the creative. that's almost always the fix."
             }
           ],
           "lines": [
@@ -715,44 +715,44 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Most service business ads lose people in the first two seconds.\n\nNot because the offer is weak \u2014 because the hook doesn't make anyone stop."
+              "text": "If your Meta ads aren't getting leads, most people assume the creative is the problem.\n\nAlmost always, it's not."
             },
             {
               "time": "Middle",
               "tag": "20s",
               "cls": "",
-              "text": "Here's the formula I use every time.\n\nName the problem your customer is already living \u2014 and make it specific to their situation.\n\nNot 'get more leads.' That's generic.\n\n'Still relying on word of mouth to fill your schedule?' That's specific.\n\nThe more your first line sounds like a thought they've already had, the more they stop scrolling.\n\nSpecific beats general every single time."
+              "text": "The problem is the offer.\n\n'Call us for a free quote' is not an offer \u2014 it's what every other business in your area is already saying.\n\nAn offer gives someone a specific reason to act right now.\n\nSame-week availability. A clear outcome they can expect. One obvious next step.\n\nWhen the offer is specific, the same creative that was getting ignored starts converting."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Your hook should sound like a thought they've already had.\n\nThat's what stops the scroll."
+              "text": "Change the offer before you change the creative.\n\nThat's almost always the fix."
             }
           ]
         },
         {
-          "title": "Why I never use traffic objective for service business campaigns",
+          "title": "Why you should never touch your campaign in the first two weeks",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "never use traffic",
+            "line1": "don't touch the campaign.",
             "line2": "here's why."
           },
-          "film": "Direct to camera, confident. This is a contrarian take \u2014 deliver it like you've seen the mistake too many times.",
+          "film": "Direct to camera. This one's a warning \u2014 deliver it like you've watched too many people make this mistake.",
           "captions": [
             {
               "label": "A",
-              "text": "if you're running meta ads for a service business and using the traffic objective, you're paying to get clicks from people who will never book.\n\nhere's why."
+              "text": "the most common way people kill a good meta campaign is by changing things too early."
             },
             {
               "label": "B",
-              "text": "traffic objective tells meta: find people who click on things.\n\nleads objective tells meta: find people who fill out forms.\n\nthose are completely different people.\n\nif you want leads, you have to tell meta you want leads. it optimises for exactly what you ask for.\n\nmost service businesses are asking for the wrong thing and wondering why the results don't come."
+              "text": "meta has a learning phase.\n\nfor the first 7-14 days it's figuring out who your customer is \u2014 who clicks, who fills out the form, who actually books.\n\nevery time you change the budget, the creative, or the audience during that phase, you reset the learning.\n\nand meta starts from scratch.\n\nmost service businesses never get results because they never let meta finish learning. they panic, change things, and wonder why nothing works."
             },
             {
               "label": "C",
-              "text": "meta gives you exactly what you ask for. make sure you're asking for the right thing."
+              "text": "set it up right, then leave it alone. meta needs time to learn before results come."
             }
           ],
           "lines": [
@@ -760,19 +760,19 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "If you're running Meta ads for your service business and using the traffic objective \u2014 you're paying for the wrong people."
+              "text": "The most common way people kill a Meta campaign that would have worked \u2014 they change it too early."
             },
             {
               "time": "Middle",
               "tag": "20s",
               "cls": "",
-              "text": "Traffic objective tells Meta: find people who click.\n\nLeads objective tells Meta: find people who fill out forms.\n\nThose are completely different people.\n\nMeta optimises for exactly what you ask for.\n\nIf you ask for clicks, you get clicks \u2014 from people who browse the internet and never book a thing.\n\nIf you ask for leads, Meta goes and finds the people most likely to actually fill out your form."
+              "text": "Meta has a learning phase.\n\nThe first 7 to 14 days it's figuring out who your customer is \u2014 who clicks, who fills out the form, who actually books.\n\nEvery time you change the budget, creative, or audience during that window, the learning resets.\n\nMeta starts from scratch.\n\nMost service businesses never get results because they never let Meta finish learning.\n\nThey see slow results in week one, panic, change everything, and repeat the cycle."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Meta gives you exactly what you ask for.\n\nMake sure you're asking for the right thing."
+              "text": "Set it up right.\n\nThen leave it alone and let Meta learn."
             }
           ]
         },
@@ -1024,27 +1024,27 @@
   ],
   "scripts": [
     {
-      "title": "The hook formula I use for every service business ad",
+      "title": "Your ad isn't failing because of the creative \u2014 it's the offer",
       "type": "Talking Head",
       "recCap": 0,
       "recVer": "full",
       "overlay": {
-        "line1": "the hook formula",
-        "line2": "i use every time."
+        "line1": "it's not the creative.",
+        "line2": "it's the offer."
       },
-      "film": "Direct to camera. Teach it clearly \u2014 like you're breaking down something simple that most people overcomplicate.",
+      "film": "Direct to camera. Confident, matter-of-fact. You've diagnosed this problem a hundred times.",
       "captions": [
         {
           "label": "A",
-          "text": "most service business ads fail in the first two seconds.\n\nnot because the offer is bad. because the hook doesn't stop anyone."
+          "text": "most service businesses blame the ad when leads don't come.\n\nusually it's not the ad. it's what the ad is asking people to do."
         },
         {
           "label": "B",
-          "text": "the formula i use every time:\n\nname the problem your customer is already living + make it specific to their situation.\n\n'tired of chasing unreliable tradespeople?' \u2014 that's a hook for a customer.\n\n'your meta ads aren't getting leads because of this one thing' \u2014 that's a hook for a business owner.\n\nspecific beats general every time. the more your hook sounds like something they've already thought, the more they stop."
+          "text": "'call us for a free quote' is not an offer.\n\nevery competitor in your area is saying the exact same thing.\n\nan offer gives someone a specific reason to act right now \u2014 not just contact you in general.\n\nsame-week availability. a specific result they can expect. a clear next step.\n\nchange the offer before you change anything else."
         },
         {
           "label": "C",
-          "text": "your hook should sound like a thought they've already had. that's what stops the scroll."
+          "text": "change the offer before you change the creative. that's almost always the fix."
         }
       ],
       "lines": [
@@ -1052,44 +1052,44 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "Most service business ads lose people in the first two seconds.\n\nNot because the offer is weak \u2014 because the hook doesn't make anyone stop."
+          "text": "If your Meta ads aren't getting leads, most people assume the creative is the problem.\n\nAlmost always, it's not."
         },
         {
           "time": "Middle",
           "tag": "20s",
           "cls": "",
-          "text": "Here's the formula I use every time.\n\nName the problem your customer is already living \u2014 and make it specific to their situation.\n\nNot 'get more leads.' That's generic.\n\n'Still relying on word of mouth to fill your schedule?' That's specific.\n\nThe more your first line sounds like a thought they've already had, the more they stop scrolling.\n\nSpecific beats general every single time."
+          "text": "The problem is the offer.\n\n'Call us for a free quote' is not an offer \u2014 it's what every other business in your area is already saying.\n\nAn offer gives someone a specific reason to act right now.\n\nSame-week availability. A clear outcome they can expect. One obvious next step.\n\nWhen the offer is specific, the same creative that was getting ignored starts converting."
         },
         {
           "time": "Close",
           "tag": "4s",
           "cls": "",
-          "text": "Your hook should sound like a thought they've already had.\n\nThat's what stops the scroll."
+          "text": "Change the offer before you change the creative.\n\nThat's almost always the fix."
         }
       ]
     },
     {
-      "title": "Why I never use traffic objective for service business campaigns",
+      "title": "Why you should never touch your campaign in the first two weeks",
       "type": "Talking Head",
       "recCap": 0,
       "recVer": "full",
       "overlay": {
-        "line1": "never use traffic",
+        "line1": "don't touch the campaign.",
         "line2": "here's why."
       },
-      "film": "Direct to camera, confident. This is a contrarian take \u2014 deliver it like you've seen the mistake too many times.",
+      "film": "Direct to camera. This one's a warning \u2014 deliver it like you've watched too many people make this mistake.",
       "captions": [
         {
           "label": "A",
-          "text": "if you're running meta ads for a service business and using the traffic objective, you're paying to get clicks from people who will never book.\n\nhere's why."
+          "text": "the most common way people kill a good meta campaign is by changing things too early."
         },
         {
           "label": "B",
-          "text": "traffic objective tells meta: find people who click on things.\n\nleads objective tells meta: find people who fill out forms.\n\nthose are completely different people.\n\nif you want leads, you have to tell meta you want leads. it optimises for exactly what you ask for.\n\nmost service businesses are asking for the wrong thing and wondering why the results don't come."
+          "text": "meta has a learning phase.\n\nfor the first 7-14 days it's figuring out who your customer is \u2014 who clicks, who fills out the form, who actually books.\n\nevery time you change the budget, the creative, or the audience during that phase, you reset the learning.\n\nand meta starts from scratch.\n\nmost service businesses never get results because they never let meta finish learning. they panic, change things, and wonder why nothing works."
         },
         {
           "label": "C",
-          "text": "meta gives you exactly what you ask for. make sure you're asking for the right thing."
+          "text": "set it up right, then leave it alone. meta needs time to learn before results come."
         }
       ],
       "lines": [
@@ -1097,19 +1097,19 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "If you're running Meta ads for your service business and using the traffic objective \u2014 you're paying for the wrong people."
+          "text": "The most common way people kill a Meta campaign that would have worked \u2014 they change it too early."
         },
         {
           "time": "Middle",
           "tag": "20s",
           "cls": "",
-          "text": "Traffic objective tells Meta: find people who click.\n\nLeads objective tells Meta: find people who fill out forms.\n\nThose are completely different people.\n\nMeta optimises for exactly what you ask for.\n\nIf you ask for clicks, you get clicks \u2014 from people who browse the internet and never book a thing.\n\nIf you ask for leads, Meta goes and finds the people most likely to actually fill out your form."
+          "text": "Meta has a learning phase.\n\nThe first 7 to 14 days it's figuring out who your customer is \u2014 who clicks, who fills out the form, who actually books.\n\nEvery time you change the budget, creative, or audience during that window, the learning resets.\n\nMeta starts from scratch.\n\nMost service businesses never get results because they never let Meta finish learning.\n\nThey see slow results in week one, panic, change everything, and repeat the cycle."
         },
         {
           "time": "Close",
           "tag": "4s",
           "cls": "",
-          "text": "Meta gives you exactly what you ask for.\n\nMake sure you're asking for the right thing."
+          "text": "Set it up right.\n\nThen leave it alone and let Meta learn."
         }
       ]
     },
