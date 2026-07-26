@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-25T14:26:52Z",
-  "updated_display": "Jul 25, 2026 at 14:26 UTC",
+  "updated": "2026-07-26T14:24:03Z",
+  "updated_display": "Jul 26, 2026 at 14:24 UTC",
   "agents": {
     "ads": {
-      "headline": "Service ads need local proof: reviews beat polished creative every time",
+      "headline": "Advantage+ audience is outperforming manual targeting this week",
       "actions": [
-        "Add customer testimonial videos to ad creative, prioritize 3+ star reviews visibly",
-        "Test ads with before/after photos from real local jobs over stock images",
-        "Pin top Google/Facebook reviews in ad copy, mention 'trusted by [city] residents'"
+        "Test switching one campaign to Advantage+ audience \u2014 let Meta find who converts",
+        "Keep your location radius in Advantage+ settings to stay local",
+        "Compare CPL after 5 days vs your manual targeting baseline"
       ],
-      "source": "r/FacebookAds weekly thread on service business ad performance patterns"
+      "source": "r/FacebookAds discussions"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
