@@ -1026,317 +1026,317 @@
       "week_of_display": "Jul 27, 2026",
       "scripts": [
         {
-          "title": "Why your ad gets ignored",
+          "title": "Most service businesses will never grow past a certain point",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "why your ad",
-            "line2": "gets ignored"
+            "line1": "most service businesses",
+            "line2": "stay stuck. here's why."
           },
-          "film": "Direct to camera, casual. Talk like you've seen this a hundred times \u2014 because you have.",
+          "film": "Direct to camera. Confident, slightly serious. This is the reach video \u2014 hook needs to hit hard.",
           "lines": [
             {
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Your ad isn't getting ignored because it looks bad.\n\nIt's getting ignored because it sounds like everyone else's."
+              "text": "Most service businesses will never grow past a certain point.\n\nNot because they're bad at the job. Because no one knows they exist."
             },
             {
               "time": "Middle",
-              "tag": "20s",
+              "tag": "18s",
               "cls": "",
-              "text": "Every service business says the same thing \u2014 professional, reliable, free quote.\n\nThat's not a reason to call you. That's background noise.\n\nWhat actually stops the scroll is when your ad says the customer's exact problem back to them.\n\nNot your service. Their problem.\n\nWhen someone hears their situation described out loud, they stop. Every time."
+              "text": "The best service business in your city is probably not the busiest one.\n\nThe busiest one is just the most visible.\n\nAnd visibility isn't luck. It's not referrals. It's not word of mouth.\n\nIt's a decision \u2014 to show up in front of the right people, consistently, before they even need you."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "The ad isn't the problem.\n\nThe message is."
+              "text": "The businesses winning right now made that decision.\n\nThe rest are still waiting for the phone to ring."
             }
           ],
           "captions": [
             {
               "label": "A",
-              "text": "your ad sounds like every other service business. that's why it gets ignored."
+              "text": "the best service business in your city is probably not the busiest one. the busiest one is just the most visible."
             },
             {
               "label": "B",
-              "text": "professional, reliable, free quote.\n\nthat's what every ad says. it's not a reason to call you \u2014 it's background noise.\n\nwhat stops the scroll is when your ad says the customer's exact problem back to them. not your service. their situation.\n\nthat's the difference between ignored and clicked."
+              "text": "most service businesses won't grow past a certain point.\n\nnot because they're bad at the job.\n\nbecause no one knows they exist.\n\nvisibility isn't luck or word of mouth. it's a decision \u2014 to show up in front of the right people before they even need you.\n\nthe businesses winning right now made that decision."
             },
             {
               "label": "C",
-              "text": "stop selling your service. describe their problem. that's what gets clicks."
+              "text": "the busiest service business in your city isn't the best one. it's just the most visible."
             }
           ]
         },
         {
-          "title": "Why you get leads but no bookings",
+          "title": "The one thing I change that gets ads working",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "leads but",
-            "line2": "no bookings"
+            "line1": "the one thing i change",
+            "line2": "that gets ads working"
           },
-          "film": "Casual, sitting. Like you're explaining something you've fixed for clients before.",
+          "film": "Relaxed, casual. Like you're telling a mate something that actually works.",
           "lines": [
             {
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "If you're getting leads but they're not booking \u2014 the ad isn't the problem."
+              "text": "When someone's ads aren't working, there's usually one thing I change.\n\nAnd it's not the budget."
             },
             {
               "time": "Middle",
-              "tag": "20s",
+              "tag": "18s",
               "cls": "",
-              "text": "Most businesses treat the lead like the finish line.\n\nIt's not. It's the start.\n\nIf your follow-up is slow, or it's a generic message, the lead goes cold in an hour.\n\nPeople fill out multiple forms. Whoever calls back first \u2014 and sounds like they actually want the job \u2014 gets the booking.\n\nThe ad did its job. The follow-up didn't."
+              "text": "It's the first two seconds.\n\nMost ads start with the business \u2014 who they are, what they do, how long they've been around.\n\nNobody cares. Not yet.\n\nStart with the customer's situation instead. Say their problem back to them in the first two seconds.\n\nWhen someone hears their exact situation out loud, they stop scrolling. Every time.\n\nThat's where most of the results are hiding."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Fix the follow-up before you spend more on ads."
+              "text": "Change the first two seconds.\n\nWatch what happens."
             }
           ],
           "captions": [
             {
               "label": "A",
-              "text": "getting leads but no bookings? the ad isn't the problem. the follow-up is."
+              "text": "most ads start with the business. nobody cares yet. start with the customer's problem instead."
             },
             {
               "label": "B",
-              "text": "people fill out multiple forms when they need a service.\n\nwhoever calls back first \u2014 and sounds like they actually want the job \u2014 gets the booking.\n\nslow or generic follow-up and the lead goes cold within an hour.\n\nfix that before spending more on ads."
+              "text": "when someone's ads aren't working, i usually change one thing first.\n\nthe first two seconds.\n\nmost ads open with who the business is and what they do. nobody cares yet.\n\nstart with the customer's exact situation. say their problem back to them.\n\nwhen someone hears their situation out loud, they stop. that's where the results are hiding."
             },
             {
               "label": "C",
-              "text": "leads don't go cold because of the ad. they go cold because of what happens after."
+              "text": "change the first two seconds of your ad. everything else can stay the same."
             }
           ]
         },
         {
-          "title": "Why slow weeks keep happening",
+          "title": "The mistake I see every single time",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "why slow weeks",
-            "line2": "keep happening"
+            "line1": "the mistake i see",
+            "line2": "every single time"
           },
-          "film": "Direct, slightly leaning forward. This is something you've told every new client.",
+          "film": "Slightly forward, like you're letting them in on something. Honest, not preachy.",
           "lines": [
             {
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Slow weeks don't happen randomly.\n\nThey happen because of what you did \u2014 or didn't do \u2014 a few weeks ago."
+              "text": "Every new client I take on makes the same mistake.\n\nNot similar mistakes \u2014 the exact same one."
             },
             {
               "time": "Middle",
-              "tag": "20s",
+              "tag": "18s",
               "cls": "",
-              "text": "Most businesses only run ads when they need work.\n\nBut ads need time to learn. Every time you stop, the algorithm resets.\n\nYou lose all that data \u2014 who clicked, who converted, what's working.\n\nSo you restart from scratch, it takes weeks to get momentum again, and by then you're already behind.\n\nConsistency isn't just good practice. It's how the system actually works."
+              "text": "They're running ads to their homepage.\n\nNo specific offer. No single message. Just \u2014 here's our website, call us.\n\nThe ad gets clicks. The page loses them.\n\nYou need one ad with one message going to one page with one action.\n\nThe moment I fix that, the cost per lead drops and the quality goes up.\n\nEvery single time."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "The businesses that never have slow weeks never stop running."
+              "text": "One ad. One message. One page. One action.\n\nThat's it."
             }
           ],
           "captions": [
             {
               "label": "A",
-              "text": "slow weeks don't happen randomly. they're the result of stopping ads when things were good."
+              "text": "every new client i take on is sending their ads to their homepage. that's the mistake."
             },
             {
               "label": "B",
-              "text": "every time you pause ads, the algorithm resets.\n\nyou lose all the data \u2014 who clicked, who converted, what worked.\n\nrestart from scratch, takes weeks to get momentum, and by then you're already behind.\n\nthe businesses that never have slow weeks never stop running."
+              "text": "the mistake i see every single time:\n\nrunning ads to their homepage. no specific offer, no single message \u2014 just 'here's our website.'\n\nthe ad gets clicks. the page loses them.\n\none ad. one message. one page. one action.\n\nfix that first."
             },
             {
               "label": "C",
-              "text": "you don't get slow weeks. you create them \u2014 by stopping when things were good."
+              "text": "one ad, one message, one page, one action. most service businesses skip this and wonder why it's not working."
             }
           ]
         },
         {
-          "title": "Why broad targeting kills local ads",
+          "title": "Followers don't pay bills",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "why broad targeting",
-            "line2": "kills local ads"
+            "line1": "followers",
+            "line2": "don't pay bills"
           },
-          "film": "Casual, relaxed. You've seen this mistake a hundred times.",
+          "film": "Casual, direct. A myth bust \u2014 say it simply and let it land.",
           "lines": [
             {
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Targeting a wide area doesn't get you more leads.\n\nIt gets you cheaper clicks from people you can't serve."
+              "text": "You don't need more followers.\n\nYou need more booked jobs."
             },
             {
               "time": "Middle",
-              "tag": "20s",
+              "tag": "18s",
               "cls": "",
-              "text": "When you run ads across a huge radius, your budget spreads thin.\n\nYou're competing in areas where you have no reviews, no reputation, no recognition.\n\nAnd even if someone clicks \u2014 they're too far, or they won't pay your price.\n\nTighten the radius to where your best jobs actually come from.\n\nFewer people see the ad. But the right people see it. And those leads close."
+              "text": "Most service businesses think they need to build their page first \u2014 get followers, post every day, grow organically \u2014 then worry about getting clients.\n\nBut followers don't book jobs. People with a problem and money to solve it do.\n\nYou can have 200 followers and a full calendar.\n\nYou can have 20,000 followers and be slow every second week.\n\nThe two things are not connected the way most people think."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "More reach isn't the goal.\n\nThe right reach is."
+              "text": "Stop optimising for followers.\n\nOptimise for booked jobs."
             }
           ],
           "captions": [
             {
               "label": "A",
-              "text": "targeting a wide area doesn't get you better leads. it gets you cheaper clicks from people you can't close."
+              "text": "you can have 200 followers and a full calendar. you can have 20,000 and be slow every second week."
             },
             {
               "label": "B",
-              "text": "broad radius means competing in areas with no reviews, no recognition, no trust.\n\neven if they click \u2014 they're too far, or they won't pay your rate.\n\ntighten the radius to where your best jobs come from. fewer impressions, better leads, higher close rate."
+              "text": "followers don't pay bills.\n\nmost service businesses think they need to grow the page first \u2014 post daily, build organic reach \u2014 then worry about clients.\n\nbut followers don't book jobs. people with a problem and money to fix it do.\n\nstop optimising for followers. optimise for booked jobs."
             },
             {
               "label": "C",
-              "text": "more reach isn't the goal. the right reach is."
+              "text": "followers and booked jobs are not as connected as most people think."
             }
           ]
         },
         {
-          "title": "Why video beats image ads for service businesses",
+          "title": "What changed for one of my clients",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "video vs image ads",
-            "line2": "for service businesses"
+            "line1": "what changed",
+            "line2": "for one of my clients"
           },
-          "film": "Talking head, direct. You're the example of the point you're making.",
+          "film": "Story-telling mode. Slower pace, let it breathe. You're walking them through what happened.",
           "lines": [
             {
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "An image shows your work.\n\nA video shows you.\n\nAnd people hire people, not portfolios."
+              "text": "A client came to me a few months ago.\n\nBusy some weeks, completely dead others. No idea why."
             },
             {
               "time": "Middle",
               "tag": "20s",
               "cls": "",
-              "text": "Before/after photos are fine. Everyone has them.\n\nBut when someone sees you on video \u2014 talking confidently, knowing your stuff \u2014 they start to trust you before they've even called.\n\nThat trust lowers the cost per lead. It increases the close rate.\n\nBecause by the time they reach out, they've already decided they want to work with you.\n\nA 15-second clip of you being yourself does more than any image ever will."
+              "text": "When we looked at what they were doing \u2014 they were pausing ads whenever they got busy.\n\nMade sense to them. Why spend money when you're already booked up?\n\nBut every time they paused, the algorithm reset. Lost all its data. When they turned ads back on, it started from scratch.\n\nSo busy weeks were followed by slow weeks. Every time. Like clockwork.\n\nWe stopped the cycle. Kept ads running consistently.\n\nWithin a few weeks, the slow periods stopped."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Be the face of your business.\n\nIt's the cheapest thing you can do."
+              "text": "Consistency is the system.\n\nNot a bigger budget. Not better creative. Consistency."
             }
           ],
           "captions": [
             {
               "label": "A",
-              "text": "an image shows your work. a video shows you. people hire people, not portfolios."
+              "text": "they were pausing ads when they got busy. that's why slow weeks kept coming back."
             },
             {
               "label": "B",
-              "text": "before/after photos are fine. everyone has them.\n\nbut when someone sees you on video \u2014 talking confidently, knowing your stuff \u2014 they trust you before they've even called.\n\nthat trust lowers cost per lead and increases close rate.\n\na 15-second clip of you being yourself does more than any image will."
+              "text": "a client came to me with the classic feast-and-famine cycle.\n\nbusy one week, dead the next.\n\nturns out they were pausing ads every time they got busy \u2014 seemed logical.\n\nbut every pause reset the algorithm. back to square one each time.\n\nwe kept ads running consistently. the slow periods stopped.\n\nconsistency is the system."
             },
             {
               "label": "C",
-              "text": "be the face of your business. it's the cheapest thing you can do."
+              "text": "pausing ads when you get busy is what creates the slow weeks. keep them running."
             }
           ]
         },
         {
-          "title": "What I look at first when a client's ads aren't working",
+          "title": "How I set up a new campaign from scratch",
           "type": "Screen Record",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "what I check first",
-            "line2": "when ads aren't working"
+            "line1": "how i set up",
+            "line2": "a new campaign"
           },
-          "film": "Screen record of Meta Ads Manager. Walk through the metrics you actually look at \u2014 CTR, CPM, hook rate. Talk over it naturally like you're in a client call.",
+          "film": "Screen record of Meta Ads Manager. Walk through what you actually do \u2014 objective, audience, creative. Talk over it like you're on a client call. Keep it real, no over-explaining.",
           "lines": [
             {
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "When a client tells me their ads aren't working \u2014 this is the first thing I open."
+              "text": "This is how I actually set up a campaign for a new service business client."
             },
             {
               "time": "Middle",
               "tag": "25s",
               "cls": "",
-              "text": "Most people look at cost per lead and panic.\n\nI look at three things first: hook rate, click-through rate, and CPM.\n\nHook rate tells you if people are even watching. If it's low, the first two seconds are wrong \u2014 not the whole ad.\n\nCTR tells you if the message is landing. Low CTR usually means the offer or the copy isn't connecting.\n\nCPM tells you how competitive the audience is. High CPM means you're in a crowded space \u2014 usually because the targeting is too broad.\n\nFix the right metric and the whole thing changes."
+              "text": "Start with the objective \u2014 leads, not traffic. Always leads.\n\nAudience: tight radius around where they actually work. Not the whole city.\n\nCreative: one video. Talking head. Them speaking to camera, not a slideshow.\n\nBudget: consistent daily, not boosted posts. Big difference.\n\nAnd then we let it run. No touching it for the first week. Let the algorithm learn.\n\nMost people mess with it too early and reset the learning phase."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Most ad problems have one root cause.\n\nYou just have to know where to look."
+              "text": "Simple setup. Consistent budget. Don't touch it.\n\nThat's 90% of it."
             }
           ],
           "captions": [
             {
               "label": "A",
-              "text": "when ads aren't working, most people look at cost per lead. i look at three things first."
+              "text": "leads objective, tight radius, talking head video, consistent daily budget. that's the setup."
             },
             {
               "label": "B",
-              "text": "hook rate, CTR, CPM.\n\nhook rate \u2192 are people watching? if low, fix the first 2 seconds.\nCTR \u2192 is the message landing? if low, fix the copy or offer.\nCPM \u2192 is the audience too broad? if high, tighten the targeting.\n\nmost ad problems have one root cause. you just have to know where to look."
+              "text": "how i set up a campaign for a new service business client:\n\nleads objective (not traffic)\ntight radius \u2014 not the whole city\none talking head video\nconsistent daily budget \u2014 not boosted posts\n\nthen leave it alone for the first week. most people mess with it too early and reset the learning phase.\n\nsimple setup. consistent budget. don't touch it."
             },
             {
               "label": "C",
-              "text": "don't panic at cost per lead. look at hook rate, CTR, and CPM first."
+              "text": "simple setup, consistent budget, leave it alone. that's 90% of it."
             }
           ]
         },
         {
-          "title": "What it actually looks like when the ads are working",
-          "type": "Screen Record",
+          "title": "Why I only work with service businesses",
+          "type": "Talking Head",
           "recCap": 1,
           "recVer": "full",
           "overlay": {
-            "line1": "what it looks like",
-            "line2": "when ads are working"
+            "line1": "why i only work with",
+            "line2": "service businesses"
           },
-          "film": "Screen record showing a real lead notification or booked job in the CRM / calendar. Keep it simple and real \u2014 no graphics, just the actual thing.",
+          "film": "Confident, direct. This is the authority + CTA video. Own it.",
           "lines": [
             {
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "This is what a week looks like when the ads are working."
+              "text": "I could run ads for anyone.\n\nI choose not to."
             },
             {
               "time": "Middle",
-              "tag": "20s",
+              "tag": "18s",
               "cls": "",
-              "text": "New lead comes in. Follow-up goes out automatically. They book.\n\nAnother lead. Another booking.\n\nThe calendar fills up without you chasing anyone.\n\nThat's the whole point \u2014 not just getting leads, but having a system that converts them while you're on the job.\n\nMost service businesses are still doing this manually. Some are not. The ones that aren't are the ones growing."
+              "text": "I focus on service businesses because that's where I get results.\n\nPlumbers, cleaners, landscapers, builders \u2014 businesses where the owner is skilled at the job but not at getting clients consistently.\n\nI know exactly what works for them. The setup, the creative, the follow-up system.\n\nBecause I've done it enough times that I'm not guessing anymore.\n\nThat's the difference between someone who runs ads and someone who specialises."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "If you want to see what this looks like for your business \u2014 DM me ADS."
+              "text": "If you're a service business owner and you want consistent leads \u2014 DM me ADS."
             }
           ],
           "captions": [
             {
               "label": "A",
-              "text": "this is what the calendar looks like when the ads are actually working."
+              "text": "i focus on service businesses because that's where i actually get results. not guessing \u2014 i've done it enough times."
             },
             {
               "label": "B",
-              "text": "lead comes in. follow-up goes out. they book.\n\nnot chasing anyone. not following up manually. just a calendar filling up while you're on the job.\n\nmost service businesses are still doing this manually. the ones that aren't are the ones growing.\n\nif you want this for your business \u2014 dm me ADS."
+              "text": "i could run ads for anyone. i choose not to.\n\ni specialise in service businesses \u2014 plumbers, cleaners, landscapers, builders.\n\nbusinesses where the owner is great at the job but not at getting clients consistently.\n\ni know what works for them. setup, creative, follow-up. done it enough times that i'm not guessing.\n\nif you want consistent leads \u2014 dm me ADS."
             },
             {
               "label": "C",
-              "text": "leads coming in, calendar filling up, no chasing. that's the goal. dm me ADS if you want it."
+              "text": "there's a difference between someone who runs ads and someone who specialises. dm me ADS."
             }
           ]
         }
