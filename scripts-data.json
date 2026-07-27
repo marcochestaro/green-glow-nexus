@@ -1028,7 +1028,7 @@
         {
           "title": "Most service businesses will never grow past a certain point",
           "type": "Talking Head",
-          "recCap": 0,
+          "recCap": 2,
           "recVer": "full",
           "overlay": {
             "line1": "most service businesses",
@@ -1052,7 +1052,7 @@
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "The businesses winning right now made that decision.\n\nThe rest are still waiting for the phone to ring."
+              "text": "The businesses winning right now made that decision.\n\nFollow @marcomarkets for more on this."
             }
           ],
           "captions": [
@@ -1066,7 +1066,7 @@
             },
             {
               "label": "C",
-              "text": "skill gets you repeat clients. visibility gets you new ones."
+              "text": "skill gets you repeat clients. visibility gets you new ones. follow @marcomarkets for more."
             }
           ]
         },
@@ -1332,11 +1332,11 @@
             },
             {
               "label": "B",
-              "text": "i could run ads for any type of business.\n\nbut service businesses \u2014 tradies, cleaners, landscapers, builders \u2014 have a specific problem i've solved enough times to do it well.\n\nskilled at the job, inconsistent with the leads.\n\nif that's you, dm me ADS and let's talk."
+              "text": "i could run ads for any type of business.\n\nbut service businesses \u2014 plumbers, cleaners, landscapers, builders \u2014 have a specific problem i've solved enough times to do it well.\n\nskilled at the job, inconsistent with the leads.\n\nif that's you, dm me ADS and let's talk. follow @marcomarkets for more."
             },
             {
               "label": "C",
-              "text": "consistent leads for service businesses. that's all i do. dm me ADS."
+              "text": "consistent leads for service businesses. that's all i do. dm me ADS. follow @marcomarkets."
             }
           ]
         }
