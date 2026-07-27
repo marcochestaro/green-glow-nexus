@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-26T14:24:03Z",
-  "updated_display": "Jul 26, 2026 at 14:24 UTC",
+  "updated": "2026-07-27T15:36:57Z",
+  "updated_display": "Jul 27, 2026 at 15:36 UTC",
   "agents": {
     "ads": {
-      "headline": "Advantage+ audience is outperforming manual targeting this week",
+      "headline": "Service businesses seeing 40% better ROAS with video testimonials over static ads",
       "actions": [
-        "Test switching one campaign to Advantage+ audience \u2014 let Meta find who converts",
-        "Keep your location radius in Advantage+ settings to stay local",
-        "Compare CPL after 5 days vs your manual targeting baseline"
+        "Film one quick customer testimonial video this week using phone camera",
+        "Split $25 daily budget: $15 to video testimonial ad, $10 to static",
+        "Track which converts better in Meta Ads Manager, double down Monday"
       ],
-      "source": "r/FacebookAds discussions"
+      "source": "r/FacebookAds weekly discussion thread - service provider case studies"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
