@@ -254,13 +254,13 @@ section{margin-bottom:44px;scroll-margin-top:64px}
   <div class="nav-brand" onclick="showView('home')">@marcomarkets</div>
   <div class="nav-links">
     <button class="nl" id="nl-home" onclick="showView('home')">Home</button>
-    <button class="nl" id="nl-content" onclick="showView('content')">Today</button>
-    <button class="nl" onclick="showView('content');goto('week')">This Week</button>
-    <button class="nl" onclick="showView('content');goto('research')">Stats</button>
-    <button class="nl" onclick="showView('content');goto('ideas')">Ideas</button>
-    <button class="nl" onclick="showView('content');goto('tools')">Tools</button>
-    <button class="nl" onclick="showView('content');goto('plan')">Tomorrow</button>
-    <button class="nl" onclick="showView('content');goto('miro')">Miro</button>
+    <button class="nl" id="nl-today" onclick="showView('content');setNavActive('nl-today')">Today</button>
+    <button class="nl" id="nl-week" onclick="showView('content');goto('week');setNavActive('nl-week')">This Week</button>
+    <button class="nl" id="nl-research" onclick="showView('content');goto('research');setNavActive('nl-research')">Stats</button>
+    <button class="nl" id="nl-ideas" onclick="showView('content');goto('ideas');setNavActive('nl-ideas')">Ideas</button>
+    <button class="nl" id="nl-tools" onclick="showView('content');goto('tools');setNavActive('nl-tools')">Tools</button>
+    <button class="nl" id="nl-plan" onclick="showView('content');goto('plan');setNavActive('nl-plan')">Tomorrow</button>
+    <button class="nl" id="nl-miro" onclick="showView('content');goto('miro');setNavActive('nl-miro')">Miro</button>
     <button class="nl" id="nl-agents" onclick="showView('agents')">Agents</button>
   </div>
   <div class="nav-right">
@@ -347,19 +347,19 @@ section{margin-bottom:44px;scroll-margin-top:64px}
           <div class="nt-desc">See exactly what competitors are running right now</div>
           <span class="nt-arrow">&#8594;</span>
         </div>
-        <div class="nav-tile" onclick="showView('content');goto('week')">
+        <div class="nav-tile" onclick="showView('content');goto('week');setNavActive('nl-week')">
           <div class="nt-dot" style="background:var(--purple)"></div>
           <div class="nt-title">This Week's Scripts</div>
           <div class="nt-desc">All 7 posts with filming notes and timing labels</div>
           <span class="nt-arrow">&#8594;</span>
         </div>
-        <div class="nav-tile" onclick="showView('content');goto('ideas')">
+        <div class="nav-tile" onclick="showView('content');goto('ideas');setNavActive('nl-ideas')">
           <div class="nt-dot" style="background:var(--green)"></div>
           <div class="nt-title">Content Ideas</div>
           <div class="nt-desc">40 ready-to-use ideas — mark off what you've filmed</div>
           <span class="nt-arrow">&#8594;</span>
         </div>
-        <div class="nav-tile" onclick="showView('content');goto('plan')">
+        <div class="nav-tile" onclick="showView('content');goto('plan');setNavActive('nl-plan')">
           <div class="nt-dot" style="background:#38bdf8"></div>
           <div class="nt-title">Tomorrow's Plan</div>
           <div class="nt-desc">Pick your tasks for tomorrow from pre-built chips</div>
@@ -540,11 +540,12 @@ Follow for daily content on what actually works</textarea>
 
 <script>
 // ── Views ──────────────────────────────────────────────────────────────
+function setNavActive(id){document.querySelectorAll('.nl').forEach(el=>el.classList.remove('on'));const b=document.getElementById(id);if(b)b.classList.add('on');}
 function showView(v){
   document.querySelectorAll('.view').forEach(el=>el.classList.remove('on'));
   document.getElementById('view-'+v).classList.add('on');
-  document.querySelectorAll('.nl').forEach(el=>el.classList.remove('on'));
-  const btn=document.getElementById('nl-'+v);if(btn)btn.classList.add('on');
+  if(v==='home')setNavActive('nl-home');
+  else if(v==='agents')setNavActive('nl-agents');
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function goto(id){setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},60);}
