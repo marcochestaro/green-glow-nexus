@@ -687,7 +687,7 @@
       "week_of_display": "Jul 21, 2026",
       "scripts": [
         {
-          "title": "You're not losing jobs because you're bad at the trade",
+          "title": "You're not losing jobs because of your skills",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
@@ -715,7 +715,7 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "You're not losing jobs because you're bad at the trade.\n\nYou're losing them to whoever showed up in front of the customer first."
+              "text": "You're not losing jobs because of your skills.\n\nYou're losing them to whoever showed up in front of the customer first."
             },
             {
               "time": "Middle",
@@ -732,7 +732,7 @@
           ]
         },
         {
-          "title": "When someone needs a trade they don't ask around",
+          "title": "When someone needs a service they don't ask around",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
