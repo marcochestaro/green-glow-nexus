@@ -1026,27 +1026,27 @@
       "week_of_display": "Jul 27, 2026",
       "scripts": [
         {
-          "title": "Stop saying professional and reliable",
-          "overlay": {
-            "line1": "your ad copy is boring",
-            "line2": "here's why it doesn't work"
-          },
+          "title": "You're not losing jobs because of your skills",
+          "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
-          "type": "Talking Head",
-          "film": "Film in natural light, sitting or standing casually. Lean in slightly during the hook. Use hand gestures when explaining why the words don't work \u2014 point to yourself when talking about homeowners' perspective.",
+          "overlay": {
+            "line1": "you're not losing jobs",
+            "line2": "because of your skills."
+          },
+          "film": "Direct to camera. Say it like it's obvious.",
           "captions": [
             {
               "label": "A",
-              "text": "every plumber, cleaner, and electrician says the same thing. that's why it doesn't work."
+              "text": "you're not losing jobs because you're bad at what you do.\n\nyou're losing them to whoever showed up in front of the customer first."
             },
             {
               "label": "B",
-              "text": "professional and reliable is what people assume you already are. it's not a reason to call you. it's background noise in their feed."
+              "text": "skill keeps clients.\n\nvisibility gets them.\n\nthe businesses winning in your local area aren't always the most talented.\n\nthey're just the most visible."
             },
             {
               "label": "C",
-              "text": "if you can't explain why you're different in one sentence, your ad copy won't either."
+              "text": "skill keeps clients. visibility gets them. you need both."
             }
           ],
           "lines": [
@@ -1054,57 +1054,44 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "If your ad says you're professional and reliable, it's probably not getting calls. And here's why."
+              "text": "You're not losing jobs because of your skills.\n\nYou're losing them to whoever showed up in front of the customer first."
             },
             {
-              "time": "Point 1",
-              "tag": "8s",
+              "time": "Middle",
+              "tag": "15s",
               "cls": "",
-              "text": "Every single competitor is saying the exact same thing. Professional. Reliable. Licensed. Insured. It's noise. Homeowners scroll past it because they expect that stuff already."
-            },
-            {
-              "time": "Point 2",
-              "tag": "8s",
-              "cls": "",
-              "text": "What they actually want to know is \u2014 why you specifically? What makes you different? Faster response time? Same-day availability? Guarantee on the work? That's what makes someone pick up the phone."
-            },
-            {
-              "time": "Point 3",
-              "tag": "8s",
-              "cls": "",
-              "text": "Your ad copy needs to answer one question: why should I call you instead of the other five plumbers, electricians, or detailers they could call?"
+              "text": "Skill keeps clients.\n\nVisibility gets them.\n\nThe businesses winning in your area right now aren't always the best at the job.\n\nThey're just the most visible.\n\nAnd in a local market, visibility is something you can actually control."
             },
             {
               "time": "Close",
-              "tag": "5s",
+              "tag": "4s",
               "cls": "",
-              "text": "That's where the actual leads come from \u2014 not from checking boxes, but from being specific about what you do better."
+              "text": "Skill keeps clients.\n\nA system gets them."
             }
-          ],
-          "stories": []
+          ]
         },
         {
-          "title": "The headline that stops service business scrolls",
-          "overlay": {
-            "line1": "stop them scrolling",
-            "line2": "with one line"
-          },
+          "title": "When someone needs a service they don't ask around",
+          "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
-          "type": "Talking Head",
-          "film": "Film Marco sitting casually, natural lighting, direct to camera. Relaxed but engaged. No desk clutter \u2014 just him and his presence. Let him move naturally when making points.",
+          "overlay": {
+            "line1": "when someone needs you",
+            "line2": "they don't ask around."
+          },
+          "film": "Direct to camera. Short and punchy.",
           "captions": [
             {
               "label": "A",
-              "text": "your headline isn't about being clever. it's about making them stop."
+              "text": "when someone needs a service business right now \u2014 they don't ask around.\n\nthey call whoever is already in their head."
             },
             {
               "label": "B",
-              "text": "most service business ads fail because the headline doesn't speak to the actual problem. write like you're talking to them in their driveway."
+              "text": "that's the whole game.\n\nbe the business already in their head before they need you.\n\nreferrals get you in front of people who know someone who knows you.\n\nads get you in front of everyone else."
             },
             {
               "label": "C",
-              "text": "speak to their problem in the first line, not your service."
+              "text": "be in their head before they need you. that's the whole game."
             }
           ],
           "lines": [
@@ -1112,225 +1099,176 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "most service business headlines are invisible. and I mean \u2014 nobody stops scrolling for them. here's how to actually write one that works."
+              "text": "When someone needs a service business right now \u2014 they don't ask around.\n\nThey call whoever is already in their head."
             },
             {
-              "time": "Point 1",
-              "tag": "8s",
+              "time": "Middle",
+              "tag": "15s",
               "cls": "",
-              "text": "stop leading with what you do. a plumber says 'emergency plumbing' \u2014 cool, so does everyone else. a plumber should say something like 'burst pipe at 2am' or 'water in your basement right now.' speak to their moment, not your service."
-            },
-            {
-              "time": "Point 2",
-              "tag": "8s",
-              "cls": "",
-              "text": "the best headlines ask a question or state a problem that makes them go, yeah, that's literally my life right now. a window cleaner could say 'can't see out your windows anymore' \u2014 that's not clever, it's just real. that's what stops scrolling."
-            },
-            {
-              "time": "Point 3",
-              "tag": "8s",
-              "cls": "",
-              "text": "then the second line is where you show up as the solution. but nobody's even reading that if your first line doesn't grab them. so get the problem right first. everything else follows from there."
+              "text": "That's the whole game.\n\nBe the business already in their head before they even need you.\n\nReferrals get you in front of people who know someone who knows you.\n\nAds get you in front of everyone else.\n\nAnd everyone else is a much bigger market."
             },
             {
               "time": "Close",
-              "tag": "5s",
+              "tag": "4s",
               "cls": "",
-              "text": "write your next headline like you're talking to someone who just experienced the problem. not someone who might need it someday. that's the difference between invisible and unstoppable."
+              "text": "Be in their head before they need you.\n\nThat's it."
             }
-          ],
-          "stories": []
+          ]
         },
         {
-          "title": "car detailer: 39 leads, 15 booked, real ROI",
-          "overlay": null,
+          "title": "A slow week costs more than the jobs you didn't get",
+          "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
+          "overlay": {
+            "line1": "a slow week costs",
+            "line2": "more than you think."
+          },
+          "film": "Direct to camera, calm. Let it land.",
+          "captions": [
+            {
+              "label": "A",
+              "text": "a slow week doesn't just cost you the jobs you didn't get.\n\nit costs you the clarity to make good decisions."
+            },
+            {
+              "label": "B",
+              "text": "when work is slow you say yes to bad clients.\n\nyou price lower than you should.\n\nyou make decisions from stress instead of strategy.\n\nfix the lead source and the slow weeks go away.\n\nand so does everything that comes with them."
+            },
+            {
+              "label": "C",
+              "text": "fix the lead source. the slow weeks go away. and so does everything that comes with them."
+            }
+          ],
+          "lines": [
+            {
+              "time": "Hook",
+              "tag": "5s",
+              "cls": "hook",
+              "text": "A slow week doesn't just cost you the jobs you didn't book.\n\nIt costs you a lot more than that."
+            },
+            {
+              "time": "Middle",
+              "tag": "15s",
+              "cls": "",
+              "text": "When work is slow you say yes to clients you shouldn't.\n\nYou price lower than your work is worth.\n\nYou make decisions from stress instead of from a position of strength.\n\nFix the lead source and the slow weeks go away.\n\nAnd so does everything that comes with them."
+            },
+            {
+              "time": "Close",
+              "tag": "4s",
+              "cls": "",
+              "text": "It's not just lost revenue.\n\nIt's lost clarity."
+            }
+          ]
+        },
+        {
+          "title": "Most people in your city don't know you exist",
+          "type": "Talking Head",
+          "recCap": 0,
+          "recVer": "full",
+          "overlay": {
+            "line1": "most people in your city",
+            "line2": "don't know you exist."
+          },
+          "film": "Direct to camera. Straight, simple.",
+          "captions": [
+            {
+              "label": "A",
+              "text": "most people in your city who would hire you tomorrow don't know you exist.\n\nand they never will unless you put yourself in front of them."
+            },
+            {
+              "label": "B",
+              "text": "referrals reach the people who already know someone who knows you.\n\nthat's a small pool.\n\nads reach everyone else.\n\nthat's everyone in your city who needs what you do and has never heard your name."
+            },
+            {
+              "label": "C",
+              "text": "referrals reach a small pool. ads reach everyone else."
+            }
+          ],
+          "lines": [
+            {
+              "time": "Hook",
+              "tag": "5s",
+              "cls": "hook",
+              "text": "Most people in your city who would hire you tomorrow don't know you exist."
+            },
+            {
+              "time": "Middle",
+              "tag": "15s",
+              "cls": "",
+              "text": "And they never will unless you put yourself in front of them.\n\nReferrals reach the people who already know someone who knows you.\n\nThat's a small pool.\n\nAds reach everyone else.\n\nEvery person in your city who needs what you do and has never heard your name."
+            },
+            {
+              "time": "Close",
+              "tag": "4s",
+              "cls": "",
+              "text": "Referrals reach a small pool.\n\nAds reach everyone else."
+            }
+          ]
+        },
+        {
+          "title": "The service businesses growing fastest aren't the most skilled",
+          "type": "Talking Head",
+          "recCap": 0,
+          "recVer": "full",
+          "overlay": {
+            "line1": "the fastest growing",
+            "line2": "aren't the most skilled."
+          },
+          "film": "Direct to camera, confident.",
+          "captions": [
+            {
+              "label": "A",
+              "text": "the service businesses growing fastest in their area aren't the most talented.\n\nthey're the most consistent at getting in front of new customers."
+            },
+            {
+              "label": "B",
+              "text": "i've seen average operators doing incredible numbers.\n\nand highly skilled ones barely getting by.\n\nthe difference is never the quality of the work.\n\nit's always how consistently new customers find them."
+            },
+            {
+              "label": "C",
+              "text": "talent gets you 5 stars. a system gets you fully booked."
+            }
+          ],
+          "lines": [
+            {
+              "time": "Hook",
+              "tag": "5s",
+              "cls": "hook",
+              "text": "The service businesses growing fastest in their area right now are not the most skilled."
+            },
+            {
+              "time": "Middle",
+              "tag": "15s",
+              "cls": "",
+              "text": "I've worked with average operators doing incredible numbers.\n\nAnd highly skilled ones barely getting by.\n\nThe difference is never the quality of the work.\n\nIt's always how consistently new customers find them.\n\nTalent keeps people coming back.\n\nA system brings them in."
+            },
+            {
+              "time": "Close",
+              "tag": "4s",
+              "cls": "",
+              "text": "Talent gets you 5 stars.\n\nA system gets you fully booked."
+            }
+          ]
+        },
+        {
+          "title": "Why the same ad works for one business and not another",
           "type": "Screen Record",
-          "film": "Screen record Meta Ads Manager showing the car detailer campaign results \u2014 focus on lead count, booking rate, and ROAS. Keep cursor visible, click through slowly, point at key metrics as you talk. Casual, like you're walking a friend through your own results.",
-          "captions": [
-            {
-              "label": "A",
-              "text": "39 leads from ads. 15 turned into actual bookings. that's the ratio that matters."
-            },
-            {
-              "label": "B",
-              "text": "39 leads came through. 15 were solid enough to book. he spent the ad budget and made it back 2-3x. that's how you know the funnel actually works."
-            },
-            {
-              "label": "C",
-              "text": "leads are only half the story \u2014 bookings and revenue are what count."
-            }
-          ],
-          "lines": [
-            {
-              "time": "Hook",
-              "tag": "5s",
-              "cls": "hook",
-              "text": "okay so this detailer got 39 leads from ads last month. sounds good, right? but here's what actually mattered \u2014 15 of those turned into bookings."
-            },
-            {
-              "time": "Point 1",
-              "tag": "8s",
-              "cls": "",
-              "text": "a lot of people get hyped about lead count. oh, we got 50 leads, we got 100 leads. but if nobody's actually booking, you're just burning money. this one converted at a solid rate because the targeting was tight and the follow-up was dialed."
-            },
-            {
-              "time": "Point 2",
-              "tag": "8s",
-              "cls": "",
-              "text": "he spent real ad budget \u2014 not messing around with tiny budgets \u2014 and pulled in 15 actual appointments. those turned into two to three grand in revenue. that's the metric that moves the needle for a service business."
-            },
-            {
-              "time": "Point 3",
-              "tag": "8s",
-              "cls": "",
-              "text": "the reason this works is because it's not just about getting eyeballs. it's about getting the right eyeballs, the right message, and then actually converting them on the back end. that's where most people fall apart."
-            },
-            {
-              "time": "Close",
-              "tag": "5s",
-              "cls": "",
-              "text": "lead count is vanity. bookings are what pay the bills. that's the only number that actually matters."
-            }
-          ],
-          "stories": []
-        },
-        {
-          "title": "Your offer is killing your ads",
-          "overlay": {
-            "line1": "the real reason",
-            "line2": "ads aren't converting"
-          },
           "recCap": 0,
           "recVer": "full",
-          "type": "Talking Head",
-          "film": "Film Marco sitting casually, well-lit, looking directly at camera. Relaxed energy. Lean in slightly on the hook and key points to show emphasis without being theatrical.",
-          "captions": [
-            {
-              "label": "A",
-              "text": "bad ads aren't usually the problem. a weak offer is."
-            },
-            {
-              "label": "B",
-              "text": "your ads can be perfect. but if the offer sucks, nobody's taking it. fix the offer first."
-            },
-            {
-              "label": "C",
-              "text": "your offer is probably why your ads aren't working."
-            }
-          ],
-          "lines": [
-            {
-              "time": "Hook",
-              "tag": "5s",
-              "cls": "hook",
-              "text": "So you're running ads, the creative's solid, the targeting looks good\u2014but nobody's actually converting. You blame the ads, right? Wrong. It's probably your offer."
-            },
-            {
-              "time": "Point 1",
-              "tag": "8s",
-              "cls": "",
-              "text": "Here's the thing: a bad offer with perfect ads still won't convert. But a strong offer with mediocre ads? That'll pull results. The offer is the foundation."
-            },
-            {
-              "time": "Point 2",
-              "tag": "8s",
-              "cls": "",
-              "text": "What I see a lot is business owners offering something too vague. 'Call us for a free estimate.' That's not an offer\u2014that's just... a thing you can do. People need clarity. They need to know exactly what they're getting, what it costs, and why now."
-            },
-            {
-              "time": "Point 3",
-              "tag": "8s",
-              "cls": "",
-              "text": "A real offer is specific. It's got a hook, a clear benefit, and usually some kind of reason to act fast. Like a free inspection with a written report, or a discount if you book this week. Something with teeth."
-            },
-            {
-              "time": "Close",
-              "tag": "5s",
-              "cls": "",
-              "text": "Before you tweak your ads again, step back and look at what you're actually offering. That's usually where the real problem is."
-            }
-          ],
-          "stories": []
-        },
-        {
-          "title": "How this plumber cut cost per lead by 68%",
-          "overlay": {
-            "line1": "$120 \u2192 $38",
-            "line2": "cost per lead"
-          },
-          "recCap": 0,
-          "recVer": "full",
-          "type": "Talking Head",
-          "film": "Film Marco sitting down, relaxed posture, looking directly at camera. Natural lighting. Start close on face for hook, can pull back slightly for main points. Conversational delivery \u2014 like he's telling a friend what he learned from a client call.",
-          "captions": [
-            {
-              "label": "A",
-              "text": "most plumbers compete on price. this guy stopped doing that in his ads."
-            },
-            {
-              "label": "B",
-              "text": "he was targeting everyone. then he got specific about who he actually wanted to work with. his cost per lead dropped 68% in 6 weeks."
-            },
-            {
-              "label": "C",
-              "text": "broad audience = cheap clicks but bad clients. narrow audience = expensive clicks but ones that actually call."
-            }
-          ],
-          "lines": [
-            {
-              "time": "Hook",
-              "tag": "5s",
-              "cls": "hook",
-              "text": "So this plumber was spending way too much to get a lead. One hundred twenty bucks every single time someone called. Six weeks later? Thirty-eight dollars. Here's exactly what changed."
-            },
-            {
-              "time": "Point 1",
-              "tag": "8s",
-              "cls": "",
-              "text": "He was running ads to everyone in his service area. Young people, old people, renters, homeowners \u2014 literally everyone. Lots of clicks, but most of them weren't real leads. They were curious, not committed."
-            },
-            {
-              "time": "Point 2",
-              "tag": "8s",
-              "cls": "",
-              "text": "So we got hyper-specific. We targeted homeowners over 40 with bigger houses. People who could actually afford a service call and wouldn't negotiate on price. Fewer clicks, but way better quality."
-            },
-            {
-              "time": "Point 3",
-              "tag": "8s",
-              "cls": "",
-              "text": "His ad spend didn't go down. But his waste went down. Because now he's paying for qualified people, not just bodies scrolling. That's where the 68% reduction came from."
-            },
-            {
-              "time": "Close",
-              "tag": "5s",
-              "cls": "",
-              "text": "If you're still running broad ads hoping to catch everyone, you're just feeding the algorithm. Get specific about your actual customer, and watch what happens to your numbers."
-            }
-          ],
-          "stories": []
-        },
-        {
-          "title": "Why some service businesses scale and others don't",
           "overlay": null,
-          "recCap": 0,
-          "recVer": "full",
-          "type": "Screen Record",
-          "film": "Screen record Meta Ads Manager showing campaign performance metrics, audience segments, and ad spend allocation. Slow pan through dashboards showing high-performing vs. underperforming campaigns. Keep it visual and clear \u2014 point to specific numbers and campaign structures as you talk.",
+          "film": "Screen record Meta Ads Manager. Show what makes the difference \u2014 offer, photo, follow-up.",
           "captions": [
             {
               "label": "A",
-              "text": "scaling isn't about spending more money. it's about spending smarter on what already works."
+              "text": "same platform. same budget. completely different results.\n\nhere's why."
             },
             {
               "label": "B",
-              "text": "most service businesses throw budget at ads hoping something sticks. the ones that scale know exactly which campaigns bring in quality leads \u2014 then they repeat that pattern."
+              "text": "it's almost never the targeting.\n\nit's the offer, the photo, and how fast they follow up on leads.\n\nget those three things right and the platform does the rest."
             },
             {
               "label": "C",
-              "text": "the difference between stuck and scaling: data. not luck."
+              "text": "offer. photo. follow-up speed. get those three right and the rest handles itself."
             }
           ],
           "lines": [
@@ -1338,57 +1276,53 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "I see two types of service business owners running ads right now. One's scaling. One's spinning their wheels. The difference isn't what you think."
+              "text": "Two service businesses. Same platform. Same budget.\n\nCompletely different results. Here's why."
             },
             {
               "time": "Point 1",
-              "tag": "8s",
+              "tag": "10s",
               "cls": "",
-              "text": "The ones stuck are usually spending across everything \u2014 broad audiences, multiple campaigns, different messaging. They're hoping something lands. When it doesn't, they think ads don't work. They quit."
+              "text": "Business A has a generic offer \u2014 'call us for a free quote.' Business B has a specific one \u2014 same-week availability, clear outcome. People respond to specific. Always."
             },
             {
               "time": "Point 2",
-              "tag": "8s",
+              "tag": "10s",
               "cls": "",
-              "text": "The ones scaling? They run fewer campaigns but they run them deep. They find one audience that converts, one message that resonates, and they dial that in. They watch the data. They see which leads actually call back and become jobs. Then they spend more on that."
+              "text": "Business A is using stock photos. Business B is using a real photo from a real job. Trust is built in the first half second. Stock kills it immediately."
             },
             {
               "time": "Point 3",
-              "tag": "8s",
+              "tag": "10s",
               "cls": "",
-              "text": "It's not about having the biggest budget. It's about being patient enough to find what works, then disciplined enough to double down on it instead of chasing shiny stuff."
+              "text": "Business A calls leads back when they get a chance. Business B calls within minutes. Same leads. Completely different close rate."
             },
             {
               "time": "Close",
               "tag": "5s",
               "cls": "",
-              "text": "That's the real difference between scaling and staying stuck."
+              "text": "Offer. Photo. Follow-up.\n\nGet those three right. The platform does the rest."
             }
-          ],
-          "stories": []
+          ]
         },
         {
-          "title": "Why broad audiences kill local ad results",
-          "overlay": {
-            "line1": "broad audiences",
-            "line2": "narrow results"
-          },
+          "title": "What I actually do when I take on a new service business client",
+          "type": "Screen Record",
           "recCap": 0,
           "recVer": "full",
-          "type": "Talking Head",
-          "film": "Film in natural light, seated, relaxed posture. Look directly at camera. Lean in slightly when making the key point about wasted spend. Keep energy conversational, not energetic.",
+          "overlay": null,
+          "film": "Screen record your actual process in Ads Manager. Show your thinking, not a tutorial.",
           "captions": [
             {
               "label": "A",
-              "text": "broad audiences = broad results. local service businesses need precision targeting, not reach."
+              "text": "this is what i actually do in the first week when i take on a new service business client."
             },
             {
               "label": "B",
-              "text": "if you're targeting everyone in your city, you're paying for people who'll never book you. plumbers, electricians, cleaners \u2014 your customer is specific. your audience should be too."
+              "text": "before i touch the ads i look at three things.\n\ntheir offer, their follow-up process, and whether the basics are in place.\n\nif those aren't right, no amount of good ads fixes it.\n\nif they are \u2014 results come faster than most people expect."
             },
             {
               "label": "C",
-              "text": "bigger audience doesn't mean more leads. tighter audience means better leads."
+              "text": "ads don't fix a broken process. but they accelerate a working one."
             }
           ],
           "lines": [
@@ -1396,34 +1330,33 @@
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Most service business owners I talk to are running ads to way too broad of an audience. And they wonder why their cost per lead is out of control."
+              "text": "This is what I actually do in the first week when I take on a new service business client."
             },
             {
               "time": "Point 1",
-              "tag": "8s",
+              "tag": "10s",
               "cls": "",
-              "text": "When you run ads to everyone in your city between 18 and 65, you're paying for a ton of impressions and clicks from people who will literally never hire you. A college kid, a renter with no property issues, someone who just booked a plumber last month."
+              "text": "Before I touch the ads I look at the offer. Not 'free quote' \u2014 something specific. If the offer isn't clear, the ad has no chance. We fix that first."
             },
             {
               "time": "Point 2",
-              "tag": "8s",
+              "tag": "10s",
               "cls": "",
-              "text": "Your actual customer is way more specific than that. Homeowners in specific neighborhoods. People with that particular problem right now. The right income level. The right life stage. When you get narrow on who you're talking to, your ads work harder for you."
+              "text": "Then I look at follow-up. Is someone calling every lead fast? Because if not, the best campaign in the world just fills a leaky bucket."
             },
             {
               "time": "Point 3",
-              "tag": "8s",
+              "tag": "10s",
               "cls": "",
-              "text": "It's the difference between fishing with a net in the whole ocean versus fishing in the exact spot where the fish are biting. One of those costs way less money and actually fills your schedule."
+              "text": "Then the campaign. Local radius, lead objective, real creative. Nothing complicated. The simpler the setup, the faster Meta learns."
             },
             {
               "time": "Close",
               "tag": "5s",
               "cls": "",
-              "text": "Precision beats reach every single time in the service business game."
+              "text": "Ads don't fix a broken process.\n\nBut they accelerate a working one fast."
             }
-          ],
-          "stories": []
+          ]
         }
       ]
     },
