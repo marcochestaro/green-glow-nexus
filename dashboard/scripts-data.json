@@ -1026,317 +1026,317 @@
       "week_of_display": "Jul 27, 2026",
       "scripts": [
         {
-          "title": "Most service businesses will never grow past a certain point",
+          "title": "Your competitor isn't better than you. They just show up more.",
           "type": "Talking Head",
-          "recCap": 2,
+          "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "most service businesses",
-            "line2": "stay stuck. here's why."
+            "line1": "your competitor isn't better.",
+            "line2": "they just show up more."
           },
-          "film": "Direct to camera. Confident, slightly serious. This is the reach video \u2014 hook needs to hit hard.",
+          "film": "Direct to camera. Confident. Let the hook land before you say anything else.",
           "lines": [
             {
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Most service businesses will never grow past a certain point.\n\nNot because they're bad at the job. Because no one knows they exist."
+              "text": "Your competitor isn't better than you.\n\nThey just show up more."
             },
             {
               "time": "Middle",
               "tag": "18s",
               "cls": "",
-              "text": "The best service business in your city is probably not the busiest one.\n\nThe busiest one is just the most visible.\n\nAnd visibility isn't luck. It's not referrals. It's not word of mouth.\n\nIt's a decision \u2014 to show up in front of the right people, consistently, before they even need you."
+              "text": "The jobs you're losing aren't going to someone more skilled.\n\nThey're going to whoever was already in front of that customer when they needed someone.\n\nThat's it.\n\nMost of the time the best person for the job doesn't get it.\n\nThe most visible one does."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "The businesses winning right now made that decision.\n\nFollow @marcomarkets for more on this."
+              "text": "Being good gets you referrals.\n\nShowing up gets you everything else."
             }
           ],
           "captions": [
             {
               "label": "A",
-              "text": "the best service business in your city is probably not the busiest one."
+              "text": "the jobs you're losing aren't going to someone better. they're going to whoever showed up first."
             },
             {
               "label": "B",
-              "text": "being good at the job is table stakes.\n\neveryone in your city who does what you do is good at it.\n\nthe ones getting consistent calls aren't better. they're just in front of people before they're needed.\n\nthat's the game."
+              "text": "most of the time the best person for the job doesn't get it.\n\nthe most visible one does.\n\nbeing good gets you referrals. showing up gets you everything else."
             },
             {
               "label": "C",
-              "text": "skill gets you repeat clients. visibility gets you new ones.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads."
+              "text": "your competitor isn't better than you. they just show up more."
             }
           ]
         },
         {
-          "title": "The one thing I change that gets ads working",
+          "title": "Why leads ghost you after showing interest",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "the one thing i change",
-            "line2": "that gets ads working"
+            "line1": "why leads ghost you",
+            "line2": "after showing interest"
           },
-          "film": "Relaxed, casual. Like you're telling a mate something that actually works.",
+          "film": "Casual, relaxed. Like you're telling a mate something obvious they've been missing.",
           "lines": [
             {
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "When someone's ads aren't working, there's usually one thing I change.\n\nAnd it's not the budget."
+              "text": "If someone filled out your form and then went quiet \u2014 it's not them.\n\nIt's your response time."
             },
             {
               "time": "Middle",
               "tag": "18s",
               "cls": "",
-              "text": "It's the first two seconds.\n\nMost ads start with the business \u2014 who they are, what they do, how long they've been around.\n\nNobody cares. Not yet.\n\nStart with the customer's situation instead. Say their problem back to them in the first two seconds.\n\nWhen someone hears their exact situation out loud, they stop scrolling. Every time.\n\nThat's where most of the results are hiding."
+              "text": "When someone needs a service, they don't just contact you.\n\nThey contact two or three businesses at the same time.\n\nWhoever calls back first \u2014 and sounds like they actually want the job \u2014 gets it.\n\nIf you're following up hours later, or sending a generic message, the job is already gone.\n\nSpeed and tone. That's all it is."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Change the first two seconds.\n\nWatch what happens."
+              "text": "The lead didn't ghost you.\n\nYou just weren't fast enough."
             }
           ],
           "captions": [
             {
               "label": "A",
-              "text": "your ad isn't broken. the first two seconds are."
+              "text": "when someone fills out a form they contact 2-3 businesses at the same time. whoever responds first gets the job."
             },
             {
               "label": "B",
-              "text": "most ads open with the business.\n\n\"we've been serving sydney for 10 years\" \u2014 nobody cares yet.\n\nopen with the customer's situation instead. say the exact thing they're thinking before they scroll past.\n\nthat's what makes them stop."
+              "text": "leads don't ghost you because they changed their mind.\n\nthey ghost you because someone else called back first.\n\nspeed and tone. that's the whole follow-up game."
             },
             {
               "label": "C",
-              "text": "don't start with who you are. start with what they're dealing with."
+              "text": "the lead didn't go cold. your response time did."
             }
           ]
         },
         {
-          "title": "The mistake I see every single time",
+          "title": "Stop boosting posts",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "the mistake i see",
-            "line2": "every single time"
+            "line1": "stop",
+            "line2": "boosting posts"
           },
-          "film": "Slightly forward, like you're letting them in on something. Honest, not preachy.",
+          "film": "Straight to camera. Short and direct. Don't overthink the delivery.",
           "lines": [
             {
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "Every new client I take on makes the same mistake.\n\nNot similar mistakes \u2014 the exact same one."
+              "text": "Boosting a post is not running ads.\n\nI need you to understand that."
             },
             {
               "time": "Middle",
               "tag": "18s",
               "cls": "",
-              "text": "They're running ads to their homepage.\n\nNo specific offer. No single message. Just \u2014 here's our website, call us.\n\nThe ad gets clicks. The page loses them.\n\nYou need one ad with one message going to one page with one action.\n\nThe moment I fix that, the cost per lead drops and the quality goes up.\n\nEvery single time."
+              "text": "When you boost a post, Meta takes your money and shows it to people who might like your page.\n\nNot people who need your service. Not people in your area. Not people ready to book.\n\nJust \u2014 people.\n\nReal ads let you choose exactly who sees it, where they are, and what happens when they click.\n\nBoosting is the easiest way to spend money and get nothing back."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "One ad. One message. One page. One action.\n\nThat's it."
+              "text": "Boost posts for reach if you want.\n\nRun actual ads if you want leads."
             }
           ],
           "captions": [
             {
               "label": "A",
-              "text": "sending your ads to your homepage is like handing someone a menu and walking away."
+              "text": "boosting a post is not running ads. they are not the same thing."
             },
             {
               "label": "B",
-              "text": "one ad should do one thing.\n\nnot introduce your whole business, show your portfolio, and ask them to call \u2014 all on the same page.\n\none message. one offer. one action.\n\nthat's when the cost per lead drops."
+              "text": "boosted posts show your content to people who might like your page.\n\nnot people who need your service. not people ready to book.\n\nreal ads let you target exactly who sees it and what they do next.\n\nboosting is the easiest way to spend money and see nothing back."
             },
             {
               "label": "C",
-              "text": "if your ad goes to your homepage, that's probably why it's not converting."
+              "text": "boost posts for reach. run actual ads for leads. know the difference."
             }
           ]
         },
         {
-          "title": "Followers don't pay bills",
+          "title": "You don't need more platforms. You need one that works.",
           "type": "Talking Head",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "followers",
-            "line2": "don't pay bills"
+            "line1": "you don't need more platforms.",
+            "line2": "you need one that works."
           },
-          "film": "Casual, direct. A myth bust \u2014 say it simply and let it land.",
+          "film": "Relaxed. You've seen people burn themselves out trying to be everywhere.",
           "lines": [
             {
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "You don't need more followers.\n\nYou need more booked jobs."
+              "text": "You don't need to be on TikTok, Instagram, Facebook, Google, and YouTube.\n\nYou need one platform that consistently brings in jobs."
             },
             {
               "time": "Middle",
               "tag": "18s",
               "cls": "",
-              "text": "Most service businesses think they need to build their page first \u2014 get followers, post every day, grow organically \u2014 then worry about getting clients.\n\nBut followers don't book jobs. People with a problem and money to solve it do.\n\nYou can have 200 followers and a full calendar.\n\nYou can have 20,000 followers and be slow every second week.\n\nThe two things are not connected the way most people think."
+              "text": "Most service businesses try to be everywhere and end up doing nothing well.\n\nSpread thin. Inconsistent. Burning time on content that doesn't convert.\n\nPick the platform where your customers actually are and go all in on that.\n\nFor most service businesses, that's Meta.\n\nNot because it's the best platform in the world. Because it's the one where you can reach local people who need a service right now."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Stop optimising for followers.\n\nOptimise for booked jobs."
+              "text": "Stop spreading. Start stacking."
             }
           ],
           "captions": [
             {
               "label": "A",
-              "text": "200 followers and a full calendar beats 20k followers and a slow week every time."
+              "text": "trying to be on every platform is how you end up doing nothing well."
             },
             {
               "label": "B",
-              "text": "growing your instagram page is not the same as growing your business.\n\nfollowers don't call you. people who need your service and saw your ad do.\n\nthe two aren't as connected as most people think.\n\nstop chasing the number that doesn't pay you."
+              "text": "tiktok, instagram, facebook, google, youtube \u2014 you don't need all of them.\n\nyou need one that consistently brings in jobs.\n\npick where your customers actually are and go all in.\n\nstop spreading. start stacking."
             },
             {
               "label": "C",
-              "text": "followers are vanity. booked jobs are the metric."
+              "text": "one platform done well beats five platforms done badly."
             }
           ]
         },
         {
-          "title": "What changed for one of my clients",
+          "title": "What I'd do if I was starting a service business from scratch",
           "type": "Talking Head",
-          "recCap": 0,
+          "recCap": 1,
           "recVer": "full",
           "overlay": {
-            "line1": "what changed",
-            "line2": "for one of my clients"
+            "line1": "starting a service business",
+            "line2": "from scratch \u2014 i'd do this"
           },
-          "film": "Story-telling mode. Slower pace, let it breathe. You're walking them through what happened.",
+          "film": "Conversational, like you're thinking out loud. This one can breathe a little.",
           "lines": [
             {
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "A client came to me a few months ago.\n\nBusy some weeks, completely dead others. No idea why."
+              "text": "If I was starting a service business from scratch today \u2014 this is exactly what I'd do to get clients."
             },
             {
               "time": "Middle",
               "tag": "20s",
               "cls": "",
-              "text": "When we looked at what they were doing \u2014 they were pausing ads whenever they got busy.\n\nMade sense to them. Why spend money when you're already booked up?\n\nBut every time they paused, the algorithm reset. Lost all its data. When they turned ads back on, it started from scratch.\n\nSo busy weeks were followed by slow weeks. Every time. Like clockwork.\n\nWe stopped the cycle. Kept ads running consistently.\n\nWithin a few weeks, the slow periods stopped."
+              "text": "First 30 days: do good work, ask every single client for a Google review. Build the social proof fast.\n\nDay 31: start running a simple Meta ad. One video. Me talking to camera. Targeting my suburb and the ones around it.\n\nKeep it running. Don't touch it.\n\nWithin a few weeks the leads start coming in consistently.\n\nNo cold calls. No door knocking. No praying for referrals.\n\nJust showing up in front of the right people, every day."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Consistency is the system.\n\nNot a bigger budget. Not better creative. Consistency."
+              "text": "It's not complicated.\n\nIt just has to be consistent.\n\nFollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with Meta ads."
             }
           ],
           "captions": [
             {
               "label": "A",
-              "text": "pausing ads when you get busy is what creates the slow weeks that follow."
+              "text": "first 30 days: get reviews. day 31: start running one simple meta ad. keep it running. that's it."
             },
             {
               "label": "B",
-              "text": "every time you pause ads, the algorithm forgets what it learned.\n\nwho clicked, who converted, what worked \u2014 gone.\n\nso when you turn them back on, you're starting from scratch again. and it takes weeks to rebuild.\n\nthe businesses that never go slow never stop running."
+              "text": "if i was starting a service business from scratch today:\n\n\u2192 first 30 days \u2014 do good work, collect every google review you can\n\u2192 day 31 \u2014 run one simple meta ad. talking head video. tight local radius.\n\u2192 leave it running\n\nno cold calls. no door knocking. just consistent visibility.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads."
             },
             {
               "label": "C",
-              "text": "the slow week after a busy week isn't bad luck. it's cause and effect."
+              "text": "reviews first. then one meta ad. leave it running. that's the whole playbook early on."
             }
           ]
         },
         {
-          "title": "How I set up a new campaign from scratch",
+          "title": "What makes someone stop scrolling and actually watch your ad",
           "type": "Screen Record",
           "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "how i set up",
-            "line2": "a new campaign"
+            "line1": "what makes someone stop",
+            "line2": "and watch your ad"
           },
-          "film": "Screen record of Meta Ads Manager. Walk through what you actually do \u2014 objective, audience, creative. Talk over it like you're on a client call. Keep it real, no over-explaining.",
+          "film": "Screen record showing side-by-side or examples of weak vs strong ad hooks. Talk over it naturally \u2014 what you're looking at and why one works.",
           "lines": [
             {
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "This is how I actually set up a campaign for a new service business client."
+              "text": "This is the difference between an ad that gets scrolled past and one that actually gets watched."
             },
             {
               "time": "Middle",
-              "tag": "25s",
+              "tag": "22s",
               "cls": "",
-              "text": "Start with the objective \u2014 leads, not traffic. Always leads.\n\nAudience: tight radius around where they actually work. Not the whole city.\n\nCreative: one video. Talking head. Them speaking to camera, not a slideshow.\n\nBudget: consistent daily, not boosted posts. Big difference.\n\nAnd then we let it run. No touching it for the first week. Let the algorithm learn.\n\nMost people mess with it too early and reset the learning phase."
+              "text": "Most service business ads open the same way.\n\nLogo. Business name. 'We've been in business for X years.'\n\nNobody stops for that.\n\nWhat stops someone is hearing their own situation described back to them.\n\n'If your lawn hasn't been touched in weeks and you've been putting it off...' \u2014 now I'm listening.\n\nThe hook isn't about you. It's about them.\n\nSay something in the first two seconds that makes them think 'how did they know?'"
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "Simple setup. Consistent budget. Don't touch it.\n\nThat's 90% of it."
+              "text": "Hook them with their problem.\n\nThen show them you're the solution."
             }
           ],
           "captions": [
             {
               "label": "A",
-              "text": "the setup is simpler than most people think. the discipline to leave it alone is the hard part."
+              "text": "your ad hook isn't about your business. it's about their situation."
             },
             {
               "label": "B",
-              "text": "how i set up a campaign for a service business:\n\n\u2192 leads objective, not traffic\n\u2192 radius tight around where they actually work\n\u2192 one talking head video, not a graphic\n\u2192 consistent daily budget\n\u2192 don't touch it for the first week\n\nmost people mess with it too early and reset the learning. then they say ads don't work."
+              "text": "nobody stops scrolling for a logo and a tagline.\n\nthey stop when they hear their exact situation described out loud.\n\nthe first two seconds should make them think 'how did they know?'\n\nhook them with their problem. then show them you're the solution."
             },
             {
               "label": "C",
-              "text": "the biggest mistake after launching an ad is touching it too soon."
+              "text": "make the first two seconds about them, not you."
             }
           ]
         },
         {
-          "title": "Why I only work with service businesses",
-          "type": "Talking Head",
-          "recCap": 1,
+          "title": "The type of client I work with",
+          "type": "Screen Record",
+          "recCap": 0,
           "recVer": "full",
           "overlay": {
-            "line1": "why i only work with",
-            "line2": "service businesses"
+            "line1": "the type of client",
+            "line2": "i work with"
           },
-          "film": "Confident, direct. This is the authority + CTA video. Own it.",
+          "film": "Screen record of results dashboard or client communication \u2014 whatever looks real. Talk over it like you're walking someone through what you do.",
           "lines": [
             {
               "time": "Hook",
               "tag": "5s",
               "cls": "hook",
-              "text": "I could run ads for anyone.\n\nI choose not to."
+              "text": "This is the type of client I work with \u2014 and what changes once we start working together."
             },
             {
               "time": "Middle",
-              "tag": "18s",
+              "tag": "20s",
               "cls": "",
-              "text": "I focus on service businesses because that's where I get results.\n\nPlumbers, cleaners, landscapers, builders \u2014 businesses where the owner is skilled at the job but not at getting clients consistently.\n\nI know exactly what works for them. The setup, the creative, the follow-up system.\n\nBecause I've done it enough times that I'm not guessing anymore.\n\nThat's the difference between someone who runs ads and someone who specialises."
+              "text": "Service business owner. Good at the job. Gets most of their work from referrals.\n\nBusy some weeks, quiet others. No idea how to make it consistent.\n\nWe set up their Meta ads properly. Get the targeting right, the creative right, the follow-up right.\n\nAnd within a few weeks the calendar starts filling without them having to chase anyone.\n\nThat's the shift \u2014 from reactive to consistent."
             },
             {
               "time": "Close",
               "tag": "4s",
               "cls": "",
-              "text": "If you're a service business owner and you want consistent leads \u2014 DM me ADS."
+              "text": "If that sounds like where you're at \u2014 DM me ADS.\n\nFollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with Meta ads."
             }
           ],
           "captions": [
             {
               "label": "A",
-              "text": "i specialise in service businesses because that's where i actually know what i'm doing."
+              "text": "good at the job. inconsistent with the leads. that's who i work with."
             },
             {
               "label": "B",
-              "text": "i could run ads for any type of business.\n\nbut service businesses \u2014 plumbers, cleaners, landscapers, builders \u2014 have a specific problem i've solved enough times to do it well.\n\nskilled at the job, inconsistent with the leads.\n\nif that's you, dm me ADS and let's talk.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads."
+              "text": "most of my clients come to me with the same situation:\n\ngood at the job. solid reputation. mostly referrals.\n\nbut inconsistent \u2014 busy one week, quiet the next with no idea why.\n\nwe fix the ads, fix the follow-up, and the calendar starts filling consistently.\n\ndm me ADS if that's you.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads."
             },
             {
               "label": "C",
-              "text": "consistent leads for service businesses. that's all i do. dm me ADS.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads."
+              "text": "from inconsistent to fully booked. that's the shift. dm me ADS."
             }
           ]
         }
