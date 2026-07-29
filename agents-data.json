@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-28T15:11:56Z",
-  "updated_display": "Jul 28, 2026 at 15:11 UTC",
+  "updated": "2026-07-29T15:04:58Z",
+  "updated_display": "Jul 29, 2026 at 15:04 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing 40% better ROAS with video testimonials over static ads",
+      "headline": "Lead quality beats volume: service businesses seeing 40% better ROI with stricter audience targeting",
       "actions": [
-        "Record 15-30 second client testimonial videos on your phone this week",
-        "Test one testimonial video ad at $25/day against your current best performer",
-        "Ask your last 5 completed jobs for permission to film quick before/after clips"
+        "Segment your $25/day budget by service area zip codes instead of broad radius targeting",
+        "Create separate ad sets for past website visitors vs cold audiences to test conversion rates",
+        "Add income and homeowner filters to exclude renters and low-intent searchers in your targeting"
       ],
-      "source": "r/FacebookAds weekly discussion thread - service provider case studies"
+      "source": "r/FacebookAds weekly pinned thread discussions on service business ROI optimization"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
