@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-30T15:02:13Z",
-  "updated_display": "Jul 30, 2026 at 15:02 UTC",
+  "updated": "2026-07-31T15:12:55Z",
+  "updated_display": "Jul 31, 2026 at 15:12 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing 40% better ROI with video testimonials over static ads",
+      "headline": "Service ads targeting homeowners aged 45-65 see 3x better conversion",
       "actions": [
-        "Film 3 quick customer testimonial videos this week using phone camera",
-        "Create carousel ads alternating between testimonial videos and before/after photos",
-        "Set up separate ad set testing video testimonials at $25/day against current creative"
+        "Create age-gated ad set targeting 45-65 year old homeowners with separate creative",
+        "Split $25 daily budget: $15 to 45-65 demographic, $10 to broader audience test",
+        "Use 'trusted local expert' messaging in headlines for older demographic creative variants"
       ],
-      "source": "r/FacebookAds weekly thread - service business performance reports"
+      "source": "r/FacebookAds discussion threads on service business targeting patterns this week"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
@@ -21,13 +21,13 @@
       "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
-      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
+      "headline": "Meta ads spending budget without clear conversion tracking setup",
       "actions": [
-        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
-        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
-        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
+        "Audit all active campaigns to confirm conversion API or pixel is installed and firing correctly",
+        "Check Ads Manager Events Manager for data gaps\u2014look for campaigns with spend but zero tracked conversions",
+        "Compare your ad spend to actual booked jobs/leads in your CRM; large gaps indicate tracking isn't capturing real results"
       ],
-      "source": "r/FacebookAds new posts this week"
+      "source": "Weekly Meta ads community reports and troubleshooting threads"
     },
     "competitors": {
       "headline": "No one is teaching service businesses HOW to respond to leads from ads",
