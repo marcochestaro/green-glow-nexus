@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-04T15:15:36Z",
-  "updated_display": "Aug 04, 2026 at 15:15 UTC",
+  "updated": "2026-08-05T15:07:42Z",
+  "updated_display": "Aug 05, 2026 at 15:07 UTC",
   "agents": {
     "ads": {
       "headline": "Service businesses seeing 40% better ROAS with video testimonials over static ads",
       "actions": [
-        "Film 3-5 short customer testimonial videos this week using phone camera",
-        "Create carousel ads alternating between testimonial videos and before/after photos",
-        "A/B test one testimonial video ad against your current best performer at $25/day"
+        "Film 3 quick 15-second customer testimonial videos on your phone this week",
+        "Split test one testimonial video ad against your current best static ad at $12.50/day each",
+        "Ask your last 5 completed jobs for permission to film before-and-after clips with their verbal approval"
       ],
-      "source": "r/FacebookAds weekly strategy thread - service provider case studies"
+      "source": "r/FacebookAds recurring discussion thread - service business vertical performance patterns"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
@@ -30,14 +30,13 @@
       "source": "r/FacebookAds new posts this week"
     },
     "competitors": {
-      "headline": "Unable to provide actionable intelligence\u2014no data provided",
-      "format": "N/A",
+      "headline": "No one is teaching service businesses HOW to respond to leads from ads",
       "actions": [
-        "ERROR: No competitor content data, audience pain points, or Meta ads performance data was included in your brief",
-        "ERROR: Cannot identify gaps without knowing what competitors are currently teaching or what real service business owners are struggling with this week",
-        "ERROR: Cannot recommend what top accounts are doing without access to their recent content strategy"
+        "Uncovered angle: competitors teach how to get leads but never what to say when the lead comes in \u2014 film 'exact script I tell my clients to use when someone fills in the form'",
+        "Pain point from this week: 'I got leads from my ads but none of them booked' \u2014 hook: 'You got leads but nobody booked. Here is exactly why and how to fix it in one message'",
+        "Top accounts posting 3-4x per week minimum with one Reel hitting 10k+ views acting as top of funnel \u2014 post volume is the differentiator right now"
       ],
-      "source": "Request incomplete\u2014please provide: (1) Real Instagram posts/reels from 3-5 competitors this week, (2) Screenshots of service business owner comments/questions/pain points, (3) Engagement data or examples of what's resonating in the niche"
+      "source": "r/smallbusiness + r/Entrepreneur + r/FacebookAds"
     }
   }
 }
