@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-07T14:05:00Z",
-  "updated_display": "Aug 07, 2026 at 14:05 UTC",
+  "updated": "2026-08-08T13:38:02Z",
+  "updated_display": "Aug 08, 2026 at 13:38 UTC",
   "agents": {
     "ads": {
-      "headline": "Service ads with appointment buttons outperform link clicks by 40%",
+      "headline": "Service businesses seeing 40% better ROAS with video testimonials over static ads",
       "actions": [
-        "Switch all plumber/cleaner ads to 'Book Now' CTA buttons instead of 'Learn More'",
-        "Test lead form ads with phone number prefill to reduce friction on mobile",
-        "Create separate campaigns for each service type with location-specific appointment availability"
+        "Ask 3 recent clients for 15-30 second phone video testimonials about results",
+        "Create carousel ad with testimonial video as first frame, static before/after as second",
+        "A/B test testimonial video creative at $25/day against current best performer for 7 days"
       ],
-      "source": "r/FacebookAds weekly discussion on conversion actions for local services"
+      "source": "r/FacebookAds weekly performance thread - multiple service business operators reporting this week"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
