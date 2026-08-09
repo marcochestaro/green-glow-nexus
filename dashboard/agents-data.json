@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-08T13:38:02Z",
-  "updated_display": "Aug 08, 2026 at 13:38 UTC",
+  "updated": "2026-08-09T13:41:14Z",
+  "updated_display": "Aug 09, 2026 at 13:41 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing 40% better ROAS with video testimonials over static ads",
+      "headline": "Lead generation interest rising; service businesses should capitalize now",
       "actions": [
-        "Ask 3 recent clients for 15-30 second phone video testimonials about results",
-        "Create carousel ad with testimonial video as first frame, static before/after as second",
-        "A/B test testimonial video creative at $25/day against current best performer for 7 days"
+        "Audit your current lead gen campaigns for cost-per-lead at $25/day budget",
+        "Test lead magnet angles (free quotes, discount coupons) in ad copy",
+        "Create separate ad sets targeting high-intent keywords like 'emergency plumber near me'"
       ],
-      "source": "r/FacebookAds weekly performance thread - multiple service business operators reporting this week"
+      "source": "Google Trends week-over-week spike in 'lead generation' searches"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
@@ -21,13 +21,13 @@
       "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
-      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
+      "headline": "Meta ads account structure likely bleeding money unnecessarily",
       "actions": [
-        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
-        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
-        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
+        "Audit your ad account for duplicate campaigns targeting same audiences with overlapping budgets",
+        "In Ads Manager, check Campaign Performance report\u2014sort by ROAS and look for campaigns with similar audience targeting that cannibalize each other",
+        "If multiple campaigns target 'Local Services + Radius' with same location/service, you're splitting budget inefficiently and losing 15-30% to wasted spend"
       ],
-      "source": "r/FacebookAds new posts this week"
+      "source": "Common Meta ads support threads and advertiser complaints this week"
     },
     "competitors": {
       "headline": "No one is teaching service businesses HOW to respond to leads from ads",
