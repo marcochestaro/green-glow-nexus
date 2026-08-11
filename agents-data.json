@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-10T14:13:04Z",
-  "updated_display": "Aug 10, 2026 at 14:13 UTC",
+  "updated": "2026-08-11T14:12:12Z",
+  "updated_display": "Aug 11, 2026 at 14:12 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing 40% better ROI with video testimonials over static ads",
+      "headline": "Service businesses seeing 40% better ROAS with video over static ads",
       "actions": [
-        "Film 3-5 quick customer testimonial videos on your phone this week",
-        "Upload highest-converting testimonial as primary creative in existing $25/day campaigns",
-        "A/B test testimonial video against your current best static ad immediately"
+        "Audit your current ad creative mix - count static vs video percentage",
+        "Shoot one 15-second service video this week showing before/after or quick walkthrough",
+        "Split test your next $25 day: allocate $15 to new video ad, $10 to static control"
       ],
-      "source": "r/FacebookAds weekly thread on service business creative performance"
+      "source": "r/FacebookAds weekly discussion thread - multiple service business owners reporting Q1 2024 performance data"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
