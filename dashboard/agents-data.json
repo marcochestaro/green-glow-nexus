@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-13T14:15:24Z",
-  "updated_display": "Aug 13, 2026 at 14:15 UTC",
+  "updated": "2026-08-14T14:08:21Z",
+  "updated_display": "Aug 14, 2026 at 14:08 UTC",
   "agents": {
     "ads": {
-      "headline": "Advantage+ audience is outperforming manual targeting this week",
+      "headline": "Service ads with instant booking buttons outperform link clicks by 3x",
       "actions": [
-        "Test switching one campaign to Advantage+ audience \u2014 let Meta find who converts",
-        "Keep your location radius in Advantage+ settings to stay local",
-        "Compare CPL after 5 days vs your manual targeting baseline"
+        "Switch all plumber/landscaper ads to 'Book Now' CTA instead of 'Learn More'",
+        "Test lead form ads with phone number pre-filled to reduce friction at $25/day",
+        "A/B test instant booking against traditional link clicks this week to measure uplift"
       ],
-      "source": "r/FacebookAds discussions"
+      "source": "r/FacebookAds weekly discussion on conversion optimization for service verticals"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
