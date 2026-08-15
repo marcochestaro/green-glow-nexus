@@ -1,24 +1,25 @@
 {
-  "updated": "2026-08-14T14:08:21Z",
-  "updated_display": "Aug 14, 2026 at 14:08 UTC",
+  "updated": "2026-08-15T13:22:52Z",
+  "updated_display": "Aug 15, 2026 at 13:22 UTC",
   "agents": {
     "ads": {
-      "headline": "Service ads with instant booking buttons outperform link clicks by 3x",
+      "headline": "Service businesses seeing better ROI with video ads over static creative",
       "actions": [
-        "Switch all plumber/landscaper ads to 'Book Now' CTA instead of 'Learn More'",
-        "Test lead form ads with phone number pre-filled to reduce friction at $25/day",
-        "A/B test instant booking against traditional link clicks this week to measure uplift"
+        "Audit your current ad creative - count static images vs video ads in active campaigns",
+        "Create one 15-second phone-recorded video showing your service in action this week",
+        "Split test: allocate $12.50/day to video, $12.50/day to your best static ad for 7 days"
       ],
-      "source": "r/FacebookAds weekly discussion on conversion optimization for service verticals"
+      "source": "r/FacebookAds weekly discussion threads - service provider lead gen focus"
     },
     "creative": {
-      "headline": "POV-style talking head hooks outperforming every other format this week",
+      "headline": "Can't generate strategy \u2014 Google Trends data showing zero volume across all metrics",
+      "format": "Unable to determine",
       "actions": [
-        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
-        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
-        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
+        "STOP: The data provided shows 0-100 scores of zero for all three tracked terms, with no performance comparisons or engagement metrics included",
+        "Need actual data: Post-level engagement rates (likes, comments, saves, shares), audience demographics, DM conversion data, and which content types generated 'ADS' DMs",
+        "Without real performance data showing what worked vs. failed this week, any recommendation would be a guess that could waste your content calendar"
       ],
-      "source": "r/socialmediamarketing + r/InstagramMarketing"
+      "source": "Incomplete dataset \u2014 Google Trends shows no search volume data provided; missing Instagram Insights metrics (reach, impressions, engagement rate by content type); missing competitor analysis or audience feedback"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
