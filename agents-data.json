@@ -1,25 +1,25 @@
 {
-  "updated": "2026-08-15T13:22:52Z",
-  "updated_display": "Aug 15, 2026 at 13:22 UTC",
+  "updated": "2026-08-16T13:23:44Z",
+  "updated_display": "Aug 16, 2026 at 13:23 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing better ROI with video ads over static creative",
+      "headline": "Lead gen intent rising; $25 budgets need micro-targeting NOW",
       "actions": [
-        "Audit your current ad creative - count static images vs video ads in active campaigns",
-        "Create one 15-second phone-recorded video showing your service in action this week",
-        "Split test: allocate $12.50/day to video, $12.50/day to your best static ad for 7 days"
+        "Split $25 daily budget into 3 geo-radius campaigns (service area only)",
+        "Test 'emergency service' ad angles in first 48 hours for plumbers/cleaners",
+        "Use lead form ads instead of website clicks to capture intent cheaper"
       ],
-      "source": "r/FacebookAds weekly discussion threads - service provider lead gen focus"
+      "source": "Google Trends lead generation spike + r/FacebookAds budget efficiency discussions"
     },
     "creative": {
-      "headline": "Can't generate strategy \u2014 Google Trends data showing zero volume across all metrics",
+      "headline": "I cannot provide reliable recommendations without actual performance data",
       "format": "Unable to determine",
       "actions": [
-        "STOP: The data provided shows 0-100 scores of zero for all three tracked terms, with no performance comparisons or engagement metrics included",
-        "Need actual data: Post-level engagement rates (likes, comments, saves, shares), audience demographics, DM conversion data, and which content types generated 'ADS' DMs",
-        "Without real performance data showing what worked vs. failed this week, any recommendation would be a guess that could waste your content calendar"
+        "The Google Trends data shows all zeros (0-100) across all metrics, indicating no search volume or data capture",
+        "The 'What's failing' section is empty with no complaints or performance insights provided",
+        "Without real engagement metrics (views, saves, shares, DMs, follower growth), any recommendation would be a guess, not strategy"
       ],
-      "source": "Incomplete dataset \u2014 Google Trends shows no search volume data provided; missing Instagram Insights metrics (reach, impressions, engagement rate by content type); missing competitor analysis or audience feedback"
+      "source": "Incomplete data set \u2014 need actual Instagram Insights (top 3-5 posts by saves/shares/DMs), audience demographics, and this week's real engagement metrics to provide actionable strategy"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
