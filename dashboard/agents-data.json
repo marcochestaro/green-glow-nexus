@@ -1,25 +1,24 @@
 {
-  "updated": "2026-08-16T13:23:44Z",
-  "updated_display": "Aug 16, 2026 at 13:23 UTC",
+  "updated": "2026-08-17T13:31:54Z",
+  "updated_display": "Aug 17, 2026 at 13:31 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen intent rising; $25 budgets need micro-targeting NOW",
+      "headline": "Service ads need local phone numbers to beat competitor click-through rates",
       "actions": [
-        "Split $25 daily budget into 3 geo-radius campaigns (service area only)",
-        "Test 'emergency service' ad angles in first 48 hours for plumbers/cleaners",
-        "Use lead form ads instead of website clicks to capture intent cheaper"
+        "Add local service area phone number to all ad creative headlines immediately",
+        "A/B test ads with local vs national numbers to measure CTR lift",
+        "Create separate ad sets per service area using location-specific phone numbers"
       ],
-      "source": "Google Trends lead generation spike + r/FacebookAds budget efficiency discussions"
+      "source": "r/FacebookAds weekly meta discussion on local service ad performance"
     },
     "creative": {
-      "headline": "I cannot provide reliable recommendations without actual performance data",
-      "format": "Unable to determine",
+      "headline": "POV-style talking head hooks outperforming every other format this week",
       "actions": [
-        "The Google Trends data shows all zeros (0-100) across all metrics, indicating no search volume or data capture",
-        "The 'What's failing' section is empty with no complaints or performance insights provided",
-        "Without real engagement metrics (views, saves, shares, DMs, follower growth), any recommendation would be a guess, not strategy"
+        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
+        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
+        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
       ],
-      "source": "Incomplete data set \u2014 need actual Instagram Insights (top 3-5 posts by saves/shares/DMs), audience demographics, and this week's real engagement metrics to provide actionable strategy"
+      "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
