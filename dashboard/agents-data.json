@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-17T13:31:54Z",
-  "updated_display": "Aug 17, 2026 at 13:31 UTC",
+  "updated": "2026-08-18T13:35:17Z",
+  "updated_display": "Aug 18, 2026 at 13:35 UTC",
   "agents": {
     "ads": {
-      "headline": "Service ads need local phone numbers to beat competitor click-through rates",
+      "headline": "Advantage+ audience is outperforming manual targeting this week",
       "actions": [
-        "Add local service area phone number to all ad creative headlines immediately",
-        "A/B test ads with local vs national numbers to measure CTR lift",
-        "Create separate ad sets per service area using location-specific phone numbers"
+        "Test switching one campaign to Advantage+ audience \u2014 let Meta find who converts",
+        "Keep your location radius in Advantage+ settings to stay local",
+        "Compare CPL after 5 days vs your manual targeting baseline"
       ],
-      "source": "r/FacebookAds weekly meta discussion on local service ad performance"
+      "source": "r/FacebookAds discussions"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
