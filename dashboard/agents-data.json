@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-19T13:36:31Z",
-  "updated_display": "Aug 19, 2026 at 13:36 UTC",
+  "updated": "2026-08-20T13:38:34Z",
+  "updated_display": "Aug 20, 2026 at 13:38 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing 40% better ROI with video testimonials over static ads",
+      "headline": "Lead gen intent surging; service businesses must act now",
       "actions": [
-        "Film 3 quick client testimonial videos on your phone this week",
-        "Split test one testimonial video ad against your current best static ad at $12.50 daily budget each",
-        "Ask your best clients for permission to film them mid-service for authentic, non-polished content"
+        "Create lead magnet offer (free quote, inspection checklist) for each service type",
+        "Split $25 daily budget: allocate $15 to lead gen campaigns, $10 to brand awareness",
+        "A/B test landing pages with phone number vs. form submissions to find fastest conversions"
       ],
-      "source": "r/FacebookAds weekly thread on seasonal service business performance patterns"
+      "source": "Google Trends week analysis + r/FacebookAds lead generation trend discussion"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
