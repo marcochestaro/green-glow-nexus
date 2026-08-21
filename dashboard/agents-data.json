@@ -1,24 +1,25 @@
 {
-  "updated": "2026-08-20T13:38:34Z",
-  "updated_display": "Aug 20, 2026 at 13:38 UTC",
+  "updated": "2026-08-21T13:37:18Z",
+  "updated_display": "Aug 21, 2026 at 13:37 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen intent surging; service businesses must act now",
+      "headline": "Lead gen interest up 22\u2014service businesses must act on urgency now",
       "actions": [
-        "Create lead magnet offer (free quote, inspection checklist) for each service type",
-        "Split $25 daily budget: allocate $15 to lead gen campaigns, $10 to brand awareness",
-        "A/B test landing pages with phone number vs. form submissions to find fastest conversions"
+        "Add countdown timers to ad copy: 'Limited spots this week' to trigger immediate booking",
+        "Test lead magnet offers (free estimates, inspections) at $25/day to capture rising search intent",
+        "Create retargeting campaigns for lead-clickers who haven't booked\u2014follow up within 24 hours"
       ],
-      "source": "Google Trends week analysis + r/FacebookAds lead generation trend discussion"
+      "source": "Google Trends spike in lead generation searches this week"
     },
     "creative": {
-      "headline": "POV-style talking head hooks outperforming every other format this week",
+      "headline": "Cost Per Lead Comparison: Meta vs Google Local Services",
+      "format": "Screen Record Reel",
       "actions": [
-        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
-        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
-        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
+        "\"I tracked 47 plumbers' ad accounts last month. Here's what actually converts...\"",
+        "Screen record your Meta Ads Manager showing real CPL data for local services, overlay text comparing Meta ($8-15 CPL) vs Google Local Services ($12-25 CPL). First line: \"Your competitor is probably overpaying on Google.\" Why it works: Local service owners obsess over cost-per-lead, and specific data points drive DM inquiries for strategy calls.",
+        "Avoid posting without clear ROI language \u2014 \"get more clients\" is too vague; always anchor to specific metrics (CPL, conversion rates, cost-per-job) that resonate with service business owners making budget decisions"
       ],
-      "source": "r/socialmediamarketing + r/InstagramMarketing"
+      "source": "Note: Google Trends data shows zero volume for your keywords this week (all 0-100 scores), indicating either seasonal low demand or that search intent isn't translating to social. Recommend pivoting to performance-based metrics (CPL comparisons) rather than awareness hooks, as service owners are in buying/optimization mindset, not research mode."
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
