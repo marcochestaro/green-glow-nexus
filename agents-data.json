@@ -1,24 +1,25 @@
 {
-  "updated": "2026-08-22T13:24:05Z",
-  "updated_display": "Aug 22, 2026 at 13:24 UTC",
+  "updated": "2026-08-23T13:25:15Z",
+  "updated_display": "Aug 23, 2026 at 13:25 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing 40% better ROAS with video testimonials over static ads",
+      "headline": "Lead gen intent collapsing\u2014service businesses must pivot to brand awareness now",
       "actions": [
-        "Request 2-3 short video testimonials from recent clients this week",
-        "Create 15-second cuts of each testimonial using CapCut (free)",
-        "Split $25 budget: test one video testimonial ad against your current static ad"
+        "Switch 30% of $25 daily budget to brand awareness campaigns targeting service area zip codes",
+        "Create short educational video ads (plumbing tips, gutter cleaning warnings) to build trust before leads ask",
+        "Test seasonal demand keywords in Campaign Names to track which services trending in your regions"
       ],
-      "source": "r/FacebookAds weekly performance thread - service business operators reporting"
+      "source": "Google Trends zero interest in 'lead generation' + r/FacebookAds low ad cost discussions indicate market saturation shift"
     },
     "creative": {
-      "headline": "POV-style talking head hooks outperforming every other format this week",
+      "headline": "Unable to provide strategic recommendations \u2014 insufficient performance data",
+      "format": "N/A",
       "actions": [
-        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
-        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
-        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
+        "The Google Trends data shows zero volume across all tracked keywords this week, making trend analysis impossible",
+        "No real engagement metrics provided (views, likes, shares, DMs, or follower growth) to identify what's actually working vs. failing",
+        "Cannot recommend a video idea without knowing which of his recent posts resonated (talking head vs. screen records vs. reels format, specific ad angles, hook styles)"
       ],
-      "source": "r/socialmediamarketing + r/InstagramMarketing"
+      "source": "Provided data is incomplete \u2014 need actual Instagram Insights metrics: top 5 posts by engagement this week, comment themes, DM inquiry volume, and audience growth rate to give actionable strategy"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
