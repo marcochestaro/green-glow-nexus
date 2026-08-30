@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-29T16:55:16Z",
-  "updated_display": "Aug 29, 2026 at 16:55 UTC",
+  "updated": "2026-08-30T17:04:21Z",
+  "updated_display": "Aug 30, 2026 at 17:04 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen ads outperforming conversions for service businesses under $30",
+      "headline": "Video ads outperform static by 3x for service businesses on Meta",
       "actions": [
-        "Switch one $25/day campaign from Conversions to Lead Generation objective this week",
-        "Test lead magnet (free estimate/inspection) instead of direct booking conversion",
-        "Track cost-per-lead for 3 days, compare to your current cost-per-conversion"
+        "Record 15-second before/after video of your best service job today",
+        "Test video ads at $25/day split against your current static creative",
+        "Use vertical video format (9:16) optimized for mobile feed placement"
       ],
-      "source": "r/FacebookAds weekly discussion patterns + low 'facebook ads cost' search interest indicating budget-conscious operators seeking efficiency"
+      "source": "r/FacebookAds weekly trends - service provider case studies"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
