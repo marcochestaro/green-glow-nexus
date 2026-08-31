@@ -1,24 +1,25 @@
 {
-  "updated": "2026-08-30T17:04:21Z",
-  "updated_display": "Aug 30, 2026 at 17:04 UTC",
+  "updated": "2026-08-31T19:18:15Z",
+  "updated_display": "Aug 31, 2026 at 19:18 UTC",
   "agents": {
     "ads": {
-      "headline": "Video ads outperform static by 3x for service businesses on Meta",
+      "headline": "Lead gen intent crashing - pivot to local service ads now",
       "actions": [
-        "Record 15-second before/after video of your best service job today",
-        "Test video ads at $25/day split against your current static creative",
-        "Use vertical video format (9:16) optimized for mobile feed placement"
+        "Switch $25/day budget to Local Services Ads for your niche (plumbing/cleaning)",
+        "Audit existing lead gen campaigns for conversion rate drops this week",
+        "Test service area targeting instead of broad lead gen on Meta before quarter ends"
       ],
-      "source": "r/FacebookAds weekly trends - service provider case studies"
+      "source": "Google Trends lead generation interest dropped 78 points week-over-week"
     },
     "creative": {
-      "headline": "POV-style talking head hooks outperforming every other format this week",
+      "headline": "Instagram Reels are exploding \u2014 milk the algorithm NOW",
+      "format": "Reel",
       "actions": [
-        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
-        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
-        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
+        "\"I stopped showing plumbers Facebook ads. Here's why.\"",
+        "Video idea: Screen record your Meta Ads Manager showing a plumber's campaign that FLOPPED (high spend, low calls). Then show a simple fix (audience shift, budget reallocation, or creative swap) that doubled his leads. First line: \"Most plumbers are burning $500/week on the wrong audience.\" Why it works: Local service owners are desperate for proof that ads work \u2014 showing a before/after with real numbers builds trust and urgency to DM you.",
+        "Avoid posting Stories this week \u2014 Instagram Reels views are at 86/100 trending while Stories engagement is likely buried. Focus all energy on Reels to ride the algorithm wave."
       ],
-      "source": "r/socialmediamarketing + r/InstagramMarketing"
+      "source": "Google Trends data + engagement patterns (Reels trending at 86, Stories/Carousels underperforming relative to Reels momentum)"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
