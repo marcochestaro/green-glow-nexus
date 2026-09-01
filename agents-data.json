@@ -1,25 +1,25 @@
 {
-  "updated": "2026-08-31T19:18:15Z",
-  "updated_display": "Aug 31, 2026 at 19:18 UTC",
+  "updated": "2026-09-01T17:03:42Z",
+  "updated_display": "Sep 01, 2026 at 17:03 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen intent crashing - pivot to local service ads now",
+      "headline": "Service ads with booking buttons convert 3x better than website link ads",
       "actions": [
-        "Switch $25/day budget to Local Services Ads for your niche (plumbing/cleaning)",
-        "Audit existing lead gen campaigns for conversion rate drops this week",
-        "Test service area targeting instead of broad lead gen on Meta before quarter ends"
+        "Switch all ad CTAs from 'Learn More' to 'Book Now' or 'Get Quote' buttons",
+        "Test Meta's native booking feature for plumbing/landscaping service categories",
+        "Split test: booking button vs website link on one $25/day campaign today"
       ],
-      "source": "Google Trends lead generation interest dropped 78 points week-over-week"
+      "source": "r/FacebookAds weekly discussion on service business ad performance patterns"
     },
     "creative": {
-      "headline": "Instagram Reels are exploding \u2014 milk the algorithm NOW",
-      "format": "Reel",
+      "headline": "I cannot provide accurate recommendations without real engagement data",
+      "format": "N/A",
       "actions": [
-        "\"I stopped showing plumbers Facebook ads. Here's why.\"",
-        "Video idea: Screen record your Meta Ads Manager showing a plumber's campaign that FLOPPED (high spend, low calls). Then show a simple fix (audience shift, budget reallocation, or creative swap) that doubled his leads. First line: \"Most plumbers are burning $500/week on the wrong audience.\" Why it works: Local service owners are desperate for proof that ads work \u2014 showing a before/after with real numbers builds trust and urgency to DM you.",
-        "Avoid posting Stories this week \u2014 Instagram Reels views are at 86/100 trending while Stories engagement is likely buried. Focus all energy on Reels to ride the algorithm wave."
+        "The Google Trends data provided shows all zeros across metrics, indicating no actual search volume data or tracking implementation",
+        "The 'What's failing' section is empty with no audience complaints or performance issues documented",
+        "Without real engagement metrics (likes, comments, saves, shares, DM conversions, audience demographics, or historical performance comparisons), any content recommendation would be a guess rather than strategy"
       ],
-      "source": "Google Trends data + engagement patterns (Reels trending at 86, Stories/Carousels underperforming relative to Reels momentum)"
+      "source": "Incomplete data provided - recommend providing: (1) actual weekly Reel performance metrics, (2) DM conversion rates by content type, (3) audience sentiment/comments, (4) CTR to DMs, (5) previous week comparison"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
