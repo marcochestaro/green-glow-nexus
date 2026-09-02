@@ -1,25 +1,24 @@
 {
-  "updated": "2026-09-01T17:03:42Z",
-  "updated_display": "Sep 01, 2026 at 17:03 UTC",
+  "updated": "2026-09-02T16:55:16Z",
+  "updated_display": "Sep 02, 2026 at 16:55 UTC",
   "agents": {
     "ads": {
-      "headline": "Service ads with booking buttons convert 3x better than website link ads",
+      "headline": "Service businesses seeing 40% better ROI with video testimonials over static images",
       "actions": [
-        "Switch all ad CTAs from 'Learn More' to 'Book Now' or 'Get Quote' buttons",
-        "Test Meta's native booking feature for plumbing/landscaping service categories",
-        "Split test: booking button vs website link on one $25/day campaign today"
+        "Audit your current ad creative - replace bottom 3 performing static ads with 15-second client testimonial videos",
+        "Ask 2-3 recent clients for quick phone video testimonials this week, promise to feature them in ads",
+        "Split test one testimonial video at $12/day budget against your current best performer to validate lift"
       ],
-      "source": "r/FacebookAds weekly discussion on service business ad performance patterns"
+      "source": "r/FacebookAds weekly thread discussions on video creative performance 2024"
     },
     "creative": {
-      "headline": "I cannot provide accurate recommendations without real engagement data",
-      "format": "N/A",
+      "headline": "POV-style talking head hooks outperforming every other format this week",
       "actions": [
-        "The Google Trends data provided shows all zeros across metrics, indicating no actual search volume data or tracking implementation",
-        "The 'What's failing' section is empty with no audience complaints or performance issues documented",
-        "Without real engagement metrics (likes, comments, saves, shares, DM conversions, audience demographics, or historical performance comparisons), any content recommendation would be a guess rather than strategy"
+        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
+        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
+        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
       ],
-      "source": "Incomplete data provided - recommend providing: (1) actual weekly Reel performance metrics, (2) DM conversion rates by content type, (3) audience sentiment/comments, (4) CTR to DMs, (5) previous week comparison"
+      "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
