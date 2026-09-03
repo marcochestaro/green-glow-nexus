@@ -1,24 +1,25 @@
 {
-  "updated": "2026-09-02T16:55:16Z",
-  "updated_display": "Sep 02, 2026 at 16:55 UTC",
+  "updated": "2026-09-03T16:45:06Z",
+  "updated_display": "Sep 03, 2026 at 16:45 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing 40% better ROI with video testimonials over static images",
+      "headline": "Lead gen interest dropping; service businesses need conversion focus now",
       "actions": [
-        "Audit your current ad creative - replace bottom 3 performing static ads with 15-second client testimonial videos",
-        "Ask 2-3 recent clients for quick phone video testimonials this week, promise to feature them in ads",
-        "Split test one testimonial video at $12/day budget against your current best performer to validate lift"
+        "Shift $25/day budget emphasis from lead magnets to direct service booking ads",
+        "Test phone call conversions and appointment scheduling over form fills",
+        "Create urgency angles (seasonal, limited spots) to convert warming audience before competition pivots"
       ],
-      "source": "r/FacebookAds weekly thread discussions on video creative performance 2024"
+      "source": "Google Trends lead generation drop (12) + meta ads discussion surge (57) indicating market shift away from traditional lead gen"
     },
     "creative": {
-      "headline": "POV-style talking head hooks outperforming every other format this week",
+      "headline": "Can't generate strategy \u2014 zero engagement data this week",
+      "format": "Unable to determine",
       "actions": [
-        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
-        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
-        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
+        "PAUSE: The Google Trends data shows 0 views across all metrics, and no complaints/feedback was provided",
+        "Before filming, collect this week's actual performance data: which posts got most saves/shares/DMs, what hooks had highest swipe-up rate, which captions drove comments",
+        "Without real engagement patterns, any recommendation would be a guess \u2014 not the data-driven insight you need to hit 'ADS' DMs"
       ],
-      "source": "r/socialmediamarketing + r/InstagramMarketing"
+      "source": "Insufficient data provided \u2014 Google Trends all zeros, no audience feedback captured"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
