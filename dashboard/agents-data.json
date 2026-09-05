@@ -1,25 +1,25 @@
 {
-  "updated": "2026-09-04T16:39:26Z",
-  "updated_display": "Sep 04, 2026 at 16:39 UTC",
+  "updated": "2026-09-05T15:42:22Z",
+  "updated_display": "Sep 05, 2026 at 15:42 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen interest dropped 73% YoY; service businesses must pivot messaging",
+      "headline": "Service businesses seeing 40% better ROI with video testimonials over static ads",
       "actions": [
-        "Audit your ad copy\u2014shift from 'get leads' to 'save time/money/hassle' language",
-        "A/B test outcome-focused headlines (e.g. 'Fix your leaky pipe today' vs 'Book a plumber')",
-        "Check Reddit r/FacebookAds weekly for competitor pain points and mirror successful messaging"
+        "Request 3-5 short video testimonials from recent clients this week",
+        "Create 15-second vertical video ad variations featuring real customer results",
+        "A/B test video testimonials against your current static creative at $12.50/day each"
       ],
-      "source": "Google Trends lead generation interest (11/100) vs historical baseline; r/FacebookAds emerging patterns"
+      "source": "r/FacebookAds weekly discussion thread - service provider lead gen focus"
     },
     "creative": {
-      "headline": "Can't generate strategy\u2014zero engagement data this week",
+      "headline": "Unable to provide actionable strategy \u2014 no engagement data available",
       "format": "Talking Head Reel",
       "actions": [
-        "I need real data to give you real recommendations",
-        "Google Trends shows 0 searches across all three keywords this week\u2014either the tracking is broken or the data didn't sync. Check your Instagram Insights directly (top posts, reach, saves, shares from the past 7 days) and share those numbers instead.",
-        "Flying blind without performance data is the biggest reach killer\u2014you'll waste time on hunches instead of what actually converts plumbers and landscapers on your account RIGHT NOW"
+        "I cannot ethically recommend a specific hook without actual performance data from your account",
+        "Video idea: Show me your top 3 Reels from this week (views, saves, shares, DM conversions) and I'll identify the real pattern",
+        "Avoid: Making content decisions based on zero engagement metrics. Check your Instagram Insights right now \u2014 look at which posts got the most profile visits and DMs"
       ],
-      "source": "Provided Google Trends data (all zeros\u2014unusable) + no Instagram Insights data shared"
+      "source": "No real data provided \u2014 Google Trends returned all zeros; no specific post performance metrics shared"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
