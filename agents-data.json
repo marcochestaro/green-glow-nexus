@@ -1,15 +1,15 @@
 {
-  "updated": "2026-09-06T15:53:37Z",
-  "updated_display": "Sep 06, 2026 at 15:53 UTC",
+  "updated": "2026-09-07T17:59:55Z",
+  "updated_display": "Sep 07, 2026 at 17:59 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses now prioritize lead quality over volume in ads",
+      "headline": "Meta Ads cost trends flat; focus shifts to lead quality over volume",
       "actions": [
-        "Add qualification questions to lead forms to filter tire-kickers upfront",
-        "Test higher CPC bids targeting high-intent keywords like 'emergency plumber near me'",
-        "Create separate campaigns for immediate needs vs. future scheduling with different messaging"
+        "Audit your $25/day budget allocation\u2014cut underperforming audiences, double down on best-converting service areas",
+        "Test lead magnet offers (free quotes, inspections) instead of direct booking ads to improve conversion rates",
+        "Monitor lead quality metrics weekly; track which service calls convert to paying jobs, not just clicks"
       ],
-      "source": "r/FacebookAds discussions this week on lead generation ROI"
+      "source": "r/FacebookAds this week + Google Trends lead generation interest spike"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
@@ -30,13 +30,14 @@
       "source": "r/FacebookAds new posts this week"
     },
     "competitors": {
-      "headline": "No one is teaching service businesses HOW to respond to leads from ads",
+      "headline": "I don't have access to real Instagram data or competitor research",
+      "format": "Unable to determine",
       "actions": [
-        "Uncovered angle: competitors teach how to get leads but never what to say when the lead comes in \u2014 film 'exact script I tell my clients to use when someone fills in the form'",
-        "Pain point from this week: 'I got leads from my ads but none of them booked' \u2014 hook: 'You got leads but nobody booked. Here is exactly why and how to fix it in one message'",
-        "Top accounts posting 3-4x per week minimum with one Reel hitting 10k+ views acting as top of funnel \u2014 post volume is the differentiator right now"
+        "I cannot see actual Instagram posts, competitor content, or real-time pain points from service business owners",
+        "I cannot monitor what Meta ads educators are currently posting or what gaps exist in their content",
+        "I cannot identify trending topics or engagement patterns from this week's data"
       ],
-      "source": "r/smallbusiness + r/Entrepreneur + r/FacebookAds"
+      "source": "No data source available \u2014 I'm an AI without internet access or ability to browse Instagram/Meta platforms in real-time"
     }
   }
 }
