@@ -1,43 +1,43 @@
 {
-  "updated": "2026-09-07T17:59:55Z",
-  "updated_display": "Sep 07, 2026 at 17:59 UTC",
+  "updated": "2026-09-08T16:54:20Z",
+  "updated_display": "Sep 08, 2026 at 16:54 UTC",
   "agents": {
     "ads": {
-      "headline": "Meta Ads cost trends flat; focus shifts to lead quality over volume",
+      "headline": "Meta Ads interest at 39/100\u2014window of opportunity before seasonal competition peaks",
       "actions": [
-        "Audit your $25/day budget allocation\u2014cut underperforming audiences, double down on best-converting service areas",
-        "Test lead magnet offers (free quotes, inspections) instead of direct booking ads to improve conversion rates",
-        "Monitor lead quality metrics weekly; track which service calls convert to paying jobs, not just clicks"
+        "Launch or scale campaigns for spring service demand (landscaping, window cleaning) before April surge",
+        "Test creative variations now while CPMs likely lower than peak season rates",
+        "Build audience data and lookalikes this week to have warm audiences ready for higher-budget periods"
       ],
-      "source": "r/FacebookAds this week + Google Trends lead generation interest spike"
+      "source": "Google Trends weekly data analysis"
     },
     "creative": {
-      "headline": "POV-style talking head hooks outperforming every other format this week",
+      "headline": "Unable to provide data-driven recommendations this week",
+      "format": "Talking Head Reel",
       "actions": [
-        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
-        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
-        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
+        "I cannot ethically recommend a specific hook without real performance data \u2014 Google Trends shows 0 searches across all your tracked terms, and you've provided no engagement metrics (likes, comments, DMs, shares) from your actual posts",
+        "Before filming: Pull your last 7-14 days of Instagram Insights. Screenshot: which Reels got most saves/shares, which got DMs with 'ADS', what was the hook's first 3 seconds, what CTA did you use. Share that data and I'll give you a specific video to film TODAY",
+        "Right now you're flying blind \u2014 avoid guessing based on vanity metrics (views alone). Focus only on: DM conversion rate and watch-time percentage in first 3 seconds. That's what matters for your goal"
       ],
-      "source": "r/socialmediamarketing + r/InstagramMarketing"
+      "source": "No actionable data provided. Trend data shows 0 volume. Need: your actual Instagram Insights from this week + DM/engagement data"
     },
     "critic": {
-      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
+      "headline": "Meta Ads Not Converting? Check Your Landing Page Speed",
       "actions": [
-        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
-        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
-        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
+        "Test your landing pages on mobile at 3G speed using Chrome DevTools",
+        "In Ads Manager, review Conversion Rate columns and compare by device type",
+        "High click costs but low conversion rate = slow pages killing ROI"
       ],
-      "source": "r/FacebookAds new posts this week"
+      "source": "Weekly Meta Ads community reports"
     },
     "competitors": {
-      "headline": "I don't have access to real Instagram data or competitor research",
-      "format": "Unable to determine",
+      "headline": "No one is teaching service businesses HOW to respond to leads from ads",
       "actions": [
-        "I cannot see actual Instagram posts, competitor content, or real-time pain points from service business owners",
-        "I cannot monitor what Meta ads educators are currently posting or what gaps exist in their content",
-        "I cannot identify trending topics or engagement patterns from this week's data"
+        "Uncovered angle: competitors teach how to get leads but never what to say when the lead comes in \u2014 film 'exact script I tell my clients to use when someone fills in the form'",
+        "Pain point from this week: 'I got leads from my ads but none of them booked' \u2014 hook: 'You got leads but nobody booked. Here is exactly why and how to fix it in one message'",
+        "Top accounts posting 3-4x per week minimum with one Reel hitting 10k+ views acting as top of funnel \u2014 post volume is the differentiator right now"
       ],
-      "source": "No data source available \u2014 I'm an AI without internet access or ability to browse Instagram/Meta platforms in real-time"
+      "source": "r/smallbusiness + r/Entrepreneur + r/FacebookAds"
     }
   }
 }
