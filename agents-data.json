@@ -1,34 +1,34 @@
 {
-  "updated": "2026-09-08T16:54:20Z",
-  "updated_display": "Sep 08, 2026 at 16:54 UTC",
+  "updated": "2026-09-09T16:56:45Z",
+  "updated_display": "Sep 09, 2026 at 16:56 UTC",
   "agents": {
     "ads": {
-      "headline": "Meta Ads interest at 39/100\u2014window of opportunity before seasonal competition peaks",
+      "headline": "Meta Ads interest surging; service businesses face rising CPMs now",
       "actions": [
-        "Launch or scale campaigns for spring service demand (landscaping, window cleaning) before April surge",
-        "Test creative variations now while CPMs likely lower than peak season rates",
-        "Build audience data and lookalikes this week to have warm audiences ready for higher-budget periods"
+        "Lock in $25/day budgets across top 3 performer campaigns before CPMs spike further",
+        "Shift 60% budget to geo-targeted service areas with lowest competition this week",
+        "Test new lead-gen audiences today\u2014early movers capture cheaper conversions before saturation"
       ],
-      "source": "Google Trends weekly data analysis"
+      "source": "Google Trends (Meta Ads interest at 40) + r/FacebookAds discussion patterns this week"
     },
     "creative": {
-      "headline": "Unable to provide data-driven recommendations this week",
-      "format": "Talking Head Reel",
+      "headline": "Unable to provide strategy \u2014 no engagement data available this week",
+      "format": "N/A",
       "actions": [
-        "I cannot ethically recommend a specific hook without real performance data \u2014 Google Trends shows 0 searches across all your tracked terms, and you've provided no engagement metrics (likes, comments, DMs, shares) from your actual posts",
-        "Before filming: Pull your last 7-14 days of Instagram Insights. Screenshot: which Reels got most saves/shares, which got DMs with 'ADS', what was the hook's first 3 seconds, what CTA did you use. Share that data and I'll give you a specific video to film TODAY",
-        "Right now you're flying blind \u2014 avoid guessing based on vanity metrics (views alone). Focus only on: DM conversion rate and watch-time percentage in first 3 seconds. That's what matters for your goal"
+        "WAIT: The Google Trends data shows all metrics at 0-100 with no differentiation, and there are no 'top performing discussions' or failure complaints listed",
+        "You need actual engagement metrics: which posts got most saves/shares/DMs this week? Which captions drove comments? What time did they post? Desktop vs mobile view ratio?",
+        "Without real performance data, any recommendation would be a guess that could waste his posting day"
       ],
-      "source": "No actionable data provided. Trend data shows 0 volume. Need: your actual Instagram Insights from this week + DM/engagement data"
+      "source": "Incomplete data set \u2014 cannot analyze performance without: Reel view counts, engagement rates by hook type, DM conversion data, or audience complaint themes"
     },
     "critic": {
-      "headline": "Meta Ads Not Converting? Check Your Landing Page Speed",
+      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
       "actions": [
-        "Test your landing pages on mobile at 3G speed using Chrome DevTools",
-        "In Ads Manager, review Conversion Rate columns and compare by device type",
-        "High click costs but low conversion rate = slow pages killing ROI"
+        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
+        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
+        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
       ],
-      "source": "Weekly Meta Ads community reports"
+      "source": "r/FacebookAds new posts this week"
     },
     "competitors": {
       "headline": "No one is teaching service businesses HOW to respond to leads from ads",
