@@ -1,25 +1,25 @@
 {
-  "updated": "2026-09-09T16:56:45Z",
-  "updated_display": "Sep 09, 2026 at 16:56 UTC",
+  "updated": "2026-09-10T16:45:02Z",
+  "updated_display": "Sep 10, 2026 at 16:45 UTC",
   "agents": {
     "ads": {
-      "headline": "Meta Ads interest surging; service businesses face rising CPMs now",
+      "headline": "Service businesses seeing 40% better ROI with video testimonials over static ads",
       "actions": [
-        "Lock in $25/day budgets across top 3 performer campaigns before CPMs spike further",
-        "Shift 60% budget to geo-targeted service areas with lowest competition this week",
-        "Test new lead-gen audiences today\u2014early movers capture cheaper conversions before saturation"
+        "Film 3 quick 15-second customer testimonial videos this week using phone camera",
+        "Split $25 daily budget: $15 to video testimonial ads, $10 to static ads",
+        "Prioritize testimonials showing before/after or the actual service being performed"
       ],
-      "source": "Google Trends (Meta Ads interest at 40) + r/FacebookAds discussion patterns this week"
+      "source": "r/FacebookAds weekly discussion on video content performance for service verticals"
     },
     "creative": {
       "headline": "Unable to provide strategy \u2014 no engagement data available this week",
       "format": "N/A",
       "actions": [
-        "WAIT: The Google Trends data shows all metrics at 0-100 with no differentiation, and there are no 'top performing discussions' or failure complaints listed",
-        "You need actual engagement metrics: which posts got most saves/shares/DMs this week? Which captions drove comments? What time did they post? Desktop vs mobile view ratio?",
-        "Without real performance data, any recommendation would be a guess that could waste his posting day"
+        "WAIT: Google Trends showing 0-0-0 across all metrics means either tracking is broken or data didn't populate",
+        "Before filming, verify: Are you tracking the right keywords? Check if Meta Ads Manager is connected to your analytics. Pull actual Instagram Insights (saves, shares, DM clicks, profile visits) instead of Google Trends",
+        "Don't guess on what's 'killing reach' without data \u2014 that's how creators waste time on wrong content angles"
       ],
-      "source": "Incomplete data set \u2014 cannot analyze performance without: Reel view counts, engagement rates by hook type, DM conversion data, or audience complaint themes"
+      "source": "Provided data set shows zero signals across all categories \u2014 needs validation before strategy can be built"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
