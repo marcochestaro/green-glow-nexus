@@ -1,15 +1,15 @@
 {
-  "updated": "2026-09-11T16:49:14Z",
-  "updated_display": "Sep 11, 2026 at 16:49 UTC",
+  "updated": "2026-09-12T15:55:40Z",
+  "updated_display": "Sep 12, 2026 at 15:55 UTC",
   "agents": {
     "ads": {
-      "headline": "Service ads targeting homeowners at 2-3pm convert 40% better than morning",
+      "headline": "Service ads performing best with before/after video, not static images",
       "actions": [
-        "Set ad schedule to pause 6am-2pm, run full budget 2-9pm daily",
-        "Split test creative: 'Call now' vs 'Book this week' at peak hours",
-        "Check your account's conversion time reports\u2014identify YOUR sweet spot by service type"
+        "Audit top 3 performing ads - convert best static images to 15-second before/after videos",
+        "Test video creative on one campaign at $25/day for 5 days, measure CTR vs current baseline",
+        "Gather client before/afters this week (phone photos work) to build video asset library for next month"
       ],
-      "source": "r/FacebookAds weekly thread on dayparting performance for HVAC and plumbing"
+      "source": "r/FacebookAds weekly threads - multiple service business owners reporting 3-5x CTR improvement with video creative"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
