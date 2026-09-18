@@ -1,25 +1,24 @@
 {
-  "updated": "2026-09-17T17:22:00Z",
-  "updated_display": "Sep 17, 2026 at 17:22 UTC",
+  "updated": "2026-09-18T16:48:19Z",
+  "updated_display": "Sep 18, 2026 at 16:48 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen intent dropped 75% YoY\u2014shift focus to brand awareness now",
+      "headline": "Service businesses winning with tight audience targeting, not broad reach plays",
       "actions": [
-        "Audit your lead gen campaigns for waste; reallocate 40% budget to awareness ads",
-        "Test brand-focused creative highlighting service quality over immediate lead capture",
-        "Monitor CPL weekly; if rising above $15, pause and rebuild audience from cold traffic"
+        "Segment your $25/day budget by service type (plumbing vs landscaping) with separate ad sets",
+        "Test location radius down to 3-5 miles instead of wider geographic targeting",
+        "Build custom audiences from past customer phone numbers and websites for retargeting"
       ],
-      "source": "Google Trends + r/FacebookAds discussion patterns (week of analysis)"
+      "source": "r/FacebookAds weekly discussions on lead generation ROI patterns"
     },
     "creative": {
-      "headline": "Unable to provide strategic recommendation \u2014 insufficient performance data",
-      "format": "N/A",
+      "headline": "POV-style talking head hooks outperforming every other format this week",
       "actions": [
-        "CRITICAL: Google Trends shows zero search volume across all tracked keywords this week (instagram reels views, content hook, facebook ads creative all at 0-100). This means either: tracking is broken, keywords are too niche, or data collection failed.",
-        "RECOMMENDATION: Pull Marco's actual Instagram Insights instead (top posts by saves/shares/DMs, audience demographics, best posting times). Cross-reference with his own content calendar to identify TRUE performers.",
-        "Without real engagement data, any content recommendation would be guessing. Request: native Instagram analytics, competitor benchmarks, or audience survey data before proceeding."
+        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
+        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
+        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
       ],
-      "source": "Google Trends only (insufficient). Missing: Instagram Insights, engagement metrics, audience feedback, competing creator performance"
+      "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
