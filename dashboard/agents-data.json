@@ -1,25 +1,25 @@
 {
-  "updated": "2026-09-21T18:23:00Z",
-  "updated_display": "Sep 21, 2026 at 18:23 UTC",
+  "updated": "2026-09-22T17:26:02Z",
+  "updated_display": "Sep 22, 2026 at 17:26 UTC",
   "agents": {
     "ads": {
-      "headline": "Low search interest signals opportunity for cheap CPCs on service keywords",
+      "headline": "Service businesses seeing best ROI with location-based audience layering now",
       "actions": [
-        "Target high-intent keywords like 'emergency plumber near me' while competition bids are down",
-        "Allocate full $25/day budget to lead generation campaigns focused on immediate service needs",
-        "Test location-based audiences in underserved markets where competitors likely aren't advertising"
+        "Layer geo-targeting with custom audiences of past website visitors within 5 miles",
+        "Test $25/day split between broad local radius and hyper-local 1-mile radius audiences",
+        "Add income/homeowner targeting to location layers to filter qualified leads before spend"
       ],
-      "source": "Google Trends analysis - meta ads (18) vs facebook ads cost (0) showing seasonal dip"
+      "source": "r/FacebookAds weekly discussion patterns and local service business optimization threads"
     },
     "creative": {
-      "headline": "Unable to provide data-driven recommendations \u2014 Google Trends shows zero search volume",
-      "format": "N/A",
+      "headline": "Can't provide strategy\u2014Google Trends data shows zero volume signals",
+      "format": "Unable to determine",
       "actions": [
-        "Data limitation: All three tracked metrics (instagram reels views, content hook, facebook ads creative) returned 0-100 scores with no differentiation",
-        "Recommendation: Pull actual Instagram Insights data directly from @marcomarkets account (top posts by engagement rate, saves, shares, DMs generated) for accurate strategy",
-        "Note: Google Trends data is too broad for niche B2B content strategy \u2014 need native platform analytics instead"
+        "Data limitation: Google Trends returned all zeros across metrics\u2014no trending signals detected",
+        "Missing context: No Instagram Insights data, competitor benchmarks, or audience sentiment provided to identify what's actually working this week",
+        "Recommendation: Provide Marco's actual Instagram analytics (top 5 posts from this week with views/saves/shares, audience demographics, DM conversion rates) + any competitor data or audience feedback to generate actionable strategy"
       ],
-      "source": "Google Trends (insufficient for tactical content strategy) + no Instagram Insights data provided"
+      "source": "Google Trends API (insufficient data) \u2014 need Marco's Instagram Business account analytics to give accurate recommendations"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
