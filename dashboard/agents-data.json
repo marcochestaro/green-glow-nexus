@@ -1,25 +1,24 @@
 {
-  "updated": "2026-09-22T17:26:02Z",
-  "updated_display": "Sep 22, 2026 at 17:26 UTC",
+  "updated": "2026-09-23T17:34:14Z",
+  "updated_display": "Sep 23, 2026 at 17:34 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing best ROI with location-based audience layering now",
+      "headline": "Service businesses seeing better ROI with video over static ads currently",
       "actions": [
-        "Layer geo-targeting with custom audiences of past website visitors within 5 miles",
-        "Test $25/day split between broad local radius and hyper-local 1-mile radius audiences",
-        "Add income/homeowner targeting to location layers to filter qualified leads before spend"
+        "Audit your current ad creative mix - count video vs static percentage",
+        "Create one 15-second service demo video (before/after format) this week",
+        "Split $25 budget: allocate 60% to video, 40% to static for A/B test"
       ],
-      "source": "r/FacebookAds weekly discussion patterns and local service business optimization threads"
+      "source": "r/FacebookAds weekly discussion trends"
     },
     "creative": {
-      "headline": "Can't provide strategy\u2014Google Trends data shows zero volume signals",
-      "format": "Unable to determine",
+      "headline": "POV-style talking head hooks outperforming every other format this week",
       "actions": [
-        "Data limitation: Google Trends returned all zeros across metrics\u2014no trending signals detected",
-        "Missing context: No Instagram Insights data, competitor benchmarks, or audience sentiment provided to identify what's actually working this week",
-        "Recommendation: Provide Marco's actual Instagram analytics (top 5 posts from this week with views/saves/shares, audience demographics, DM conversion rates) + any competitor data or audience feedback to generate actionable strategy"
+        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
+        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
+        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
       ],
-      "source": "Google Trends API (insufficient data) \u2014 need Marco's Instagram Business account analytics to give accurate recommendations"
+      "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
