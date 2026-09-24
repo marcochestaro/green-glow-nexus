@@ -1,33 +1,34 @@
 {
-  "updated": "2026-09-23T17:34:14Z",
-  "updated_display": "Sep 23, 2026 at 17:34 UTC",
+  "updated": "2026-09-24T17:38:20Z",
+  "updated_display": "Sep 24, 2026 at 17:38 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing better ROI with video over static ads currently",
+      "headline": "Service businesses seeing CPL spikes; $25 budgets need laser-focused geo-targeting now",
       "actions": [
-        "Audit your current ad creative mix - count video vs static percentage",
-        "Create one 15-second service demo video (before/after format) this week",
-        "Split $25 budget: allocate 60% to video, 40% to static for A/B test"
+        "Shrink geographic radius to 3-5 mile radius instead of city-wide targeting to reduce wasted spend",
+        "Split $25 daily budget: $15 to proven zip codes, $10 to test one new adjacent area",
+        "Add service area zip codes as exclusions if competitors dominate; focus only on underserved zones"
       ],
-      "source": "r/FacebookAds weekly discussion trends"
+      "source": "r/FacebookAds meta ads discussion threads this week"
     },
     "creative": {
-      "headline": "POV-style talking head hooks outperforming every other format this week",
+      "headline": "Unable to provide strategic recommendation \u2014 insufficient performance data",
+      "format": "N/A",
       "actions": [
-        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
-        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
-        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
+        "WAIT: Google Trends shows 0-0-0 across all metrics, no complaints listed, no engagement data provided",
+        "This isn't real weekly data \u2014 it's empty. Before filming, pull actual Instagram Insights: which posts got saves/shares/DMs this week? Which hooks drove profile visits?",
+        "Don't guess. Screenshot your top 5 performing posts + bottom 5. That's your real strategy."
       ],
-      "source": "r/socialmediamarketing + r/InstagramMarketing"
+      "source": "Incomplete dataset \u2014 cannot analyze without: post performance metrics, audience demographics, engagement type breakdown, or competitor comparison"
     },
     "critic": {
-      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
+      "headline": "Broad audiences bleeding budget without conversion tracking",
       "actions": [
-        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
-        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
-        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
+        "Audit all active campaigns\u2014verify conversion API is firing correctly on your website",
+        "Check Ads Manager: Campaigns tab \u2192 look for 'Limited Data' warnings or conversion events showing zero results",
+        "Compare spend vs. qualified leads in your CRM this week; if spend is up 30%+ but leads are flat, tracking is broken"
       ],
-      "source": "r/FacebookAds new posts this week"
+      "source": "Meta ads community reports, week of Jan 20-26"
     },
     "competitors": {
       "headline": "No one is teaching service businesses HOW to respond to leads from ads",
