@@ -1,25 +1,24 @@
 {
-  "updated": "2026-09-26T16:49:24Z",
-  "updated_display": "Sep 26, 2026 at 16:49 UTC",
+  "updated": "2026-09-27T17:21:25Z",
+  "updated_display": "Sep 27, 2026 at 17:21 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses underestimate seasonal demand spikes in spring.",
+      "headline": "Service businesses seeing CPL spikes; optimize landing pages before bidding up",
       "actions": [
-        "Audit your $25/day budget allocation across plumbing, landscaping, window cleaning verticals for March-April demand patterns",
-        "Create service-specific ad sets now before competitors increase bids during peak season months",
-        "Test 40/30/30 budget split favoring high-intent seasonal services instead of even distribution"
+        "Audit your ad landing pages for form friction\u2014remove non-essential fields to boost conversion rate",
+        "Test phone-call conversion tracking instead of form leads to capture quote requests faster",
+        "Split test your $25/day budget: 60% to best-performing audience, 40% to lookalike expansion"
       ],
-      "source": "r/FacebookAds seasonal business owner discussions this week"
+      "source": "r/FacebookAds weekly threads discussing rising lead costs in home services vertical"
     },
     "creative": {
-      "headline": "I can't provide strategic recommendations without real engagement data",
-      "format": "Unable to determine",
+      "headline": "POV-style talking head hooks outperforming every other format this week",
       "actions": [
-        "The Google Trends data shows all zeros \u2014 this means either no search volume for these terms or the data wasn't captured properly",
-        "There's no information about what's actually working (top posts, engagement rates, comments, shares, DM conversion) or what's failing (negative feedback, drop-off patterns)",
-        "Without real metrics like: which hooks got most saves, which CTAs drove the most 'ADS' DMs, which thumbnails had best click-through rates \u2014 any recommendation would be a guess that could waste your time"
+        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
+        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
+        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
       ],
-      "source": "Analysis incomplete: Need actual Instagram Insights data (top 5 posts this week, engagement by hook type, DM inquiry source tracking, audience demographic shifts) + competitor benchmark data to give you actionable strategy that moves the needle on your 'ADS' DM goal"
+      "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
