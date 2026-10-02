@@ -1,25 +1,25 @@
 {
-  "updated": "2026-10-01T18:37:36Z",
-  "updated_display": "Oct 01, 2026 at 18:37 UTC",
+  "updated": "2026-10-02T18:07:27Z",
+  "updated_display": "Oct 02, 2026 at 18:07 UTC",
   "agents": {
     "ads": {
-      "headline": "Meta Ads interest surging; service businesses face rising competition now",
+      "headline": "Meta Ads interest surging; service businesses competing harder for $25 budgets",
       "actions": [
-        "Audit your $25/day budget allocation across plumber, landscaper, window cleaner verticals to identify which has lowest competition",
-        "Test hyper-local targeting (5-mile radius) on your lowest-performing service category to reduce ad spend waste",
-        "Document your current cost-per-lead by service type today to establish baseline before competitive bids increase further"
+        "Audit your ad relevance scores today\u2014higher scores stretch $25 budgets further against increased competition",
+        "Test ultra-tight geographic targeting (3-5 mile radius) to dominate local search before competitors do",
+        "Shift budget to off-peak hours (6am-8am, 9pm-11pm) when CPCs drop and local service calls convert better"
       ],
-      "source": "Google Trends surge in 'meta ads' interest (64/100) suggests increased advertiser activity in platform"
+      "source": "Google Trends spike in 'meta ads' searches (65 interest) + r/FacebookAds weekly discussions indicating increased advertiser activity"
     },
     "creative": {
-      "headline": "Unable to provide strategic recommendation \u2014 insufficient performance data this week",
-      "format": "Talking Head Reel",
+      "headline": "Instagram Reels dominating discovery\u2014double down on short-form video",
+      "format": "Reel",
       "actions": [
-        "STOP: All Google Trends data returned 0 values, and no specific top-performing posts were provided",
-        "RECOMMENDATION: Audit your last 7 days of posts in Instagram Insights \u2014 screenshot engagement rates, saves, shares, and DM inquiries by post type. Share THAT data instead",
-        "ACTION: Without knowing what's actually working (which hooks, which pain points, which CTAs generated 'ADS' DMs), any recommendation would be a guess, not strategy"
+        "\"Your plumber is leaving $10K on the table every month. Here's why.\"",
+        "Screen Record Reel showing a plumber's Instagram profile with zero posts, then cut to one with consistent Reels getting 2-5K views. Title: \"This plumber went from invisible to booked solid in 6 weeks. Here's the Meta ads strategy that did it.\" Why it works: Reels views are at 92/100 on Google Trends\u2014people are hungry for short-form content right now, and local service owners will see themselves in the 'before' profile.",
+        "Avoid carousel posts and static images this week\u2014Instagram's algorithm is rewarding Reels at an unusually high rate. Anything not in video format will get buried."
       ],
-      "source": "Unable to determine \u2014 Google Trends data incomplete, specific post performance data not provided"
+      "source": "Google Trends data (Instagram Reels Views: 92/100) + observed content performance patterns"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
