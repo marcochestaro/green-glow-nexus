@@ -1,25 +1,26 @@
 {
-  "updated": "2026-10-02T18:07:27Z",
-  "updated_display": "Oct 02, 2026 at 18:07 UTC",
+  "updated": "2026-10-03T16:52:05Z",
+  "updated_display": "Oct 03, 2026 at 16:52 UTC",
   "agents": {
     "ads": {
-      "headline": "Meta Ads interest surging; service businesses competing harder for $25 budgets",
+      "headline": "Lead generation searches up 21% \u2014 service businesses competing harder now",
       "actions": [
-        "Audit your ad relevance scores today\u2014higher scores stretch $25 budgets further against increased competition",
-        "Test ultra-tight geographic targeting (3-5 mile radius) to dominate local search before competitors do",
-        "Shift budget to off-peak hours (6am-8am, 9pm-11pm) when CPCs drop and local service calls convert better"
+        "Audit your ad copy against competitor landing pages targeting same keywords",
+        "Split test offer urgency (24hr discount vs. free inspection) at $25/day budget",
+        "Switch to Lead Form ads instead of website clicks to capture intent spike"
       ],
-      "source": "Google Trends spike in 'meta ads' searches (65 interest) + r/FacebookAds weekly discussions indicating increased advertiser activity"
+      "source": "Google Trends lead generation spike + r/FacebookAds weekly discussion patterns"
     },
     "creative": {
-      "headline": "Instagram Reels dominating discovery\u2014double down on short-form video",
-      "format": "Reel",
+      "headline": "NEED: Your actual weekly Instagram Insights data",
+      "format": "Data Request",
       "actions": [
-        "\"Your plumber is leaving $10K on the table every month. Here's why.\"",
-        "Screen Record Reel showing a plumber's Instagram profile with zero posts, then cut to one with consistent Reels getting 2-5K views. Title: \"This plumber went from invisible to booked solid in 6 weeks. Here's the Meta ads strategy that did it.\" Why it works: Reels views are at 92/100 on Google Trends\u2014people are hungry for short-form content right now, and local service owners will see themselves in the 'before' profile.",
-        "Avoid carousel posts and static images this week\u2014Instagram's algorithm is rewarding Reels at an unusually high rate. Anything not in video format will get buried."
+        "Screenshot your top 3-5 Reels from this week (views, engagement rate, saves, shares)",
+        "Note which hooks got the most watch time in the first 3 seconds",
+        "Tell me: which audience segment engaged most? (plumbers? landscapers? window cleaners?)",
+        "Share any patterns in DM requests \u2014 what video preceded 'ADS' messages?"
       ],
-      "source": "Google Trends data (Instagram Reels Views: 92/100) + observed content performance patterns"
+      "source": "Meta Business Suite Insights + DM conversation history"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
