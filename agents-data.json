@@ -1,26 +1,24 @@
 {
-  "updated": "2026-10-03T16:52:05Z",
-  "updated_display": "Oct 03, 2026 at 16:52 UTC",
+  "updated": "2026-10-04T17:11:30Z",
+  "updated_display": "Oct 04, 2026 at 17:11 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead generation searches up 21% \u2014 service businesses competing harder now",
+      "headline": "Service businesses need lead magnets to compete at $25/day budgets",
       "actions": [
-        "Audit your ad copy against competitor landing pages targeting same keywords",
-        "Split test offer urgency (24hr discount vs. free inspection) at $25/day budget",
-        "Switch to Lead Form ads instead of website clicks to capture intent spike"
+        "Create a free inspection offer or quote template as your lead magnet instead of direct booking",
+        "Test lead ads with form pre-fills to reduce friction on mobile at low budgets",
+        "Bundle 2-3 service offers (e.g., free quote + discount) to increase perceived value per click"
       ],
-      "source": "Google Trends lead generation spike + r/FacebookAds weekly discussion patterns"
+      "source": "r/FacebookAds weekly discussions on lead generation ROI"
     },
     "creative": {
-      "headline": "NEED: Your actual weekly Instagram Insights data",
-      "format": "Data Request",
+      "headline": "POV-style talking head hooks outperforming every other format this week",
       "actions": [
-        "Screenshot your top 3-5 Reels from this week (views, engagement rate, saves, shares)",
-        "Note which hooks got the most watch time in the first 3 seconds",
-        "Tell me: which audience segment engaged most? (plumbers? landscapers? window cleaners?)",
-        "Share any patterns in DM requests \u2014 what video preceded 'ADS' messages?"
+        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
+        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
+        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
       ],
-      "source": "Meta Business Suite Insights + DM conversation history"
+      "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
