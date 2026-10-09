@@ -1,15 +1,15 @@
 {
-  "updated": "2026-10-08T19:04:22Z",
-  "updated_display": "Oct 08, 2026 at 19:04 UTC",
+  "updated": "2026-10-09T18:34:53Z",
+  "updated_display": "Oct 09, 2026 at 18:34 UTC",
   "agents": {
     "ads": {
-      "headline": "Service ads with instant booking buttons outperform lead forms by 40%",
+      "headline": "Service businesses winning with carousel ads showing before/after transformations",
       "actions": [
-        "Replace lead form CTAs with 'Book Now' buttons linking to calendar/scheduling tool",
-        "Test scheduling integration (Calendly, Acuity, or native Meta booking) on 3 ad variants",
-        "Split $25 daily budget: $15 to booking button ads, $10 to lead forms to measure lift"
+        "Create 3-5 image carousel of your best before/after jobs this week",
+        "Split test carousel against single image ads at $25/day to measure CTR lift",
+        "Add specific transformation time in ad copy: 'Your lawn transformed in 4 hours'"
       ],
-      "source": "r/FacebookAds week of Jan 13-19, 2025 - multiple service providers reporting conversion rate improvements"
+      "source": "r/FacebookAds recurring thread on high-performing creative formats for local services"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
