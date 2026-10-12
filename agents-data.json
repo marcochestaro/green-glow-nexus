@@ -1,15 +1,15 @@
 {
-  "updated": "2026-10-11T17:50:44Z",
-  "updated_display": "Oct 11, 2026 at 17:50 UTC",
+  "updated": "2026-10-12T21:28:03Z",
+  "updated_display": "Oct 12, 2026 at 21:28 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen ads outperforming conversion ads for service businesses currently",
+      "headline": "Lead gen keyword interest dropping; pivot to brand-building messaging now",
       "actions": [
-        "Audit your current campaign structure\u2014switch 50% of $25 budget to Lead Generation objective if using Conversions",
-        "Create dedicated landing page for plumber/landscaper leads with instant quote forms to capture intent faster",
-        "A/B test lead gen against conversions for 3 days minimum, measure cost-per-lead vs cost-per-conversion"
+        "Shift 40% of $25 daily budget from lead gen to service awareness ads",
+        "Test testimonial video ads from past plumbing/cleaning clients this week",
+        "Monitor cost-per-lead daily; if rising, pause and reallocate to top-of-funnel"
       ],
-      "source": "r/FacebookAds discussion threads this week + lead generation trending on Google Trends"
+      "source": "Google Trends lead generation interest decline (13 score) + r/FacebookAds CPC inflation reports"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
@@ -21,23 +21,22 @@
       "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
-      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
+      "headline": "Meta ads not tracking conversions properly after iOS updates",
       "actions": [
-        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
-        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
-        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
+        "Verify all conversion pixels are firing correctly on your website",
+        "Check Ads Manager > Events Manager for data gaps or mismatches between pixel and server-side tracking",
+        "Compare conversion counts in Meta Ads Manager vs. your actual business backend\u2014if Meta shows 0 or unusually low conversions, you're likely overspending on underperforming campaigns"
       ],
-      "source": "r/FacebookAds new posts this week"
+      "source": "Common Meta ads community complaints this week regarding tracking discrepancies"
     },
     "competitors": {
-      "headline": "I cannot provide accurate intelligence without the data",
-      "format": "Unable to determine",
+      "headline": "No one is teaching service businesses HOW to respond to leads from ads",
       "actions": [
-        "No competitor content analysis provided to identify gaps",
-        "No real service business owner pain points shared for this week",
-        "No data on what top accounts are currently executing"
+        "Uncovered angle: competitors teach how to get leads but never what to say when the lead comes in \u2014 film 'exact script I tell my clients to use when someone fills in the form'",
+        "Pain point from this week: 'I got leads from my ads but none of them booked' \u2014 hook: 'You got leads but nobody booked. Here is exactly why and how to fix it in one message'",
+        "Top accounts posting 3-4x per week minimum with one Reel hitting 10k+ views acting as top of funnel \u2014 post volume is the differentiator right now"
       ],
-      "source": "Missing: competitor posts, service business owner comments/captions, and top account performance metrics"
+      "source": "r/smallbusiness + r/Entrepreneur + r/FacebookAds"
     }
   }
 }
