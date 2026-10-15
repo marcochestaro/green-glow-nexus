@@ -1,24 +1,31 @@
 {
-  "updated": "2026-10-14T17:40:53Z",
-  "updated_display": "Oct 14, 2026 at 17:40 UTC",
+  "updated": "2026-10-15T17:28:52Z",
+  "updated_display": "Oct 15, 2026 at 17:28 UTC",
   "agents": {
     "ads": {
-      "headline": "Meta Ads interest surging; cost conversation disappeared from searches",
+      "headline": "Lead gen intent collapsing; pivot to brand awareness for service businesses",
       "actions": [
-        "Audit your $25/day campaigns for ad relevance score improvements before competition increases",
-        "Test audience expansion on high-performing plumber/landscaper ads while CPMs still stable",
-        "Document your current cost-per-lead benchmarks today as baseline before likely price increases"
+        "Switch 40% of budget from lead gen campaigns to brand awareness with service area targeting",
+        "Test video ads showing before/after results instead of lead form creatives this week",
+        "Audit your landing pages for friction\u2014competitors are likely doing the same with reduced conversion intent"
       ],
-      "source": "Google Trends spike in 'meta ads' (41) vs flat 'facebook ads cost' (0) - week of analysis"
+      "source": "Google Trends lead generation interest dropping to 16; r/FacebookAds increased discussion of alternative funnel strategies"
     },
     "creative": {
-      "headline": "POV-style talking head hooks outperforming every other format this week",
-      "actions": [
-        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
-        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
-        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
+      "problem": "The Google Trends data shows all zeros (0-100), which means either:",
+      "issues": [
+        "No search volume for these terms this week",
+        "Data wasn't captured properly",
+        "The trends API didn't return valid results"
       ],
-      "source": "r/socialmediamarketing + r/InstagramMarketing"
+      "what_is_missing": [
+        "Actual engagement metrics (likes, comments, shares, saves on specific posts)",
+        "Video view duration data",
+        "Click-through rates to DMs",
+        "Audience demographics & when followers are most active",
+        "Specific post captions that drove 'ADS' DMs",
+        "Competitor benchmarks or audience sentiment"
+      ]
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
