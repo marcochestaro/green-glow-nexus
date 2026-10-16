@@ -1,31 +1,25 @@
 {
-  "updated": "2026-10-15T17:28:52Z",
-  "updated_display": "Oct 15, 2026 at 17:28 UTC",
+  "updated": "2026-10-16T17:04:09Z",
+  "updated_display": "Oct 16, 2026 at 17:04 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen intent collapsing; pivot to brand awareness for service businesses",
+      "headline": "Lead gen volume down: quality targeting beats broad reach now",
       "actions": [
-        "Switch 40% of budget from lead gen campaigns to brand awareness with service area targeting",
-        "Test video ads showing before/after results instead of lead form creatives this week",
-        "Audit your landing pages for friction\u2014competitors are likely doing the same with reduced conversion intent"
+        "Shift $25 daily budget to narrower audience: homeowners 35-65, high intent searches only",
+        "Test service-specific audiences (e.g., 'recent plumbing searches') instead of location + age",
+        "Add negative keywords blocking bargain hunters; prioritize qualified leads over volume"
       ],
-      "source": "Google Trends lead generation interest dropping to 16; r/FacebookAds increased discussion of alternative funnel strategies"
+      "source": "r/FacebookAds weekly discussions on declining CPL and CPC trends"
     },
     "creative": {
-      "problem": "The Google Trends data shows all zeros (0-100), which means either:",
-      "issues": [
-        "No search volume for these terms this week",
-        "Data wasn't captured properly",
-        "The trends API didn't return valid results"
+      "headline": "Local service ads aren't working? Show the broken strategy first.",
+      "format": "Talking Head Reel",
+      "actions": [
+        "\"Your plumber's Facebook ads are probably doing THIS... and it's costing you $500/week.\"",
+        "Video idea: Sit down, show 3 common Meta ad mistakes you see local service owners making (wrong audience targeting, low-quality before/after photos, weak CTAs). For each mistake, give the fix in 1 sentence. End with: \"DM 'ADS' if you want me to audit your account.\" \u2014 Works because it positions you as the expert who SEES problems others miss, and promises immediate value.",
+        "Avoid: Posting without a clear CTA. If you're not explicitly asking for DMing \"ADS\" or creating urgency around a problem, the algorithm treats it as generic advice content. Local service owners scroll past unless you make it personal to their pain."
       ],
-      "what_is_missing": [
-        "Actual engagement metrics (likes, comments, shares, saves on specific posts)",
-        "Video view duration data",
-        "Click-through rates to DMs",
-        "Audience demographics & when followers are most active",
-        "Specific post captions that drove 'ADS' DMs",
-        "Competitor benchmarks or audience sentiment"
-      ]
+      "source": "Google Trends shows zero search volume on your core keywords this week (unusual), indicating audience saturation on broad terms. Recommendation: Shift from trend-chasing to problem-solving angles that target the specific pain of struggling ad accounts."
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
