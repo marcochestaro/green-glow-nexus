@@ -1,25 +1,25 @@
 {
-  "updated": "2026-10-16T17:04:09Z",
-  "updated_display": "Oct 16, 2026 at 17:04 UTC",
+  "updated": "2026-10-17T16:01:37Z",
+  "updated_display": "Oct 17, 2026 at 16:01 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen volume down: quality targeting beats broad reach now",
+      "headline": "Lead generation interest surging; service businesses missing peak demand window",
       "actions": [
-        "Shift $25 daily budget to narrower audience: homeowners 35-65, high intent searches only",
-        "Test service-specific audiences (e.g., 'recent plumbing searches') instead of location + age",
-        "Add negative keywords blocking bargain hunters; prioritize qualified leads over volume"
+        "Audit your current lead gen campaigns for conversion pixel tracking accuracy today",
+        "Test lead magnet offers (free quotes, inspections) at $25/day split across 2-3 audiences",
+        "Create urgency-driven ad copy highlighting 48-hour response times to capture trending searches"
       ],
-      "source": "r/FacebookAds weekly discussions on declining CPL and CPC trends"
+      "source": "Google Trends lead generation spike (19 interest) + r/FacebookAds cost discussions"
     },
     "creative": {
-      "headline": "Local service ads aren't working? Show the broken strategy first.",
+      "headline": "Unable to provide strategy \u2014 no engagement data available",
       "format": "Talking Head Reel",
       "actions": [
-        "\"Your plumber's Facebook ads are probably doing THIS... and it's costing you $500/week.\"",
-        "Video idea: Sit down, show 3 common Meta ad mistakes you see local service owners making (wrong audience targeting, low-quality before/after photos, weak CTAs). For each mistake, give the fix in 1 sentence. End with: \"DM 'ADS' if you want me to audit your account.\" \u2014 Works because it positions you as the expert who SEES problems others miss, and promises immediate value.",
-        "Avoid: Posting without a clear CTA. If you're not explicitly asking for DMing \"ADS\" or creating urgency around a problem, the algorithm treats it as generic advice content. Local service owners scroll past unless you make it personal to their pain."
+        "I need actual performance metrics to give you real recommendations",
+        "Google Trends shows 0-0-0 across all search terms, and no complaint/failure data was provided",
+        "Without knowing which posts got views, comments, DMs, or shares this week, any advice would be guessing"
       ],
-      "source": "Google Trends shows zero search volume on your core keywords this week (unusual), indicating audience saturation on broad terms. Recommendation: Shift from trend-chasing to problem-solving angles that target the specific pain of struggling ad accounts."
+      "source": "Insufficient data provided \u2014 all metrics returned zero; no qualitative feedback included"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
