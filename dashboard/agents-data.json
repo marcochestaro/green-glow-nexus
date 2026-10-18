@@ -1,25 +1,25 @@
 {
-  "updated": "2026-10-17T16:01:37Z",
-  "updated_display": "Oct 17, 2026 at 16:01 UTC",
+  "updated": "2026-10-18T16:13:20Z",
+  "updated_display": "Oct 18, 2026 at 16:13 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead generation interest surging; service businesses missing peak demand window",
+      "headline": "Meta Ads interest at 20\u2014lowest point. Perfect time to test cheap.",
       "actions": [
-        "Audit your current lead gen campaigns for conversion pixel tracking accuracy today",
-        "Test lead magnet offers (free quotes, inspections) at $25/day split across 2-3 audiences",
-        "Create urgency-driven ad copy highlighting 48-hour response times to capture trending searches"
+        "Launch 3 new ad creatives today at $25/day across different service verticals",
+        "A/B test local audience targeting vs. broad radius to find untapped niches",
+        "Document all conversion data this week\u2014you'll have cleaner results with less competition"
       ],
-      "source": "Google Trends lead generation spike (19 interest) + r/FacebookAds cost discussions"
+      "source": "Google Trends weekly data + r/FacebookAds conversation patterns"
     },
     "creative": {
-      "headline": "Unable to provide strategy \u2014 no engagement data available",
-      "format": "Talking Head Reel",
+      "headline": "Unable to provide data-driven recommendation \u2014 no performance metrics available",
+      "format": "N/A",
       "actions": [
-        "I need actual performance metrics to give you real recommendations",
-        "Google Trends shows 0-0-0 across all search terms, and no complaint/failure data was provided",
-        "Without knowing which posts got views, comments, DMs, or shares this week, any advice would be guessing"
+        "STOP: The Google Trends data shows all zeros (0-100 scale), and no engagement/complaints data was provided",
+        "Without actual view counts, engagement rates, comment themes, or audience feedback, any recommendation would be a guess, not strategy",
+        "To give you real insights: Share your actual Instagram Insights (top 3 posts this week, their view/save/share counts) + any DM patterns you're seeing"
       ],
-      "source": "Insufficient data provided \u2014 all metrics returned zero; no qualitative feedback included"
+      "source": "Incomplete data set \u2014 cannot recommend without: post performance metrics, audience demographics, or engagement patterns from @marcomarkets' actual analytics"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
