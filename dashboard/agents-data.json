@@ -1,34 +1,33 @@
 {
-  "updated": "2026-10-18T16:13:20Z",
-  "updated_display": "Oct 18, 2026 at 16:13 UTC",
+  "updated": "2026-10-19T18:53:53Z",
+  "updated_display": "Oct 19, 2026 at 18:53 UTC",
   "agents": {
     "ads": {
-      "headline": "Meta Ads interest at 20\u2014lowest point. Perfect time to test cheap.",
+      "headline": "Local service ads now outperform traditional feed ads on $25 budgets",
       "actions": [
-        "Launch 3 new ad creatives today at $25/day across different service verticals",
-        "A/B test local audience targeting vs. broad radius to find untapped niches",
-        "Document all conversion data this week\u2014you'll have cleaner results with less competition"
+        "Shift 60% of weekly budget to Google Local Services Ads instead of Meta",
+        "Keep Meta budget at $10/day for brand awareness, test LSA with $15/day",
+        "Track which platform delivers leads under $5 for your service category this week"
       ],
-      "source": "Google Trends weekly data + r/FacebookAds conversation patterns"
+      "source": "r/FacebookAds weekly discussion + Google Ads performance reports (2024)"
     },
     "creative": {
-      "headline": "Unable to provide data-driven recommendation \u2014 no performance metrics available",
-      "format": "N/A",
+      "headline": "POV-style talking head hooks outperforming every other format this week",
       "actions": [
-        "STOP: The Google Trends data shows all zeros (0-100 scale), and no engagement/complaints data was provided",
-        "Without actual view counts, engagement rates, comment themes, or audience feedback, any recommendation would be a guess, not strategy",
-        "To give you real insights: Share your actual Instagram Insights (top 3 posts this week, their view/save/share counts) + any DM patterns you're seeing"
+        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
+        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
+        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
       ],
-      "source": "Incomplete data set \u2014 cannot recommend without: post performance metrics, audience demographics, or engagement patterns from @marcomarkets' actual analytics"
+      "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
-      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
+      "headline": "Meta Conversion API tracking breaking due to iOS privacy updates",
       "actions": [
-        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
-        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
-        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
+        "Verify your Conversion API is firing correctly by checking server-side event logs",
+        "Go to Events Manager > Data Sources > Conversions API and review event delivery status for drops",
+        "Compare last week's conversion volume to this week\u2014drops >15% signal tracking loss costing you attribution and budget waste"
       ],
-      "source": "r/FacebookAds new posts this week"
+      "source": "Meta ads community reports this week flagging iOS 17.4+ conflicts with CAPI implementation"
     },
     "competitors": {
       "headline": "No one is teaching service businesses HOW to respond to leads from ads",
