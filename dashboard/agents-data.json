@@ -1,15 +1,15 @@
 {
-  "updated": "2026-10-19T18:53:53Z",
-  "updated_display": "Oct 19, 2026 at 18:53 UTC",
+  "updated": "2026-10-20T17:37:25Z",
+  "updated_display": "Oct 20, 2026 at 17:37 UTC",
   "agents": {
     "ads": {
-      "headline": "Local service ads now outperform traditional feed ads on $25 budgets",
+      "headline": "Service business owners waste budget on broad targeting, need location + intent combo",
       "actions": [
-        "Shift 60% of weekly budget to Google Local Services Ads instead of Meta",
-        "Keep Meta budget at $10/day for brand awareness, test LSA with $15/day",
-        "Track which platform delivers leads under $5 for your service category this week"
+        "Audit current campaigns: check if targeting radius exceeds realistic service area (usually 5-15 miles max)",
+        "Add keyword intent layers: combine location targeting with searches for 'emergency', 'urgent', 'today', 'near me'",
+        "Test micro-budget split: allocate $15 to tight geo+intent combo, $10 to broader brand awareness, measure conversion difference"
       ],
-      "source": "r/FacebookAds weekly discussion + Google Ads performance reports (2024)"
+      "source": "r/FacebookAds recurring thread on low-budget service ad failures, pattern across plumber and HVAC discussions"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
@@ -21,13 +21,13 @@
       "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
-      "headline": "Meta Conversion API tracking breaking due to iOS privacy updates",
+      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
       "actions": [
-        "Verify your Conversion API is firing correctly by checking server-side event logs",
-        "Go to Events Manager > Data Sources > Conversions API and review event delivery status for drops",
-        "Compare last week's conversion volume to this week\u2014drops >15% signal tracking loss costing you attribution and budget waste"
+        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
+        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
+        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
       ],
-      "source": "Meta ads community reports this week flagging iOS 17.4+ conflicts with CAPI implementation"
+      "source": "r/FacebookAds new posts this week"
     },
     "competitors": {
       "headline": "No one is teaching service businesses HOW to respond to leads from ads",
