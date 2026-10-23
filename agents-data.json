@@ -1,19 +1,25 @@
 {
-  "updated": "2026-10-22T17:44:08Z",
-  "updated_display": "Oct 22, 2026 at 17:44 UTC",
+  "updated": "2026-10-23T17:35:29Z",
+  "updated_display": "Oct 23, 2026 at 17:35 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen interest dropping sharply; pivot to direct booking conversions now",
+      "headline": "Service businesses shift to lead gen campaigns over direct conversion",
       "actions": [
-        "Switch campaign objective from Lead Generation to Conversion tracking phone calls/bookings",
-        "Add click-to-call buttons to ads instead of form fills for plumbers/cleaners",
-        "Test appointment scheduling integrations (Calendly/Acuity) as landing page instead of forms"
+        "Switch one $25/day campaign to Lead Generation format to test response rates",
+        "Create simple lead form capturing name, phone, service needed only",
+        "Track lead cost vs conversion cost from current setup this week"
       ],
-      "source": "Google Trends (lead generation 15/100) + Reddit r/FacebookAds discussions this week"
+      "source": "Google Trends lead generation spike + service business patterns r/FacebookAds"
     },
     "creative": {
-      "status": "insufficient_data",
-      "recommendation": "Pull your actual Instagram Insights and top-performing post data, then re-submit. I can then give you a concrete, data-backed strategy instead of guessing."
+      "headline": "Unable to provide reliable recommendations \u2014 data insufficient",
+      "format": "Talking Head Reel",
+      "actions": [
+        "I can't give you accurate strategy. Google Trends shows zero data, and you've provided no engagement metrics, competitor analysis, or audience feedback.",
+        "Before I recommend a video idea, I need: This week's top 3 performing posts (views/saves/DMs), audience demographics, what other local service ad creators are doing, and specific complaints from your followers.",
+        "Guessing on strategy wastes your filming time. Spend 15 minutes pulling your actual Instagram Insights data, then I'll give you a killer angle backed by YOUR performance."
+      ],
+      "source": "Incomplete data set \u2014 requires Instagram Insights + competitive context to be actionable"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
