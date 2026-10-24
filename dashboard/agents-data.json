@@ -1,25 +1,25 @@
 {
-  "updated": "2026-10-23T17:35:29Z",
-  "updated_display": "Oct 23, 2026 at 17:35 UTC",
+  "updated": "2026-10-24T16:20:58Z",
+  "updated_display": "Oct 24, 2026 at 16:20 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses shift to lead gen campaigns over direct conversion",
+      "headline": "Service businesses seeing CPC spikes; audience overlap waste is main culprit",
       "actions": [
-        "Switch one $25/day campaign to Lead Generation format to test response rates",
-        "Create simple lead form capturing name, phone, service needed only",
-        "Track lead cost vs conversion cost from current setup this week"
+        "Audit all active ad sets for duplicate audience targeting\u2014combine overlapping audiences into single campaigns",
+        "Split $25 daily budget into 2-3 micro-campaigns by service type instead of running one broad campaign",
+        "Test excluding past engagers from lead-generation ads to reduce cost-per-lead by 15-25%"
       ],
-      "source": "Google Trends lead generation spike + service business patterns r/FacebookAds"
+      "source": "r/FacebookAds weekly discussion threads on Q4 CPC increases for local service verticals"
     },
     "creative": {
-      "headline": "Unable to provide reliable recommendations \u2014 data insufficient",
-      "format": "Talking Head Reel",
+      "headline": "Unable to provide strategic recommendation \u2014 insufficient performance data",
+      "format": "N/A",
       "actions": [
-        "I can't give you accurate strategy. Google Trends shows zero data, and you've provided no engagement metrics, competitor analysis, or audience feedback.",
-        "Before I recommend a video idea, I need: This week's top 3 performing posts (views/saves/DMs), audience demographics, what other local service ad creators are doing, and specific complaints from your followers.",
-        "Guessing on strategy wastes your filming time. Spend 15 minutes pulling your actual Instagram Insights data, then I'll give you a killer angle backed by YOUR performance."
+        "Google Trends shows zero search volume across all tracked keywords this week",
+        "No engagement data, complaint patterns, or top performer metrics provided to identify working angles",
+        "Cannot recommend avoiding specific tactics without knowing what's actually underperforming"
       ],
-      "source": "Incomplete data set \u2014 requires Instagram Insights + competitive context to be actionable"
+      "source": "Incomplete dataset: Google Trends returned all zeros; no engagement metrics, audience feedback, or comparative performance data supplied"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
