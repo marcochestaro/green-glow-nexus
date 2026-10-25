@@ -1,25 +1,25 @@
 {
-  "updated": "2026-10-24T16:20:58Z",
-  "updated_display": "Oct 24, 2026 at 16:20 UTC",
+  "updated": "2026-10-25T16:54:34Z",
+  "updated_display": "Oct 25, 2026 at 16:54 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing CPC spikes; audience overlap waste is main culprit",
+      "headline": "Lead gen intent collapsing; pivot to brand awareness for service businesses now",
       "actions": [
-        "Audit all active ad sets for duplicate audience targeting\u2014combine overlapping audiences into single campaigns",
-        "Split $25 daily budget into 2-3 micro-campaigns by service type instead of running one broad campaign",
-        "Test excluding past engagers from lead-generation ads to reduce cost-per-lead by 15-25%"
+        "Switch 40% of $25 daily budget from lead gen to brand awareness campaigns targeting service areas",
+        "Create simple before/after video ads showcasing plumber/cleaner/landscaper work to build top-of-funnel",
+        "Test retargeting website visitors with service-specific offers instead of chasing cold leads"
       ],
-      "source": "r/FacebookAds weekly discussion threads on Q4 CPC increases for local service verticals"
+      "source": "Google Trends week-over-week decline (lead generation: 7) + r/FacebookAds rising CPC complaints"
     },
     "creative": {
-      "headline": "Unable to provide strategic recommendation \u2014 insufficient performance data",
-      "format": "N/A",
+      "headline": "Meta Ads ROI Proof: Show Real Client Results This Week",
+      "format": "Screen Record Reel",
       "actions": [
-        "Google Trends shows zero search volume across all tracked keywords this week",
-        "No engagement data, complaint patterns, or top performer metrics provided to identify working angles",
-        "Cannot recommend avoiding specific tactics without knowing what's actually underperforming"
+        "\"I stopped showing vanity metrics. Here's what actually matters to plumbers.\"",
+        "Screen record a Meta Ads Manager dashboard showing a real (anonymized) campaign for a local service business. Walk through: Cost Per Lead \u2192 Actual Jobs Booked \u2192 Revenue Generated. Start with the hook, zoom into the numbers, end with \"DM ADS if you want this for your business.\" Works because service owners care about bookings, not impressions.",
+        "Avoid posting about general 'content tips' or algorithm advice \u2014 your audience wants proof their ads will get them jobs, not education about how Instagram works."
       ],
-      "source": "Incomplete dataset: Google Trends returned all zeros; no engagement metrics, audience feedback, or comparative performance data supplied"
+      "source": "Google Trends showing zero data volume + absence of performance metrics provided = indicates low current engagement with generic topics; recommend pivoting to specificity (real client wins) as counter-strategy to break through low-signal week"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
