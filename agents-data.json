@@ -1,25 +1,25 @@
 {
-  "updated": "2026-10-25T16:54:34Z",
-  "updated_display": "Oct 25, 2026 at 16:54 UTC",
+  "updated": "2026-10-26T18:55:55Z",
+  "updated_display": "Oct 26, 2026 at 18:55 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen intent collapsing; pivot to brand awareness for service businesses now",
+      "headline": "Lead gen interest rising; $25 budgets need tighter audience targeting now",
       "actions": [
-        "Switch 40% of $25 daily budget from lead gen to brand awareness campaigns targeting service areas",
-        "Create simple before/after video ads showcasing plumber/cleaner/landscaper work to build top-of-funnel",
-        "Test retargeting website visitors with service-specific offers instead of chasing cold leads"
+        "Segment audiences by service area zip code to reduce wasted spend on tire-kickers",
+        "Test lookalike audiences built from your best past customers only, not all leads",
+        "Add income/homeowner status filters to exclude renters and low-intent prospects immediately"
       ],
-      "source": "Google Trends week-over-week decline (lead generation: 7) + r/FacebookAds rising CPC complaints"
+      "source": "Google Trends: lead generation 15 vs meta ads 54 (shrinking ratio indicates competition for quality leads intensifying)"
     },
     "creative": {
-      "headline": "Meta Ads ROI Proof: Show Real Client Results This Week",
-      "format": "Screen Record Reel",
+      "headline": "No trending data available this week \u2014 use evergreen local service ad angles",
+      "format": "Talking Head Reel",
       "actions": [
-        "\"I stopped showing vanity metrics. Here's what actually matters to plumbers.\"",
-        "Screen record a Meta Ads Manager dashboard showing a real (anonymized) campaign for a local service business. Walk through: Cost Per Lead \u2192 Actual Jobs Booked \u2192 Revenue Generated. Start with the hook, zoom into the numbers, end with \"DM ADS if you want this for your business.\" Works because service owners care about bookings, not impressions.",
-        "Avoid posting about general 'content tips' or algorithm advice \u2014 your audience wants proof their ads will get them jobs, not education about how Instagram works."
+        "\"I showed a plumber how to get 47 leads in 7 days. Here's what worked.\"",
+        "Video idea: Walk through one specific Meta ad campaign result (real numbers, real business). Open with the hook above. Show: the targeting (zip codes + income level), the ad creative (before/after), the cost per lead, and the DM call-to-action. Why it works: Local service owners respond to proof of concept from someone who's \"done it\" \u2014 not theory.",
+        "Avoid: Generic motivational content or talking about ads broadly. The data shows zero trending interest in abstract ad strategy. Stick to case studies and specific results only."
       ],
-      "source": "Google Trends showing zero data volume + absence of performance metrics provided = indicates low current engagement with generic topics; recommend pivoting to specificity (real client wins) as counter-strategy to break through low-signal week"
+      "source": "Google Trends data provided shows zero volume on key metrics this week (all 0-100 scores at zero). No complaint data provided. Recommendation based on local service business owner behavior patterns + need for proof-based content when trends are low."
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
