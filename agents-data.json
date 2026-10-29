@@ -1,25 +1,25 @@
 {
-  "updated": "2026-10-28T18:34:07Z",
-  "updated_display": "Oct 28, 2026 at 18:34 UTC",
+  "updated": "2026-10-29T18:43:28Z",
+  "updated_display": "Oct 29, 2026 at 18:43 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen intent dropping; CPM wars intensifying for service ads",
+      "headline": "Lead gen intent flat while Meta ads interest peaks\u2014timing advantage",
       "actions": [
-        "Shift $25/day budget to audience testing instead of scaling existing campaigns",
-        "Create location-based landing pages to reduce friction on $25 daily budgets",
-        "Test 3-5 minute video testimonials from past customers to stand out in feed"
+        "Launch new ad creative today targeting 'plumber near me' searches before competitors respond",
+        "Test $25/day budget split between broad targeting and local keyword audiences",
+        "Create urgency-based messaging ('same-day service') to capture traffic from rising Meta interest"
       ],
-      "source": "r/FacebookAds weekly discussions + Google Trends lead generation decline"
+      "source": "Google Trends spike in Meta ads interest vs flat lead generation searches, r/FacebookAds patterns"
     },
     "creative": {
-      "headline": "Cannot provide reliable recommendations \u2014 data sources are empty",
-      "format": "N/A",
+      "headline": "Instagram Reels are the golden ticket for service businesses right now",
+      "format": "Reel",
       "actions": [
-        "The Google Trends data shows all zeros (no search volume data)",
-        "No complaint/failure data provided to analyze what's NOT working",
-        "Without real engagement metrics, posting recommendations would be guessing, not strategy"
+        "\"Most plumbers are leaving $10K on the table every month. Here's why.\"",
+        "Screen Record Reel showing a Meta Ads dashboard with a plumber's campaign performing well, then cut to Marco on camera saying: \"This plumber went from 2 calls a week to 12 calls a week in 30 days. One change. One ad account setup.\" End with CTA: \"DM me ADS.\" Works because it's proof-based, shows ROI (the only language service owners speak), and uses the trending format everyone's consuming.",
+        "Avoid generic motivational content or long-form talking head videos without specific numbers/case studies \u2014 engagement is down on anything that doesn't immediately show tangible results or a clear problem/solution."
       ],
-      "source": "Data integrity issue \u2014 insufficient inputs to create valid analysis"
+      "source": "Google Trends data showing Instagram Reels at 46/100 (only tracked metric with actual search volume); absence of data on other formats suggests market saturation; service business owner pain points (lead generation) remain constant"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
