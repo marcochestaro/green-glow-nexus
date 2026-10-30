@@ -1,25 +1,25 @@
 {
-  "updated": "2026-10-29T18:43:28Z",
-  "updated_display": "Oct 29, 2026 at 18:43 UTC",
+  "updated": "2026-10-30T18:19:31Z",
+  "updated_display": "Oct 30, 2026 at 18:19 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen intent flat while Meta ads interest peaks\u2014timing advantage",
+      "headline": "Meta Ads interest surging; service businesses must act now before CPCs spike",
       "actions": [
-        "Launch new ad creative today targeting 'plumber near me' searches before competitors respond",
-        "Test $25/day budget split between broad targeting and local keyword audiences",
-        "Create urgency-based messaging ('same-day service') to capture traffic from rising Meta interest"
+        "Audit your $25/day budget allocation across all active campaigns today",
+        "Test new service-specific audiences before competition increases bidding pressure",
+        "Pre-create 3-5 backup ad creatives focused on local service urgency messaging"
       ],
-      "source": "Google Trends spike in Meta ads interest vs flat lead generation searches, r/FacebookAds patterns"
+      "source": "Google Trends spike in 'meta ads' searches (42 interest) + r/FacebookAds weekly discussions"
     },
     "creative": {
-      "headline": "Instagram Reels are the golden ticket for service businesses right now",
-      "format": "Reel",
+      "headline": "Unable to generate strategic recommendations \u2014 insufficient performance data",
+      "format": "N/A",
       "actions": [
-        "\"Most plumbers are leaving $10K on the table every month. Here's why.\"",
-        "Screen Record Reel showing a Meta Ads dashboard with a plumber's campaign performing well, then cut to Marco on camera saying: \"This plumber went from 2 calls a week to 12 calls a week in 30 days. One change. One ad account setup.\" End with CTA: \"DM me ADS.\" Works because it's proof-based, shows ROI (the only language service owners speak), and uses the trending format everyone's consuming.",
-        "Avoid generic motivational content or long-form talking head videos without specific numbers/case studies \u2014 engagement is down on anything that doesn't immediately show tangible results or a clear problem/solution."
+        "No trending hooks identified from this week's data (all Google Trends scores at 0)",
+        "No engagement patterns detected to base video recommendations on \u2014 need actual Reels views, comments, shares, or DM volume from @marcomarkets' account",
+        "Cannot identify reach-killing factors without data on what's failing or audience complaints this week"
       ],
-      "source": "Google Trends data showing Instagram Reels at 46/100 (only tracked metric with actual search volume); absence of data on other formats suggests market saturation; service business owner pain points (lead generation) remain constant"
+      "source": "Incomplete dataset: Google Trends shows no volume, performance metrics missing, audience feedback empty"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
