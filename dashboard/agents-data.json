@@ -1,25 +1,25 @@
 {
-  "updated": "2026-10-30T18:19:31Z",
-  "updated_display": "Oct 30, 2026 at 18:19 UTC",
+  "updated": "2026-10-31T17:26:05Z",
+  "updated_display": "Oct 31, 2026 at 17:26 UTC",
   "agents": {
     "ads": {
-      "headline": "Meta Ads interest surging; service businesses must act now before CPCs spike",
+      "headline": "Meta Ads interest at 24/100\u2014opportunity window before seasonal surge hits",
       "actions": [
-        "Audit your $25/day budget allocation across all active campaigns today",
-        "Test new service-specific audiences before competition increases bidding pressure",
-        "Pre-create 3-5 backup ad creatives focused on local service urgency messaging"
+        "Launch 3 test campaigns today at $25/day each to establish baseline CTR/CPC before competition increases",
+        "Document current cost-per-lead by service type (plumbing vs landscaping) to have benchmark data when prices rise",
+        "Build 2-3 audience segments now while CPM is likely lower than peak season"
       ],
-      "source": "Google Trends spike in 'meta ads' searches (42 interest) + r/FacebookAds weekly discussions"
+      "source": "Google Trends meta ads 24/100 baseline + r/FacebookAds weekly pattern analysis"
     },
     "creative": {
-      "headline": "Unable to generate strategic recommendations \u2014 insufficient performance data",
-      "format": "N/A",
+      "headline": "Can't generate reliable recommendations \u2014 data shows zero engagement signals",
+      "format": "Unable to determine",
       "actions": [
-        "No trending hooks identified from this week's data (all Google Trends scores at 0)",
-        "No engagement patterns detected to base video recommendations on \u2014 need actual Reels views, comments, shares, or DM volume from @marcomarkets' account",
-        "Cannot identify reach-killing factors without data on what's failing or audience complaints this week"
+        "WAIT \u2014 your Google Trends data is all zeros and complaints section is empty",
+        "You need: actual view counts, engagement rates, comment themes, and DM conversion data from your recent posts to identify what's working",
+        "Without real performance metrics, any recommendation would be a guess that wastes your filming time"
       ],
-      "source": "Incomplete dataset: Google Trends shows no volume, performance metrics missing, audience feedback empty"
+      "source": "Incomplete data set \u2014 recommend pulling last 7-14 days of native Instagram Insights (reach, saves, shares, profile visits, DMs) plus top 3-5 performing post captions to analyze actual patterns"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
