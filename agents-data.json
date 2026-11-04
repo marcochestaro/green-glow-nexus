@@ -1,25 +1,25 @@
 {
-  "updated": "2026-11-03T19:53:45Z",
-  "updated_display": "Nov 03, 2026 at 19:53 UTC",
+  "updated": "2026-11-04T20:08:40Z",
+  "updated_display": "Nov 04, 2026 at 20:08 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead generation interest drops; service biz ads face seasonal headwinds",
+      "headline": "Meta Ads interest surging; service businesses should launch campaigns now",
       "actions": [
-        "Shift $25/day budget toward brand awareness ads to capture off-season intent",
-        "Test seasonal service angles (e.g., 'winterize your home' for plumbers) in ad copy",
-        "Build email list now for warmer re-engagement when lead generation demand spikes"
+        "Create 3 geo-targeted ad sets for plumbing/landscaping at $8/day each to test markets",
+        "Split $25 budget: $15 cold leads + $10 retargeting existing website visitors this week",
+        "Launch lead magnet offer (free estimate/inspection) emphasizing response time within 24 hours"
       ],
-      "source": "Google Trends seasonal pattern analysis + r/FacebookAds lead gen discussions"
+      "source": "Google Trends spike in 'meta ads' searches (56 index) indicates rising advertiser interest"
     },
     "creative": {
-      "headline": "Unable to provide strategy \u2014 no engagement data available this week",
-      "format": "Talking Head Reel",
+      "headline": "Unable to provide strategic recommendations without performance data",
+      "format": "N/A",
       "actions": [
-        "I need actual performance data (views, likes, comments, shares, DM rates) to identify your best-performing hook",
-        "Google Trends data shows 0-100 across all metrics, and no complaint/failure data provided \u2014 this suggests either no posts this week or data collection gap",
-        "I cannot ethically recommend content angles or identify reach-killers without real engagement signals from your audience"
+        "No trending topics detected in provided data (all Google Trends scores at 0)",
+        "No engagement metrics, view counts, or audience feedback provided to identify winning formats",
+        "Cannot determine what content is resonating or failing without real performance benchmarks"
       ],
-      "source": "Incomplete data set \u2014 Google Trends only (all zeros), no Instagram Insights, no audience feedback logged"
+      "source": "Data provided is incomplete \u2014 Google Trends shows zero activity across all tracked terms, and 'What's failing' section is empty. Need: actual Reel view counts, engagement rates by format, comment themes, DM conversion data, and audience complaints/feedback to generate accurate strategic recommendations."
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
