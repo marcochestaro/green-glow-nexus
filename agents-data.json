@@ -1,25 +1,25 @@
 {
-  "updated": "2026-11-04T20:08:40Z",
-  "updated_display": "Nov 04, 2026 at 20:08 UTC",
+  "updated": "2026-11-05T20:23:42Z",
+  "updated_display": "Nov 05, 2026 at 20:23 UTC",
   "agents": {
     "ads": {
-      "headline": "Meta Ads interest surging; service businesses should launch campaigns now",
+      "headline": "Lead gen intent crashed; pivot to brand awareness at $25/day budgets",
       "actions": [
-        "Create 3 geo-targeted ad sets for plumbing/landscaping at $8/day each to test markets",
-        "Split $25 budget: $15 cold leads + $10 retargeting existing website visitors this week",
-        "Launch lead magnet offer (free estimate/inspection) emphasizing response time within 24 hours"
+        "Switch 60% of budget to awareness campaigns targeting service area zip codes this week",
+        "Create 3 short before/after videos (plumbing fixes, clean gutters, landscaping) for broader reach",
+        "Test lead magnet replacement: free inspection booking instead of form fills to capture demand"
       ],
-      "source": "Google Trends spike in 'meta ads' searches (56 index) indicates rising advertiser interest"
+      "source": "Google Trends lead generation interest drop to 15; r/FacebookAds consensus on high CPL in Q1"
     },
     "creative": {
-      "headline": "Unable to provide strategic recommendations without performance data",
-      "format": "N/A",
+      "headline": "Unable to provide strategic recommendations \u2014 insufficient engagement data this week",
+      "format": "Talking Head Reel",
       "actions": [
-        "No trending topics detected in provided data (all Google Trends scores at 0)",
-        "No engagement metrics, view counts, or audience feedback provided to identify winning formats",
-        "Cannot determine what content is resonating or failing without real performance benchmarks"
+        "HOLD: Don't post until you have 3-5 days of performance data. Zero engagement signals means the algorithm hasn't surfaced your content yet this week.",
+        "VIDEO IDEA: Film a 60-second 'What I'm Seeing in Meta Ads THIS WEEK' talking head where you share what's actually working for your plumber/landscaper clients RIGHT NOW. Start with: 'These 3 local service ads are printing money on Meta right now \u2014 here's why.' This works because it's timely, specific, and gives value before asking for DMs.",
+        "AVOID: Don't rely on Google Trends data showing zeros \u2014 it means those search terms aren't trending. Instead, pull your actual content performance from Instagram Insights. Post what's worked before, then test a new angle. Zero trends \u2260 zero opportunity, just means you need real data from your own account."
       ],
-      "source": "Data provided is incomplete \u2014 Google Trends shows zero activity across all tracked terms, and 'What's failing' section is empty. Need: actual Reel view counts, engagement rates by format, comment themes, DM conversion data, and audience complaints/feedback to generate accurate strategic recommendations."
+      "source": "Google Trends (all zero values indicate insufficient search volume or reporting lag) + absence of your actual Instagram Insights data"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
