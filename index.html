@@ -9,111 +9,84 @@
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e2e8f0;min-height:100vh;font-size:15px}
 button{font-family:inherit;cursor:pointer}
 
-.nav{position:sticky;top:0;z-index:100;background:#0a0a0a;border-bottom:1px solid #1e1e1e;padding:0 20px;height:48px;display:flex;align-items:center;justify-content:space-between}
-.nav-brand{font-size:.85rem;font-weight:600;color:#fff}
-.clock{font-size:.75rem;color:#555;font-variant-numeric:tabular-nums}
+.nav{padding:16px 20px 0;max-width:560px;margin:0 auto}
+.nav-brand{font-size:.82rem;font-weight:600;color:#555}
 
-.page{max-width:560px;margin:0 auto;padding:0 20px 60px}
+.page{max-width:560px;margin:0 auto;padding:16px 20px 60px}
 
-.hero{padding:32px 0 28px;border-bottom:1px solid #1e1e1e}
-.hero-h{font-size:1.4rem;font-weight:700;color:#fff;line-height:1.25;margin-bottom:4px}
-.hero-sub{font-size:.78rem;color:#555}
+.heading{margin-bottom:24px}
+.heading h1{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:3px}
+.heading p{font-size:.78rem;color:#444}
 
-/* PRIORITY TABLE */
-.priority{margin:28px 0 0;border:1px solid #1e1e1e;border-radius:12px;overflow:hidden}
-.priority-title{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#555;padding:12px 16px;border-bottom:1px solid #1e1e1e}
-.prow{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #1e1e1e}
-.prow:last-child{border-bottom:none}
-.prow-num{font-size:.8rem;font-weight:700;color:#fff;width:16px;flex-shrink:0}
-.prow-info{flex:1}
-.prow-name{font-size:.82rem;font-weight:600;color:#fff;margin-bottom:2px}
-.prow-note{font-size:.65rem;color:#555;line-height:1.4}
-.prow-freq{font-size:.65rem;font-weight:600;color:#888;white-space:nowrap;flex-shrink:0}
+.list-label{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#333;margin-bottom:10px}
 
-/* SECTION */
-.section{margin-top:36px}
-.section-head{margin-bottom:14px}
-.section-label{display:flex;align-items:center;gap:10px;margin-bottom:4px}
-.section-tag{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#888;background:#1a1a1a;border:1px solid #2a2a2a;padding:2px 9px;border-radius:5px}
-.section-order{font-size:.7rem;font-weight:600;color:#555}
-.section-title{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:3px}
-.section-desc{font-size:.72rem;color:#555;line-height:1.6;margin-bottom:8px}
-.section-pills{display:flex;gap:6px;flex-wrap:wrap}
-.pill{font-size:.62rem;color:#555;background:#111;border:1px solid #1e1e1e;border-radius:5px;padding:3px 8px}
+.script-list{display:flex;flex-direction:column;gap:1px;background:#1a1a1a;border-radius:12px;overflow:hidden}
+.row{background:#111;padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:none;-webkit-tap-highlight-color:transparent;transition:background .1s}
+.row:active{background:#161616}
+.row-num{font-size:.72rem;font-weight:700;color:#333;width:18px;flex-shrink:0}
+.row-info{flex:1;min-width:0}
+.row-title{font-size:.88rem;font-weight:600;color:#e2e8f0;line-height:1.3;margin-bottom:4px}
+.row-meta{display:flex;align-items:center;gap:6px}
+.row-funnel{font-size:.6rem;font-weight:700;color:#444;text-transform:uppercase;letter-spacing:.06em}
+.row-dot{width:3px;height:3px;border-radius:50%;background:#333;flex-shrink:0}
+.row-type{font-size:.6rem;color:#333}
+.row-cta{font-size:.6rem;font-weight:600;color:#4ade80}
+.row-arr{font-size:.8rem;color:#333;flex-shrink:0}
+.row-done .row-title{color:#333}
+.row-done .row-num{color:#1f2f1f}
+.row-done-tick{font-size:.7rem;color:#4ade80;flex-shrink:0}
 
-/* CARDS */
-.cards{display:flex;flex-direction:column;gap:6px}
-.card{background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:14px;cursor:pointer;text-align:left;width:100%;display:block;transition:border-color .15s;-webkit-tap-highlight-color:transparent}
-.card:active,.card:hover{border-color:#333}
-.card-top{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
-.card-num{font-size:.6rem;font-weight:700;color:#444;flex-shrink:0;padding-top:2px}
-.card-title{font-size:.88rem;font-weight:600;color:#fff;line-height:1.35;flex:1}
-.card-arr{font-size:.8rem;color:#333;flex-shrink:0}
-.card-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
-.ctag{font-size:.58rem;font-weight:600;padding:2px 7px;border-radius:4px;background:#1a1a1a;color:#555;border:1px solid #2a2a2a}
-.ctag.cta{background:#0d1f10;color:#4ade80;border-color:#1a3a1e}
-.ctag.posted{background:#0d1f10;color:#4ade80;border-color:#1a3a1e}
-.card-hook{font-size:.72rem;color:#444;line-height:1.5;border-left:2px solid #1e1e1e;padding-left:10px}
-
-/* DIVIDER */
-.divider{height:1px;background:#1e1e1e;margin-top:36px}
-
-/* OVERLAY */
-.overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.75);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.7);overflow-y:auto;-webkit-overflow-scrolling:touch}
 .overlay.on{display:block}
-.sheet{background:#0f0f0f;border-radius:16px 16px 0 0;border-top:1px solid #1e1e1e;min-height:85vh;margin-top:8vh;padding:0 0 50px}
+.sheet{background:#0f0f0f;border-radius:16px 16px 0 0;border-top:1px solid #1e1e1e;min-height:85vh;margin-top:8vh;padding-bottom:50px}
 .sheet-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
-.sheet-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#555}
-.sheet-close{background:#1a1a1a;border:1px solid #2a2a2a;color:#888;width:30px;height:30px;border-radius:50%;font-size:1rem;display:flex;align-items:center;justify-content:center}
+.sheet-num{font-size:.7rem;font-weight:700;color:#333}
+.sheet-close{background:#1a1a1a;border:1px solid #222;color:#666;width:30px;height:30px;border-radius:50%;font-size:1rem;display:flex;align-items:center;justify-content:center}
 .sheet-body{padding:0 20px}
-.sh-title{font-size:1rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:12px}
-.sh-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
-.film-box{background:#0a0a0a;border-left:2px solid #2a2a2a;padding:10px 12px;border-radius:0 8px 8px 0;font-size:.72rem;color:#555;line-height:1.65;margin-bottom:16px}
-.film-box b{color:#888}
 
-/* VERSION TOGGLE */
+.sh-title{font-size:1rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:12px}
+.sh-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.badge{font-size:.6rem;font-weight:600;padding:2px 8px;border-radius:4px;background:#1a1a1a;color:#555;border:1px solid #222}
+.badge.cta{background:#0a1f0a;color:#4ade80;border-color:#1a3a1a}
+
+.film-note{background:#0a0a0a;border-left:2px solid #222;padding:10px 12px;border-radius:0 7px 7px 0;font-size:.72rem;color:#444;line-height:1.65;margin-bottom:16px}
+.film-note b{color:#666}
+
 .ver-row{display:flex;gap:2px;background:#111;border:1px solid #1e1e1e;border-radius:20px;padding:2px;margin-bottom:14px;width:fit-content}
-.vbtn{padding:4px 12px;border-radius:16px;font-size:.62rem;font-weight:600;border:none;color:#555;background:none}
+.vbtn{padding:4px 12px;border-radius:16px;font-size:.62rem;font-weight:600;border:none;color:#444;background:none}
 .vbtn.on{background:#1e1e1e;color:#fff}
 
-/* LINES */
 .lines{display:flex;flex-direction:column;gap:5px;margin-bottom:16px}
-.line{display:grid;grid-template-columns:60px 1fr;gap:8px;align-items:start}
+.line{display:grid;grid-template-columns:56px 1fr;gap:8px;align-items:start}
 .lmeta{text-align:right;padding-top:8px}
 .lseg{font-size:.58rem;font-weight:700;color:#333;display:block}
-.ldur{font-size:.55rem;color:#333;display:block;margin-top:1px}
+.ldur{font-size:.55rem;color:#2a2a2a;display:block;margin-top:1px}
 .lbub{background:#111;border:1px solid #1e1e1e;border-radius:8px;padding:9px 11px;font-size:.78rem;color:#94a3b8;line-height:1.6}
-.lbub.hook{border-color:#1e2d1e;background:#0a0f0a}
-.lbub.cta{border-color:#1a2e1a;background:#080f08}
+.lbub.hook{border-color:#1a2a1a;background:#0a0f0a}
+.lbub.cta{border-color:#1a2a1a;background:#080f08}
 
-/* CAPTION */
-.cap-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#555;margin-bottom:8px}
+.cap-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#333;margin-bottom:8px}
 .cap-box{background:#111;border:1px solid #1e1e1e;border-radius:8px;padding:12px;font-size:.77rem;color:#555;line-height:1.85;white-space:pre-wrap;margin-bottom:6px}
 
-/* ACTIONS */
 .act-row{display:flex;gap:8px;margin-top:14px}
 .abtn{flex:1;padding:12px;border-radius:9px;font-size:.8rem;font-weight:600;border:none}
-.abtn-primary{background:#1e1e1e;color:#e2e8f0}
-.abtn-primary:active{background:#2a2a2a}
-.abtn-done{background:#0d1f10;color:#4ade80;border:1px solid #1a3a1e}
-.abtn-done.on{background:#122918}
+.abtn-grey{background:#1a1a1a;color:#e2e8f0}
+.abtn-grey:active{background:#222}
+.abtn-done{background:#0a1a0a;color:#4ade80;border:1px solid #1a3a1a}
+.abtn-done.on{background:#0f2010}
 
-/* COPY BTN */
-.cbtn{display:inline-flex;align-items:center;background:none;border:1px solid #1e1e1e;color:#444;padding:2px 7px;border-radius:4px;font-size:.57rem;cursor:pointer;margin-top:4px}
+.cbtn{display:inline-flex;align-items:center;background:none;border:1px solid #1e1e1e;color:#333;padding:2px 7px;border-radius:4px;font-size:.57rem;cursor:pointer;margin-top:4px}
 .cbtn.ok{border-color:#4ade80;color:#4ade80}
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-brand">@marcomarkets</div>
-  <div class="clock" id="clock"></div>
-</nav>
+<div class="nav"><div class="nav-brand">@marcomarkets</div></div>
 
 <div class="overlay" id="overlay">
   <div class="sheet">
     <div class="sheet-head">
-      <div class="sheet-label" id="sh-label"></div>
+      <div class="sheet-num" id="sh-num"></div>
       <button class="sheet-close" id="sh-close">&#215;</button>
     </div>
     <div class="sheet-body" id="sh-body"></div>
@@ -121,124 +94,40 @@ button{font-family:inherit;cursor:pointer}
 </div>
 
 <div class="page">
-
-  <div class="hero">
-    <div class="hero-h">What to post,<br>and in what order.</div>
-    <div class="hero-sub" id="hero-date"></div>
+  <div class="heading">
+    <h1>This week's scripts</h1>
+    <p id="hero-date"></p>
   </div>
-
-  <div class="priority">
-    <div class="priority-title">Posting Priority</div>
-    <div class="prow">
-      <div class="prow-num">1</div>
-      <div class="prow-info">
-        <div class="prow-name">TOFU — Top of Funnel</div>
-        <div class="prow-note">Post these first. Gets new service business owners finding you.</div>
-      </div>
-      <div class="prow-freq">3–4x / week</div>
-    </div>
-    <div class="prow">
-      <div class="prow-num">2</div>
-      <div class="prow-info">
-        <div class="prow-name">MOFU — Middle of Funnel</div>
-        <div class="prow-note">Post after TOFU. Builds trust with people already following.</div>
-      </div>
-      <div class="prow-freq">2–3x / week</div>
-    </div>
-    <div class="prow">
-      <div class="prow-num">3</div>
-      <div class="prow-info">
-        <div class="prow-name">BOFU — Bottom of Funnel</div>
-        <div class="prow-note">Once a week max. Social proof and DM CTA.</div>
-      </div>
-      <div class="prow-freq">1x / week</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-head">
-      <div class="section-label">
-        <div class="section-tag">TOFU</div>
-        <div class="section-order">Post These First</div>
-      </div>
-      <div class="section-title">Top of Funnel — Reach</div>
-      <div class="section-desc">Strong hook, real talk, no CTA. Goal is a follow or save from someone who had no idea you existed.</div>
-      <div class="section-pills">
-        <div class="pill">3–4x per week</div>
-        <div class="pill">Mon · Tue · Fri · Sun</div>
-        <div class="pill">Outdoor or clean indoor</div>
-      </div>
-    </div>
-    <div class="cards" id="tofu-cards"></div>
-  </div>
-
-  <div class="divider"></div>
-
-  <div class="section">
-    <div class="section-head">
-      <div class="section-label">
-        <div class="section-tag">MOFU</div>
-        <div class="section-order">Post These Second</div>
-      </div>
-      <div class="section-title">Middle of Funnel — Value</div>
-      <div class="section-desc">Give one specific tactic. The more tactical, the more it gets saved. Saves are the strongest signal to the algorithm.</div>
-      <div class="section-pills">
-        <div class="pill">2–3x per week</div>
-        <div class="pill">Wed · Thu</div>
-        <div class="pill">Direct to camera</div>
-      </div>
-    </div>
-    <div class="cards" id="mofu-cards"></div>
-  </div>
-
-  <div class="divider"></div>
-
-  <div class="section">
-    <div class="section-head">
-      <div class="section-label">
-        <div class="section-tag">BOFU</div>
-        <div class="section-order">Post This Once a Week</div>
-      </div>
-      <div class="section-title">Bottom of Funnel — Convert</div>
-      <div class="section-desc">Client result, tell it like a story. This is where your DM CTA lives. Never more than 2 CTAs total in a week.</div>
-      <div class="section-pills">
-        <div class="pill">1x per week</div>
-        <div class="pill">Saturday</div>
-        <div class="pill">Max 2 CTAs total</div>
-      </div>
-    </div>
-    <div class="cards" id="bofu-cards"></div>
-  </div>
-
+  <div class="list-label">Post in this order</div>
+  <div class="script-list" id="script-list"></div>
 </div>
 
 <script>
-(function tick(){document.getElementById('clock').textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',hour12:true});setTimeout(tick,1000);})();
 (function(){var d=new Date();var days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];document.getElementById('hero-date').textContent=days[d.getDay()]+', '+months[d.getMonth()]+' '+d.getDate();})();
 
 var SCRIPTS=[
-{id:0,funnel:'TOFU',order:1,title:'Service business owners spend money on the wrong things',type:'Talking Head',cta:true,
- film:'Outdoor: open sky behind you, tripod, head to head on camera. Slow, confident. Let it breathe. On-screen text: "only watch this if you run a service business"',
+{id:0,funnel:'TOFU',title:'Service business owners spend money on the wrong things',type:'Talking Head',cta:true,
+ film:'Outdoor: open sky behind you, tripod, head to head on camera. Slow and confident. Let it breathe. On-screen text: "only watch this if you run a service business"',
  hook:'Most service business owners I talk to are spending money. Just on the wrong things.',
  caption:'most service business owners i talk to are spending money\n\njust on the wrong things\n\nwebsite, logo, van wrap. looks good. gets you nothing.\n\nthe ones growing? they put it where it actually brings clients in.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.',
  lines:[
   {time:'Hook',tag:'5s',cls:'hook',text:'Most service business owners I talk to are spending money. Just on the wrong things.'},
   {time:'Body',tag:'7s',cls:'',text:'Website, logo, van wrap. Looks good. Gets you nothing.'},
-  {time:'Body',tag:'10s',cls:'',text:'The guys I work with who are actually growing? They put money where it brings clients in. That means ads. The right audience, the right offer, in front of people who actually need what they do.'},
-  {time:'Body',tag:'7s',cls:'',text:'And once that works, it just keeps working. Leads coming in without chasing anyone.'},
+  {time:'Body',tag:'10s',cls:'',text:'The guys I work with who are actually growing? They put money where it brings clients in. That means ads. Right audience, right offer, in front of people who actually need what they do.'},
+  {time:'Body',tag:'7s',cls:'',text:'And once that works it just keeps working. Leads coming in without chasing anyone.'},
   {time:'CTA',tag:'4s',cls:'cta',text:'Follow me. I talk about this stuff every week.'},
  ]},
-{id:1,funnel:'TOFU',order:2,title:'Every service business owner I talk to says the same thing',type:'Talking Head',cta:false,
+{id:1,funnel:'TOFU',title:'Every service business owner I talk to says the same thing',type:'Talking Head',cta:false,
  film:'Indoor: clean background, good lighting, close to camera. Relaxed and honest. Like you are catching up with someone.',
  hook:'Every service business owner I talk to says the same thing. The phone used to ring. Now it just doesn\'t.',
  caption:'every service business owner i talk to says the same thing\n\nthe phone used to ring. now it doesn\'t.\n\nit\'s not that the work changed. it\'s that the way people find you changed.\n\nand if you\'re not showing up where they\'re looking, someone else is.',
  lines:[
   {time:'Hook',tag:'5s',cls:'hook',text:'Every service business owner I talk to says the same thing. The phone used to ring. Now it just doesn\'t.'},
-  {time:'Body',tag:'8s',cls:'',text:'And it\'s not because they got worse at the job. The work is the same. The problem is the way people find you has completely changed.'},
+  {time:'Body',tag:'8s',cls:'',text:'And it\'s not because they got worse at the job. The work is the same. The problem is how people find you has completely changed.'},
   {time:'Body',tag:'9s',cls:'',text:'Five years ago word of mouth was enough. Now people go straight to their phone, scroll for two seconds, and book whoever shows up. If you\'re not in front of them, your competitor is.'},
   {time:'Close',tag:'6s',cls:'',text:'That\'s the whole game now. Not being the best in the area. Being the most visible one.'},
  ]},
-{id:2,funnel:'TOFU',order:3,title:'Why I only run ads for service businesses',type:'Talking Head',cta:false,
+{id:2,funnel:'TOFU',title:'Why I only run ads for service businesses',type:'Talking Head',cta:false,
  film:'Outdoor if possible. Relaxed, sitting down. Honest and personal. No pitch energy at all.',
  hook:'I only run Meta ads for service businesses. Not coaches, not e-com, not brands. Just service businesses.',
  caption:'people ask why i only work with service businesses\n\nnot coaches. not e-com. not brands.\n\nbecause these guys actually do real work. they show up, they fix things, they build things.\n\nthey\'re just not getting paid what they deserve because nobody knows they exist.\n\nthat\'s the gap i help close.',
@@ -248,7 +137,7 @@ var SCRIPTS=[
   {time:'Body',tag:'8s',cls:'',text:'But a lot of them are brilliant at what they do and barely getting by because nobody knows they exist. They\'re relying on referrals and hoping the phone rings.'},
   {time:'Close',tag:'6s',cls:'',text:'That\'s the gap I help close. Getting the right people in front of them so they\'re never short on work.'},
  ]},
-{id:3,funnel:'TOFU',order:4,title:'What I tell every service business owner before we run a single ad',type:'Talking Head',cta:false,
+{id:3,funnel:'TOFU',title:'What I tell every service business owner before we run a single ad',type:'Talking Head',cta:false,
  film:'Outdoor or indoor clean setup. Conversational, like you are giving advice to a friend.',
  hook:'Before I run a single ad for a client, I always say the same thing.',
  caption:'before i run a single ad i always say this\n\nthe ad gets you the lead\n\nwhat you do in the next 10 minutes is what gets you the job\n\ncall fast. know what to say. follow up.\n\nmost people lose the job before the ad even gets a chance to prove itself.',
@@ -258,7 +147,7 @@ var SCRIPTS=[
   {time:'Body',tag:'9s',cls:'',text:'I\'ve seen it so many times. Great ad, solid leads, but the client takes two days to call back and wonders why nothing is converting. The person already booked someone else.'},
   {time:'Close',tag:'6s',cls:'',text:'Speed is everything. Call within 10 minutes, have something to say, follow up at least three times. That\'s where the jobs actually come from.'},
  ]},
-{id:4,funnel:'MOFU',order:1,title:'The first thing I fix when a new client sends me their ads',type:'Talking Head',cta:false,
+{id:4,funnel:'MOFU',title:'The first thing I fix when a new client sends me their ads',type:'Talking Head',cta:false,
  film:'Indoor: good background, tripod, eye level. Direct and confident. Teach it like you have seen it a hundred times.',
  hook:'When a new client sends me their Meta ads the first thing I look at is never the creative.',
  caption:'when a new client sends me their ads the first thing i look at is never the creative\n\ni look at the objective\n\n9 times out of 10 they\'re running traffic\n\ntraffic finds people who click. not people who want to book.\n\nswitch it to lead generation. same budget. completely different results.',
@@ -268,7 +157,7 @@ var SCRIPTS=[
   {time:'Body',tag:'8s',cls:'',text:'Switch it to Lead Generation and you are telling Meta to find people who are ready to take action. Same budget, same ad, completely different result.'},
   {time:'Close',tag:'5s',cls:'',text:'Check your objective before you change anything else. That\'s always where I start.'},
  ]},
-{id:5,funnel:'MOFU',order:2,title:'Why your competitor is getting more leads even though you\'re better at the job',type:'Talking Head',cta:false,
+{id:5,funnel:'MOFU',title:'Why your competitor is getting more leads even though you\'re better at the job',type:'Talking Head',cta:false,
  film:'Indoor or outdoor. Direct to camera, confident. Say it like you have seen this exact situation too many times.',
  hook:'Your competitor is not better than you at the actual job. I can almost guarantee that.',
  caption:'your competitor is not better than you at the job\n\nthey\'re just better at being seen\n\nthe best plumber or cleaner in the area is not always the busiest one\n\nthe most visible one is\n\nvisibility is something you can control. that\'s the whole point.',
@@ -278,7 +167,7 @@ var SCRIPTS=[
   {time:'Body',tag:'8s',cls:'',text:'It has nothing to do with who does better work. It is entirely about who shows up in front of the right people more consistently. The most visible one wins.'},
   {time:'Close',tag:'6s',cls:'',text:'And visibility is not luck. It is a decision. You either choose to show up or you let someone else take the spot.'},
  ]},
-{id:6,funnel:'BOFU',order:1,title:'We changed two things in a client\'s ads. Here\'s what happened.',type:'Talking Head',cta:true,
+{id:6,funnel:'BOFU',title:'We changed two things in a client\'s ads. Here\'s what happened.',type:'Talking Head',cta:true,
  film:'Indoor: clean, confident. Slow down when you get to the results. Tell it like a story, not a pitch.',
  hook:'Had a client come to me a few months back. Good budget, decent service, but the leads were expensive and barely anything was converting.',
  caption:'had a client come to me with decent ads that just weren\'t working\n\nwe changed two things\n\ntightened the audience to where they actually work\n\nrewrote the creative with a real hook and a specific offer\n\nbooked jobs went up. budget stayed the same.\n\nDM me "SCALE" if you want me to look at yours.',
@@ -295,34 +184,28 @@ var checks=JSON.parse(localStorage.getItem('mm_checks')||'{}');
 var curId=null;
 var curVer='full';
 
-function renderCards(funnel,containerId){
-  var el=document.getElementById(containerId);
+function buildList(){
+  var el=document.getElementById('script-list');
   el.innerHTML='';
-  var list=SCRIPTS.filter(function(s){return s.funnel===funnel;}).sort(function(a,b){return a.order-b.order;});
-  list.forEach(function(s){
-    var card=document.createElement('button');
-    card.className='card';
-    var tagsHtml='<div class="card-tags">'
-      +'<div class="ctag">'+s.type+'</div>'
-      +(s.cta?'<div class="ctag cta">Has CTA</div>':'')
-      +(checks[s.id]?'<div class="ctag posted">Posted</div>':'')
-      +'</div>';
-    card.innerHTML=
-      '<div class="card-top">'
-      +'<div class="card-num">'+s.funnel+' '+s.order+'</div>'
-      +'<div class="card-title">'+s.title+'</div>'
-      +'<div class="card-arr">&#8599;</div>'
+  SCRIPTS.forEach(function(s,i){
+    var done=!!checks[s.id];
+    var row=document.createElement('button');
+    row.className='row'+(done?' row-done':'');
+    row.innerHTML=
+      '<div class="row-num">'+(i+1)+'</div>'
+      +'<div class="row-info">'
+      +'<div class="row-title">'+s.title+'</div>'
+      +'<div class="row-meta">'
+      +'<div class="row-funnel">'+s.funnel+'</div>'
+      +(s.cta?'<div class="row-dot"></div><div class="row-cta">CTA</div>':'')
       +'</div>'
-      +tagsHtml
-      +'<div class="card-hook">'+s.hook+'</div>';
-    card.addEventListener('click',function(){openSheet(s.id);});
-    el.appendChild(card);
+      +'</div>'
+      +(done?'<div class="row-done-tick">&#10003;</div>':'<div class="row-arr">&#8599;</div>');
+    row.addEventListener('click',function(){openSheet(s.id);});
+    el.appendChild(row);
   });
 }
-
-renderCards('TOFU','tofu-cards');
-renderCards('MOFU','mofu-cards');
-renderCards('BOFU','bofu-cards');
+buildList();
 
 function filterLines(lines,ver){
   if(ver==='full')return lines;
@@ -332,27 +215,16 @@ function filterLines(lines,ver){
   var mid=lines.filter(function(l){return l.cls!=='hook'&&l.cls!=='cta';}).slice(0,2);
   return hook.concat(mid).concat(cta);
 }
-
-function totalSec(lines){
-  return lines.reduce(function(t,l){var s=parseInt(l.tag||'0');return t+(isNaN(s)?0:s);},0);
-}
-
-function durStr(lines,ver){
-  var t=totalSec(filterLines(lines,ver));
-  if(!t)return '';
-  var m=Math.floor(t/60),s=t%60;
-  return m?(m+'m '+(s?s+'s':'')):(s+'s');
-}
+function totalSec(lines){return lines.reduce(function(t,l){var s=parseInt(l.tag||'0');return t+(isNaN(s)?0:s);},0);}
+function durStr(lines,ver){var t=totalSec(filterLines(lines,ver));if(!t)return '';var m=Math.floor(t/60),s=t%60;return m?(m+'m '+(s?s+'s':'')):(s+'s');}
 
 function mkLines(lines,ver){
-  var fl=filterLines(lines,ver);
-  return '<div class="lines">'+fl.map(function(l){
+  return '<div class="lines">'+filterLines(lines,ver).map(function(l){
     return '<div class="line">'
       +'<div class="lmeta"><span class="lseg">'+l.time+'</span>'+(l.tag?'<span class="ldur">'+l.tag+'</span>':'')+'</div>'
       +'<div class="lbub '+l.cls+'">'+l.text
       +'<br><button class="cbtn" onclick="cpText(this,'+JSON.stringify(l.text)+')">Copy</button>'
-      +'</div>'
-      +'</div>';
+      +'</div></div>';
   }).join('')+'</div>';
 }
 
@@ -362,21 +234,18 @@ function openSheet(id){
   document.body.style.overflow='hidden';
   renderSheet();
 }
-
 function renderSheet(){
   var s=SCRIPTS[curId];
-  document.getElementById('sh-label').textContent=s.funnel+' — '+s.type;
-  var short=durStr(s.lines,'short');
-  var mid=durStr(s.lines,'mid');
-  var full=durStr(s.lines,'full');
+  var idx=SCRIPTS.indexOf(s)+1;
+  document.getElementById('sh-num').textContent='Script '+idx+' of 7 — '+s.funnel;
+  var short=durStr(s.lines,'short'),mid=durStr(s.lines,'mid'),full=durStr(s.lines,'full');
   document.getElementById('sh-body').innerHTML=
     '<div class="sh-title">'+s.title+'</div>'
-    +'<div class="sh-tags">'
-    +'<div class="ctag">'+s.funnel+'</div>'
-    +'<div class="ctag">'+s.type+'</div>'
-    +(s.cta?'<div class="ctag cta">Has CTA</div>':'<div class="ctag">No CTA</div>')
+    +'<div class="sh-row">'
+    +'<div class="badge">'+s.type+'</div>'
+    +(s.cta?'<div class="badge cta">Has CTA</div>':'<div class="badge">No CTA</div>')
     +'</div>'
-    +'<div class="film-box"><b>How to film:</b> '+s.film+'</div>'
+    +'<div class="film-note"><b>How to film:</b> '+s.film+'</div>'
     +'<div class="ver-row">'
     +'<button class="vbtn'+(curVer==='short'?' on':'')+'" onclick="setVer(\'short\')">Short'+(short?' \xb7 '+short:'')+'</button>'
     +'<button class="vbtn'+(curVer==='mid'?' on':'')+'" onclick="setVer(\'mid\')">Medium'+(mid?' \xb7 '+mid:'')+'</button>'
@@ -387,40 +256,23 @@ function renderSheet(){
     +'<div class="cap-box" id="cap-box">'+s.caption+'</div>'
     +'<button class="cbtn" onclick="cpCap()">Copy Caption</button>'
     +'<div class="act-row">'
-    +'<button class="abtn abtn-primary" onclick="cpAll()">Copy Full Script</button>'
+    +'<button class="abtn abtn-grey" onclick="cpAll()">Copy Script</button>'
     +'<button class="abtn abtn-done'+(checks[curId]?' on':'')+'" id="done-btn" onclick="toggleDone()">'+(checks[curId]?'Posted ✓':'Mark as Posted')+'</button>'
     +'</div>';
 }
-
 function setVer(ver){curVer=ver;renderSheet();}
-
 document.getElementById('sh-close').addEventListener('click',closeSheet);
 document.getElementById('overlay').addEventListener('click',function(e){if(e.target===document.getElementById('overlay'))closeSheet();});
-
-function closeSheet(){
-  document.getElementById('overlay').classList.remove('on');
-  document.body.style.overflow='';
-}
-
-function cpText(btn,text){
-  navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied';btn.classList.add('ok');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('ok');},1800);});
-}
-function cpCap(){
-  var el=document.getElementById('cap-box');
-  if(el)navigator.clipboard.writeText(el.textContent);
-}
-function cpAll(){
-  var s=SCRIPTS[curId];
-  navigator.clipboard.writeText(s.lines.map(function(l){return l.text;}).join('\n\n'));
-}
+function closeSheet(){document.getElementById('overlay').classList.remove('on');document.body.style.overflow='';}
+function cpText(btn,text){navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied';btn.classList.add('ok');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('ok');},1800);});}
+function cpCap(){var el=document.getElementById('cap-box');if(el)navigator.clipboard.writeText(el.textContent);}
+function cpAll(){navigator.clipboard.writeText(SCRIPTS[curId].lines.map(function(l){return l.text;}).join('\n\n'));}
 function toggleDone(){
   checks[curId]=!checks[curId];
   localStorage.setItem('mm_checks',JSON.stringify(checks));
   var btn=document.getElementById('done-btn');
   if(btn){btn.className='abtn abtn-done'+(checks[curId]?' on':'');btn.textContent=checks[curId]?'Posted ✓':'Mark as Posted';}
-  renderCards('TOFU','tofu-cards');
-  renderCards('MOFU','mofu-cards');
-  renderCards('BOFU','bofu-cards');
+  buildList();
 }
 </script>
 </body>
