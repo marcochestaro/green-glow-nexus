@@ -1,791 +1,405 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>@marcomarkets</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#07080b;--card:#0c0e13;--border:#161920;--text:#e2e8f0;--sub:#4a5568;--dim:#1a1d24;--blue:#3b82f6;--green:#22c55e;--purple:#a78bfa;--orange:#fb923c;--red:#ef4444}
+:root{--bg:#07080b;--card:#0d0f14;--border:#1a1d26;--text:#e2e8f0;--sub:#475569;--dim:#131620}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px}
-a{color:inherit;text-decoration:none}
-button{font-family:inherit}
-
-/* NAV */
-.nav{position:sticky;top:0;z-index:100;background:rgba(7,8,11,.98);border-bottom:1px solid var(--border);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:52px;gap:12px}
-.nav-brand{font-size:.88rem;font-weight:700;color:#fff;cursor:pointer;flex-shrink:0;letter-spacing:-.01em}
-.nav-links{display:flex;gap:1px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.nav-links::-webkit-scrollbar{display:none}
-.nl{padding:6px 11px;border-radius:6px;font-size:.75rem;font-weight:500;color:var(--sub);cursor:pointer;border:none;background:none;white-space:nowrap;transition:all .15s}
-.nl:hover{color:#cbd5e1;background:var(--dim)}
-.nl.on{color:#fff;background:var(--dim)}
-.nav-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
-.clock{font-size:.78rem;font-weight:600;color:#94a3b8;font-variant-numeric:tabular-nums;white-space:nowrap}
-.clock-tz{font-size:.58rem;color:var(--sub);margin-left:3px}
-
-/* VIEWS */
-.view{display:none}
-.view.on{display:block}
-
-/* ─── HOME ──────────────────────────────────────────────── */
-.home-wrap{min-height:calc(100vh - 52px);display:flex;flex-direction:column}
-.home-hero{background:linear-gradient(160deg,#0c0f1a 0%,#07080b 60%);border-bottom:1px solid var(--border);padding:36px 20px 32px;position:relative;overflow:hidden}
-.home-hero::before{content:'';position:absolute;top:-120px;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(59,130,246,.07) 0%,transparent 70%);pointer-events:none}
-.home-hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:220px;height:220px;background:radial-gradient(circle,rgba(167,139,250,.05) 0%,transparent 70%);pointer-events:none}
-.home-eyebrow{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--sub);margin-bottom:10px}
-.home-greeting{font-size:1.75rem;font-weight:700;color:#fff;line-height:1.15;margin-bottom:6px;letter-spacing:-.02em}
-.home-date-line{font-size:.8rem;color:var(--sub)}
-
-.home-body{flex:1;padding:20px 16px;max-width:600px;width:100%;margin:0 auto}
-
-/* DAILY BRIEF — PROMINENT */
-.brief-card{background:linear-gradient(135deg,#0d1020 0%,#0c0e13 100%);border:1px solid #1e2535;border-radius:16px;overflow:hidden;margin:20px 0 16px;box-shadow:0 0 0 1px rgba(59,130,246,.08),0 4px 24px rgba(0,0,0,.4)}
-.brief-bar{height:3px;background:linear-gradient(90deg,#6366f1,#3b82f6,#38bdf8)}
-.brief-inner{padding:18px 20px}
-.brief-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:12px}
-.brief-dot{width:7px;height:7px;border-radius:50%;background:#3b82f6;box-shadow:0 0 8px #3b82f6}
-.brief-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#6366f1}
-.brief-focus{font-size:.98rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;letter-spacing:-.01em}
-.brief-text{font-size:.78rem;color:#64748b;line-height:1.6}
-
-/* TODAY POST — PROMINENT */
-.home-section-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin:0 0 10px}
-.today-banner{background:linear-gradient(135deg,#080f1e 0%,#0a0c12 100%);border:1px solid #1e2d4a;border-radius:16px;overflow:hidden;cursor:pointer;transition:all .2s;position:relative;box-shadow:0 0 0 1px rgba(59,130,246,.1),0 4px 20px rgba(0,0,0,.3);margin-bottom:20px}
-.today-banner:hover{border-color:#2a4070;transform:translateY(-1px);box-shadow:0 0 0 1px rgba(59,130,246,.2),0 8px 30px rgba(0,0,0,.4)}
-.today-banner:active{transform:scale(.99)}
-.tb-accent{height:3px;background:linear-gradient(90deg,#3b82f6,#6366f1,#a78bfa)}
-.tb-inner{padding:18px 20px 20px}
-.tb-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.tb-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#3b82f6}
-.tb-open{font-size:.68rem;color:#3b82f6;border:1px solid #1e2d4a;padding:3px 10px;border-radius:20px}
-.tb-day{font-size:.72rem;font-weight:600;color:#64748b;margin-bottom:6px}
-.tb-title{font-size:1.05rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:12px;letter-spacing:-.01em}
-.tb-footer{display:flex;align-items:center;gap:8px}
-.tb-type{display:inline-block;font-size:.62rem;font-weight:600;padding:3px 10px;border-radius:20px}
-
-/* QUICK ACCESS */
-.nav-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
-.nav-tile{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 16px 14px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
-.nav-tile:hover{border-color:#252d40;background:#0f1118}
-.nav-tile:active{transform:scale(.98)}
-.nt-dot{width:6px;height:6px;border-radius:50%;margin-bottom:10px}
-.nt-title{font-size:.85rem;font-weight:600;color:#fff;margin-bottom:3px}
-.nt-desc{font-size:.68rem;color:var(--sub);line-height:1.4}
-.nt-arrow{font-size:.65rem;color:var(--sub);margin-top:8px;display:block}
-
-/* POST MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.85);overflow-y:auto;-webkit-overflow-scrolling:touch}
-.modal-overlay.on{display:block}
-.modal-box{background:#09090f;border-top:1px solid var(--border);border-radius:20px 20px 0 0;min-height:90vh;margin-top:5vh;padding:0 0 40px;position:relative}
-.modal-bar{height:4px;background:linear-gradient(90deg,#3b82f6,#6366f1,#a78bfa);border-radius:20px 20px 0 0}
-.modal-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 0}
-.modal-close{background:var(--dim);border:none;color:#94a3b8;width:32px;height:32px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
-.modal-close:hover{background:#252836;color:#fff}
-.modal-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#3b82f6}
-.modal-body{padding:16px 20px}
-
-/* PAGE */
-.page{max-width:860px;margin:0 auto;padding:20px 16px}
-section{margin-bottom:44px;scroll-margin-top:64px}
-.sec-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:14px}
-
-/* WEEK STRIP */
-.week-strip{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;-webkit-overflow-scrolling:touch}
-.week-strip::-webkit-scrollbar{display:none}
-.wday{padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--card);cursor:pointer;text-align:center;min-width:58px;flex-shrink:0;transition:all .15s}
-.wday:hover{border-color:var(--blue)}
-.wday.active{border-color:var(--blue);background:#0a1020}
-.wday.done{opacity:.4}
-.wday-n{font-size:.6rem;font-weight:700;color:var(--sub);text-transform:uppercase}
-.wday-d{font-size:.85rem;font-weight:700;color:#fff;margin:3px 0}
-.wday-t{font-size:.55rem;color:var(--sub)}
-
-/* PROGRESS */
-.prog-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.prog-bar{flex:1;background:var(--border);border-radius:3px;height:3px}
-.prog-fill{background:var(--blue);height:3px;border-radius:3px;transition:width .5s}
-.prog-lbl{font-size:.68rem;color:var(--sub)}
-
-/* TODAY CARD */
-.today-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
-.tc-bar{height:3px;background:linear-gradient(90deg,var(--blue),var(--purple))}
-.tc-inner{padding:20px}
-.tc-top{margin-bottom:16px}
-.tc-day{font-size:.72rem;font-weight:600;color:var(--blue);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
-.tc-title{font-size:1.1rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:12px}
-.type-badge{display:inline-block;font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:20px;background:var(--dim);color:var(--sub);border:1px solid var(--border);margin-bottom:14px;text-transform:uppercase;letter-spacing:.04em}
-.type-badge.video,.type-badge.screen{background:#0a1020;color:#93c5fd;border-color:#1a2a45}
-.type-badge.carousel{background:#130a00;color:#fdba74;border-color:#2a1800}
-.type-badge.talking{background:#130820;color:#c4b5fd;border-color:#25104a}
-.funnel-badge{display:inline-block;font-size:.58rem;font-weight:800;padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.08em}
-.funnel-badge.tofu{background:#052010;color:#4ade80;border:1px solid #0a3a1a}
-.funnel-badge.mofu{background:#1a1000;color:#fbbf24;border:1px solid #2a1e00}
-.funnel-badge.bofu{background:#150520;color:#c084fc;border:1px solid #2a0a40}
-.film-note{background:#050608;border-left:2px solid var(--blue);padding:11px 13px;border-radius:0 8px 8px 0;font-size:.75rem;color:#4a5568;line-height:1.6;margin-bottom:16px}
-.film-note b{color:#94a3b8}
-
-/* SCRIPT */
-.script-lines{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
-.sl{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:start}
-.sl-meta{text-align:right;padding-top:10px}
-.sl-seg{font-size:.63rem;font-weight:600;color:#475569;display:block;line-height:1.3}
-.sl-dur{font-size:.58rem;color:var(--sub);display:block;margin-top:2px}
-.sl-bub{background:#050709;border:1px solid var(--border);border-radius:9px;padding:11px 13px;font-size:.8rem;color:#94a3b8;line-height:1.6}
-.sl-bub.hook{border-color:#1a2a45;background:#060c1a}
-.sl-bub.cta{border-color:#0d2218;background:#04090a}
-
-/* BUTTONS */
-.action-row{display:flex;gap:8px;flex-wrap:wrap}
-.btn{padding:11px 18px;border-radius:10px;font-size:.8rem;font-weight:600;cursor:pointer;border:none;transition:all .15s;flex:1}
-.btn-primary{background:#1d3a6e;color:#93c5fd}
-.btn-primary:hover{background:#1e3f7a}
-.btn-done{background:#030f07;color:#4ade80;border:1px solid #0d2218}
-.btn-done.on{background:#0a2014}
-.cbtn{display:inline-flex;align-items:center;gap:4px;background:none;border:1px solid var(--border);color:var(--sub);padding:3px 9px;border-radius:5px;font-size:.62rem;cursor:pointer;margin-top:6px;transition:all .15s}
-.cbtn:hover{border-color:var(--blue);color:#93c5fd}
-.cbtn.ok{border-color:var(--green);color:var(--green)}
-
-/* WEEK ACCORDION */
-.wk-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:8px;overflow:hidden}
-.wk-hdr{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;transition:background .15s}
-.wk-hdr:hover{background:#0a0c10}
-.wk-hdr-info{flex:1}
-.wk-day{font-size:.65rem;font-weight:700;color:var(--sub);text-transform:uppercase;margin-bottom:2px}
-.wk-title{font-size:.9rem;font-weight:600;color:#fff}
-.wk-body{display:none;padding:0 16px 16px;border-top:1px solid var(--border)}
-.wk-body.open{display:block}
-
-/* STATS */
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
-@media(max-width:480px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
-.stat-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 12px}
-.stat-n{font-size:1.4rem;font-weight:700;color:#fff;line-height:1}
-.stat-l{font-size:.6rem;color:var(--sub);margin-top:4px}
-
-/* COMP */
-.comp-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--dim)}
-.comp-row:last-child{border-bottom:none}
-.comp-h{font-size:.75rem;color:var(--sub);width:140px;flex-shrink:0}
-.comp-h.me{color:#93c5fd;font-weight:700}
-.comp-bg{flex:1;background:var(--dim);border-radius:3px;height:4px}
-.comp-fill{height:4px;border-radius:3px;transition:width 1s}
-.comp-n{font-size:.72rem;font-weight:700;color:#94a3b8;width:48px;text-align:right;flex-shrink:0}
-
-/* POSTS */
-.post-a{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--dim);border-radius:10px;margin-bottom:6px;transition:all .15s}
-.post-a:hover{background:#1a1d2a}
-.post-cap{font-size:.75rem;color:#94a3b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.post-meta{font-size:.62rem;color:var(--sub);margin-top:2px}
-
-/* 2 COL */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:620px){.two-col{grid-template-columns:1fr}}
-
-/* CARD */
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:10px}
-
-/* IDEAS */
-.idea-i{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--dim);cursor:pointer}
-.idea-i:last-child{border-bottom:none}
-.idea-i.used .idea-txt{text-decoration:line-through;opacity:.25}
-.idea-n{font-size:.62rem;color:var(--sub);width:18px;flex-shrink:0;padding-top:2px}
-.idea-txt{font-size:.78rem;color:var(--sub);flex:1;line-height:1.45}
-.used-lbl{font-size:.6rem;color:var(--sub);flex-shrink:0}
-
-/* DM */
-.dm-card{background:#050709;border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:8px}
-.dm-step{font-size:.62rem;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
-.dm-txt{font-size:.78rem;color:#94a3b8;line-height:1.6;margin-bottom:8px}
-
-/* BIO */
-.bio-area{width:100%;background:#050709;border:1px solid var(--border);border-radius:10px;padding:12px;font-size:.8rem;color:var(--text);line-height:1.7;resize:vertical;min-height:95px;font-family:inherit;outline:none;transition:border-color .15s}
-.bio-area:focus{border-color:var(--blue)}
-
-/* CHECKLIST */
-.chk-i{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--dim);cursor:pointer}
-.chk-i:last-child{border-bottom:none}
-.chkbox{width:18px;height:18px;border-radius:5px;border:1px solid var(--border);background:#050709;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.65rem;transition:all .15s;margin-top:1px}
-.chkbox.on{background:#0a2014;border-color:var(--green);color:var(--green)}
-.chk-txt{font-size:.78rem;color:var(--sub)}
-.chk-sub{font-size:.62rem;color:var(--sub);opacity:.6;margin-top:2px}
-.divider{height:1px;background:var(--border);margin:14px 0}
-
-/* SUGGESTION CHIPS */
-.chips-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
-.chip{padding:5px 11px;border-radius:20px;font-size:.7rem;font-weight:500;color:var(--sub);border:1px solid var(--border);background:#050608;cursor:pointer;transition:all .15s;white-space:nowrap}
-.chip:hover{border-color:var(--blue);color:#93c5fd;background:#07101e}
-.chip:active{transform:scale(.97)}
-
-/* AGENTS */
-.agents-wrap{max-width:860px;margin:0 auto;padding:20px 16px}
-.agent-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:12px}
-.agent-bar{height:3px}
-.agent-head{padding:16px 18px 14px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;border-bottom:1px solid var(--border)}
-.agent-name{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:4px}
-.agent-role{font-size:.68rem;color:var(--sub);line-height:1.45}
-.agent-badge{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0;margin-top:2px}
-.agent-body{padding:16px 18px}
-.agent-report-label{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px}
-.agent-headline{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4}
-.agent-text{font-size:.78rem;color:#64748b;line-height:1.65;margin-bottom:14px}
-.agent-actions{display:flex;flex-direction:column;gap:6px}
-.agent-action{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:#050709;border:1px solid var(--border);border-radius:8px}
-.agent-action-num{font-size:.62rem;font-weight:700;color:var(--sub);width:16px;flex-shrink:0;padding-top:1px}
-.agent-action-text{font-size:.75rem;color:#94a3b8;line-height:1.5;flex:1}
-.agent-footer{padding:10px 18px;border-top:1px solid var(--border);font-size:.6rem;color:var(--sub)}
-
-/* LIVE DOT */
-.live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;margin-right:6px;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{box-shadow:0 0 0 5px rgba(34,197,94,0)}}
-.live-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#22c55e;display:flex;align-items:center}
-
-/* DURATION + VERSION TOGGLE */
-.script-meta-row{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.dur-badge{font-size:.62rem;font-weight:600;color:#64748b;background:#050709;border:1px solid var(--border);padding:3px 9px;border-radius:20px}
-.ver-toggle{display:flex;gap:2px;background:#050709;border:1px solid var(--border);border-radius:20px;padding:2px}
-.ver-btn{padding:3px 10px;border-radius:16px;font-size:.62rem;font-weight:600;border:none;cursor:pointer;color:var(--sub);background:none;transition:all .15s}
-.ver-btn.on{background:var(--dim);color:#fff}
+button{font-family:inherit;cursor:pointer}
+.nav{position:sticky;top:0;z-index:100;background:rgba(7,8,11,.97);border-bottom:1px solid var(--border);padding:0 18px;height:50px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-size:.88rem;font-weight:700;color:#fff}
+.clock{font-size:.75rem;color:var(--sub);font-variant-numeric:tabular-nums}
+.page{max-width:600px;margin:0 auto;padding:0 0 60px}
+.hero{padding:28px 20px 24px;border-bottom:1px solid var(--border)}
+.hero-name{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--sub);margin-bottom:8px}
+.hero-h{font-size:1.5rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:4px;letter-spacing:-.02em}
+.hero-sub{font-size:.78rem;color:var(--sub)}
+.sec{padding:28px 18px 0}
+.sec-top{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.sec-badge{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;padding:3px 10px;border-radius:20px}
+.tofu-badge{background:#052010;color:#4ade80;border:1px solid #0d3a1c}
+.mofu-badge{background:#1a1000;color:#fbbf24;border:1px solid #2a1e00}
+.bofu-badge{background:#150520;color:#c084fc;border:1px solid #250a40}
+.sec-priority{font-size:.7rem;font-weight:700}
+.tofu-txt{color:#4ade80}.mofu-txt{color:#fbbf24}.bofu-txt{color:#c084fc}
+.sec-title{font-size:.98rem;font-weight:700;color:#fff;margin-bottom:3px}
+.sec-desc{font-size:.72rem;color:var(--sub);line-height:1.6;margin-bottom:8px}
+.sec-meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.sec-pill{font-size:.65rem;color:var(--sub);background:var(--dim);border:1px solid var(--border);border-radius:6px;padding:4px 9px}
+.sec-divider{height:1px;background:var(--border);margin:28px 18px 0}
+.cards{padding:0 18px;display:flex;flex-direction:column;gap:8px}
+.script-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;cursor:pointer;transition:border-color .15s,background .15s;-webkit-tap-highlight-color:transparent;user-select:none;display:block;width:100%;text-align:left}
+.script-card:active{background:#0f1118;border-color:#252d40}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+.card-num{font-size:.6rem;font-weight:800;color:var(--sub);flex-shrink:0;padding-top:3px}
+.card-title{font-size:.9rem;font-weight:700;color:#fff;line-height:1.35;flex:1}
+.card-arrow{font-size:.85rem;color:var(--sub);flex-shrink:0;padding-top:2px}
+.card-tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:.6rem;font-weight:600;padding:2px 8px;border-radius:5px;background:var(--dim);color:var(--sub);border:1px solid var(--border)}
+.tag.tofu{background:#030b04;color:#4ade80;border-color:#0a2010}
+.tag.mofu{background:#060400;color:#fbbf24;border-color:#1a1000}
+.tag.bofu{background:#060008;color:#c084fc;border-color:#150520}
+.tag.ctatag{background:#04090a;color:#4ade80;border-color:#0d2218}
+.tag.posted{background:#0a2014;color:#4ade80;border-color:#0d2218}
+.card-hook{font-size:.73rem;color:#334155;line-height:1.5;margin-top:10px;font-style:italic;border-left:2px solid var(--border);padding-left:10px}
+.priority-rule{margin:24px 18px 0;background:#0a0b10;border:1px solid var(--border);border-radius:12px;padding:14px 16px}
+.pr-title{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px}
+.pr-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+.pr-row:last-child{border-bottom:none}
+.pr-num{font-size:.8rem;font-weight:800;width:20px;flex-shrink:0}
+.pr-info{flex:1}
+.pr-name{font-size:.8rem;font-weight:700;color:#fff;margin-bottom:2px}
+.pr-note{font-size:.65rem;color:var(--sub);line-height:1.4}
+.pr-freq{font-size:.6rem;font-weight:700;padding:2px 8px;border-radius:5px;white-space:nowrap;flex-shrink:0}
+.overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.8);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.overlay.on{display:block}
+.sheet{background:#09090f;border-radius:20px 20px 0 0;border-top:1px solid var(--border);min-height:85vh;margin-top:8vh;padding:0 0 50px}
+.sheet-bar{height:3px;background:linear-gradient(90deg,#3b82f6,#6366f1,#a855f7);border-radius:20px 20px 0 0}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px 0}
+.sheet-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#3b82f6}
+.sheet-close{background:var(--dim);border:none;color:#94a3b8;width:32px;height:32px;border-radius:50%;font-size:1.1rem;display:flex;align-items:center;justify-content:center}
+.sheet-body{padding:16px 18px}
+.sh-title{font-size:1.05rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:12px}
+.sh-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.film-box{background:#050709;border-left:2px solid #3b82f6;padding:11px 13px;border-radius:0 8px 8px 0;font-size:.73rem;color:#475569;line-height:1.65;margin-bottom:16px}
+.film-box b{color:#94a3b8}
+.ver-row{display:flex;gap:2px;background:#050709;border:1px solid var(--border);border-radius:20px;padding:2px;margin-bottom:14px;width:fit-content}
+.vbtn{padding:4px 12px;border-radius:16px;font-size:.62rem;font-weight:600;border:none;color:var(--sub);background:none;transition:all .15s}
+.vbtn.on{background:var(--dim);color:#fff}
+.lines{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.line{display:grid;grid-template-columns:68px 1fr;gap:8px;align-items:start}
+.lmeta{text-align:right;padding-top:9px}
+.lseg{font-size:.6rem;font-weight:700;color:#334155;display:block}
+.ldur{font-size:.55rem;color:var(--sub);display:block;margin-top:1px}
+.lbub{background:#050709;border:1px solid var(--border);border-radius:9px;padding:10px 12px;font-size:.78rem;color:#94a3b8;line-height:1.6}
+.lbub.hook{border-color:#1a2a45;background:#060c1a}
+.lbub.cta{border-color:#0d2218;background:#04090a}
+.cap-wrap{margin:0 0 16px}
+.cap-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:8px}
+.cap-box{background:#050709;border:1px solid var(--border);border-radius:9px;padding:12px 14px;font-size:.77rem;color:#64748b;line-height:1.85;white-space:pre-wrap}
+.act-row{display:flex;gap:8px;flex-wrap:wrap}
+.abtn{flex:1;padding:12px 16px;border-radius:10px;font-size:.8rem;font-weight:600;border:none;transition:all .15s}
+.abtn-blue{background:#1d3a6e;color:#93c5fd}
+.abtn-green{background:#030f07;color:#4ade80;border:1px solid #0d2218}
+.abtn-green.on{background:#0a2014}
+.cbtn{display:inline-flex;align-items:center;background:none;border:1px solid var(--border);color:var(--sub);padding:2px 8px;border-radius:5px;font-size:.58rem;cursor:pointer;margin-top:5px;transition:all .15s}
+.cbtn.ok{border-color:#22c55e;color:#22c55e}
 </style></head><body>
 
-<!-- NAV -->
 <nav class="nav">
-  <div class="nav-brand" onclick="showView('home')">@marcomarkets</div>
-  <div class="nav-links">
-    <button class="nl" id="nl-home" onclick="showView('home')">Home</button>
-    <button class="nl" id="nl-content" onclick="showView('content')">Today</button>
-    <button class="nl" onclick="showView('content');goto('week')">This Week</button>
-  </div>
-  <div class="nav-right">
-    <div class="clock"><span id="clock">00:00</span></div>
-  </div>
+  <div class="nav-brand">@marcomarkets</div>
+  <div class="clock" id="clock"></div>
 </nav>
 
-<!-- POST MODAL -->
-<div class="modal-overlay" id="post-modal" onclick="closeModal(event)">
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <div class="modal-bar"></div>
-    <div class="modal-head">
-      <div class="modal-label">Today's Post</div>
-      <button class="modal-close" onclick="closePostModal()">&#215;</button>
+<div class="overlay" id="overlay">
+  <div class="sheet" id="sheet">
+    <div class="sheet-bar"></div>
+    <div class="sheet-head">
+      <div class="sheet-label" id="sh-label"></div>
+      <button class="sheet-close" id="sh-close">&#215;</button>
     </div>
-    <div class="modal-body" id="modal-content"></div>
+    <div class="sheet-body" id="sh-body"></div>
   </div>
 </div>
 
-<!-- HOME VIEW -->
-<div class="view on" id="view-home">
-  <div class="home-wrap">
-    <div class="home-hero">
-      <div class="home-eyebrow">@marcomarkets</div>
-      <div class="home-greeting">Good <span id="home-greeting">evening</span>,<br>Marco.</div>
-      <div class="home-date-line" id="home-date"></div>
-    </div>
-
-    <div class="home-body">
-      <!-- DAILY BRIEF -->
-      <div class="brief-card">
-        <div class="brief-bar"></div>
-        <div class="brief-inner">
-          <div class="brief-eyebrow">
-            <div class="brief-dot"></div>
-            <div class="brief-label">Today's brief</div>
-          </div>
-          <div class="brief-focus" id="brief-focus"></div>
-          <div class="brief-text" id="brief-text"></div>
-        </div>
-      </div>
-
-      <!-- TODAY'S POST -->
-      <div class="home-section-label">Today's post</div>
-      <div class="today-banner" id="today-banner" onclick="openPostModal()">
-        <div class="tb-accent"></div>
-        <div class="tb-inner">
-          <div class="tb-top">
-            <div class="tb-label">Tap to open full script</div>
-            <div class="tb-open">Open &#8599;</div>
-          </div>
-          <div class="tb-day" id="home-today-day"></div>
-          <div class="tb-title" id="home-today-title"></div>
-          <div class="tb-footer">
-            <div class="tb-type" id="home-today-type"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CONTENT STRATEGY -->
-      <div style="margin-bottom:20px">
-        <div class="home-section-label" style="margin-bottom:12px">Content Strategy</div>
-
-        <!-- TOFU -->
-        <div style="background:#030b04;border:1px solid #0a2010;border-radius:12px;padding:14px 16px;margin-bottom:8px">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-            <div style="background:#052010;border:1px solid #0a3a1a;border-radius:20px;padding:2px 10px;font-size:.58rem;font-weight:800;color:#4ade80;text-transform:uppercase;letter-spacing:.08em">TOFU</div>
-            <div style="font-size:.72rem;font-weight:700;color:#4ade80">Priority 1 &mdash; Post First</div>
-          </div>
-          <div style="font-size:.82rem;font-weight:600;color:#e2e8f0;margin-bottom:4px">Top of Funnel &mdash; Reach</div>
-          <div style="font-size:.72rem;color:#64748b;line-height:1.6;margin-bottom:8px">Gets you in front of service business owners who have never heard of you. These are the videos that grow your audience with the right people. No CTA needed &mdash; just a strong hook and real talk.</div>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <div style="background:#030806;border:1px solid #0a1a0c;border-radius:8px;padding:7px 11px;font-size:.68rem;color:#4ade80"><span style="font-weight:700">3&ndash;4x per week</span></div>
-            <div style="background:#030806;border:1px solid #0a1a0c;border-radius:8px;padding:7px 11px;font-size:.68rem;color:#64748b">Mon, Tue, Fri, Sun</div>
-            <div style="background:#030806;border:1px solid #0a1a0c;border-radius:8px;padding:7px 11px;font-size:.68rem;color:#64748b">Cinematic or clean indoor</div>
-          </div>
-        </div>
-
-        <!-- MOFU -->
-        <div style="background:#060500;border:1px solid #1a1200;border-radius:12px;padding:14px 16px;margin-bottom:8px">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-            <div style="background:#1a1000;border:1px solid #2a1e00;border-radius:20px;padding:2px 10px;font-size:.58rem;font-weight:800;color:#fbbf24;text-transform:uppercase;letter-spacing:.08em">MOFU</div>
-            <div style="font-size:.72rem;font-weight:700;color:#fbbf24">Priority 2 &mdash; Post After TOFU</div>
-          </div>
-          <div style="font-size:.82rem;font-weight:600;color:#e2e8f0;margin-bottom:4px">Middle of Funnel &mdash; Value</div>
-          <div style="font-size:.72rem;color:#64748b;line-height:1.6;margin-bottom:8px">Builds trust with people already following you. Give them one specific tactic they can use. The more real and tactical it is, the more it gets saved. Saves are the strongest signal to the algorithm.</div>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <div style="background:#060400;border:1px solid #1a1000;border-radius:8px;padding:7px 11px;font-size:.68rem;color:#fbbf24"><span style="font-weight:700">2&ndash;3x per week</span></div>
-            <div style="background:#060400;border:1px solid #1a1000;border-radius:8px;padding:7px 11px;font-size:.68rem;color:#64748b">Wed, Thu</div>
-            <div style="background:#060400;border:1px solid #1a1000;border-radius:8px;padding:7px 11px;font-size:.68rem;color:#64748b">Direct to camera, clean setup</div>
-          </div>
-        </div>
-
-        <!-- BOFU -->
-        <div style="background:#060008;border:1px solid #180018;border-radius:12px;padding:14px 16px;margin-bottom:8px">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-            <div style="background:#150520;border:1px solid #2a0a40;border-radius:20px;padding:2px 10px;font-size:.58rem;font-weight:800;color:#c084fc;text-transform:uppercase;letter-spacing:.08em">BOFU</div>
-            <div style="font-size:.72rem;font-weight:700;color:#c084fc">Priority 3 &mdash; Once a Week Max</div>
-          </div>
-          <div style="font-size:.82rem;font-weight:600;color:#e2e8f0;margin-bottom:4px">Bottom of Funnel &mdash; Convert</div>
-          <div style="font-size:.72rem;color:#64748b;line-height:1.6;margin-bottom:8px">Social proof, a client result, something that makes the right person want to reach out. This is where your DM CTA lives. Never more than 2 CTAs in a week total across all videos.</div>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <div style="background:#060008;border:1px solid #180018;border-radius:8px;padding:7px 11px;font-size:.68rem;color:#c084fc"><span style="font-weight:700">1x per week</span></div>
-            <div style="background:#060008;border:1px solid #180018;border-radius:8px;padding:7px 11px;font-size:.68rem;color:#64748b">Saturday</div>
-            <div style="background:#060008;border:1px solid #180018;border-radius:8px;padding:7px 11px;font-size:.68rem;color:#64748b">Confident, tell a story</div>
-          </div>
-        </div>
-
-        <div style="font-size:.68rem;color:#334155;line-height:1.5;padding:0 2px">Post 4&ndash;5x per week. Never more than 2 CTAs. Quality over volume. TOFU gets the audience. MOFU builds the trust. BOFU closes the client.</div>
-      </div>
-
-
-    </div>
-  </div>
-</div>
-
-<!-- CONTENT VIEW -->
-<div class="view" id="view-content">
 <div class="page">
-
-<!-- TODAY -->
-<section id="today">
-  <div class="sec-label">Today's Post</div>
-  <div class="prog-row">
-    <div class="prog-bar"><div class="prog-fill" id="pbar" style="width:0%"></div></div>
-    <div class="prog-lbl" id="plbl">0 / 7 posted this week</div>
+  <div class="hero">
+    <div class="hero-name">Content Dashboard</div>
+    <div class="hero-h">What to post,<br>and in what order.</div>
+    <div class="hero-sub" id="hero-date"></div>
   </div>
-  <div class="week-strip" id="wstrip"></div>
-  <div id="today-out"></div>
-</section>
 
-<!-- THIS WEEK -->
-<section id="week">
-  <div class="sec-label">This Week — All 7 Posts</div>
-  <div id="week-out"></div>
-</section>
+  <div class="priority-rule">
+    <div class="pr-title">Posting Priority This Week</div>
+    <div class="pr-row">
+      <div class="pr-num tofu-txt">1</div>
+      <div class="pr-info">
+        <div class="pr-name">TOFU &mdash; Top of Funnel</div>
+        <div class="pr-note">Post these first. Gets new service business owners finding you.</div>
+      </div>
+      <div class="pr-freq tofu-badge">3&ndash;4x / week</div>
+    </div>
+    <div class="pr-row">
+      <div class="pr-num mofu-txt">2</div>
+      <div class="pr-info">
+        <div class="pr-name">MOFU &mdash; Middle of Funnel</div>
+        <div class="pr-note">Post after TOFU. Builds trust with people already following.</div>
+      </div>
+      <div class="pr-freq mofu-badge">2&ndash;3x / week</div>
+    </div>
+    <div class="pr-row">
+      <div class="pr-num bofu-txt">3</div>
+      <div class="pr-info">
+        <div class="pr-name">BOFU &mdash; Bottom of Funnel</div>
+        <div class="pr-note">Once a week. Social proof + DM CTA. Never more than 2 CTAs total.</div>
+      </div>
+      <div class="pr-freq bofu-badge">1x / week</div>
+    </div>
+  </div>
 
+  <div class="sec">
+    <div class="sec-top">
+      <div class="sec-badge tofu-badge">TOFU</div>
+      <div class="sec-priority tofu-txt">Post These First</div>
+    </div>
+    <div class="sec-title">Top of Funnel &mdash; Reach</div>
+    <div class="sec-desc">Strong hook, real talk. No CTA needed. Goal is a follow or save from someone who had no idea you existed.</div>
+    <div class="sec-meta">
+      <div class="sec-pill">3&ndash;4x per week</div>
+      <div class="sec-pill">Mon &middot; Tue &middot; Fri &middot; Sun</div>
+      <div class="sec-pill">Outdoor or clean indoor</div>
+    </div>
+  </div>
+  <div class="cards" id="tofu-cards"></div>
+
+  <div class="sec-divider"></div>
+
+  <div class="sec">
+    <div class="sec-top">
+      <div class="sec-badge mofu-badge">MOFU</div>
+      <div class="sec-priority mofu-txt">Post These Second</div>
+    </div>
+    <div class="sec-title">Middle of Funnel &mdash; Value</div>
+    <div class="sec-desc">Give one specific tactic they can use today. The more tactical and honest, the more it gets saved.</div>
+    <div class="sec-meta">
+      <div class="sec-pill">2&ndash;3x per week</div>
+      <div class="sec-pill">Wed &middot; Thu</div>
+      <div class="sec-pill">Direct to camera</div>
+    </div>
+  </div>
+  <div class="cards" id="mofu-cards"></div>
+
+  <div class="sec-divider"></div>
+
+  <div class="sec">
+    <div class="sec-top">
+      <div class="sec-badge bofu-badge">BOFU</div>
+      <div class="sec-priority bofu-txt">Post This Once a Week</div>
+    </div>
+    <div class="sec-title">Bottom of Funnel &mdash; Convert</div>
+    <div class="sec-desc">Social proof, a real client result. Tell it like a story. This is where your DM CTA lives. Never more than 2 CTAs total in a week.</div>
+    <div class="sec-meta">
+      <div class="sec-pill">1x per week</div>
+      <div class="sec-pill">Saturday</div>
+      <div class="sec-pill">Max 2 CTAs total per week</div>
+    </div>
+  </div>
+  <div class="cards" id="bofu-cards"></div>
 </div>
-</div>
-
 
 <script>
-// ── Views ──────────────────────────────────────────────────────────────
-function showView(v){
-  document.querySelectorAll('.view').forEach(el=>el.classList.remove('on'));
-  document.getElementById('view-'+v).classList.add('on');
-  document.querySelectorAll('.nl').forEach(el=>el.classList.remove('on'));
-  const btn=document.getElementById('nl-'+v);if(btn)btn.classList.add('on');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function goto(id){setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},60);}
+(function tick(){document.getElementById('clock').textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',hour12:true});setTimeout(tick,1000);})();
+(function(){const d=new Date();const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];document.getElementById('hero-date').textContent=days[d.getDay()]+', '+months[d.getMonth()]+' '+d.getDate();})();
 
-// ── Clock (EST) ────────────────────────────────────────────────────────
-function tick(){
-  const n=new Date();
-  document.getElementById('clock').textContent=n.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',hour12:true});
-}
-tick();setInterval(tick,1000);
-
-// ── Dates ──────────────────────────────────────────────────────────────
-function getMondayOfWeek(d){
-  const day=d.getDay();
-  const diff=day===0?-6:1-day;
-  const mon=new Date(d);
-  mon.setDate(d.getDate()+diff);
-  mon.setHours(0,0,0,0);
-  return mon;
-}
-const today=new Date();
-const weekMon=getMondayOfWeek(today);
-const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-const FULL_DAYS=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-
-function weekDate(i){const d=new Date(weekMon);d.setDate(weekMon.getDate()+i);return d;}
-function fmtShort(d){return DAYS[d.getDay()===0?6:d.getDay()-1]+' '+d.getDate();}
-function fmtFull(d){const dn=d.getDay()===0?6:d.getDay()-1;return FULL_DAYS[dn]+', '+MONTHS[d.getMonth()]+' '+d.getDate();}
-
-let todayI=today.getDay();if(todayI===0)todayI=6;else todayI--;
-
-document.getElementById('home-date').textContent=fmtFull(today);
-const hr=today.getHours();
-document.getElementById('home-greeting').textContent=hr<12?'morning':hr<17?'afternoon':'evening';
-
-// ── Daily Brief ────────────────────────────────────────────────────────
-const DAILY_BRIEF=[
-  {focus:"Film Monday's script — it's your top of funnel reach video.",text:"TOFU content gets new eyes on your page. No CTA needed. Just a strong hook and real talk. Film it cinematic, slow and confident. Batch Tuesday's while you're set up."},
-  {focus:"Post your TOFU video today. No selling, just value.",text:"Top of funnel is about being seen by people who don't know you yet. The goal is a follow or a save, not a DM. Keep it broad, relatable, and punchy."},
-  {focus:"Wednesday is mid-funnel day. Teach something real.",text:"MOFU content builds trust with people already following you. Give them one specific thing they can use. The more tactical and honest, the better. No CTA needed."},
-  {focus:"Post today. Thursday evening is your best window — 6 to 7:30 PM.",text:"Stay online for 10 minutes after posting to reply to early comments. That signals the algorithm to push it further. One reply can double your reach."},
-  {focus:"Friday is another value day. Keep building authority.",text:"MOFU content on Friday performs well over the weekend. People save tactical posts and come back to them. Saves are one of the strongest signals you can get."},
-  {focus:"Post today. Less competition on weekends means more reach.",text:"Saturday is your bottom of funnel day this week. Social proof, a result, something that makes the right person want to reach out. This is where the DM CTA lands best."},
-  {focus:"Plan next week now. Read all 7 scripts. Decide filming days.",text:"Sunday is for planning, not filming. Go through next week's scripts, decide which days you're filming, and batch if you can. Five minutes now saves an hour Monday."},
-];
-(function(){
-  const b=DAILY_BRIEF[todayI];
-  document.getElementById('brief-focus').textContent=b.focus;
-  document.getElementById('brief-text').textContent=b.text;
-})();
-
-// ── Week content ───────────────────────────────────────────────────────
-const WEEK=[
-{title:'You Need to Spend Money to Make Money',type:'Talking Head',funnel:'TOFU',priority:1,
-film:'Outdoor: park bench, street, open sky behind you. Or indoor: clean wall, tripod at eye level, natural window light. Slow, confident delivery. Pauses are good. On screen text: “only watch this if you’re a business owner”',
-captions:[{label:'A',text:'most service business owners are spending money on the wrong things and wondering why nothing’s working\n\nit’s not that you need to spend more. it’s that you need to spend it where it actually brings clients in.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],
-lines:[
-{time:'Hook',tag:'5s',cls:'hook',text:'Service business owners, you need to spend money to make money. Like, that’s just the truth.'},
-{time:'Body',tag:'7s',cls:'',text:'And I don’t mean blow it on stuff that looks good. I mean put it where it actually works.'},
-{time:'Body',tag:'10s',cls:'',text:'The businesses growing right now are running ads. They know exactly who they’re targeting, they got the right offer in front of them, and the leads just keep coming in. That’s not luck. That’s a strategy.'},
-{time:'Body',tag:'8s',cls:'',text:'And once you figure it out, everything changes. You stop chasing and clients start coming to you.'},
-{time:'CTA',tag:'4s',cls:'cta',text:'follow me. I break this down every week.'},
-]},
-{title:'Nobody Told Me Running a Business Was a Marketing Problem',type:'Talking Head',funnel:'TOFU',priority:1,
-film:'Indoor: clean background, good lighting. Personal story tone — sit close to camera, relaxed, no notes. Talk like you’re telling a friend something that actually surprised you.',
-captions:[{label:'A',text:'most service business owners think they have a skills problem\n\nthey don’t\n\nthey have a visibility problem\n\nthe best plumber, cleaner, or landscaper in your area is not always the busiest one\n\nthe most visible one is'}],
-lines:[
-{time:'Hook',tag:'5s',cls:'hook',text:'Nobody told me that running a service business is mostly a marketing problem. Not a skills problem.'},
-{time:'Body',tag:'8s',cls:'',text:'The best plumber, the best window cleaner, the best landscaper in your area is not always the busiest one. The most visible one is.'},
-{time:'Body',tag:'8s',cls:'',text:'And that’s what most people get wrong. They spend years getting better at their craft and wonder why the phone isn’t ringing. The craft is not the problem. Being seen is.'},
-{time:'Close',tag:'6s',cls:'',text:'Once I understood that, everything I do for my clients changed. Because it’s not about being the best. It’s about making sure the right people know you exist.'},
-]},
-{title:'The First Thing I Check When a Client’s Ads Aren’t Working',type:'Talking Head',funnel:'MOFU',priority:2,
-film:'Indoor: good background, tripod, eye level. Direct and confident. This is pure value — no selling, give them something they can use today.',
-captions:[{label:'A',text:'before changing the budget, the creative, or the audience — check this first\n\nmost of the time the problem is simpler than people think\n\nand fixing it costs nothing'}],
-lines:[
-{time:'Hook',tag:'5s',cls:'hook',text:'When a client comes to me saying their ads aren’t working, the first thing I check is never the ad.'},
-{time:'Body',tag:'9s',cls:'',text:'I check the objective. Because 9 times out of 10 they’re running Traffic. And Traffic tells Meta to find people who click links — not people who want to book a job. That one setting alone can tank your whole campaign.'},
-{time:'Body',tag:'8s',cls:'',text:'Switch it to Lead Generation and you’re telling Meta to find people ready to take action. Same budget, same creative, completely different result.'},
-{time:'Close',tag:'5s',cls:'',text:'Check your objective right now before you touch anything else. That’s where I start every single time.'},
-]},
-{title:'Your Competitor Is Not Better Than You',type:'Talking Head',funnel:'MOFU',priority:2,
-film:'Indoor or outdoor — either works. Confident and direct. This is a mindset shift video, not a tactics video. Deliver it like you actually believe it.',
-captions:[{label:'A',text:'your competitor is not winning because they’re better at the work\n\nthey’re winning because more people know their name\n\nthat’s a marketing problem. not a skills problem.\n\nand marketing problems are fixable'}],
-lines:[
-{time:'Hook',tag:'5s',cls:'hook',text:'Your competitor is not better than you at what you do. They’re just better at being seen.'},
-{time:'Body',tag:'8s',cls:'',text:'I see this constantly with service business owners. They’re skilled, they do great work, their customers love them. But their competitor down the road is booked out for weeks. And it has nothing to do with the quality of the work.'},
-{time:'Body',tag:'8s',cls:'',text:'It’s because that competitor shows up. Online, in front of the right people, consistently. And when someone in the area needs what you do — they think of them first.'},
-{time:'Close',tag:'6s',cls:'',text:'That’s not luck. That’s just visibility. And visibility is something you can control if you’re willing to put money and effort behind it.'},
-]},
-{title:'Why I Only Work With Service Businesses',type:'Talking Head',funnel:'TOFU',priority:1,
-film:'Outdoor if possible — good scenery, sitting or standing, relaxed. If indoors: couch or chair near a window. Personal brand video. Honest, natural, no pitch energy at all.',
-captions:[{label:'A',text:'people ask why I only work with service businesses\n\nnot coaches. not e-com. not “brands.”\n\nbecause these businesses actually do something real\n\nand most of them are excellent at it — they just don’t know how to get more clients\n\nthat gap is what I’m here to close'}],
-lines:[
-{time:'Hook',tag:'5s',cls:'hook',text:'People ask me why I only work with service businesses. Not coaches. Not e-com. Not brands.'},
-{time:'Body',tag:'9s',cls:'',text:'Because these businesses actually do something. A plumber shows up at 7am when there’s water through the ceiling and fixes it. A window cleaner transforms someone’s home in an afternoon. Real skills, real people, real need.'},
-{time:'Body',tag:'8s',cls:'',text:'And most of them are genuinely excellent at what they do. They’ve built a skill over years. They just don’t know how to market it. That gap — between what they’re capable of and how many clients they have — that’s what I want to close.'},
-{time:'Close',tag:'5s',cls:'',text:'That’s why I’m here. Follow along if that sounds like you.'},
-]},
-{title:'We Changed Two Things. Booked Jobs Went Up.',type:'Talking Head',funnel:'BOFU',priority:3,
-film:'Indoor: clean, confident. Slow down on the results. Tell it like a story — not a pitch. This is your conversion video for the week.',
-captions:[{label:'A',text:'most service business owners think they need to spend more to get more leads\n\nusually it’s two things that need to change\n\nnot the budget\n\nDM me “SCALE” and I’ll show you what I’d look at first in yours.'}],
-lines:[
-{time:'Hook',tag:'5s',cls:'hook',text:'Client came to me a few months ago. Decent budget, decent offer — but leads were expensive and barely anything was booking.'},
-{time:'Body',tag:'8s',cls:'',text:'First thing we changed was the audience. Way too broad. Pulled it back to a tight radius around where they actually work. Cost per lead dropped in the first week.'},
-{time:'Body',tag:'8s',cls:'',text:'Second thing was the creative. No hook, no specific offer. We rewrote it with a real reason to stop scrolling. Booked jobs went up.'},
-{time:'Body',tag:'6s',cls:'',text:'Nothing changed about the budget. Nothing changed about the service. Just those two things.'},
-{time:'CTA',tag:'5s',cls:'cta',text:'If that sounds like where you’re at — DM me SCALE and I’ll take a look at yours.'},
-]},
-{title:'What I Would Do If I Was Starting From Zero Today',type:'Talking Head',funnel:'TOFU',priority:1,
-film:'Outdoor if you can — open scenery, relaxed. Personal take video. No script energy. Sit down, look at camera, talk it through like you’re actually thinking out loud.',
-captions:[{label:'A',text:'starting from zero is actually easier than fixing a broken strategy\n\nbecause you don’t have bad habits to undo\n\nyou just need to know where to put your energy first'}],
-lines:[
-{time:'Hook',tag:'5s',cls:'hook',text:'If I was starting a service business from zero today, I would not spend a dollar on a website, a logo, or a van wrap.'},
-{time:'Body',tag:'8s',cls:'',text:'I would do two things. I would get my first 5 clients any way possible — referrals, door knocking, whatever it takes. And then I would take that money and run one Meta ad to get the next 5.'},
-{time:'Body',tag:'8s',cls:'',text:'Because once you have proof that you can do the work, the ad becomes easy. You have a real offer, real results, and something worth putting in front of people.'},
-{time:'Close',tag:'6s',cls:'',text:'The logo can wait. The website can wait. Get clients first. Build the strategy after.'},
-]},
+var SCRIPTS=[
+{id:0,funnel:'TOFU',order:1,title:'You Need to Spend Money to Make Money',type:'Talking Head',cta:true,
+ film:'Outdoor: park bench, street, open sky behind you. Or indoor: clean wall, tripod at eye level, natural window light. Slow, confident delivery. Pauses are good. On-screen text: “only watch this if you’re a business owner”',
+ hook:'Service business owners, you need to spend money to make money. Like, that’s just the truth.',
+ caption:'most service business owners are spending money on the wrong things and wondering why nothing’s working\n\nit’s not that you need to spend more. it’s that you need to spend it where it actually brings clients in.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.',
+ lines:[
+  {time:'Hook',tag:'5s',cls:'hook',text:'Service business owners, you need to spend money to make money. Like, that’s just the truth.'},
+  {time:'Body',tag:'7s',cls:'',text:'And I don’t mean blow it on stuff that looks good. I mean put it where it actually works.'},
+  {time:'Body',tag:'10s',cls:'',text:'The businesses growing right now are running ads. They know exactly who they’re targeting, they got the right offer in front of them, and the leads just keep coming in. That’s not luck. That’s a strategy.'},
+  {time:'Body',tag:'8s',cls:'',text:'And once you figure it out, everything changes. You stop chasing and clients start coming to you.'},
+  {time:'CTA',tag:'4s',cls:'cta',text:'Follow me. I break this down every week.'},
+ ]},
+{id:1,funnel:'TOFU',order:2,title:'Nobody Told Me Running a Business Was a Marketing Problem',type:'Talking Head',cta:false,
+ film:'Indoor: clean background, good lighting. Personal story tone — sit close to camera, relaxed, no notes. Talk like you’re telling a friend something that actually surprised you.',
+ hook:'Nobody told me that running a service business is mostly a marketing problem. Not a skills problem.',
+ caption:'most service business owners think they have a skills problem\n\nthey don’t\n\nthey have a visibility problem\n\nthe best plumber, cleaner, or landscaper in your area is not always the busiest one\n\nthe most visible one is',
+ lines:[
+  {time:'Hook',tag:'5s',cls:'hook',text:'Nobody told me that running a service business is mostly a marketing problem. Not a skills problem.'},
+  {time:'Body',tag:'8s',cls:'',text:'The best plumber, the best window cleaner, the best landscaper in your area is not always the busiest one. The most visible one is.'},
+  {time:'Body',tag:'8s',cls:'',text:'And that’s what most people get wrong. They spend years getting better at their craft and wonder why the phone isn’t ringing. The craft is not the problem. Being seen is.'},
+  {time:'Close',tag:'6s',cls:'',text:'Once I understood that, everything I do for my clients changed. Because it’s not about being the best. It’s about making sure the right people know you exist.'},
+ ]},
+{id:2,funnel:'TOFU',order:3,title:'Why I Only Work With Service Businesses',type:'Talking Head',cta:false,
+ film:'Outdoor if possible — good scenery, sitting or standing, relaxed. If indoors: couch or chair near a window. Personal brand video. Honest, natural, no pitch energy at all.',
+ hook:'People ask me why I only work with service businesses. Not coaches. Not e-com. Not brands.',
+ caption:'people ask why I only work with service businesses\n\nnot coaches. not e-com. not “brands.”\n\nbecause these businesses actually do something real\n\nand most of them are excellent at it — they just don’t know how to get more clients\n\nthat gap is what I’m here to close',
+ lines:[
+  {time:'Hook',tag:'5s',cls:'hook',text:'People ask me why I only work with service businesses. Not coaches. Not e-com. Not brands.'},
+  {time:'Body',tag:'9s',cls:'',text:'Because these businesses actually do something. A plumber shows up at 7am when there’s water through the ceiling and fixes it. A window cleaner transforms someone’s home in an afternoon. Real skills, real people, real need.'},
+  {time:'Body',tag:'8s',cls:'',text:'And most of them are genuinely excellent at what they do. They’ve built a skill over years. They just don’t know how to market it. That gap — between what they’re capable of and how many clients they have — that’s what I want to close.'},
+  {time:'Close',tag:'5s',cls:'',text:'That’s why I’m here. Follow along if that sounds like you.'},
+ ]},
+{id:3,funnel:'TOFU',order:4,title:'What I Would Do If I Was Starting From Zero Today',type:'Talking Head',cta:false,
+ film:'Outdoor if you can — open scenery, relaxed. Personal take video. No script energy. Sit down, look at camera, talk it through like you’re actually thinking out loud.',
+ hook:'If I was starting a service business from zero today, I would not spend a dollar on a website, a logo, or a van wrap.',
+ caption:'starting from zero is actually easier than fixing a broken strategy\n\nbecause you don’t have bad habits to undo\n\nyou just need to know where to put your energy first',
+ lines:[
+  {time:'Hook',tag:'5s',cls:'hook',text:'If I was starting a service business from zero today, I would not spend a dollar on a website, a logo, or a van wrap.'},
+  {time:'Body',tag:'8s',cls:'',text:'I would do two things. I would get my first 5 clients any way possible — referrals, door knocking, whatever it takes. And then I would take that money and run one Meta ad to get the next 5.'},
+  {time:'Body',tag:'8s',cls:'',text:'Because once you have proof that you can do the work, the ad becomes easy. You have a real offer, real results, and something worth putting in front of people.'},
+  {time:'Close',tag:'6s',cls:'',text:'The logo can wait. The website can wait. Get clients first. Build the strategy after.'},
+ ]},
+{id:4,funnel:'MOFU',order:1,title:'The First Thing I Check When a Client’s Ads Aren’t Working',type:'Talking Head',cta:false,
+ film:'Indoor: good background, tripod, eye level. Direct and confident. Pure value — no selling, give them something they can use today.',
+ hook:'When a client comes to me saying their ads aren’t working, the first thing I check is never the ad.',
+ caption:'before changing the budget, the creative, or the audience — check this first\n\nmost of the time the problem is simpler than people think\n\nand fixing it costs nothing',
+ lines:[
+  {time:'Hook',tag:'5s',cls:'hook',text:'When a client comes to me saying their ads aren’t working, the first thing I check is never the ad.'},
+  {time:'Body',tag:'9s',cls:'',text:'I check the objective. Because 9 times out of 10 they’re running Traffic. And Traffic tells Meta to find people who click links — not people who want to book a job. That one setting alone can tank your whole campaign.'},
+  {time:'Body',tag:'8s',cls:'',text:'Switch it to Lead Generation and you’re telling Meta to find people ready to take action. Same budget, same creative, completely different result.'},
+  {time:'Close',tag:'5s',cls:'',text:'Check your objective right now before you touch anything else. That’s where I start every single time.'},
+ ]},
+{id:5,funnel:'MOFU',order:2,title:'Your Competitor Is Not Better Than You',type:'Talking Head',cta:false,
+ film:'Indoor or outdoor — either works. Confident and direct. Mindset shift video. Deliver it like you actually believe it.',
+ hook:'Your competitor is not better than you at what you do. They’re just better at being seen.',
+ caption:'your competitor is not winning because they’re better at the work\n\nthey’re winning because more people know their name\n\nthat’s a marketing problem. not a skills problem.\n\nand marketing problems are fixable',
+ lines:[
+  {time:'Hook',tag:'5s',cls:'hook',text:'Your competitor is not better than you at what you do. They’re just better at being seen.'},
+  {time:'Body',tag:'8s',cls:'',text:'I see this constantly with service business owners. They’re skilled, they do great work, their customers love them. But their competitor down the road is booked out for weeks. And it has nothing to do with the quality of the work.'},
+  {time:'Body',tag:'8s',cls:'',text:'It’s because that competitor shows up. Online, in front of the right people, consistently. And when someone in the area needs what you do — they think of them first.'},
+  {time:'Close',tag:'6s',cls:'',text:'That’s not luck. That’s just visibility. And visibility is something you can control if you’re willing to put money and effort behind it.'},
+ ]},
+{id:6,funnel:'BOFU',order:1,title:'We Changed Two Things. Booked Jobs Went Up.',type:'Talking Head',cta:true,
+ film:'Indoor: clean, confident. Slow down on the results. Tell it like a story — not a pitch. This is your conversion video for the week.',
+ hook:'Client came to me a few months ago. Decent budget, decent offer — but leads were expensive and barely anything was booking.',
+ caption:'most service business owners think they need to spend more to get more leads\n\nusually it’s two things that need to change\n\nnot the budget\n\nDM me “SCALE” and I’ll show you what I’d look at first in yours.',
+ lines:[
+  {time:'Hook',tag:'5s',cls:'hook',text:'Client came to me a few months ago. Decent budget, decent offer — but leads were expensive and barely anything was booking.'},
+  {time:'Body',tag:'8s',cls:'',text:'First thing we changed was the audience. Way too broad. Pulled it back to a tight radius around where they actually work. Cost per lead dropped in the first week.'},
+  {time:'Body',tag:'8s',cls:'',text:'Second thing was the creative. No hook, no specific offer. We rewrote it with a real reason to stop scrolling. Booked jobs went up.'},
+  {time:'Body',tag:'6s',cls:'',text:'Nothing changed about the budget. Nothing changed about the service. Just those two things.'},
+  {time:'CTA',tag:'5s',cls:'cta',text:'If that sounds like where you’re at — DM me SCALE and I’ll take a look at yours.'},
+ ]},
 ];
 
+var checks=JSON.parse(localStorage.getItem('mm_checks')||'{}');
+var curId=null;
+var curVer='full';
 
-
-const checks=JSON.parse(localStorage.getItem('mm_checks')||'{}');
-
-function funnelBadgeHTML(funnel){
-  if(!funnel)return '';
-  const cls=funnel.toLowerCase();
-  const label=funnel==='TOFU'?'Top — Reach':funnel==='MOFU'?'Mid — Value':'Bottom — Convert';
-  return '<span class="funnel-badge '+cls+'">'+label+'</span>';
-}
-function typeBadgeClass(type){
-  if(type==='Screen Record')return 'screen';
-  if(type==='Talking Head')return 'talking';
-  if(type==='Carousel')return 'carousel';
-  if(type==='Video')return 'video';
-  return '';
-}
-
-function typeBadgeStyle(type){
-  if(type==='Screen Record'||type==='Video')return 'background:#0a1020;color:#93c5fd;border:1px solid #1a2a45';
-  if(type==='Talking Head')return 'background:#130820;color:#c4b5fd;border:1px solid #25104a';
-  if(type==='Carousel')return 'background:#130a00;color:#fdba74;border:1px solid #2a1800';
-  return 'background:var(--dim);color:var(--sub);border:1px solid var(--border)';
-}
-
-// Populate home today card
-(function(){
-  const d=WEEK[todayI];
-  const dt=weekDate(todayI);
-  document.getElementById('home-today-day').textContent=fmtFull(dt);
-  document.getElementById('home-today-title').textContent=d.title;
-  const tb=document.getElementById('home-today-type');
-  tb.textContent=d.type;tb.style.cssText=typeBadgeStyle(d.type);
-})();
-
-// ── Post Modal ─────────────────────────────────────────────────────────
-function renderModal(i,ver){
-  ver=ver||scriptVers.modal||'full';
-  scriptVers.modal=ver;
-  const d=WEEK[i];
-  const dt=weekDate(i);
-  const dur=scriptDuration(d.lines);
-  document.getElementById('modal-content').innerHTML=
-    '<div class="tc-day" style="margin-bottom:6px">'+fmtFull(dt)+'</div>'
-    +'<div style="font-size:1.1rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:12px">'+d.title+'</div>'
-    +'<div class="script-meta-row">'
-    +'<div style="display:inline-block;font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:20px;'+typeBadgeStyle(d.type)+'">'+d.type+'</div>'
-    +funnelBadgeHTML(d.funnel)
-    +(dur?'<div class="dur-badge">'+dur+' total</div>':'')
-    +verToggleHTML('modal',i,ver)
-    +'</div>'
-    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
-    +mkScript(d.lines,ver)
-    +mkCaption(d,i)
-    +'<div class="action-row" style="margin-top:12px">'
-    +'<button class="btn btn-primary" onclick="cpAll('+i+')">Copy Script</button>'
-    +'<button class="btn btn-done'+(checks[i]?' on':'')+'" id="modal-done-btn" onclick="toggleDoneModal('+i+')">'+(checks[i]?'Posted':'Mark Posted')+'</button>'
-    +'</div>';
-}
-function openPostModal(){
-  renderModal(todayI,'full');
-  document.getElementById('post-modal').classList.add('on');
-  document.body.style.overflow='hidden';
-}
-function closePostModal(){
-  document.getElementById('post-modal').classList.remove('on');
-  document.body.style.overflow='';
-}
-function closeModal(e){if(e.target===document.getElementById('post-modal'))closePostModal();}
-function toggleDoneModal(i){
-  checks[i]=!checks[i];
-  localStorage.setItem('mm_checks',JSON.stringify(checks));
-  const btn=document.getElementById('modal-done-btn');
-  if(btn){btn.className='btn btn-done'+(checks[i]?' on':'');btn.textContent=checks[i]?'Posted':'Mark Posted';}
-  const donebtn=document.getElementById('done-btn');
-  if(donebtn){donebtn.className='btn btn-done'+(checks[i]?' on':'');donebtn.textContent=checks[i]?'Posted':'Mark Posted';}
-  document.getElementById('wd'+i).classList.toggle('done',checks[i]);
-  updProg();
+function renderCards(funnel,containerId){
+  var el=document.getElementById(containerId);
+  el.innerHTML='';
+  var list=SCRIPTS.filter(function(s){return s.funnel===funnel;}).sort(function(a,b){return a.order-b.order;});
+  list.forEach(function(s){
+    var card=document.createElement('button');
+    card.className='script-card';
+    card.setAttribute('data-id',s.id);
+    var cls=funnel.toLowerCase();
+    var tagsHtml='<div class="card-tags">'
+      +'<div class="tag '+cls+'">'+funnel+'</div>'
+      +'<div class="tag">'+s.type+'</div>'
+      +(s.cta?'<div class="tag ctatag">Has CTA</div>':'')
+      +(checks[s.id]?'<div class="tag posted">Posted</div>':'')
+      +'</div>';
+    card.innerHTML=
+      '<div class="card-top">'
+      +'<div class="card-num">'+funnel+' '+s.order+'</div>'
+      +'<div class="card-title">'+s.title+'</div>'
+      +'<div class="card-arrow">&#8599;</div>'
+      +'</div>'
+      +tagsHtml
+      +'<div class="card-hook">'+s.hook+'</div>';
+    card.addEventListener('click',function(){openSheet(s.id);});
+    el.appendChild(card);
+  });
 }
 
-// Progress
-function updProg(){
-  const n=Object.values(checks).filter(Boolean).length;
-  document.getElementById('pbar').style.width=(n/7*100)+'%';
-  document.getElementById('plbl').textContent=n+' / 7 posted this week';
+renderCards('TOFU','tofu-cards');
+renderCards('MOFU','mofu-cards');
+renderCards('BOFU','bofu-cards');
+
+function filterLines(lines,ver){
+  if(ver==='full')return lines;
+  var hook=lines.filter(function(l){return l.cls==='hook';});
+  var cta=lines.filter(function(l){return l.cls==='cta';});
+  if(ver==='short')return hook.concat(cta);
+  var mid=lines.filter(function(l){return l.cls!=='hook'&&l.cls!=='cta';}).slice(0,2);
+  return hook.concat(mid).concat(cta);
 }
 
-// Week strip
-const wstrip=document.getElementById('wstrip');
-WEEK.forEach((d,i)=>{
-  const dt=weekDate(i);
-  const el=document.createElement('div');
-  el.className='wday'+(i===todayI?' active':'')+(checks[i]?' done':'');
-  el.id='wd'+i;
-  el.onclick=()=>{document.querySelectorAll('.wday').forEach(w=>w.classList.remove('active'));el.classList.add('active');renderToday(i);};
-  el.innerHTML='<div class="wday-n">'+DAYS[i]+'</div><div class="wday-d">'+dt.getDate()+'</div><div class="wday-t">'+d.type.split(' ')[0]+'</div>';
-  wstrip.appendChild(el);
-});
-
-// Script renderer
-function cpLine(btn,text){
-  navigator.clipboard.writeText(text).then(()=>{btn.textContent='Copied';btn.classList.add('ok');setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('ok');},1800);});
+function totalSec(lines){
+  return lines.reduce(function(t,l){var s=parseInt(l.tag||'0');return t+(isNaN(s)?0:s);},0);
 }
-function cpAll(i){navigator.clipboard.writeText(WEEK[i].lines.map(l=>l.text).join('\n\n'));}
 
-function scriptDuration(lines){
-  let t=0;
-  lines.forEach(l=>{if(l.tag){const s=parseInt(l.tag);if(!isNaN(s))t+=s;}});
-  if(!t)return null;
-  const m=Math.floor(t/60),s=t%60;
+function durStr(lines,ver){
+  var t=totalSec(filterLines(lines,ver));
+  if(!t)return '';
+  var m=Math.floor(t/60),s=t%60;
   return m?(m+'m '+(s?s+'s':'')):(s+'s');
 }
 
-// version: 'short' = hook+cta only, 'mid' = hook + half middle + cta, 'full' = all
-function filterLines(lines,ver){
-  if(ver==='full')return lines;
-  const core=lines.filter(l=>l.cls==='hook'||l.cls==='cta');
-  if(ver==='short')return core;
-  // mid: hook + first 2 middle + cta
-  const hook=lines.filter(l=>l.cls==='hook');
-  const mid=lines.filter(l=>l.cls!=='hook'&&l.cls!=='cta').slice(0,2);
-  const cta=lines.filter(l=>l.cls==='cta');
-  return [...hook,...mid,...cta];
+function mkLines(lines,ver){
+  var fl=filterLines(lines,ver);
+  return '<div class="lines">'+fl.map(function(l){
+    return '<div class="line">'
+      +'<div class="lmeta"><span class="lseg">'+l.time+'</span>'+(l.tag?'<span class="ldur">'+l.tag+'</span>':'')+'</div>'
+      +'<div class="lbub '+l.cls+'">'+l.text
+      +'<br><button class="cbtn" onclick="cpText(this,'+JSON.stringify(l.text)+')">Copy</button>'
+      +'</div>'
+      +'</div>';
+  }).join('')+'</div>';
 }
 
-function durForVer(lines,ver){
-  return scriptDuration(filterLines(lines,ver));
+function openSheet(id){
+  curId=id;curVer='full';
+  document.getElementById('overlay').classList.add('on');
+  document.body.style.overflow='hidden';
+  renderSheet();
 }
 
-function mkCaption(d,i){
-  const caps=d.captions&&d.captions.length?d.captions:(d.caption?[{label:'A',text:d.caption}]:null);
-  if(!caps)return '';
-  const id='cap-'+i;
-  const encoded=encodeURIComponent(JSON.stringify(caps));
-  const first=caps[0].text;
-  const safe=first.replace(/\\/g,'\\\\').replace(/`/g,'\\`');
-  const btns=caps.map((c,ci)=>'<button class="ver-btn'+(ci===0?' on':'')+'" id="'+id+'-btn-'+ci+'" onclick="swapCap(\''+id+'\','+ci+')">'+c.label+'</button>').join('');
-  return '<div style="margin:16px 0 0">'
-    +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">'
-    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub)">Caption</div>'
-    +'<div class="ver-toggle" style="margin:0">'+btns+'</div>'
+function renderSheet(){
+  var s=SCRIPTS[curId];
+  var cls=s.funnel.toLowerCase();
+  document.getElementById('sh-label').textContent=s.funnel+' — '+s.type;
+  var short=durStr(s.lines,'short');
+  var mid=durStr(s.lines,'mid');
+  var full=durStr(s.lines,'full');
+  document.getElementById('sh-body').innerHTML=
+    '<div class="sh-title">'+s.title+'</div>'
+    +'<div class="sh-tags">'
+    +'<div class="tag '+cls+'">'+s.funnel+'</div>'
+    +'<div class="tag">'+s.type+'</div>'
+    +(s.cta?'<div class="tag ctatag">Has CTA</div>':'<div class="tag">No CTA</div>')
     +'</div>'
-    +'<div id="'+id+'" data-caps="'+encoded+'" style="background:#050608;border:1px solid var(--border);border-radius:9px;padding:13px 14px;font-size:.78rem;color:#64748b;line-height:1.8;white-space:pre-wrap">'+first+'</div>'
-    +'<button class="cbtn" id="'+id+'-copy" style="margin-top:6px" onclick="cpCap(this,\''+id+'\')">Copy Caption</button>'
-    +'</div>';
-}
-function swapCap(id,ci){
-  const el=document.getElementById(id);
-  if(!el)return;
-  const caps=JSON.parse(decodeURIComponent(el.dataset.caps));
-  el.textContent=caps[ci].text;
-  el.closest('div').querySelectorAll('.ver-btn').forEach((b,j)=>b.classList.toggle('on',j===ci));
-}
-function cpCap(btn,id){
-  const el=document.getElementById(id);
-  if(!el)return;
-  navigator.clipboard.writeText(el.textContent).then(()=>{btn.textContent='Copied';setTimeout(()=>btn.textContent='Copy Caption',1600)});
-}
-
-function mkScript(lines,ver){
-  const fl=filterLines(lines,ver||'full');
-  return '<div class="script-lines">'+fl.map(l=>
-    '<div class="sl">'
-    +'<div class="sl-meta"><span class="sl-seg">'+l.time+'</span>'+(l.tag?'<span class="sl-dur">'+l.tag+'</span>':'')+'</div>'
-    +'<div class="sl-bub '+l.cls+'">'+l.text+'<br><button class="cbtn" onclick="cpLine(this,`'+l.text.replace(/\\/g,'\\\\').replace(/`/g,'\\`')+'`)">Copy</button></div>'
+    +'<div class="film-box"><b>How to film:</b> '+s.film+'</div>'
+    +'<div class="ver-row">'
+    +'<button class="vbtn'+(curVer==='short'?' on':'')+'" onclick="setVer(\'short\')">Short'+(short?' \xb7 '+short:'')+'</button>'
+    +'<button class="vbtn'+(curVer==='mid'?' on':'')+'" onclick="setVer(\'mid\')">Medium'+(mid?' \xb7 '+mid:'')+'</button>'
+    +'<button class="vbtn'+(curVer==='full'?' on':'')+'" onclick="setVer(\'full\')">Full'+(full?' \xb7 '+full:'')+'</button>'
     +'</div>'
-  ).join('')+'</div>';
-}
-
-function verToggleHTML(elId,i,ver){
-  const d=WEEK[i];
-  const isCarousel=d.type==='Carousel';
-  if(isCarousel)return '';
-  const short=durForVer(d.lines,'short');
-  const mid=durForVer(d.lines,'mid');
-  const full=durForVer(d.lines,'full');
-  return '<div class="ver-toggle">'
-    +'<button class="ver-btn'+(ver==='short'?' on':'')+'" onclick="setVer(\''+elId+'\','+i+',\'short\')">Short '+(short?'· '+short:'')+'</button>'
-    +'<button class="ver-btn'+(ver==='mid'?' on':'')+'" onclick="setVer(\''+elId+'\','+i+',\'mid\')">Medium '+(mid?'· '+mid:'')+'</button>'
-    +'<button class="ver-btn'+(ver==='full'?' on':'')+'" onclick="setVer(\''+elId+'\','+i+',\'full\')">Full '+(full?'· '+full:'')+'</button>'
+    +mkLines(s.lines,curVer)
+    +'<div class="cap-wrap">'
+    +'<div class="cap-label">Caption</div>'
+    +'<div class="cap-box" id="cap-box">'+s.caption+'</div>'
+    +'<button class="cbtn" style="margin-top:6px" onclick="cpCap()">Copy Caption</button>'
+    +'</div>'
+    +'<div class="act-row" style="margin-top:8px">'
+    +'<button class="abtn abtn-blue" onclick="cpAll()">Copy Full Script</button>'
+    +'<button class="abtn abtn-green'+(checks[curId]?' on':'')+'" id="done-btn" onclick="toggleDone()">'+(checks[curId]?'Posted ✓':'Mark as Posted')+'</button>'
     +'</div>';
 }
 
-const scriptVers={today:'full',modal:'full'};
+function setVer(ver){curVer=ver;renderSheet();}
 
-function setVer(elId,i,ver){
-  scriptVers[elId]=ver;
-  if(elId==='today')renderToday(i,ver);
-  else if(elId==='modal')renderModal(i,ver);
-  else if(elId==='wkv-'+i){
-    const sc=document.getElementById('wkscript-'+i);
-    if(sc)sc.innerHTML=mkScript(WEEK[i].lines,ver);
-    // update active state on toggle buttons
-    const tog=document.getElementById('wktog-'+i);
-    if(tog)tog.querySelectorAll('.ver-btn').forEach(b=>b.classList.toggle('on',b.textContent.toLowerCase().startsWith(ver)));
-  }
+document.getElementById('sh-close').addEventListener('click',closeSheet);
+document.getElementById('overlay').addEventListener('click',function(e){if(e.target===document.getElementById('overlay'))closeSheet();});
+
+function closeSheet(){
+  document.getElementById('overlay').classList.remove('on');
+  document.body.style.overflow='';
 }
 
-// Render today
-function renderToday(i,ver){
-  ver=ver||scriptVers.today||'full';
-  scriptVers.today=ver;
-  const d=WEEK[i];
-  const dt=weekDate(i);
-  const dur=scriptDuration(d.lines);
-  document.getElementById('today-out').innerHTML=
-    '<div class="today-card">'
-    +'<div class="tc-bar"></div>'
-    +'<div class="tc-inner">'
-    +'<div class="tc-top">'
-    +'<div class="tc-day">'+fmtFull(dt)+'</div>'
-    +'<div class="tc-title">'+d.title+'</div>'
-    +'</div>'
-    +'<div class="script-meta-row">'
-    +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
-    +funnelBadgeHTML(d.funnel)
-    +(dur?'<div class="dur-badge">'+dur+' total</div>':'')
-    +verToggleHTML('today',i,ver)
-    +'</div>'
-    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
-    +mkScript(d.lines,ver)
-    +mkCaption(d,i)
-    +'<div class="action-row" style="margin-top:12px">'
-    +'<button class="btn btn-primary" onclick="cpAll('+i+')">Copy Script</button>'
-    +'<button class="btn btn-done'+(checks[i]?' on':'')+'" id="done-btn" onclick="toggleDone('+i+')">'+(checks[i]?'Posted':'Mark Posted')+'</button>'
-    +'</div>'
-    +'</div></div>';
+function cpText(btn,text){
+  navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied';btn.classList.add('ok');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('ok');},1800);});
 }
-renderToday(todayI);
-
-function toggleDone(i){
-  checks[i]=!checks[i];
+function cpCap(){
+  var el=document.getElementById('cap-box');
+  if(el)navigator.clipboard.writeText(el.textContent);
+}
+function cpAll(){
+  var s=SCRIPTS[curId];
+  navigator.clipboard.writeText(s.lines.map(function(l){return l.text;}).join('\n\n'));
+}
+function toggleDone(){
+  checks[curId]=!checks[curId];
   localStorage.setItem('mm_checks',JSON.stringify(checks));
-  const btn=document.getElementById('done-btn');
-  btn.className='btn btn-done'+(checks[i]?' on':'');
-  btn.textContent=checks[i]?'Posted':'Mark Posted';
-  document.getElementById('wd'+i).classList.toggle('done',checks[i]);
-  updProg();
+  var btn=document.getElementById('done-btn');
+  if(btn){btn.className='abtn abtn-green'+(checks[curId]?' on':'');btn.textContent=checks[curId]?'Posted ✓':'Mark as Posted';}
+  renderCards('TOFU','tofu-cards');
+  renderCards('MOFU','mofu-cards');
+  renderCards('BOFU','bofu-cards');
 }
-updProg();
-
-// This week accordion
-const wo=document.getElementById('week-out');
-WEEK.forEach((d,i)=>{
-  const dt=weekDate(i);
-  const div=document.createElement('div');
-  div.className='wk-card';
-  div.innerHTML=
-    '<div class="wk-hdr" onclick="this.nextElementSibling.classList.toggle(\'open\')">'
-    +'<div class="wk-hdr-info">'
-    +'<div class="wk-day">'+FULL_DAYS[i]+', '+MONTHS[dt.getMonth()]+' '+dt.getDate()+'</div>'
-    +'<div class="wk-title">'+d.title+'</div>'
-    +'</div>'
-    +'<div style="display:flex;align-items:center;gap:6px;flex-shrink:0">'
-    +funnelBadgeHTML(d.funnel)
-    +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
-    +'</div>'
-    +'</div>'
-    +'<div class="wk-body">'
-    +'<div style="margin:12px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
-    +(scriptDuration(d.lines)?'<div class="dur-badge">'+scriptDuration(d.lines)+' total</div>':'')
-    +'<div id="wktog-'+i+'">'+verToggleHTML('wkv-'+i,i,'full')+'</div>'
-    +'</div>'
-    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
-    +'<button class="btn btn-primary" style="width:100%;margin:10px 0;flex:none" onclick="cpAll('+i+')">Copy Script</button>'
-    +'<div id="wkscript-'+i+'">'+mkScript(d.lines,'full')+'</div>'
-    +mkCaption(d,i)
-    +'</div>';
-  wo.appendChild(div);
-});
 </script>
 </body></html>
