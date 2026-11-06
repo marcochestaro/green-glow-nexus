@@ -1,1576 +1,279 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>@marcomarkets</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>@marcomarkets</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#07080b;--card:#0c0e13;--border:#161920;--text:#e2e8f0;--sub:#4a5568;--dim:#1a1d24;--blue:#3b82f6;--green:#22c55e;--purple:#a78bfa;--orange:#fb923c;--red:#ef4444}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px}
-a{color:inherit;text-decoration:none}
-button{font-family:inherit}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e2e8f0;min-height:100vh;font-size:15px}
+button{font-family:inherit;cursor:pointer}
 
-/* NAV */
-.nav{position:sticky;top:0;z-index:100;background:rgba(7,8,11,.98);border-bottom:1px solid var(--border);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:52px;gap:12px}
-.nav-brand{font-size:.88rem;font-weight:700;color:#fff;cursor:pointer;flex-shrink:0;letter-spacing:-.01em}
-.nav-links{display:flex;gap:1px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.nav-links::-webkit-scrollbar{display:none}
-.nl{padding:6px 11px;border-radius:6px;font-size:.75rem;font-weight:500;color:var(--sub);cursor:pointer;border:none;background:none;white-space:nowrap;transition:all .15s}
-.nl:hover{color:#cbd5e1;background:var(--dim)}
-.nl.on{color:#fff;background:var(--dim)}
-.nav-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
-.clock{font-size:.78rem;font-weight:600;color:#94a3b8;font-variant-numeric:tabular-nums;white-space:nowrap}
-.clock-tz{font-size:.58rem;color:var(--sub);margin-left:3px}
+.nav{padding:16px 20px 0;max-width:560px;margin:0 auto}
+.nav-brand{font-size:.82rem;font-weight:600;color:#555}
 
-/* VIEWS */
-.view{display:none}
-.view.on{display:block}
+.page{max-width:560px;margin:0 auto;padding:16px 20px 60px}
 
-/* ─── HOME ──────────────────────────────────────────────── */
-.home-wrap{min-height:calc(100vh - 52px);display:flex;flex-direction:column}
-.home-hero{background:linear-gradient(160deg,#0c0f1a 0%,#07080b 60%);border-bottom:1px solid var(--border);padding:36px 20px 32px;position:relative;overflow:hidden}
-.home-hero::before{content:'';position:absolute;top:-120px;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(59,130,246,.07) 0%,transparent 70%);pointer-events:none}
-.home-hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:220px;height:220px;background:radial-gradient(circle,rgba(167,139,250,.05) 0%,transparent 70%);pointer-events:none}
-.home-eyebrow{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--sub);margin-bottom:10px}
-.home-greeting{font-size:1.75rem;font-weight:700;color:#fff;line-height:1.15;margin-bottom:6px;letter-spacing:-.02em}
-.home-date-line{font-size:.8rem;color:var(--sub)}
+.heading{margin-bottom:24px}
+.heading h1{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:3px}
+.heading p{font-size:.78rem;color:#444}
 
-.home-body{flex:1;padding:20px 16px;max-width:600px;width:100%;margin:0 auto}
+.list-label{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#333;margin-bottom:10px}
 
-/* DAILY BRIEF — PROMINENT */
-.brief-card{background:linear-gradient(135deg,#0d1020 0%,#0c0e13 100%);border:1px solid #1e2535;border-radius:16px;overflow:hidden;margin:20px 0 16px;box-shadow:0 0 0 1px rgba(59,130,246,.08),0 4px 24px rgba(0,0,0,.4)}
-.brief-bar{height:3px;background:linear-gradient(90deg,#6366f1,#3b82f6,#38bdf8)}
-.brief-inner{padding:18px 20px}
-.brief-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:12px}
-.brief-dot{width:7px;height:7px;border-radius:50%;background:#3b82f6;box-shadow:0 0 8px #3b82f6}
-.brief-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#6366f1}
-.brief-focus{font-size:.98rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;letter-spacing:-.01em}
-.brief-text{font-size:.78rem;color:#64748b;line-height:1.6}
+.script-list{display:flex;flex-direction:column;gap:1px;background:#1a1a1a;border-radius:12px;overflow:hidden}
+.row{background:#111;padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:none;-webkit-tap-highlight-color:transparent;transition:background .1s}
+.row:active{background:#161616}
+.row-num{font-size:.72rem;font-weight:700;color:#333;width:18px;flex-shrink:0}
+.row-info{flex:1;min-width:0}
+.row-title{font-size:.88rem;font-weight:600;color:#e2e8f0;line-height:1.3;margin-bottom:4px}
+.row-meta{display:flex;align-items:center;gap:6px}
+.row-funnel{font-size:.6rem;font-weight:700;color:#444;text-transform:uppercase;letter-spacing:.06em}
+.row-dot{width:3px;height:3px;border-radius:50%;background:#333;flex-shrink:0}
+.row-type{font-size:.6rem;color:#333}
+.row-cta{font-size:.6rem;font-weight:600;color:#4ade80}
+.row-arr{font-size:.8rem;color:#333;flex-shrink:0}
+.row-done .row-title{color:#333}
+.row-done .row-num{color:#1f2f1f}
+.row-done-tick{font-size:.7rem;color:#4ade80;flex-shrink:0}
 
-/* TODAY POST — PROMINENT */
-.home-section-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin:0 0 10px}
-.today-banner{background:linear-gradient(135deg,#080f1e 0%,#0a0c12 100%);border:1px solid #1e2d4a;border-radius:16px;overflow:hidden;cursor:pointer;transition:all .2s;position:relative;box-shadow:0 0 0 1px rgba(59,130,246,.1),0 4px 20px rgba(0,0,0,.3);margin-bottom:20px}
-.today-banner:hover{border-color:#2a4070;transform:translateY(-1px);box-shadow:0 0 0 1px rgba(59,130,246,.2),0 8px 30px rgba(0,0,0,.4)}
-.today-banner:active{transform:scale(.99)}
-.tb-accent{height:3px;background:linear-gradient(90deg,#3b82f6,#6366f1,#a78bfa)}
-.tb-inner{padding:18px 20px 20px}
-.tb-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.tb-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#3b82f6}
-.tb-open{font-size:.68rem;color:#3b82f6;border:1px solid #1e2d4a;padding:3px 10px;border-radius:20px}
-.tb-day{font-size:.72rem;font-weight:600;color:#64748b;margin-bottom:6px}
-.tb-title{font-size:1.05rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:12px;letter-spacing:-.01em}
-.tb-footer{display:flex;align-items:center;gap:8px}
-.tb-type{display:inline-block;font-size:.62rem;font-weight:600;padding:3px 10px;border-radius:20px}
+.overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.7);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.overlay.on{display:block}
+.sheet{background:#0f0f0f;border-radius:16px 16px 0 0;border-top:1px solid #1e1e1e;min-height:85vh;margin-top:8vh;padding-bottom:50px}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
+.sheet-num{font-size:.7rem;font-weight:700;color:#333}
+.sheet-close{background:#1a1a1a;border:1px solid #222;color:#666;width:30px;height:30px;border-radius:50%;font-size:1rem;display:flex;align-items:center;justify-content:center}
+.sheet-body{padding:0 20px}
 
-/* QUICK ACCESS */
-.nav-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
-.nav-tile{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 16px 14px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
-.nav-tile:hover{border-color:#252d40;background:#0f1118}
-.nav-tile:active{transform:scale(.98)}
-.nt-dot{width:6px;height:6px;border-radius:50%;margin-bottom:10px}
-.nt-title{font-size:.85rem;font-weight:600;color:#fff;margin-bottom:3px}
-.nt-desc{font-size:.68rem;color:var(--sub);line-height:1.4}
-.nt-arrow{font-size:.65rem;color:var(--sub);margin-top:8px;display:block}
+.sh-title{font-size:1rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:12px}
+.sh-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.badge{font-size:.6rem;font-weight:600;padding:2px 8px;border-radius:4px;background:#1a1a1a;color:#555;border:1px solid #222}
+.badge.cta{background:#0a1f0a;color:#4ade80;border-color:#1a3a1a}
 
-/* POST MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.85);overflow-y:auto;-webkit-overflow-scrolling:touch}
-.modal-overlay.on{display:block}
-.modal-box{background:#09090f;border-top:1px solid var(--border);border-radius:20px 20px 0 0;min-height:90vh;margin-top:5vh;padding:0 0 40px;position:relative}
-.modal-bar{height:4px;background:linear-gradient(90deg,#3b82f6,#6366f1,#a78bfa);border-radius:20px 20px 0 0}
-.modal-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 0}
-.modal-close{background:var(--dim);border:none;color:#94a3b8;width:32px;height:32px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
-.modal-close:hover{background:#252836;color:#fff}
-.modal-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#3b82f6}
-.modal-body{padding:16px 20px}
+.film-note{background:#0a0a0a;border-left:2px solid #222;padding:10px 12px;border-radius:0 7px 7px 0;font-size:.72rem;color:#444;line-height:1.65;margin-bottom:16px}
+.film-note b{color:#666}
 
-/* PAGE */
-.page{max-width:860px;margin:0 auto;padding:20px 16px}
-section{margin-bottom:44px;scroll-margin-top:64px}
-.sec-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:14px}
+.ver-row{display:flex;gap:2px;background:#111;border:1px solid #1e1e1e;border-radius:20px;padding:2px;margin-bottom:14px;width:fit-content}
+.vbtn{padding:4px 12px;border-radius:16px;font-size:.62rem;font-weight:600;border:none;color:#444;background:none}
+.vbtn.on{background:#1e1e1e;color:#fff}
 
-/* WEEK STRIP */
-.week-strip{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;-webkit-overflow-scrolling:touch}
-.week-strip::-webkit-scrollbar{display:none}
-.wday{padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--card);cursor:pointer;text-align:center;min-width:58px;flex-shrink:0;transition:all .15s}
-.wday:hover{border-color:var(--blue)}
-.wday.active{border-color:var(--blue);background:#0a1020}
-.wday.done{opacity:.4}
-.wday-n{font-size:.6rem;font-weight:700;color:var(--sub);text-transform:uppercase}
-.wday-d{font-size:.85rem;font-weight:700;color:#fff;margin:3px 0}
-.wday-t{font-size:.55rem;color:var(--sub)}
+.lines{display:flex;flex-direction:column;gap:5px;margin-bottom:16px}
+.line{display:grid;grid-template-columns:56px 1fr;gap:8px;align-items:start}
+.lmeta{text-align:right;padding-top:8px}
+.lseg{font-size:.58rem;font-weight:700;color:#333;display:block}
+.ldur{font-size:.55rem;color:#2a2a2a;display:block;margin-top:1px}
+.lbub{background:#111;border:1px solid #1e1e1e;border-radius:8px;padding:9px 11px;font-size:.78rem;color:#94a3b8;line-height:1.6}
+.lbub.hook{border-color:#1a2a1a;background:#0a0f0a}
+.lbub.cta{border-color:#1a2a1a;background:#080f08}
 
-/* PROGRESS */
-.prog-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.prog-bar{flex:1;background:var(--border);border-radius:3px;height:3px}
-.prog-fill{background:var(--blue);height:3px;border-radius:3px;transition:width .5s}
-.prog-lbl{font-size:.68rem;color:var(--sub)}
+.cap-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#333;margin-bottom:8px}
+.cap-box{background:#111;border:1px solid #1e1e1e;border-radius:8px;padding:12px;font-size:.77rem;color:#555;line-height:1.85;white-space:pre-wrap;margin-bottom:6px}
 
-/* TODAY CARD */
-.today-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
-.tc-bar{height:3px;background:linear-gradient(90deg,var(--blue),var(--purple))}
-.tc-inner{padding:20px}
-.tc-top{margin-bottom:16px}
-.tc-day{font-size:.72rem;font-weight:600;color:var(--blue);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
-.tc-title{font-size:1.1rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:12px}
-.type-badge{display:inline-block;font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:20px;background:var(--dim);color:var(--sub);border:1px solid var(--border);margin-bottom:14px;text-transform:uppercase;letter-spacing:.04em}
-.type-badge.video,.type-badge.screen{background:#0a1020;color:#93c5fd;border-color:#1a2a45}
-.type-badge.carousel{background:#130a00;color:#fdba74;border-color:#2a1800}
-.type-badge.talking{background:#130820;color:#c4b5fd;border-color:#25104a}
-.film-note{background:#050608;border-left:2px solid var(--blue);padding:11px 13px;border-radius:0 8px 8px 0;font-size:.75rem;color:#4a5568;line-height:1.6;margin-bottom:16px}
-.film-note b{color:#94a3b8}
+.act-row{display:flex;gap:8px;margin-top:14px}
+.abtn{flex:1;padding:12px;border-radius:9px;font-size:.8rem;font-weight:600;border:none}
+.abtn-grey{background:#1a1a1a;color:#e2e8f0}
+.abtn-grey:active{background:#222}
+.abtn-done{background:#0a1a0a;color:#4ade80;border:1px solid #1a3a1a}
+.abtn-done.on{background:#0f2010}
 
-/* SCRIPT */
-.script-lines{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
-.sl{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:start}
-.sl-meta{text-align:right;padding-top:10px}
-.sl-seg{font-size:.63rem;font-weight:600;color:#475569;display:block;line-height:1.3}
-.sl-dur{font-size:.58rem;color:var(--sub);display:block;margin-top:2px}
-.sl-bub{background:#050709;border:1px solid var(--border);border-radius:9px;padding:11px 13px;font-size:.8rem;color:#94a3b8;line-height:1.6;white-space:pre-wrap}
-.sl-bub.hook{border-color:#1a2a45;background:#060c1a}
-.sl-bub.cta{border-color:#0d2218;background:#04090a}
+.cbtn{display:inline-flex;align-items:center;background:none;border:1px solid #1e1e1e;color:#333;padding:2px 7px;border-radius:4px;font-size:.57rem;cursor:pointer;margin-top:4px}
+.cbtn.ok{border-color:#4ade80;color:#4ade80}
+</style>
+</head>
+<body>
 
-/* BUTTONS */
-.action-row{display:flex;gap:8px;flex-wrap:wrap}
-.btn{padding:11px 18px;border-radius:10px;font-size:.8rem;font-weight:600;cursor:pointer;border:none;transition:all .15s;flex:1}
-.btn-primary{background:#1d3a6e;color:#93c5fd}
-.btn-primary:hover{background:#1e3f7a}
-.btn-done{background:#030f07;color:#4ade80;border:1px solid #0d2218}
-.btn-done.on{background:#0a2014}
-.cbtn{display:inline-flex;align-items:center;gap:4px;background:none;border:1px solid var(--border);color:var(--sub);padding:3px 9px;border-radius:5px;font-size:.62rem;cursor:pointer;margin-top:6px;transition:all .15s}
-.cbtn:hover{border-color:var(--blue);color:#93c5fd}
-.cbtn.ok{border-color:var(--green);color:var(--green)}
+<div class="nav"><div class="nav-brand">@marcomarkets</div></div>
 
-/* WEEK ACCORDION */
-.wk-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:8px;overflow:hidden}
-.wk-hdr{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;transition:background .15s}
-.wk-hdr:hover{background:#0a0c10}
-.wk-hdr-info{flex:1}
-.wk-day{font-size:.65rem;font-weight:700;color:var(--sub);text-transform:uppercase;margin-bottom:2px}
-.wk-title{font-size:.9rem;font-weight:600;color:#fff}
-.wk-body{display:none;padding:0 16px 16px;border-top:1px solid var(--border)}
-.wk-body.open{display:block}
-
-/* STATS */
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
-@media(max-width:480px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
-.stat-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 12px}
-.stat-n{font-size:1.4rem;font-weight:700;color:#fff;line-height:1}
-.stat-l{font-size:.6rem;color:var(--sub);margin-top:4px}
-
-/* COMP */
-.comp-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--dim)}
-.comp-row:last-child{border-bottom:none}
-.comp-h{font-size:.75rem;color:var(--sub);width:140px;flex-shrink:0}
-.comp-h.me{color:#93c5fd;font-weight:700}
-.comp-bg{flex:1;background:var(--dim);border-radius:3px;height:4px}
-.comp-fill{height:4px;border-radius:3px;transition:width 1s}
-.comp-n{font-size:.72rem;font-weight:700;color:#94a3b8;width:48px;text-align:right;flex-shrink:0}
-
-/* POSTS */
-.post-a{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--dim);border-radius:10px;margin-bottom:6px;transition:all .15s}
-.post-a:hover{background:#1a1d2a}
-.post-cap{font-size:.75rem;color:#94a3b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.post-meta{font-size:.62rem;color:var(--sub);margin-top:2px}
-
-/* 2 COL */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:620px){.two-col{grid-template-columns:1fr}}
-
-/* CARD */
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:10px}
-
-/* IDEAS */
-.idea-i{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--dim);cursor:pointer}
-.idea-i:last-child{border-bottom:none}
-.idea-i.used .idea-txt{text-decoration:line-through;opacity:.25}
-.idea-n{font-size:.62rem;color:var(--sub);width:18px;flex-shrink:0;padding-top:2px}
-.idea-txt{font-size:.78rem;color:var(--sub);flex:1;line-height:1.45}
-.used-lbl{font-size:.6rem;color:var(--sub);flex-shrink:0}
-
-/* DM */
-.dm-card{background:#050709;border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:8px}
-.dm-step{font-size:.62rem;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
-.dm-txt{font-size:.78rem;color:#94a3b8;line-height:1.6;margin-bottom:8px}
-
-/* BIO */
-.bio-area{width:100%;background:#050709;border:1px solid var(--border);border-radius:10px;padding:12px;font-size:.8rem;color:var(--text);line-height:1.7;resize:vertical;min-height:95px;font-family:inherit;outline:none;transition:border-color .15s}
-.bio-area:focus{border-color:var(--blue)}
-
-/* CHECKLIST */
-.chk-i{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--dim);cursor:pointer}
-.chk-i:last-child{border-bottom:none}
-.chkbox{width:18px;height:18px;border-radius:5px;border:1px solid var(--border);background:#050709;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.65rem;transition:all .15s;margin-top:1px}
-.chkbox.on{background:#0a2014;border-color:var(--green);color:var(--green)}
-.chk-txt{font-size:.78rem;color:var(--sub)}
-.chk-sub{font-size:.62rem;color:var(--sub);opacity:.6;margin-top:2px}
-.divider{height:1px;background:var(--border);margin:14px 0}
-
-/* SUGGESTION CHIPS */
-.chips-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
-.chip{padding:5px 11px;border-radius:20px;font-size:.7rem;font-weight:500;color:var(--sub);border:1px solid var(--border);background:#050608;cursor:pointer;transition:all .15s;white-space:nowrap}
-.chip:hover{border-color:var(--blue);color:#93c5fd;background:#07101e}
-.chip:active{transform:scale(.97)}
-
-/* AGENTS */
-.agents-wrap{max-width:860px;margin:0 auto;padding:20px 16px}
-.agent-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:12px}
-.agent-bar{height:3px}
-.agent-head{padding:16px 18px 14px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;border-bottom:1px solid var(--border)}
-.agent-name{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:4px}
-.agent-role{font-size:.68rem;color:var(--sub);line-height:1.45}
-.agent-badge{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0;margin-top:2px}
-.agent-body{padding:16px 18px}
-.agent-report-label{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px}
-.agent-headline{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4}
-.agent-text{font-size:.78rem;color:#64748b;line-height:1.65;margin-bottom:14px}
-.agent-actions{display:flex;flex-direction:column;gap:6px}
-.agent-action{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:#050709;border:1px solid var(--border);border-radius:8px;position:relative}
-.agent-action-num{font-size:.62rem;font-weight:700;color:var(--sub);width:16px;flex-shrink:0;padding-top:1px}
-.agent-action-text{font-size:.75rem;color:#94a3b8;line-height:1.5;flex:1}
-.use-btn{flex-shrink:0;font-size:.6rem;font-weight:700;color:#38bdf8;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);border-radius:6px;padding:3px 8px;cursor:pointer;white-space:nowrap;align-self:center}
-.use-btn:hover{background:rgba(56,189,248,.2)}
-.use-menu{position:absolute;right:0;top:calc(100% + 4px);background:#0f1623;border:1px solid var(--border);border-radius:10px;padding:4px;z-index:200;min-width:160px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
-.use-menu-item{font-size:.72rem;color:#cbd5e1;padding:8px 12px;border-radius:7px;cursor:pointer}
-.use-menu-item:hover{background:rgba(255,255,255,.06);color:#fff}
-.use-menu-rec{color:#c4b5fd;font-weight:600;background:rgba(196,181,253,.08)}
-.use-menu-rec:hover{background:rgba(196,181,253,.16)}
-.agent-action-used{opacity:.7;background:#03050a}
-.used-tag{font-size:.6rem;font-weight:700;color:#4ade80;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.2);border-radius:20px;padding:2px 8px;white-space:nowrap}
-.use-undo{font-size:.58rem;color:var(--sub);background:none;border:none;cursor:pointer;text-decoration:underline;padding:0}
-.use-undo:hover{color:#e2e8f0}
-.agent-footer{padding:10px 18px;border-top:1px solid var(--border);font-size:.6rem;color:var(--sub)}
-
-/* LIVE DOT */
-.live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;margin-right:6px;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{box-shadow:0 0 0 5px rgba(34,197,94,0)}}
-.live-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#22c55e;display:flex;align-items:center}
-
-/* DURATION + VERSION TOGGLE */
-.script-meta-row{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.dur-badge{font-size:.62rem;font-weight:600;color:#64748b;background:#050709;border:1px solid var(--border);padding:3px 9px;border-radius:20px}
-.ver-toggle{display:flex;gap:2px;background:#050709;border:1px solid var(--border);border-radius:20px;padding:2px}
-.ver-btn{padding:3px 10px;border-radius:16px;font-size:.62rem;font-weight:600;border:none;cursor:pointer;color:var(--sub);background:none;transition:all .15s}
-.ver-btn.on{background:var(--dim);color:#fff}
-</style></head><body>
-
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-brand" onclick="showView('home')">@marcomarkets</div>
-  <div class="nav-links">
-    <button class="nl" id="nl-home" onclick="showView('home')">Home</button>
-    <button class="nl" id="nl-today" onclick="showView('content');setNavActive('nl-today')">Today</button>
-    <button class="nl" id="nl-week" onclick="showView('content');goto('week');setNavActive('nl-week')">This Week</button>
-    <button class="nl" id="nl-research" onclick="showView('content');goto('research');setNavActive('nl-research')">Stats</button>
-    <button class="nl" id="nl-ideas" onclick="showView('content');goto('ideas');setNavActive('nl-ideas')">Ideas</button>
-    <button class="nl" id="nl-tools" onclick="showView('content');goto('tools');setNavActive('nl-tools')">Tools</button>
-    <button class="nl" id="nl-plan" onclick="showView('content');goto('plan');setNavActive('nl-plan')">Tomorrow</button>
-    <button class="nl" id="nl-miro" onclick="showView('content');goto('miro');setNavActive('nl-miro')">Miro</button>
-    <button class="nl" id="nl-agents" onclick="showView('agents')">Agents</button>
-  </div>
-  <div class="nav-right">
-    <div class="clock"><span id="clock">00:00</span></div>
-  </div>
-</nav>
-
-<!-- CONTENT IDEA MODAL -->
-<div class="modal-overlay" id="content-modal" onclick="if(event.target===this){this.classList.remove('on');document.body.style.overflow=''}">
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <div class="modal-bar"></div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-      <div style="font-size:.95rem;font-weight:700;color:#fff">Content Concept</div>
-      <button class="cbtn" onclick="document.getElementById('content-modal').classList.remove('on');document.body.style.overflow=''">✕ Close</button>
+<div class="overlay" id="overlay">
+  <div class="sheet">
+    <div class="sheet-head">
+      <div class="sheet-num" id="sh-num"></div>
+      <button class="sheet-close" id="sh-close">&#215;</button>
     </div>
-    <div id="content-modal-body"></div>
+    <div class="sheet-body" id="sh-body"></div>
   </div>
 </div>
 
-<!-- POST MODAL -->
-<div class="modal-overlay" id="post-modal" onclick="closeModal(event)">
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <div class="modal-bar"></div>
-    <div class="modal-head">
-      <div class="modal-label">Today's Post</div>
-      <button class="modal-close" onclick="closePostModal()">&#215;</button>
-    </div>
-    <div class="modal-body" id="modal-content"></div>
-  </div>
-</div>
-
-<!-- HOME VIEW -->
-<div class="view on" id="view-home">
-  <div class="home-wrap">
-    <div class="home-hero">
-      <div class="home-eyebrow">@marcomarkets</div>
-      <div class="home-greeting">Good <span id="home-greeting">evening</span>,<br>Marco.</div>
-      <div class="home-date-line" id="home-date"></div>
-    </div>
-
-    <div class="home-body">
-      <!-- DAILY BRIEF -->
-      <div class="brief-card">
-        <div class="brief-bar"></div>
-        <div class="brief-inner">
-          <div class="brief-eyebrow">
-            <div class="brief-dot"></div>
-            <div class="brief-label">Today's brief</div>
-          </div>
-          <div class="brief-focus" id="brief-focus"></div>
-          <div class="brief-text" id="brief-text"></div>
-        </div>
-      </div>
-
-      <!-- TODAY'S POST -->
-      <div class="home-section-label">Today's post</div>
-      <div class="today-banner" id="today-banner" onclick="openPostModal()">
-        <div class="tb-accent"></div>
-        <div class="tb-inner">
-          <div class="tb-top">
-            <div class="tb-label">Tap to open full script</div>
-            <div class="tb-open">Open &#8599;</div>
-          </div>
-          <div class="tb-day" id="home-today-day"></div>
-          <div class="tb-title" id="home-today-title"></div>
-          <div class="tb-footer">
-            <div class="tb-type" id="home-today-type"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- QUICK ACCESS -->
-      <div class="home-section-label">Research & tools</div>
-      <div class="nav-grid">
-        <div class="nav-tile" onclick="showView('agents')">
-          <div class="nt-dot" style="background:#6366f1"></div>
-          <div class="nt-title">My Agents</div>
-          <div class="nt-desc">Daily reports from your 4 personal research agents</div>
-          <span class="nt-arrow">&#8594;</span>
-        </div>
-        <div class="nav-tile" onclick="window.open('https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=AU&media_type=all','_blank')">
-          <div class="nt-dot" style="background:var(--blue)"></div>
-          <div class="nt-title">Meta Ad Library</div>
-          <div class="nt-desc">See exactly what competitors are running right now</div>
-          <span class="nt-arrow">&#8594;</span>
-        </div>
-        <div class="nav-tile" onclick="showView('content');goto('week');setNavActive('nl-week')">
-          <div class="nt-dot" style="background:var(--purple)"></div>
-          <div class="nt-title">This Week's Scripts</div>
-          <div class="nt-desc">All 7 posts with filming notes and timing labels</div>
-          <span class="nt-arrow">&#8594;</span>
-        </div>
-        <div class="nav-tile" onclick="showView('content');goto('ideas');setNavActive('nl-ideas')">
-          <div class="nt-dot" style="background:var(--green)"></div>
-          <div class="nt-title">Content Ideas</div>
-          <div class="nt-desc">40 ready-to-use ideas — mark off what you've filmed</div>
-          <span class="nt-arrow">&#8594;</span>
-        </div>
-        <div class="nav-tile" onclick="showView('content');goto('plan');setNavActive('nl-plan')">
-          <div class="nt-dot" style="background:#38bdf8"></div>
-          <div class="nt-title">Tomorrow's Plan</div>
-          <div class="nt-desc">Pick your tasks for tomorrow from pre-built chips</div>
-          <span class="nt-arrow">&#8594;</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTENT VIEW -->
-<div class="view" id="view-content">
 <div class="page">
-
-<!-- TODAY -->
-<section id="today">
-  <div class="sec-label">Today's Post</div>
-  <div class="prog-row">
-    <div class="prog-bar"><div class="prog-fill" id="pbar" style="width:0%"></div></div>
-    <div class="prog-lbl" id="plbl">0 / 7 posted this week</div>
+  <div class="heading">
+    <h1>This week's scripts</h1>
+    <p id="hero-date"></p>
   </div>
-  <div class="week-strip" id="wstrip"></div>
-  <div id="today-out"></div>
-</section>
-
-<!-- THIS WEEK -->
-<section id="week">
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
-    <div class="sec-label" style="margin-bottom:0">Scripts</div>
-    <div style="display:flex;align-items:center;gap:8px">
-      <button id="week-nav-prev" onclick="changeViewWeek(-1)" style="background:var(--dim);border:none;color:#94a3b8;width:28px;height:28px;border-radius:6px;font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center">‹</button>
-      <div id="week-nav-label" style="font-size:.72rem;font-weight:600;color:#cbd5e1;white-space:nowrap">This Week</div>
-      <button id="week-nav-next" onclick="changeViewWeek(1)" style="background:var(--dim);border:none;color:#94a3b8;width:28px;height:28px;border-radius:6px;font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center">›</button>
-    </div>
-  </div>
-  <div id="week-out"></div>
-</section>
-
-<!-- STATS -->
-<section id="research">
-  <div class="sec-label">Your Stats</div>
-  <div class="stats-grid">
-    <div class="stat-box"><div class="stat-n" id="r-fl">—</div><div class="stat-l">Followers</div></div>
-    <div class="stat-box"><div class="stat-n" id="r-tp">—</div><div class="stat-l">Posts</div></div>
-    <div class="stat-box"><div class="stat-n" id="r-tv">—</div><div class="stat-l">Total Views</div></div>
-    <div class="stat-box"><div class="stat-n" id="r-ae">—</div><div class="stat-l">Avg Engagement</div></div>
-  </div>
-  <div class="two-col">
-    <div class="card">
-      <div class="sec-label" style="margin-bottom:12px">Competitors</div>
-      <div id="comp-list"></div>
-      <div style="font-size:.65rem;color:var(--sub);margin-top:10px;padding-top:10px;border-top:1px solid var(--border)">Updates daily at 8 PM AEST</div>
-    </div>
-    <div class="card">
-      <div class="sec-label" style="margin-bottom:12px">Your Top Posts</div>
-      <div id="posts-list"></div>
-    </div>
-  </div>
-</section>
-
-<!-- IDEAS -->
-<section id="ideas">
-  <div class="sec-label">Content Ideas — tap to mark used</div>
-  <div id="ideas-out" style="display:grid;grid-template-columns:1fr 1fr;gap:0 24px"></div>
-</section>
-
-<!-- TOOLS -->
-<section id="tools">
-  <div class="sec-label">Tools</div>
-  <div class="two-col">
-    <div>
-      <div class="card" style="margin-bottom:10px">
-        <div class="sec-label" style="margin-bottom:12px">DM Scripts — When They Reply "ADS"</div>
-        <div id="dm-out"></div>
-      </div>
-    </div>
-    <div>
-      <div class="card" style="margin-bottom:10px">
-        <div class="sec-label" style="margin-bottom:12px">Profile Bio</div>
-        <textarea class="bio-area" id="bio-text" oninput="localStorage.setItem('mm_bio',this.value)">I help service businesses get more leads with Meta ads
-$25/day · I handle everything · You just close the jobs
-Follow for daily content on what actually works</textarea>
-        <button class="cbtn" style="width:100%;justify-content:center;margin-top:8px;padding:8px" onclick="navigator.clipboard.writeText(document.getElementById('bio-text').value)">Copy Bio</button>
-      </div>
-      <div class="card">
-        <div class="sec-label" style="margin-bottom:12px">Profile Checklist</div>
-        <div id="chk-out"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TOMORROW'S PLAN -->
-<section id="plan">
-  <div class="sec-label">Tomorrow's Plan</div>
-  <div class="card" style="margin-bottom:10px">
-    <div id="plan-date" style="font-size:.75rem;color:var(--sub);margin-bottom:14px"></div>
-
-    <div style="margin-bottom:18px">
-      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:6px">Content</div>
-      <div style="font-size:.68rem;color:var(--sub);margin-bottom:10px">Tap to add to your checklist</div>
-      <div class="chips-wrap" id="chips-content"></div>
-      <div id="plan-content-tasks"></div>
-      <button class="cbtn" style="margin-top:6px" onclick="addTask('content')">+ Write your own</button>
-    </div>
-
-    <div class="divider"></div>
-
-    <div style="margin-bottom:18px;margin-top:18px">
-      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:6px">Outreach &amp; DMs</div>
-      <div style="font-size:.68rem;color:var(--sub);margin-bottom:10px">Tap to add to your checklist</div>
-      <div class="chips-wrap" id="chips-outreach"></div>
-      <div id="plan-outreach-tasks"></div>
-      <button class="cbtn" style="margin-top:6px" onclick="addTask('outreach')">+ Write your own</button>
-    </div>
-
-    <div class="divider"></div>
-
-    <div style="margin-top:18px;margin-bottom:18px">
-      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:6px">Growth &amp; Profile</div>
-      <div style="font-size:.68rem;color:var(--sub);margin-bottom:10px">Tap to add to your checklist</div>
-      <div class="chips-wrap" id="chips-growth"></div>
-      <div id="plan-growth-tasks"></div>
-      <button class="cbtn" style="margin-top:6px" onclick="addTask('growth')">+ Write your own</button>
-    </div>
-
-    <div class="divider"></div>
-
-    <div style="margin-top:18px;margin-bottom:18px" id="agent-picks-section">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-        <div style="font-size:.78rem;font-weight:600;color:#fff">From Agents</div>
-        <span style="font-size:.6rem;font-weight:700;color:#38bdf8;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);border-radius:20px;padding:2px 8px">Live research</span>
-      </div>
-      <div style="font-size:.68rem;color:var(--sub);margin-bottom:10px">Things you picked from your agent cards</div>
-      <div id="plan-agent-picks"><div style="font-size:.72rem;color:var(--sub);padding:10px 0">Nothing picked yet — go to Agents and tap "Use →" on an insight.</div></div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div style="margin-top:18px">
-      <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:8px">Notes</div>
-      <textarea id="plan-notes" class="bio-area" placeholder="Anything else to remember for tomorrow..." style="min-height:70px" oninput="savePlan()"></textarea>
-    </div>
-  </div>
-</section>
-
-<!-- MIRO BOARDS -->
-<section id="miro">
-  <div class="sec-label">Miro Carousel Boards</div>
-  <div id="miro-out"></div>
-</section>
-
-</div>
-</div>
-
-<!-- AGENTS VIEW -->
-<div class="view" id="view-agents">
-<div class="agents-wrap">
-  <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:20px">
-    <div>
-      <div style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:4px">My Agents</div>
-      <div style="font-size:.72rem;color:var(--sub)" id="agents-date">Loading...</div>
-    </div>
-    <a id="run-research-btn" href="https://github.com/marcochestaro/green-glow-nexus/actions/workflows/agent-research.yml" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#0a1020;border:1px solid #1e2d4a;color:#93c5fd;font-size:.72rem;font-weight:600;padding:8px 14px;border-radius:8px;white-space:nowrap;text-decoration:none;flex-shrink:0">
-      Run Research &#8599;
-    </a>
-  </div>
-  <div id="agents-loading" style="text-align:center;padding:40px 20px;display:none">
-    <div style="display:inline-flex;align-items:center;gap:10px;color:var(--sub);font-size:.8rem">
-      <span class="live-dot"></span>Agents are researching...
-    </div>
-    <div style="font-size:.7rem;color:var(--sub);margin-top:8px">Usually takes 30-60 seconds. Refresh this page after the GitHub Action completes.</div>
-  </div>
-  <div id="ideas-panel" style="display:none;background:#0a0f1a;border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:16px"></div>
-  <div id="agents-out"></div>
-</div>
+  <div class="list-label">Post in this order</div>
+  <div class="script-list" id="script-list"></div>
 </div>
 
 <script>
-// ── Views ──────────────────────────────────────────────────────────────
-function setNavActive(id){document.querySelectorAll('.nl').forEach(el=>el.classList.remove('on'));const b=document.getElementById(id);if(b)b.classList.add('on');}
-function showView(v){
-  document.querySelectorAll('.view').forEach(el=>el.classList.remove('on'));
-  document.getElementById('view-'+v).classList.add('on');
-  if(v==='home')setNavActive('nl-home');
-  else if(v==='agents')setNavActive('nl-agents');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function goto(id){setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},60);}
+(function(){var d=new Date();var days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];document.getElementById('hero-date').textContent=days[d.getDay()]+', '+months[d.getMonth()]+' '+d.getDate();})();
 
-// ── Clock (EST) ────────────────────────────────────────────────────────
-function tick(){
-  const n=new Date();
-  document.getElementById('clock').textContent=n.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',hour12:true});
-}
-tick();setInterval(tick,1000);
-
-// ── Dates ──────────────────────────────────────────────────────────────
-function getMondayOfWeek(d){
-  const day=d.getDay();
-  const diff=day===0?-6:1-day;
-  const mon=new Date(d);
-  mon.setDate(d.getDate()+diff);
-  mon.setHours(0,0,0,0);
-  return mon;
-}
-const today=new Date();
-const weekMon=getMondayOfWeek(today);
-const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-const FULL_DAYS=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-
-function weekDate(i){const d=new Date(weekMon);d.setDate(weekMon.getDate()+i);return d;}
-function fmtShort(d){return DAYS[d.getDay()===0?6:d.getDay()-1]+' '+d.getDate();}
-function fmtFull(d){const dn=d.getDay()===0?6:d.getDay()-1;return FULL_DAYS[dn]+', '+MONTHS[d.getMonth()]+' '+d.getDate();}
-
-let todayI=today.getDay();if(todayI===0)todayI=6;else todayI--;
-
-document.getElementById('home-date').textContent=fmtFull(today);
-const hr=today.getHours();
-document.getElementById('home-greeting').textContent=hr<12?'morning':hr<17?'afternoon':'evening';
-
-// ── Daily Brief ────────────────────────────────────────────────────────
-const DAILY_BRIEF=[
-  {focus:"Film your video today, then batch one more while you're set up.",text:"Monday is the best day to get ahead. Film two back-to-back and you're covered for Tuesday too. Screen records take 30 min. Talking heads take 10. You have time."},
-  {focus:"Every caption needs a CTA. Check your last 3 posts.",text:'Without a CTA, people watch and scroll. "DM me ADS" at the end of every caption is the difference between a view and a lead. Go add it to anything missing.'},
-  {focus:"Check what your competitors posted this week.",text:"Open 2-3 competitor accounts and see what's performing. Look at the comments — what are people asking? That's your next video idea. Best research you can do is free."},
-  {focus:"Best post time tonight: 6-7:30 PM EST. Set a reminder now.",text:"Thursday evening is peak engagement for service business content. Schedule for 6 PM and stay online for 10 minutes after posting to reply to early comments — it signals to the algorithm."},
-  {focus:"End the week strong. Post before 6 PM today.",text:"Friday afternoon content performs well — people are winding down and scrolling more. A short punchy talking head today carries engagement into the weekend."},
-  {focus:"Post today. Less competition on weekends = more reach.",text:"Most accounts don't post on weekends. Less noise in the feed means more reach for your content for the same effort."},
-  {focus:"Plan your week now. Read all 7 scripts in This Week.",text:"Sunday is for planning. Read through the scripts, decide which ones you're filming and when, block out filming time. Five minutes now saves an hour of scrambling Monday morning."},
+var SCRIPTS=[
+{id:0,funnel:'TOFU',title:'Service business owners spend money on the wrong things',type:'Talking Head',cta:true,
+ film:'Outdoor: open sky behind you, tripod, head to head on camera. Slow and confident. Let it breathe. On-screen text: "only watch this if you run a service business"',
+ hook:'Most service business owners I talk to are spending money. Just on the wrong things.',
+ caption:'most service business owners i talk to are spending money\n\njust on the wrong things\n\nwebsite, logo, van wrap. looks good. gets you nothing.\n\nthe ones growing? they put it where it actually brings clients in.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.',
+ lines:[
+  {time:'Hook',tag:'5s',cls:'hook',text:'Most service business owners I talk to are spending money. Just on the wrong things.'},
+  {time:'Body',tag:'7s',cls:'',text:'Website, logo, van wrap. Looks good. Gets you nothing.'},
+  {time:'Body',tag:'10s',cls:'',text:'The guys I work with who are actually growing? They put money where it brings clients in. That means ads. Right audience, right offer, in front of people who actually need what they do.'},
+  {time:'Body',tag:'7s',cls:'',text:'And once that works it just keeps working. Leads coming in without chasing anyone.'},
+  {time:'CTA',tag:'4s',cls:'cta',text:'Follow me. I talk about this stuff every week.'},
+ ]},
+{id:1,funnel:'TOFU',title:'Every service business owner I talk to says the same thing',type:'Talking Head',cta:false,
+ film:'Indoor: clean background, good lighting, close to camera. Relaxed and honest. Like you are catching up with someone.',
+ hook:'Every service business owner I talk to says the same thing. The phone used to ring. Now it just doesn\'t.',
+ caption:'every service business owner i talk to says the same thing\n\nthe phone used to ring. now it doesn\'t.\n\nit\'s not that the work changed. it\'s that the way people find you changed.\n\nand if you\'re not showing up where they\'re looking, someone else is.',
+ lines:[
+  {time:'Hook',tag:'5s',cls:'hook',text:'Every service business owner I talk to says the same thing. The phone used to ring. Now it just doesn\'t.'},
+  {time:'Body',tag:'8s',cls:'',text:'And it\'s not because they got worse at the job. The work is the same. The problem is how people find you has completely changed.'},
+  {time:'Body',tag:'9s',cls:'',text:'Five years ago word of mouth was enough. Now people go straight to their phone, scroll for two seconds, and book whoever shows up. If you\'re not in front of them, your competitor is.'},
+  {time:'Close',tag:'6s',cls:'',text:'That\'s the whole game now. Not being the best in the area. Being the most visible one.'},
+ ]},
+{id:2,funnel:'TOFU',title:'Why I only run ads for service businesses',type:'Talking Head',cta:false,
+ film:'Outdoor if possible. Relaxed, sitting down. Honest and personal. No pitch energy at all.',
+ hook:'I only run Meta ads for service businesses. Not coaches, not e-com, not brands. Just service businesses.',
+ caption:'people ask why i only work with service businesses\n\nnot coaches. not e-com. not brands.\n\nbecause these guys actually do real work. they show up, they fix things, they build things.\n\nthey\'re just not getting paid what they deserve because nobody knows they exist.\n\nthat\'s the gap i help close.',
+ lines:[
+  {time:'Hook',tag:'5s',cls:'hook',text:'I only run Meta ads for service businesses. Not coaches, not e-com, not brands. Just service businesses.'},
+  {time:'Body',tag:'8s',cls:'',text:'Because these guys actually do something real. A plumber shows up at 7am and fixes it. A cleaner transforms someone\'s home in an afternoon. Real work, real results.'},
+  {time:'Body',tag:'8s',cls:'',text:'But a lot of them are brilliant at what they do and barely getting by because nobody knows they exist. They\'re relying on referrals and hoping the phone rings.'},
+  {time:'Close',tag:'6s',cls:'',text:'That\'s the gap I help close. Getting the right people in front of them so they\'re never short on work.'},
+ ]},
+{id:3,funnel:'TOFU',title:'What I tell every service business owner before we run a single ad',type:'Talking Head',cta:false,
+ film:'Outdoor or indoor clean setup. Conversational, like you are giving advice to a friend.',
+ hook:'Before I run a single ad for a client, I always say the same thing.',
+ caption:'before i run a single ad i always say this\n\nthe ad gets you the lead\n\nwhat you do in the next 10 minutes is what gets you the job\n\ncall fast. know what to say. follow up.\n\nmost people lose the job before the ad even gets a chance to prove itself.',
+ lines:[
+  {time:'Hook',tag:'5s',cls:'hook',text:'Before I run a single ad for a client, I always say the same thing.'},
+  {time:'Body',tag:'8s',cls:'',text:'The ad gets you the lead. That\'s it. What you do in the next 10 minutes is what actually gets you the job.'},
+  {time:'Body',tag:'9s',cls:'',text:'I\'ve seen it so many times. Great ad, solid leads, but the client takes two days to call back and wonders why nothing is converting. The person already booked someone else.'},
+  {time:'Close',tag:'6s',cls:'',text:'Speed is everything. Call within 10 minutes, have something to say, follow up at least three times. That\'s where the jobs actually come from.'},
+ ]},
+{id:4,funnel:'MOFU',title:'The first thing I fix when a new client sends me their ads',type:'Talking Head',cta:false,
+ film:'Indoor: good background, tripod, eye level. Direct and confident. Teach it like you have seen it a hundred times.',
+ hook:'When a new client sends me their Meta ads the first thing I look at is never the creative.',
+ caption:'when a new client sends me their ads the first thing i look at is never the creative\n\ni look at the objective\n\n9 times out of 10 they\'re running traffic\n\ntraffic finds people who click. not people who want to book.\n\nswitch it to lead generation. same budget. completely different results.',
+ lines:[
+  {time:'Hook',tag:'5s',cls:'hook',text:'When a new client sends me their Meta ads the first thing I look at is never the creative.'},
+  {time:'Body',tag:'9s',cls:'',text:'I look at the campaign objective. And 9 times out of 10 they\'re running Traffic. Which sounds right but it\'s not. Traffic tells Meta to find people who click links. Not people who want to book a job.'},
+  {time:'Body',tag:'8s',cls:'',text:'Switch it to Lead Generation and you are telling Meta to find people who are ready to take action. Same budget, same ad, completely different result.'},
+  {time:'Close',tag:'5s',cls:'',text:'Check your objective before you change anything else. That\'s always where I start.'},
+ ]},
+{id:5,funnel:'MOFU',title:'Why your competitor is getting more leads even though you\'re better at the job',type:'Talking Head',cta:false,
+ film:'Indoor or outdoor. Direct to camera, confident. Say it like you have seen this exact situation too many times.',
+ hook:'Your competitor is not better than you at the actual job. I can almost guarantee that.',
+ caption:'your competitor is not better than you at the job\n\nthey\'re just better at being seen\n\nthe best plumber or cleaner in the area is not always the busiest one\n\nthe most visible one is\n\nvisibility is something you can control. that\'s the whole point.',
+ lines:[
+  {time:'Hook',tag:'5s',cls:'hook',text:'Your competitor is not better than you at the actual job. I can almost guarantee that.'},
+  {time:'Body',tag:'8s',cls:'',text:'I work with service businesses all the time and I see this constantly. Skilled people, good reviews, happy customers. But their competitor down the road is booked out for three weeks.'},
+  {time:'Body',tag:'8s',cls:'',text:'It has nothing to do with who does better work. It is entirely about who shows up in front of the right people more consistently. The most visible one wins.'},
+  {time:'Close',tag:'6s',cls:'',text:'And visibility is not luck. It is a decision. You either choose to show up or you let someone else take the spot.'},
+ ]},
+{id:6,funnel:'BOFU',title:'We changed two things in a client\'s ads. Here\'s what happened.',type:'Talking Head',cta:true,
+ film:'Indoor: clean, confident. Slow down when you get to the results. Tell it like a story, not a pitch.',
+ hook:'Had a client come to me a few months back. Good budget, decent service, but the leads were expensive and barely anything was converting.',
+ caption:'had a client come to me with decent ads that just weren\'t working\n\nwe changed two things\n\ntightened the audience to where they actually work\n\nrewrote the creative with a real hook and a specific offer\n\nbooked jobs went up. budget stayed the same.\n\nDM me "SCALE" if you want me to look at yours.',
+ lines:[
+  {time:'Hook',tag:'5s',cls:'hook',text:'Had a client come to me a few months back. Good budget, decent service, but the leads were expensive and barely anything was converting.'},
+  {time:'Body',tag:'8s',cls:'',text:'First thing we did was tighten the audience. They were targeting the whole city. Pulled it back to a 15km radius around where they actually work. Cost per lead dropped in the first week.'},
+  {time:'Body',tag:'8s',cls:'',text:'Second thing was the creative. No hook, no specific offer, nothing that made someone stop scrolling. We rewrote it. Booked jobs went up.'},
+  {time:'Body',tag:'6s',cls:'',text:'Same budget. Same service. Just those two things changed.'},
+  {time:'CTA',tag:'5s',cls:'cta',text:'If your ads feel like they\'re not working, DM me SCALE and I\'ll take a look at what\'s going on.'},
+ ]},
 ];
-(function(){
-  const b=DAILY_BRIEF[todayI];
-  document.getElementById('brief-focus').textContent=b.focus;
-  document.getElementById('brief-text').textContent=b.text;
-})();
 
-// ── Week content ───────────────────────────────────────────────────────
-const WEEK=[
-{title:'Your competitor isn\'t better than you. They just show up more.',type:'Talking Head',recCap:0,recVer:'full',overlay:{line1:'your competitor isn\'t better.',line2:'they just show up more.'},film:'Direct to camera. Confident. Let the hook land before you say anything else.',stories:[],captions:[{label:'A',text:'the phone doesn\'t ring because you\'re the best option. it rings because you were the first one they thought of.'},{label:'B',text:'word of mouth is great until it isn\'t.\n\none slow month. one big client drops off. and suddenly there\'s nothing in the pipeline.\n\nreferrals are reactive. ads are proactive.\n\none waits for someone to mention your name. the other puts you in front of people before they even start looking.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'},{label:'C',text:'referrals wait for someone to mention your name. ads put you there before they start looking.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],lines:[{time:'Hook',tag:'5s',cls:'hook',text:'Your competitor isn\'t better than you.\n\nThey just show up more.'},{time:'Middle',tag:'18s',cls:'',text:'The jobs you\'re losing aren\'t going to someone more skilled.\n\nThey\'re going to whoever was already in front of that customer when they needed someone.\n\nThat\'s it.\n\nMost of the time the best person for the job doesn\'t get it.\n\nThe most visible one does.'},{time:'Close',tag:'4s',cls:'',text:'Being good gets you referrals.\n\nShowing up gets you everything else.'}]},
-{title:'Why leads ghost you after showing interest',type:'Talking Head',recCap:0,recVer:'full',overlay:{line1:'why leads ghost you',line2:'after showing interest'},film:'Casual, relaxed. Like you\'re telling a mate something obvious they\'ve been missing.',stories:[],captions:[{label:'A',text:'a slow response is the most expensive thing in your business and most people don\'t even realise it.'},{label:'B',text:'most service businesses spend money getting leads then lose them in the follow-up.\n\nnot because the lead wasn\'t interested.\n\nbecause the follow-up was slow, generic, or both.\n\nthe ad is not the bottleneck. what happens after the ad is.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'},{label:'C',text:'the ad got them. the follow-up lost them. that\'s where most service businesses leak money.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],lines:[{time:'Hook',tag:'5s',cls:'hook',text:'If someone filled out your form and then went quiet — it\'s not them.\n\nIt\'s your response time.'},{time:'Middle',tag:'18s',cls:'',text:'When someone needs a service, they don\'t just contact you.\n\nThey contact two or three businesses at the same time.\n\nWhoever calls back first — and sounds like they actually want the job — gets it.\n\nIf you\'re following up hours later, or sending a generic message, the job is already gone.\n\nSpeed and tone. That\'s all it is.'},{time:'Close',tag:'4s',cls:'',text:'The lead didn\'t ghost you.\n\nYou just weren\'t fast enough.'}]},
-{title:'Stop boosting posts',type:'Talking Head',recCap:0,recVer:'full',overlay:{line1:'stop',line2:'boosting posts'},film:'Straight to camera. Short and direct. Don\'t overthink the delivery.',stories:[],captions:[{label:'A',text:'if your strategy is boosting posts and hoping for the best, you\'re not running ads. you\'re donating to meta.'},{label:'B',text:'there\'s a difference between spending money on meta and actually running a campaign.\n\none is set up properly with a clear objective, the right audience, and somewhere for them to go.\n\nthe other is pressing boost and hoping.\n\nmost service businesses have only ever done the second one and then said ads don\'t work.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'},{label:'C',text:'pressing boost is not a marketing strategy.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],lines:[{time:'Hook',tag:'5s',cls:'hook',text:'Boosting a post is not running ads.\n\nI need you to understand that.'},{time:'Middle',tag:'18s',cls:'',text:'When you boost a post, Meta takes your money and shows it to people who might like your page.\n\nNot people who need your service. Not people in your area. Not people ready to book.\n\nJust — people.\n\nReal ads let you choose exactly who sees it, where they are, and what happens when they click.\n\nBoosting is the easiest way to spend money and get nothing back.'},{time:'Close',tag:'4s',cls:'',text:'Boost posts for reach if you want.\n\nRun actual ads if you want leads.'}]},
-{title:'You don\'t need more platforms. You need one that works.',type:'Talking Head',recCap:0,recVer:'full',overlay:{line1:'you don\'t need more platforms.',line2:'you need one that works.'},film:'Relaxed. You\'ve seen people burn themselves out trying to be everywhere.',stories:[],captions:[{label:'A',text:'scattered effort gets scattered results. pick a lane.'},{label:'B',text:'the service businesses consistently pulling in new clients aren\'t on every platform.\n\nthey\'ve got one channel that works and they put everything into it.\n\nconsistency on one platform will always beat inconsistency across five.\n\nmore platforms is not the answer. more focus is.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'},{label:'C',text:'consistency on one platform beats inconsistency across five every single time.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],lines:[{time:'Hook',tag:'5s',cls:'hook',text:'You don\'t need to be on TikTok, Instagram, Facebook, Google, and YouTube.\n\nYou need one platform that consistently brings in jobs.'},{time:'Middle',tag:'18s',cls:'',text:'Most service businesses try to be everywhere and end up doing nothing well.\n\nSpread thin. Inconsistent. Burning time on content that doesn\'t convert.\n\nPick the platform where your customers actually are and go all in on that.\n\nFor most service businesses, that\'s Meta.\n\nNot because it\'s the best platform in the world. Because it\'s the one where you can reach local people who need a service right now.'},{time:'Close',tag:'4s',cls:'',text:'Stop spreading. Start stacking.'}]},
-{title:'What I\'d do if I was starting a service business from scratch',type:'Talking Head',recCap:1,recVer:'full',overlay:{line1:'starting a service business',line2:'from scratch — i\'d do this'},film:'Conversational, like you\'re thinking out loud. This one can breathe a little.',stories:[],captions:[{label:'A',text:'most service businesses wait until things are slow to think about marketing. that\'s the whole problem.'},{label:'B',text:'the feast and famine cycle isn\'t bad luck.\n\nit\'s what happens when you only think about getting clients when you don\'t have any.\n\nthe fix is simple: keep showing up even when you\'re busy.\n\nbecause the leads you generate today become the jobs you do in 3-4 weeks.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'},{label:'C',text:'the slow week you\'re having now is the result of stopping when things were good.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],lines:[{time:'Hook',tag:'5s',cls:'hook',text:'If I was starting a service business from scratch today — this is exactly what I\'d do to get clients.'},{time:'Middle',tag:'20s',cls:'',text:'First 30 days: do good work, ask every single client for a Google review. Build the social proof fast.\n\nDay 31: start running a simple Meta ad. One video. Me talking to camera. Targeting my suburb and the ones around it.\n\nKeep it running. Don\'t touch it.\n\nWithin a few weeks the leads start coming in consistently.\n\nNo cold calls. No door knocking. No praying for referrals.\n\nJust showing up in front of the right people, every day.'},{time:'Close',tag:'4s',cls:'',text:'It\'s not complicated.\n\nIt just has to be consistent.\n\nFollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with Meta ads.'}]},
-{title:'What makes someone stop scrolling and actually watch your ad',type:'Screen Record',recCap:0,recVer:'full',overlay:{line1:'what makes someone stop',line2:'and watch your ad'},film:'Screen record showing side-by-side or examples of weak vs strong ad hooks. Talk over it naturally — what you\'re looking at and why one works.',stories:[],captions:[{label:'A',text:'people don\'t stop scrolling for ads. they stop for things that feel like they were made for them.'},{label:'B',text:'the best performing ads don\'t look like ads.\n\nthey look like someone speaking directly to one person\'s exact situation.\n\nno fancy editing. no graphics. no voiceover.\n\njust someone on camera saying the thing the viewer has been thinking.\n\nthat\'s what stops the scroll.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'},{label:'C',text:'the best ad you can make is someone on camera saying what your customer is already thinking.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],lines:[{time:'Hook',tag:'5s',cls:'hook',text:'This is the difference between an ad that gets scrolled past and one that actually gets watched.'},{time:'Middle',tag:'22s',cls:'',text:'Most service business ads open the same way.\n\nLogo. Business name. \'We\'ve been in business for X years.\'\n\nNobody stops for that.\n\nWhat stops someone is hearing their own situation described back to them.\n\n\'If your lawn hasn\'t been touched in weeks and you\'ve been putting it off...\' — now I\'m listening.\n\nThe hook isn\'t about you. It\'s about them.\n\nSay something in the first two seconds that makes them think \'how did they know?\''},{time:'Close',tag:'4s',cls:'',text:'Hook them with their problem.\n\nThen show them you\'re the solution.'}]},
-{title:'The type of client I work with',type:'Screen Record',recCap:0,recVer:'full',overlay:{line1:'the type of client',line2:'i work with'},film:'Screen record of results dashboard or client communication — whatever looks real. Talk over it like you\'re walking someone through what you do.',stories:[],captions:[{label:'A',text:'great at the job. no system to get clients consistently. that gap is exactly what i fix.'},{label:'B',text:'the service businesses i work with don\'t have a skill problem.\n\nthey have a visibility problem.\n\nthey\'re good at what they do but the people who need them have no idea they exist.\n\nwe fix that with meta ads — and the calendar fills up without them chasing a single person.\n\ndm me ADS if that\'s you.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'},{label:'C',text:'you don\'t have a skill problem. you have a visibility problem. dm me ADS.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],lines:[{time:'Hook',tag:'5s',cls:'hook',text:'This is the type of client I work with — and what changes once we start working together.'},{time:'Middle',tag:'20s',cls:'',text:'Service business owner. Good at the job. Gets most of their work from referrals.\n\nBusy some weeks, quiet others. No idea how to make it consistent.\n\nWe set up their Meta ads properly. Get the targeting right, the creative right, the follow-up right.\n\nAnd within a few weeks the calendar starts filling without them having to chase anyone.\n\nThat\'s the shift — from reactive to consistent.'},{time:'Close',tag:'4s',cls:'',text:'If that sounds like where you\'re at — DM me ADS.\n\nFollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with Meta ads.'}]}
-];
+var checks=JSON.parse(localStorage.getItem('mm_checks')||'{}');
+var curId=null;
+var curVer='full';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const MIRO_BOARDS=[];
-
-function normaliseScripts(scripts){
-  return scripts.map(s=>({
-    title:s.title,
-    type:s.type||'Talking Head',
-    recCap:s.recCap||0,
-    recVer:s.recVer||'full',
-    overlay:s.overlay&&typeof s.overlay==='object'?s.overlay:{line1:s.overlay||'',line2:''},
-    film:s.film||'',
-    stories:s.stories||[],
-    captions:s.captions||[],
-    lines:s.lines||[],
-  }));
-}
-
-let ALL_WEEKS=[];   // [{week_of, week_of_display, scripts:[]}]
-let VIEW_WEEK_IDX=0; // which week we're viewing in the "This Week" section
-
-function getCurrentWeekIdx(){
-  if(!ALL_WEEKS.length)return 0;
-  const todayStr=new Date().toISOString().slice(0,10);
-  // Find the week whose Monday <= today < Monday+7
-  for(let i=ALL_WEEKS.length-1;i>=0;i--){
-    if(ALL_WEEKS[i].week_of<=todayStr)return i;
-  }
-  return 0;
-}
-
-async function loadScriptsData(){
-  try{
-    const r=await fetch('scripts-data.json?_='+Date.now());
-    const d=await r.json();
-    if(d.weeks&&d.weeks.length){
-      ALL_WEEKS=d.weeks.map(w=>({...w,scripts:normaliseScripts(w.scripts)}));
-    } else if(d.scripts&&d.scripts.length){
-      ALL_WEEKS=[{week_of:d.week_of||'',week_of_display:d.week_of_display||'This Week',scripts:normaliseScripts(d.scripts)}];
-    } else return;
-    VIEW_WEEK_IDX=getCurrentWeekIdx();
-    const curWeek=ALL_WEEKS[VIEW_WEEK_IDX];
-    WEEK.splice(0,WEEK.length,...curWeek.scripts);
-    if(d.ideas&&d.ideas.length) renderIdeas(d.ideas);
-    rebuildAll();
-  }catch(e){}
-}
-
-function changeViewWeek(delta){
-  const next=VIEW_WEEK_IDX+delta;
-  if(next<0||next>=ALL_WEEKS.length)return;
-  VIEW_WEEK_IDX=next;
-  const w=ALL_WEEKS[VIEW_WEEK_IDX];
-  document.getElementById('week-out').innerHTML='';
-  buildWeekAccordionFrom(w.scripts,w.week_of);
-  updateWeekNav();
-}
-
-function updateWeekNav(){
-  const w=ALL_WEEKS[VIEW_WEEK_IDX];
-  const curIdx=getCurrentWeekIdx();
-  let label=w.week_of_display||w.week_of;
-  if(VIEW_WEEK_IDX===curIdx)label='This Week — '+label;
-  else if(VIEW_WEEK_IDX<curIdx)label='Previous — '+label;
-  else label='Next — '+label;
-  const lbl=document.getElementById('week-nav-label');
-  if(lbl)lbl.textContent=label;
-  const prev=document.getElementById('week-nav-prev');
-  const next=document.getElementById('week-nav-next');
-  if(prev)prev.style.opacity=VIEW_WEEK_IDX===0?'.3':'1';
-  if(next)next.style.opacity=VIEW_WEEK_IDX===ALL_WEEKS.length-1?'.3':'1';
-}
-
-function rebuildAll(){
-  // Rebuild week strip (Today tab — always current week)
-  const wstrip=document.getElementById('wstrip');
-  wstrip.innerHTML='';
-  WEEK.forEach((d,i)=>{
-    const dt=weekDate(i);
-    const el=document.createElement('div');
-    el.className='wday'+(i===todayI?' active':'')+(checks[i]?' done':'');
-    el.id='wd'+i;
-    el.onclick=()=>{document.querySelectorAll('.wday').forEach(w=>w.classList.remove('active'));el.classList.add('active');renderToday(i);};
-    el.innerHTML='<div class="wday-n">'+DAYS[i]+'</div><div class="wday-d">'+dt.getDate()+'</div><div class="wday-t">'+d.type.split(' ')[0]+'</div>';
-    wstrip.appendChild(el);
-  });
-  // Rebuild week accordion for viewed week
-  const wo=document.getElementById('week-out');
-  if(wo)wo.innerHTML='';
-  const vw=ALL_WEEKS[VIEW_WEEK_IDX]||{scripts:WEEK,week_of:''};
-  buildWeekAccordionFrom(vw.scripts,vw.week_of);
-  updateWeekNav();
-  renderToday(todayI);
-  updProg();
-}
-
-const checks=JSON.parse(localStorage.getItem('mm_checks')||'{}');
-
-function typeBadgeClass(type){
-  if(type==='Screen Record')return 'screen';
-  if(type==='Talking Head')return 'talking';
-  if(type==='Carousel')return 'carousel';
-  if(type==='Video')return 'video';
-  return '';
-}
-
-function postFormatBadge(type){
-  if(type==='Carousel')
-    return '<span style="font-size:.65rem;font-weight:700;background:#130a00;color:#fdba74;border:1px solid #2a1800;border-radius:20px;padding:3px 10px">📸 Carousel Post</span>';
-  // Talking Head + Screen Record → Reel, suggest Stories share
-  return '<span style="font-size:.65rem;font-weight:700;background:#07101e;color:#93c5fd;border:1px solid #1a2a45;border-radius:20px;padding:3px 10px">🎬 Reel</span>'
-    +'<span style="font-size:.62rem;color:var(--sub);margin-left:6px">+ share to Stories after</span>';
-}
-
-function typeBadgeStyle(type){
-  if(type==='Screen Record'||type==='Video')return 'background:#0a1020;color:#93c5fd;border:1px solid #1a2a45';
-  if(type==='Talking Head')return 'background:#130820;color:#c4b5fd;border:1px solid #25104a';
-  if(type==='Carousel')return 'background:#130a00;color:#fdba74;border:1px solid #2a1800';
-  return 'background:var(--dim);color:var(--sub);border:1px solid var(--border)';
-}
-
-// Populate home today card
-(function(){
-  const d=WEEK[todayI];
-  const dt=weekDate(todayI);
-  document.getElementById('home-today-day').textContent=fmtFull(dt);
-  document.getElementById('home-today-title').textContent=d.title;
-  const tb=document.getElementById('home-today-type');
-  tb.textContent=d.type;tb.style.cssText=typeBadgeStyle(d.type);
-})();
-
-// ── Post Modal ─────────────────────────────────────────────────────────
-function renderModal(i,ver){
-  ver=ver||scriptVers.modal||(WEEK[i].recVer||'full');
-  scriptVers.modal=ver;
-  const d=WEEK[i];
-  const dt=weekDate(i);
-  const dur=scriptDuration(d.lines);
-  document.getElementById('modal-content').innerHTML=
-    '<div class="tc-day" style="margin-bottom:6px">'+fmtFull(dt)+'</div>'
-    +'<div style="font-size:1.1rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:12px">'+d.title+'</div>'
-    +'<div class="script-meta-row">'
-    +'<div style="display:inline-block;font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:20px;'+typeBadgeStyle(d.type)+'">'+d.type+'</div>'
-    +postFormatBadge(d.type)
-    +(dur?'<div class="dur-badge">'+dur+' total</div>':'')
-    +verToggleHTML('modal',i,ver)
-    +'</div>'
-    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'+mkOverlay(d)
-    +mkScript(d.lines,ver)
-    +mkCaption(d,i,'modal')
-    +(d.stories&&d.stories.length?'<div style="margin-top:20px"><div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px">Stories Plan</div>'
-      +d.stories.map((s,si)=>'<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><div style="min-width:20px;height:20px;border-radius:50%;background:var(--dim);font-size:.65rem;font-weight:700;color:#94a3b8;display:flex;align-items:center;justify-content:center">'+(si+1)+'</div><div style="font-size:.82rem;color:#cbd5e1;line-height:1.5">'+s+'</div></div>').join('')+'</div>':'')
-    +'<div class="action-row" style="margin-top:12px">'
-    +'<button class="btn btn-primary" onclick="cpAll('+i+')">Copy Script</button>'
-    +'<button class="btn btn-done'+(checks[i]?' on':'')+'" id="modal-done-btn" onclick="toggleDoneModal('+i+')">'+(checks[i]?'Posted':'Mark Posted')+'</button>'
-    +'</div>';
-}
-function openPostModal(){
-  renderModal(todayI,'full');
-  document.getElementById('post-modal').classList.add('on');
-  document.body.style.overflow='hidden';
-}
-function closePostModal(){
-  document.getElementById('post-modal').classList.remove('on');
-  document.body.style.overflow='';
-}
-function closeModal(e){if(e.target===document.getElementById('post-modal'))closePostModal();}
-function toggleDoneModal(i){
-  checks[i]=!checks[i];
-  localStorage.setItem('mm_checks',JSON.stringify(checks));
-  const btn=document.getElementById('modal-done-btn');
-  if(btn){btn.className='btn btn-done'+(checks[i]?' on':'');btn.textContent=checks[i]?'Posted':'Mark Posted';}
-  const donebtn=document.getElementById('done-btn');
-  if(donebtn){donebtn.className='btn btn-done'+(checks[i]?' on':'');donebtn.textContent=checks[i]?'Posted':'Mark Posted';}
-  document.getElementById('wd'+i).classList.toggle('done',checks[i]);
-  updProg();
-}
-
-// Progress
-function updProg(){
-  const n=Object.values(checks).filter(Boolean).length;
-  document.getElementById('pbar').style.width=(n/7*100)+'%';
-  document.getElementById('plbl').textContent=n+' / 7 posted this week';
-}
-
-// Week strip
-const wstrip=document.getElementById('wstrip');
-WEEK.forEach((d,i)=>{
-  const dt=weekDate(i);
-  const el=document.createElement('div');
-  el.className='wday'+(i===todayI?' active':'')+(checks[i]?' done':'');
-  el.id='wd'+i;
-  el.onclick=()=>{document.querySelectorAll('.wday').forEach(w=>w.classList.remove('active'));el.classList.add('active');renderToday(i);};
-  el.innerHTML='<div class="wday-n">'+DAYS[i]+'</div><div class="wday-d">'+dt.getDate()+'</div><div class="wday-t">'+d.type.split(' ')[0]+'</div>';
-  wstrip.appendChild(el);
-});
-
-// Script renderer
-function cpLine(btn,text){
-  navigator.clipboard.writeText(text).then(()=>{btn.textContent='Copied';btn.classList.add('ok');setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('ok');},1800);});
-}
-function cpAll(i){navigator.clipboard.writeText(WEEK[i].lines.map(l=>l.text).join('\n\n'));}
-
-function scriptDuration(lines){
-  let t=0;
-  lines.forEach(l=>{if(l.tag){const s=parseInt(l.tag);if(!isNaN(s))t+=s;}});
-  if(!t)return null;
-  const m=Math.floor(t/60),s=t%60;
-  return m?(m+'m '+(s?s+'s':'')):(s+'s');
-}
-
-// version: 'short' = hook+cta only, 'mid' = hook + first half of middle + cta, 'full' = all
-function filterLines(lines,ver){
-  if(ver==='full')return lines;
-  const hook=lines.filter(l=>l.cls==='hook');
-  const cta=lines.filter(l=>l.cls==='cta');
-  if(ver==='short')return [...hook,...cta];
-  const middle=lines.filter(l=>l.cls!=='hook'&&l.cls!=='cta');
-  const half=Math.max(1,Math.ceil(middle.length/2));
-  return [...hook,...middle.slice(0,half),...cta];
-}
-
-function durForVer(lines,ver){
-  return scriptDuration(filterLines(lines,ver));
-}
-
-const CAP_STORE={};
-function mkCaption(d,i,ctx){
-  const caps=d.captions&&d.captions.length?d.captions:(d.caption?[{label:'A',text:d.caption}]:null);
-  if(!caps)return '';
-  const id='cap-'+(ctx||'x')+'-'+i;
-  const rec=(d.recCap!=null)?d.recCap:0;
-  CAP_STORE[id]=caps;
-  const btns=caps.map((c,ci)=>'<button class="ver-btn'+(ci===rec?' on':'')+'" onclick="swapCap(\''+id+'\','+ci+')">'+(ci===rec?'★ ':'')+c.label+'</button>').join('');
-  return '<div id="'+id+'-wrap" style="margin:16px 0 0">'
-    +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">'
-    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub)">Caption</div>'
-    +'<div class="ver-toggle" style="margin:0">'+btns+'</div>'
-    +'</div>'
-    +'<div id="'+id+'" style="background:#050608;border:1px solid var(--border);border-radius:9px;padding:13px 14px;font-size:.78rem;color:#64748b;line-height:1.8;white-space:pre-wrap">'+caps[rec].text+'</div>'
-    +'<button class="cbtn" style="margin-top:6px" onclick="cpCap(this,\''+id+'\')">Copy Caption</button>'
-    +'</div>';
-}
-function swapCap(id,ci){
-  const el=document.getElementById(id);
-  const wrap=document.getElementById(id+'-wrap');
-  const caps=CAP_STORE[id];
-  if(!el||!caps)return;
-  el.textContent=caps[ci].text;
-  if(wrap)wrap.querySelectorAll('.ver-btn').forEach((b,j)=>b.classList.toggle('on',j===ci));
-}
-function cpCap(btn,id){
-  const el=document.getElementById(id);
-  if(!el)return;
-  navigator.clipboard.writeText(el.textContent).then(()=>{btn.textContent='Copied';setTimeout(()=>btn.textContent='Copy Caption',1600)});
-}
-
-function mkOverlay(d){
-  if(!d.overlay)return '';
-  return '<div style="margin:14px 0 4px">'
-    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:8px">On-Screen Text</div>'
-    +'<div style="background:#0a0a14;border:1px solid #2a1a4a;border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px">'
-    +'<span style="font-size:.95rem;font-weight:800;color:#fff;line-height:1.25">'+d.overlay.line1+'</span>'
-    +'<span style="font-size:.8rem;color:#a78bfa;font-weight:500">'+d.overlay.line2+'</span>'
-    +'<div style="margin-top:8px;display:flex;gap:8px">'
-    +'<button class="cbtn" onclick="navigator.clipboard.writeText(\''+d.overlay.line1+'\\n'+d.overlay.line2+'\').then(()=>{this.textContent=\'Copied\';setTimeout(()=>this.textContent=\'Copy Text\',1600)})">Copy Text</button>'
-    +'<span style="font-size:.6rem;color:var(--sub);align-self:center">Add in CapCut as a text layer over your opening frame</span>'
-    +'</div>'
-    +'</div>'
-    +'</div>';
-}
-
-function mkScript(lines,ver){
-  const fl=filterLines(lines,ver||'full');
-  // For carousel, render slide previews instead of plain lines
-  const isCarousel=fl.some(l=>l.time&&l.time.toLowerCase().includes('slide'));
-  if(isCarousel){
-    return '<div style="display:flex;flex-direction:column;gap:12px;margin-top:4px">'
-      +fl.map((l,si)=>{
-        const num=si+1;
-        const txt=l.text.replace(/`/g,'\\`');
-        return '<div style="background:#0a0a0a;border:1px solid #222;border-radius:12px;overflow:hidden">'
-          +'<div style="background:#111;padding:8px 14px;display:flex;align-items:center;justify-content:space-between">'
-          +'<span style="font-size:.6rem;font-weight:700;color:#666;text-transform:uppercase;letter-spacing:.08em">Slide '+num+' of '+fl.length+'</span>'
-          +'<span style="font-size:.6rem;color:#444">'+l.time+'</span>'
-          +'</div>'
-          +'<div style="background:#0d0d0d;min-height:120px;display:flex;align-items:center;justify-content:center;padding:20px 18px;text-align:center">'
-          +'<div style="font-size:'+(si===0?'1.05':'0.88')+'rem;font-weight:'+(si===0?'800':'600')+';color:'+(si===0?'#fff':'#e2e8f0')+';line-height:1.45;max-width:340px">'+l.text+'</div>'
-          +'</div>'
-          +'<div style="padding:8px 12px;border-top:1px solid #1a1a1a">'
-          +'<button class="cbtn" onclick="cpLine(this,`'+txt+'`)">Copy slide text</button>'
-          +'</div>'
-          +'</div>';
-      }).join('')
-      +'</div>';
-  }
-  return '<div class="script-lines">'+fl.map(l=>
-    '<div class="sl">'
-    +'<div class="sl-meta"><span class="sl-seg">'+l.time+'</span>'+(l.tag?'<span class="sl-dur">'+l.tag+'</span>':'')+'</div>'
-    +'<div class="sl-bub '+l.cls+'">'+l.text+'<br><button class="cbtn" onclick="cpLine(this,`'+l.text.replace(/\\/g,'\\\\').replace(/`/g,'\\`')+'`)">Copy</button></div>'
-    +'</div>'
-  ).join('')+'</div>';
-}
-
-function verToggleHTML(elId,i,ver){
-  const d=WEEK[i];
-  const isCarousel=d.type==='Carousel';
-  if(isCarousel)return '';
-  const rec=d.recVer||'full';
-  const short=durForVer(d.lines,'short');
-  const mid=durForVer(d.lines,'mid');
-  const full=durForVer(d.lines,'full');
-  const lbl=(v,label,dur)=>'<button class="ver-btn'+(ver===v?' on':'')+'" data-ver="'+v+'" onclick="setVer(\''+elId+'\','+i+',\''+v+'\')">'+(rec===v?'★ ':'')+label+(dur?' · '+dur:'')+'</button>';
-  return '<div class="ver-toggle">'+lbl('short','Short',short)+lbl('mid','Medium',mid)+lbl('full','Full',full)+'</div>';
-}
-
-const scriptVers={today:'full',modal:'full'};
-// default each script to its recommended version on first load
-WEEK.forEach((d,i)=>{if(d.recVer)scriptVers['wkv-'+i]=d.recVer;});
-
-function setVer(elId,i,ver){
-  scriptVers[elId]=ver;
-  if(elId==='today')renderToday(i,ver);
-  else if(elId==='modal')renderModal(i,ver);
-  else if(elId==='wkv-'+i){
-    const sc=document.getElementById('wkscript-'+i);
-    if(sc)sc.innerHTML=mkScript(WEEK[i].lines,ver);
-    // update active state on toggle buttons
-    const tog=document.getElementById('wktog-'+i);
-    if(tog)tog.querySelectorAll('.ver-btn').forEach(b=>b.classList.toggle('on',b.dataset.ver===ver));
-  }
-}
-
-// Render today
-function renderToday(i,ver){
-  ver=ver||scriptVers.today||(WEEK[i].recVer||'full');
-  scriptVers.today=ver;
-  const d=WEEK[i];
-  const dt=weekDate(i);
-  const dur=scriptDuration(d.lines);
-  document.getElementById('today-out').innerHTML=
-    '<div class="today-card">'
-    +'<div class="tc-bar"></div>'
-    +'<div class="tc-inner">'
-    +'<div class="tc-top">'
-    +'<div class="tc-day">'+fmtFull(dt)+'</div>'
-    +'<div class="tc-title">'+d.title+'</div>'
-    +'</div>'
-    +'<div class="script-meta-row">'
-    +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
-    +postFormatBadge(d.type)
-    +(dur?'<div class="dur-badge">'+dur+' total</div>':'')
-    +verToggleHTML('today',i,ver)
-    +'</div>'
-    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'+mkOverlay(d)
-    +mkScript(d.lines,ver)
-    +mkCaption(d,i,'today')
-    +(d.stories&&d.stories.length?'<div style="margin-top:20px"><div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px">Stories Plan</div>'
-      +d.stories.map((s,si)=>'<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><div style="min-width:20px;height:20px;border-radius:50%;background:var(--dim);font-size:.65rem;font-weight:700;color:#94a3b8;display:flex;align-items:center;justify-content:center">'+(si+1)+'</div><div style="font-size:.82rem;color:#cbd5e1;line-height:1.5">'+s+'</div></div>').join('')+'</div>':'')
-    +'<div class="action-row" style="margin-top:12px">'
-    +'<button class="btn btn-primary" onclick="cpAll('+i+')">Copy Script</button>'
-    +'<button class="btn btn-done'+(checks[i]?' on':'')+'" id="done-btn" onclick="toggleDone('+i+')">'+(checks[i]?'Posted':'Mark Posted')+'</button>'
-    +'</div>'
-    +'</div></div>';
-}
-renderToday(todayI);
-
-function toggleDone(i){
-  checks[i]=!checks[i];
-  localStorage.setItem('mm_checks',JSON.stringify(checks));
-  const btn=document.getElementById('done-btn');
-  btn.className='btn btn-done'+(checks[i]?' on':'');
-  btn.textContent=checks[i]?'Posted':'Mark Posted';
-  document.getElementById('wd'+i).classList.toggle('done',checks[i]);
-  updProg();
-}
-updProg();
-
-// Week accordion — accepts a scripts array + optional weekOf date string
-function buildWeekAccordionFrom(scripts, weekOf){
-  const wo=document.getElementById('week-out');
-  if(!wo)return;
-  // Compute Monday date for this weekOf
-  let baseDate=weekOf?new Date(weekOf+'T00:00:00Z'):weekDate(0);
-  scripts.forEach((d,i)=>{
-    const dt=new Date(baseDate);
-    dt.setUTCDate(dt.getUTCDate()+i);
-    const div=document.createElement('div');
-    div.className='wk-card';
-    const hookLine=d.lines.find(l=>l.cls==='hook')||d.lines[0];
-    div.innerHTML=
-      '<div class="wk-hdr" onclick="this.nextElementSibling.classList.toggle(\'open\')">'
-      +'<div class="wk-hdr-info">'
-      +'<div class="wk-day">'+FULL_DAYS[i]+', '+MONTHS[dt.getUTCMonth()]+' '+dt.getUTCDate()+'</div>'
-      +'<div class="wk-title">'+d.title+'</div>'
-      +(hookLine?'<div style="font-size:.72rem;color:#64748b;margin-top:5px;line-height:1.4;font-style:italic">"'+hookLine.text+'"</div>':'')
-      +'</div>'
-      +'<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">'
-      +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
-      +'</div>'
-      +'</div>'
-      +'<div class="wk-body">'
-      +'<div style="margin:12px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
-      +postFormatBadge(d.type)
-      +(scriptDuration(d.lines)?'<div class="dur-badge">'+scriptDuration(d.lines)+' total</div>':'')
-      +'<div id="wktog-'+i+'">'+verToggleHTML('wkv-'+i,i,'full')+'</div>'
-      +'</div>'
-      +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'+mkOverlay(d)
-      +'<button class="btn btn-primary" style="width:100%;margin:10px 0;flex:none" onclick="cpAll('+i+')">Copy Script</button>'
-      +'<div id="wkscript-'+i+'">'+mkScript(d.lines,'full')+'</div>'
-      +mkCaption(d,i,'wk')
-      +(d.stories&&d.stories.length?'<div style="margin-top:20px"><div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px">Stories Plan</div>'
-        +d.stories.map((s,si)=>'<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><div style="min-width:20px;height:20px;border-radius:50%;background:var(--dim);font-size:.65rem;font-weight:700;color:#94a3b8;display:flex;align-items:center;justify-content:center">'+(si+1)+'</div><div style="font-size:.82rem;color:#cbd5e1;line-height:1.5">'+s+'</div></div>').join('')+'</div>':'')
-      +'</div>';
-    wo.appendChild(div);
-  });
-}
-buildWeekAccordionFrom(WEEK,'');
-loadScriptsData();
-
-// Miro boards render
-(async function(){
-  const mo=document.getElementById('miro-out');
-  if(!mo)return;
-  function renderMiro(boards,updated){
-    if(!boards||!boards.length){
-      mo.innerHTML='<div style="background:var(--dim);border-radius:10px;padding:20px;text-align:center">'
-        +'<div style="font-size:.88rem;color:#94a3b8;margin-bottom:6px">No boards yet</div>'
-        +'<div style="font-size:.72rem;color:var(--sub)">Boards are created automatically every Sunday. Make sure <code style="background:#1a1d24;padding:2px 5px;border-radius:4px">MIRO_ACCESS_TOKEN</code> is set in GitHub Actions secrets.</div>'
-        +'</div>';
-      return;
-    }
-    mo.innerHTML='<div style="font-size:.72rem;color:var(--sub);margin-bottom:14px">Created '+(updated||'this week')+' · 3 boards from the 42-topic pool</div>'
-      +boards.map((b,i)=>'<div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px">'
-        +'<div style="min-width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#a78bfa);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff">'+(i+1)+'</div>'
-        +'<div style="flex:1"><div style="font-size:.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:2px">'+(b.title||b.topic||'Board '+(i+1))+'</div>'
-        +'<div style="font-size:.68rem;color:var(--sub)">Carousel · '+(b.slide_count||5)+' slides</div></div>'
-        +(b.url?'<a href="'+b.url+'" target="_blank" rel="noopener" style="font-size:.72rem;font-weight:600;color:#6366f1;white-space:nowrap">Open ↗</a>':'')
-        +'</div>').join('');
-  }
-  try{
-    const r=await fetch('miro-boards.json?_='+Date.now());
-    const d=await r.json();
-    renderMiro(d.boards,d.updated_display);
-  }catch(e){renderMiro([]);}
-})();
-
-// Stats data
-async function loadData(){
-  let d;
-  try{d=await fetch('data.json?_='+Date.now()).then(r=>r.json());}catch(e){return;}
-  const m=d.me;
-  if(m.followers){
-    const f=m.followers.toLocaleString();
-    document.getElementById('hdr-fl') && (document.getElementById('hdr-fl').textContent=f);
-    document.getElementById('r-fl').textContent=f;
-  }
-  if(m.totalPosts!=null)document.getElementById('r-tp').textContent=m.totalPosts;
-  if(m.totalViews!=null)document.getElementById('r-tv').textContent=(m.totalViews).toLocaleString();
-  if(m.avgEngagement!=null)document.getElementById('r-ae').textContent=m.avgEngagement;
-
-  const ps=m.topPosts||[];
-  const pl=document.getElementById('posts-list');
-  ps.forEach((p,i)=>{
-    const dt=p.timestamp?new Date(p.timestamp).toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'America/New_York'}):'';
-    pl.innerHTML+=
-      '<a class="post-a" href="'+p.url+'" target="_blank" rel="noopener">'
-      +'<div style="font-size:.72rem;font-weight:700;color:var(--sub);width:20px;flex-shrink:0">#'+(i+1)+'</div>'
-      +'<div style="flex:1;min-width:0"><div class="post-cap">'+(p.caption||'(no caption)')+'</div><div class="post-meta">'+dt+'</div></div>'
-      +'<div style="display:flex;gap:10px;flex-shrink:0">'
-      +'<div style="text-align:right"><div style="font-size:.8rem;font-weight:700;color:#fff">'+p.likes+'</div><div style="font-size:.58rem;color:var(--sub)">likes</div></div>'
-      +(p.views?'<div style="text-align:right"><div style="font-size:.8rem;font-weight:700;color:#fff">'+p.views.toLocaleString()+'</div><div style="font-size:.58rem;color:var(--sub)">views</div></div>':'')
-      +'</div></a>';
-  });
-
-  const compData=d.competitors||[];
-  const compEl=document.getElementById('comp-list');
-  compEl.innerHTML='';
-  const COMPS_BASE=[{h:'marcomarkets',me:true},...compData.map(c=>({h:c.handle,f:c.followers}))];
-  const meF=m.followers;
-  const allFs=COMPS_BASE.map(c=>c.me?meF:(c.f||0)).filter(Boolean);
-  const mx=Math.max(...allFs,1);
-  COMPS_BASE.forEach(c=>{
-    const f=c.me?meF:c.f;
-    compEl.innerHTML+=
-      '<div class="comp-row">'
-      +'<div class="comp-h'+(c.me?' me':'')+'">@'+(c.me?'marcomarkets':c.h)+'</div>'
-      +'<div class="comp-bg"><div class="comp-fill" style="width:'+(f?Math.round(f/mx*100):3)+'%;background:'+(c.me?'var(--blue)':'#252836')+'"></div></div>'
-      +'<div class="comp-n">'+(f!=null?Number(f).toLocaleString():'—')+'</div>'
-      +'</div>';
-  });
-}
-loadData();
-
-// Ideas
-const IDEAS=[
-  "Walk through Miro board: What Works vs What Doesn't in Meta Ads",
-  "Screen record: build a lead gen campaign from scratch in 60 seconds",
-  "Breakdown: the 3 parts of every winning service business ad",
-  "Why boosting a post is the most expensive mistake you can make",
-  "The $25/day setup I use for every new client — step by step",
-  "Healthy ads manager vs failing one — what to look for",
-  "You don't need a website. Here's what you actually need instead.",
-  "Why a smaller audience outperforms a bigger one every time",
-  "The real cost of not running ads — what you're leaving every month",
-  "What 'cost per lead' actually means and how to know if it's good",
-  "Referrals are not a business model. They're a bonus.",
-  "The offer was the problem — not the ad",
-  "Most trades businesses don't need more followers. They need leads.",
-  "Stop trying to go viral. Go local. That's where the money is.",
-  "Your competitors aren't better marketers — they're just more visible",
-  "Nobody searches Instagram for a plumber. Here's how Meta still works.",
-  "The psychology of why before/after photos outperform every other creative",
-  "POV: First thing I check in a failing ad account",
-  "Day in the life: managing 3 client campaigns from one laptop",
-  "How I write an ad headline — live, no edits, real time",
-  "Real client convo: what actually happens on a strategy call",
-  "Why I turn down clients who want to run ads without a good offer",
-  "How to follow up with leads who don't answer — exact sequence",
-  "Meta vs Google: which one is right for YOUR budget and stage",
-  "3 things everyone says about Facebook ads that are completely wrong",
-  "Why more ad budget doesn't automatically mean more leads",
-  "5 metrics that don't matter in your ads manager (and the 2 that do)",
-  "Change one word in your headline: 'We offer' → 'Get'",
-  "Add a deadline to your offer — watch conversion rate jump",
-  "Use photos from your actual jobs. Not stock. Your real work.",
-  "$25/day over 30 days — exact numbers from a real client",
-  "Client story: from 0 leads from ads to 11 booked jobs in a month",
-  "ROI math: $750 in ads, $1,980 in booked jobs, $6,000+ lifetime",
-  "What I'd do differently if I was starting this business today",
-  "Why I focus on service businesses",
-  "What I was doing before this and why I made the switch",
-  "The biggest mistake I made in my first 6 months doing this",
-  "Why I post every day even when I have no clients yet",
-  "What actually changed when I stopped trying to go viral",
-  "A lesson from the best-run service business I've ever seen",
-];
-function renderIdeas(list){
-  const usedI=JSON.parse(localStorage.getItem('mm_ideas')||'{}');
-  const iout=document.getElementById('ideas-out');
-  iout.innerHTML='';
-  list.forEach((idea,i)=>{
-    const div=document.createElement('div');
-    div.className='idea-i'+(usedI[i]?' used':'');
-    div.id='idea'+i;
-    div.onclick=()=>{usedI[i]=!usedI[i];localStorage.setItem('mm_ideas',JSON.stringify(usedI));div.classList.toggle('used',usedI[i]);div.querySelector('.used-lbl').textContent=usedI[i]?'used':'';};
-    div.innerHTML='<div class="idea-n">'+(i+1)+'</div><div class="idea-txt">'+idea+'</div><div class="used-lbl">'+(usedI[i]?'used':'')+'</div>';
-    iout.appendChild(div);
-  });
-}
-renderIdeas(IDEAS);
-
-// DM Scripts
-[
-  {s:'Message 1 — Opener (send within 15 min)',t:"Hey [name]! Appreciate you reaching out — quick question before we dive in. What kind of service business do you run?"},
-  {s:'Message 2 — Qualify',t:"Nice, love working with [trade] businesses. Two quick questions: Are you currently running any Meta ads? And roughly what's your monthly ad budget?"},
-  {s:'Message 3 — Book the call (if they have budget)',t:"Perfect — sounds like there's a real opportunity here. I have a couple of spots open this week for a free 15-min strategy call. Want me to send you the link?"},
-  {s:'Message 4 — No budget yet',t:"No worries at all — makes sense to build the foundation first. I post tips here every day, so follow along and hit me up when you're ready to invest in ads. Save this account so you don't lose it."}
-].forEach(d=>{
-  document.getElementById('dm-out').innerHTML+='<div class="dm-card"><div class="dm-step">'+d.s+'</div><div class="dm-txt">'+d.t+'</div><button class="cbtn" onclick="navigator.clipboard.writeText(`'+d.t.replace(/`/g,'\\`')+'`)">Copy</button></div>';
-});
-
-// Profile checklist
-const PCH=[
-  {l:'Switch to Creator or Business account',s:'Unlocks analytics, scheduling, and branded content tools'},
-  {l:'Profile photo: clear face shot, good lighting',s:'People follow people — face builds 3x more trust than a logo'},
-  {l:'Update bio with real numbers',s:'Specific numbers beat vague claims every time'},
-  {l:'Link in bio: Calendly booking page',s:'Warm followers can book without having to DM first'},
-  {l:'Pin 3 posts: 1 value, 1 result, 1 personal',s:'First thing new visitors see — make these your absolute best'},
-  {l:'Add "DM me ADS" CTA to every post caption',s:'Every post without a CTA is a lead walking out the door'},
-];
-const pchecks=JSON.parse(localStorage.getItem('mm_pchecks')||'{}');
-PCH.forEach((item,i)=>{
-  const div=document.createElement('div');
-  div.className='chk-i';
-  div.onclick=()=>{
-    pchecks[i]=!pchecks[i];
-    localStorage.setItem('mm_pchecks',JSON.stringify(pchecks));
-    const b=div.querySelector('.chkbox');
-    b.className='chkbox'+(pchecks[i]?' on':'');
-    b.textContent=pchecks[i]?'✓':'';
-    div.querySelector('.chk-txt').style.opacity=pchecks[i]?'.3':'1';
-  };
-  div.innerHTML='<div class="chkbox'+(pchecks[i]?' on':'')+'">'+( pchecks[i]?'✓':'')+'</div><div><div class="chk-txt" style="opacity:'+(pchecks[i]?'.3':'1')+'">'+item.l+'</div><div class="chk-sub">'+item.s+'</div></div>';
-  document.getElementById('chk-out').appendChild(div);
-});
-
-const sb=localStorage.getItem('mm_bio');if(sb)document.getElementById('bio-text').value=sb;
-
-// ── Tomorrow's Plan ────────────────────────────────────────────────────
-(function(){
-  const tmr=new Date(today);tmr.setDate(today.getDate()+1);
-  document.getElementById('plan-date').textContent='Planning for: '+fmtFull(tmr);
-})();
-
-const SUGGESTIONS={
-  content:['Film today\'s video','Batch film 2-3 videos in one session','Film a screen record in Ads Manager','Write captions for 3 posts','Create a carousel in Canva','Reply to all comments from today','Post to Instagram Stories','Check which post performed best this week','Film a day-in-the-life clip','Repost a top post to Stories'],
-  outreach:['Reply to all unread DMs','Follow 20 local service business owners','Leave 10 genuine comments in your niche','DM 5 accounts who engaged with your posts','Follow up with leads who didn\'t respond','Send opener DM to 3 new accounts','Check competitor comments for pain points','Like and comment on 10 posts from target audience'],
-  growth:['Post at 6-7:30 PM EST tonight','Update bio with latest follower count','Pin your best performing post','Check analytics in Meta Business Suite','Add DM me ADS CTA to last 3 captions','Research one competitor\'s top video','Schedule next 3 posts in advance','Check profile — does it clearly say what you do?','Read through next week\'s scripts'],
-};
-
-const PLAN_CATS=['content','outreach','growth'];
-let plan=JSON.parse(localStorage.getItem('mm_plan')||'{"content":[],"outreach":[],"growth":[],"notes":""}');
-
-PLAN_CATS.forEach(cat=>{
-  const wrap=document.getElementById('chips-'+cat);
-  if(!wrap)return;
-  SUGGESTIONS[cat].forEach(s=>{
-    const chip=document.createElement('div');
-    chip.className='chip';
-    chip.textContent=s;
-    chip.onclick=()=>{
-      if((plan[cat]||[]).some(t=>t.text===s))return;
-      if(!plan[cat])plan[cat]=[];
-      plan[cat].push({text:s,done:false});
-      localStorage.setItem('mm_plan',JSON.stringify(plan));
-      renderTasks(cat);
-      chip.style.cssText='border-color:var(--blue);color:#93c5fd;background:#07101e';
-      setTimeout(()=>{chip.style.cssText='';},700);
-    };
-    wrap.appendChild(chip);
-  });
-});
-
-function savePlan(){
-  plan.notes=document.getElementById('plan-notes').value;
-  localStorage.setItem('mm_plan',JSON.stringify(plan));
-}
-
-function renderTasks(cat){
-  const el=document.getElementById('plan-'+cat+'-tasks');
+function buildList(){
+  var el=document.getElementById('script-list');
   el.innerHTML='';
-  (plan[cat]||[]).forEach((task,i)=>{
-    const row=document.createElement('div');
-    row.style.cssText='display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--dim)';
+  SCRIPTS.forEach(function(s,i){
+    var done=!!checks[s.id];
+    var row=document.createElement('button');
+    row.className='row'+(done?' row-done':'');
     row.innerHTML=
-      '<div class="chkbox'+(task.done?' on':'')+'" onclick="toggleTask(\''+cat+'\','+i+')" style="cursor:pointer">'+(task.done?'&#10003;':'')+'</div>'
-      +'<div style="flex:1;font-size:.78rem;color:'+(task.done?'var(--sub)':'#94a3b8')+';'+(task.done?'text-decoration:line-through;opacity:.35':'')+'">'+task.text+'</div>'
-      +'<button onclick="removeTask(\''+cat+'\','+i+')" style="background:none;border:none;color:var(--sub);cursor:pointer;font-size:.8rem;padding:2px 8px">&#215;</button>';
+      '<div class="row-num">'+(i+1)+'</div>'
+      +'<div class="row-info">'
+      +'<div class="row-title">'+s.title+'</div>'
+      +'<div class="row-meta">'
+      +'<div class="row-funnel">'+s.funnel+'</div>'
+      +(s.cta?'<div class="row-dot"></div><div class="row-cta">CTA</div>':'')
+      +'</div>'
+      +'</div>'
+      +(done?'<div class="row-done-tick">&#10003;</div>':'<div class="row-arr">&#8599;</div>');
+    row.addEventListener('click',function(){openSheet(s.id);});
     el.appendChild(row);
   });
 }
+buildList();
 
-function addTask(cat){
-  const text=prompt('Add your own task:');
-  if(!text||!text.trim())return;
-  if(!plan[cat])plan[cat]=[];
-  plan[cat].push({text:text.trim(),done:false});
-  localStorage.setItem('mm_plan',JSON.stringify(plan));
-  renderTasks(cat);
+function filterLines(lines,ver){
+  if(ver==='full')return lines;
+  var hook=lines.filter(function(l){return l.cls==='hook';});
+  var cta=lines.filter(function(l){return l.cls==='cta';});
+  if(ver==='short')return hook.concat(cta);
+  var mid=lines.filter(function(l){return l.cls!=='hook'&&l.cls!=='cta';}).slice(0,2);
+  return hook.concat(mid).concat(cta);
+}
+function totalSec(lines){return lines.reduce(function(t,l){var s=parseInt(l.tag||'0');return t+(isNaN(s)?0:s);},0);}
+function durStr(lines,ver){var t=totalSec(filterLines(lines,ver));if(!t)return '';var m=Math.floor(t/60),s=t%60;return m?(m+'m '+(s?s+'s':'')):(s+'s');}
+
+function mkLines(lines,ver){
+  return '<div class="lines">'+filterLines(lines,ver).map(function(l){
+    return '<div class="line">'
+      +'<div class="lmeta"><span class="lseg">'+l.time+'</span>'+(l.tag?'<span class="ldur">'+l.tag+'</span>':'')+'</div>'
+      +'<div class="lbub '+l.cls+'">'+l.text
+      +'<br><button class="cbtn" onclick="cpText(this,'+JSON.stringify(l.text)+')">Copy</button>'
+      +'</div></div>';
+  }).join('')+'</div>';
 }
 
-function toggleTask(cat,i){
-  plan[cat][i].done=!plan[cat][i].done;
-  localStorage.setItem('mm_plan',JSON.stringify(plan));
-  renderTasks(cat);
-}
-
-function removeTask(cat,i){
-  plan[cat].splice(i,1);
-  localStorage.setItem('mm_plan',JSON.stringify(plan));
-  renderTasks(cat);
-}
-
-PLAN_CATS.forEach(renderTasks);
-if(plan.notes)document.getElementById('plan-notes').value=plan.notes;
-
-// ── Agents ─────────────────────────────────────────────────────────────
-const AGENT_META = {
-  ads:         {name:'Ads',         role:'What to test, how to spend, when to scale.', color:'#3b82f6'},
-  creative:    {name:'Creative',    role:'Hooks, angles, and ad concepts to make every week.', color:'#a78bfa'},
-  critic:      {name:'Critic',      role:"What's wrong with your scripts and ads. Honest.", color:'#ef4444'},
-  competitors: {name:'Competitors', role:'What competitors are doing and how to use it.', color:'#22c55e'},
-};
-
-function renderAgentCard(key, report, updatedDisplay) {
-  if(report&&updatedDisplay){AGENT_REPORTS[key]=report;report._updatedDisplay=updatedDisplay;}
-  else if(AGENT_REPORTS[key]){report=AGENT_REPORTS[key];updatedDisplay=report._updatedDisplay;}
-  const meta = AGENT_META[key];
-  const card = document.createElement('div');
-  card.className = 'agent-card';
-  card.id='agent-card-'+key;
-  card.innerHTML =
-    '<div class="agent-bar" style="background:'+meta.color+'"></div>'
-    +'<div class="agent-head">'
-    +'<div style="flex:1"><div style="display:flex;align-items:center;gap:8px;margin-bottom:3px">'
-    +'<div class="agent-name">'+meta.name+'</div>'
-    +'<span class="live-label"><span class="live-dot"></span>Live</span>'
-    +'</div><div class="agent-role">'+meta.role+'</div></div>'
-    +'</div>'
-    +'<div class="agent-body">'
-    +'<div class="agent-report-label">Latest finding</div>'
-    +'<div class="agent-headline">'+report.headline+'</div>'
-    +(report.format?'<div style="display:inline-flex;align-items:center;gap:6px;margin:8px 0 4px"><span style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub)">Format</span><span style="font-size:.65rem;font-weight:700;color:#38bdf8;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.25);border-radius:20px;padding:2px 10px">'+report.format+'</span></div>':'')
-    +'<div class="agent-actions">'
-    +report.actions.map((a,ai)=>{
-      const sid=key+'-'+ai;
-      ACTION_STORE[sid]=a;
-      const used=USED[sid];
-      if(used){
-        return '<div class="agent-action agent-action-used" id="aa-'+sid+'">'
-          +'<div class="agent-action-text" style="color:#475569">'+a+'</div>'
-          +'<div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0">'
-          +'<span class="used-tag">'+used.label+'</span>'
-          +'<button class="use-undo" onclick="undoAction(\''+sid+'\')">Undo</button>'
-          +'</div></div>';
-      }
-      const agentUsed=Object.keys(USED).some(k=>k.startsWith(key+'-'));
-      return '<div class="agent-action" id="aa-'+sid+'">'
-        +'<div class="agent-action-text">'+a+'</div>'
-        +(agentUsed
-          ? '<span style="font-size:.6rem;color:var(--sub);flex-shrink:0">picked</span>'
-          : '<button class="use-btn" onclick="showUseMenu(this,\''+sid+'\')">Use →</button>')
-        +'</div>';
-    }).join('')
-    +'</div>'
-    +(report.source?'<div style="font-size:.6rem;color:var(--sub);margin-top:10px">Source: '+report.source+'</div>':'')
-    +'</div>'
-    +'<div class="agent-footer" style="display:flex;align-items:center;justify-content:space-between">'
-    +'<span>Researched '+updatedDisplay+'</span>'
-    +'<span style="color:'+meta.color+';font-weight:600">'+meta.name+'</span>'
-    +'</div>';
-  return card;
-}
-
-// ── Use-this system ────────────────────────────────────────────────────
-const ACTION_STORE={};  // sid → text
-let USED=JSON.parse(localStorage.getItem('mm_used_actions')||'{}'); // sid → {label, option}
-
-function saveUsed(){localStorage.setItem('mm_used_actions',JSON.stringify(USED));renderAgentPicks();}
-
-function renderAgentPicks(){
-  const el=document.getElementById('plan-agent-picks');
-  if(!el)return;
-  const entries=Object.entries(USED);
-  if(!entries.length){
-    el.innerHTML='<div style="font-size:.72rem;color:var(--sub);padding:10px 0">Nothing picked yet — go to Agents and tap "Use →" on an insight.</div>';
-    return;
-  }
-  const agentNames={ads:'Ads Agent',creative:'Creative Agent',critic:'Critic Agent',competitors:'Competitor Agent'};
-  el.innerHTML=entries.map(([sid,entry])=>{
-    const agentKey=sid.split('-')[0];
-    const text=ACTION_STORE[sid]||'';
-    const short=text.split('.')[0].slice(0,90)+(text.split('.')[0].length>90?'…':'');
-    return '<div style="display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:#050709;border:1px solid var(--border);border-radius:8px;margin-bottom:6px">'
-      +'<div style="flex:1">'
-      +'<div style="font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub);margin-bottom:3px">'+agentNames[agentKey]+'</div>'
-      +'<div style="font-size:.75rem;color:#cbd5e1;line-height:1.5">'+short+'</div>'
-      +'<div style="font-size:.62rem;color:#4ade80;margin-top:4px">'+entry.label+'</div>'
-      +'</div>'
-      +'<button class="use-undo" style="margin-top:2px;flex-shrink:0" onclick="undoAction(\''+sid+'\')">Undo</button>'
-      +'</div>';
-  }).join('');
-}
-
-function showUseMenu(btn,sid){
-  document.querySelectorAll('.use-menu').forEach(m=>m.remove());
-  const menu=document.createElement('div');
-  menu.className='use-menu';
-  menu.innerHTML=
-    '<div class="use-menu-item use-menu-rec" onclick="pickAction(\''+sid+'\',\'content\');this.closest(\'.use-menu\').remove()">🎬 Turn into Reel script ★</div>'
-    +'<div class="use-menu-item" onclick="pickAction(\''+sid+'\',\'plan\');this.closest(\'.use-menu\').remove()">📋 Add to tomorrow\'s plan</div>'
-    +'<div class="use-menu-item" onclick="pickAction(\''+sid+'\',\'copy\');this.closest(\'.use-menu\').remove()">📄 Copy text</div>';
-  btn.parentElement.appendChild(menu);
-  setTimeout(()=>document.addEventListener('click',function h(e){if(!menu.contains(e.target)&&e.target!==btn){menu.remove();document.removeEventListener('click',h);}},),50);
-}
-
-function pickAction(sid,option){
-  const text=ACTION_STORE[sid];
-  if(!text)return;
-  const agentKey=sid.split('-')[0];
-  // prevent duplicate pick for same agent
-  if(Object.keys(USED).some(k=>k.startsWith(agentKey+'-'))){
-    showToast('Already picked one from this agent — undo it first');return;
-  }
-  let label='';
-  if(option==='content'){
-    label='🎬 Script idea';
-    openContentModal(sid);
-  } else if(option==='plan'){
-    label='📋 Added to plan';
-    const short=text.replace(/^[^:]+:\s*/,'').split('.')[0].slice(0,80);
-    if(!plan.content)plan.content=[];
-    plan.content.push({text:short,done:false,custom:true});
-    localStorage.setItem('mm_plan',JSON.stringify(plan));
-    showToast('Added to tomorrow\'s plan → Content section');
-  } else if(option==='copy'){
-    label='📄 Copied';
-    navigator.clipboard.writeText(text);
-    showToast('Copied to clipboard');
-  }
-  USED[sid]={label,option};
-  saveUsed();
-  refreshActionRow(sid);
-  // gray out sibling actions in same agent
-  const ai=sid.split('-')[1];
-  ['0','1','2'].filter(i=>i!==ai).forEach(i=>{
-    const row=document.getElementById('aa-'+agentKey+'-'+i);
-    if(row){const b=row.querySelector('.use-btn');if(b){b.replaceWith(Object.assign(document.createElement('span'),{style:'font-size:.6rem;color:var(--sub);flex-shrink:0',textContent:'picked'}));}}
-  });
-}
-
-function undoAction(sid){
-  const entry=USED[sid];
-  if(!entry)return;
-  // undo plan add
-  if(entry.option==='plan'){
-    const text=ACTION_STORE[sid];
-    const short=text?text.replace(/^[^:]+:\s*/,'').split('.')[0].slice(0,80):'';
-    if(plan.content){
-      const i=plan.content.findIndex(t=>t.text===short);
-      if(i>=0){plan.content.splice(i,1);localStorage.setItem('mm_plan',JSON.stringify(plan));}
-    }
-  }
-  delete USED[sid];
-  saveUsed();
-  // re-render the whole agent section so "Use →" buttons come back
-  const agentKey=sid.split('-')[0];
-  refreshAgentCard(agentKey);
-  showToast('Undone');
-}
-
-function refreshActionRow(sid){
-  const row=document.getElementById('aa-'+sid);
-  if(!row)return;
-  const used=USED[sid];
-  const text=ACTION_STORE[sid]||'';
-  if(used){
-    row.classList.add('agent-action-used');
-    row.innerHTML='<div class="agent-action-text" style="color:#475569">'+text+'</div>'
-      +'<div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0">'
-      +'<span class="used-tag">'+used.label+'</span>'
-      +'<button class="use-undo" onclick="undoAction(\''+sid+'\')">Undo</button>'
-      +'</div>';
-  }
-}
-
-// Re-render a single agent card (needed after undo)
-const AGENT_REPORTS={};
-function refreshAgentCard(key){
-  const report=AGENT_REPORTS[key];
-  if(!report)return;
-  const existing=document.getElementById('agent-card-'+key);
-  if(!existing)return;
-  const newCard=renderAgentCard(key,report._updatedDisplay);
-  existing.replaceWith(newCard);
-}
-
-function openContentModal(sid){
-  const text=ACTION_STORE[sid]||'';
-  const sentences=text.split(/\.|—/).map(s=>s.trim()).filter(Boolean);
-  const hook=sentences[0]||text;
-  const detail=sentences.slice(1,3).join('. ')+(sentences.length>1?'.':'');
-  const isResult=/\d+|result|case|client|number/i.test(text);
-  const isHook=/hook|open|start|first line/i.test(text);
-  const isMistake=/mistake|wrong|avoid|stop|don't|killing/i.test(text);
-  const type=isResult?'Talking Head — Client Result':isHook?'Talking Head — Hook':isMistake?'Talking Head — Mistake':'Talking Head';
-  const el=document.getElementById('content-modal');
-  document.getElementById('content-modal-body').innerHTML=
-    '<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:4px">Format</div>'
-    +'<div style="font-size:.8rem;font-weight:700;color:#c4b5fd;margin-bottom:14px">'+type+'</div>'
-    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:4px">Hook</div>'
-    +'<div style="background:#050608;border:1px solid var(--border);border-radius:8px;padding:11px 13px;font-size:.78rem;color:#e2e8f0;line-height:1.6;margin-bottom:12px">'+hook+'</div>'
-    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:4px">What to cover</div>'
-    +'<div style="background:#050608;border:1px solid var(--border);border-radius:8px;padding:11px 13px;font-size:.78rem;color:#94a3b8;line-height:1.6;margin-bottom:12px">'+(detail||text)+'</div>'
-    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:4px">CTA</div>'
-    +'<div style="background:#050608;border:1px solid var(--border);border-radius:8px;padding:11px 13px;font-size:.78rem;color:#94a3b8;line-height:1.6;margin-bottom:16px">DM me ADS if you want this for your business.</div>'
-    +'<div style="display:flex;gap:8px;flex-wrap:wrap">'
-    +'<button class="btn btn-primary" onclick="addConceptToPlan(\''+sid+'\')">+ Add to plan too</button>'
-    +'<button class="btn" onclick="navigator.clipboard.writeText(ACTION_STORE[\''+sid+'\']).then(()=>showToast(\'Copied\'))">Copy original</button>'
-    +'</div>';
-  el.classList.add('on');
+function openSheet(id){
+  curId=id;curVer='full';
+  document.getElementById('overlay').classList.add('on');
   document.body.style.overflow='hidden';
+  renderSheet();
 }
-
-function addConceptToPlan(sid){
-  const text=ACTION_STORE[sid]||'';
-  const short=text.replace(/^[^:]+:\s*/,'').split('.')[0].slice(0,80);
-  if(!plan.content)plan.content=[];
-  if(plan.content.some(t=>t.text===short)){showToast('Already in plan');return;}
-  plan.content.push({text:short,done:false,custom:true});
-  localStorage.setItem('mm_plan',JSON.stringify(plan));
-  showToast('Also added to plan → Content section');
+function renderSheet(){
+  var s=SCRIPTS[curId];
+  var idx=SCRIPTS.indexOf(s)+1;
+  document.getElementById('sh-num').textContent='Script '+idx+' of 7 — '+s.funnel;
+  var short=durStr(s.lines,'short'),mid=durStr(s.lines,'mid'),full=durStr(s.lines,'full');
+  document.getElementById('sh-body').innerHTML=
+    '<div class="sh-title">'+s.title+'</div>'
+    +'<div class="sh-row">'
+    +'<div class="badge">'+s.type+'</div>'
+    +(s.cta?'<div class="badge cta">Has CTA</div>':'<div class="badge">No CTA</div>')
+    +'</div>'
+    +'<div class="film-note"><b>How to film:</b> '+s.film+'</div>'
+    +'<div class="ver-row">'
+    +'<button class="vbtn'+(curVer==='short'?' on':'')+'" onclick="setVer(\'short\')">Short'+(short?' \xb7 '+short:'')+'</button>'
+    +'<button class="vbtn'+(curVer==='mid'?' on':'')+'" onclick="setVer(\'mid\')">Medium'+(mid?' \xb7 '+mid:'')+'</button>'
+    +'<button class="vbtn'+(curVer==='full'?' on':'')+'" onclick="setVer(\'full\')">Full'+(full?' \xb7 '+full:'')+'</button>'
+    +'</div>'
+    +mkLines(s.lines,curVer)
+    +'<div class="cap-label">Caption</div>'
+    +'<div class="cap-box" id="cap-box">'+s.caption+'</div>'
+    +'<button class="cbtn" onclick="cpCap()">Copy Caption</button>'
+    +'<div class="act-row">'
+    +'<button class="abtn abtn-grey" onclick="cpAll()">Copy Script</button>'
+    +'<button class="abtn abtn-done'+(checks[curId]?' on':'')+'" id="done-btn" onclick="toggleDone()">'+(checks[curId]?'Posted ✓':'Mark as Posted')+'</button>'
+    +'</div>';
 }
-
-function showToast(msg){
-  let t=document.getElementById('use-toast');
-  if(!t){t=document.createElement('div');t.id='use-toast';t.style.cssText='position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;font-size:.75rem;font-weight:600;padding:8px 18px;border-radius:20px;z-index:9999;pointer-events:none;transition:opacity .3s';document.body.appendChild(t);}
-  t.textContent=msg;t.style.opacity='1';
-  clearTimeout(t._timer);t._timer=setTimeout(()=>t.style.opacity='0',2000);
+function setVer(ver){curVer=ver;renderSheet();}
+document.getElementById('sh-close').addEventListener('click',closeSheet);
+document.getElementById('overlay').addEventListener('click',function(e){if(e.target===document.getElementById('overlay'))closeSheet();});
+function closeSheet(){document.getElementById('overlay').classList.remove('on');document.body.style.overflow='';}
+function cpText(btn,text){navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied';btn.classList.add('ok');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('ok');},1800);});}
+function cpCap(){var el=document.getElementById('cap-box');if(el)navigator.clipboard.writeText(el.textContent);}
+function cpAll(){navigator.clipboard.writeText(SCRIPTS[curId].lines.map(function(l){return l.text;}).join('\n\n'));}
+function toggleDone(){
+  checks[curId]=!checks[curId];
+  localStorage.setItem('mm_checks',JSON.stringify(checks));
+  var btn=document.getElementById('done-btn');
+  if(btn){btn.className='abtn abtn-done'+(checks[curId]?' on':'');btn.textContent=checks[curId]?'Posted ✓':'Mark as Posted';}
+  buildList();
 }
-
-function renderIdeasPanel(){
-  const panel=document.getElementById('ideas-panel');
-  if(!panel)return;
-  if(!ideas.length){panel.style.display='none';return;}
-  panel.style.display='block';
-  panel.innerHTML='<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px">Saved Ideas ('+ideas.length+')</div>'
-    +ideas.slice(0,5).map((idea,i)=>'<div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px">'
-      +'<div style="flex:1;font-size:.75rem;color:#cbd5e1;line-height:1.5">'+idea.text.slice(0,120)+(idea.text.length>120?'…':'')+'</div>'
-      +'<button class="cbtn" style="flex-shrink:0" onclick="removeIdea('+i+')">✕</button>'
-      +'</div>'
-    ).join('')
-    +(ideas.length>5?'<div style="font-size:.65rem;color:var(--sub)">+'+( ideas.length-5)+' more saved</div>':'');
-}
-
-function removeIdea(i){
-  ideas.splice(i,1);
-  localStorage.setItem('mm_ideas',JSON.stringify(ideas));
-  renderIdeasPanel();
-}
-
-function fmtUTCtoLocal(utcStr){
-  if(!utcStr)return 'Unknown';
-  const d=new Date(utcStr);
-  return d.toLocaleString([],{weekday:'short',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:true});
-}
-
-async function loadAgents() {
-  const out = document.getElementById('agents-out');
-  const dateEl = document.getElementById('agents-date');
-  try {
-    const data = await fetch('agents-data.json?_='+Date.now()).then(r=>r.json());
-    if (!data.updated || !data.agents || !Object.keys(data.agents).length) {
-      dateEl.textContent = 'No research yet — tap Run Research to start.';
-      out.innerHTML = '<div style="text-align:center;padding:40px 20px;color:var(--sub);font-size:.8rem">Tap "Run Research" above. Results appear here in about 60 seconds.</div>';
-      return;
-    }
-    const localTime = fmtUTCtoLocal(data.updated);
-    dateEl.textContent = 'Last researched: ' + localTime;
-    ['ads','creative','critic','competitors'].forEach(key => {
-      if (data.agents[key]) {
-        out.appendChild(renderAgentCard(key, data.agents[key], localTime));
-      }
-    });
-    renderAgentPicks();
-  } catch(e) {
-    dateEl.textContent = 'Could not load research data.';
-    out.innerHTML = '<div style="text-align:center;padding:40px 20px;color:var(--sub);font-size:.8rem">Tap "Run Research" to trigger your agents.</div>';
-  }
-}
-loadAgents();
-renderIdeasPanel();
-renderAgentPicks();
 </script>
-</body></html>
+</body>
+</html>
