@@ -49,8 +49,10 @@ button{font-family:inherit;cursor:pointer}
 .badge{font-size:.6rem;font-weight:600;padding:2px 8px;border-radius:4px;background:#1a1a1a;color:#555;border:1px solid #222}
 .badge.cta{background:#0a1f0a;color:#4ade80;border-color:#1a3a1a}
 
-.film-note{background:#0a0a0a;border-left:2px solid #222;padding:10px 12px;border-radius:0 7px 7px 0;font-size:.72rem;color:#444;line-height:1.65;margin-bottom:16px}
+.film-note{background:#0a0a0a;border-left:2px solid #222;padding:10px 12px;border-radius:0 7px 7px 0;font-size:.72rem;color:#444;line-height:1.65;margin-bottom:10px}
 .film-note b{color:#666}
+.ost-note{background:#0d0d12;border-left:2px solid #2a2a4a;padding:9px 12px;border-radius:0 7px 7px 0;font-size:.72rem;color:#6b6baa;line-height:1.5;margin-bottom:16px}
+.ost-note b{color:#8888cc}
 
 .ver-row{display:flex;gap:2px;background:#111;border:1px solid #1e1e1e;border-radius:20px;padding:2px;margin-bottom:14px;width:fit-content}
 .vbtn{padding:4px 12px;border-radius:16px;font-size:.62rem;font-weight:600;border:none;color:#444;background:none}
@@ -107,7 +109,8 @@ button{font-family:inherit;cursor:pointer}
 
 var SCRIPTS=[
 {id:0,funnel:'TOFU',title:'Service business owners spend money on the wrong things',type:'Talking Head',cta:true,
- film:'Outdoor: open sky behind you, tripod, head to head on camera. Slow and confident. Let it breathe. On-screen text: "only watch this if you run a service business"',
+ film:'Outdoor: open sky behind you, tripod, head to head on camera. Slow and confident. Let it breathe.',
+ ost:'"only watch this if you run a service business"',
  hook:'Most service business owners I talk to are spending money. Just on the wrong things.',
  caption:'most service business owners i talk to are spending money\n\njust on the wrong things\n\nwebsite, logo, van wrap. looks good. gets you nothing.\n\nthe ones growing? they put it where it actually brings clients in.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.',
  lines:[
@@ -119,6 +122,7 @@ var SCRIPTS=[
  ]},
 {id:1,funnel:'TOFU',title:'Every service business owner I talk to says the same thing',type:'Talking Head',cta:false,
  film:'Indoor: clean background, good lighting, close to camera. Relaxed and honest. Like you are catching up with someone.',
+ ost:'"the phone used to ring. now it doesn\'t."',
  hook:'Every service business owner I talk to says the same thing. The phone used to ring. Now it just doesn\'t.',
  caption:'every service business owner i talk to says the same thing\n\nthe phone used to ring. now it doesn\'t.\n\nit\'s not that the work changed. it\'s that the way people find you changed.\n\nand if you\'re not showing up where they\'re looking, someone else is.',
  lines:[
@@ -129,6 +133,7 @@ var SCRIPTS=[
  ]},
 {id:2,funnel:'TOFU',title:'Why I only run ads for service businesses',type:'Talking Head',cta:false,
  film:'Outdoor if possible. Relaxed, sitting down. Honest and personal. No pitch energy at all.',
+ ost:'"why i only work with service businesses"',
  hook:'I only run Meta ads for service businesses. Not coaches, not e-com, not brands. Just service businesses.',
  caption:'people ask why i only work with service businesses\n\nnot coaches. not e-com. not brands.\n\nbecause these guys actually do real work. they show up, they fix things, they build things.\n\nthey\'re just not getting paid what they deserve because nobody knows they exist.\n\nthat\'s the gap i help close.',
  lines:[
@@ -139,6 +144,7 @@ var SCRIPTS=[
  ]},
 {id:3,funnel:'TOFU',title:'What I tell every service business owner before we run a single ad',type:'Talking Head',cta:false,
  film:'Outdoor or indoor clean setup. Conversational, like you are giving advice to a friend.',
+ ost:'"what i tell every client before we run a single ad"',
  hook:'Before I run a single ad for a client, I always say the same thing.',
  caption:'before i run a single ad i always say this\n\nthe ad gets you the lead\n\nwhat you do in the next 10 minutes is what gets you the job\n\ncall fast. know what to say. follow up.\n\nmost people lose the job before the ad even gets a chance to prove itself.',
  lines:[
@@ -149,6 +155,7 @@ var SCRIPTS=[
  ]},
 {id:4,funnel:'MOFU',title:'The first thing I fix when a new client sends me their ads',type:'Talking Head',cta:false,
  film:'Indoor: good background, tripod, eye level. Direct and confident. Teach it like you have seen it a hundred times.',
+ ost:'"the #1 mistake i see in every new client’s ads"',
  hook:'When a new client sends me their Meta ads the first thing I look at is never the creative.',
  caption:'when a new client sends me their ads the first thing i look at is never the creative\n\ni look at the objective\n\n9 times out of 10 they\'re running traffic\n\ntraffic finds people who click. not people who want to book.\n\nswitch it to lead generation. same budget. completely different results.',
  lines:[
@@ -159,6 +166,7 @@ var SCRIPTS=[
  ]},
 {id:5,funnel:'MOFU',title:'Why your competitor is getting more leads even though you\'re better at the job',type:'Talking Head',cta:false,
  film:'Indoor or outdoor. Direct to camera, confident. Say it like you have seen this exact situation too many times.',
+ ost:'"your competitor isn’t better. they’re just more visible."',
  hook:'Your competitor is not better than you at the actual job. I can almost guarantee that.',
  caption:'your competitor is not better than you at the job\n\nthey\'re just better at being seen\n\nthe best plumber or cleaner in the area is not always the busiest one\n\nthe most visible one is\n\nvisibility is something you can control. that\'s the whole point.',
  lines:[
@@ -169,6 +177,7 @@ var SCRIPTS=[
  ]},
 {id:6,funnel:'BOFU',title:'We changed two things in a client\'s ads. Here\'s what happened.',type:'Talking Head',cta:true,
  film:'Indoor: clean, confident. Slow down when you get to the results. Tell it like a story, not a pitch.',
+ ost:'"we changed two things. here’s what happened."',
  hook:'Had a client come to me a few months back. Good budget, decent service, but the leads were expensive and barely anything was converting.',
  caption:'had a client come to me with decent ads that just weren\'t working\n\nwe changed two things\n\ntightened the audience to where they actually work\n\nrewrote the creative with a real hook and a specific offer\n\nbooked jobs went up. budget stayed the same.\n\nDM me "SCALE" if you want me to look at yours.',
  lines:[
@@ -246,6 +255,7 @@ function renderSheet(){
     +(s.cta?'<div class="badge cta">Has CTA</div>':'<div class="badge">No CTA</div>')
     +'</div>'
     +'<div class="film-note"><b>How to film:</b> '+s.film+'</div>'
+    +(s.ost?'<div class="ost-note"><b>On-screen text:</b> '+s.ost+'</div>':'')
     +'<div class="ver-row">'
     +'<button class="vbtn'+(curVer==='short'?' on':'')+'" onclick="setVer(\'short\')">Short'+(short?' \xb7 '+short:'')+'</button>'
     +'<button class="vbtn'+(curVer==='mid'?' on':'')+'" onclick="setVer(\'mid\')">Medium'+(mid?' \xb7 '+mid:'')+'</button>'
