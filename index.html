@@ -112,6 +112,10 @@ section{margin-bottom:44px;scroll-margin-top:64px}
 .type-badge.video,.type-badge.screen{background:#0a1020;color:#93c5fd;border-color:#1a2a45}
 .type-badge.carousel{background:#130a00;color:#fdba74;border-color:#2a1800}
 .type-badge.talking{background:#130820;color:#c4b5fd;border-color:#25104a}
+.funnel-badge{display:inline-block;font-size:.58rem;font-weight:800;padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.08em}
+.funnel-badge.tofu{background:#052010;color:#4ade80;border:1px solid #0a3a1a}
+.funnel-badge.mofu{background:#1a1000;color:#fbbf24;border:1px solid #2a1e00}
+.funnel-badge.bofu{background:#150520;color:#c084fc;border:1px solid #2a0a40}
 .film-note{background:#050608;border-left:2px solid var(--blue);padding:11px 13px;border-radius:0 8px 8px 0;font-size:.75rem;color:#4a5568;line-height:1.6;margin-bottom:16px}
 .film-note b{color:#94a3b8}
 
@@ -121,7 +125,7 @@ section{margin-bottom:44px;scroll-margin-top:64px}
 .sl-meta{text-align:right;padding-top:10px}
 .sl-seg{font-size:.63rem;font-weight:600;color:#475569;display:block;line-height:1.3}
 .sl-dur{font-size:.58rem;color:var(--sub);display:block;margin-top:2px}
-.sl-bub{background:#050709;border:1px solid var(--border);border-radius:9px;padding:11px 13px;font-size:.8rem;color:#94a3b8;line-height:1.6;white-space:pre-wrap}
+.sl-bub{background:#050709;border:1px solid var(--border);border-radius:9px;padding:11px 13px;font-size:.8rem;color:#94a3b8;line-height:1.6}
 .sl-bub.hook{border-color:#1a2a45;background:#060c1a}
 .sl-bub.cta{border-color:#0d2218;background:#04090a}
 
@@ -220,20 +224,9 @@ section{margin-bottom:44px;scroll-margin-top:64px}
 .agent-headline{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4}
 .agent-text{font-size:.78rem;color:#64748b;line-height:1.65;margin-bottom:14px}
 .agent-actions{display:flex;flex-direction:column;gap:6px}
-.agent-action{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:#050709;border:1px solid var(--border);border-radius:8px;position:relative}
+.agent-action{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:#050709;border:1px solid var(--border);border-radius:8px}
 .agent-action-num{font-size:.62rem;font-weight:700;color:var(--sub);width:16px;flex-shrink:0;padding-top:1px}
 .agent-action-text{font-size:.75rem;color:#94a3b8;line-height:1.5;flex:1}
-.use-btn{flex-shrink:0;font-size:.6rem;font-weight:700;color:#38bdf8;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);border-radius:6px;padding:3px 8px;cursor:pointer;white-space:nowrap;align-self:center}
-.use-btn:hover{background:rgba(56,189,248,.2)}
-.use-menu{position:absolute;right:0;top:calc(100% + 4px);background:#0f1623;border:1px solid var(--border);border-radius:10px;padding:4px;z-index:200;min-width:160px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
-.use-menu-item{font-size:.72rem;color:#cbd5e1;padding:8px 12px;border-radius:7px;cursor:pointer}
-.use-menu-item:hover{background:rgba(255,255,255,.06);color:#fff}
-.use-menu-rec{color:#c4b5fd;font-weight:600;background:rgba(196,181,253,.08)}
-.use-menu-rec:hover{background:rgba(196,181,253,.16)}
-.agent-action-used{opacity:.7;background:#03050a}
-.used-tag{font-size:.6rem;font-weight:700;color:#4ade80;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.2);border-radius:20px;padding:2px 8px;white-space:nowrap}
-.use-undo{font-size:.58rem;color:var(--sub);background:none;border:none;cursor:pointer;text-decoration:underline;padding:0}
-.use-undo:hover{color:#e2e8f0}
 .agent-footer{padding:10px 18px;border-top:1px solid var(--border);font-size:.6rem;color:var(--sub)}
 
 /* LIVE DOT */
@@ -254,31 +247,18 @@ section{margin-bottom:44px;scroll-margin-top:64px}
   <div class="nav-brand" onclick="showView('home')">@marcomarkets</div>
   <div class="nav-links">
     <button class="nl" id="nl-home" onclick="showView('home')">Home</button>
-    <button class="nl" id="nl-today" onclick="showView('content');setNavActive('nl-today')">Today</button>
-    <button class="nl" id="nl-week" onclick="showView('content');goto('week');setNavActive('nl-week')">This Week</button>
-    <button class="nl" id="nl-research" onclick="showView('content');goto('research');setNavActive('nl-research')">Stats</button>
-    <button class="nl" id="nl-ideas" onclick="showView('content');goto('ideas');setNavActive('nl-ideas')">Ideas</button>
-    <button class="nl" id="nl-tools" onclick="showView('content');goto('tools');setNavActive('nl-tools')">Tools</button>
-    <button class="nl" id="nl-plan" onclick="showView('content');goto('plan');setNavActive('nl-plan')">Tomorrow</button>
-    <button class="nl" id="nl-miro" onclick="showView('content');goto('miro');setNavActive('nl-miro')">Miro</button>
+    <button class="nl" id="nl-content" onclick="showView('content')">Today</button>
+    <button class="nl" onclick="showView('content');goto('week')">This Week</button>
+    <button class="nl" onclick="showView('content');goto('research')">Stats</button>
+    <button class="nl" onclick="showView('content');goto('ideas')">Ideas</button>
+    <button class="nl" onclick="showView('content');goto('tools')">Tools</button>
+    <button class="nl" onclick="showView('content');goto('plan')">Tomorrow</button>
     <button class="nl" id="nl-agents" onclick="showView('agents')">Agents</button>
   </div>
   <div class="nav-right">
     <div class="clock"><span id="clock">00:00</span></div>
   </div>
 </nav>
-
-<!-- CONTENT IDEA MODAL -->
-<div class="modal-overlay" id="content-modal" onclick="if(event.target===this){this.classList.remove('on');document.body.style.overflow=''}">
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <div class="modal-bar"></div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-      <div style="font-size:.95rem;font-weight:700;color:#fff">Content Concept</div>
-      <button class="cbtn" onclick="document.getElementById('content-modal').classList.remove('on');document.body.style.overflow=''">✕ Close</button>
-    </div>
-    <div id="content-modal-body"></div>
-  </div>
-</div>
 
 <!-- POST MODAL -->
 <div class="modal-overlay" id="post-modal" onclick="closeModal(event)">
@@ -332,6 +312,26 @@ section{margin-bottom:44px;scroll-margin-top:64px}
         </div>
       </div>
 
+      <!-- POSTING CADENCE -->
+      <div style="background:#050a06;border:1px solid #0a2010;border-radius:12px;padding:14px 16px;margin-bottom:20px">
+        <div style="font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#4ade80;margin-bottom:10px">Posting Cadence</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <div style="flex:1;min-width:120px;background:#030806;border:1px solid #0a1a0c;border-radius:8px;padding:10px 12px">
+            <div style="font-size:.65rem;font-weight:700;color:#4ade80;margin-bottom:3px">TOFU</div>
+            <div style="font-size:.7rem;color:#94a3b8;line-height:1.5">2-3x per week<br>Mon, Tue, Sun<br>Reach &amp; attention</div>
+          </div>
+          <div style="flex:1;min-width:120px;background:#080600;border:1px solid #1a1200;border-radius:8px;padding:10px 12px">
+            <div style="font-size:.65rem;font-weight:700;color:#fbbf24;margin-bottom:3px">MOFU</div>
+            <div style="font-size:.7rem;color:#94a3b8;line-height:1.5">2-3x per week<br>Wed, Thu, Fri<br>Value &amp; trust</div>
+          </div>
+          <div style="flex:1;min-width:120px;background:#080008;border:1px solid #180018;border-radius:8px;padding:10px 12px">
+            <div style="font-size:.65rem;font-weight:700;color:#c084fc;margin-bottom:3px">BOFU</div>
+            <div style="font-size:.7rem;color:#94a3b8;line-height:1.5">1-2x per week<br>Sat<br>Social proof + CTA</div>
+          </div>
+        </div>
+        <div style="font-size:.68rem;color:#475569;margin-top:10px;line-height:1.5">Post 4-5x per week for high quality content. Never more than 2 CTAs in a week. Quality over volume.</div>
+      </div>
+
       <!-- QUICK ACCESS -->
       <div class="home-section-label">Research & tools</div>
       <div class="nav-grid">
@@ -347,19 +347,19 @@ section{margin-bottom:44px;scroll-margin-top:64px}
           <div class="nt-desc">See exactly what competitors are running right now</div>
           <span class="nt-arrow">&#8594;</span>
         </div>
-        <div class="nav-tile" onclick="showView('content');goto('week');setNavActive('nl-week')">
+        <div class="nav-tile" onclick="showView('content');goto('week')">
           <div class="nt-dot" style="background:var(--purple)"></div>
           <div class="nt-title">This Week's Scripts</div>
           <div class="nt-desc">All 7 posts with filming notes and timing labels</div>
           <span class="nt-arrow">&#8594;</span>
         </div>
-        <div class="nav-tile" onclick="showView('content');goto('ideas');setNavActive('nl-ideas')">
+        <div class="nav-tile" onclick="showView('content');goto('ideas')">
           <div class="nt-dot" style="background:var(--green)"></div>
           <div class="nt-title">Content Ideas</div>
           <div class="nt-desc">40 ready-to-use ideas — mark off what you've filmed</div>
           <span class="nt-arrow">&#8594;</span>
         </div>
-        <div class="nav-tile" onclick="showView('content');goto('plan');setNavActive('nl-plan')">
+        <div class="nav-tile" onclick="showView('content');goto('plan')">
           <div class="nt-dot" style="background:#38bdf8"></div>
           <div class="nt-title">Tomorrow's Plan</div>
           <div class="nt-desc">Pick your tasks for tomorrow from pre-built chips</div>
@@ -387,14 +387,7 @@ section{margin-bottom:44px;scroll-margin-top:64px}
 
 <!-- THIS WEEK -->
 <section id="week">
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
-    <div class="sec-label" style="margin-bottom:0">Scripts</div>
-    <div style="display:flex;align-items:center;gap:8px">
-      <button id="week-nav-prev" onclick="changeViewWeek(-1)" style="background:var(--dim);border:none;color:#94a3b8;width:28px;height:28px;border-radius:6px;font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center">‹</button>
-      <div id="week-nav-label" style="font-size:.72rem;font-weight:600;color:#cbd5e1;white-space:nowrap">This Week</div>
-      <button id="week-nav-next" onclick="changeViewWeek(1)" style="background:var(--dim);border:none;color:#94a3b8;width:28px;height:28px;border-radius:6px;font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center">›</button>
-    </div>
-  </div>
+  <div class="sec-label">This Week — All 7 Posts</div>
   <div id="week-out"></div>
 </section>
 
@@ -488,28 +481,11 @@ Follow for daily content on what actually works</textarea>
 
     <div class="divider"></div>
 
-    <div style="margin-top:18px;margin-bottom:18px" id="agent-picks-section">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-        <div style="font-size:.78rem;font-weight:600;color:#fff">From Agents</div>
-        <span style="font-size:.6rem;font-weight:700;color:#38bdf8;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);border-radius:20px;padding:2px 8px">Live research</span>
-      </div>
-      <div style="font-size:.68rem;color:var(--sub);margin-bottom:10px">Things you picked from your agent cards</div>
-      <div id="plan-agent-picks"><div style="font-size:.72rem;color:var(--sub);padding:10px 0">Nothing picked yet — go to Agents and tap "Use →" on an insight.</div></div>
-    </div>
-
-    <div class="divider"></div>
-
     <div style="margin-top:18px">
       <div style="font-size:.78rem;font-weight:600;color:#fff;margin-bottom:8px">Notes</div>
       <textarea id="plan-notes" class="bio-area" placeholder="Anything else to remember for tomorrow..." style="min-height:70px" oninput="savePlan()"></textarea>
     </div>
   </div>
-</section>
-
-<!-- MIRO BOARDS -->
-<section id="miro">
-  <div class="sec-label">Miro Carousel Boards</div>
-  <div id="miro-out"></div>
 </section>
 
 </div>
@@ -533,19 +509,17 @@ Follow for daily content on what actually works</textarea>
     </div>
     <div style="font-size:.7rem;color:var(--sub);margin-top:8px">Usually takes 30-60 seconds. Refresh this page after the GitHub Action completes.</div>
   </div>
-  <div id="ideas-panel" style="display:none;background:#0a0f1a;border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:16px"></div>
   <div id="agents-out"></div>
 </div>
 </div>
 
 <script>
 // ── Views ──────────────────────────────────────────────────────────────
-function setNavActive(id){document.querySelectorAll('.nl').forEach(el=>el.classList.remove('on'));const b=document.getElementById(id);if(b)b.classList.add('on');}
 function showView(v){
   document.querySelectorAll('.view').forEach(el=>el.classList.remove('on'));
   document.getElementById('view-'+v).classList.add('on');
-  if(v==='home')setNavActive('nl-home');
-  else if(v==='agents')setNavActive('nl-agents');
+  document.querySelectorAll('.nl').forEach(el=>el.classList.remove('on'));
+  const btn=document.getElementById('nl-'+v);if(btn)btn.classList.add('on');
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function goto(id){setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},60);}
@@ -584,13 +558,13 @@ document.getElementById('home-greeting').textContent=hr<12?'morning':hr<17?'afte
 
 // ── Daily Brief ────────────────────────────────────────────────────────
 const DAILY_BRIEF=[
-  {focus:"Film your video today, then batch one more while you're set up.",text:"Monday is the best day to get ahead. Film two back-to-back and you're covered for Tuesday too. Screen records take 30 min. Talking heads take 10. You have time."},
-  {focus:"Every caption needs a CTA. Check your last 3 posts.",text:'Without a CTA, people watch and scroll. "DM me ADS" at the end of every caption is the difference between a view and a lead. Go add it to anything missing.'},
-  {focus:"Check what your competitors posted this week.",text:"Open 2-3 competitor accounts and see what's performing. Look at the comments — what are people asking? That's your next video idea. Best research you can do is free."},
-  {focus:"Best post time tonight: 6-7:30 PM EST. Set a reminder now.",text:"Thursday evening is peak engagement for service business content. Schedule for 6 PM and stay online for 10 minutes after posting to reply to early comments — it signals to the algorithm."},
-  {focus:"End the week strong. Post before 6 PM today.",text:"Friday afternoon content performs well — people are winding down and scrolling more. A short punchy talking head today carries engagement into the weekend."},
-  {focus:"Post today. Less competition on weekends = more reach.",text:"Most accounts don't post on weekends. Less noise in the feed means more reach for your content for the same effort."},
-  {focus:"Plan your week now. Read all 7 scripts in This Week.",text:"Sunday is for planning. Read through the scripts, decide which ones you're filming and when, block out filming time. Five minutes now saves an hour of scrambling Monday morning."},
+  {focus:"Film Monday's script — it's your top of funnel reach video.",text:"TOFU content gets new eyes on your page. No CTA needed. Just a strong hook and real talk. Film it cinematic, slow and confident. Batch Tuesday's while you're set up."},
+  {focus:"Post your TOFU video today. No selling, just value.",text:"Top of funnel is about being seen by people who don't know you yet. The goal is a follow or a save, not a DM. Keep it broad, relatable, and punchy."},
+  {focus:"Wednesday is mid-funnel day. Teach something real.",text:"MOFU content builds trust with people already following you. Give them one specific thing they can use. The more tactical and honest, the better. No CTA needed."},
+  {focus:"Post today. Thursday evening is your best window — 6 to 7:30 PM.",text:"Stay online for 10 minutes after posting to reply to early comments. That signals the algorithm to push it further. One reply can double your reach."},
+  {focus:"Friday is another value day. Keep building authority.",text:"MOFU content on Friday performs well over the weekend. People save tactical posts and come back to them. Saves are one of the strongest signals you can get."},
+  {focus:"Post today. Less competition on weekends means more reach.",text:"Saturday is your bottom of funnel day this week. Social proof, a result, something that makes the right person want to reach out. This is where the DM CTA lands best."},
+  {focus:"Plan next week now. Read all 7 scripts. Decide filming days.",text:"Sunday is for planning, not filming. Go through next week's scripts, decide which days you're filming, and batch if you can. Five minutes now saves an hour Monday."},
 ];
 (function(){
   const b=DAILY_BRIEF[todayI];
@@ -600,146 +574,87 @@ const DAILY_BRIEF=[
 
 // ── Week content ───────────────────────────────────────────────────────
 const WEEK=[
-{title:'Your competitor isn\'t better than you. They just show up more.',type:'Talking Head',recCap:0,recVer:'full',overlay:{line1:'your competitor isn\'t better.',line2:'they just show up more.'},film:'Direct to camera. Confident. Let the hook land before you say anything else.',stories:[],captions:[{label:'A',text:'the phone doesn\'t ring because you\'re the best option. it rings because you were the first one they thought of.'},{label:'B',text:'word of mouth is great until it isn\'t.\n\none slow month. one big client drops off. and suddenly there\'s nothing in the pipeline.\n\nreferrals are reactive. ads are proactive.\n\none waits for someone to mention your name. the other puts you in front of people before they even start looking.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'},{label:'C',text:'referrals wait for someone to mention your name. ads put you there before they start looking.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],lines:[{time:'Hook',tag:'5s',cls:'hook',text:'Your competitor isn\'t better than you.\n\nThey just show up more.'},{time:'Middle',tag:'18s',cls:'',text:'The jobs you\'re losing aren\'t going to someone more skilled.\n\nThey\'re going to whoever was already in front of that customer when they needed someone.\n\nThat\'s it.\n\nMost of the time the best person for the job doesn\'t get it.\n\nThe most visible one does.'},{time:'Close',tag:'4s',cls:'',text:'Being good gets you referrals.\n\nShowing up gets you everything else.'}]},
-{title:'Why leads ghost you after showing interest',type:'Talking Head',recCap:0,recVer:'full',overlay:{line1:'why leads ghost you',line2:'after showing interest'},film:'Casual, relaxed. Like you\'re telling a mate something obvious they\'ve been missing.',stories:[],captions:[{label:'A',text:'a slow response is the most expensive thing in your business and most people don\'t even realise it.'},{label:'B',text:'most service businesses spend money getting leads then lose them in the follow-up.\n\nnot because the lead wasn\'t interested.\n\nbecause the follow-up was slow, generic, or both.\n\nthe ad is not the bottleneck. what happens after the ad is.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'},{label:'C',text:'the ad got them. the follow-up lost them. that\'s where most service businesses leak money.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],lines:[{time:'Hook',tag:'5s',cls:'hook',text:'If someone filled out your form and then went quiet — it\'s not them.\n\nIt\'s your response time.'},{time:'Middle',tag:'18s',cls:'',text:'When someone needs a service, they don\'t just contact you.\n\nThey contact two or three businesses at the same time.\n\nWhoever calls back first — and sounds like they actually want the job — gets it.\n\nIf you\'re following up hours later, or sending a generic message, the job is already gone.\n\nSpeed and tone. That\'s all it is.'},{time:'Close',tag:'4s',cls:'',text:'The lead didn\'t ghost you.\n\nYou just weren\'t fast enough.'}]},
-{title:'Stop boosting posts',type:'Talking Head',recCap:0,recVer:'full',overlay:{line1:'stop',line2:'boosting posts'},film:'Straight to camera. Short and direct. Don\'t overthink the delivery.',stories:[],captions:[{label:'A',text:'if your strategy is boosting posts and hoping for the best, you\'re not running ads. you\'re donating to meta.'},{label:'B',text:'there\'s a difference between spending money on meta and actually running a campaign.\n\none is set up properly with a clear objective, the right audience, and somewhere for them to go.\n\nthe other is pressing boost and hoping.\n\nmost service businesses have only ever done the second one and then said ads don\'t work.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'},{label:'C',text:'pressing boost is not a marketing strategy.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],lines:[{time:'Hook',tag:'5s',cls:'hook',text:'Boosting a post is not running ads.\n\nI need you to understand that.'},{time:'Middle',tag:'18s',cls:'',text:'When you boost a post, Meta takes your money and shows it to people who might like your page.\n\nNot people who need your service. Not people in your area. Not people ready to book.\n\nJust — people.\n\nReal ads let you choose exactly who sees it, where they are, and what happens when they click.\n\nBoosting is the easiest way to spend money and get nothing back.'},{time:'Close',tag:'4s',cls:'',text:'Boost posts for reach if you want.\n\nRun actual ads if you want leads.'}]},
-{title:'You don\'t need more platforms. You need one that works.',type:'Talking Head',recCap:0,recVer:'full',overlay:{line1:'you don\'t need more platforms.',line2:'you need one that works.'},film:'Relaxed. You\'ve seen people burn themselves out trying to be everywhere.',stories:[],captions:[{label:'A',text:'scattered effort gets scattered results. pick a lane.'},{label:'B',text:'the service businesses consistently pulling in new clients aren\'t on every platform.\n\nthey\'ve got one channel that works and they put everything into it.\n\nconsistency on one platform will always beat inconsistency across five.\n\nmore platforms is not the answer. more focus is.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'},{label:'C',text:'consistency on one platform beats inconsistency across five every single time.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],lines:[{time:'Hook',tag:'5s',cls:'hook',text:'You don\'t need to be on TikTok, Instagram, Facebook, Google, and YouTube.\n\nYou need one platform that consistently brings in jobs.'},{time:'Middle',tag:'18s',cls:'',text:'Most service businesses try to be everywhere and end up doing nothing well.\n\nSpread thin. Inconsistent. Burning time on content that doesn\'t convert.\n\nPick the platform where your customers actually are and go all in on that.\n\nFor most service businesses, that\'s Meta.\n\nNot because it\'s the best platform in the world. Because it\'s the one where you can reach local people who need a service right now.'},{time:'Close',tag:'4s',cls:'',text:'Stop spreading. Start stacking.'}]},
-{title:'What I\'d do if I was starting a service business from scratch',type:'Talking Head',recCap:1,recVer:'full',overlay:{line1:'starting a service business',line2:'from scratch — i\'d do this'},film:'Conversational, like you\'re thinking out loud. This one can breathe a little.',stories:[],captions:[{label:'A',text:'most service businesses wait until things are slow to think about marketing. that\'s the whole problem.'},{label:'B',text:'the feast and famine cycle isn\'t bad luck.\n\nit\'s what happens when you only think about getting clients when you don\'t have any.\n\nthe fix is simple: keep showing up even when you\'re busy.\n\nbecause the leads you generate today become the jobs you do in 3-4 weeks.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'},{label:'C',text:'the slow week you\'re having now is the result of stopping when things were good.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],lines:[{time:'Hook',tag:'5s',cls:'hook',text:'If I was starting a service business from scratch today — this is exactly what I\'d do to get clients.'},{time:'Middle',tag:'20s',cls:'',text:'First 30 days: do good work, ask every single client for a Google review. Build the social proof fast.\n\nDay 31: start running a simple Meta ad. One video. Me talking to camera. Targeting my suburb and the ones around it.\n\nKeep it running. Don\'t touch it.\n\nWithin a few weeks the leads start coming in consistently.\n\nNo cold calls. No door knocking. No praying for referrals.\n\nJust showing up in front of the right people, every day.'},{time:'Close',tag:'4s',cls:'',text:'It\'s not complicated.\n\nIt just has to be consistent.\n\nFollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with Meta ads.'}]},
-{title:'What makes someone stop scrolling and actually watch your ad',type:'Screen Record',recCap:0,recVer:'full',overlay:{line1:'what makes someone stop',line2:'and watch your ad'},film:'Screen record showing side-by-side or examples of weak vs strong ad hooks. Talk over it naturally — what you\'re looking at and why one works.',stories:[],captions:[{label:'A',text:'people don\'t stop scrolling for ads. they stop for things that feel like they were made for them.'},{label:'B',text:'the best performing ads don\'t look like ads.\n\nthey look like someone speaking directly to one person\'s exact situation.\n\nno fancy editing. no graphics. no voiceover.\n\njust someone on camera saying the thing the viewer has been thinking.\n\nthat\'s what stops the scroll.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'},{label:'C',text:'the best ad you can make is someone on camera saying what your customer is already thinking.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],lines:[{time:'Hook',tag:'5s',cls:'hook',text:'This is the difference between an ad that gets scrolled past and one that actually gets watched.'},{time:'Middle',tag:'22s',cls:'',text:'Most service business ads open the same way.\n\nLogo. Business name. \'We\'ve been in business for X years.\'\n\nNobody stops for that.\n\nWhat stops someone is hearing their own situation described back to them.\n\n\'If your lawn hasn\'t been touched in weeks and you\'ve been putting it off...\' — now I\'m listening.\n\nThe hook isn\'t about you. It\'s about them.\n\nSay something in the first two seconds that makes them think \'how did they know?\''},{time:'Close',tag:'4s',cls:'',text:'Hook them with their problem.\n\nThen show them you\'re the solution.'}]},
-{title:'The type of client I work with',type:'Screen Record',recCap:0,recVer:'full',overlay:{line1:'the type of client',line2:'i work with'},film:'Screen record of results dashboard or client communication — whatever looks real. Talk over it like you\'re walking someone through what you do.',stories:[],captions:[{label:'A',text:'great at the job. no system to get clients consistently. that gap is exactly what i fix.'},{label:'B',text:'the service businesses i work with don\'t have a skill problem.\n\nthey have a visibility problem.\n\nthey\'re good at what they do but the people who need them have no idea they exist.\n\nwe fix that with meta ads — and the calendar fills up without them chasing a single person.\n\ndm me ADS if that\'s you.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'},{label:'C',text:'you don\'t have a skill problem. you have a visibility problem. dm me ADS.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],lines:[{time:'Hook',tag:'5s',cls:'hook',text:'This is the type of client I work with — and what changes once we start working together.'},{time:'Middle',tag:'20s',cls:'',text:'Service business owner. Good at the job. Gets most of their work from referrals.\n\nBusy some weeks, quiet others. No idea how to make it consistent.\n\nWe set up their Meta ads properly. Get the targeting right, the creative right, the follow-up right.\n\nAnd within a few weeks the calendar starts filling without them having to chase anyone.\n\nThat\'s the shift — from reactive to consistent.'},{time:'Close',tag:'4s',cls:'',text:'If that sounds like where you\'re at — DM me ADS.\n\nFollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with Meta ads.'}]}
+{title:'You Need to Spend Money to Make Money',type:'Talking Head',funnel:'TOFU',
+film:'Sit in a chair, good scenery, tripod, head to head. Cinematic framing. Slow and confident. Let the pauses breathe. On screen text: "only watch this if you\'re a business owner"',
+captions:[{label:'A',text:'most service business owners are spending money on the wrong things and wondering why nothing\'s working\n\nit\'s not that you need to spend more. it\'s that you need to spend it where it actually brings clients in.\n\nfollow @marcomarkets if you run a service business and want to scale past $5k-$50k a month with meta ads.'}],
+lines:[
+{time:'Hook',tag:'5s',cls:'hook',text:"Service business owners, you need to spend money to make money. Like, that's just the truth."},
+{time:'Body',tag:'7s',cls:'',text:"And I don't mean blow it on stuff that looks good. I mean put it where it actually works."},
+{time:'Body',tag:'10s',cls:'',text:"The businesses growing right now are running ads. They know exactly who they're targeting, they got the right offer in front of them, and the leads just keep coming in. That's not luck. That's a strategy."},
+{time:'Body',tag:'8s',cls:'',text:"And once you figure it out, everything changes. You stop chasing and clients start coming to you."},
+{time:'CTA',tag:'5s',cls:'cta',text:"follow me. I break this down every single week."},
+]},
+{title:'Nobody Woke Up Today Thinking About Your Business',type:'Talking Head',funnel:'TOFU',
+film:'Relaxed, direct to camera. Can be outside or at your setup. Conversational, not salesy. No notes.',
+captions:[{label:'A',text:'the busiest service businesses in your area are not better than you at the work\n\nthey\'re just better at being seen\n\nbeing consistent with how you show up online is what separates the ones who wait for the phone to ring from the ones who always have a full schedule'}],
+lines:[
+{time:'Hook',tag:'5s',cls:'hook',text:"Nobody woke up today thinking about your business. That's not being harsh. That's just facts."},
+{time:'Body',tag:'8s',cls:'',text:"Everyone's scrolling. Everyone's distracted. If you're waiting for someone to randomly think of you and reach out, you're going to be waiting a long time."},
+{time:'Body',tag:'8s',cls:'',text:"The businesses that stay busy year round are not luckier than you. They're just visible. Every single day, in front of the right people."},
+{time:'Body',tag:'7s',cls:'',text:"That's what consistent content and ads do. They make sure when someone needs what you do, they already know your name."},
+]},
+{title:'The One Setting That\'s Killing Your Meta Ads',type:'Talking Head',funnel:'MOFU',
+film:'Direct to camera, confident. Teach it like you\'re explaining to a friend who runs a service business. No props needed.',
+captions:[{label:'A',text:'most service business owners are running their Meta ads on the wrong objective and they don\'t even know it\n\ntraffic objective tells Meta to find people who click\n\nlead generation objective tells Meta to find people who want to book\n\nsame budget. completely different results.\n\ncheck your objective before you touch anything else.'}],
+lines:[
+{time:'Hook',tag:'5s',cls:'hook',text:"If your Meta ads are not working, there's a good chance this one setting is the reason."},
+{time:'Body',tag:'10s',cls:'',text:"Most service business owners set their campaign objective to Traffic. And it makes sense on the surface, like you want traffic to your page. But what that actually tells Meta is: go find me people who like to click links. Not people who want to book a job."},
+{time:'Body',tag:'8s',cls:'',text:"Switch your objective to Lead Generation. Now you're telling Meta: find me people who are ready to take action. That one change can cut your cost per lead in half."},
+{time:'Close',tag:'5s',cls:'',text:"Before you change anything else in your ads, check this first."},
+]},
+{title:'Why Your Ad Budget Is Going to the Wrong People',type:'Talking Head',funnel:'MOFU',
+film:'Casual, direct to camera. Talk it through like you\'re breaking down something simple. Keep it relaxed.',
+captions:[{label:'A',text:'a broad audience doesn\'t mean more leads\n\nit means your budget gets spread across people who will never hire you\n\ntighten your targeting to where you actually work\n\nthe difference in cost per lead is significant'}],
+lines:[
+{time:'Hook',tag:'5s',cls:'hook',text:"Here's why most service business ads burn through budget and get nothing back."},
+{time:'Body',tag:'10s',cls:'',text:"The audience is too broad. I see it every time. Someone sets their targeting to an entire city and wonders why their leads cost so much. The more people you try to reach with the same budget, the less relevant your ad is to each one of them."},
+{time:'Body',tag:'8s',cls:'',text:"Pull it back. Target a tight radius around where you actually work. 15 to 20km. Now your budget is going to people who can actually hire you."},
+{time:'Close',tag:'7s',cls:'',text:"Same spend. Way more relevant. The leads get cheaper and the people calling are actually in your area."},
+]},
+{title:'The Ad Gets the Lead. This Gets the Job.',type:'Talking Head',funnel:'MOFU',
+film:'Relaxed and honest. Talk like you\'re telling something most people miss. Sit close to camera, natural tone.',
+captions:[{label:'A',text:'your ad gets the lead\n\nyour follow-up gets the job\n\nmost service business owners focus everything on the ad and then let the lead go cold because they didn\'t call fast enough\n\ncall within 15 minutes. have a script. follow up at least 4 times.\n\nthat\'s where the jobs actually come from.'}],
+lines:[
+{time:'Hook',tag:'5s',cls:'hook',text:"A lot of service business owners think the ad is what gets them the client. It's not."},
+{time:'Body',tag:'8s',cls:'',text:"The ad gets you the lead. What you do in the next 10 to 15 minutes after that lead comes in is what actually closes the job."},
+{time:'Body',tag:'8s',cls:'',text:"The businesses I've worked with that get the best results are not always the ones with the best ads. They're the ones who call fast, they know what to say, and they have a system to follow up if the person doesn't answer."},
+{time:'Close',tag:'7s',cls:'',text:"You can have a perfect ad and lose the job to someone with a worse ad just because they called first. Speed matters more than most people think."},
+]},
+{title:'We Fixed One Thing in a Client\'s Ads. Here\'s What Happened.',type:'Talking Head',funnel:'BOFU',
+film:'Confident, direct, slow down on the results. Tell it like a story. This is the week\'s conversion video.',
+captions:[{label:'A',text:'a bigger budget doesn\'t fix a broken setup\n\nthe problem is almost always in the targeting or the creative\n\nbefore you spend more, make sure the foundation is right\n\nDM me "SCALE" if you want me to look at what\'s going wrong in yours.'}],
+lines:[
+{time:'Hook',tag:'5s',cls:'hook',text:"I had a client come to me a few months ago. Decent budget, decent offer, but the leads were expensive and not converting."},
+{time:'Body',tag:'8s',cls:'',text:"We looked at the audience first. Too broad. We tightened it to a 15km radius around where they actually work. Leads got cheaper within the first week."},
+{time:'Body',tag:'8s',cls:'',text:"Then we looked at the creative. No hook, no specific offer, nothing that made someone stop scrolling. We rewrote it. Booked jobs went up."},
+{time:'Body',tag:'7s',cls:'',text:"Nothing changed about the budget. Nothing changed about the service. Just the targeting and the ad. That's usually where the problem is."},
+{time:'CTA',tag:'5s',cls:'cta',text:"If your ads feel like they're not working and you want a second opinion, DM me SCALE and I'll take a look."},
+]},
+{title:'I Used to Think More Followers Meant More Clients',type:'Talking Head',funnel:'TOFU',
+film:'Relaxed, honest, almost like you\'re telling a story to a mate. Outside or couch. No script energy.',
+captions:[{label:'A',text:'most people are building an audience\n\nthe goal is to build trust with the right people\n\na small engaged audience that knows exactly what you do will always outperform a large audience that has no idea'}],
+lines:[
+{time:'Hook',tag:'5s',cls:'hook',text:"I used to think if I just got to 10k followers, the clients would flood in. I was completely wrong."},
+{time:'Body',tag:'8s',cls:'',text:"I spent months chasing viral content, trying to grow the account, thinking the number was the goal. But followers don't pay bills. And a big audience that isn't the right audience is just noise."},
+{time:'Body',tag:'8s',cls:'',text:"The minute I started making content specifically for service business owners, talking about real problems, real results, things that actually matter to them, that's when things started clicking."},
+{time:'Close',tag:'7s',cls:'',text:"Not because I went viral. Because the right people found me and already trusted me by the time they reached out."},
+]},
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const MIRO_BOARDS=[];
-
-function normaliseScripts(scripts){
-  return scripts.map(s=>({
-    title:s.title,
-    type:s.type||'Talking Head',
-    recCap:s.recCap||0,
-    recVer:s.recVer||'full',
-    overlay:s.overlay&&typeof s.overlay==='object'?s.overlay:{line1:s.overlay||'',line2:''},
-    film:s.film||'',
-    stories:s.stories||[],
-    captions:s.captions||[],
-    lines:s.lines||[],
-  }));
-}
-
-let ALL_WEEKS=[];   // [{week_of, week_of_display, scripts:[]}]
-let VIEW_WEEK_IDX=0; // which week we're viewing in the "This Week" section
-
-function getCurrentWeekIdx(){
-  if(!ALL_WEEKS.length)return 0;
-  const todayStr=new Date().toISOString().slice(0,10);
-  // Find the week whose Monday <= today < Monday+7
-  for(let i=ALL_WEEKS.length-1;i>=0;i--){
-    if(ALL_WEEKS[i].week_of<=todayStr)return i;
-  }
-  return 0;
-}
-
-async function loadScriptsData(){
-  try{
-    const r=await fetch('scripts-data.json?_='+Date.now());
-    const d=await r.json();
-    if(d.weeks&&d.weeks.length){
-      ALL_WEEKS=d.weeks.map(w=>({...w,scripts:normaliseScripts(w.scripts)}));
-    } else if(d.scripts&&d.scripts.length){
-      ALL_WEEKS=[{week_of:d.week_of||'',week_of_display:d.week_of_display||'This Week',scripts:normaliseScripts(d.scripts)}];
-    } else return;
-    VIEW_WEEK_IDX=getCurrentWeekIdx();
-    const curWeek=ALL_WEEKS[VIEW_WEEK_IDX];
-    WEEK.splice(0,WEEK.length,...curWeek.scripts);
-    if(d.ideas&&d.ideas.length) renderIdeas(d.ideas);
-    rebuildAll();
-  }catch(e){}
-}
-
-function changeViewWeek(delta){
-  const next=VIEW_WEEK_IDX+delta;
-  if(next<0||next>=ALL_WEEKS.length)return;
-  VIEW_WEEK_IDX=next;
-  const w=ALL_WEEKS[VIEW_WEEK_IDX];
-  document.getElementById('week-out').innerHTML='';
-  buildWeekAccordionFrom(w.scripts,w.week_of);
-  updateWeekNav();
-}
-
-function updateWeekNav(){
-  const w=ALL_WEEKS[VIEW_WEEK_IDX];
-  const curIdx=getCurrentWeekIdx();
-  let label=w.week_of_display||w.week_of;
-  if(VIEW_WEEK_IDX===curIdx)label='This Week — '+label;
-  else if(VIEW_WEEK_IDX<curIdx)label='Previous — '+label;
-  else label='Next — '+label;
-  const lbl=document.getElementById('week-nav-label');
-  if(lbl)lbl.textContent=label;
-  const prev=document.getElementById('week-nav-prev');
-  const next=document.getElementById('week-nav-next');
-  if(prev)prev.style.opacity=VIEW_WEEK_IDX===0?'.3':'1';
-  if(next)next.style.opacity=VIEW_WEEK_IDX===ALL_WEEKS.length-1?'.3':'1';
-}
-
-function rebuildAll(){
-  // Rebuild week strip (Today tab — always current week)
-  const wstrip=document.getElementById('wstrip');
-  wstrip.innerHTML='';
-  WEEK.forEach((d,i)=>{
-    const dt=weekDate(i);
-    const el=document.createElement('div');
-    el.className='wday'+(i===todayI?' active':'')+(checks[i]?' done':'');
-    el.id='wd'+i;
-    el.onclick=()=>{document.querySelectorAll('.wday').forEach(w=>w.classList.remove('active'));el.classList.add('active');renderToday(i);};
-    el.innerHTML='<div class="wday-n">'+DAYS[i]+'</div><div class="wday-d">'+dt.getDate()+'</div><div class="wday-t">'+d.type.split(' ')[0]+'</div>';
-    wstrip.appendChild(el);
-  });
-  // Rebuild week accordion for viewed week
-  const wo=document.getElementById('week-out');
-  if(wo)wo.innerHTML='';
-  const vw=ALL_WEEKS[VIEW_WEEK_IDX]||{scripts:WEEK,week_of:''};
-  buildWeekAccordionFrom(vw.scripts,vw.week_of);
-  updateWeekNav();
-  renderToday(todayI);
-  updProg();
-}
 
 const checks=JSON.parse(localStorage.getItem('mm_checks')||'{}');
 
+function funnelBadgeHTML(funnel){
+  if(!funnel)return '';
+  const cls=funnel.toLowerCase();
+  const label=funnel==='TOFU'?'Top — Reach':funnel==='MOFU'?'Mid — Value':'Bottom — Convert';
+  return '<span class="funnel-badge '+cls+'">'+label+'</span>';
+}
 function typeBadgeClass(type){
   if(type==='Screen Record')return 'screen';
   if(type==='Talking Head')return 'talking';
   if(type==='Carousel')return 'carousel';
   if(type==='Video')return 'video';
   return '';
-}
-
-function postFormatBadge(type){
-  if(type==='Carousel')
-    return '<span style="font-size:.65rem;font-weight:700;background:#130a00;color:#fdba74;border:1px solid #2a1800;border-radius:20px;padding:3px 10px">📸 Carousel Post</span>';
-  // Talking Head + Screen Record → Reel, suggest Stories share
-  return '<span style="font-size:.65rem;font-weight:700;background:#07101e;color:#93c5fd;border:1px solid #1a2a45;border-radius:20px;padding:3px 10px">🎬 Reel</span>'
-    +'<span style="font-size:.62rem;color:var(--sub);margin-left:6px">+ share to Stories after</span>';
 }
 
 function typeBadgeStyle(type){
@@ -761,7 +676,7 @@ function typeBadgeStyle(type){
 
 // ── Post Modal ─────────────────────────────────────────────────────────
 function renderModal(i,ver){
-  ver=ver||scriptVers.modal||(WEEK[i].recVer||'full');
+  ver=ver||scriptVers.modal||'full';
   scriptVers.modal=ver;
   const d=WEEK[i];
   const dt=weekDate(i);
@@ -771,15 +686,13 @@ function renderModal(i,ver){
     +'<div style="font-size:1.1rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:12px">'+d.title+'</div>'
     +'<div class="script-meta-row">'
     +'<div style="display:inline-block;font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:20px;'+typeBadgeStyle(d.type)+'">'+d.type+'</div>'
-    +postFormatBadge(d.type)
+    +funnelBadgeHTML(d.funnel)
     +(dur?'<div class="dur-badge">'+dur+' total</div>':'')
     +verToggleHTML('modal',i,ver)
     +'</div>'
-    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'+mkOverlay(d)
+    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
     +mkScript(d.lines,ver)
-    +mkCaption(d,i,'modal')
-    +(d.stories&&d.stories.length?'<div style="margin-top:20px"><div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px">Stories Plan</div>'
-      +d.stories.map((s,si)=>'<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><div style="min-width:20px;height:20px;border-radius:50%;background:var(--dim);font-size:.65rem;font-weight:700;color:#94a3b8;display:flex;align-items:center;justify-content:center">'+(si+1)+'</div><div style="font-size:.82rem;color:#cbd5e1;line-height:1.5">'+s+'</div></div>').join('')+'</div>':'')
+    +mkCaption(d,i)
     +'<div class="action-row" style="margin-top:12px">'
     +'<button class="btn btn-primary" onclick="cpAll('+i+')">Copy Script</button>'
     +'<button class="btn btn-done'+(checks[i]?' on':'')+'" id="modal-done-btn" onclick="toggleDoneModal('+i+')">'+(checks[i]?'Posted':'Mark Posted')+'</button>'
@@ -839,45 +752,45 @@ function scriptDuration(lines){
   return m?(m+'m '+(s?s+'s':'')):(s+'s');
 }
 
-// version: 'short' = hook+cta only, 'mid' = hook + first half of middle + cta, 'full' = all
+// version: 'short' = hook+cta only, 'mid' = hook + half middle + cta, 'full' = all
 function filterLines(lines,ver){
   if(ver==='full')return lines;
+  const core=lines.filter(l=>l.cls==='hook'||l.cls==='cta');
+  if(ver==='short')return core;
+  // mid: hook + first 2 middle + cta
   const hook=lines.filter(l=>l.cls==='hook');
+  const mid=lines.filter(l=>l.cls!=='hook'&&l.cls!=='cta').slice(0,2);
   const cta=lines.filter(l=>l.cls==='cta');
-  if(ver==='short')return [...hook,...cta];
-  const middle=lines.filter(l=>l.cls!=='hook'&&l.cls!=='cta');
-  const half=Math.max(1,Math.ceil(middle.length/2));
-  return [...hook,...middle.slice(0,half),...cta];
+  return [...hook,...mid,...cta];
 }
 
 function durForVer(lines,ver){
   return scriptDuration(filterLines(lines,ver));
 }
 
-const CAP_STORE={};
-function mkCaption(d,i,ctx){
+function mkCaption(d,i){
   const caps=d.captions&&d.captions.length?d.captions:(d.caption?[{label:'A',text:d.caption}]:null);
   if(!caps)return '';
-  const id='cap-'+(ctx||'x')+'-'+i;
-  const rec=(d.recCap!=null)?d.recCap:0;
-  CAP_STORE[id]=caps;
-  const btns=caps.map((c,ci)=>'<button class="ver-btn'+(ci===rec?' on':'')+'" onclick="swapCap(\''+id+'\','+ci+')">'+(ci===rec?'★ ':'')+c.label+'</button>').join('');
-  return '<div id="'+id+'-wrap" style="margin:16px 0 0">'
+  const id='cap-'+i;
+  const encoded=encodeURIComponent(JSON.stringify(caps));
+  const first=caps[0].text;
+  const safe=first.replace(/\\/g,'\\\\').replace(/`/g,'\\`');
+  const btns=caps.map((c,ci)=>'<button class="ver-btn'+(ci===0?' on':'')+'" id="'+id+'-btn-'+ci+'" onclick="swapCap(\''+id+'\','+ci+')">'+c.label+'</button>').join('');
+  return '<div style="margin:16px 0 0">'
     +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">'
     +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub)">Caption</div>'
     +'<div class="ver-toggle" style="margin:0">'+btns+'</div>'
     +'</div>'
-    +'<div id="'+id+'" style="background:#050608;border:1px solid var(--border);border-radius:9px;padding:13px 14px;font-size:.78rem;color:#64748b;line-height:1.8;white-space:pre-wrap">'+caps[rec].text+'</div>'
-    +'<button class="cbtn" style="margin-top:6px" onclick="cpCap(this,\''+id+'\')">Copy Caption</button>'
+    +'<div id="'+id+'" data-caps="'+encoded+'" style="background:#050608;border:1px solid var(--border);border-radius:9px;padding:13px 14px;font-size:.78rem;color:#64748b;line-height:1.8;white-space:pre-wrap">'+first+'</div>'
+    +'<button class="cbtn" id="'+id+'-copy" style="margin-top:6px" onclick="cpCap(this,\''+id+'\')">Copy Caption</button>'
     +'</div>';
 }
 function swapCap(id,ci){
   const el=document.getElementById(id);
-  const wrap=document.getElementById(id+'-wrap');
-  const caps=CAP_STORE[id];
-  if(!el||!caps)return;
+  if(!el)return;
+  const caps=JSON.parse(decodeURIComponent(el.dataset.caps));
   el.textContent=caps[ci].text;
-  if(wrap)wrap.querySelectorAll('.ver-btn').forEach((b,j)=>b.classList.toggle('on',j===ci));
+  el.closest('div').querySelectorAll('.ver-btn').forEach((b,j)=>b.classList.toggle('on',j===ci));
 }
 function cpCap(btn,id){
   const el=document.getElementById(id);
@@ -885,45 +798,8 @@ function cpCap(btn,id){
   navigator.clipboard.writeText(el.textContent).then(()=>{btn.textContent='Copied';setTimeout(()=>btn.textContent='Copy Caption',1600)});
 }
 
-function mkOverlay(d){
-  if(!d.overlay)return '';
-  return '<div style="margin:14px 0 4px">'
-    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:8px">On-Screen Text</div>'
-    +'<div style="background:#0a0a14;border:1px solid #2a1a4a;border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px">'
-    +'<span style="font-size:.95rem;font-weight:800;color:#fff;line-height:1.25">'+d.overlay.line1+'</span>'
-    +'<span style="font-size:.8rem;color:#a78bfa;font-weight:500">'+d.overlay.line2+'</span>'
-    +'<div style="margin-top:8px;display:flex;gap:8px">'
-    +'<button class="cbtn" onclick="navigator.clipboard.writeText(\''+d.overlay.line1+'\\n'+d.overlay.line2+'\').then(()=>{this.textContent=\'Copied\';setTimeout(()=>this.textContent=\'Copy Text\',1600)})">Copy Text</button>'
-    +'<span style="font-size:.6rem;color:var(--sub);align-self:center">Add in CapCut as a text layer over your opening frame</span>'
-    +'</div>'
-    +'</div>'
-    +'</div>';
-}
-
 function mkScript(lines,ver){
   const fl=filterLines(lines,ver||'full');
-  // For carousel, render slide previews instead of plain lines
-  const isCarousel=fl.some(l=>l.time&&l.time.toLowerCase().includes('slide'));
-  if(isCarousel){
-    return '<div style="display:flex;flex-direction:column;gap:12px;margin-top:4px">'
-      +fl.map((l,si)=>{
-        const num=si+1;
-        const txt=l.text.replace(/`/g,'\\`');
-        return '<div style="background:#0a0a0a;border:1px solid #222;border-radius:12px;overflow:hidden">'
-          +'<div style="background:#111;padding:8px 14px;display:flex;align-items:center;justify-content:space-between">'
-          +'<span style="font-size:.6rem;font-weight:700;color:#666;text-transform:uppercase;letter-spacing:.08em">Slide '+num+' of '+fl.length+'</span>'
-          +'<span style="font-size:.6rem;color:#444">'+l.time+'</span>'
-          +'</div>'
-          +'<div style="background:#0d0d0d;min-height:120px;display:flex;align-items:center;justify-content:center;padding:20px 18px;text-align:center">'
-          +'<div style="font-size:'+(si===0?'1.05':'0.88')+'rem;font-weight:'+(si===0?'800':'600')+';color:'+(si===0?'#fff':'#e2e8f0')+';line-height:1.45;max-width:340px">'+l.text+'</div>'
-          +'</div>'
-          +'<div style="padding:8px 12px;border-top:1px solid #1a1a1a">'
-          +'<button class="cbtn" onclick="cpLine(this,`'+txt+'`)">Copy slide text</button>'
-          +'</div>'
-          +'</div>';
-      }).join('')
-      +'</div>';
-  }
   return '<div class="script-lines">'+fl.map(l=>
     '<div class="sl">'
     +'<div class="sl-meta"><span class="sl-seg">'+l.time+'</span>'+(l.tag?'<span class="sl-dur">'+l.tag+'</span>':'')+'</div>'
@@ -936,17 +812,17 @@ function verToggleHTML(elId,i,ver){
   const d=WEEK[i];
   const isCarousel=d.type==='Carousel';
   if(isCarousel)return '';
-  const rec=d.recVer||'full';
   const short=durForVer(d.lines,'short');
   const mid=durForVer(d.lines,'mid');
   const full=durForVer(d.lines,'full');
-  const lbl=(v,label,dur)=>'<button class="ver-btn'+(ver===v?' on':'')+'" data-ver="'+v+'" onclick="setVer(\''+elId+'\','+i+',\''+v+'\')">'+(rec===v?'★ ':'')+label+(dur?' · '+dur:'')+'</button>';
-  return '<div class="ver-toggle">'+lbl('short','Short',short)+lbl('mid','Medium',mid)+lbl('full','Full',full)+'</div>';
+  return '<div class="ver-toggle">'
+    +'<button class="ver-btn'+(ver==='short'?' on':'')+'" onclick="setVer(\''+elId+'\','+i+',\'short\')">Short '+(short?'· '+short:'')+'</button>'
+    +'<button class="ver-btn'+(ver==='mid'?' on':'')+'" onclick="setVer(\''+elId+'\','+i+',\'mid\')">Medium '+(mid?'· '+mid:'')+'</button>'
+    +'<button class="ver-btn'+(ver==='full'?' on':'')+'" onclick="setVer(\''+elId+'\','+i+',\'full\')">Full '+(full?'· '+full:'')+'</button>'
+    +'</div>';
 }
 
 const scriptVers={today:'full',modal:'full'};
-// default each script to its recommended version on first load
-WEEK.forEach((d,i)=>{if(d.recVer)scriptVers['wkv-'+i]=d.recVer;});
 
 function setVer(elId,i,ver){
   scriptVers[elId]=ver;
@@ -957,13 +833,13 @@ function setVer(elId,i,ver){
     if(sc)sc.innerHTML=mkScript(WEEK[i].lines,ver);
     // update active state on toggle buttons
     const tog=document.getElementById('wktog-'+i);
-    if(tog)tog.querySelectorAll('.ver-btn').forEach(b=>b.classList.toggle('on',b.dataset.ver===ver));
+    if(tog)tog.querySelectorAll('.ver-btn').forEach(b=>b.classList.toggle('on',b.textContent.toLowerCase().startsWith(ver)));
   }
 }
 
 // Render today
 function renderToday(i,ver){
-  ver=ver||scriptVers.today||(WEEK[i].recVer||'full');
+  ver=ver||scriptVers.today||'full';
   scriptVers.today=ver;
   const d=WEEK[i];
   const dt=weekDate(i);
@@ -978,15 +854,13 @@ function renderToday(i,ver){
     +'</div>'
     +'<div class="script-meta-row">'
     +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
-    +postFormatBadge(d.type)
+    +funnelBadgeHTML(d.funnel)
     +(dur?'<div class="dur-badge">'+dur+' total</div>':'')
     +verToggleHTML('today',i,ver)
     +'</div>'
-    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'+mkOverlay(d)
+    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
     +mkScript(d.lines,ver)
-    +mkCaption(d,i,'today')
-    +(d.stories&&d.stories.length?'<div style="margin-top:20px"><div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px">Stories Plan</div>'
-      +d.stories.map((s,si)=>'<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><div style="min-width:20px;height:20px;border-radius:50%;background:var(--dim);font-size:.65rem;font-weight:700;color:#94a3b8;display:flex;align-items:center;justify-content:center">'+(si+1)+'</div><div style="font-size:.82rem;color:#cbd5e1;line-height:1.5">'+s+'</div></div>').join('')+'</div>':'')
+    +mkCaption(d,i)
     +'<div class="action-row" style="margin-top:12px">'
     +'<button class="btn btn-primary" onclick="cpAll('+i+')">Copy Script</button>'
     +'<button class="btn btn-done'+(checks[i]?' on':'')+'" id="done-btn" onclick="toggleDone('+i+')">'+(checks[i]?'Posted':'Mark Posted')+'</button>'
@@ -1006,74 +880,35 @@ function toggleDone(i){
 }
 updProg();
 
-// Week accordion — accepts a scripts array + optional weekOf date string
-function buildWeekAccordionFrom(scripts, weekOf){
-  const wo=document.getElementById('week-out');
-  if(!wo)return;
-  // Compute Monday date for this weekOf
-  let baseDate=weekOf?new Date(weekOf+'T00:00:00Z'):weekDate(0);
-  scripts.forEach((d,i)=>{
-    const dt=new Date(baseDate);
-    dt.setUTCDate(dt.getUTCDate()+i);
-    const div=document.createElement('div');
-    div.className='wk-card';
-    const hookLine=d.lines.find(l=>l.cls==='hook')||d.lines[0];
-    div.innerHTML=
-      '<div class="wk-hdr" onclick="this.nextElementSibling.classList.toggle(\'open\')">'
-      +'<div class="wk-hdr-info">'
-      +'<div class="wk-day">'+FULL_DAYS[i]+', '+MONTHS[dt.getUTCMonth()]+' '+dt.getUTCDate()+'</div>'
-      +'<div class="wk-title">'+d.title+'</div>'
-      +(hookLine?'<div style="font-size:.72rem;color:#64748b;margin-top:5px;line-height:1.4;font-style:italic">"'+hookLine.text+'"</div>':'')
-      +'</div>'
-      +'<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">'
-      +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
-      +'</div>'
-      +'</div>'
-      +'<div class="wk-body">'
-      +'<div style="margin:12px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
-      +postFormatBadge(d.type)
-      +(scriptDuration(d.lines)?'<div class="dur-badge">'+scriptDuration(d.lines)+' total</div>':'')
-      +'<div id="wktog-'+i+'">'+verToggleHTML('wkv-'+i,i,'full')+'</div>'
-      +'</div>'
-      +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'+mkOverlay(d)
-      +'<button class="btn btn-primary" style="width:100%;margin:10px 0;flex:none" onclick="cpAll('+i+')">Copy Script</button>'
-      +'<div id="wkscript-'+i+'">'+mkScript(d.lines,'full')+'</div>'
-      +mkCaption(d,i,'wk')
-      +(d.stories&&d.stories.length?'<div style="margin-top:20px"><div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px">Stories Plan</div>'
-        +d.stories.map((s,si)=>'<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><div style="min-width:20px;height:20px;border-radius:50%;background:var(--dim);font-size:.65rem;font-weight:700;color:#94a3b8;display:flex;align-items:center;justify-content:center">'+(si+1)+'</div><div style="font-size:.82rem;color:#cbd5e1;line-height:1.5">'+s+'</div></div>').join('')+'</div>':'')
-      +'</div>';
-    wo.appendChild(div);
-  });
-}
-buildWeekAccordionFrom(WEEK,'');
-loadScriptsData();
-
-// Miro boards render
-(async function(){
-  const mo=document.getElementById('miro-out');
-  if(!mo)return;
-  function renderMiro(boards,updated){
-    if(!boards||!boards.length){
-      mo.innerHTML='<div style="background:var(--dim);border-radius:10px;padding:20px;text-align:center">'
-        +'<div style="font-size:.88rem;color:#94a3b8;margin-bottom:6px">No boards yet</div>'
-        +'<div style="font-size:.72rem;color:var(--sub)">Boards are created automatically every Sunday. Make sure <code style="background:#1a1d24;padding:2px 5px;border-radius:4px">MIRO_ACCESS_TOKEN</code> is set in GitHub Actions secrets.</div>'
-        +'</div>';
-      return;
-    }
-    mo.innerHTML='<div style="font-size:.72rem;color:var(--sub);margin-bottom:14px">Created '+(updated||'this week')+' · 3 boards from the 42-topic pool</div>'
-      +boards.map((b,i)=>'<div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px">'
-        +'<div style="min-width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#a78bfa);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff">'+(i+1)+'</div>'
-        +'<div style="flex:1"><div style="font-size:.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:2px">'+(b.title||b.topic||'Board '+(i+1))+'</div>'
-        +'<div style="font-size:.68rem;color:var(--sub)">Carousel · '+(b.slide_count||5)+' slides</div></div>'
-        +(b.url?'<a href="'+b.url+'" target="_blank" rel="noopener" style="font-size:.72rem;font-weight:600;color:#6366f1;white-space:nowrap">Open ↗</a>':'')
-        +'</div>').join('');
-  }
-  try{
-    const r=await fetch('miro-boards.json?_='+Date.now());
-    const d=await r.json();
-    renderMiro(d.boards,d.updated_display);
-  }catch(e){renderMiro([]);}
-})();
+// This week accordion
+const wo=document.getElementById('week-out');
+WEEK.forEach((d,i)=>{
+  const dt=weekDate(i);
+  const div=document.createElement('div');
+  div.className='wk-card';
+  div.innerHTML=
+    '<div class="wk-hdr" onclick="this.nextElementSibling.classList.toggle(\'open\')">'
+    +'<div class="wk-hdr-info">'
+    +'<div class="wk-day">'+FULL_DAYS[i]+', '+MONTHS[dt.getMonth()]+' '+dt.getDate()+'</div>'
+    +'<div class="wk-title">'+d.title+'</div>'
+    +'</div>'
+    +'<div style="display:flex;align-items:center;gap:6px;flex-shrink:0">'
+    +funnelBadgeHTML(d.funnel)
+    +'<div class="type-badge '+typeBadgeClass(d.type)+'">'+d.type+'</div>'
+    +'</div>'
+    +'</div>'
+    +'<div class="wk-body">'
+    +'<div style="margin:12px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
+    +(scriptDuration(d.lines)?'<div class="dur-badge">'+scriptDuration(d.lines)+' total</div>':'')
+    +'<div id="wktog-'+i+'">'+verToggleHTML('wkv-'+i,i,'full')+'</div>'
+    +'</div>'
+    +'<div class="film-note"><b>How to film:</b> '+d.film+'</div>'
+    +'<button class="btn btn-primary" style="width:100%;margin:10px 0;flex:none" onclick="cpAll('+i+')">Copy Script</button>'
+    +'<div id="wkscript-'+i+'">'+mkScript(d.lines,'full')+'</div>'
+    +mkCaption(d,i)
+    +'</div>';
+  wo.appendChild(div);
+});
 
 // Stats data
 async function loadData(){
@@ -1158,27 +993,23 @@ const IDEAS=[
   "Client story: from 0 leads from ads to 11 booked jobs in a month",
   "ROI math: $750 in ads, $1,980 in booked jobs, $6,000+ lifetime",
   "What I'd do differently if I was starting this business today",
-  "Why I focus on service businesses",
+  "Why I only work with service businesses — not coaches or e-com",
   "What I was doing before this and why I made the switch",
   "The biggest mistake I made in my first 6 months doing this",
   "Why I post every day even when I have no clients yet",
   "What actually changed when I stopped trying to go viral",
   "A lesson from the best-run service business I've ever seen",
 ];
-function renderIdeas(list){
-  const usedI=JSON.parse(localStorage.getItem('mm_ideas')||'{}');
-  const iout=document.getElementById('ideas-out');
-  iout.innerHTML='';
-  list.forEach((idea,i)=>{
-    const div=document.createElement('div');
-    div.className='idea-i'+(usedI[i]?' used':'');
-    div.id='idea'+i;
-    div.onclick=()=>{usedI[i]=!usedI[i];localStorage.setItem('mm_ideas',JSON.stringify(usedI));div.classList.toggle('used',usedI[i]);div.querySelector('.used-lbl').textContent=usedI[i]?'used':'';};
-    div.innerHTML='<div class="idea-n">'+(i+1)+'</div><div class="idea-txt">'+idea+'</div><div class="used-lbl">'+(usedI[i]?'used':'')+'</div>';
-    iout.appendChild(div);
-  });
-}
-renderIdeas(IDEAS);
+const usedI=JSON.parse(localStorage.getItem('mm_ideas')||'{}');
+const iout=document.getElementById('ideas-out');
+IDEAS.forEach((idea,i)=>{
+  const div=document.createElement('div');
+  div.className='idea-i'+(usedI[i]?' used':'');
+  div.id='idea'+i;
+  div.onclick=()=>{usedI[i]=!usedI[i];localStorage.setItem('mm_ideas',JSON.stringify(usedI));div.classList.toggle('used',usedI[i]);div.querySelector('.used-lbl').textContent=usedI[i]?'used':'';};
+  div.innerHTML='<div class="idea-n">'+(i+1)+'</div><div class="idea-txt">'+idea+'</div><div class="used-lbl">'+(usedI[i]?'used':'')+'</div>';
+  iout.appendChild(div);
+});
 
 // DM Scripts
 [
@@ -1304,12 +1135,9 @@ const AGENT_META = {
 };
 
 function renderAgentCard(key, report, updatedDisplay) {
-  if(report&&updatedDisplay){AGENT_REPORTS[key]=report;report._updatedDisplay=updatedDisplay;}
-  else if(AGENT_REPORTS[key]){report=AGENT_REPORTS[key];updatedDisplay=report._updatedDisplay;}
   const meta = AGENT_META[key];
   const card = document.createElement('div');
   card.className = 'agent-card';
-  card.id='agent-card-'+key;
   card.innerHTML =
     '<div class="agent-bar" style="background:'+meta.color+'"></div>'
     +'<div class="agent-head">'
@@ -1323,26 +1151,7 @@ function renderAgentCard(key, report, updatedDisplay) {
     +'<div class="agent-headline">'+report.headline+'</div>'
     +(report.format?'<div style="display:inline-flex;align-items:center;gap:6px;margin:8px 0 4px"><span style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub)">Format</span><span style="font-size:.65rem;font-weight:700;color:#38bdf8;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.25);border-radius:20px;padding:2px 10px">'+report.format+'</span></div>':'')
     +'<div class="agent-actions">'
-    +report.actions.map((a,ai)=>{
-      const sid=key+'-'+ai;
-      ACTION_STORE[sid]=a;
-      const used=USED[sid];
-      if(used){
-        return '<div class="agent-action agent-action-used" id="aa-'+sid+'">'
-          +'<div class="agent-action-text" style="color:#475569">'+a+'</div>'
-          +'<div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0">'
-          +'<span class="used-tag">'+used.label+'</span>'
-          +'<button class="use-undo" onclick="undoAction(\''+sid+'\')">Undo</button>'
-          +'</div></div>';
-      }
-      const agentUsed=Object.keys(USED).some(k=>k.startsWith(key+'-'));
-      return '<div class="agent-action" id="aa-'+sid+'">'
-        +'<div class="agent-action-text">'+a+'</div>'
-        +(agentUsed
-          ? '<span style="font-size:.6rem;color:var(--sub);flex-shrink:0">picked</span>'
-          : '<button class="use-btn" onclick="showUseMenu(this,\''+sid+'\')">Use →</button>')
-        +'</div>';
-    }).join('')
+    +report.actions.map(a=>'<div class="agent-action"><div class="agent-action-text">'+a+'</div></div>').join('')
     +'</div>'
     +(report.source?'<div style="font-size:.6rem;color:var(--sub);margin-top:10px">Source: '+report.source+'</div>':'')
     +'</div>'
@@ -1351,193 +1160,6 @@ function renderAgentCard(key, report, updatedDisplay) {
     +'<span style="color:'+meta.color+';font-weight:600">'+meta.name+'</span>'
     +'</div>';
   return card;
-}
-
-// ── Use-this system ────────────────────────────────────────────────────
-const ACTION_STORE={};  // sid → text
-let USED=JSON.parse(localStorage.getItem('mm_used_actions')||'{}'); // sid → {label, option}
-
-function saveUsed(){localStorage.setItem('mm_used_actions',JSON.stringify(USED));renderAgentPicks();}
-
-function renderAgentPicks(){
-  const el=document.getElementById('plan-agent-picks');
-  if(!el)return;
-  const entries=Object.entries(USED);
-  if(!entries.length){
-    el.innerHTML='<div style="font-size:.72rem;color:var(--sub);padding:10px 0">Nothing picked yet — go to Agents and tap "Use →" on an insight.</div>';
-    return;
-  }
-  const agentNames={ads:'Ads Agent',creative:'Creative Agent',critic:'Critic Agent',competitors:'Competitor Agent'};
-  el.innerHTML=entries.map(([sid,entry])=>{
-    const agentKey=sid.split('-')[0];
-    const text=ACTION_STORE[sid]||'';
-    const short=text.split('.')[0].slice(0,90)+(text.split('.')[0].length>90?'…':'');
-    return '<div style="display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:#050709;border:1px solid var(--border);border-radius:8px;margin-bottom:6px">'
-      +'<div style="flex:1">'
-      +'<div style="font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sub);margin-bottom:3px">'+agentNames[agentKey]+'</div>'
-      +'<div style="font-size:.75rem;color:#cbd5e1;line-height:1.5">'+short+'</div>'
-      +'<div style="font-size:.62rem;color:#4ade80;margin-top:4px">'+entry.label+'</div>'
-      +'</div>'
-      +'<button class="use-undo" style="margin-top:2px;flex-shrink:0" onclick="undoAction(\''+sid+'\')">Undo</button>'
-      +'</div>';
-  }).join('');
-}
-
-function showUseMenu(btn,sid){
-  document.querySelectorAll('.use-menu').forEach(m=>m.remove());
-  const menu=document.createElement('div');
-  menu.className='use-menu';
-  menu.innerHTML=
-    '<div class="use-menu-item use-menu-rec" onclick="pickAction(\''+sid+'\',\'content\');this.closest(\'.use-menu\').remove()">🎬 Turn into Reel script ★</div>'
-    +'<div class="use-menu-item" onclick="pickAction(\''+sid+'\',\'plan\');this.closest(\'.use-menu\').remove()">📋 Add to tomorrow\'s plan</div>'
-    +'<div class="use-menu-item" onclick="pickAction(\''+sid+'\',\'copy\');this.closest(\'.use-menu\').remove()">📄 Copy text</div>';
-  btn.parentElement.appendChild(menu);
-  setTimeout(()=>document.addEventListener('click',function h(e){if(!menu.contains(e.target)&&e.target!==btn){menu.remove();document.removeEventListener('click',h);}},),50);
-}
-
-function pickAction(sid,option){
-  const text=ACTION_STORE[sid];
-  if(!text)return;
-  const agentKey=sid.split('-')[0];
-  // prevent duplicate pick for same agent
-  if(Object.keys(USED).some(k=>k.startsWith(agentKey+'-'))){
-    showToast('Already picked one from this agent — undo it first');return;
-  }
-  let label='';
-  if(option==='content'){
-    label='🎬 Script idea';
-    openContentModal(sid);
-  } else if(option==='plan'){
-    label='📋 Added to plan';
-    const short=text.replace(/^[^:]+:\s*/,'').split('.')[0].slice(0,80);
-    if(!plan.content)plan.content=[];
-    plan.content.push({text:short,done:false,custom:true});
-    localStorage.setItem('mm_plan',JSON.stringify(plan));
-    showToast('Added to tomorrow\'s plan → Content section');
-  } else if(option==='copy'){
-    label='📄 Copied';
-    navigator.clipboard.writeText(text);
-    showToast('Copied to clipboard');
-  }
-  USED[sid]={label,option};
-  saveUsed();
-  refreshActionRow(sid);
-  // gray out sibling actions in same agent
-  const ai=sid.split('-')[1];
-  ['0','1','2'].filter(i=>i!==ai).forEach(i=>{
-    const row=document.getElementById('aa-'+agentKey+'-'+i);
-    if(row){const b=row.querySelector('.use-btn');if(b){b.replaceWith(Object.assign(document.createElement('span'),{style:'font-size:.6rem;color:var(--sub);flex-shrink:0',textContent:'picked'}));}}
-  });
-}
-
-function undoAction(sid){
-  const entry=USED[sid];
-  if(!entry)return;
-  // undo plan add
-  if(entry.option==='plan'){
-    const text=ACTION_STORE[sid];
-    const short=text?text.replace(/^[^:]+:\s*/,'').split('.')[0].slice(0,80):'';
-    if(plan.content){
-      const i=plan.content.findIndex(t=>t.text===short);
-      if(i>=0){plan.content.splice(i,1);localStorage.setItem('mm_plan',JSON.stringify(plan));}
-    }
-  }
-  delete USED[sid];
-  saveUsed();
-  // re-render the whole agent section so "Use →" buttons come back
-  const agentKey=sid.split('-')[0];
-  refreshAgentCard(agentKey);
-  showToast('Undone');
-}
-
-function refreshActionRow(sid){
-  const row=document.getElementById('aa-'+sid);
-  if(!row)return;
-  const used=USED[sid];
-  const text=ACTION_STORE[sid]||'';
-  if(used){
-    row.classList.add('agent-action-used');
-    row.innerHTML='<div class="agent-action-text" style="color:#475569">'+text+'</div>'
-      +'<div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0">'
-      +'<span class="used-tag">'+used.label+'</span>'
-      +'<button class="use-undo" onclick="undoAction(\''+sid+'\')">Undo</button>'
-      +'</div>';
-  }
-}
-
-// Re-render a single agent card (needed after undo)
-const AGENT_REPORTS={};
-function refreshAgentCard(key){
-  const report=AGENT_REPORTS[key];
-  if(!report)return;
-  const existing=document.getElementById('agent-card-'+key);
-  if(!existing)return;
-  const newCard=renderAgentCard(key,report._updatedDisplay);
-  existing.replaceWith(newCard);
-}
-
-function openContentModal(sid){
-  const text=ACTION_STORE[sid]||'';
-  const sentences=text.split(/\.|—/).map(s=>s.trim()).filter(Boolean);
-  const hook=sentences[0]||text;
-  const detail=sentences.slice(1,3).join('. ')+(sentences.length>1?'.':'');
-  const isResult=/\d+|result|case|client|number/i.test(text);
-  const isHook=/hook|open|start|first line/i.test(text);
-  const isMistake=/mistake|wrong|avoid|stop|don't|killing/i.test(text);
-  const type=isResult?'Talking Head — Client Result':isHook?'Talking Head — Hook':isMistake?'Talking Head — Mistake':'Talking Head';
-  const el=document.getElementById('content-modal');
-  document.getElementById('content-modal-body').innerHTML=
-    '<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:4px">Format</div>'
-    +'<div style="font-size:.8rem;font-weight:700;color:#c4b5fd;margin-bottom:14px">'+type+'</div>'
-    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:4px">Hook</div>'
-    +'<div style="background:#050608;border:1px solid var(--border);border-radius:8px;padding:11px 13px;font-size:.78rem;color:#e2e8f0;line-height:1.6;margin-bottom:12px">'+hook+'</div>'
-    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:4px">What to cover</div>'
-    +'<div style="background:#050608;border:1px solid var(--border);border-radius:8px;padding:11px 13px;font-size:.78rem;color:#94a3b8;line-height:1.6;margin-bottom:12px">'+(detail||text)+'</div>'
-    +'<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:4px">CTA</div>'
-    +'<div style="background:#050608;border:1px solid var(--border);border-radius:8px;padding:11px 13px;font-size:.78rem;color:#94a3b8;line-height:1.6;margin-bottom:16px">DM me ADS if you want this for your business.</div>'
-    +'<div style="display:flex;gap:8px;flex-wrap:wrap">'
-    +'<button class="btn btn-primary" onclick="addConceptToPlan(\''+sid+'\')">+ Add to plan too</button>'
-    +'<button class="btn" onclick="navigator.clipboard.writeText(ACTION_STORE[\''+sid+'\']).then(()=>showToast(\'Copied\'))">Copy original</button>'
-    +'</div>';
-  el.classList.add('on');
-  document.body.style.overflow='hidden';
-}
-
-function addConceptToPlan(sid){
-  const text=ACTION_STORE[sid]||'';
-  const short=text.replace(/^[^:]+:\s*/,'').split('.')[0].slice(0,80);
-  if(!plan.content)plan.content=[];
-  if(plan.content.some(t=>t.text===short)){showToast('Already in plan');return;}
-  plan.content.push({text:short,done:false,custom:true});
-  localStorage.setItem('mm_plan',JSON.stringify(plan));
-  showToast('Also added to plan → Content section');
-}
-
-function showToast(msg){
-  let t=document.getElementById('use-toast');
-  if(!t){t=document.createElement('div');t.id='use-toast';t.style.cssText='position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;font-size:.75rem;font-weight:600;padding:8px 18px;border-radius:20px;z-index:9999;pointer-events:none;transition:opacity .3s';document.body.appendChild(t);}
-  t.textContent=msg;t.style.opacity='1';
-  clearTimeout(t._timer);t._timer=setTimeout(()=>t.style.opacity='0',2000);
-}
-
-function renderIdeasPanel(){
-  const panel=document.getElementById('ideas-panel');
-  if(!panel)return;
-  if(!ideas.length){panel.style.display='none';return;}
-  panel.style.display='block';
-  panel.innerHTML='<div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px">Saved Ideas ('+ideas.length+')</div>'
-    +ideas.slice(0,5).map((idea,i)=>'<div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px">'
-      +'<div style="flex:1;font-size:.75rem;color:#cbd5e1;line-height:1.5">'+idea.text.slice(0,120)+(idea.text.length>120?'…':'')+'</div>'
-      +'<button class="cbtn" style="flex-shrink:0" onclick="removeIdea('+i+')">✕</button>'
-      +'</div>'
-    ).join('')
-    +(ideas.length>5?'<div style="font-size:.65rem;color:var(--sub)">+'+( ideas.length-5)+' more saved</div>':'');
-}
-
-function removeIdea(i){
-  ideas.splice(i,1);
-  localStorage.setItem('mm_ideas',JSON.stringify(ideas));
-  renderIdeasPanel();
 }
 
 function fmtUTCtoLocal(utcStr){
@@ -1563,14 +1185,11 @@ async function loadAgents() {
         out.appendChild(renderAgentCard(key, data.agents[key], localTime));
       }
     });
-    renderAgentPicks();
   } catch(e) {
     dateEl.textContent = 'Could not load research data.';
     out.innerHTML = '<div style="text-align:center;padding:40px 20px;color:var(--sub);font-size:.8rem">Tap "Run Research" to trigger your agents.</div>';
   }
 }
 loadAgents();
-renderIdeasPanel();
-renderAgentPicks();
 </script>
 </body></html>
