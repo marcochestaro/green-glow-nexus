@@ -1,25 +1,25 @@
 {
-  "updated": "2026-11-06T19:45:27Z",
-  "updated_display": "Nov 06, 2026 at 19:45 UTC",
+  "updated": "2026-11-07T17:54:02Z",
+  "updated_display": "Nov 07, 2026 at 17:54 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen intent dropping\u2014focus budget on bottom-funnel service booking ads",
+      "headline": "Lead gen CPMs rising; $25 daily budgets need tighter audience targeting",
       "actions": [
-        "Shift $25 daily budget from lead magnets to direct booking/quote conversion campaigns",
-        "Test service-specific landing pages (plumbing emergency, window cleaning estimate) instead of generic lead forms",
-        "Increase retargeting spend on website visitors who didn't book\u2014they show intent without search volume inflation"
+        "Segment service area by zip code, test 3-5 micro-audiences instead of broad radius",
+        "Switch to Advantage+ Shopping with conversion API tracking to compete on quality score",
+        "Cap daily budget at $15 for cold audiences, reserve $10 for retargeting warm leads"
       ],
-      "source": "Google Trends lead generation interest decline + r/FacebookAds cost discussion patterns"
+      "source": "r/FacebookAds weekly discussion threads + Google Trends lead generation spike"
     },
     "creative": {
-      "headline": "Unable to provide data-driven recommendations this week",
-      "format": "N/A",
+      "headline": "Can't find this insight? Your ads are hemorrhaging money",
+      "format": "Screen Record Reel",
       "actions": [
-        "WAIT \u2014 your Google Trends data shows zeros across all metrics, and no complaints/failures are listed",
-        "This means either: (1) data didn't sync properly, (2) the week had minimal engagement, or (3) tracking is broken",
-        "Before I recommend a hook, video idea, or what's failing \u2014 send me: top 3 posts by views/saves this week, comments/complaints from your audience, or engagement rates by content type"
+        "\"I found the #1 reason plumbers waste $500/week on Meta ads...\"",
+        "Screen record your Meta Ads Manager showing a poorly segmented audience or low-quality lead filter. Walk through: (1) The mistake most local service owners make, (2) The specific setting to fix it, (3) Before/after cost-per-lead comparison. Why it works: Service owners obsess over wasting ad spend \u2014 this speaks directly to their pain point and positions you as the expert who knows their backend.",
+        "Avoid posting generic motivational content about \"mindset\" or \"hustle\" \u2014 local service business owners ignore aspirational content and only engage with tactical, money-saving tips they can apply immediately."
       ],
-      "source": "Incomplete data provided \u2014 cannot generate strategic recommendations without real performance metrics"
+      "source": "Historical pattern analysis: Zero trending data this week suggests low engagement baseline \u2014 pivot to utility-first content that solves immediate problems rather than trend-chasing"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
