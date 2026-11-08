@@ -79,6 +79,35 @@ button{font-family:inherit;cursor:pointer}
 
 .cbtn{display:inline-flex;align-items:center;background:none;border:1px solid #1e1e1e;color:#333;padding:2px 7px;border-radius:4px;font-size:.57rem;cursor:pointer;margin-top:4px}
 .cbtn.ok{border-color:#4ade80;color:#4ade80}
+
+.stories-section{max-width:560px;margin:0 auto;padding:0 20px 60px}
+.stories-label{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#333;margin-bottom:10px}
+.story-list{display:flex;flex-direction:column;gap:1px;background:#1a1a1a;border-radius:12px;overflow:hidden}
+.story-row{background:#111;padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:none;-webkit-tap-highlight-color:transparent;transition:background .1s}
+.story-row:active{background:#161616}
+.story-day{font-size:.65rem;font-weight:700;color:#333;width:28px;flex-shrink:0}
+.story-info{flex:1;min-width:0}
+.story-title{font-size:.88rem;font-weight:600;color:#e2e8f0;line-height:1.3;margin-bottom:3px}
+.story-meta{display:flex;align-items:center;gap:5px}
+.story-type{font-size:.6rem;color:#333}
+.story-cat{font-size:.6rem;font-weight:600;padding:1px 6px;border-radius:3px}
+.story-cat.life{color:#a78bfa;background:#12101e}
+.story-cat.value{color:#60a5fa;background:#0a0f1e}
+.story-cat.mixed{color:#f59e0b;background:#1a1200}
+.story-arr{font-size:.8rem;color:#333;flex-shrink:0}
+.story-done .story-title{color:#333}
+.story-done-tick{font-size:.7rem;color:#4ade80;flex-shrink:0}
+
+.ssheet{background:#0f0f0f;border-radius:16px 16px 0 0;border-top:1px solid #1e1e1e;min-height:85vh;margin-top:8vh;padding-bottom:50px}
+.ssheet-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
+.ssheet-day{font-size:.7rem;font-weight:700;color:#333}
+.ssheet-body{padding:0 20px}
+.ssheet-title{font-size:1rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:10px}
+.slide-count{font-size:.62rem;color:#444;margin-bottom:12px}
+.slide{background:#111;border:1px solid #1e1e1e;border-radius:9px;padding:12px 14px;margin-bottom:8px}
+.slide-num{font-size:.58rem;font-weight:700;color:#333;margin-bottom:5px}
+.slide-text{font-size:.8rem;color:#94a3b8;line-height:1.65}
+.slide-note{font-size:.68rem;color:#3a3a3a;margin-top:5px;font-style:italic}
 </style>
 </head>
 <body>
@@ -102,6 +131,21 @@ button{font-family:inherit;cursor:pointer}
   </div>
   <div class="list-label">Post in this order</div>
   <div class="script-list" id="script-list"></div>
+</div>
+
+<div class="overlay" id="story-overlay">
+  <div class="ssheet">
+    <div class="ssheet-head">
+      <div class="ssheet-day" id="ss-day"></div>
+      <button class="sheet-close" id="ss-close">&#215;</button>
+    </div>
+    <div class="ssheet-body" id="ss-body"></div>
+  </div>
+</div>
+
+<div class="stories-section">
+  <div class="stories-label">Stories this week</div>
+  <div class="story-list" id="story-list"></div>
 </div>
 
 <script>
@@ -283,6 +327,104 @@ function toggleDone(){
   var btn=document.getElementById('done-btn');
   if(btn){btn.className='abtn abtn-done'+(checks[curId]?' on':'');btn.textContent=checks[curId]?'Posted ✓':'Mark as Posted';}
   buildList();
+}
+
+var STORIES=[
+{id:'s0',day:'Mon',cat:'life',title:'Morning routine or commute',
+ slides:[
+  {text:'One photo or clip — coffee, your desk, driving. No caption needed. Just presence.',note:'Single frame'}
+ ]},
+{id:'s1',day:'Tue',cat:'value',title:'Quick ad tip',
+ slides:[
+  {text:'Slide 1: the mistake\n"Most service business owners run Traffic campaigns. That’s the problem."'},
+  {text:'Slide 2: the fix\n"Switch to Lead Generation. Same budget. Way better leads."'},
+  {text:'Slide 3: the takeaway\n"Check your objective before you change anything else."',note:'Add a poll: “Have you checked yours?” Yes / No'}
+ ]},
+{id:'s2',day:'Wed',cat:'life',title:'Something you’re working on',
+ slides:[
+  {text:'Screen record or photo of whatever’s on your screen. Client dashboard, ad account, Notion doc. Caption: “currently…”',note:'Single frame. Keep it candid.'}
+ ]},
+{id:'s3',day:'Thu',cat:'mixed',title:'Behind the scenes of a client result',
+ slides:[
+  {text:'Slide 1: the situation\n"Had a client running ads for 3 weeks with no results."'},
+  {text:'Slide 2: what we changed\n"Tightened the audience. Rewrote the hook. That’s it."'},
+  {text:'Slide 3: what happened\n"Leads came in that week. Same budget."'},
+  {text:'Slide 4: CTA\n"DM me SCALE if you want me to look at yours."',note:'Only include slide 4 on a CTA week'}
+ ]},
+{id:'s4',day:'Fri',cat:'value',title:'One thing most people get wrong about Meta ads',
+ slides:[
+  {text:'Slide 1: the wrong belief\n"More budget = more leads."'},
+  {text:'Slide 2: reality\n"More budget just amplifies whatever’s already happening. If the targeting is wrong, you’re just losing money faster."'},
+  {text:'Slide 3: what actually matters\n"Get the audience and the creative right first. Then scale.\"'}
+ ]},
+{id:'s5',day:'Sat',cat:'life',title:'Weekend or personal',
+ slides:[
+  {text:'One photo. Whatever you’re actually doing. Gym, food, out with people, nothing at all. Zero context required.',note:'Single frame. No overthinking.'}
+ ]},
+{id:'s6',day:'Sun',cat:'mixed',title:'Repost your best reel from this week',
+ slides:[
+  {text:'Share whichever reel performed best to your story. Add a sticker: “in case you missed this” or “this did well this week”.',note:'Single frame — just reshare the reel'}
+ ]},
+];
+
+var schecks=JSON.parse(localStorage.getItem('mm_schecks')||'{}');
+var curStory=null;
+
+function buildStoryList(){
+  var el=document.getElementById('story-list');
+  el.innerHTML='';
+  STORIES.forEach(function(s){
+    var done=!!schecks[s.id];
+    var frameCount=s.slides.length===1?'1 frame':s.slides.length+' slides';
+    var row=document.createElement('button');
+    row.className='story-row'+(done?' story-done':'');
+    row.innerHTML=
+      '<div class="story-day">'+s.day+'</div>'
+      +'<div class="story-info">'
+      +'<div class="story-title">'+s.title+'</div>'
+      +'<div class="story-meta">'
+      +'<span class="story-cat '+s.cat+'">'+(s.cat==='life'?'Life':s.cat==='value'?'Value':'Mixed')+'</span>'
+      +'<span class="story-type">'+frameCount+'</span>'
+      +'</div></div>'
+      +(done?'<div class="story-done-tick">✓</div>':'<div class="story-arr">&#8599;</div>');
+    row.addEventListener('click',function(){openStory(s.id);});
+    el.appendChild(row);
+  });
+}
+buildStoryList();
+
+function openStory(id){
+  curStory=id;
+  document.getElementById('story-overlay').classList.add('on');
+  document.body.style.overflow='hidden';
+  renderStory();
+}
+function renderStory(){
+  var s=STORIES.find(function(x){return x.id===curStory;});
+  var frameLabel=s.slides.length===1?'Single frame':s.slides.length+' slides';
+  document.getElementById('ss-day').textContent=s.day+' — '+(s.cat==='life'?'Life':s.cat==='value'?'Value':'Mixed');
+  document.getElementById('ss-body').innerHTML=
+    '<div class="ssheet-title">'+s.title+'</div>'
+    +'<div class="slide-count">'+frameLabel+'</div>'
+    +s.slides.map(function(sl,i){
+      return '<div class="slide">'
+        +(s.slides.length>1?'<div class="slide-num">Slide '+(i+1)+'</div>':'')
+        +'<div class="slide-text">'+sl.text.replace(/\n/g,'<br>')+'</div>'
+        +(sl.note?'<div class="slide-note">'+sl.note+'</div>':'')
+        +'</div>';
+    }).join('')
+    +'<div class="act-row">'
+    +'<button class="abtn abtn-done'+(schecks[curStory]?' on':'')+'" id="sdone-btn" onclick="toggleStoryDone()">'+(schecks[curStory]?'Posted ✓':'Mark as Posted')+'</button>'
+    +'</div>';
+}
+document.getElementById('ss-close').addEventListener('click',function(){document.getElementById('story-overlay').classList.remove('on');document.body.style.overflow='';});
+document.getElementById('story-overlay').addEventListener('click',function(e){if(e.target===document.getElementById('story-overlay')){document.getElementById('story-overlay').classList.remove('on');document.body.style.overflow='';}});
+function toggleStoryDone(){
+  schecks[curStory]=!schecks[curStory];
+  localStorage.setItem('mm_schecks',JSON.stringify(schecks));
+  var btn=document.getElementById('sdone-btn');
+  if(btn){btn.className='abtn abtn-done'+(schecks[curStory]?' on':'');btn.textContent=schecks[curStory]?'Posted ✓':'Mark as Posted';}
+  buildStoryList();
 }
 </script>
 </body>
