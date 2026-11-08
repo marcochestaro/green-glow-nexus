@@ -1,25 +1,25 @@
 {
-  "updated": "2026-11-07T17:54:02Z",
-  "updated_display": "Nov 07, 2026 at 17:54 UTC",
+  "updated": "2026-11-08T18:09:14Z",
+  "updated_display": "Nov 08, 2026 at 18:09 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen CPMs rising; $25 daily budgets need tighter audience targeting",
+      "headline": "Advantage+ audience is outperforming manual targeting this week",
       "actions": [
-        "Segment service area by zip code, test 3-5 micro-audiences instead of broad radius",
-        "Switch to Advantage+ Shopping with conversion API tracking to compete on quality score",
-        "Cap daily budget at $15 for cold audiences, reserve $10 for retargeting warm leads"
+        "Test switching one campaign to Advantage+ audience \u2014 let Meta find who converts",
+        "Keep your location radius in Advantage+ settings to stay local",
+        "Compare CPL after 5 days vs your manual targeting baseline"
       ],
-      "source": "r/FacebookAds weekly discussion threads + Google Trends lead generation spike"
+      "source": "r/FacebookAds discussions"
     },
     "creative": {
-      "headline": "Can't find this insight? Your ads are hemorrhaging money",
-      "format": "Screen Record Reel",
+      "headline": "Unable to provide strategic recommendation \u2014 zero engagement data this week",
+      "format": "N/A",
       "actions": [
-        "\"I found the #1 reason plumbers waste $500/week on Meta ads...\"",
-        "Screen record your Meta Ads Manager showing a poorly segmented audience or low-quality lead filter. Walk through: (1) The mistake most local service owners make, (2) The specific setting to fix it, (3) Before/after cost-per-lead comparison. Why it works: Service owners obsess over wasting ad spend \u2014 this speaks directly to their pain point and positions you as the expert who knows their backend.",
-        "Avoid posting generic motivational content about \"mindset\" or \"hustle\" \u2014 local service business owners ignore aspirational content and only engage with tactical, money-saving tips they can apply immediately."
+        "Cannot generate hooks without performance data",
+        "Cannot recommend video ideas without knowing what resonates with your audience right now",
+        "Cannot identify reach killers without baseline metrics"
       ],
-      "source": "Historical pattern analysis: Zero trending data this week suggests low engagement baseline \u2014 pivot to utility-first content that solves immediate problems rather than trend-chasing"
+      "source": "Google Trends returned all zeros; no engagement data, complaints, or performance comparisons provided"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
