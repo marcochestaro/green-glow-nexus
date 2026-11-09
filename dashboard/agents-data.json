@@ -1,25 +1,25 @@
 {
-  "updated": "2026-11-08T18:09:14Z",
-  "updated_display": "Nov 08, 2026 at 18:09 UTC",
+  "updated": "2026-11-09T22:47:16Z",
+  "updated_display": "Nov 09, 2026 at 22:47 UTC",
   "agents": {
     "ads": {
-      "headline": "Advantage+ audience is outperforming manual targeting this week",
+      "headline": "Lead gen intent down 60% YoY; compete on urgency, not volume",
       "actions": [
-        "Test switching one campaign to Advantage+ audience \u2014 let Meta find who converts",
-        "Keep your location radius in Advantage+ settings to stay local",
-        "Compare CPL after 5 days vs your manual targeting baseline"
+        "Test emergency/same-day service angles in ad copy for plumbers/HVAC clients",
+        "Lower daily budgets to $15-20 on cold audiences, redirect $5-10 to urgency-based retargeting",
+        "Monitor CTR weekly; if below 1.2%, shift from broad targeting to service-area + intent keywords"
       ],
-      "source": "r/FacebookAds discussions"
+      "source": "Google Trends lead generation decline + r/FacebookAds seasonal CPM discussion"
     },
     "creative": {
-      "headline": "Unable to provide strategic recommendation \u2014 zero engagement data this week",
+      "headline": "Unable to provide strategic recommendation \u2014 insufficient performance data",
       "format": "N/A",
       "actions": [
-        "Cannot generate hooks without performance data",
-        "Cannot recommend video ideas without knowing what resonates with your audience right now",
-        "Cannot identify reach killers without baseline metrics"
+        "Google Trends shows zero search volume across all tracked keywords this week",
+        "No engagement data, complaint patterns, or performance benchmarks provided to identify winning angles",
+        "Cannot recommend content strategy without: top-performing video topics, engagement rates, audience demographics, or competitor performance data"
       ],
-      "source": "Google Trends returned all zeros; no engagement data, complaints, or performance comparisons provided"
+      "source": "Incomplete dataset \u2014 need: weekly Reel performance metrics, DM conversion data, audience sentiment analysis, and content performance breakdown by format"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
