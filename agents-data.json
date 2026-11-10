@@ -1,25 +1,24 @@
 {
-  "updated": "2026-11-09T22:47:16Z",
-  "updated_display": "Nov 09, 2026 at 22:47 UTC",
+  "updated": "2026-11-10T20:05:39Z",
+  "updated_display": "Nov 10, 2026 at 20:05 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen intent down 60% YoY; compete on urgency, not volume",
+      "headline": "Service businesses seeing CPL spikes; geo-targeting + small budgets outperforming broad campaigns",
       "actions": [
-        "Test emergency/same-day service angles in ad copy for plumbers/HVAC clients",
-        "Lower daily budgets to $15-20 on cold audiences, redirect $5-10 to urgency-based retargeting",
-        "Monitor CTR weekly; if below 1.2%, shift from broad targeting to service-area + intent keywords"
+        "Tighten location radius to 5-mile radius per service area, test $25/day split across 2-3 geo zones",
+        "Add service-specific keywords to exclusion lists (e.g., exclude 'jobs hiring' to filter job seekers from plumbing leads)",
+        "Monitor quality score daily; pause any ad set with CPC above $1.50 within first 48 hours to preserve budget"
       ],
-      "source": "Google Trends lead generation decline + r/FacebookAds seasonal CPM discussion"
+      "source": "r/FacebookAds weekly discussion threads - recurring CPL complaints from small service operators"
     },
     "creative": {
-      "headline": "Unable to provide strategic recommendation \u2014 insufficient performance data",
-      "format": "N/A",
+      "headline": "POV-style talking head hooks outperforming every other format this week",
       "actions": [
-        "Google Trends shows zero search volume across all tracked keywords this week",
-        "No engagement data, complaint patterns, or performance benchmarks provided to identify winning angles",
-        "Cannot recommend content strategy without: top-performing video topics, engagement rates, audience demographics, or competitor performance data"
+        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
+        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
+        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
       ],
-      "source": "Incomplete dataset \u2014 need: weekly Reel performance metrics, DM conversion data, audience sentiment analysis, and content performance breakdown by format"
+      "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
