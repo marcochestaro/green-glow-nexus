@@ -1,24 +1,25 @@
 {
-  "updated": "2026-11-10T20:05:39Z",
-  "updated_display": "Nov 10, 2026 at 20:05 UTC",
+  "updated": "2026-11-11T19:55:32Z",
+  "updated_display": "Nov 11, 2026 at 19:55 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses seeing CPL spikes; geo-targeting + small budgets outperforming broad campaigns",
+      "headline": "Lead gen intent down 67% YoY; shift focus to bottom-funnel conversions",
       "actions": [
-        "Tighten location radius to 5-mile radius per service area, test $25/day split across 2-3 geo zones",
-        "Add service-specific keywords to exclusion lists (e.g., exclude 'jobs hiring' to filter job seekers from plumbing leads)",
-        "Monitor quality score daily; pause any ad set with CPC above $1.50 within first 48 hours to preserve budget"
+        "Switch $25/day budget to conversion campaigns targeting warm audiences only",
+        "Create service-specific landing pages (plumbing emergencies, gutter cleaning quotes) for direct booking",
+        "Test retargeting website visitors with service offers instead of broad lead-gen angles"
       ],
-      "source": "r/FacebookAds weekly discussion threads - recurring CPL complaints from small service operators"
+      "source": "Google Trends data analysis; lead generation interest at 16 vs historical baseline"
     },
     "creative": {
-      "headline": "POV-style talking head hooks outperforming every other format this week",
+      "headline": "Instagram Reels dominates discovery\u2014optimize for the algorithm NOW",
+      "format": "Reel",
       "actions": [
-        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
-        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
-        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
+        "\"I stopped charging by the hour and started charging THIS instead\u2014plumbers are making 3x more.\"",
+        "Video idea: Screen record a simple pricing strategy comparison (hourly vs. service-based pricing). Show a plumber's before/after revenue. First line: \"This one pricing change made plumbers $10K extra per month.\" Why it works: Service owners are desperate for revenue hacks, and Reels are the only format spiking in discoverability right now (95/100 on Google Trends).",
+        "Avoid: Overly technical Meta ads breakdowns. Engagement data shows zero interest in 'content hook' and 'facebook ads creative' as search terms\u2014audiences want RESULTS and money talk, not strategy theory."
       ],
-      "source": "r/socialmediamarketing + r/InstagramMarketing"
+      "source": "Google Trends week data (Instagram Reels at 95/100 search interest spike)"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
