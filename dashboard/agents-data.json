@@ -1,25 +1,25 @@
 {
-  "updated": "2026-11-11T19:55:32Z",
-  "updated_display": "Nov 11, 2026 at 19:55 UTC",
+  "updated": "2026-11-12T20:32:22Z",
+  "updated_display": "Nov 12, 2026 at 20:32 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen intent down 67% YoY; shift focus to bottom-funnel conversions",
+      "headline": "Meta Ads interest surging; service businesses should capitalize now before competition rises",
       "actions": [
-        "Switch $25/day budget to conversion campaigns targeting warm audiences only",
-        "Create service-specific landing pages (plumbing emergencies, gutter cleaning quotes) for direct booking",
-        "Test retargeting website visitors with service offers instead of broad lead-gen angles"
+        "Launch a test campaign today targeting local service keywords before CPCs climb",
+        "Create 3-5 simple before/after videos for your service niche to stand out",
+        "Set up conversion tracking on all landing pages to capture the influx of cheaper clicks"
       ],
-      "source": "Google Trends data analysis; lead generation interest at 16 vs historical baseline"
+      "source": "Google Trends spike: Meta Ads interest 42 (vs historical average ~25) + r/FacebookAds volume surge"
     },
     "creative": {
-      "headline": "Instagram Reels dominates discovery\u2014optimize for the algorithm NOW",
-      "format": "Reel",
+      "headline": "Can't generate strategy\u2014no engagement data provided this week",
+      "format": "Talking Head Reel",
       "actions": [
-        "\"I stopped charging by the hour and started charging THIS instead\u2014plumbers are making 3x more.\"",
-        "Video idea: Screen record a simple pricing strategy comparison (hourly vs. service-based pricing). Show a plumber's before/after revenue. First line: \"This one pricing change made plumbers $10K extra per month.\" Why it works: Service owners are desperate for revenue hacks, and Reels are the only format spiking in discoverability right now (95/100 on Google Trends).",
-        "Avoid: Overly technical Meta ads breakdowns. Engagement data shows zero interest in 'content hook' and 'facebook ads creative' as search terms\u2014audiences want RESULTS and money talk, not strategy theory."
+        "I need actual performance data: which posts got most saves/shares/DMs, what captions drove 'ADS' comments, audience demographics, posting times that worked",
+        "Video idea placeholder: Once you share THIS WEEK's top 3 posts + their metrics, I'll give you the exact hook, script, and angle that's resonating with plumbers/landscapers right now",
+        "Avoid guessing\u2014the Google Trends data shows all zeros, meaning either the data didn't sync or these terms aren't searchable. Share your Instagram Insights screenshot instead (reach, saves, profile visits, DM clicks)"
       ],
-      "source": "Google Trends week data (Instagram Reels at 95/100 search interest spike)"
+      "source": "Incomplete data set \u2014 Google Trends returned zeros; no Instagram Insights, comment patterns, or DM data provided"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
