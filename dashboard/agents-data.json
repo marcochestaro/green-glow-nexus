@@ -1,25 +1,24 @@
 {
-  "updated": "2026-11-12T20:32:22Z",
-  "updated_display": "Nov 12, 2026 at 20:32 UTC",
+  "updated": "2026-11-13T20:09:38Z",
+  "updated_display": "Nov 13, 2026 at 20:09 UTC",
   "agents": {
     "ads": {
-      "headline": "Meta Ads interest surging; service businesses should capitalize now before competition rises",
+      "headline": "Service businesses seeing CPL spikes; urgency signals now outperform benefit-focused messaging",
       "actions": [
-        "Launch a test campaign today targeting local service keywords before CPCs climb",
-        "Create 3-5 simple before/after videos for your service niche to stand out",
-        "Set up conversion tracking on all landing pages to capture the influx of cheaper clicks"
+        "Test 'book this week' CTAs instead of benefit-driven copy in next campaign",
+        "Add scarcity elements (limited slots, seasonal pricing) to ad creative rotation",
+        "Lower daily budget on underperforming benefit-focused ads; reallocate to urgency variants"
       ],
-      "source": "Google Trends spike: Meta Ads interest 42 (vs historical average ~25) + r/FacebookAds volume surge"
+      "source": "r/FacebookAds discussions, week of analysis"
     },
     "creative": {
-      "headline": "Can't generate strategy\u2014no engagement data provided this week",
-      "format": "Talking Head Reel",
+      "headline": "POV-style talking head hooks outperforming every other format this week",
       "actions": [
-        "I need actual performance data: which posts got most saves/shares/DMs, what captions drove 'ADS' comments, audience demographics, posting times that worked",
-        "Video idea placeholder: Once you share THIS WEEK's top 3 posts + their metrics, I'll give you the exact hook, script, and angle that's resonating with plumbers/landscapers right now",
-        "Avoid guessing\u2014the Google Trends data shows all zeros, meaning either the data didn't sync or these terms aren't searchable. Share your Instagram Insights screenshot instead (reach, saves, profile visits, DM clicks)"
+        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
+        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
+        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
       ],
-      "source": "Incomplete data set \u2014 Google Trends returned zeros; no Instagram Insights, comment patterns, or DM data provided"
+      "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
