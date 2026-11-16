@@ -1,15 +1,15 @@
 {
-  "updated": "2026-11-15T19:10:52Z",
-  "updated_display": "Nov 15, 2026 at 19:10 UTC",
+  "updated": "2026-11-16T22:38:28Z",
+  "updated_display": "Nov 16, 2026 at 22:38 UTC",
   "agents": {
     "ads": {
-      "headline": "Service ads work best with same-day booking buttons, not forms",
+      "headline": "Lead gen interest collapsing; pivot to direct booking conversions now",
       "actions": [
-        "Switch CTA from 'Learn More' to 'Book Now' or 'Call Today' on all ads",
-        "Test Messenger booking integration for plumbers/cleaners targeting local 24-48hr service",
-        "Add phone number prominently in ad copy\u2014solo ops get 3x leads vs form submissions"
+        "Switch campaign objective from Lead Gen to Conversion, track booking confirmations instead",
+        "Test appointment scheduling links (Calendly/Acuity) in ad copy to bypass form friction",
+        "Audit past lead quality\u2014if low conversion rate, reallocate $25/day toward retargeting warm prospects"
       ],
-      "source": "r/FacebookAds weekly patterns, service business operator feedback"
+      "source": "Google Trends lead generation interest (6/100) + r/FacebookAds discussion patterns week of Jan 2025"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
@@ -21,13 +21,13 @@
       "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
-      "headline": "Ad account structure bleeding money through poor campaign organization",
+      "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
       "actions": [
-        "Audit your campaign naming convention - ensure each campaign has ONE clear objective (Conversions, Traffic, or Leads)",
-        "Check Ads Manager: Go to Campaigns tab and look for campaigns mixing multiple business services or customer segments together",
-        "Compare CPL/CPC across campaigns - if some are 3-5x higher than others with same audience, poor structure is wasting budget on inefficient combinations"
+        "Open your current ad \u2014 does it have a specific outcome and deadline, or just your service name?",
+        "If your CTA is 'Learn More' or 'Contact Us' \u2014 change it to 'Get a Free Quote' or similar action",
+        "Check your click-to-lead rate: if under 15%, your offer is the problem, not the audience"
       ],
-      "source": "Meta Ads community reports this week showing confusion around campaign setup causing budget bloat and poor ROAS tracking"
+      "source": "r/FacebookAds new posts this week"
     },
     "competitors": {
       "headline": "No one is teaching service businesses HOW to respond to leads from ads",
