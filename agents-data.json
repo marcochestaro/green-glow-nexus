@@ -1,15 +1,15 @@
 {
-  "updated": "2026-11-16T22:38:28Z",
-  "updated_display": "Nov 16, 2026 at 22:38 UTC",
+  "updated": "2026-11-17T21:26:34Z",
+  "updated_display": "Nov 17, 2026 at 21:26 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen interest collapsing; pivot to direct booking conversions now",
+      "headline": "Lead gen interest down 73% \u2014 focus on direct conversion instead",
       "actions": [
-        "Switch campaign objective from Lead Gen to Conversion, track booking confirmations instead",
-        "Test appointment scheduling links (Calendly/Acuity) in ad copy to bypass form friction",
-        "Audit past lead quality\u2014if low conversion rate, reallocate $25/day toward retargeting warm prospects"
+        "Switch campaign objective from Lead Generation to Conversion for plumber/cleaner clients",
+        "Test booking-focused landing pages instead of lead capture forms this week",
+        "Split $25/day test: 50% conversion ads vs 50% lead gen to compare cost-per-booking"
       ],
-      "source": "Google Trends lead generation interest (6/100) + r/FacebookAds discussion patterns week of Jan 2025"
+      "source": "Google Trends week-over-week decline (lead generation: 11 vs historical baseline)"
     },
     "creative": {
       "headline": "POV-style talking head hooks outperforming every other format this week",
