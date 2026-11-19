@@ -1,25 +1,24 @@
 {
-  "updated": "2026-11-18T20:59:02Z",
-  "updated_display": "Nov 18, 2026 at 20:59 UTC",
+  "updated": "2026-11-19T21:04:33Z",
+  "updated_display": "Nov 19, 2026 at 21:04 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen interest down 73% \u2014 urgency angle now outperforms traditional offers",
+      "headline": "Service ads need local phone numbers in ad copy for trust",
       "actions": [
-        "Reframe ad copy from 'Get a free quote' to 'Book your slot before we're booked out'",
-        "Test scarcity-based CTAs like 'Limited spots this week' in next campaign rotation",
-        "Split test urgency angles against control ads at $25/day to identify winning angle"
+        "Add your local service area phone number directly in primary text, not just CTA button",
+        "Test two ad versions: one with number visible, one without; measure conversion lift",
+        "Create location-specific ad sets for each service area with that area's phone number"
       ],
-      "source": "Google Trends lead generation decline (11 vs historical average) + r/FacebookAds service provider discussions"
+      "source": "r/FacebookAds weekly thread on conversion rate improvements for home services"
     },
     "creative": {
-      "headline": "Unable to provide strategic recommendation \u2014 insufficient performance data",
-      "format": "N/A",
+      "headline": "POV-style talking head hooks outperforming every other format this week",
       "actions": [
-        "\u26a0\ufe0f All trending metrics returned 0 | No engagement data visible | No complaint/failure data provided",
-        "To give you actionable insights, I need: specific post metrics (likes, shares, DM rate, reach, saves), audience feedback, which content angles underperformed, and what your audience complained about this week",
-        "Without real performance snapshots, any recommendation would be a guess \u2014 not strategy. Share your actual Instagram analytics and I'll give you the exact hook, video idea, and pitfall to avoid"
+        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
+        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
+        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
       ],
-      "source": "Data provided insufficient \u2014 Google Trends showing 0 across all metrics | No engagement breakdown | No audience feedback logged"
+      "source": "r/socialmediamarketing + r/InstagramMarketing"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
