@@ -901,6 +901,16 @@ footer { padding-block: 100px 36px; overflow: hidden; }
     const all = { Business: ins[1].value, ...answers, Name: ins[0].value, Phone: ins[2].value, Email: ins[3].value };
     document.getElementById('summary').innerHTML = Object.entries(all).filter(([, v]) => v).map(([kk, v]) => `<dt>${kk}</dt><dd>${esc(v)}</dd>`).join('');
     show(steps.length - 1);
+    // Email every completed form to Marco, booked or not. Change LEAD_INBOX to move where leads go.
+    const LEAD_INBOX = 'bussinessmarcoch@gmail.com';
+    const live = !(/claude|anthropic/.test(location.hostname) || location.protocol === 'file:');
+    if (live) {
+      fetch('https://formsubmit.co/ajax/' + LEAD_INBOX, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ _subject: 'New website lead: ' + ins[1].value.trim(), _template: 'table', _captcha: 'false', ...all })
+      }).catch(() => {});
+    }
     // Hand off to Calendly with name and email prefilled; embed it inline on the live site, link out in the preview.
     const url = new URL('https://calendly.com/marcochestaro/new-meeting');
     url.searchParams.set('name', ins[0].value.trim());
