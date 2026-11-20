@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'dashboard/**'
+      - 'website/**'
 
 jobs:
   sync:
@@ -26,6 +27,7 @@ jobs:
           cp dashboard/agents-data.json /tmp/agents-data.json 2>/dev/null || true
           cp dashboard/miro-boards.json /tmp/miro-boards.json 2>/dev/null || true
           cp dashboard/data.json /tmp/data.json 2>/dev/null || true
+          rm -rf /tmp/website && cp -r website /tmp/website
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin gh-pages
@@ -35,6 +37,8 @@ jobs:
           [ -f /tmp/agents-data.json ] && cp /tmp/agents-data.json agents-data.json || true
           [ -f /tmp/miro-boards.json ] && cp /tmp/miro-boards.json miro-boards.json || true
           [ -f /tmp/data.json ] && cp /tmp/data.json data.json || true
+          rm -rf scalable && cp -r /tmp/website scalable
           git add index.html scripts-data.json agents-data.json miro-boards.json data.json 2>/dev/null || git add index.html
+          git add -A scalable
           git diff --staged --quiet || git commit -m "Auto-sync dashboard to gh-pages $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push --force origin gh-pages
