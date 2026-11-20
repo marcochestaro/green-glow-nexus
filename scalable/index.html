@@ -226,7 +226,7 @@ p { margin: 0; max-width: 58ch; }
 .summary dt { color: var(--muted); }
 .summary dd { margin: 0; color: var(--head); overflow-wrap: anywhere; }
 .cal { display: flex; flex-direction: column; gap: 14px; }
-.cal iframe { width: 100%; height: 700px; border: 0; border-radius: 14px; background: var(--bg-2); }
+.cal iframe { width: 100%; height: 720px; border: 0; border-radius: 16px; background: #F6EEDC; }
 .cal .btn { align-self: flex-start; }
 .cal small { color: var(--muted); font-size: 13px; }
 
@@ -910,7 +910,7 @@ footer { padding-block: 100px 36px; overflow: hidden; }
     const preview = /claude|anthropic/.test(location.hostname) || location.protocol === 'file:';
     if (!preview) {
       const embed = new URL(url); embed.searchParams.set('embed_domain', location.hostname); embed.searchParams.set('embed_type', 'Inline');
-      embed.searchParams.set('hide_gdpr_banner', '1'); embed.searchParams.set('background_color', '0D1626'); embed.searchParams.set('text_color', 'F3E8CF'); embed.searchParams.set('primary_color', 'EB7A2E');
+      embed.searchParams.set('hide_gdpr_banner', '1'); embed.searchParams.set('background_color', 'F6EEDC'); embed.searchParams.set('text_color', '0D1626'); embed.searchParams.set('primary_color', 'E0631A');
       const f = document.createElement('iframe'); f.src = embed.toString(); f.title = 'Book a call with Marco';
       document.getElementById('cal').replaceChildren(f);
     }
