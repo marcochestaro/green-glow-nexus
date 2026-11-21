@@ -1,25 +1,25 @@
 {
-  "updated": "2026-11-20T20:51:06Z",
-  "updated_display": "Nov 20, 2026 at 20:51 UTC",
+  "updated": "2026-11-21T19:52:43Z",
+  "updated_display": "Nov 21, 2026 at 19:52 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen interest dropping; service businesses need conversion-focused creative now",
+      "headline": "Lead gen interest dropping; service ads need direct booking angles",
       "actions": [
-        "Shift ad creative from generic lead magnets to before/after service results",
-        "Test $25/day budget split: 60% conversion campaigns, 40% lead gen experiments",
-        "Create service-specific landing pages showing completed jobs instead of form fills"
+        "Swap lead gen forms for direct booking/call buttons in ad CTAs",
+        "Test service-specific landing pages (e.g., 'Book plumber in 60 seconds')",
+        "Split test: lead magnet vs. instant scheduling link at same $25/day budget"
       ],
-      "source": "Google Trends lead generation interest drop (19) vs meta ads baseline (41) this week"
+      "source": "Google Trends lead generation interest declining (10/100); r/FacebookAds cost discussions absent"
     },
     "creative": {
-      "headline": "Unable to provide data-driven recommendation \u2014 no engagement metrics available",
-      "format": "N/A",
+      "headline": "Unable to provide: Google Trends data shows zero search volume across all metrics",
+      "format": "Data insufficient",
       "actions": [
-        "ERROR: Google Trends showing 0-100 across all keywords indicates no search volume data this week",
-        "ERROR: No top performing content discussions provided \u2014 cannot identify winning angles",
-        "ERROR: No failure data or audience complaints logged \u2014 cannot identify what's killing reach"
+        "Cannot generate hook without engagement data",
+        "Cannot recommend video idea without performance benchmarks",
+        "Cannot identify reach killers without comparative analytics"
       ],
-      "source": "Insufficient data provided. Need: 1) Actual Reel view counts/engagement rates 2) Comment themes from top posts 3) Audience complaints/friction points 4) Yesterday's reach metrics"
+      "source": "Google Trends returned all 0-100 scores; Instagram Insights data not provided; no engagement metrics, comments, or complaint data available"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
