@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-15T16:45:15Z",
-  "generated_display": "Nov 15, 2026 at 16:45 UTC",
+  "generated": "2026-11-22T17:34:11Z",
+  "generated_display": "Nov 22, 2026 at 17:34 UTC",
   "weeks": [
     {
       "week_of": "2026-07-06",
@@ -8243,31 +8243,437 @@
           "stories": []
         }
       ]
+    },
+    {
+      "week_of": "2026-11-30",
+      "week_of_display": "Nov 30, 2026",
+      "scripts": [
+        {
+          "title": "The hook formula that works everywhere",
+          "overlay": {
+            "line1": "one hook formula",
+            "line2": "three service businesses"
+          },
+          "recCap": 0,
+          "recVer": "full",
+          "type": "Talking Head",
+          "film": "Film Marco sitting down, casual, natural lighting. Show confidence and ease\u2014this is knowledge he's tested a hundred times. Slight head tilt when making a point. No fancy background needed, just clean and professional.",
+          "captions": [
+            {
+              "label": "A",
+              "text": "same hook structure works for plumbers, electricians, cleaners, landscapers, detailers. the formula doesn't change. your market does."
+            },
+            {
+              "label": "B",
+              "text": "if your ads aren't stopping the scroll, it's not because your service is bad. it's because the hook isn't built right. here's what actually works across every trade."
+            },
+            {
+              "label": "C",
+              "text": "one hook formula works for every service business. here's what it is."
+            }
+          ],
+          "lines": [
+            {
+              "time": "Hook",
+              "tag": "5s",
+              "cls": "hook",
+              "text": "I've run ads for plumbers, window cleaners, HVAC guys, detailers\u2014completely different businesses. and you know what? they all use the exact same hook formula."
+            },
+            {
+              "time": "Point 1",
+              "tag": "8s",
+              "cls": "",
+              "text": "It starts with the problem your customer is actually feeling right now. Not the service itself\u2014the feeling. A plumber doesn't lead with pipes, he leads with the stress of a burst line at midnight. A detailer doesn't talk about paint correction, he talks about finally driving a car you're not embarrassed to show up in."
+            },
+            {
+              "time": "Point 2",
+              "tag": "8s",
+              "cls": "",
+              "text": "Then you bridge to your solution in one sentence. It's not a pitch\u2014it's just the natural next thought. That problem you just described? Here's how we solve it. Clean. Direct. No fluff."
+            },
+            {
+              "time": "Point 3",
+              "tag": "8s",
+              "cls": "",
+              "text": "The third part is proof or specificity. How fast do you show up? What's the guarantee? One real detail that makes the offer feel real, not generic."
+            },
+            {
+              "time": "Close",
+              "tag": "5s",
+              "cls": "",
+              "text": "The business doesn't matter. The hook formula stays the same. Problem, solution, proof. Use that structure and you'll stop more scrolls."
+            }
+          ],
+          "stories": []
+        },
+        {
+          "title": "Why ads don't work (you're doing it wrong)",
+          "overlay": {
+            "line1": "Most service owners miss this",
+            "line2": "It costs them thousands"
+          },
+          "recCap": 0,
+          "recVer": "full",
+          "type": "Talking Head",
+          "film": "Film in your office or home setup, natural light, sitting or standing casually. Direct eye contact with camera. Lean in slightly during the main points to show confidence and conviction.",
+          "captions": [
+            {
+              "label": "A",
+              "text": "ads don't fail. targeting does. most service owners run ads to everyone instead of their actual customer."
+            },
+            {
+              "label": "B",
+              "text": "here's what I see: plumber runs $500 in ads, gets zero leads, says ads don't work. but they're targeting the wrong neighborhood. wrong age group. wrong time of day. ads worked fine \u2014 they just weren't talking to the right person."
+            },
+            {
+              "label": "C",
+              "text": "your ad isn't broken. your targeting is."
+            }
+          ],
+          "lines": [
+            {
+              "time": "Hook",
+              "tag": "5s",
+              "cls": "hook",
+              "text": "I talk to service business owners all the time who tell me ads don't work. And I'm gonna be honest \u2014 they're not wrong about their experience. But they're wrong about why."
+            },
+            {
+              "time": "Point 1",
+              "tag": "8s",
+              "cls": "",
+              "text": "The ads aren't broken. The targeting is. I see this constantly. A plumber or an electrician or a window cleaner will spend real money on ads, get nothing back, and decide Meta ads just don't work for their business. But here's the thing \u2014 they're showing ads to everyone instead of showing ads to the actual person who needs them."
+            },
+            {
+              "time": "Point 2",
+              "tag": "8s",
+              "cls": "",
+              "text": "You could have the best ad copy in the world, the best offer, beautiful creative \u2014 none of it matters if you're not targeting the right zip code, the right income level, the right time of day, or the right life event. It's like trying to sell heating systems in July. The ad isn't the problem. The timing and the audience are."
+            },
+            {
+              "time": "Point 3",
+              "tag": "8s",
+              "cls": "",
+              "text": "The business owners I work with who actually scale? They're not running different ads than everyone else. They're just running them to the right people. And yeah, that takes some strategy and testing. But that's why ads work so well for the ones who get it right."
+            },
+            {
+              "time": "Close",
+              "tag": "5s",
+              "cls": "",
+              "text": "So before you write off ads, ask yourself \u2014 am I really targeting the right customer, or am I just throwing money at the platform and hoping something sticks?"
+            }
+          ],
+          "stories": []
+        },
+        {
+          "title": "Why agencies lose service business owners",
+          "overlay": null,
+          "recCap": 0,
+          "recVer": "full",
+          "type": "Screen Record",
+          "film": "Screen record Meta Ads Manager while walking through a real campaign setup. Show audience targeting, ad placements, and budget allocation. Speak calmly and point to specific sections as you explain \u2014 make it feel like you're showing a friend what you're actually doing.",
+          "captions": [
+            {
+              "label": "A",
+              "text": "most marketing agencies build campaigns for scale, not for your actual service area. that's why they don't work for plumbers and hvac guys."
+            },
+            {
+              "label": "B",
+              "text": "agencies optimize for clicks and impressions. service businesses need leads in their zip code at the right price. two totally different games.\n\nwhen you're competing on local turf, national playbooks fall apart."
+            },
+            {
+              "label": "C",
+              "text": "agencies think in volume. service businesses think in service areas. that's the gap."
+            }
+          ],
+          "lines": [
+            {
+              "time": "Hook",
+              "tag": "5s",
+              "cls": "hook",
+              "text": "most marketing agencies will tank your ads. not on purpose \u2014 they just don't understand how service businesses actually work."
+            },
+            {
+              "time": "Point 1",
+              "tag": "8s",
+              "cls": "",
+              "text": "here's the problem. agencies optimize for volume. they're built to scale campaigns fast \u2014 get a ton of impressions, drive clicks, hit metrics. that works great if you're selling courses or dropshipping stuff. but you're a plumber, or an electrician, or a window cleaner. you don't want clicks from three states over. you want leads in your service area."
+            },
+            {
+              "time": "Point 2",
+              "tag": "8s",
+              "cls": "",
+              "text": "so when an agency sets up your campaign, they're using the same playbook they use for everyone. broad targeting, generic messaging, bid strategies that chase volume instead of quality. then you're spending money on people who'll never call you because they're not in your area, or they're not qualified, or they're just not ready."
+            },
+            {
+              "time": "Point 3",
+              "tag": "8s",
+              "cls": "",
+              "text": "a service business needs hyper-local targeting, messaging that speaks to your actual customers in your actual neighborhood, and a bidding strategy that gets you qualified leads at a price that makes sense for your business. that's a completely different setup than what a volume-focused agency builds."
+            },
+            {
+              "time": "Close",
+              "tag": "5s",
+              "cls": "",
+              "text": "the agencies didn't fail you \u2014 they just built the wrong campaign for the wrong business model. service business ads aren't about scale. they're about precision."
+            }
+          ],
+          "stories": []
+        },
+        {
+          "title": "How one plumber cut CPL by 68%",
+          "overlay": {
+            "line1": "$120 \u2192 $38",
+            "line2": "cost per lead"
+          },
+          "recCap": 0,
+          "recVer": "full",
+          "type": "Talking Head",
+          "film": "Film Marco sitting down, relaxed, direct eye contact. Natural lighting. Can have a desk or just a clean background. Let him lean forward when explaining the specifics \u2014 shows he's invested in the story.",
+          "captions": [
+            {
+              "label": "A",
+              "text": "this plumber was paying $120 per lead. one change dropped it to $38. here's what he did"
+            },
+            {
+              "label": "B",
+              "text": "most plumbers optimize the wrong thing. this guy fixed his targeting first. cut his cost per lead by more than half. the strategy is simpler than you think"
+            },
+            {
+              "label": "C",
+              "text": "targeting beats creative. every time."
+            }
+          ],
+          "lines": [
+            {
+              "time": "Hook",
+              "tag": "5s",
+              "cls": "hook",
+              "text": "I had a plumber paying $120 for every single lead. Within two weeks, we got it down to $38. And it wasn't even close to complicated."
+            },
+            {
+              "time": "Point 1",
+              "tag": "8s",
+              "cls": "",
+              "text": "He was running broad ads. Right location, right service, but the targeting was way too open. He was getting clicks from people who weren't actually ready to book."
+            },
+            {
+              "time": "Point 2",
+              "tag": "8s",
+              "cls": "",
+              "text": "So we tightened it. Looked at his best customers \u2014 who they are, where they live, what time they're most likely to call. Then we rebuilt the audience around those signals."
+            },
+            {
+              "time": "Point 3",
+              "tag": "8s",
+              "cls": "",
+              "text": "Same ad spend. Same service area. Better leads coming in. Lower cost per lead. It's because we stopped paying for clicks and started paying for the right clicks."
+            },
+            {
+              "time": "Close",
+              "tag": "5s",
+              "cls": "",
+              "text": "If your leads are expensive, targeting is usually the first place to fix it. Not creative, not spend. Targeting."
+            }
+          ],
+          "stories": []
+        },
+        {
+          "title": "How to Structure Your First Meta Ad Campaign",
+          "overlay": {
+            "line1": "first meta campaign",
+            "line2": "get it right from day one"
+          },
+          "recCap": 0,
+          "recVer": "full",
+          "type": "Talking Head",
+          "film": "Film in natural light, sitting or standing casually. Direct eye contact. Use hand gestures when explaining the three structure points \u2014 maybe count them on fingers. Keep energy conversational, not preachy.",
+          "captions": [
+            {
+              "label": "A",
+              "text": "most people skip the structure and wonder why their ads flop. don't be that person."
+            },
+            {
+              "label": "B",
+              "text": "your first campaign structure decides if you get leads or waste money. nail these three things and you're ahead of 90% of service business owners running ads."
+            },
+            {
+              "label": "C",
+              "text": "structure beats creative every single time. get this right first."
+            }
+          ],
+          "lines": [
+            {
+              "time": "Hook",
+              "tag": "5s",
+              "cls": "hook",
+              "text": "Most service business owners throw money at Meta ads without any real structure and then wonder why nothing works. Here's how to actually build your first campaign the right way."
+            },
+            {
+              "time": "Point 1",
+              "tag": "8s",
+              "cls": "",
+              "text": "First thing \u2014 clarity on who you're talking to. Not just \"people in my area.\" You need to know: Are they homeowners or property managers? Do they call when something breaks or do they plan ahead? What's their income level? The more specific you get here, the better your ads perform."
+            },
+            {
+              "time": "Point 2",
+              "tag": "8s",
+              "cls": "",
+              "text": "Second \u2014 funnel setup. You need three things: awareness ads that introduce people to your business, consideration ads that show them why you're different, and conversion ads that turn them into actual leads. Don't skip the awareness part just because you want conversions fast. It doesn't work that way."
+            },
+            {
+              "time": "Point 3",
+              "tag": "8s",
+              "cls": "",
+              "text": "Third \u2014 your offer and landing spot. What's the action you want people to take? Is it a call, a text, booking a free estimate, filling out a form? And where does the click go? A bad landing experience kills everything even if your ads are solid."
+            },
+            {
+              "time": "Close",
+              "tag": "5s",
+              "cls": "",
+              "text": "Get the structure locked in first, then optimize. That's how you scale without burning money on confusion."
+            }
+          ],
+          "stories": []
+        },
+        {
+          "title": "Why your ad dies after 3 days (and the fix)",
+          "overlay": null,
+          "recCap": 0,
+          "recVer": "full",
+          "type": "Screen Record",
+          "film": "Screen record Meta Ads Manager showing a live campaign. Click through to show ad performance metrics, audience breakdown, and relevance score. Keep cursor movements smooth and deliberate. Talk as if you're walking a friend through your own account \u2014 casual, pointing things out naturally.",
+          "captions": [
+            {
+              "label": "A",
+              "text": "your ad isn't bad. your audience just saw it. here's what to do instead"
+            },
+            {
+              "label": "B",
+              "text": "this is why your best performing ad stops working after day 3. the fix is simpler than you think. it's about audience saturation \u2014 not creative."
+            },
+            {
+              "label": "C",
+              "text": "your ad isn't dying. your audience is just tired of seeing it."
+            }
+          ],
+          "lines": [
+            {
+              "time": "Hook",
+              "tag": "5s",
+              "cls": "hook",
+              "text": "so you launch an ad, it crushes for like three days, then it just flatlines. you're not alone \u2014 this happens to almost every service business I work with. and it's not what you think."
+            },
+            {
+              "time": "Point 1",
+              "tag": "8s",
+              "cls": "",
+              "text": "here's what's actually happening. Meta shows your ad to your audience really fast in the first few days because the algorithm is testing it. it gets good engagement, good CTR, looks solid. but then the people who were gonna respond already have. and you're just showing the same ad to the same people over and over. that's called audience saturation, and it kills performance every time."
+            },
+            {
+              "time": "Point 2",
+              "tag": "8s",
+              "cls": "",
+              "text": "the fix isn't to pause it and create something totally new. that's what most people do and they waste time and momentum. what you actually do is keep the ad running but expand or refresh your audience. either loosen your targeting to reach new people, or create a second variation of the same ad \u2014 same message, different creative. now you're showing fresh angles to the same pool."
+            },
+            {
+              "time": "Point 3",
+              "tag": "8s",
+              "cls": "",
+              "text": "the best part is Meta's already warmed up. your pixel has conversion data. your account has history. so when you scale the audience or add that variation, the results usually come back faster than the first round. you're not starting from zero."
+            },
+            {
+              "time": "Close",
+              "tag": "5s",
+              "cls": "",
+              "text": "saturation is predictable. and predictable means you can plan for it. the businesses that scale just know to expect it and have a rotation ready."
+            }
+          ],
+          "stories": []
+        },
+        {
+          "title": "Why service businesses quit ads too early",
+          "overlay": {
+            "line1": "Most quit before",
+            "line2": "they see real results"
+          },
+          "recCap": 0,
+          "recVer": "full",
+          "type": "Talking Head",
+          "film": "Film in natural light, sitting or standing casually. Direct eye contact. Lean in slightly when making the key point about the learning curve. Keep energy conversational, not preachy.",
+          "captions": [
+            {
+              "label": "A",
+              "text": "the ads aren't broken. you just quit during the learning phase."
+            },
+            {
+              "label": "B",
+              "text": "most service business owners kill their ads after 2-3 weeks because they haven't seen leads yet. but that's exactly when the system starts working."
+            },
+            {
+              "label": "C",
+              "text": "your ads need time to learn. quitting early is quitting right before the breakthrough."
+            }
+          ],
+          "lines": [
+            {
+              "time": "Hook",
+              "tag": "5s",
+              "cls": "hook",
+              "text": "I see this all the time \u2014 a plumber or window cleaner starts ads, waits two weeks, sees nothing, and kills the whole thing. But here's what they don't understand."
+            },
+            {
+              "time": "Point 1",
+              "tag": "8s",
+              "cls": "",
+              "text": "Meta's algorithm needs data to work. The first week or two, it's literally learning who to show your ads to. It's not broken. It's learning. And yeah, you might not see leads yet."
+            },
+            {
+              "time": "Point 2",
+              "tag": "8s",
+              "cls": "",
+              "text": "But if you shut it down in week two, you never get to week three when the system actually starts finding your ideal customers. You're pulling the plug right before the breakthrough happens."
+            },
+            {
+              "time": "Point 3",
+              "tag": "8s",
+              "cls": "",
+              "text": "The ones who stick with it past that learning phase? That's when they start seeing actual leads, actual jobs, actual revenue. The ads weren't failing. The owner just quit too early."
+            },
+            {
+              "time": "Close",
+              "tag": "5s",
+              "cls": "",
+              "text": "Give your ads real time to learn. That patience is what separates the businesses that scale from the ones that don't."
+            }
+          ],
+          "stories": []
+        }
+      ]
     }
   ],
   "scripts": [
     {
-      "title": "Why broad audiences kill local ad results",
+      "title": "Lead form setup that actually converts",
       "overlay": {
-        "line1": "broad \u2260 better",
-        "line2": "local needs precision"
+        "line1": "Meta Lead Forms",
+        "line2": "The Real Setup"
       },
       "recCap": 0,
       "recVer": "full",
       "type": "Talking Head",
-      "film": "Film Marco at a desk or standing casually in home office, natural lighting, direct eye contact. Lean in slightly during Point 1 for emphasis. Hand gestures optional but natural.",
+      "film": "Film sitting down, casual, natural lighting. Lean in slightly when delivering the three setup points \u2014 this shows confidence and keeps energy engaged. Direct eye contact with camera throughout.",
       "captions": [
         {
           "label": "A",
-          "text": "broad audiences waste your budget on people who'll never call. local service businesses need precision, not reach."
+          "text": "most service business owners mess up their lead form on the first try. here's what actually works."
         },
         {
           "label": "B",
-          "text": "here's what most service business owners get wrong: they think bigger audience = more leads. it's actually the opposite. broad targeting wastes money on people outside your service area who have zero intent to hire you."
+          "text": "your lead form is doing more damage than good if you're asking for too much info upfront. most plumbers and window cleaners lose 40% of leads this way. here's the fix."
         },
         {
           "label": "C",
-          "text": "broad audiences are the fastest way to burn ad spend on the wrong people."
+          "text": "field order matters more than field count when it comes to lead form conversions."
         }
       ],
       "lines": [
@@ -8275,57 +8681,57 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "your broad audience is costing you money and you probably don't even know it."
+          "text": "Your lead form is probably losing you leads right now. I'm gonna show you exactly what's broken and how to fix it in the next 60 seconds."
         },
         {
           "time": "Point 1",
           "tag": "8s",
           "cls": "",
-          "text": "when you target broad, you're paying to show ads to people who live three cities away, who don't need your service for six months, or who just aren't interested. that's wasted spend. full stop."
+          "text": "First thing \u2014 stop asking for too much info upfront. Name, phone, email, address, service type, preferred time... that's six fields. People bounce. Ask for name and phone. That's it. You can get the rest on the call."
         },
         {
           "time": "Point 2",
           "tag": "8s",
           "cls": "",
-          "text": "local service businesses \u2014 plumbers, HVAC, detailers, landscapers \u2014 you need precision targeting. location matters. intent matters. readiness matters. broad audiences ignore all three."
+          "text": "Second \u2014 field order actually matters. Put phone before email. Phone's your fastest way to connect. And always put the most important field second, right after name. That's usually service type so you know what you're dealing with."
         },
         {
           "time": "Point 3",
           "tag": "8s",
           "cls": "",
-          "text": "the shift is simple: tighten your radius, focus on the right geo, stack your audience with people who actually fit your service area and have shown buying signals. that's where your real leads come from."
+          "text": "Third \u2014 use a short, specific thank you message. Not 'Thanks for contacting us.' Say something like 'Got it. We'll call you within an hour.' People need to know what happens next. Reduces form abandonment because they actually believe you'll follow up."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "precision beats reach every single time in local service business ads."
+          "text": "Fix those three things and your form conversion rate jumps. Simple as that."
         }
       ],
       "stories": []
     },
     {
-      "title": "Boosted Post vs Real Meta Ad Campaign",
+      "title": "Why service businesses quit ads too early",
       "overlay": {
-        "line1": "boosted post",
-        "line2": "real campaign"
+        "line1": "most quit at week 3",
+        "line2": "that's when it starts working"
       },
       "recCap": 0,
       "recVer": "full",
       "type": "Talking Head",
-      "film": "Film Marco sitting down, casual, direct eye contact with camera. Natural lighting. Maybe a desk or coffee shop background. Relaxed posture \u2014 this is a friend explaining something, not a lecture.",
+      "film": "Film Marco sitting down, relaxed, direct eye contact. Natural lighting. Can be at a desk or casual setting. Lean in slightly when making the main points to show conviction.",
       "captions": [
         {
           "label": "A",
-          "text": "boosted posts get you impressions. real campaigns get you leads. totally different game."
+          "text": "most service business owners kill their ads right when the algorithm is learning. three weeks in isn't failure \u2014 it's the beginning."
         },
         {
           "label": "B",
-          "text": "most service business owners start with boosted posts because it feels simple. then they wonder why they're not getting calls. the difference is targeting, strategy, and how the money actually works."
+          "text": "here's what happens: you launch ads, spend money, see a few leads but the cost per lead looks high. you panic and stop. the algorithm was still optimizing. week four is usually when things shift."
         },
         {
           "label": "C",
-          "text": "if you're just boosting posts, you're leaving leads on the table."
+          "text": "the businesses that scale aren't smarter \u2014 they just didn't quit at week three."
         }
       ],
       "lines": [
@@ -8333,54 +8739,54 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "so you boosted a post last week and got a bunch of likes. cool. but did you get any actual leads? yeah, that's the problem."
+          "text": "the number one reason I see service business owners fail with ads isn't bad creative or bad targeting \u2014 it's quitting before the algorithm actually learns."
         },
         {
           "time": "Point 1",
           "tag": "8s",
           "cls": "",
-          "text": "a boosted post is just pushing your content to people Meta thinks might like it. it's a volume play. you're paying to get eyeballs on something you already posted. that's it."
+          "text": "Meta's algorithm needs data to optimize. When you first launch, it's basically flying blind. It's testing different audiences, placements, times of day. That takes time. Usually takes two to three weeks before you see real patterns."
         },
         {
           "time": "Point 2",
           "tag": "8s",
           "cls": "",
-          "text": "a real Meta ad campaign is different. you're targeting specific people \u2014 homeowners in your service area, specific age range, specific intent signals. you're not just showing content. you're running an actual strategy with a landing page, a conversion event, and real tracking."
+          "text": "So here's what I see happen: a plumber or window cleaner launches ads, spends a few hundred bucks, gets some leads, but the cost per lead looks expensive. They think it's broken. They panic. They shut it off. Then they tell everyone ads don't work for their business."
         },
         {
           "time": "Point 3",
           "tag": "8s",
           "cls": "",
-          "text": "with a campaign, Meta learns who's actually calling you, who's booking you, and it optimizes your budget toward those people. a boosted post? it just shows your stuff to whoever and hopes something sticks."
+          "text": "But week four? That's when things usually shift. The algorithm figured out who actually books. Your cost per lead drops. Your callbacks go up. The businesses that scale past six figures aren't smarter than you \u2014 they just stayed in the game long enough to see it work."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "if you want leads, not just likes, you need to think like a campaign, not a social media manager."
+          "text": "Patience with ads isn't boring. It's how you actually win."
         }
       ],
       "stories": []
     },
     {
-      "title": "Why most service businesses plateau (and how to escape it)",
+      "title": "Why your Meta ads aren't getting leads",
       "overlay": null,
       "recCap": 0,
       "recVer": "full",
       "type": "Screen Record",
-      "film": "Screen record Meta Ads Manager showing campaign performance metrics, audience insights, and conversion tracking. Click through 2-3 different campaign structures as you talk. Keep pace steady and deliberate \u2014 let people see the data as you explain the difference.",
+      "film": "Screen record Meta Ads Manager while you're in a live campaign. Show the ad set level, results columns, and click through different sections as you talk. Keep it natural \u2014 pause on key metrics, zoom in on targeting or placement settings to illustrate each mistake.",
       "captions": [
         {
           "label": "A",
-          "text": "scaling isn't about spending more. it's about tracking the right metrics and knowing which ones actually matter."
+          "text": "your targeting is too broad. narrow it down or you're just wasting money on the wrong people"
         },
         {
           "label": "B",
-          "text": "most service businesses cap out because they're optimizing for clicks instead of cost per lead. they're chasing volume, not profit. the ones that scale do the opposite."
+          "text": "most service business owners make one of these three mistakes with meta ads. if you're not getting leads, it's one of them. targeting too wide, creatives that don't convert, or your landing experience sucks"
         },
         {
           "label": "C",
-          "text": "you can't scale what you don't measure."
+          "text": "bad targeting kills more campaigns than anything else"
         }
       ],
       "lines": [
@@ -8388,31 +8794,31 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "I've run ads for hundreds of service businesses. The ones that scale to six figures? They're not doing anything crazy different. But the ones stuck at the same revenue every year? They're making one mistake."
+          "text": "your Meta ads are running but leads aren't coming in. here's probably why."
         },
         {
-          "time": "Point 1",
+          "time": "Mistake 1",
           "tag": "8s",
           "cls": "",
-          "text": "They're tracking the wrong metric. Most business owners watch click volume or impressions like that means something. But clicks don't pay your bills \u2014 profitable leads do. See how we're looking here? Cost per lead matters way more than how many people clicked."
+          "text": "first one \u2014 your targeting is way too broad. a lot of business owners set up targeting and just leave it. wide radius, loose interest targeting, barely any exclusions. you're paying to reach people who will never call you. get specific. narrow your radius. layer in interests that actually match your customer. exclude people who've already booked."
         },
         {
-          "time": "Point 2",
+          "time": "Mistake 2",
           "tag": "8s",
           "cls": "",
-          "text": "Second thing \u2014 they're not adjusting their targeting as they get data. You start broad, you learn who actually converts, then you tighten in. The stuck businesses run the same audience the same way for months. The scaling ones iterate based on real performance numbers."
+          "text": "second mistake \u2014 your creative doesn't convince anyone to click. it's not about being fancy. it's about showing the result or the problem you solve. a plumber should show clogged drain, then fixed drain. a window cleaner should show dirty windows, clean windows. people scroll fast. your ad has two seconds to make them stop and care."
         },
         {
-          "time": "Point 3",
+          "time": "Mistake 3",
           "tag": "8s",
           "cls": "",
-          "text": "And third \u2014 they're not connecting ads back to actual revenue. You need to know which campaign brought in which job. Not just that it converted, but did that customer actually pay? Did they stick? That's what separates real growth from spinning wheels."
+          "text": "third one \u2014 where they land after clicking. if they click your ad and get sent to a generic landing page or straight to your website homepage, you're losing them. they need to land somewhere that matches what the ad promised. fast load, one job \u2014 get the lead or make the call. that's it."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "The scaling playbook isn't secret. It's just being honest about what the data tells you, making small fixes, and doing it again. The businesses that do that don't stay stuck."
+          "text": "fix these three and your ad spend actually starts working for you instead of just disappearing."
         }
       ],
       "stories": []
@@ -8420,25 +8826,25 @@
     {
       "title": "One word change that doubles clicks",
       "overlay": {
-        "line1": "Change one word",
-        "line2": "Get more clicks"
+        "line1": "change one word",
+        "line2": "get more clicks"
       },
       "recCap": 0,
       "recVer": "full",
       "type": "Talking Head",
-      "film": "Film Marco sitting at a desk or standing casual against a neutral background. Relaxed posture, direct eye contact with camera. Natural lighting. No distractions behind him. He should look like he's about to share something he's noticed that actually works.",
+      "film": "Film Marco at a desk or standing casually in an office. Direct eye contact. Natural hand gestures when emphasizing the word swap. Keep energy steady and confident \u2014 this is a friendly tip, not a pitch.",
       "captions": [
         {
           "label": "A",
-          "text": "your ad headline is losing clicks because of one word. here's what to change."
+          "text": "swap 'get' for 'book' in your ad copy. that one word change gets way more qualified clicks from people actually ready to hire."
         },
         {
           "label": "B",
-          "text": "most service business owners use the same boring word in their ads. switching it out increases clicks by testing it on your next campaign. try it."
+          "text": "most service ads say 'get a free quote' \u2014 but people who click that aren't always ready to buy. try 'book your appointment' instead. totally different audience. way better leads."
         },
         {
           "label": "C",
-          "text": "replace 'get' with 'stop' \u2014 your click rate will thank you."
+          "text": "'book' beats 'get' because it signals commitment. people who book are buyers. people who get? they're still thinking about it."
         }
       ],
       "lines": [
@@ -8446,57 +8852,57 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "I see this mistake in probably eight out of ten service business ads I look at \u2014 and it's costing them clicks."
+          "text": "I changed one word in an HVAC ad and lead quality went up like crazy. Want to know what it was?"
         },
         {
           "time": "Point 1",
           "tag": "8s",
           "cls": "",
-          "text": "Most people write headlines like 'Get your pipes fixed today' or 'Get your AC serviced this week.' The word 'get' is fine, but it's passive. It doesn't create urgency."
+          "text": "Most service business ads say 'get a free quote' or 'get a free inspection.' Sounds reasonable, right? But here's the thing \u2014 people who click 'get' are still in research mode. They're comparing. They're not committed."
         },
         {
           "time": "Point 2",
           "tag": "8s",
           "cls": "",
-          "text": "Try replacing 'get' with 'stop.' So instead it's 'Stop dealing with frozen pipes' or 'Stop sweating this summer.' When you frame it as stopping a problem, people feel it more. They click because they recognize themselves in that problem."
+          "text": "Now try swapping it to 'book your appointment' or 'book your service.' Completely different psychology. When someone clicks 'book,' they're already decided they want to hire you. They're just picking a time. Total game changer."
         },
         {
           "time": "Point 3",
           "tag": "8s",
           "cls": "",
-          "text": "Small shift, right? But we've tested this across plumbers, HVAC guys, window cleaners \u2014 the 'stop' version consistently pulls better engagement. It's worth testing in your next round."
+          "text": "Same ad, same audience, same budget. Just one word different. But the people coming through? Way more qualified. Way more likely to close. It's not magic \u2014 it's just being intentional with your language."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "Your headline is one of the only things controlling whether someone keeps scrolling or clicks. Make every word work for you."
+          "text": "Small tweaks in your copy create huge shifts in who shows up. That's how you build a real funnel."
         }
       ],
       "stories": []
     },
     {
-      "title": "Referrals are keeping you stuck",
+      "title": "What happens when you stop relying on word of mouth",
       "overlay": {
-        "line1": "referrals feel safe",
-        "line2": "but they're limiting you"
+        "line1": "word of mouth",
+        "line2": "isn't a strategy"
       },
       "recCap": 0,
       "recVer": "full",
       "type": "Talking Head",
-      "film": "Film Marco sitting or standing casually in natural light, direct eye contact with camera. Lean in slightly when making the key point about ceiling. Keep it conversational \u2014 like he's explaining this to a business owner over coffee.",
+      "film": "Film Marco sitting down, relaxed, direct eye contact. Let him gesture naturally when talking about growth plateau and the shift to ads. Keep it intimate \u2014 like he's explaining this to one person across a table.",
       "captions": [
         {
           "label": "A",
-          "text": "referrals feel predictable. but they cap your growth at the speed of word of mouth. ads let you control the flow."
+          "text": "word of mouth got you here. but it won't get you there."
         },
         {
           "label": "B",
-          "text": "here's the thing: referrals are amazing. they're just not a growth strategy \u2014 they're a maintenance strategy. if you want to scale past where you are now, you need both."
+          "text": "word of mouth is capped at how many people know you. ads reach everyone. that's the difference between survival and scaling."
         },
         {
           "label": "C",
-          "text": "referrals cap your growth. ads don't."
+          "text": "your best customers came from referrals. your next 100 won't."
         }
       ],
       "lines": [
@@ -8504,31 +8910,31 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "I'm gonna say something that's probably gonna sting a little \u2014 your referral business is keeping you stuck."
+          "text": "word of mouth built your business. but it's also why you're stuck."
         },
         {
           "time": "Point 1",
           "tag": "8s",
           "cls": "",
-          "text": "Don't get me wrong, referrals are incredible. They're warm, they convert, your customers know you're legit. But here's the problem \u2014 referrals grow at the speed of word of mouth. That's slow. That's a ceiling."
+          "text": "don't get me wrong \u2014 referrals are gold. your customers love you or they wouldn't refer you. that part doesn't change. but here's the thing: word of mouth only works with people who already know you exist."
         },
         {
           "time": "Point 2",
           "tag": "8s",
           "cls": "",
-          "text": "You're basically betting all your growth on how many people your current customers decide to talk to. And most people don't talk about you enough. That's not on them \u2014 that's just how it works."
+          "text": "so when you hit that ceiling \u2014 and every service business hits it \u2014 you're maxed out. you can't get more referrals from people who don't know you yet. that's where most owners get stuck and think they need to hire more or drop prices."
         },
         {
           "time": "Point 3",
           "tag": "8s",
           "cls": "",
-          "text": "Ads, on the other hand? You control the volume. You control who sees you, when they see you, and how often. It's predictable. It's scalable. It's how you actually grow past where you are right now."
+          "text": "ads solve that problem. they put you in front of people actively looking for what you do, in your area, right now. you're not waiting for a referral chain. you're reaching new customers at scale. same quality leads. just way more of them."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "Referrals are your base. Ads are how you build on top of it."
+          "text": "word of mouth got you here. ads are how you grow from here."
         }
       ],
       "stories": []
@@ -8539,19 +8945,19 @@
       "recCap": 0,
       "recVer": "full",
       "type": "Screen Record",
-      "film": "Screen record inside Meta Ads Manager showing ad performance metrics. Walk through creating or editing an ad \u2014 show the image upload step, then toggle between a stock photo and a real job photo side-by-side. Narrate as you click through. Keep it smooth and natural, like you're just showing a client how to do this.",
+      "film": "Screen record Meta Ads Manager while pulling up a real before/after job photo next to a stock photo. Show the ad creative section, click through to show CTR metrics, then zoom in on the job photo to highlight the details. Keep the cursor visible and move deliberately \u2014 show the real data that proves the point.",
       "captions": [
         {
           "label": "A",
-          "text": "stock photos look like ads. real photos look like proof."
+          "text": "stock photos kill your CTR. a real job photo from yesterday will crush it."
         },
         {
           "label": "B",
-          "text": "we tested this with 50+ service businesses. real job photos got 3x more clicks than stock images. people can tell the difference."
+          "text": "your best ad creative isn't waiting in a stock photo library. it's on your phone from last week's job. real work beats polished every single time."
         },
         {
           "label": "C",
-          "text": "your actual work is your best ad."
+          "text": "real job photos convert 3x better than stock \u2014 and they cost you nothing."
         }
       ],
       "lines": [
@@ -8559,57 +8965,57 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "Most service businesses are still running stock photos in their ads. We tested this with actual clients and real job photos beat them by 3x. Let me show you exactly how to swap them out."
+          "text": "you're probably using stock photos in your ads. stop. a real photo from your last job will get three times more clicks."
         },
         {
           "time": "Point 1",
           "tag": "8s",
           "cls": "",
-          "text": "Here's the thing \u2014 stock images scream advertisement. They look polished, fake, and your ideal customer scrolls past them instantly. A real photo from your job site? That's proof. That's trust built in one image."
+          "text": "here's why \u2014 people scrolling know the difference. a real before-and-after from an actual customer job looks trustworthy. stock photos look like, well, stock photos. they get ignored."
         },
         {
           "time": "Point 2",
           "tag": "8s",
           "cls": "",
-          "text": "When we ran this test, the real photos \u2014 stuff from actual jobs, sometimes messy, sometimes taken on a phone \u2014 they got three times the click rate. People stopped. They engaged. They called."
+          "text": "so what makes a real job photo work? detail. you can see the dirt, the mess, the transformation. that's what someone searching for your service actually wants to see. proof it works on their exact problem."
         },
         {
           "time": "Point 3",
           "tag": "8s",
           "cls": "",
-          "text": "Here's how to do it: Just grab 5 or 6 photos from your last couple jobs. Before and afters work best. Upload them straight into your ad creative instead of searching for that perfect stock image. Test them side-by-side and watch what happens."
+          "text": "grab a photo from your phone right now. before-and-after from last week, the job that turned out clean, the customer smiling in their space. that's your winning creative. it's already there."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "Your actual work is your best marketing asset. Stop hiding it behind generic stock photos."
+          "text": "real beats polished every time. your best ad is hiding in your camera roll."
         }
       ],
       "stories": []
     },
     {
-      "title": "The offer that actually gets calls",
+      "title": "Boosted Post vs Real Ad Campaign",
       "overlay": {
-        "line1": "Stop writing offers",
-        "line2": "that nobody responds to"
+        "line1": "boosted post",
+        "line2": "real campaign"
       },
       "recCap": 0,
       "recVer": "full",
       "type": "Talking Head",
-      "film": "Sit at a desk or kitchen table with good natural light. Look directly at camera. Use your hands when you talk about the three parts of an offer \u2014 make it feel like you're breaking something down for a friend over coffee.",
+      "film": "Film Marco sitting down, relaxed, direct eye contact. He's explaining this like he's talking to a business owner across a coffee table. Natural hand gestures when contrasting the two approaches. Keep it real and grounded \u2014 no energy drinks or hype.",
       "captions": [
         {
           "label": "A",
-          "text": "your offer has to make people feel like they'd be stupid NOT to call. here's how."
+          "text": "boosted posts get you likes. real campaigns get you leads. totally different animals."
         },
         {
           "label": "B",
-          "text": "most service business owners write offers nobody cares about. they're either too generic or they're trying too hard. the sweet spot is something else entirely."
+          "text": "most service business owners boost their best post and wonder why their phone isn't ringing. the problem isn't the post \u2014 it's that a boost isn't built for actual business results."
         },
         {
           "label": "C",
-          "text": "good offers solve a specific problem, not all problems."
+          "text": "boosting a post is just throwing money at reach. running a campaign is strategy."
         }
       ],
       "lines": [
@@ -8617,38 +9023,38 @@
           "time": "Hook",
           "tag": "5s",
           "cls": "hook",
-          "text": "Most offers I see from service business owners don't actually work. And I think it's because they're solving the wrong problem."
+          "text": "most of you are boosting your posts. and that's probably why you're not getting the leads you want."
         },
         {
           "time": "Point 1",
           "tag": "8s",
           "cls": "",
-          "text": "A real offer solves one specific problem, not everything. Like if you're a plumber, don't say 'we fix all plumbing issues.' Say 'we fix leaks that are wasting your money right now' or 'we unclog drains same-day, no mess.' That's specific. That's what makes someone pick up the phone."
+          "text": "when you boost a post, Meta's just taking your organic content and paying to show it to more people. that's it. you're paying for reach. the whole thing is built around engagement and visibility, not conversions."
         },
         {
           "time": "Point 2",
           "tag": "8s",
           "cls": "",
-          "text": "Second thing \u2014 you gotta remove the friction from saying yes. That means no hidden fees, no long-term contracts they don't want, no guessing games. Just be clear about what they get and what it costs. When someone feels like they know exactly what they're getting, they're way more likely to call."
+          "text": "a real campaign is different. it's structured. you pick your audience with precision, you choose where people land after they click, you can retarget, you can test different messages. it's built to move someone from seeing your ad to actually booking a job."
         },
         {
           "time": "Point 3",
           "tag": "8s",
           "cls": "",
-          "text": "And third \u2014 actually make it worth their time to call right now instead of next week. That could be a discount, it could be availability, it could be speed. Something that makes today different from tomorrow."
+          "text": "boosting works for vanity metrics. campaigns work for your bottom line. if you're running a service business and spending money on ads, you need campaigns, not boosts."
         },
         {
           "time": "Close",
           "tag": "5s",
           "cls": "",
-          "text": "When your offer checks all three boxes, you stop worrying about whether your ads are working. You're not waiting for the right person to see it \u2014 you're giving people a reason they actually can't ignore."
+          "text": "one's a social media tool. the other's a business tool. know the difference."
         }
       ],
       "stories": []
     }
   ],
-  "week_of": "2026-11-16",
-  "week_of_display": "Nov 16, 2026",
+  "week_of": "2026-11-23",
+  "week_of_display": "Nov 23, 2026",
   "ideas": [
     "Why your 'call now' button is probably costing you leads",
     "The mistake every new plumber makes with Meta ads",
@@ -8690,7 +9096,5 @@
     "How to measure what actually matters in your business",
     "The uncomfortable truth about your conversion rate",
     "Why you should stop obsessing over cost per lead"
-  ],
-  "ideas_updated": "2026-11-19T18:45:47Z",
-  "ideas_updated_display": "Nov 19, 2026 at 18:45 UTC"
+  ]
 }
