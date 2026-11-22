@@ -1,25 +1,25 @@
 {
-  "updated": "2026-11-21T19:52:43Z",
-  "updated_display": "Nov 21, 2026 at 19:52 UTC",
+  "updated": "2026-11-22T20:02:49Z",
+  "updated_display": "Nov 22, 2026 at 20:02 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen interest dropping; service ads need direct booking angles",
+      "headline": "Lead generation interest declining; service businesses need differentiation now",
       "actions": [
-        "Swap lead gen forms for direct booking/call buttons in ad CTAs",
-        "Test service-specific landing pages (e.g., 'Book plumber in 60 seconds')",
-        "Split test: lead magnet vs. instant scheduling link at same $25/day budget"
+        "Audit your ad creative this week\u2014remove generic 'get a free quote' CTAs",
+        "Test outcome-focused headlines: 'Unclogged in 2 hours or free' instead of 'Free estimate'",
+        "Review competitor ads in your local market to identify what messaging they're NOT using yet"
       ],
-      "source": "Google Trends lead generation interest declining (10/100); r/FacebookAds cost discussions absent"
+      "source": "Google Trends lead generation interest (6/100) + Reddit r/FacebookAds sentiment analysis"
     },
     "creative": {
-      "headline": "Unable to provide: Google Trends data shows zero search volume across all metrics",
+      "headline": "Unable to provide: Google Trends data shows zero volume across all metrics",
       "format": "Data insufficient",
       "actions": [
-        "Cannot generate hook without engagement data",
-        "Cannot recommend video idea without performance benchmarks",
-        "Cannot identify reach killers without comparative analytics"
+        "ERROR: No trending data available to identify performing hooks this week",
+        "ERROR: Cannot recommend specific video without engagement data or audience feedback",
+        "ERROR: No failure data provided to identify reach killers"
       ],
-      "source": "Google Trends returned all 0-100 scores; Instagram Insights data not provided; no engagement metrics, comments, or complaint data available"
+      "source": "Google Trends returned 0-100 scores across all queries; no Instagram Insights, comments, or audience complaints provided; insufficient data for strategic recommendation"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
