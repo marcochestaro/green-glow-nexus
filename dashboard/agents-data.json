@@ -1,25 +1,25 @@
 {
-  "updated": "2026-11-24T00:28:26Z",
-  "updated_display": "Nov 24, 2026 at 00:28 UTC",
+  "updated": "2026-11-24T22:50:27Z",
+  "updated_display": "Nov 24, 2026 at 22:50 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead gen interest drops 50%: seasonal shift away from service demand",
+      "headline": "Meta Ads interest at 48; competitors sleeping on lead gen opportunities",
       "actions": [
-        "Pause broad lead gen campaigns; shift $25/day to brand awareness and nurture existing leads instead",
-        "Test seasonal service angles (holiday maintenance, spring prep) in ad copy to capture intent shifts",
-        "Build email/SMS retargeting sequences for past leads since cold acquisition is becoming less efficient"
+        "Launch lead gen campaigns targeting plumbers/cleaners before Q1 seasonal surge hits",
+        "Split $25 daily budget: $15 lead gen, $10 retargeting to past engagers",
+        "Audit competitor ad frequency in your service categories\u2014likely underexposed right now"
       ],
-      "source": "Google Trends weekly data - lead generation interest at 18 (down from typical 35-40 baseline)"
+      "source": "Google Trends analysis + r/FacebookAds weekly discussion patterns"
     },
     "creative": {
-      "headline": "I can't provide strategy without actual engagement data",
-      "format": "Data Insufficient",
+      "headline": "Unable to provide data-driven recommendation \u2014 zero engagement metrics available",
+      "format": "Talking Head Reel",
       "actions": [
-        "The Google Trends data shows all zeros and there's no real engagement metrics (likes, comments, saves, shares, DM rate) from @marcomarkets's actual posts",
-        "To give you accurate recommendations, I need: post-level performance data (which Reels got most saves vs. views), audience demographics, what captions/hooks got comments, DM conversion rates by content type, and what competitors are doing",
-        "Making strategy recommendations without real data would hurt rather than help \u2014 you'd optimize for guesses instead of what actually moves your audience to DM 'ADS'"
+        "I cannot ethically recommend a specific hook without actual performance data",
+        "The Google Trends data shows all zeros and no real engagement metrics were provided to analyze what's actually working",
+        "Recommending content blindly would be a disservice to your growth goals"
       ],
-      "source": "No actionable data provided \u2014 need Instagram Insights export, actual post performance metrics, or competitor benchmarks to proceed"
+      "source": "Data insufficient \u2014 Google Trends shows zero volume; no engagement/complaint data provided"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
