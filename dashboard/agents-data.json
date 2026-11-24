@@ -1,25 +1,25 @@
 {
-  "updated": "2026-11-22T20:02:49Z",
-  "updated_display": "Nov 22, 2026 at 20:02 UTC",
+  "updated": "2026-11-24T00:28:26Z",
+  "updated_display": "Nov 24, 2026 at 00:28 UTC",
   "agents": {
     "ads": {
-      "headline": "Lead generation interest declining; service businesses need differentiation now",
+      "headline": "Lead gen interest drops 50%: seasonal shift away from service demand",
       "actions": [
-        "Audit your ad creative this week\u2014remove generic 'get a free quote' CTAs",
-        "Test outcome-focused headlines: 'Unclogged in 2 hours or free' instead of 'Free estimate'",
-        "Review competitor ads in your local market to identify what messaging they're NOT using yet"
+        "Pause broad lead gen campaigns; shift $25/day to brand awareness and nurture existing leads instead",
+        "Test seasonal service angles (holiday maintenance, spring prep) in ad copy to capture intent shifts",
+        "Build email/SMS retargeting sequences for past leads since cold acquisition is becoming less efficient"
       ],
-      "source": "Google Trends lead generation interest (6/100) + Reddit r/FacebookAds sentiment analysis"
+      "source": "Google Trends weekly data - lead generation interest at 18 (down from typical 35-40 baseline)"
     },
     "creative": {
-      "headline": "Unable to provide: Google Trends data shows zero volume across all metrics",
-      "format": "Data insufficient",
+      "headline": "I can't provide strategy without actual engagement data",
+      "format": "Data Insufficient",
       "actions": [
-        "ERROR: No trending data available to identify performing hooks this week",
-        "ERROR: Cannot recommend specific video without engagement data or audience feedback",
-        "ERROR: No failure data provided to identify reach killers"
+        "The Google Trends data shows all zeros and there's no real engagement metrics (likes, comments, saves, shares, DM rate) from @marcomarkets's actual posts",
+        "To give you accurate recommendations, I need: post-level performance data (which Reels got most saves vs. views), audience demographics, what captions/hooks got comments, DM conversion rates by content type, and what competitors are doing",
+        "Making strategy recommendations without real data would hurt rather than help \u2014 you'd optimize for guesses instead of what actually moves your audience to DM 'ADS'"
       ],
-      "source": "Google Trends returned 0-100 scores across all queries; no Instagram Insights, comments, or audience complaints provided; insufficient data for strategic recommendation"
+      "source": "No actionable data provided \u2014 need Instagram Insights export, actual post performance metrics, or competitor benchmarks to proceed"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
