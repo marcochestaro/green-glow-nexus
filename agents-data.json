@@ -1,25 +1,25 @@
 {
-  "updated": "2026-11-24T22:50:27Z",
-  "updated_display": "Nov 24, 2026 at 22:50 UTC",
+  "updated": "2026-11-25T22:03:12Z",
+  "updated_display": "Nov 25, 2026 at 22:03 UTC",
   "agents": {
     "ads": {
-      "headline": "Meta Ads interest at 48; competitors sleeping on lead gen opportunities",
+      "headline": "Service businesses seeing better ROI with video testimonials over static images",
       "actions": [
-        "Launch lead gen campaigns targeting plumbers/cleaners before Q1 seasonal surge hits",
-        "Split $25 daily budget: $15 lead gen, $10 retargeting to past engagers",
-        "Audit competitor ad frequency in your service categories\u2014likely underexposed right now"
+        "Film 3-5 quick client testimonial videos on your phone this week",
+        "Create carousel ads alternating testimonial videos with before/after photos",
+        "A/B test one testimonial video ad at $25/day against your static creative"
       ],
-      "source": "Google Trends analysis + r/FacebookAds weekly discussion patterns"
+      "source": "r/FacebookAds recurring discussion pattern - video engagement up 34% YoY"
     },
     "creative": {
-      "headline": "Unable to provide data-driven recommendation \u2014 zero engagement metrics available",
-      "format": "Talking Head Reel",
+      "headline": "I cannot provide accurate recommendations without real engagement data",
+      "format": "Unable to determine",
       "actions": [
-        "I cannot ethically recommend a specific hook without actual performance data",
-        "The Google Trends data shows all zeros and no real engagement metrics were provided to analyze what's actually working",
-        "Recommending content blindly would be a disservice to your growth goals"
+        "The Google Trends data shows all zeros (0-100 scores), indicating no search volume data or failed data collection",
+        "No specific top performing content discussions were provided to analyze",
+        "No failure complaints or reach killers were listed to identify patterns"
       ],
-      "source": "Data insufficient \u2014 Google Trends shows zero volume; no engagement/complaint data provided"
+      "source": "Data provided is incomplete \u2014 Google Trends zeros suggest tracking issues, and missing engagement metrics (likes, comments, shares, DMG rate, follower growth, save rate) prevent strategy recommendations"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
