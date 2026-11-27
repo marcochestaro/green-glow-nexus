@@ -1,24 +1,25 @@
 {
-  "updated": "2026-11-26T22:01:24Z",
-  "updated_display": "Nov 26, 2026 at 22:01 UTC",
+  "updated": "2026-11-27T21:44:21Z",
+  "updated_display": "Nov 27, 2026 at 21:44 UTC",
   "agents": {
     "ads": {
-      "headline": "Service businesses cutting budgets mid-week to avoid weekend ad fatigue",
+      "headline": "Lead generation interest drops; service businesses must focus on intent signals now",
       "actions": [
-        "Split your $25/day into $15 Mon-Thu, $10 Fri-Sun to test lower weekend spend",
-        "Track cost-per-lead by day of week in Ads Manager to find your optimal spend pattern",
-        "Shift any weekend budget to Wednesday-Thursday when competitor volume typically drops"
+        "Audit your $25/day campaigns for high-intent keywords like 'emergency plumber near me' instead of broad service terms",
+        "Test lead magnet ads (free estimates, quick quotes) with strict geo-targeting to capture ready-to-buy prospects",
+        "Review past week's conversion data and reallocate budget to campaigns with lowest cost-per-qualified-lead, not just impressions"
       ],
-      "source": "r/FacebookAds weekly discussions - cost management thread"
+      "source": "Google Trends lead generation interest declining (8/100); Reddit r/FacebookAds weekly discussions on CPL optimization"
     },
     "creative": {
-      "headline": "POV-style talking head hooks outperforming every other format this week",
+      "headline": "Unable to provide strategic recommendation \u2014 insufficient performance data",
+      "format": "Data Required",
       "actions": [
-        "Open with: 'POV: you just spent $500 on ads and got zero leads \u2014 here's the exact reason why'",
-        "Film a 30s talking head: start mid-sentence like you're already explaining something urgent. No intro. No 'hey guys'. Straight into the pain point. End with DM me ADS.",
-        "Avoid posting carousels this week \u2014 algorithmic reach for static posts is down, Reels are getting 3-5x more distribution"
+        "Google Trends shows zero volume across all tracked metrics (instagram reels views, content hook, facebook ads creative)",
+        "Instagram Insights data missing: no top posts, engagement rates, audience demographics, or week-over-week comparisons available",
+        "Cannot identify what's 'failing' without baseline metrics on impressions, saves, shares, or DM conversion rates"
       ],
-      "source": "r/socialmediamarketing + r/InstagramMarketing"
+      "source": "Incomplete dataset \u2014 need @marcomarkets' actual Instagram analytics (top 5-10 posts this week with views/engagement), audience sentiment from comments, and what 'ADS' DM volume looked like by content type"
     },
     "critic": {
       "headline": "Most failing ads this week have no clear offer \u2014 just a service name",
@@ -30,13 +31,14 @@
       "source": "r/FacebookAds new posts this week"
     },
     "competitors": {
-      "headline": "No one is teaching service businesses HOW to respond to leads from ads",
+      "headline": "I don't have access to real Instagram data this week",
+      "format": "Unable to determine without current data",
       "actions": [
-        "Uncovered angle: competitors teach how to get leads but never what to say when the lead comes in \u2014 film 'exact script I tell my clients to use when someone fills in the form'",
-        "Pain point from this week: 'I got leads from my ads but none of them booked' \u2014 hook: 'You got leads but nobody booked. Here is exactly why and how to fix it in one message'",
-        "Top accounts posting 3-4x per week minimum with one Reel hitting 10k+ views acting as top of funnel \u2014 post volume is the differentiator right now"
+        "Cannot identify competitor gaps without seeing their actual content",
+        "Cannot extract real pain points without access to recent service business posts",
+        "Cannot identify top account strategies without current engagement metrics"
       ],
-      "source": "r/smallbusiness + r/Entrepreneur + r/FacebookAds"
+      "source": "No real data provided in the prompt"
     }
   }
 }
